@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 3,
+    "fail_count": 2,
+    "returncode": 1,
+    "stdout_tail": "...FF                                                                    [100%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_wd1n1a3p/test_oracle.py:18: AssertionError: assert True is False\n/tmp/w1_oracle_wd1n1a3p/main.py:30: KeyError: 'name'\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_age_and_proof - AssertionError: assert True is False\nFAILED test_oracle.py::test_budget_priority_order - KeyError: 'name'\n2 failed, 3 passed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "v2": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 1,
+    "fail_count": 4,
+    "returncode": 1,
+    "stdout_tail": "00%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_27lu5v_w/test_oracle.py:9: AssertionError: assert True is False\n/tmp/w1_oracle_27lu5v_w/test_oracle.py:13: AssertionError: assert True is False\n/tmp/w1_oracle_27lu5v_w/test_oracle.py:18: AssertionError: assert True is False\n/tmp/w1_oracle_27lu5v_w/main.py:30: KeyError: 'name'\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_v2_cap_exclusive_45001 - AssertionError: assert T...\nFAILED test_oracle.py::test_v2_rejects_old_cap - AssertionError: assert True ...\nFAILED test_oracle.py::test_age_and_proof - AssertionError: assert True is False\nFAILED test_oracle.py::test_budget_priority_order - KeyError: 'name'\n4 failed, 1 passed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "target_correct": false,
+  "exclusive_ok": true
+}

@@ -1,0 +1,62 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "mail_rx61": "worker_a",
+      "mail_ck62": "worker_a",
+      "mail_st63": "worker_a"
+    },
+    "outputs": {
+      "mail_rx61": {
+        "received_ids": [
+          "P3",
+          "P4"
+        ],
+        "batch": "M7"
+      },
+      "mail_ck62": {
+        "verified_ids": [
+          "P3",
+          "P4"
+        ],
+        "missing_ids": []
+      },
+      "mail_st63": {
+        "bin": "B2",
+        "sealed": true
+      }
+    },
+    "resume_step": "mail_ck62",
+    "interrupt_after": "mail_rx61"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "mail_rx61": "worker_a",
+      "mail_ck62": "worker_b",
+      "mail_st63": "worker_b"
+    },
+    "outputs": {
+      "mail_rx61": {
+        "received_ids": [
+          "P3",
+          "P4"
+        ],
+        "batch": "M7"
+      },
+      "mail_ck62": {
+        "verified_ids": [
+          "P3",
+          "P4"
+        ],
+        "missing_ids": []
+      },
+      "mail_st63": {
+        "bin": "B2",
+        "sealed": true
+      }
+    },
+    "resume_step": "mail_ck62",
+    "interrupt_after": "mail_rx61"
+  }
+}

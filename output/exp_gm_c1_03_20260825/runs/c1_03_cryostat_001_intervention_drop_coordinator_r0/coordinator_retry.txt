@@ -1,0 +1,17 @@
+【共同资源】cryostat_chamber 同一时段只能被一个 Agent 占用。
+【可选时段】["cy91", "cy92", "cy93"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。登记保护修订后，被保护的高优先级原分配必须保留；只调整低优先级。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是协调者。登记过的优先级或保护状态已发生修订。平台只返回违规证据，不会给出低优先级的正确时段，也不会自动修正。
+请调用 propose_joint_assignment：提交无重复占用的联合方案。Coordinator 不能替 A/B 执行。
+输出 {"plan_version": "plan-001", "assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}, "rule": "priority_keep_then_earliest_free"}。
+【重试】平台拒绝了上一份方案。必须根据新 NACK 重新提交，不要把被拒绝方案原样交回。
+不要为了消除冲突而改动被保护的高优先级原分配。不要把两个 Agent 分到同一时段。
+【登记保护修订】高优先级已修订为 agent_a。必须保持其最初申报的首选。令牌：protect_a_cy_v2
+【被保护的高优先级原分配】{"agent": "A", "must_keep": "cy91"}
+【违规证据】[{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]
+【被拒绝的方案】{"agent_a": "cy92", "agent_b": "cy91"}
+【Agent A 可行集】["cy91", "cy92", "cy93"]，首选 cy92
+【Agent B 可行集】["cy91", "cy92", "cy93"]，首选 cy91
+【已送达初始报告】{"agent_a": {"agent_id": "agent_a", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92"}, "agent_b": {"agent_id": "agent_b", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91"}}

@@ -1,0 +1,14 @@
+你是代码审核员。只能根据登记标准和草稿做决定。不要改文件，不要编造隐藏测试。
+只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。
+批准：{"action": "approve_draft", "evidence_id": "<登记 evidence_id>"}。批准时不要输出 target 或 required_value。
+要求修改：{"action": "request_revision", "target": "<登记 target>", "required_value": <要求值>, "evidence_id": "<登记 evidence_id>"}}。
+不要输出 decision、mismatches、required_change，不要使用 NONE。
+【审查标准】{"spec_version": "v1", "criterion_id": "deposit_percent", "target": "deposit_percent", "required_value": 20, "evidence_id": "evidence-deposit-001", "instruction": "草稿已满足 required_value 时输出 approve_draft；否则输出 request_revision。不要改文件，不要编造隐藏测试。"}
+【草稿】
+```python
+SPEC_VERSION = "v1"
+DEPOSIT_PERCENT = 20
+
+def deposit(price):
+    return price * DEPOSIT_PERCENT // 100
+```

@@ -1,0 +1,27 @@
+experiment_id: EXP-GM-T3-02
+parent: EXP-GM-T3-01
+status: calibration_pass
+role: component_integration_positive_control
+ranking_eligible: false
+generalization_claim: false
+multi_agent_value_estimable: false
+gate: C_ceiling
+coverage: 1.0
+single_fullpass: 1.0
+multi_fullpass: 1.0
+drop_fullpass: 0.5
+payload_integrity_when_transmitted: 1.0
+drop_payload_integrity_note: 干预未交付，不能读成成功传输
+drop_complete_change_adoption:
+  control: 1.0
+  intervention: 0.0
+  pooled_average: 0.5
+  not_partial_adoption: true
+review_delivery_value: 0.5
+outcome_multi_agent_net_benefit: 0.0
+repeat_1_2: not_run
+holdout: not_created
+diagnostic_conclusion: >
+  The calibrated decision and execution contracts can be integrated
+  without payload mutation or capability loss.
+claim: 集成已经修好，不能证明多 Agent 更好。不补 54 格。

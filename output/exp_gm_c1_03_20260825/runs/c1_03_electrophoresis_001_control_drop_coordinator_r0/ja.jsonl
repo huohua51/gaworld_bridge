@@ -1,0 +1,8 @@
+{"event": "initial_saved", "assignments": {"agent_a": "et81", "agent_b": "et82"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "et81"}
+{"event": "registered_constraints_inspected", "violations": []}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "et81", "agent_b": "et82"}, "violations": []}
+{"event": "initial_saved", "assignments": {"agent_a": "et81", "agent_b": "et82"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "et81"}
+{"event": "registered_constraints_inspected", "violations": []}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "et81", "agent_b": "et82"}, "violations": []}

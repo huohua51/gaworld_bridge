@@ -1,0 +1,62 @@
+{
+  "steps": {
+    "file_rx41": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "received_ids": [
+          "D17",
+          "D18"
+        ],
+        "batch": "B4"
+      },
+      "event_index": 4
+    },
+    "file_ck41": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "verified_ids": [
+          "D17",
+          "D18"
+        ],
+        "missing_ids": []
+      },
+      "event_index": 16
+    },
+    "file_ar41": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "folder": "F2",
+        "sealed": true
+      },
+      "event_index": 17
+    }
+  },
+  "completed_steps": [
+    "file_rx41",
+    "file_ck41",
+    "file_ar41"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "file_rx41"
+    ],
+    "outputs": {
+      "file_rx41": {
+        "received_ids": [
+          "D17",
+          "D18"
+        ],
+        "batch": "B4"
+      }
+    },
+    "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+  },
+  "unavailable": [
+    "worker_a"
+  ]
+}

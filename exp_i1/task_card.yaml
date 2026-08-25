@@ -1,0 +1,44 @@
+task_id: TASK-I1
+experiment_id: EXP-GM-I1
+task_family: T2
+target_axis: 功能能力
+mechanism: M 可信信息核验与送达
+status: pilot
+ranking_eligible: false
+conformance_result: pass
+agent_workflow_result: pass
+track_aliases:
+  focused: direct_verified_state
+conformance_target: verified_information_relay
+conformance_targets:
+  - private_information_isolation
+  - role_permission_enforcement
+  - verified_message_delivery
+  - action_bound_to_verified_evidence
+diagnosed_failures:
+  - dispatcher_action_value_field_swap
+human_reference: N/A
+roadmap: >
+  04a → 04b → 04c → I1 可信信息通信 → REL1 关系与信任更新 → 回到 04c 做协议改进复测。
+note: >
+  平台通信结论成立：Rule Full=1，真模型 Full=1，Drop=0，NoVerify=0，无越权。
+  focused 轨对外登记为 direct_verified_state，不是能力上限。
+  CommunicationPropagationGap 仅当该轨无契约错误时才可解释。
+  已对 Dispatcher action/value 契约做协议小修，只重跑 18 格 focused；其余 54 格冻结。
+
+roles: [observer, verifier, dispatcher]
+tracks: [focused, full, drop_verified, no_verification]
+variants: [control, intervention]
+probes: [road_status_001, shelter_capacity_001, clinic_service_001]
+seeds_first: [0]
+seeds_if_valid: [1, 2]
+model: GLM-4-Flash
+temperature: 0
+matrix_full: 3 pairs × 2 variants × 4 tracks × 3 repeats = 72
+matrix_first: 3 × 2 × 4 × 1 = 24
+primary_metrics:
+  - oracle_conditioned FullPass
+  - CommunicationValue
+  - VerificationValue
+  - CommunicationPropagationGap
+  - StrictPair

@@ -1,0 +1,3356 @@
+{
+  "generated_at": "2026-08-25T07:35:19.466237+00:00",
+  "experiment_id": "CAL-GM-C1-PRIORITY-02",
+  "parent": "CAL-GM-C1-PRIORITY-01",
+  "ap_items": [
+    "AP-C1-D-01"
+  ],
+  "phase": "all",
+  "ranking_eligible": false,
+  "generalization_claim": false,
+  "does_not_overwrite": [
+    "EXP-GM-C1-02",
+    "CAL-GM-C1-PRIORITY-01"
+  ],
+  "summary": {
+    "workflow_id": "cal_gm_c1_priority_02",
+    "requested": 18,
+    "measurement_valid": 18,
+    "coverage": 1.0,
+    "full_pass_rate": 1.0,
+    "mean_task_score": 1.0,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_hplc_001_control_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_hplc_001",
+          "variant": "control",
+          "repeat_id": 0,
+          "got": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "want": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_hplc_001_intervention_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_hplc_001",
+          "variant": "intervention",
+          "repeat_id": 0,
+          "got": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "want": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_gown_001_control_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_gown_001",
+          "variant": "control",
+          "repeat_id": 0,
+          "got": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "want": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_gown_001_intervention_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_gown_001",
+          "variant": "intervention",
+          "repeat_id": 0,
+          "got": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "want": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_vivarium_001_control_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_vivarium_001",
+          "variant": "control",
+          "repeat_id": 0,
+          "got": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "want": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_vivarium_001_intervention_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_vivarium_001",
+          "variant": "intervention",
+          "repeat_id": 0,
+          "got": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "want": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_hplc_001_control_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_hplc_001",
+          "variant": "control",
+          "repeat_id": 1,
+          "got": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "want": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_hplc_001_intervention_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_hplc_001",
+          "variant": "intervention",
+          "repeat_id": 1,
+          "got": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "want": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_gown_001_control_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_gown_001",
+          "variant": "control",
+          "repeat_id": 1,
+          "got": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "want": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_gown_001_intervention_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_gown_001",
+          "variant": "intervention",
+          "repeat_id": 1,
+          "got": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "want": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_vivarium_001_control_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_vivarium_001",
+          "variant": "control",
+          "repeat_id": 1,
+          "got": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "want": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_vivarium_001_intervention_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_vivarium_001",
+          "variant": "intervention",
+          "repeat_id": 1,
+          "got": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "want": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_hplc_001_control_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_hplc_001",
+          "variant": "control",
+          "repeat_id": 2,
+          "got": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "want": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_hplc_001_intervention_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_hplc_001",
+          "variant": "intervention",
+          "repeat_id": 2,
+          "got": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "want": {
+            "agent_a": "hc51",
+            "agent_b": "hc52"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_gown_001_control_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_gown_001",
+          "variant": "control",
+          "repeat_id": 2,
+          "got": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "want": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_gown_001_intervention_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_gown_001",
+          "variant": "intervention",
+          "repeat_id": 2,
+          "got": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "want": {
+            "agent_a": "ga61",
+            "agent_b": "ga62"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_vivarium_001_control_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_vivarium_001",
+          "variant": "control",
+          "repeat_id": 2,
+          "got": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "want": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_c1_priority_02",
+        "instance_id": "c1prio2_vivarium_001_intervention_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "call_budget",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "repair_slot_not_in_nack",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_ok",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "no_unregistered_modification",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "priority_preserved",
+            "layer": "R2",
+            "scorer": "initial_vs_final",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "earliest_idle_low",
+            "layer": "R2",
+            "scorer": "feasible_order",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "actual_final_conflict_free",
+            "layer": "R2",
+            "scorer": "occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "policy_constrained_plan",
+            "layer": "R2",
+            "scorer": "oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "priority_component",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok"
+        },
+        "extra": {
+          "task_id": "c1prio2_vivarium_001",
+          "variant": "intervention",
+          "repeat_id": 2,
+          "got": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "want": {
+            "agent_a": "vb71",
+            "agent_b": "vb72"
+          },
+          "priority_preserved": true,
+          "earliest_idle_low": true,
+          "actual_final_conflict_free": true,
+          "joint_constraint_satisfaction": true,
+          "policy_constrained_plan": true,
+          "unregistered_modification": 0,
+          "leaked_repair_slot_in_nack": false,
+          "first_error": "none",
+          "calls": 1,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "rates": {
+      "Coverage": 1.0,
+      "PriorityPreserved": 1.0,
+      "EarliestIdleLow": 1.0,
+      "ActualFinalConflictFree": 1.0,
+      "JointConstraintSatisfaction": 1.0,
+      "PolicyConstrainedPlan": 1.0,
+      "FullPass": 1.0,
+      "UnregisteredModification": 0.0
+    },
+    "split": {
+      "control": 1.0,
+      "intervention": 1.0
+    },
+    "pass_gate": {
+      "coverage_ok": true,
+      "control_ok": true,
+      "intervention_ok": true,
+      "priority_ok": true,
+      "earliest_ok": true,
+      "policy_ok": true,
+      "no_unregistered_mod": true,
+      "holds": true
+    },
+    "interpretation": "优先级重试协议组件校准通过。不覆盖 C1-02 / PRIORITY-01。不开 L1，不建留出。"
+  },
+  "claim": "优先级重试协议组件校准通过。不覆盖 C1-02 / PRIORITY-01。不开 L1，不建留出。",
+  "freeze": {
+    "experiment_id": "CAL-GM-C1-PRIORITY-02",
+    "parent": "CAL-GM-C1-PRIORITY-01",
+    "ap_items": [
+      "AP-C1-D-01"
+    ],
+    "frozen_at": "2026-08-25T07:33:56.779501+00:00",
+    "task_card_hash": "eaa60f3a0d39a05a8016f25e93722405853976f30edaa255db88c1dc897f547b",
+    "task_hash": "709b96a29d74edd6220e535b16a35ce3278aa895f396971360262a577b00a294",
+    "protocol_hash": "bfecf203fb24d53f6020b7fd35e9b7af8c6725591b4a46e7110b0baf4c8f7d17",
+    "scorer_hash": "f8090a9a4f052766af04a021a34091ae25c7304f1e02150bfdcb5579fcc46a19",
+    "gaworld_coordination_hash": "7ba6bbee25865d7569a0aab444b4f25b7d09b737336e4d6d729885f5ce2828bf",
+    "base_commit": "a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c",
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "does_not_overwrite": [
+      "EXP-GM-C1-02",
+      "CAL-GM-C1-PRIORITY-01"
+    ],
+    "heldout": "not_created"
+  },
+  "first_error": {
+    "none": 18
+  },
+  "model": "GLM-4-Flash",
+  "temperature": 0
+}

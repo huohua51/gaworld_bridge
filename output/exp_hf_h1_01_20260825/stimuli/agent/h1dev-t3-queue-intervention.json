@@ -1,0 +1,51 @@
+{
+  "stimulus_id": "h1dev-t3-queue-intervention",
+  "construct": "T3",
+  "task_label": "窗口排队上限",
+  "variant_code": "B",
+  "roles": [
+    "起草人",
+    "审核员",
+    "执行人"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "起草人",
+      "kind": "produce",
+      "visible_to_role": "公开任务说明与当前草稿要求",
+      "body": "SPEC_VERSION = \"v1\"\nQUEUE_MAX = 15\n\ndef queue_full(n):\n    return n >= QUEUE_MAX"
+    },
+    {
+      "t": 2,
+      "role": "审核员",
+      "kind": "decide",
+      "visible_to_role": "草稿，以及本轮审核可见标准",
+      "body": "{\n  \"decision\": \"update\",\n  \"evidence\": {\n    \"path\": \"QUEUE_MAX\",\n    \"observed\": 15,\n    \"required\": 11\n  },\n  \"required_changes\": [\n    {\n      \"path\": \"QUEUE_MAX\",\n      \"old_value\": 15,\n      \"new_value\": 11,\n      \"change_id\": \"change-01\"\n    }\n  ]\n}"
+    },
+    {
+      "t": 3,
+      "role": "执行人",
+      "kind": "apply",
+      "visible_to_role": "草稿与审核意见（keep 则确认，update 则按 required_changes 修改）",
+      "body": "SPEC_VERSION = \"v1\"\nQUEUE_MAX = 11\n\ndef queue_full(n):\n    return n >= QUEUE_MAX"
+    }
+  ],
+  "source_kind": "agent",
+  "h1_role": "development_stimulus",
+  "functional_role": "sealed_holdout_result",
+  "not_future_h1_holdout": true,
+  "rater_must_not_see": [
+    "source_kind",
+    "functional_role",
+    "full_pass",
+    "model",
+    "experiment_id"
+  ],
+  "internal": {
+    "channel_delivered": true,
+    "spec_version": "v2"
+  },
+  "source_run": "output/holdout_t3_20260825/runs/t3_ho_queue_max_001_intervention_multi_r0",
+  "source_cell_sha256": "0b50ce344acb9a93d032b5992b894a65504ad1a91df5e3eceb83ceead9df8e35"
+}

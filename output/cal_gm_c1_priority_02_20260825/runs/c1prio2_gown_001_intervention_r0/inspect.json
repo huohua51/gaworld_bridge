@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "violations": [
+    {
+      "type": "duplicate_resource_claim",
+      "resource": "gown_airlock",
+      "slot": "ga61",
+      "agents": [
+        "agent_a",
+        "agent_b"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "workflow_id": "exp_gm_l1_01b_handoff",
+  "instance_id": "l1_01_inventory_lots_001_control_drop_handoff_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 0.875,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "budget_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "private_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_ran",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "drop_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "oracle_not_in_prompts",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "coordinator_did_not_execute",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "world_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "checkpoint_created",
+      "layer": "R2",
+      "scorer": "checkpoint",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "checkpoint_delivered",
+      "layer": "R2",
+      "scorer": "checkpoint",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "resume_position_correct",
+      "layer": "R2",
+      "scorer": "resume",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "completed_work_preserved",
+      "layer": "R2",
+      "scorer": "preserve",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "duplicate_action_rate",
+      "layer": "R2",
+      "scorer": "duplicate",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "handoff_completed",
+      "layer": "R2",
+      "scorer": "handoff",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "workflow_complete",
+      "layer": "R2",
+      "scorer": "world",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "handoff_recovery",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "task_started",
+      "worker_a_step1",
+      "checkpoint_created",
+      "checkpoint_delivered",
+      "handoff_emitted",
+      "handoff_dropped",
+      "successor_resume",
+      "successor_step2",
+      "successor_step3"
+    ],
+    "budget": {
+      "calls": 6,
+      "max_calls": 6,
+      "kinds": [
+        "worker_a_step1",
+        "worker_a_checkpoint",
+        "coordinator_handoff",
+        "successor_resume",
+        "successor_step2",
+        "successor_step3"
+      ],
+      "expected": [
+        "worker_a_step1",
+        "worker_a_checkpoint",
+        "coordinator_handoff",
+        "successor_resume",
+        "successor_step2",
+        "successor_step3"
+      ],
+      "model": "GLM-4-Flash",
+      "temperature": 0,
+      "valid": true
+    },
+    "world": {
+      "steps": {
+        "lot_px41": {
+          "status": "completed",
+          "actor": "worker_a",
+          "output": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "event_index": 4
+        },
+        "lot_px42": {
+          "status": "completed",
+          "actor": "worker_a",
+          "output": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "event_index": 15
+        },
+        "lot_px43": {
+          "status": "completed",
+          "actor": "worker_a",
+          "output": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          },
+          "event_index": 16
+        }
+      },
+      "completed_steps": [
+        "lot_px41",
+        "lot_px42",
+        "lot_px43"
+      ],
+      "duplicates": [],
+      "checkpoint": {
+        "checkpoint_version": "ckpt-001",
+        "completed_steps": [
+          "lot_px41"
+        ],
+        "outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          }
+        },
+        "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+      },
+      "unavailable": []
+    }
+  },
+  "extra": {
+    "task_id": "l1_01_inventory_lots_001",
+    "variant": "control",
+    "track": "drop_handoff",
+    "repeat_id": 0,
+    "checkpoint_created": true,
+    "checkpoint_delivered": true,
+    "resume_position_correct": true,
+    "completed_work_preserved": true,
+    "duplicate_action_rate": 0.0,
+    "handoff_completed": true,
+    "workflow_complete": true,
+    "recovery_latency": null,
+    "role_completion": true,
+    "b_ran": false,
+    "budget_calls": 6,
+    "drop_checkpoint_isolated": true,
+    "drop_handoff_isolated": true,
+    "first_error": "none",
+    "got_outputs": {
+      "lot_px41": {
+        "sku_q17": 12,
+        "sku_q18": 7
+      },
+      "lot_px42": {
+        "sku_q17": 4,
+        "sku_q19": 9
+      },
+      "lot_px43": {
+        "sku_q18": 5,
+        "sku_q20": 11
+      }
+    },
+    "want_outputs": {
+      "lot_px41": {
+        "sku_q17": 12,
+        "sku_q18": 7
+      },
+      "lot_px42": {
+        "sku_q17": 4,
+        "sku_q19": 9
+      },
+      "lot_px43": {
+        "sku_q18": 5,
+        "sku_q20": 11
+      }
+    },
+    "got_actors": {
+      "lot_px41": "worker_a",
+      "lot_px42": "worker_a",
+      "lot_px43": "worker_a"
+    },
+    "want_actors": {
+      "lot_px41": "worker_a",
+      "lot_px42": "worker_a",
+      "lot_px43": "worker_a"
+    },
+    "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+  }
+}

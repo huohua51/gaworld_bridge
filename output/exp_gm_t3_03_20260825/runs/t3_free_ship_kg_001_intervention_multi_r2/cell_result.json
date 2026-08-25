@@ -1,0 +1,240 @@
+{
+  "workflow_id": "exp_gm_t3_03_discrimination",
+  "instance_id": "t3_free_ship_kg_001_intervention_multi_r2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "budget_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "no_v2_leak_on_draft",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_no_private_v2",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "shared_draft_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "three_calls",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "reviewer_ran",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "drop_executor_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "oracle_not_in_prompts",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "final_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "reviewer_did_not_write",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "review_decision_correct",
+      "layer": "R2",
+      "scorer": "change_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "complete_adoption",
+      "layer": "R2",
+      "scorer": "file_values",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "review_loop",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "requirement_available",
+      "draft_created",
+      "v2_published",
+      "review_started",
+      "review_decision",
+      "review_emitted",
+      "review_delivered",
+      "submitted"
+    ],
+    "budget": {
+      "calls": 3,
+      "max_calls": 3,
+      "kinds": [
+        "builder_draft",
+        "review",
+        "builder_final"
+      ],
+      "model": "GLM-4-Flash",
+      "temperature": 0,
+      "max_tokens": 2048,
+      "valid": true
+    },
+    "payload_trace": {
+      "reviewer_output_hash": "142bb54c20a7263eb5430f6e04cbbed389a98f03249ae88926cd080cc85b1ef3",
+      "channel_sent_hash": "142bb54c20a7263eb5430f6e04cbbed389a98f03249ae88926cd080cc85b1ef3",
+      "executor_read_hash": "142bb54c20a7263eb5430f6e04cbbed389a98f03249ae88926cd080cc85b1ef3",
+      "dropped": false,
+      "envelope": {
+        "review_id": "review-001",
+        "spec_version": "v2",
+        "artifact_before_hash": "01f4f64fb6c8194b5e2e51986d36432ac9c7330f7b43a1f6eb8b675c9ec781c5",
+        "review_payload_hash": "142bb54c20a7263eb5430f6e04cbbed389a98f03249ae88926cd080cc85b1ef3",
+        "decision": "update",
+        "required_changes": [
+          {
+            "path": "FREE_SHIP_KG",
+            "old_value": 8,
+            "new_value": 12,
+            "change_id": "change-01"
+          }
+        ]
+      }
+    }
+  },
+  "extra": {
+    "task_id": "t3_free_ship_kg_001",
+    "variant": "intervention",
+    "track": "multi",
+    "repeat_id": 2,
+    "private_visible": true,
+    "target_correct": true,
+    "review_decision_correct": true,
+    "review_evidence_correct": true,
+    "payload_integrity": true,
+    "complete": true,
+    "partial": false,
+    "unregistered_change": false,
+    "shared_draft_sha256": "01f4f64fb6c8194b5e2e51986d36432ac9c7330f7b43a1f6eb8b675c9ec781c5",
+    "budget_calls": 3,
+    "budget_kinds": [
+      "builder_draft",
+      "review",
+      "builder_final"
+    ],
+    "reviewer_ran": true,
+    "executor_saw_review": true,
+    "drop_inbox_empty": true,
+    "first_error": "none",
+    "got": 12,
+    "ranking_note": "discrimination experiment, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "draft_prompt_sha": "8f6249aeb3701e1f03584fb15dfe493335640125dd07ee47897d389c55f0e49b"
+  }
+}

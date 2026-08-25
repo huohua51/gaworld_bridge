@@ -1,0 +1,38 @@
+task_id: TASK-W1-protocol-retest
+experiment_id: EXP-GM-04d
+task_family: T3
+target_axis: 功能能力
+mechanism: M4 Reviewer—Executor 协议改进
+status: pilot
+protocol_gain: false_on_development_set
+note: >
+  04c 三题只作 development + regression，不在同一 54 格上证明“协议变好了”。
+  Pilot 开发集：FalsePositiveRevisionRate 新旧均为 0.6667；新协议 intervention 意见不正确，
+  PatchAdoptionRate 分母为空。Drop 负控仍失败。不跑留出题。
+  冻结规则挡不住编造 mismatches。环境没有替 Executor 改文件。
+ranking_eligible: false
+development_set: [w1_wage_gate, w1_return_floor, w1_budget_remaining]
+held_out_set: [shipping_threshold, eligibility_age, inventory_reorder_point]
+protocol: mismatches_patch_v1
+freeze_rule: mismatches empty → approve only; mismatches nonempty → revise only
+note: >
+  04c 三题只作 development + regression，不在同一 54 格上证明“协议变好了”。
+  协议提示模板不得写入隐藏 Oracle、字段名或业务语义。
+  04d-A 看 FalsePositiveRevisionRate（Full-control）。
+  04d-B 看 PatchAdoptionRate（意见正确且已送达的 intervention）。
+  环境只检查是否采用，不替 Executor 改文件。
+  Pilot：开发集 04d-A control 18 + 04d-B intervention 18 + 新协议 Drop 干预 9 = 45。
+  过门后再跑留出题同结构，并在留出题上跑旧协议以计算 ProtocolGain。
+
+roles: [executor, reviewer]
+tracks: [full_review, drop_review]
+variants: [control, intervention]
+protocols: [legacy_frozen, mismatches_patch_v1]
+model: GLM-4-Flash
+temperature: 0
+primary_metrics:
+  - FalsePositiveRevisionRate
+  - PatchAdoptionRate
+  - oracle_conditioned FullPass
+  - ReviewValue
+  - Drop-review 干预负控

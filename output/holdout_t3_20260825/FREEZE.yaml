@@ -1,0 +1,64 @@
+experiment_id: HO-GM-T3-01
+parent: EXP-GM-T3-03
+phase: rule
+frozen_at: '2026-08-25T12:35:01.316846+00:00'
+task_card_hash: f17307ee03347caad9b09445ab13547e32bb4f57e72e2ef6c0e7ba4aaf0b2803
+task_hash: f607e3493cfca6b31e3c10d030bbc71cbc9099f5fe2cd2074ea534da0a91a9ba
+protocol_hash: 7b9c555d5924a6e75ba73d6934fde54e2a33e6fd49aaf5ef1abaebbde525ba6d
+scorer_hash: 3804a3c887a7c43ab137d9309648fdfbdfaeb9151fc099d413a16b5b526de977
+runner_hash: 69f470f6fd5c250f3df0704872557fb0eb97ba0db40cc73b63a655a33e12a85f
+t3_02_contract: df74f30350773e95bbc6889bdf4d0e6330af86cfed0f96e4a0cc916578af13e8
+t3_02_integrity: ed0ac66bd8b14ddb63fb87be03aa847289fe73156a21af1414439878a328c872
+change_01_contract: 8ff4bbd1ae155920311402783545153c9e0544a0b33fdeee08f11fc4e55b6b65
+apply_01_prompt: 228c62c6cf8f3d49da5aabe75b201c51978aafa3f773ffbaba9d3299f4727dc9
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    direct:
+    - Builder 生成初稿；提示不得含 Intervention 值
+    - 决策者读取私有最终标准并判断 keep/update
+    - 同一 Agent 按 APPLY-01 修改或确认
+    single:
+    - Builder 生成初稿；提示不得含 Intervention 值
+    - 同一 Agent 只按公开 v1 简报自检，看不到私有核验信息
+    - 同一 Agent 按 APPLY-01 修改或确认
+    multi:
+    - Builder 生成初稿
+    - 独立 Reviewer 读取私有最终标准并输出决定
+    - IntegrityMailbox 原样传递
+    - Executor 按 APPLY-01 修改或确认
+    drop:
+    - Builder 生成初稿
+    - Reviewer 读取私有最终标准并正常输出
+    - 通道丢弃消息
+    - Executor 收到空消息并提交
+  hidden_oracle_in_prompts: false
+  environment_rewrites_files: false
+  channel_rewrites_payload: false
+  logical_calls_per_cell: 3
+  single_lacks_private_v2: true
+  reviewer_has_private_v2: true
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- loader.py
+- artifacts.py
+- tasks
+- oracle
+retained_from_t3_02:
+- CHANGE_01_decision_contract
+- APPLY_01_required_changes
+- payload_integrity_trace
+not_t3_01_or_t3_02_items: true
+heldout: this_experiment
+holdout_run_once: true
+does_not_overwrite:
+- EXP-GM-T3-01
+- EXP-GM-T3-02
+- EXP-GM-T3-03

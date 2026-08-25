@@ -1,0 +1,22 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "private_put", "role": "worker_b", "index": 1}
+{"event": "private_read", "role": "worker_a", "owner": "worker_a", "index": 2}
+{"event": "private_read", "role": "worker_b", "owner": "worker_b", "index": 3}
+{"event": "step_completed", "role": "worker_a", "step_id": "fridge_by21", "output": {"bay": "F-4", "celsius": -18}, "index": 4}
+{"event": "checkpoint_emitted", "role": "worker_a", "hash": "ea463ddc0db66267606925fed25ec012697efb2c5deb68dbe4a2d11a3e6f48e2", "payload": {"checkpoint_version": "ckpt-001", "completed_steps": ["fridge_by21"], "outputs": {"fridge_by21": {"bay": "F-4", "celsius": -18}}, "world_digest": "2d4e8f9229796425f7f0c0cd319966194ee04a19a8f70cb2ecbc13173d86f1e9"}, "index": 5}
+{"event": "checkpoint_delivered", "reader": "coordinator", "hash": "ea463ddc0db66267606925fed25ec012697efb2c5deb68dbe4a2d11a3e6f48e2", "index": 6}
+{"event": "checkpoint_delivered", "reader": "worker_a", "hash": "ea463ddc0db66267606925fed25ec012697efb2c5deb68dbe4a2d11a3e6f48e2", "index": 7}
+{"event": "checkpoint_dropped", "reader": "worker_b", "hash": "ea463ddc0db66267606925fed25ec012697efb2c5deb68dbe4a2d11a3e6f48e2", "index": 8}
+{"event": "checkpoint_read", "role": "coordinator", "version": "ckpt-001", "index": 9}
+{"event": "handoff_emitted", "payload": {"successor": "worker_a", "checkpoint_version": "ckpt-001", "resume_step": "fridge_by22"}, "index": 10}
+{"event": "handoff_delivered", "reader": "worker_a", "hash": "2f20d050b85f914e45d10becc478c97f23b60d5c98b1d36296fbee622d2c83f4", "index": 11}
+{"event": "handoff_delivered", "reader": "worker_b", "hash": "2f20d050b85f914e45d10becc478c97f23b60d5c98b1d36296fbee622d2c83f4", "index": 12}
+{"event": "checkpoint_read", "role": "worker_a", "version": "ckpt-001", "index": 13}
+{"event": "handoff_read", "role": "worker_a", "index": 14}
+{"event": "step_completed", "role": "worker_a", "step_id": "fridge_by22", "output": {"bay": "F-5", "celsius": -22}, "index": 15}
+{"event": "step_completed", "role": "worker_a", "step_id": "fridge_by23", "output": {"bay": "F-6", "celsius": -20}, "index": 16}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_fridge_log_001_control_drop_checkpoint_r0/fridge_log_world.json", "index": 17}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_fridge_log_001_control_drop_checkpoint_r0/fridge_log_world.json", "index": 18}
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "fridge_by22", "index": 19}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 20}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "worker_b", "owner": "worker_a", "index": 21}

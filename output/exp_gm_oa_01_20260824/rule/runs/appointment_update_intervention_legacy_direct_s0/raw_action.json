@@ -1,0 +1,6 @@
+{
+  "action": "revise",
+  "target": "appointment_slot",
+  "value": "16:00",
+  "evidence_event_id": "event-appointment_update-intervention"
+}

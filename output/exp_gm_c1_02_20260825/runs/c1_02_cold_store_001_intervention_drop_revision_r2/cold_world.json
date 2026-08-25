@@ -1,0 +1,18 @@
+{
+  "claims": [
+    {
+      "agent_id": "agent_a",
+      "slot": "c14",
+      "plan_version": "plan-001"
+    }
+  ],
+  "by_agent": {
+    "agent_a": "c14"
+  },
+  "occupied": {
+    "c14": [
+      "agent_a"
+    ]
+  },
+  "duplicates": {}
+}

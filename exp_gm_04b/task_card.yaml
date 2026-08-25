@@ -1,0 +1,19 @@
+task_id: TASK-W1-revision
+experiment_id: EXP-GM-04b
+task_family: T3
+target_axis: 功能能力
+mechanism: M4 需求版本沿工作队列传播
+status: pilot
+ranking_eligible: false
+conformance_target: M4_requirement_revision_propagation
+result: pass
+scope:
+  agents: 1
+  revisions: 1
+  task_type: deterministic_function_contract
+human_reference: N/A
+note: >
+  范围有限但成立的平台结论：GAWorld 工作队列能在 Adapter 执行前读取并采用最新规格版本。
+  不是基础正控，也不是完整 TASK-W1。第三步“修改 GAWorld 并复测”不是每次 Pilot 后的必经步骤；
+  04b 没有可归因的平台首错，因此不进入修复分支，直接进入 04c。
+  FullPass 要求 oracle_conditioned_success。不得与 04a 正控或 WorkDiag v0.3 混排。

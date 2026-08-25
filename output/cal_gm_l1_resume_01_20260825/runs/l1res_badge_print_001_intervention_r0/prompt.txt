@@ -1,0 +1,13 @@
+你是 Coordinator。只根据有序步骤和检查点中的 completed_steps 选择第一个尚未完成的步骤。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+输出必须恰好包含 completed_steps、resume_step、remaining_steps。
+resume_step 必须是步骤列表中第一个不在 completed_steps 里的 id。
+remaining_steps 必须是全部尚未完成的步骤，按原顺序，且第一项等于 resume_step。
+不要重复已完成步骤。不要跳过中间步骤。
+不要根据 outputs 的键判断哪些步骤已完成。outputs 里出现未完成步骤的键不表示这些步骤已经完成。
+不能执行具体步骤，不能给出剩余步骤的正确业务输出。
+示例：{"completed_steps": ["step_1"], "resume_step": "step_2", "remaining_steps": ["step_2", "step_3"]}
+【任务】三阶段工牌打印
+【有序步骤】["badge_draft31", "badge_print32", "badge_issue33"]
+【已送达检查点】{"checkpoint_version": "ckpt-001", "completed_steps": ["badge_draft31"], "outputs": {"badge_print32": {"status": "placeholder"}, "badge_issue33": {"status": "placeholder"}}}
+【状态】worker_a_offline_badge_v1。Worker A 已不可用。续做位置仍由 completed_steps 决定，不能因此跳步。

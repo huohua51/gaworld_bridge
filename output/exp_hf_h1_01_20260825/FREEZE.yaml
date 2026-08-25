@@ -1,0 +1,16 @@
+experiment_id: EXP-HF-H1-01
+phase: infrastructure
+frozen_at: '2026-08-25T13:25:08.887193+00:00'
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+sampling_hash: 4c5d8d864dd33a6015d740bba412c24b608bfdc556f25a7eb4955b8ad64d3b70
+rubric_hash: e2e78ae049d400dabff8fb4f8ded66ad5c39dee2a9d6e1d1a67fb925e5bd7981
+protocol_hash: a5ccf9ce3061371366ced5948baa1113ef3bf6339df657d50062d76c9f64885d
+task_card_hash: e75ceb24259301142a6b39dcfafea7a9383dc1a804d3d6ac34f08c18d950ab25
+do_not_edit_after_pilot_freeze:
+- SAMPLING.yaml
+- rubric.yaml
+- protocol.md
+- human_protocols
+note: 基础设施冻结。Rubric 在认知访谈前仍可改；访谈后正式冻结。刺激抽样规则即刻冻结。
+ranking_eligible: false
+h1_formal_score: null

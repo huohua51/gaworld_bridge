@@ -1,0 +1,16 @@
+task_id: TASK-W1-lite
+experiment_id: EXP-GM-04a
+task_family: T3
+target_axis: 功能能力
+mechanism: M4 工作队列接入完整性
+status: calibration
+role: positive_control
+ranking_eligible: false
+diagnostic_target: basic_work_pipeline_integrity
+human_reference: N/A
+note: >
+  工作队列基础正控。证明在规格完整、任务简单、没有状态变化时，
+  WorkQueue → WorkerPool → Adapter → absorb 不丢失产物。
+  不升级为正式机制题：无唯一条件变化、无负控、R3 未验证首错。
+  以后改工作子系统时用这 18 格做回归。
+  不得与 WorkDiag v0.3 Focused/E2E 数字混排。

@@ -1,0 +1,21 @@
+{
+  "reviewer_output_hash": "720327ddb26e24b7673d4e97ed62237b83cffb46550ab0ef7582d75994961ea6",
+  "channel_sent_hash": "720327ddb26e24b7673d4e97ed62237b83cffb46550ab0ef7582d75994961ea6",
+  "executor_read_hash": "720327ddb26e24b7673d4e97ed62237b83cffb46550ab0ef7582d75994961ea6",
+  "dropped": false,
+  "envelope": {
+    "review_id": "review-001",
+    "spec_version": "v2",
+    "artifact_before_hash": "6e5e8ed921f1d8fbb485f2e8e17096fe57652259983e6bb8da72fe56be29aed2",
+    "review_payload_hash": "720327ddb26e24b7673d4e97ed62237b83cffb46550ab0ef7582d75994961ea6",
+    "decision": "update",
+    "required_changes": [
+      {
+        "path": "DEPOSIT_PERCENT",
+        "old_value": 20,
+        "new_value": 30,
+        "change_id": "change-01"
+      }
+    ]
+  }
+}

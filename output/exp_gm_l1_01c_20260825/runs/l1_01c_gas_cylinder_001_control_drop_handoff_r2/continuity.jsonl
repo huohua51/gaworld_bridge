@@ -1,0 +1,44 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "private_put", "role": "worker_b", "index": 1}
+{"event": "private_read", "role": "worker_a", "owner": "worker_a", "index": 2}
+{"event": "private_read", "role": "worker_b", "owner": "worker_b", "index": 3}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy11", "output": {"tank": "N2-A", "bar": 180}, "index": 4}
+{"event": "checkpoint_emitted", "role": "worker_a", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "payload": {"checkpoint_version": "ckpt-001", "completed_steps": ["gas_cy11"], "outputs": {"gas_cy11": {"tank": "N2-A", "bar": 180}}, "world_digest": "c0a235253f31db443a41da0585d294764cd9cb6e46089471c1f14720a1ca1f83"}, "index": 5}
+{"event": "checkpoint_delivered", "reader": "coordinator", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "index": 6}
+{"event": "checkpoint_delivered", "reader": "worker_a", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "index": 7}
+{"event": "checkpoint_delivered", "reader": "worker_b", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "index": 8}
+{"event": "checkpoint_read", "role": "coordinator", "version": "ckpt-001", "index": 9}
+{"event": "handoff_emitted", "payload": {"successor": "worker_a", "checkpoint_version": "ckpt-001", "resume_step": "gas_cy12"}, "index": 10}
+{"event": "handoff_delivered", "reader": "worker_a", "hash": "407e453001630f4fa3e781ec0e3d8cbc50b4819dad0065bbdf7be19b44ff52bc", "index": 11}
+{"event": "handoff_dropped", "reader": "worker_b", "hash": "407e453001630f4fa3e781ec0e3d8cbc50b4819dad0065bbdf7be19b44ff52bc", "index": 12}
+{"event": "checkpoint_read", "role": "worker_a", "version": "ckpt-001", "index": 13}
+{"event": "handoff_read", "role": "worker_a", "index": 14}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy12", "output": {"tank": "He-B", "bar": 95}, "index": 15}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy13", "output": {"tank": "Ar-C", "bar": 40}, "index": 16}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_gas_cylinder_001_control_drop_handoff_r2/gas_cylinder_world.json", "index": 17}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_gas_cylinder_001_control_drop_handoff_r2/gas_cylinder_world.json", "index": 18}
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "gas_cy12", "index": 19}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 20}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "worker_b", "owner": "worker_a", "index": 21}
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "private_put", "role": "worker_b", "index": 1}
+{"event": "private_read", "role": "worker_a", "owner": "worker_a", "index": 2}
+{"event": "private_read", "role": "worker_b", "owner": "worker_b", "index": 3}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy11", "output": {"tank": "N2-A", "bar": 180}, "index": 4}
+{"event": "checkpoint_emitted", "role": "worker_a", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "payload": {"checkpoint_version": "ckpt-001", "completed_steps": ["gas_cy11"], "outputs": {"gas_cy11": {"tank": "N2-A", "bar": 180}}, "world_digest": "c0a235253f31db443a41da0585d294764cd9cb6e46089471c1f14720a1ca1f83"}, "index": 5}
+{"event": "checkpoint_delivered", "reader": "coordinator", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "index": 6}
+{"event": "checkpoint_delivered", "reader": "worker_a", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "index": 7}
+{"event": "checkpoint_delivered", "reader": "worker_b", "hash": "50f3434bf648d216861247db3f5638cd8f3e2f8d00b6bff8f40e3832c89bb37d", "index": 8}
+{"event": "checkpoint_read", "role": "coordinator", "version": "ckpt-001", "index": 9}
+{"event": "handoff_emitted", "payload": {"successor": "worker_a", "checkpoint_version": "ckpt-001", "resume_step": "gas_cy12"}, "index": 10}
+{"event": "handoff_delivered", "reader": "worker_a", "hash": "407e453001630f4fa3e781ec0e3d8cbc50b4819dad0065bbdf7be19b44ff52bc", "index": 11}
+{"event": "handoff_dropped", "reader": "worker_b", "hash": "407e453001630f4fa3e781ec0e3d8cbc50b4819dad0065bbdf7be19b44ff52bc", "index": 12}
+{"event": "checkpoint_read", "role": "worker_a", "version": "ckpt-001", "index": 13}
+{"event": "handoff_read", "role": "worker_a", "index": 14}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy12", "output": {"tank": "He-B", "bar": 95}, "index": 15}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy13", "output": {"tank": "Ar-C", "bar": 40}, "index": 16}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_gas_cylinder_001_control_drop_handoff_r2/gas_cylinder_world.json", "index": 17}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_gas_cylinder_001_control_drop_handoff_r2/gas_cylinder_world.json", "index": 18}
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "gas_cy12", "index": 19}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 20}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "worker_b", "owner": "worker_a", "index": 21}

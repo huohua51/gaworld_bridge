@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v2",
+  "criterion_id": "max_hours",
+  "evidence": "The current MAX_HOURS constant is set to 40, which does not meet the required_change of 35 hours.",
+  "required_change": {
+    "max_hours": 35
+  }
+}

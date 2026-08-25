@@ -1,0 +1,8 @@
+{"event": "initial_saved", "assignments": {"agent_a": "cy91", "agent_b": "cy91"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "cy91"}
+{"event": "registered_constraints_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "cryostat_chamber", "slot": "cy91", "agents": ["agent_a", "agent_b"]}, {"type": "not_earliest_feasible_idle", "agent": "B"}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "violations": []}
+{"event": "initial_saved", "assignments": {"agent_a": "cy92", "agent_b": "cy91"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "cy91"}
+{"event": "registered_constraints_inspected", "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "cy92", "agent_b": "cy91"}, "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]}

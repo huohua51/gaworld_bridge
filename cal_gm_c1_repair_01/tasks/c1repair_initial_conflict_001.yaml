@@ -1,0 +1,17 @@
+id: c1repair_initial_conflict_001
+component: A
+title: 初始冲突检测
+resource_id: pump_hose
+agent_a:
+  resource: pump_hose
+  slot: morning-1
+agent_b:
+  control:
+    resource: pump_hose
+    slot: morning-2
+  intervention:
+    resource: pump_hose
+    slot: morning-1
+oracle:
+  control: false
+  intervention: true

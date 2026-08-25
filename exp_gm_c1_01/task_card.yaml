@@ -1,0 +1,32 @@
+experiment_id: EXP-GM-C1-01
+task_family: C1
+construct: joint_resource_coordination
+status: planned_rule_calibration
+ranking_eligible: false
+generalization_claim: false
+role: collective_coordination_pilot
+tracks: [single, multi, drop]
+direct_doability: required_before_matrix
+variants: [control, intervention]
+tasks: [c1_charge_slot_001, c1_device_book_001, c1_dock_window_001]
+roles: [agent_a, agent_b, coordinator]
+call_budget: 5
+call_kinds: [agent_a_report, agent_b_report, coordinator_plan, agent_a_commit, agent_b_commit]
+resolution_rule: priority_keep_then_earliest_free
+drop_target: agent_b
+matrix_first: 3x2x3x1
+matrix_full: 3x2x3x3
+heldout: not_created
+environment_may_rewrite_world: false
+agents_may_read_peer_private: false
+coordinator_may_read_private_stores: false
+interpretation:
+  single_multi_high_drop_low: 通信有因果价值，尚无角色拆分优势
+  multi_gt_single_drop_low: 分布式角色协调产生额外价值
+  single_multi_floor: 共同能力地板，不能估计多 Agent 价值
+  all_high: Drop 无效、任务存在泄漏或不依赖协调
+  multi_informed_fail: 定位冲突检测、方案形成、确认或执行环节
+note: >
+  T3 已回答审核信息能否经角色链条改善结果。C1-01 回答：多个 Agent
+  的行动互相占用同一资源时，能否交换私有约束、发现冲突、形成一致方案并执行。
+  不补 T3 重复，不建留出。repeat 0 过测量门后再决定是否补 54 格。

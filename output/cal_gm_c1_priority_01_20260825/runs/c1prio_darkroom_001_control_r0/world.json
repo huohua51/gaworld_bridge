@@ -1,0 +1,21 @@
+{
+  "initial_assignments": {
+    "agent_a": "dr31",
+    "agent_b": "dr32"
+  },
+  "assignments": {
+    "agent_a": "dr31",
+    "agent_b": "dr32"
+  },
+  "occupancy": {
+    "dr31": [
+      "agent_a"
+    ],
+    "dr32": [
+      "agent_b"
+    ]
+  },
+  "actual_final_conflict_free": true,
+  "attempts": 1,
+  "unregistered_modification": 0
+}

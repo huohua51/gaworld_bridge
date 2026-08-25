@@ -1,0 +1,15 @@
+id: c1prio_autoclave_001
+title: 灭菌柜窗口
+resource_id: autoclave_chamber
+slots: [ac21, ac22, ac23]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [ac21, ac22, ac23]
+  preferred: ac21
+agent_b:
+  control:
+    feasible: [ac22, ac23]
+    preferred: ac22
+  intervention:
+    feasible: [ac21, ac22, ac23]
+    preferred: ac21

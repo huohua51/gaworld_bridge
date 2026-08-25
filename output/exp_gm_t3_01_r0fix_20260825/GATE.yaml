@@ -1,0 +1,15 @@
+experiment_id: EXP-GM-T3-01
+phase: seed0_r0fix
+gate: r0_pass
+coverage: 1.0
+draft_fairness: pass
+budget_parity: pass
+drop_isolation: pass
+repeat_1_2: not_run
+false_positive_revision: not_addressed
+multi_agent_net_benefit: N/A
+ranking_eligible: false
+prior_seed0: output/exp_gm_t3_01_20260824
+note: >
+  只修测量台。Coverage=1.0，Drop Reviewer 实际运行且 Executor 收件箱为空，
+  三轨预算 3 次。不处理 false_positive_revision，不补 54 格。

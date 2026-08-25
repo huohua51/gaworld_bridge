@@ -1,0 +1,108 @@
+{
+  "workflow_id": "exp_gm_04e_e_executor_only",
+  "instance_id": "w1_return_floor_evidence_bound_s2",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "executor-only cell executed"
+    },
+    {
+      "gate_id": "executor_only",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "reviewer is rule-supplied patch"
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "patch_applied",
+      "layer": "R2",
+      "scorer": "artifact_value",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "patch_acknowledged_not_applied",
+    "events": [
+      "draft_fixed",
+      "patch_delivered",
+      "executor_call_1"
+    ]
+  },
+  "extra": {
+    "task_id": "w1_return_floor",
+    "protocol": "evidence_bound",
+    "seed": 2,
+    "mode": "llm",
+    "split": "development",
+    "patch_applied": false,
+    "tests_ok": false,
+    "verify": {
+      "ok": false,
+      "reason": "patch_acknowledged_not_applied",
+      "applied": false,
+      "applied_ids": [],
+      "claim": {
+        "applied_patch_ids": [
+          "patch-01"
+        ],
+        "artifact_spec_version": "v1",
+        "artifact_hash_after": null
+      },
+      "before_hash": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71",
+      "after_hash": "sha256:41c3807ad206e4a8b3397afad338289df4376cd161690e5458ea2f1d5a5fb2ae",
+      "after_values": {
+        "spec_version": "v1",
+        "min_return_rate": 0.3
+      },
+      "nack": "patch was not applied to the current artifact"
+    },
+    "patches": [
+      {
+        "patch_id": "patch-01",
+        "path": "min_return_rate",
+        "observed_value": 0.3,
+        "required_value": 0.5,
+        "artifact_hash_before": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+      }
+    ],
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

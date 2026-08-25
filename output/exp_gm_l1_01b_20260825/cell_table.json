@@ -1,0 +1,6478 @@
+{
+  "cells": [
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_inventory_lots_001_control_multi_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "lot_px41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              },
+              "event_index": 4
+            },
+            "lot_px42": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 4,
+                "sku_q19": 9
+              },
+              "event_index": 15
+            },
+            "lot_px43": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q18": 5,
+                "sku_q20": 11
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "lot_px41",
+            "lot_px42",
+            "lot_px43"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "lot_px41"
+            ],
+            "outputs": {
+              "lot_px41": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              }
+            },
+            "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_inventory_lots_001",
+        "variant": "control",
+        "track": "multi",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "want_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "got_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_a",
+          "lot_px43": "worker_a"
+        },
+        "want_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_a",
+          "lot_px43": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_inventory_lots_001_control_drop_checkpoint_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_dropped",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "lot_px41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              },
+              "event_index": 4
+            },
+            "lot_px42": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 4,
+                "sku_q19": 9
+              },
+              "event_index": 15
+            },
+            "lot_px43": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q18": 5,
+                "sku_q20": 11
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "lot_px41",
+            "lot_px42",
+            "lot_px43"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "lot_px41"
+            ],
+            "outputs": {
+              "lot_px41": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              }
+            },
+            "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_inventory_lots_001",
+        "variant": "control",
+        "track": "drop_checkpoint",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "want_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "got_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_a",
+          "lot_px43": "worker_a"
+        },
+        "want_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_a",
+          "lot_px43": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_inventory_lots_001_control_drop_handoff_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "handoff_emitted",
+          "handoff_dropped",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "lot_px41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              },
+              "event_index": 4
+            },
+            "lot_px42": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 4,
+                "sku_q19": 9
+              },
+              "event_index": 15
+            },
+            "lot_px43": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q18": 5,
+                "sku_q20": 11
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "lot_px41",
+            "lot_px42",
+            "lot_px43"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "lot_px41"
+            ],
+            "outputs": {
+              "lot_px41": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              }
+            },
+            "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_inventory_lots_001",
+        "variant": "control",
+        "track": "drop_handoff",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "want_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "got_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_a",
+          "lot_px43": "worker_a"
+        },
+        "want_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_a",
+          "lot_px43": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_inventory_lots_001_intervention_multi_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "lot_px41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              },
+              "event_index": 4
+            },
+            "lot_px42": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "sku_q17": 4,
+                "sku_q19": 9
+              },
+              "event_index": 16
+            },
+            "lot_px43": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "sku_q18": 5,
+                "sku_q20": 11
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "lot_px41",
+            "lot_px42",
+            "lot_px43"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "lot_px41"
+            ],
+            "outputs": {
+              "lot_px41": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              }
+            },
+            "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_inventory_lots_001",
+        "variant": "intervention",
+        "track": "multi",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "want_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "got_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_b",
+          "lot_px43": "worker_b"
+        },
+        "want_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_b",
+          "lot_px43": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_inventory_lots_001_intervention_drop_checkpoint_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.625,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "checkpoint_not_delivered",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_dropped",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "lot_px41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              },
+              "event_index": 4
+            },
+            "lot_px42": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "sku_q17": 4,
+                "sku_q19": 9
+              },
+              "event_index": 16
+            },
+            "lot_px43": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "sku_q18": 5,
+                "sku_q20": 11
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "lot_px41",
+            "lot_px42",
+            "lot_px43"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "lot_px41"
+            ],
+            "outputs": {
+              "lot_px41": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              }
+            },
+            "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_inventory_lots_001",
+        "variant": "intervention",
+        "track": "drop_checkpoint",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": false,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "checkpoint_not_delivered",
+        "got_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "want_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "got_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_b",
+          "lot_px43": "worker_b"
+        },
+        "want_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_b",
+          "lot_px43": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_inventory_lots_001_intervention_drop_handoff_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.625,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "handoff_not_delivered",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_dropped",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "lot_px41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              },
+              "event_index": 4
+            },
+            "lot_px42": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "sku_q17": 4,
+                "sku_q19": 9
+              },
+              "event_index": 16
+            },
+            "lot_px43": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "sku_q18": 5,
+                "sku_q20": 11
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "lot_px41",
+            "lot_px42",
+            "lot_px43"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "lot_px41"
+            ],
+            "outputs": {
+              "lot_px41": {
+                "sku_q17": 12,
+                "sku_q18": 7
+              }
+            },
+            "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_inventory_lots_001",
+        "variant": "intervention",
+        "track": "drop_handoff",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": false,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "handoff_not_delivered",
+        "got_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "want_outputs": {
+          "lot_px41": {
+            "sku_q17": 12,
+            "sku_q18": 7
+          },
+          "lot_px42": {
+            "sku_q17": 4,
+            "sku_q19": 9
+          },
+          "lot_px43": {
+            "sku_q18": 5,
+            "sku_q20": 11
+          }
+        },
+        "got_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_b",
+          "lot_px43": "worker_b"
+        },
+        "want_actors": {
+          "lot_px41": "worker_a",
+          "lot_px42": "worker_b",
+          "lot_px43": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_centrifuge_rotor_001_control_multi_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.625,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "rotor_cf21": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-21-K",
+                "status": "pass",
+                "torque_ncm": 38
+              },
+              "event_index": 4
+            },
+            "rotor_cf22": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-22-M",
+                "status": "pass",
+                "torque_ncm": 41
+              },
+              "event_index": 15
+            },
+            "rotor_cf23": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-23-P",
+                "status": "hold",
+                "torque_ncm": 29
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "rotor_cf21",
+            "rotor_cf22",
+            "rotor_cf23"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "rotor_cf21"
+            ],
+            "outputs": {
+              "rotor_cf22": {
+                "serial": "CF-22-K",
+                "status": "pass",
+                "torque_ncm": 42
+              },
+              "rotor_cf23": {
+                "serial": "CF-23-K",
+                "status": "pass",
+                "torque_ncm": 45
+              }
+            },
+            "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_centrifuge_rotor_001",
+        "variant": "control",
+        "track": "multi",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": false,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "want_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "got_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_a",
+          "rotor_cf23": "worker_a"
+        },
+        "want_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_a",
+          "rotor_cf23": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_centrifuge_rotor_001_control_drop_checkpoint_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.75,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_dropped",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "rotor_cf21": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-21-K",
+                "status": "pass",
+                "torque_ncm": 38
+              },
+              "event_index": 4
+            },
+            "rotor_cf22": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-22-M",
+                "status": "pass",
+                "torque_ncm": 41
+              },
+              "event_index": 15
+            },
+            "rotor_cf23": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-23-P",
+                "status": "hold",
+                "torque_ncm": 29
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "rotor_cf21",
+            "rotor_cf22",
+            "rotor_cf23"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "rotor_cf21"
+            ],
+            "outputs": {
+              "rotor_cf22": {
+                "serial": "CF-22-K",
+                "status": "pass",
+                "torque_ncm": 42
+              },
+              "rotor_cf23": {
+                "serial": "CF-23-K",
+                "status": "pass",
+                "torque_ncm": 45
+              }
+            },
+            "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_centrifuge_rotor_001",
+        "variant": "control",
+        "track": "drop_checkpoint",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": false,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "want_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "got_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_a",
+          "rotor_cf23": "worker_a"
+        },
+        "want_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_a",
+          "rotor_cf23": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_centrifuge_rotor_001_control_drop_handoff_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.75,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "handoff_emitted",
+          "handoff_dropped",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "rotor_cf21": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-21-K",
+                "status": "pass",
+                "torque_ncm": 38
+              },
+              "event_index": 4
+            },
+            "rotor_cf22": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-22-M",
+                "status": "pass",
+                "torque_ncm": 41
+              },
+              "event_index": 15
+            },
+            "rotor_cf23": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-23-P",
+                "status": "hold",
+                "torque_ncm": 29
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "rotor_cf21",
+            "rotor_cf22",
+            "rotor_cf23"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "rotor_cf21"
+            ],
+            "outputs": {
+              "rotor_cf22": {
+                "serial": "CF-22-K",
+                "status": "pass",
+                "torque_ncm": 42
+              },
+              "rotor_cf23": {
+                "serial": "CF-23-K",
+                "status": "pass",
+                "torque_ncm": 45
+              }
+            },
+            "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_centrifuge_rotor_001",
+        "variant": "control",
+        "track": "drop_handoff",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": false,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "want_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "got_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_a",
+          "rotor_cf23": "worker_a"
+        },
+        "want_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_a",
+          "rotor_cf23": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_centrifuge_rotor_001_intervention_multi_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "rotor_cf21": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-21-K",
+                "status": "pass",
+                "torque_ncm": 38
+              },
+              "event_index": 4
+            },
+            "rotor_cf22": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "serial": "CF-22-M",
+                "status": "pass",
+                "torque_ncm": 41
+              },
+              "event_index": 16
+            },
+            "rotor_cf23": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "serial": "CF-23-P",
+                "status": "hold",
+                "torque_ncm": 29
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "rotor_cf21",
+            "rotor_cf22",
+            "rotor_cf23"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "rotor_cf21"
+            ],
+            "outputs": {
+              "rotor_cf22": {
+                "serial": "CF-22-K",
+                "status": "pass",
+                "torque_ncm": 42
+              },
+              "rotor_cf23": {
+                "serial": "CF-23-K",
+                "status": "pass",
+                "torque_ncm": 45
+              }
+            },
+            "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_centrifuge_rotor_001",
+        "variant": "intervention",
+        "track": "multi",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "want_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "got_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_b",
+          "rotor_cf23": "worker_b"
+        },
+        "want_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_b",
+          "rotor_cf23": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_centrifuge_rotor_001_intervention_drop_checkpoint_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.625,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "checkpoint_not_delivered",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_dropped",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "rotor_cf21": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-21-K",
+                "status": "pass",
+                "torque_ncm": 38
+              },
+              "event_index": 4
+            },
+            "rotor_cf22": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "serial": "CF-22-M",
+                "status": "pass",
+                "torque_ncm": 41
+              },
+              "event_index": 16
+            },
+            "rotor_cf23": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "serial": "CF-23-P",
+                "status": "hold",
+                "torque_ncm": 29
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "rotor_cf21",
+            "rotor_cf22",
+            "rotor_cf23"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "rotor_cf21"
+            ],
+            "outputs": {
+              "rotor_cf22": {
+                "serial": "CF-22-K",
+                "status": "pass",
+                "torque_ncm": 42
+              },
+              "rotor_cf23": {
+                "serial": "CF-23-K",
+                "status": "pass",
+                "torque_ncm": 45
+              }
+            },
+            "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_centrifuge_rotor_001",
+        "variant": "intervention",
+        "track": "drop_checkpoint",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": false,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "checkpoint_not_delivered",
+        "got_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "want_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "got_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_b",
+          "rotor_cf23": "worker_b"
+        },
+        "want_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_b",
+          "rotor_cf23": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01_centrifuge_rotor_001_intervention_drop_handoff_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.5,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "handoff_not_delivered",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_dropped",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "rotor_cf21": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "serial": "CF-21-K",
+                "status": "pass",
+                "torque_ncm": 38
+              },
+              "event_index": 4
+            },
+            "rotor_cf22": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "serial": "CF-22-M",
+                "status": "pass",
+                "torque_ncm": 41
+              },
+              "event_index": 16
+            },
+            "rotor_cf23": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "serial": "CF-23-P",
+                "status": "hold",
+                "torque_ncm": 29
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "rotor_cf21",
+            "rotor_cf22",
+            "rotor_cf23"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "rotor_cf21"
+            ],
+            "outputs": {
+              "rotor_cf22": {
+                "serial": "CF-22-K",
+                "status": "pass",
+                "torque_ncm": 42
+              },
+              "rotor_cf23": {
+                "serial": "CF-23-K",
+                "status": "pass",
+                "torque_ncm": 45
+              }
+            },
+            "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01_centrifuge_rotor_001",
+        "variant": "intervention",
+        "track": "drop_handoff",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": false,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": false,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "handoff_not_delivered",
+        "got_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "want_outputs": {
+          "rotor_cf21": {
+            "serial": "CF-21-K",
+            "status": "pass",
+            "torque_ncm": 38
+          },
+          "rotor_cf22": {
+            "serial": "CF-22-M",
+            "status": "pass",
+            "torque_ncm": 41
+          },
+          "rotor_cf23": {
+            "serial": "CF-23-P",
+            "status": "hold",
+            "torque_ncm": 29
+          }
+        },
+        "got_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_b",
+          "rotor_cf23": "worker_b"
+        },
+        "want_actors": {
+          "rotor_cf21": "worker_a",
+          "rotor_cf22": "worker_b",
+          "rotor_cf23": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01b_file_intake_001_control_multi_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "file_rx41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              },
+              "event_index": 4
+            },
+            "file_ck41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "verified_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "missing_ids": []
+              },
+              "event_index": 15
+            },
+            "file_ar41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "folder": "F2",
+                "sealed": true
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "file_rx41",
+            "file_ck41",
+            "file_ar41"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "file_rx41"
+            ],
+            "outputs": {
+              "file_rx41": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              }
+            },
+            "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01b_file_intake_001",
+        "variant": "control",
+        "track": "multi",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "want_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "got_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_a",
+          "file_ar41": "worker_a"
+        },
+        "want_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_a",
+          "file_ar41": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01b_file_intake_001_control_drop_checkpoint_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_dropped",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "file_rx41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              },
+              "event_index": 4
+            },
+            "file_ck41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "verified_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "missing_ids": []
+              },
+              "event_index": 15
+            },
+            "file_ar41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "folder": "F2",
+                "sealed": true
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "file_rx41",
+            "file_ck41",
+            "file_ar41"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "file_rx41"
+            ],
+            "outputs": {
+              "file_rx41": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              }
+            },
+            "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01b_file_intake_001",
+        "variant": "control",
+        "track": "drop_checkpoint",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "want_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "got_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_a",
+          "file_ar41": "worker_a"
+        },
+        "want_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_a",
+          "file_ar41": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01b_file_intake_001_control_drop_handoff_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "handoff_emitted",
+          "handoff_dropped",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "file_rx41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              },
+              "event_index": 4
+            },
+            "file_ck41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "verified_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "missing_ids": []
+              },
+              "event_index": 15
+            },
+            "file_ar41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "folder": "F2",
+                "sealed": true
+              },
+              "event_index": 16
+            }
+          },
+          "completed_steps": [
+            "file_rx41",
+            "file_ck41",
+            "file_ar41"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "file_rx41"
+            ],
+            "outputs": {
+              "file_rx41": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              }
+            },
+            "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+          },
+          "unavailable": []
+        }
+      },
+      "extra": {
+        "task_id": "l1_01b_file_intake_001",
+        "variant": "control",
+        "track": "drop_handoff",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": null,
+        "role_completion": true,
+        "b_ran": false,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "want_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "got_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_a",
+          "file_ar41": "worker_a"
+        },
+        "want_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_a",
+          "file_ar41": "worker_a"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01b_file_intake_001_intervention_multi_r0",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.875,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "none",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "file_rx41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              },
+              "event_index": 4
+            },
+            "file_ck41": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "verified_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "missing_ids": []
+              },
+              "event_index": 16
+            },
+            "file_ar41": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "folder": "F2",
+                "sealed": true
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "file_rx41",
+            "file_ck41",
+            "file_ar41"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "file_rx41"
+            ],
+            "outputs": {
+              "file_rx41": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              }
+            },
+            "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01b_file_intake_001",
+        "variant": "intervention",
+        "track": "multi",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "none",
+        "got_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "want_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "got_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_b",
+          "file_ar41": "worker_b"
+        },
+        "want_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_b",
+          "file_ar41": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01b_file_intake_001_intervention_drop_checkpoint_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.5,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "checkpoint_not_delivered",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_dropped",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_delivered",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "file_rx41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              },
+              "event_index": 4
+            },
+            "file_ck41": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "verified_ids": [],
+                "missing_ids": []
+              },
+              "event_index": 16
+            },
+            "file_ar41": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "folder": "F2",
+                "sealed": true
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "file_rx41",
+            "file_ck41",
+            "file_ar41"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "file_rx41"
+            ],
+            "outputs": {
+              "file_rx41": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              }
+            },
+            "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01b_file_intake_001",
+        "variant": "intervention",
+        "track": "drop_checkpoint",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": false,
+        "resume_position_correct": true,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": true,
+        "workflow_complete": false,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "checkpoint_not_delivered",
+        "got_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "want_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "got_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_b",
+          "file_ar41": "worker_b"
+        },
+        "want_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_b",
+          "file_ar41": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    },
+    {
+      "workflow_id": "exp_gm_l1_01b_handoff",
+      "instance_id": "l1_01b_file_intake_001_intervention_drop_handoff_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.5,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "budget_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "fields_extractable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "private_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "roles_ran",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "drop_isolated",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "oracle_not_in_prompts",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "environment_did_not_rewrite",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "coordinator_did_not_execute",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "eval_mode_on",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": ""
+        },
+        {
+          "gate_id": "world_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "checkpoint_created",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "checkpoint_delivered",
+          "layer": "R2",
+          "scorer": "checkpoint",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "resume_position_correct",
+          "layer": "R2",
+          "scorer": "resume",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "completed_work_preserved",
+          "layer": "R2",
+          "scorer": "preserve",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "duplicate_action_rate",
+          "layer": "R2",
+          "scorer": "duplicate",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "handoff_completed",
+          "layer": "R2",
+          "scorer": "handoff",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "workflow_complete",
+          "layer": "R2",
+          "scorer": "world",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        },
+        {
+          "criterion_id": "oracle_conditioned_success",
+          "layer": "R3",
+          "scorer": "handoff_recovery",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": ""
+        }
+      ],
+      "process_profile": {
+        "first_error": "handoff_not_delivered",
+        "events": [
+          "task_started",
+          "worker_a_step1",
+          "checkpoint_created",
+          "checkpoint_delivered",
+          "worker_a_unavailable",
+          "handoff_emitted",
+          "handoff_dropped",
+          "successor_resume",
+          "successor_step2",
+          "successor_step3"
+        ],
+        "budget": {
+          "calls": 6,
+          "max_calls": 6,
+          "kinds": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "expected": [
+            "worker_a_step1",
+            "worker_a_checkpoint",
+            "coordinator_handoff",
+            "successor_resume",
+            "successor_step2",
+            "successor_step3"
+          ],
+          "model": "GLM-4-Flash",
+          "temperature": 0,
+          "valid": true
+        },
+        "world": {
+          "steps": {
+            "file_rx41": {
+              "status": "completed",
+              "actor": "worker_a",
+              "output": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              },
+              "event_index": 4
+            },
+            "file_ck41": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "verified_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "missing_ids": []
+              },
+              "event_index": 16
+            },
+            "file_ar41": {
+              "status": "completed",
+              "actor": "worker_b",
+              "output": {
+                "folder": "F2",
+                "sealed": true
+              },
+              "event_index": 17
+            }
+          },
+          "completed_steps": [
+            "file_rx41",
+            "file_ck41",
+            "file_ar41"
+          ],
+          "duplicates": [],
+          "checkpoint": {
+            "checkpoint_version": "ckpt-001",
+            "completed_steps": [
+              "file_rx41"
+            ],
+            "outputs": {
+              "file_rx41": {
+                "received_ids": [
+                  "D17",
+                  "D18"
+                ],
+                "batch": "B4"
+              }
+            },
+            "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"
+          },
+          "unavailable": [
+            "worker_a"
+          ]
+        }
+      },
+      "extra": {
+        "task_id": "l1_01b_file_intake_001",
+        "variant": "intervention",
+        "track": "drop_handoff",
+        "repeat_id": 0,
+        "checkpoint_created": true,
+        "checkpoint_delivered": true,
+        "resume_position_correct": false,
+        "completed_work_preserved": true,
+        "duplicate_action_rate": 0.0,
+        "handoff_completed": false,
+        "workflow_complete": true,
+        "recovery_latency": 7,
+        "role_completion": true,
+        "b_ran": true,
+        "budget_calls": 6,
+        "drop_checkpoint_isolated": true,
+        "drop_handoff_isolated": true,
+        "first_error": "handoff_not_delivered",
+        "got_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "want_outputs": {
+          "file_rx41": {
+            "received_ids": [
+              "D17",
+              "D18"
+            ],
+            "batch": "B4"
+          },
+          "file_ck41": {
+            "verified_ids": [
+              "D17",
+              "D18"
+            ],
+            "missing_ids": []
+          },
+          "file_ar41": {
+            "folder": "F2",
+            "sealed": true
+          }
+        },
+        "got_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_b",
+          "file_ar41": "worker_b"
+        },
+        "want_actors": {
+          "file_rx41": "worker_a",
+          "file_ck41": "worker_b",
+          "file_ar41": "worker_b"
+        },
+        "ranking_note": "L1-01b interruption recovery, not a leaderboard"
+      }
+    }
+  ],
+  "gate": {
+    "generated_at": "2026-08-25T09:54:41.280572+00:00",
+    "experiment_id": "EXP-GM-L1-01b",
+    "parent": "EXP-GM-L1-01",
+    "phase": "seed0",
+    "gate": "off_floor",
+    "status": "off_floor",
+    "measurement_result": "pass",
+    "ranking_eligible": false,
+    "holdout_allowed": false,
+    "direct_ok": true,
+    "direct_coverage": null,
+    "direct_fullpass": 1.0,
+    "direct_strict_pair": null,
+    "direct_is_formal_result": false,
+    "primary_track": "multi",
+    "coverage": 1.0,
+    "multi_agent_matrix_run": true,
+    "interruption_recovery_result": null,
+    "repeat_1_2_allowed": false,
+    "c1_status": "development_partial_pass",
+    "does_not_overwrite": [
+      "EXP-GM-L1-01",
+      "EXP-GM-C1-01",
+      "EXP-GM-C1-02",
+      "EXP-GM-C1-03"
+    ],
+    "claim": "R0 有效且 Full Multi 不在地板。按首错定位检查点、接替与恢复位置。不能提前说 L1 已经通过。",
+    "interpretation": "R0 有效且 Full Multi 不在地板。按首错定位检查点、接替与恢复位置。不能提前说 L1 已经通过。",
+    "metrics": {
+      "Coverage": {
+        "multi": 1.0,
+        "drop_checkpoint": 1.0,
+        "drop_handoff": 1.0
+      },
+      "CheckpointCreated": {
+        "multi": 1.0,
+        "drop_checkpoint": 1.0,
+        "drop_handoff": 1.0
+      },
+      "CheckpointDelivered": {
+        "multi": 1.0,
+        "drop_checkpoint": 0.0,
+        "drop_handoff": 1.0
+      },
+      "ResumePositionCorrect": {
+        "multi": 0.8333,
+        "drop_checkpoint": 0.8333,
+        "drop_handoff": 0.5
+      },
+      "CompletedWorkPreserved": {
+        "multi": 1.0,
+        "drop_checkpoint": 1.0,
+        "drop_handoff": 1.0
+      },
+      "DuplicateActionRate": {
+        "multi": 0.0,
+        "drop_checkpoint": 0.0,
+        "drop_handoff": 0.0
+      },
+      "HandoffCompleted": {
+        "multi": 1.0,
+        "drop_checkpoint": 1.0,
+        "drop_handoff": 0.5
+      },
+      "WorkflowComplete": {
+        "multi": 1.0,
+        "drop_checkpoint": 0.8333,
+        "drop_handoff": 1.0
+      },
+      "RecoveryLatency": 7.0,
+      "FullPass": {
+        "multi": 0.8333,
+        "drop_checkpoint": 0.5,
+        "drop_handoff": 0.5
+      },
+      "StrictPair": {
+        "multi": 0.6667,
+        "drop_checkpoint": 0.0,
+        "drop_handoff": 0.0
+      },
+      "first_error": {
+        "none": 12,
+        "checkpoint_not_delivered": 3,
+        "handoff_not_delivered": 3
+      },
+      "floor": false,
+      "ceiling": false
+    },
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "freeze": "a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c",
+    "do_not": [
+      "run_c1_04",
+      "tune_c1_prompts",
+      "create_c1_holdout",
+      "run_multi_this_round"
+    ]
+  }
+}

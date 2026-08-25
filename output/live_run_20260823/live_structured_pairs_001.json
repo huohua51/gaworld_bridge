@@ -1,0 +1,504 @@
+{
+  "workflow_id": "live_structured_pairs_001",
+  "requested": 3,
+  "measurement_valid": 3,
+  "coverage": 1.0,
+  "full_pass_rate": 0.0,
+  "mean_task_score": 0.5,
+  "ranking_eligible": true,
+  "cells": [
+    {
+      "workflow_id": "live_structured_pairs_001",
+      "instance_id": "glm4_flash_live_r0",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.5,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live paratera GLM-4-Flash"
+        },
+        {
+          "gate_id": "pair_coverage",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "1.0"
+        },
+        {
+          "gate_id": "target_action_present",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "macro_strict_pair",
+          "layer": "R2",
+          "scorer": "exact_pair",
+          "evaluable": true,
+          "score": 0.5,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "trust_reciprocity_scale_001",
+            "reservation_wage_apply_001"
+          ],
+          "detail": "{\"trust_reciprocity_scale_001\": {\"control\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"submit_return\\\",\\\"payload\\\":{\\\"return_amount\\\":30}}}\\n```\", \"parsed\": {\"action\": \"submit_return\", \"payload\": {\"return_amount\": 30}}}, \"intervention\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"submit_return\\\",\\\"payload\\\":{\\\"return_amount\\\":0}}}\\n```\", \"parsed\": {\"action\": \"submit_return\", \"payload\": {\"return_amount\": 0}}}}, \"reservation_wage_apply_001\": {\"control\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"evaluate_job_offer\\\",\\\"payload\\\":{\\\"decision\\\":\\\"accept\\\"}}}\\n```\", \"parsed\": {\"action\": \"evaluate_job_offer\", \"payload\": {\"decision\": \"accept\"}}}, \"intervention\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"evaluate_job_offer\\\",\\\"payload\\\":{\\\"decision\\\":\\\"accept\\\"}}}\\n`"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "score_suite": {
+          "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+          "batch_id": "live_glm4_flash_r0",
+          "requested_pairs": 2,
+          "evaluable_pairs": 2,
+          "pair_coverage": 1.0,
+          "macro_pair_accuracy": 0.5,
+          "ranking_eligible": true,
+          "pairs": [
+            {
+              "pair_id": "trust_reciprocity_scale_001",
+              "source_scale": "Berg Trust Game + Yamagishi general trust item",
+              "evaluable": true,
+              "pair_accuracy": 1,
+              "control": {
+                "variant": "control",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": 30,
+                "oracle": {
+                  "return_amount": 10,
+                  "comparator": "gte"
+                },
+                "success": 1
+              },
+              "intervention": {
+                "variant": "intervention",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": 0,
+                "oracle": {
+                  "return_amount": 0,
+                  "comparator": "eq"
+                },
+                "success": 1
+              }
+            },
+            {
+              "pair_id": "reservation_wage_apply_001",
+              "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+              "evaluable": true,
+              "pair_accuracy": 0,
+              "control": {
+                "variant": "control",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": "accept",
+                "oracle": {
+                  "decision": "accept"
+                },
+                "success": 1
+              },
+              "intervention": {
+                "variant": "intervention",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": "accept",
+                "oracle": {
+                  "decision": "reject"
+                },
+                "success": 0
+              }
+            }
+          ]
+        },
+        "raw": {
+          "trust_reciprocity_scale_001": {
+            "control": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"submit_return\",\"payload\":{\"return_amount\":30}}}\n```",
+              "parsed": {
+                "action": "submit_return",
+                "payload": {
+                  "return_amount": 30
+                }
+              }
+            },
+            "intervention": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"submit_return\",\"payload\":{\"return_amount\":0}}}\n```",
+              "parsed": {
+                "action": "submit_return",
+                "payload": {
+                  "return_amount": 0
+                }
+              }
+            }
+          },
+          "reservation_wage_apply_001": {
+            "control": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"evaluate_job_offer\",\"payload\":{\"decision\":\"accept\"}}}\n```",
+              "parsed": {
+                "action": "evaluate_job_offer",
+                "payload": {
+                  "decision": "accept"
+                }
+              }
+            },
+            "intervention": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"evaluate_job_offer\",\"payload\":{\"decision\":\"accept\"}}}\n```",
+              "parsed": {
+                "action": "evaluate_job_offer",
+                "payload": {
+                  "decision": "accept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "workflow_id": "live_structured_pairs_001",
+      "instance_id": "glm4_flash_live_r1",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.5,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live paratera GLM-4-Flash"
+        },
+        {
+          "gate_id": "pair_coverage",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "1.0"
+        },
+        {
+          "gate_id": "target_action_present",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "macro_strict_pair",
+          "layer": "R2",
+          "scorer": "exact_pair",
+          "evaluable": true,
+          "score": 0.5,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "trust_reciprocity_scale_001",
+            "reservation_wage_apply_001"
+          ],
+          "detail": "{\"trust_reciprocity_scale_001\": {\"control\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"submit_return\\\",\\\"payload\\\":{\\\"return_amount\\\":30}}}\\n```\", \"parsed\": {\"action\": \"submit_return\", \"payload\": {\"return_amount\": 30}}}, \"intervention\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"submit_return\\\",\\\"payload\\\":{\\\"return_amount\\\":0}}}\\n```\", \"parsed\": {\"action\": \"submit_return\", \"payload\": {\"return_amount\": 0}}}}, \"reservation_wage_apply_001\": {\"control\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"evaluate_job_offer\\\",\\\"payload\\\":{\\\"decision\\\":\\\"accept\\\"}}}\\n```\", \"parsed\": {\"action\": \"evaluate_job_offer\", \"payload\": {\"decision\": \"accept\"}}}, \"intervention\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"evaluate_job_offer\\\",\\\"payload\\\":{\\\"decision\\\":\\\"accept\\\"}}}\\n`"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "score_suite": {
+          "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+          "batch_id": "live_glm4_flash_r1",
+          "requested_pairs": 2,
+          "evaluable_pairs": 2,
+          "pair_coverage": 1.0,
+          "macro_pair_accuracy": 0.5,
+          "ranking_eligible": true,
+          "pairs": [
+            {
+              "pair_id": "trust_reciprocity_scale_001",
+              "source_scale": "Berg Trust Game + Yamagishi general trust item",
+              "evaluable": true,
+              "pair_accuracy": 1,
+              "control": {
+                "variant": "control",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": 30,
+                "oracle": {
+                  "return_amount": 10,
+                  "comparator": "gte"
+                },
+                "success": 1
+              },
+              "intervention": {
+                "variant": "intervention",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": 0,
+                "oracle": {
+                  "return_amount": 0,
+                  "comparator": "eq"
+                },
+                "success": 1
+              }
+            },
+            {
+              "pair_id": "reservation_wage_apply_001",
+              "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+              "evaluable": true,
+              "pair_accuracy": 0,
+              "control": {
+                "variant": "control",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": "accept",
+                "oracle": {
+                  "decision": "accept"
+                },
+                "success": 1
+              },
+              "intervention": {
+                "variant": "intervention",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": "accept",
+                "oracle": {
+                  "decision": "reject"
+                },
+                "success": 0
+              }
+            }
+          ]
+        },
+        "raw": {
+          "trust_reciprocity_scale_001": {
+            "control": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"submit_return\",\"payload\":{\"return_amount\":30}}}\n```",
+              "parsed": {
+                "action": "submit_return",
+                "payload": {
+                  "return_amount": 30
+                }
+              }
+            },
+            "intervention": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"submit_return\",\"payload\":{\"return_amount\":0}}}\n```",
+              "parsed": {
+                "action": "submit_return",
+                "payload": {
+                  "return_amount": 0
+                }
+              }
+            }
+          },
+          "reservation_wage_apply_001": {
+            "control": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"evaluate_job_offer\",\"payload\":{\"decision\":\"accept\"}}}\n```",
+              "parsed": {
+                "action": "evaluate_job_offer",
+                "payload": {
+                  "decision": "accept"
+                }
+              }
+            },
+            "intervention": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"evaluate_job_offer\",\"payload\":{\"decision\":\"accept\"}}}\n```",
+              "parsed": {
+                "action": "evaluate_job_offer",
+                "payload": {
+                  "decision": "accept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "workflow_id": "live_structured_pairs_001",
+      "instance_id": "glm4_flash_live_r2",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.5,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live paratera GLM-4-Flash"
+        },
+        {
+          "gate_id": "pair_coverage",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "1.0"
+        },
+        {
+          "gate_id": "target_action_present",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "macro_strict_pair",
+          "layer": "R2",
+          "scorer": "exact_pair",
+          "evaluable": true,
+          "score": 0.5,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "trust_reciprocity_scale_001",
+            "reservation_wage_apply_001"
+          ],
+          "detail": "{\"trust_reciprocity_scale_001\": {\"control\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"submit_return\\\",\\\"payload\\\":{\\\"return_amount\\\":30}}}\\n```\", \"parsed\": {\"action\": \"submit_return\", \"payload\": {\"return_amount\": 30}}}, \"intervention\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"submit_return\\\",\\\"payload\\\":{\\\"return_amount\\\":0}}}\\n```\", \"parsed\": {\"action\": \"submit_return\", \"payload\": {\"return_amount\": 0}}}}, \"reservation_wage_apply_001\": {\"control\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"evaluate_job_offer\\\",\\\"payload\\\":{\\\"decision\\\":\\\"accept\\\"}}}\\n```\", \"parsed\": {\"action\": \"evaluate_job_offer\", \"payload\": {\"decision\": \"accept\"}}}, \"intervention\": {\"raw\": \"```json\\n{\\\"target_action\\\":{\\\"action\\\":\\\"evaluate_job_offer\\\",\\\"payload\\\":{\\\"decision\\\":\\\"accept\\\"}}}\\n`"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "score_suite": {
+          "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+          "batch_id": "live_glm4_flash_r2",
+          "requested_pairs": 2,
+          "evaluable_pairs": 2,
+          "pair_coverage": 1.0,
+          "macro_pair_accuracy": 0.5,
+          "ranking_eligible": true,
+          "pairs": [
+            {
+              "pair_id": "trust_reciprocity_scale_001",
+              "source_scale": "Berg Trust Game + Yamagishi general trust item",
+              "evaluable": true,
+              "pair_accuracy": 1,
+              "control": {
+                "variant": "control",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": 30,
+                "oracle": {
+                  "return_amount": 10,
+                  "comparator": "gte"
+                },
+                "success": 1
+              },
+              "intervention": {
+                "variant": "intervention",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": 0,
+                "oracle": {
+                  "return_amount": 0,
+                  "comparator": "eq"
+                },
+                "success": 1
+              }
+            },
+            {
+              "pair_id": "reservation_wage_apply_001",
+              "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+              "evaluable": true,
+              "pair_accuracy": 0,
+              "control": {
+                "variant": "control",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": "accept",
+                "oracle": {
+                  "decision": "accept"
+                },
+                "success": 1
+              },
+              "intervention": {
+                "variant": "intervention",
+                "observed": true,
+                "domain_ok": true,
+                "evaluable": true,
+                "prediction": "accept",
+                "oracle": {
+                  "decision": "reject"
+                },
+                "success": 0
+              }
+            }
+          ]
+        },
+        "raw": {
+          "trust_reciprocity_scale_001": {
+            "control": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"submit_return\",\"payload\":{\"return_amount\":30}}}\n```",
+              "parsed": {
+                "action": "submit_return",
+                "payload": {
+                  "return_amount": 30
+                }
+              }
+            },
+            "intervention": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"submit_return\",\"payload\":{\"return_amount\":0}}}\n```",
+              "parsed": {
+                "action": "submit_return",
+                "payload": {
+                  "return_amount": 0
+                }
+              }
+            }
+          },
+          "reservation_wage_apply_001": {
+            "control": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"evaluate_job_offer\",\"payload\":{\"decision\":\"accept\"}}}\n```",
+              "parsed": {
+                "action": "evaluate_job_offer",
+                "payload": {
+                  "decision": "accept"
+                }
+              }
+            },
+            "intervention": {
+              "raw": "```json\n{\"target_action\":{\"action\":\"evaluate_job_offer\",\"payload\":{\"decision\":\"accept\"}}}\n```",
+              "parsed": {
+                "action": "evaluate_job_offer",
+                "payload": {
+                  "decision": "accept"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "note": "Live GLM-4-Flash via Paratera; capability Oracle, not Human Fidelity; 3 repeats at temperature=0"
+}

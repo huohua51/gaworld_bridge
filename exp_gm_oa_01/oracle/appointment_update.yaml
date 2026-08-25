@@ -1,0 +1,11 @@
+task_id: appointment_update
+control:
+  need_change: false
+  action: keep
+  target: NONE
+  value: NONE
+intervention:
+  need_change: true
+  action: revise
+  target: appointment_slot
+  value: "16:00"

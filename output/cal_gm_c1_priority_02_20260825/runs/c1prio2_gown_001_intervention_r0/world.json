@@ -1,0 +1,21 @@
+{
+  "initial_assignments": {
+    "agent_a": "ga61",
+    "agent_b": "ga61"
+  },
+  "assignments": {
+    "agent_a": "ga61",
+    "agent_b": "ga62"
+  },
+  "occupancy": {
+    "ga61": [
+      "agent_a"
+    ],
+    "ga62": [
+      "agent_b"
+    ]
+  },
+  "actual_final_conflict_free": true,
+  "attempts": 1,
+  "unregistered_modification": 0
+}

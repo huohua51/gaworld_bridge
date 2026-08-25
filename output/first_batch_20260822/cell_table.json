@@ -1,0 +1,2271 @@
+{
+  "generated_at": "2026-08-22T16:07:33.900707+00:00",
+  "gaworld_root": "/home/wuxingye/projects/GAWorld",
+  "workflows": [
+    {
+      "workflow_id": "contract_interview_001",
+      "requested": 5,
+      "measurement_valid": 5,
+      "coverage": 1.0,
+      "full_pass_rate": 0.4,
+      "mean_task_score": 0.4,
+      "ranking_eligible": true,
+      "cells": [
+        {
+          "workflow_id": "contract_interview_001",
+          "instance_id": "valid_object_json",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "parser callable; raw text captured"
+            },
+            {
+              "gate_id": "json_shape_1to1",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "parsed=3 expected=3"
+            },
+            {
+              "gate_id": "no_prose_fallback",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "structured parse"
+            },
+            {
+              "gate_id": "no_identical_answer_reuse",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "answers differ or n=1"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "each_question_answered",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "q0",
+                "q1",
+                "q2"
+              ],
+              "detail": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"因为地铁更准时。\"}, {\"question\": \"你记得昨天的日程吗？\", \"answer\": \"昨天上午在公司，晚上回家。\"}, {\"question\": \"如果工资降到保留线以下，你还会接受吗？\", \"answer\": \"不会，低于保留工资就拒绝。\"}]"
+            }
+          ],
+          "process_profile": {
+            "parsed_count": 3,
+            "used_fallback": false
+          },
+          "extra": {
+            "raw": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"因为地铁更准时。\"}, {\"question\": \"你记得昨天的日程吗？\", \"answer\": \"昨天上午在公司，晚上回家。\"}, {\"question\": \"如果工资降到保留线以下，你还会接受吗？\", \"answer\": \"不会，低于保留工资就拒绝。\"}]",
+            "parsed": [
+              {
+                "question": "你今天为什么选择这个行动？",
+                "answer": "因为地铁更准时。"
+              },
+              {
+                "question": "你记得昨天的日程吗？",
+                "answer": "昨天上午在公司，晚上回家。"
+              },
+              {
+                "question": "如果工资降到保留线以下，你还会接受吗？",
+                "answer": "不会，低于保留工资就拒绝。"
+              }
+            ]
+          }
+        },
+        {
+          "workflow_id": "contract_interview_001",
+          "instance_id": "valid_pair_array_json",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "parser callable; raw text captured"
+            },
+            {
+              "gate_id": "json_shape_1to1",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "parsed=3 expected=3"
+            },
+            {
+              "gate_id": "no_prose_fallback",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "structured parse"
+            },
+            {
+              "gate_id": "no_identical_answer_reuse",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "answers differ or n=1"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "each_question_answered",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "q0",
+                "q1",
+                "q2"
+              ],
+              "detail": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"先完成已承诺的工作。\"}, {\"question\": \"你记得昨天的日程吗？\", \"answer\": \"记得，早八到晚六。\"}, {\"question\": \"如果工资降到保留线以下，你还会接受吗？\", \"answer\": \"低于底线就拒。\"}]"
+            }
+          ],
+          "process_profile": {
+            "parsed_count": 3,
+            "used_fallback": false
+          },
+          "extra": {
+            "raw": "[[\"你今天为什么选择这个行动？\", \"先完成已承诺的工作。\"], [\"你记得昨天的日程吗？\", \"记得，早八到晚六。\"], [\"如果工资降到保留线以下，你还会接受吗？\", \"低于底线就拒。\"]]",
+            "parsed": [
+              {
+                "question": "你今天为什么选择这个行动？",
+                "answer": "先完成已承诺的工作。"
+              },
+              {
+                "question": "你记得昨天的日程吗？",
+                "answer": "记得，早八到晚六。"
+              },
+              {
+                "question": "如果工资降到保留线以下，你还会接受吗？",
+                "answer": "低于底线就拒。"
+              }
+            ]
+          }
+        },
+        {
+          "workflow_id": "contract_interview_001",
+          "instance_id": "prose_no_json",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "parser callable; raw text captured"
+            },
+            {
+              "gate_id": "json_shape_1to1",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "parsed=0 expected=3"
+            },
+            {
+              "gate_id": "no_prose_fallback",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "parser empty on nonempty prose"
+            },
+            {
+              "gate_id": "no_identical_answer_reuse",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "same answer stamped on every question"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "each_question_answered",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 0.0,
+              "max_score": 1.0,
+              "passed": false,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "[]"
+            }
+          ],
+          "process_profile": {
+            "parsed_count": 0,
+            "used_fallback": false
+          },
+          "extra": {
+            "raw": "我今天心情不错，一切都还好，没有特别的安排。",
+            "parsed": []
+          }
+        },
+        {
+          "workflow_id": "contract_interview_001",
+          "instance_id": "runtime_prose_fallback",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "parser callable; raw text captured"
+            },
+            {
+              "gate_id": "json_shape_1to1",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "parsed=3 expected=3"
+            },
+            {
+              "gate_id": "no_prose_fallback",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "runtime reused one prose blob"
+            },
+            {
+              "gate_id": "no_identical_answer_reuse",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "same answer stamped on every question"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "each_question_answered",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "q0",
+                "q1",
+                "q2"
+              ],
+              "detail": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"我今天心情不错，一切都还好，没有特别的安排。\"}, {\"question\": \"你记得昨天的日程吗？\", \"answer\": \"我今天心情不错，一切都还好，没有特别的安排。\"}, {\"question\": \"如果工资降到保留线以下，你还会接受吗？\", \"answer\": \"我今天心情不错，一切都还好，没有特别的安排。\"}]"
+            }
+          ],
+          "process_profile": {
+            "parsed_count": 3,
+            "used_fallback": true
+          },
+          "extra": {
+            "raw": "我今天心情不错，一切都还好，没有特别的安排。",
+            "parsed": [
+              {
+                "question": "你今天为什么选择这个行动？",
+                "answer": "我今天心情不错，一切都还好，没有特别的安排。"
+              },
+              {
+                "question": "你记得昨天的日程吗？",
+                "answer": "我今天心情不错，一切都还好，没有特别的安排。"
+              },
+              {
+                "question": "如果工资降到保留线以下，你还会接受吗？",
+                "answer": "我今天心情不错，一切都还好，没有特别的安排。"
+              }
+            ]
+          }
+        },
+        {
+          "workflow_id": "contract_interview_001",
+          "instance_id": "partial_missing_answers",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "parser callable; raw text captured"
+            },
+            {
+              "gate_id": "json_shape_1to1",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "parsed=1 expected=3"
+            },
+            {
+              "gate_id": "no_prose_fallback",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "structured parse"
+            },
+            {
+              "gate_id": "no_identical_answer_reuse",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "same answer stamped on every question"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "each_question_answered",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 0.3333333333333333,
+              "max_score": 1.0,
+              "passed": false,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "q0"
+              ],
+              "detail": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"去上班。\"}]"
+            }
+          ],
+          "process_profile": {
+            "parsed_count": 1,
+            "used_fallback": false
+          },
+          "extra": {
+            "raw": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"去上班。\"}, {\"question\": \"你记得昨天的日程吗？\", \"answer\": \"\"}]",
+            "parsed": [
+              {
+                "question": "你今天为什么选择这个行动？",
+                "answer": "去上班。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "requested": 9,
+      "measurement_valid": 9,
+      "coverage": 1.0,
+      "full_pass_rate": 0.4444,
+      "mean_task_score": 0.4444,
+      "ranking_eligible": true,
+      "cells": [
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "content_ok",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=content status=ok"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "['/tmp/gaw_r1_w6pknzqs/art/agent_2/wt_md_article/article.md']"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=17"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "/tmp/gaw_r1_w6pknzqs/art/agent_2/wt_md_article/article.md"
+              ],
+              "detail": "完成文章：demo"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "ok",
+            "error": null,
+            "artifact": [
+              "/tmp/gaw_r1_w6pknzqs/art/agent_2/wt_md_article/article.md"
+            ]
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "content_empty",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=content status=failed"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "[]"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=0"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 0.0,
+              "max_score": 1.0,
+              "passed": false,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "empty markdown"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "failed",
+            "error": "empty markdown",
+            "artifact": []
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "content_placeholder",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=content status=ok"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "['/tmp/gaw_r1_05hfdjxz/art/agent_2/wt_md_article/article.md']"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=32"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "placeholder marker"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "/tmp/gaw_r1_05hfdjxz/art/agent_2/wt_md_article/article.md"
+              ],
+              "detail": "完成文章：demo"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "ok",
+            "error": null,
+            "artifact": [
+              "/tmp/gaw_r1_05hfdjxz/art/agent_2/wt_md_article/article.md"
+            ]
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "content_copy_reference",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=content status=ok"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "['/tmp/gaw_r1_hiixpnp0/art/agent_2/wt_md_article/article.md']"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=61"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "copied hidden reference"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "/tmp/gaw_r1_hiixpnp0/art/agent_2/wt_md_article/article.md"
+              ],
+              "detail": "完成文章：demo"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "ok",
+            "error": null,
+            "artifact": [
+              "/tmp/gaw_r1_hiixpnp0/art/agent_2/wt_md_article/article.md"
+            ]
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "code_ok",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=code status=ok"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "['/tmp/gaw_r1_rky4b0lx/art/agent_2/wt_py_script/main.py']"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=44"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "/tmp/gaw_r1_rky4b0lx/art/agent_2/wt_py_script/main.py"
+              ],
+              "detail": "完成 Python 脚本：demo"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "ok",
+            "error": null,
+            "artifact": [
+              "/tmp/gaw_r1_rky4b0lx/art/agent_2/wt_py_script/main.py"
+            ]
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "code_syntax_fail",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=code status=failed"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "[]"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=0"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 0.0,
+              "max_score": 1.0,
+              "passed": false,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "syntax error: invalid syntax at line 1"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "failed",
+            "error": "syntax error: invalid syntax at line 1",
+            "artifact": []
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "web_html_ok",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=web_design status=ok"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "['/tmp/gaw_r1_xuroi68e/art/agent_2/wt_html_landing/index.html']"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=95"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "/tmp/gaw_r1_xuroi68e/art/agent_2/wt_html_landing/index.html"
+              ],
+              "detail": "完成 HTML 设计稿：完成任务"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "ok",
+            "error": null,
+            "artifact": [
+              "/tmp/gaw_r1_xuroi68e/art/agent_2/wt_html_landing/index.html"
+            ]
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "web_html_invalid",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "artifact_gate_failed",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=web_design status=failed"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "[]"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=0"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 0.0,
+              "max_score": 1.0,
+              "passed": false,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "missing <html> tag"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "failed",
+            "error": "missing <html> tag",
+            "artifact": []
+          }
+        },
+        {
+          "workflow_id": "work_artifact_r1_001",
+          "instance_id": "teaching_ok",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "adapter=teaching status=ok"
+            },
+            {
+              "gate_id": "scorer_executable",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "file existence and text checks"
+            },
+            {
+              "gate_id": "artifact_exists",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "['/tmp/gaw_r1_6nuecy8z/art/agent_2/wt_lesson_plan/lesson_plan.md']"
+            },
+            {
+              "gate_id": "non_empty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "chars=18"
+            },
+            {
+              "gate_id": "not_placeholder",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "clean"
+            },
+            {
+              "gate_id": "not_copy_reference",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "no leak"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "adapter_status_ok",
+              "layer": "R2",
+              "scorer": "exact",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "/tmp/gaw_r1_6nuecy8z/art/agent_2/wt_lesson_plan/lesson_plan.md"
+              ],
+              "detail": "完成教案：demo"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "status": "ok",
+            "error": null,
+            "artifact": [
+              "/tmp/gaw_r1_6nuecy8z/art/agent_2/wt_lesson_plan/lesson_plan.md"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "workflow_id": "compare_event_unique_path_001",
+      "requested": 3,
+      "measurement_valid": 2,
+      "coverage": 0.6667,
+      "full_pass_rate": 1.0,
+      "mean_task_score": 1.0,
+      "ranking_eligible": false,
+      "cells": [
+        {
+          "workflow_id": "compare_event_unique_path_001",
+          "instance_id": "unique_path_only",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "state csv written"
+            },
+            {
+              "gate_id": "unique_intervention_audit",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "only registered path moved or nothing moved"
+            },
+            {
+              "gate_id": "comparison_rows_exist",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "n=3"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "registered_path_changed",
+              "layer": "R2",
+              "scorer": "rule",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "mobility_intent"
+              ],
+              "detail": "{'mobility_intent': 0.5}"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "rows": [
+              {
+                "metric": "mobility_intent",
+                "baseline_final": 0.3,
+                "event_final": 0.8,
+                "delta_final": 0.5,
+                "baseline_mean": 0.3,
+                "event_mean": 0.55,
+                "delta_mean": 0.25000000000000006
+              },
+              {
+                "metric": "emotion",
+                "baseline_final": 0.5,
+                "event_final": 0.5,
+                "delta_final": 0.0,
+                "baseline_mean": 0.55,
+                "event_mean": 0.55,
+                "delta_mean": 0.0
+              },
+              {
+                "metric": "stress",
+                "baseline_final": 0.5,
+                "event_final": 0.5,
+                "delta_final": 0.0,
+                "baseline_mean": 0.45,
+                "event_mean": 0.45,
+                "delta_mean": 0.0
+              }
+            ],
+            "unique_path_ok": true,
+            "leaked_metrics": [],
+            "registered_deltas": {
+              "mobility_intent": 0.5
+            }
+          }
+        },
+        {
+          "workflow_id": "compare_event_unique_path_001",
+          "instance_id": "spillover_unregistered_metrics",
+          "measurement_valid": false,
+          "full_pass": null,
+          "task_score": null,
+          "ranking_eligible": false,
+          "status": "measurement_invalid",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "state csv written"
+            },
+            {
+              "gate_id": "unique_intervention_audit",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "leaked emotion,stress"
+            },
+            {
+              "gate_id": "comparison_rows_exist",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "n=3"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "registered_path_changed",
+              "layer": "R2",
+              "scorer": "rule",
+              "evaluable": false,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "mobility_intent"
+              ],
+              "detail": "{'mobility_intent': 0.5}"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "rows": [
+              {
+                "metric": "mobility_intent",
+                "baseline_final": 0.3,
+                "event_final": 0.8,
+                "delta_final": 0.5,
+                "baseline_mean": 0.3,
+                "event_mean": 0.55,
+                "delta_mean": 0.25000000000000006
+              },
+              {
+                "metric": "emotion",
+                "baseline_final": 0.5,
+                "event_final": 0.2,
+                "delta_final": -0.3,
+                "baseline_mean": 0.55,
+                "event_mean": 0.4,
+                "delta_mean": -0.15000000000000002
+              },
+              {
+                "metric": "stress",
+                "baseline_final": 0.5,
+                "event_final": 0.7,
+                "delta_final": 0.19999999999999996,
+                "baseline_mean": 0.45,
+                "event_mean": 0.55,
+                "delta_mean": 0.10000000000000003
+              }
+            ],
+            "unique_path_ok": false,
+            "leaked_metrics": [
+              {
+                "metric": "emotion",
+                "delta_final": -0.3
+              },
+              {
+                "metric": "stress",
+                "delta_final": 0.19999999999999996
+              }
+            ],
+            "registered_deltas": {
+              "mobility_intent": 0.5
+            }
+          }
+        },
+        {
+          "workflow_id": "compare_event_unique_path_001",
+          "instance_id": "null_no_change",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "state csv written"
+            },
+            {
+              "gate_id": "unique_intervention_audit",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "only registered path moved or nothing moved"
+            },
+            {
+              "gate_id": "comparison_rows_exist",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "n=3"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "registered_path_changed",
+              "layer": "R2",
+              "scorer": "rule",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "mobility_intent"
+              ],
+              "detail": "{'mobility_intent': 0.0}"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "rows": [
+              {
+                "metric": "emotion",
+                "baseline_final": 0.5,
+                "event_final": 0.5,
+                "delta_final": 0.0,
+                "baseline_mean": 0.55,
+                "event_mean": 0.55,
+                "delta_mean": 0.0
+              },
+              {
+                "metric": "mobility_intent",
+                "baseline_final": 0.3,
+                "event_final": 0.3,
+                "delta_final": 0.0,
+                "baseline_mean": 0.3,
+                "event_mean": 0.3,
+                "delta_mean": 0.0
+              },
+              {
+                "metric": "stress",
+                "baseline_final": 0.5,
+                "event_final": 0.5,
+                "delta_final": 0.0,
+                "baseline_mean": 0.45,
+                "event_mean": 0.45,
+                "delta_mean": 0.0
+              }
+            ],
+            "unique_path_ok": true,
+            "leaked_metrics": [],
+            "registered_deltas": {
+              "mobility_intent": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "workflow_id": "causal_diagnostic_suite_001",
+      "requested": 3,
+      "measurement_valid": 2,
+      "coverage": 0.6667,
+      "full_pass_rate": 0.5,
+      "mean_task_score": 0.5,
+      "ranking_eligible": false,
+      "cells": [
+        {
+          "workflow_id": "causal_diagnostic_suite_001",
+          "instance_id": "capable_traces",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "batch=capable_traces"
+            },
+            {
+              "gate_id": "pair_coverage",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "coverage=1.0"
+            },
+            {
+              "gate_id": "target_action_present",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": ""
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "macro_strict_pair",
+              "layer": "R2",
+              "scorer": "exact_pair",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "trust_reciprocity_scale_001",
+                "reservation_wage_apply_001"
+              ],
+              "detail": "ranking_eligible=True"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+            "batch_id": "gaworld-rubric-pilot-capable",
+            "requested_pairs": 2,
+            "evaluable_pairs": 2,
+            "pair_coverage": 1.0,
+            "macro_pair_accuracy": 1.0,
+            "ranking_eligible": true,
+            "pairs": [
+              {
+                "pair_id": "trust_reciprocity_scale_001",
+                "source_scale": "Berg Trust Game + Yamagishi general trust item",
+                "evaluable": true,
+                "pair_accuracy": 1,
+                "control": {
+                  "variant": "control",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": 10,
+                  "oracle": {
+                    "return_amount": 10,
+                    "comparator": "gte"
+                  },
+                  "success": 1
+                },
+                "intervention": {
+                  "variant": "intervention",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": 0,
+                  "oracle": {
+                    "return_amount": 0,
+                    "comparator": "eq"
+                  },
+                  "success": 1
+                }
+              },
+              {
+                "pair_id": "reservation_wage_apply_001",
+                "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+                "evaluable": true,
+                "pair_accuracy": 1,
+                "control": {
+                  "variant": "control",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": "accept",
+                  "oracle": {
+                    "decision": "accept"
+                  },
+                  "success": 1
+                },
+                "intervention": {
+                  "variant": "intervention",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": "reject",
+                  "oracle": {
+                    "decision": "reject"
+                  },
+                  "success": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "workflow_id": "causal_diagnostic_suite_001",
+          "instance_id": "locked_yes_traces",
+          "measurement_valid": true,
+          "full_pass": 0,
+          "task_score": 0.0,
+          "ranking_eligible": true,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "batch=locked_yes_traces"
+            },
+            {
+              "gate_id": "pair_coverage",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "coverage=1.0"
+            },
+            {
+              "gate_id": "target_action_present",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": ""
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "macro_strict_pair",
+              "layer": "R2",
+              "scorer": "exact_pair",
+              "evaluable": true,
+              "score": 0.0,
+              "max_score": 1.0,
+              "passed": false,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "trust_reciprocity_scale_001",
+                "reservation_wage_apply_001"
+              ],
+              "detail": "ranking_eligible=True"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+            "batch_id": "gaworld-rubric-pilot-locked",
+            "requested_pairs": 2,
+            "evaluable_pairs": 2,
+            "pair_coverage": 1.0,
+            "macro_pair_accuracy": 0.0,
+            "ranking_eligible": true,
+            "pairs": [
+              {
+                "pair_id": "trust_reciprocity_scale_001",
+                "source_scale": "Berg Trust Game + Yamagishi general trust item",
+                "evaluable": true,
+                "pair_accuracy": 0,
+                "control": {
+                  "variant": "control",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": 10,
+                  "oracle": {
+                    "return_amount": 10,
+                    "comparator": "gte"
+                  },
+                  "success": 1
+                },
+                "intervention": {
+                  "variant": "intervention",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": 10,
+                  "oracle": {
+                    "return_amount": 0,
+                    "comparator": "eq"
+                  },
+                  "success": 0
+                }
+              },
+              {
+                "pair_id": "reservation_wage_apply_001",
+                "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+                "evaluable": true,
+                "pair_accuracy": 0,
+                "control": {
+                  "variant": "control",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": "accept",
+                  "oracle": {
+                    "decision": "accept"
+                  },
+                  "success": 1
+                },
+                "intervention": {
+                  "variant": "intervention",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": "accept",
+                  "oracle": {
+                    "decision": "reject"
+                  },
+                  "success": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "workflow_id": "causal_diagnostic_suite_001",
+          "instance_id": "missing_target_action",
+          "measurement_valid": false,
+          "full_pass": null,
+          "task_score": null,
+          "ranking_eligible": false,
+          "status": "measurement_invalid",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "batch=missing_target_action"
+            },
+            {
+              "gate_id": "pair_coverage",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "coverage=0.5"
+            },
+            {
+              "gate_id": "target_action_present",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": ""
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "macro_strict_pair",
+              "layer": "R2",
+              "scorer": "exact_pair",
+              "evaluable": false,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "trust_reciprocity_scale_001",
+                "reservation_wage_apply_001"
+              ],
+              "detail": "ranking_eligible=False"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+            "batch_id": "missing_target_action",
+            "requested_pairs": 2,
+            "evaluable_pairs": 1,
+            "pair_coverage": 0.5,
+            "macro_pair_accuracy": 1.0,
+            "ranking_eligible": false,
+            "pairs": [
+              {
+                "pair_id": "trust_reciprocity_scale_001",
+                "source_scale": "Berg Trust Game + Yamagishi general trust item",
+                "evaluable": false,
+                "pair_accuracy": null,
+                "control": {
+                  "variant": "control",
+                  "observed": false,
+                  "domain_ok": false,
+                  "evaluable": false,
+                  "prediction": null,
+                  "oracle": {
+                    "return_amount": 10,
+                    "comparator": "gte"
+                  },
+                  "success": null
+                },
+                "intervention": {
+                  "variant": "intervention",
+                  "observed": false,
+                  "domain_ok": false,
+                  "evaluable": false,
+                  "prediction": null,
+                  "oracle": {
+                    "return_amount": 0,
+                    "comparator": "eq"
+                  },
+                  "success": null
+                }
+              },
+              {
+                "pair_id": "reservation_wage_apply_001",
+                "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+                "evaluable": true,
+                "pair_accuracy": 1,
+                "control": {
+                  "variant": "control",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": "accept",
+                  "oracle": {
+                    "decision": "accept"
+                  },
+                  "success": 1
+                },
+                "intervention": {
+                  "variant": "intervention",
+                  "observed": true,
+                  "domain_ok": true,
+                  "evaluable": true,
+                  "prediction": "reject",
+                  "oracle": {
+                    "decision": "reject"
+                  },
+                  "success": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "note": "WorkDiag 18 + SocietyDiag 16 pairs remain an external Causal Diagnostic Suite; they are not re-run inside GAWorld this batch."
+    },
+    {
+      "workflow_id": "life_history_mock_score_001",
+      "requested": 1,
+      "measurement_valid": 0,
+      "coverage": 0.0,
+      "full_pass_rate": null,
+      "mean_task_score": null,
+      "ranking_eligible": false,
+      "cells": [
+        {
+          "workflow_id": "life_history_mock_score_001",
+          "instance_id": "agent52_mock_humanscore",
+          "measurement_valid": false,
+          "full_pass": null,
+          "task_score": null,
+          "ranking_eligible": false,
+          "status": "measurement_invalid",
+          "gates": [
+            {
+              "gate_id": "human_reference_eligibility",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "scores come from create_mock_scores(), not a matched human sample"
+            },
+            {
+              "gate_id": "trace_bound_scorer",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "LifeHistoryEvaluator does not read canonical_trace"
+            },
+            {
+              "gate_id": "engine_in_main_loop",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "LifeHistoryEngine is not wired into the main simulator"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "mock_score_detected",
+              "layer": "R2",
+              "scorer": "rule",
+              "evaluable": false,
+              "score": null,
+              "max_score": 1.0,
+              "passed": null,
+              "critical": false,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "raw HumanScore retained as diagnostic only"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "mock_scores": {
+              "memory_score": {
+                "raw": 19,
+                "max": 30,
+                "percentage": 63.3,
+                "sub_scores": {
+                  "recall_accuracy": 7,
+                  "consistency": 7,
+                  "recency_effect": 5
+                }
+              },
+              "personality_score": {
+                "raw": 16,
+                "max": 25,
+                "percentage": 64.0,
+                "sub_scores": {
+                  "personality_consistency": 8,
+                  "role_stability": 5,
+                  "background_coverage": 3
+                }
+              },
+              "affect_score": {
+                "raw": 12,
+                "max": 20,
+                "percentage": 60.0,
+                "sub_scores": {
+                  "emotion_wave": 6,
+                  "emotional_memory": 3,
+                  "expression_diversity": 3
+                }
+              },
+              "bounded_rationality_score": {
+                "raw": 8,
+                "max": 15,
+                "percentage": 53.3,
+                "sub_scores": {
+                  "decision_diversity": 4,
+                  "uncertainty_expression": 2,
+                  "bounded_options": 2
+                }
+              },
+              "learning_score": {
+                "raw": 5,
+                "max": 10,
+                "percentage": 50.0,
+                "sub_scores": {
+                  "behavior_drift_detection": 3,
+                  "learning_from_error": 1,
+                  "preference_adaptation": 1
+                }
+              },
+              "relationship_score": {
+                "raw": 4,
+                "max": 20,
+                "percentage": 20.0,
+                "sub_scores": {
+                  "relationship_tracking": 2,
+                  "trust_evolution": 1,
+                  "conflict_resolution": 1
+                }
+              }
+            },
+            "uses_mock": true,
+            "engine_wired": false,
+            "ranking_eligible": false
+          }
+        }
+      ],
+      "human_fidelity_status": "diagnostic"
+    },
+    {
+      "workflow_id": "eval_mode_environment_001",
+      "requested": 1,
+      "measurement_valid": 0,
+      "coverage": 0.0,
+      "full_pass_rate": null,
+      "mean_task_score": null,
+      "ranking_eligible": false,
+      "cells": [
+        {
+          "workflow_id": "eval_mode_environment_001",
+          "instance_id": "current_default_config",
+          "measurement_valid": false,
+          "full_pass": null,
+          "task_score": null,
+          "ranking_eligible": false,
+          "status": "measurement_invalid",
+          "gates": [
+            {
+              "gate_id": "eval_mode_declared",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "no eval_mode key in CONFIG"
+            },
+            {
+              "gate_id": "default_config_does_not_rewrite",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "dynamic_behavior.enabled=True"
+            },
+            {
+              "gate_id": "disable_flag_freezes_activity",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "{'changed': False, 'activity': '工作'}"
+            },
+            {
+              "gate_id": "interview_has_no_prose_fallback",
+              "passed": false,
+              "critical": true,
+              "layer": "R1",
+              "detail": "interview_agent pastes one prose blob onto every question on parse failure"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "rewrite_detectable",
+              "layer": "R3",
+              "scorer": "rule",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": false,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "{'enabled_changed': True, 'enabled_activity': '找点吃的', 'reason': '肚子有点占据注意力，想先找点吃的。(hunger=0.95)'}"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "dynamic_behavior_enabled": true,
+            "has_eval_mode": false,
+            "rewrite_when_enabled": {
+              "activity": "找点吃的",
+              "changed": true,
+              "reason": "肚子有点占据注意力，想先找点吃的。(hunger=0.95)",
+              "interrupt": {
+                "source": "need",
+                "kind": "hunger",
+                "activity": "找点吃的",
+                "reason": "肚子有点占据注意力，想先找点吃的。(hunger=0.95)",
+                "priority": 0.745,
+                "duration_minutes": 22,
+                "resumable": true,
+                "mood_delta": 0.02,
+                "extra": {}
+              },
+              "social_encounters": [],
+              "mood_delta": 0.02,
+              "schedule_insert": {
+                "insert_time": "12:00",
+                "activity": "找点吃的",
+                "duration_minutes": 22,
+                "original_activity": "工作"
+              },
+              "all_candidates": 4,
+              "cascade_events": []
+            },
+            "frozen_when_disabled": {
+              "activity": "工作",
+              "changed": false,
+              "reason": "",
+              "interrupt": null,
+              "social_encounters": [],
+              "mood_delta": 0.0,
+              "schedule_insert": null,
+              "all_candidates": 0,
+              "cascade_events": []
+            },
+            "has_prose_fallback": true
+          }
+        }
+      ]
+    },
+    {
+      "workflow_id": "capability_quiz_not_workflow_001",
+      "requested": 1,
+      "measurement_valid": 0,
+      "coverage": 0.0,
+      "full_pass_rate": null,
+      "mean_task_score": null,
+      "ranking_eligible": false,
+      "cells": [
+        {
+          "workflow_id": "capability_quiz_not_workflow_001",
+          "instance_id": "question_bank_inspect",
+          "measurement_valid": false,
+          "full_pass": null,
+          "task_score": null,
+          "ranking_eligible": false,
+          "status": "measurement_invalid",
+          "gates": [
+            {
+              "gate_id": "workflow_verifiability",
+              "passed": false,
+              "critical": true,
+              "layer": "R0",
+              "detail": "items are arithmetic/analogy/working-memory quizzes, not GAWorld deliverables"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "not_task_competence",
+              "layer": "R2",
+              "scorer": "rule",
+              "evaluable": false,
+              "score": null,
+              "max_score": 1.0,
+              "passed": null,
+              "critical": false,
+              "weight": 1.0,
+              "evidence_ids": [],
+              "detail": "do not promote this bank into P1 Workflow Performance"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "n_items": 8,
+            "dimensions": [
+              "logic",
+              "numerical",
+              "pattern",
+              "planning",
+              "reading",
+              "temporal",
+              "verbal",
+              "working_memory"
+            ]
+          }
+        }
+      ],
+      "status": "placeholder"
+    },
+    {
+      "workflow_id": "sim_smoke_mock_llm_001",
+      "requested": 1,
+      "measurement_valid": 1,
+      "coverage": 1.0,
+      "full_pass_rate": 1.0,
+      "mean_task_score": 1.0,
+      "ranking_eligible": false,
+      "cells": [
+        {
+          "workflow_id": "sim_smoke_mock_llm_001",
+          "instance_id": "seed_agents_4_5_day1_mock",
+          "measurement_valid": true,
+          "full_pass": 1,
+          "task_score": 1.0,
+          "ranking_eligible": false,
+          "status": "scored",
+          "gates": [
+            {
+              "gate_id": "execution_valid",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "run_simulation returned"
+            },
+            {
+              "gate_id": "trace_logs_present",
+              "passed": true,
+              "critical": true,
+              "layer": "R0",
+              "detail": "{4: True, 5: True}"
+            },
+            {
+              "gate_id": "per_agent_log_nonempty",
+              "passed": true,
+              "critical": true,
+              "layer": "R1",
+              "detail": "{4: True, 5: True}"
+            }
+          ],
+          "criteria": [
+            {
+              "criterion_id": "canonical_llm_tasks_dispatched",
+              "layer": "R2",
+              "scorer": "set",
+              "evaluable": true,
+              "score": 1.0,
+              "max_score": 1.0,
+              "passed": true,
+              "critical": true,
+              "weight": 1.0,
+              "evidence_ids": [
+                "actions",
+                "daily_diary",
+                "daily_routine",
+                "location_actions",
+                "perception",
+                "planning",
+                "reflection",
+                "schedule",
+                "summary",
+                "weekend_routine"
+              ],
+              "detail": "tasks=['actions', 'daily_diary', 'daily_routine', 'location_actions', 'perception', 'planning', 'reflection', 'schedule', 'summary', 'weekend_routine']"
+            }
+          ],
+          "process_profile": {},
+          "extra": {
+            "tasks_seen": [
+              "actions",
+              "daily_diary",
+              "daily_routine",
+              "location_actions",
+              "perception",
+              "planning",
+              "reflection",
+              "schedule",
+              "summary",
+              "weekend_routine"
+            ],
+            "output_files": [
+              "output/diaries/agent_4/day_001.md",
+              "output/diaries/agent_5/day_001.md",
+              "output/economy/agents/agent_4_ledger.csv",
+              "output/economy/agents/agent_4_snapshot.json",
+              "output/economy/agents/agent_5_ledger.csv",
+              "output/economy/agents/agent_5_snapshot.json",
+              "output/economy/daily_ledger.csv",
+              "output/economy/macro_state.json",
+              "output/economy/wealth_snapshot.csv",
+              "output/environment/timeline.jsonl",
+              "output/life_events/events.lock",
+              "output/logs/agent_4.log",
+              "output/logs/agent_5.log",
+              "output/memory/agent_4.json",
+              "output/memory/agent_4_actions.json",
+              "output/memory/agent_4_location_action_bias.json",
+              "output/memory/agent_4_schedule.json",
+              "output/memory/agent_5.json",
+              "output/memory/agent_5_actions.json",
+              "output/memory/agent_5_location_action_bias.json",
+              "output/memory/agent_5_schedule.json",
+              "output/memory/vector_db.sqlite",
+              "output/memory/vector_db.sqlite-shm",
+              "output/memory/vector_db.sqlite-wal",
+              "output/network/social_network.png",
+              "output/state/agent_state_history.csv",
+              "output/state/agent_state_over_time.png"
+            ],
+            "output_file_count": 27,
+            "workdir": "/tmp/gaw_smoke_7271cjc7",
+            "note": "Mock LLM Execution Validity only; not a model ranking cell"
+          }
+        }
+      ],
+      "status": "calibration"
+    }
+  ],
+  "packages": {
+    "P0_measurement_integrity": {
+      "question": "这次到底测没测到？",
+      "items": {
+        "platform_pytest": false,
+        "interview_contract": 0.4,
+        "eval_mode_exists": null,
+        "life_history_ranking_eligible": false
+      },
+      "cross_pack_sum_allowed": false
+    },
+    "P1_workflow_performance": {
+      "question": "任务本身做成了吗？",
+      "items": {
+        "work_artifact_r1": 0.4444,
+        "sim_smoke": 1.0
+      },
+      "cross_pack_sum_allowed": false
+    },
+    "P2_causal_adaptation": {
+      "question": "唯一条件改变时会正确改手吗？",
+      "items": {
+        "unique_path_audit": 1.0,
+        "scale_rubric_pairs": 0.5
+      },
+      "cross_pack_sum_allowed": false
+    },
+    "P3_system_robustness": {
+      "question": "局部会做，放进全流程还会吗？",
+      "status": "not_run",
+      "reason": "No Focused/E2E dual-track TaskSpec inside GAWorld yet; v0.3 remains external pilot"
+    },
+    "P4_multiagent_process": {
+      "question": "多 Agent 是否真的带来分工与协调？",
+      "status": "not_run",
+      "reason": "TMS / collective replanning need environment primitives GAWorld does not have"
+    },
+    "P5_human_fidelity": {
+      "question": "是否在指定层级复现匹配人类？",
+      "status": "diagnostic",
+      "ranking_eligible": false,
+      "items": {
+        "life_history_mock": false,
+        "capability_quiz": false,
+        "mobility_jsd_external": false
+      }
+    }
+  },
+  "planned_not_run": [
+    {
+      "workflow_id": "tms_expert_handoff_001",
+      "status": "planned",
+      "reason": "GAWorld has no private v2 owner, publish permission, or request-ack-verify event chain"
+    },
+    {
+      "workflow_id": "collective_replanning_001",
+      "status": "planned",
+      "reason": "GAWorld map is activity/location, not a replayable road graph with vehicles and deadlines"
+    },
+    {
+      "workflow_id": "human_fidelity_svo_society_001",
+      "status": "planned",
+      "reason": "SocietyDiag traces live outside GAWorld; no matched human sample in this repo"
+    }
+  ],
+  "external_registry": [
+    {
+      "batch": "WorkDiag v0.2 focused",
+      "packages": [
+        "P0",
+        "P1",
+        "P2"
+      ],
+      "status": "formal",
+      "host": "YuLan-OneSim",
+      "note": "Not re-run inside GAWorld. Macro Pair ranking stays on the occupational card."
+    },
+    {
+      "batch": "WorkDiag v0.3 Seed 0 dual-track",
+      "packages": [
+        "P0",
+        "P1",
+        "P3"
+      ],
+      "status": "pilot",
+      "host": "YuLan-OneSim",
+      "note": "EPG/TDG remain unfrozen. Do not mix with v0.2 Pair means."
+    },
+    {
+      "batch": "SocietyDiag v0.2 games",
+      "packages": [
+        "P0",
+        "P1",
+        "P2"
+      ],
+      "status": "formal",
+      "host": "AgentSociety",
+      "note": "Historical PairVariantMean. Capability Oracle, not Human Fidelity."
+    },
+    {
+      "batch": "SocietyDiag mobility no_shock",
+      "packages": [
+        "P5"
+      ],
+      "status": "diagnostic",
+      "host": "AgentSociety",
+      "note": "JSD 45.15 ranking_eligible=false; sample/slot mismatch."
+    }
+  ],
+  "platform_pytest": {
+    "command": [
+      "/home/wuxingye/miniconda3/bin/python3",
+      "-m",
+      "pytest",
+      "tests",
+      "-q",
+      "--tb=no"
+    ],
+    "returncode": 1,
+    "stdout_tail": "APH-8FDC}) missing from font(s) DejaVu Sans.\n    fig.tight_layout(rect=[0, 0, 1, 0.96])\n\ntests/test_e2e_smoke.py::TestRunSimulationSmoke::test_run_one_day_two_agents\n  /home/wuxingye/projects/GAWorld/generative_city_sim.py:1306: UserWarning: Glyph 35768 (\\N{CJK UNIFIED IDEOGRAPH-8BB8}) missing from font(s) DejaVu Sans.\n    plt.savefig(out_path, dpi=200)\n\ntests/test_e2e_smoke.py::TestRunSimulationSmoke::test_run_one_day_two_agents\n  /home/wuxingye/projects/GAWorld/generative_city_sim.py:1306: UserWarning: Glyph 26364 (\\N{CJK UNIFIED IDEOGRAPH-66FC}) missing from font(s) DejaVu Sans.\n    plt.savefig(out_path, dpi=200)\n\ntests/test_e2e_smoke.py::TestRunSimulationSmoke::test_run_one_day_two_agents\n  /home/wuxingye/projects/GAWorld/generative_city_sim.py:1306: UserWarning: Glyph 23159 (\\N{CJK UNIFIED IDEOGRAPH-5A77}) missing from font(s) DejaVu Sans.\n    plt.savefig(out_path, dpi=200)\n\ntests/test_e2e_smoke.py::TestRunSimulationSmoke::test_run_one_day_two_agents\n  /home/wuxingye/projects/GAWorld/generative_city_sim.py:1306: UserWarning: Glyph 29579 (\\N{CJK UNIFIED IDEOGRAPH-738B}) missing from font(s) DejaVu Sans.\n    plt.savefig(out_path, dpi=200)\n\ntests/test_e2e_smoke.py::TestRunSimulationSmoke::test_run_one_day_two_agents\n  /home/wuxingye/projects/GAWorld/generative_city_sim.py:1306: UserWarning: Glyph 24605 (\\N{CJK UNIFIED IDEOGRAPH-601D}) missing from font(s) DejaVu Sans.\n    plt.savefig(out_path, dpi=200)\n\ntests/test_e2e_smoke.py::TestRunSimulationSmoke::test_run_one_day_two_agents\n  /home/wuxingye/projects/GAWorld/generative_city_sim.py:1306: UserWarning: Glyph 36828 (\\N{CJK UNIFIED IDEOGRAPH-8FDC}) missing from font(s) DejaVu Sans.\n    plt.savefig(out_path, dpi=200)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_profile_context_diversity.py::TestPlanActionDiversity::test_li_vs_zhou_planning_differs\n1 failed, 337 passed, 12 warnings in 13.07s\n",
+    "stderr_tail": "",
+    "passed": false
+  },
+  "errors": []
+}

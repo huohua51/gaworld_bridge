@@ -1,0 +1,6 @@
+{
+  "action": "request_revision",
+  "target": "SPEC_VERSION",
+  "required_value": 2,
+  "evidence_id": "evidence-queue-002"
+}

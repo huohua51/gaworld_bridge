@@ -1,0 +1,10 @@
+id: l1res_mail_sort_001
+title: 三阶段信件分拣
+interrupt_token: worker_a_offline_mail_v1
+steps:
+  - id: mail_in11
+    title: 收件
+  - id: mail_bin12
+    title: 分格
+  - id: mail_seal13
+    title: 封袋

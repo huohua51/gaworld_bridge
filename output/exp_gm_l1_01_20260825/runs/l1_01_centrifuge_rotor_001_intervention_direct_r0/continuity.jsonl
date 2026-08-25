@@ -1,0 +1,18 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_centrifuge_rotor_001_intervention_direct_r0/centrifuge_world.json", "index": 1}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_centrifuge_rotor_001_intervention_direct_r0/centrifuge_world.json", "index": 2}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 3}
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "rotor_cf21", "output": {"serial": "CF-21-K", "status": "pass", "torque_ncm": 38}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "rotor_cf22", "output": {"serial": "CF-22-M", "status": "pass", "torque_ncm": 41}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "rotor_cf23", "output": {"serial": "CF-23-P", "status": "hold", "torque_ncm": 29}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_centrifuge_rotor_001_intervention_direct_r0/centrifuge_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_centrifuge_rotor_001_intervention_direct_r0/centrifuge_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "rotor_cf21", "output": {"serial": "CF-21-K", "status": "pass", "torque_ncm": 38}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "rotor_cf22", "output": {"serial": "CF-22-M", "status": "pass", "torque_ncm": 41}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "rotor_cf23", "output": {"serial": "CF-23-P", "status": "hold", "torque_ncm": 29}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_centrifuge_rotor_001_intervention_direct_r0/centrifuge_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_centrifuge_rotor_001_intervention_direct_r0/centrifuge_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

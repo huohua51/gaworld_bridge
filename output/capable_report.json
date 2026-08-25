@@ -1,0 +1,69 @@
+{
+  "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+  "batch_id": "gaworld-rubric-pilot-capable",
+  "requested_pairs": 2,
+  "evaluable_pairs": 2,
+  "pair_coverage": 1.0,
+  "macro_pair_accuracy": 1.0,
+  "ranking_eligible": true,
+  "pairs": [
+    {
+      "pair_id": "trust_reciprocity_scale_001",
+      "source_scale": "Berg Trust Game + Yamagishi general trust item",
+      "evaluable": true,
+      "pair_accuracy": 1,
+      "control": {
+        "variant": "control",
+        "observed": true,
+        "domain_ok": true,
+        "evaluable": true,
+        "prediction": 10,
+        "oracle": {
+          "return_amount": 10,
+          "comparator": "gte"
+        },
+        "success": 1
+      },
+      "intervention": {
+        "variant": "intervention",
+        "observed": true,
+        "domain_ok": true,
+        "evaluable": true,
+        "prediction": 0,
+        "oracle": {
+          "return_amount": 0,
+          "comparator": "eq"
+        },
+        "success": 1
+      }
+    },
+    {
+      "pair_id": "reservation_wage_apply_001",
+      "source_scale": "Labor-economics reservation wage (not a Likert employability scale)",
+      "evaluable": true,
+      "pair_accuracy": 1,
+      "control": {
+        "variant": "control",
+        "observed": true,
+        "domain_ok": true,
+        "evaluable": true,
+        "prediction": "accept",
+        "oracle": {
+          "decision": "accept"
+        },
+        "success": 1
+      },
+      "intervention": {
+        "variant": "intervention",
+        "observed": true,
+        "domain_ok": true,
+        "evaluable": true,
+        "prediction": "reject",
+        "oracle": {
+          "decision": "reject"
+        },
+        "success": 1
+      }
+    }
+  ]
+}

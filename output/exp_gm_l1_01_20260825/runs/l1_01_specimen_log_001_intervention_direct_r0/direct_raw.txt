@@ -1,0 +1,3 @@
+```json
+{"steps": {"verify_sp71": {}, "archive_sp71": {"bin": "AR-29"}}}
+```

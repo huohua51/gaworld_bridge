@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_ho_battery_pct_001",
+  "variant": "control",
+  "repeat_id": 0,
+  "sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】陈可\n【职业】后台开发\n【任务】写 battery_ok\n【简报】电量百分比达到或超过 MIN_BATTERY 时 battery_ok 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 MIN_BATTERY。函数签名 battery_ok(pct)。 不要输出 Markdown 围栏。 常量 MIN_BATTERY = 20。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77",
+  "draft_has_v2_tokens": []
+}

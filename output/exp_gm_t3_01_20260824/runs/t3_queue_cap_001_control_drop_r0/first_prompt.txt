@@ -1,0 +1,5 @@
+【工程师】林晓
+【职业】后台开发
+【任务】写 can_join
+【简报】当前排队人数严格小于 QUEUE_CAP 时 can_join 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 QUEUE_CAP。函数签名 can_join(length)。 不要输出 Markdown 围栏。 常量 QUEUE_CAP = 50。SPEC_VERSION = "v1"。
+只输出完整 Python 源码。

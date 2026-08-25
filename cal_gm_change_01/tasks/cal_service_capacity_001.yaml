@@ -1,0 +1,6 @@
+id: cal_service_capacity_001
+title: 服务容量
+path: service_capacity
+current: 40
+control_required: 40
+intervention_required: 35

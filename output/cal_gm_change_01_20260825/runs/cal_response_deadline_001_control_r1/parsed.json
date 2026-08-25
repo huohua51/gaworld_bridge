@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "response_deadline",
+    "observed": 30,
+    "required": 30
+  },
+  "required_change": null
+}

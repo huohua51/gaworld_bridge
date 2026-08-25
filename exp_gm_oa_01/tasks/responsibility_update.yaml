@@ -1,0 +1,16 @@
+id: responsibility_update
+title: 原负责人是否仍然可用
+state_key: assignee_available
+target: assignee_id
+original_assignee: assignee-01
+backup_assignee: backup-01
+control:
+  assignee_available: true
+  description: 原负责人 assignee-01 仍然可用。
+intervention:
+  assignee_available: false
+  description: 原负责人 assignee-01 不可用。
+rule: >
+  原负责人可用时保持原分工。
+  原负责人不可用时改由备用人员 backup-01 负责。
+  不要在原负责人仍可用时换人。

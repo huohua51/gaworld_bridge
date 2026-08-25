@@ -1,0 +1,8 @@
+{"event": "initial_saved", "assignments": {"agent_a": "ic81", "agent_b": "ic82"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "ic81"}
+{"event": "registered_constraints_inspected", "violations": []}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "ic81", "agent_b": "ic83"}, "violations": [{"type": "not_earliest_feasible_idle", "agent": "B"}]}
+{"event": "initial_saved", "assignments": {"agent_a": "ic81", "agent_b": "ic82"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "ic81"}
+{"event": "registered_constraints_inspected", "violations": []}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "ic81", "agent_b": "ic83"}, "violations": [{"type": "not_earliest_feasible_idle", "agent": "B"}]}

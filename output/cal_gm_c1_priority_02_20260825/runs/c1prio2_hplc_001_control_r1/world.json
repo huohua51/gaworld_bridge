@@ -1,0 +1,21 @@
+{
+  "initial_assignments": {
+    "agent_a": "hc51",
+    "agent_b": "hc52"
+  },
+  "assignments": {
+    "agent_a": "hc51",
+    "agent_b": "hc52"
+  },
+  "occupancy": {
+    "hc51": [
+      "agent_a"
+    ],
+    "hc52": [
+      "agent_b"
+    ]
+  },
+  "actual_final_conflict_free": true,
+  "attempts": 1,
+  "unregistered_modification": 0
+}

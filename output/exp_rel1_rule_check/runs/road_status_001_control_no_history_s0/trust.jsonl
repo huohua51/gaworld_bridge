@@ -1,0 +1,12 @@
+{"ts": 1787551408.757299, "event": "agent_bound", "task_id": "road_status_001_control_no_history_s0", "agent": {"relationships": {}, "current_day": 1}}
+{"ts": 1787551408.7573566, "event": "history_put", "task_id": "road_status_001_control_no_history_s0", "rounds": []}
+{"ts": 1787551408.757393, "event": "private_put", "task_id": "road_status_001_control_no_history_s0", "role": "dispatcher", "payload": {"rule": "若采用的信任状态是 main_open，提交 main_route；若是 main_closed，提交 alternate_route。", "action": "submit_route"}}
+{"ts": 1787551408.7574315, "event": "current_sent", "task_id": "road_status_001_control_no_history_s0", "message": {"message_id": "cur-msg-road_status_001_control_no_history_s0-1", "person_id": "neighbor_lin", "reported_state": "main_open", "observer_id": 1}}
+{"ts": 1787551408.757465, "event": "current_sent", "task_id": "road_status_001_control_no_history_s0", "message": {"message_id": "cur-msg-road_status_001_control_no_history_s0-2", "person_id": "passer_wu", "reported_state": "main_closed", "observer_id": 1}}
+{"ts": 1787551408.757497, "event": "current_to_dispatcher", "task_id": "road_status_001_control_no_history_s0", "messages": [{"message_id": "cur-msg-road_status_001_control_no_history_s0-1", "person_id": "neighbor_lin", "reported_state": "main_open", "observer_id": 1}, {"message_id": "cur-msg-road_status_001_control_no_history_s0-2", "person_id": "passer_wu", "reported_state": "main_closed", "observer_id": 1}]}
+{"ts": 1787551408.75753, "event": "history_read", "task_id": "road_status_001_control_no_history_s0", "n": 0}
+{"ts": 1787551408.7575605, "event": "denied", "ok": false, "reason": "history_not_available", "task_id": "road_status_001_control_no_history_s0"}
+{"ts": 1787551408.7575977, "event": "current_to_dispatcher", "task_id": "road_status_001_control_no_history_s0", "messages": [{"message_id": "cur-msg-road_status_001_control_no_history_s0-1", "person_id": "neighbor_lin", "reported_state": "main_open", "observer_id": 1}, {"message_id": "cur-msg-road_status_001_control_no_history_s0-2", "person_id": "passer_wu", "reported_state": "main_closed", "observer_id": 1}]}
+{"ts": 1787551408.7576294, "event": "history_read", "task_id": "road_status_001_control_no_history_s0", "n": 0}
+{"ts": 1787551408.757658, "event": "denied", "ok": false, "reason": "history_not_available", "task_id": "road_status_001_control_no_history_s0"}
+{"ts": 1787551408.7577014, "event": "inbox_read", "task_id": "road_status_001_control_no_history_s0", "n": 0}

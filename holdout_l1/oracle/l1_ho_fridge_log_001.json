@@ -1,0 +1,50 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "fridge_by21": "worker_a",
+      "fridge_by22": "worker_a",
+      "fridge_by23": "worker_a"
+    },
+    "outputs": {
+      "fridge_by21": {
+        "bay": "F-4",
+        "celsius": -18
+      },
+      "fridge_by22": {
+        "bay": "F-5",
+        "celsius": -22
+      },
+      "fridge_by23": {
+        "bay": "F-6",
+        "celsius": -20
+      }
+    },
+    "resume_step": "fridge_by22",
+    "interrupt_after": "fridge_by21"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "fridge_by21": "worker_a",
+      "fridge_by22": "worker_b",
+      "fridge_by23": "worker_b"
+    },
+    "outputs": {
+      "fridge_by21": {
+        "bay": "F-4",
+        "celsius": -18
+      },
+      "fridge_by22": {
+        "bay": "F-5",
+        "celsius": -22
+      },
+      "fridge_by23": {
+        "bay": "F-6",
+        "celsius": -20
+      }
+    },
+    "resume_step": "fridge_by22",
+    "interrupt_after": "fridge_by21"
+  }
+}

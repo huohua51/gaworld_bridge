@@ -1,0 +1,21 @@
+{
+  "initial_assignments": {
+    "agent_a": "ac21",
+    "agent_b": "ac21"
+  },
+  "assignments": {
+    "agent_a": "ac21",
+    "agent_b": "ac22"
+  },
+  "occupancy": {
+    "ac21": [
+      "agent_a"
+    ],
+    "ac22": [
+      "agent_b"
+    ]
+  },
+  "actual_final_conflict_free": true,
+  "attempts": 2,
+  "unregistered_modification": 0
+}

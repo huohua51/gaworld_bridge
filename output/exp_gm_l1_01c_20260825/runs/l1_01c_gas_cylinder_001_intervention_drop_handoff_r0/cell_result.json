@@ -1,0 +1,380 @@
+{
+  "workflow_id": "exp_gm_l1_01c_handoff",
+  "instance_id": "l1_01c_gas_cylinder_001_intervention_drop_handoff_r0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.7,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "budget_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "private_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_ran",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "drop_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "oracle_not_in_prompts",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "coordinator_did_not_execute",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "world_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "checkpoint_created",
+      "layer": "R2",
+      "scorer": "checkpoint",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "checkpoint_delivered_to_successor",
+      "layer": "R2",
+      "scorer": "checkpoint",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "checkpoint_content_correct",
+      "layer": "R2",
+      "scorer": "checkpoint",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "handoff_delivered",
+      "layer": "R2",
+      "scorer": "handoff",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "handoff_adopted",
+      "layer": "R2",
+      "scorer": "handoff",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "resume_step_correct",
+      "layer": "R2",
+      "scorer": "resume",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "completed_step_not_repeated",
+      "layer": "R2",
+      "scorer": "resume",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "remaining_step_not_skipped",
+      "layer": "R2",
+      "scorer": "resume",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "world",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "handoff_recovery",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "handoff_not_delivered",
+    "events": [
+      "task_started",
+      "worker_a_step1",
+      "checkpoint_created",
+      "checkpoint_delivered",
+      "worker_a_unavailable",
+      "handoff_emitted",
+      "handoff_dropped",
+      "successor_resume",
+      "successor_step2",
+      "successor_step3"
+    ],
+    "budget": {
+      "calls": 6,
+      "max_calls": 6,
+      "kinds": [
+        "worker_a_step1",
+        "worker_a_checkpoint",
+        "coordinator_handoff",
+        "successor_resume",
+        "successor_step2",
+        "successor_step3"
+      ],
+      "expected": [
+        "worker_a_step1",
+        "worker_a_checkpoint",
+        "coordinator_handoff",
+        "successor_resume",
+        "successor_step2",
+        "successor_step3"
+      ],
+      "model": "GLM-4-Flash",
+      "temperature": 0,
+      "valid": true
+    },
+    "world": {
+      "steps": {
+        "gas_cy11": {
+          "status": "completed",
+          "actor": "worker_a",
+          "output": {
+            "tank": "N2-A",
+            "bar": 180
+          },
+          "event_index": 4
+        },
+        "gas_cy12": {
+          "status": "completed",
+          "actor": "worker_b",
+          "output": {
+            "tank": "He-B",
+            "bar": 95
+          },
+          "event_index": 16
+        },
+        "gas_cy13": {
+          "status": "completed",
+          "actor": "worker_b",
+          "output": {
+            "tank": "Ar-C",
+            "bar": 40
+          },
+          "event_index": 17
+        }
+      },
+      "completed_steps": [
+        "gas_cy11",
+        "gas_cy12",
+        "gas_cy13"
+      ],
+      "duplicates": [],
+      "checkpoint": {
+        "checkpoint_version": "ckpt-001",
+        "completed_steps": [
+          "gas_cy11"
+        ],
+        "outputs": {
+          "gas_cy11": {
+            "tank": "N2-A",
+            "bar": 180
+          }
+        },
+        "world_digest": "c0a235253f31db443a41da0585d294764cd9cb6e46089471c1f14720a1ca1f83"
+      },
+      "unavailable": [
+        "worker_a"
+      ]
+    }
+  },
+  "extra": {
+    "task_id": "l1_01c_gas_cylinder_001",
+    "variant": "intervention",
+    "track": "drop_handoff",
+    "repeat_id": 0,
+    "checkpoint_created": true,
+    "checkpoint_delivered": true,
+    "checkpoint_delivered_to_successor": true,
+    "checkpoint_content_correct": true,
+    "handoff_delivered": false,
+    "handoff_adopted": false,
+    "resume_step_correct": true,
+    "completed_step_not_repeated": true,
+    "remaining_step_not_skipped": true,
+    "target_correct": true,
+    "resume_position_correct": true,
+    "completed_work_preserved": true,
+    "duplicate_action_rate": 0.0,
+    "handoff_completed": false,
+    "workflow_complete": true,
+    "missing_remaining_step_rate": 0.0,
+    "recovery_latency": 7,
+    "role_completion": true,
+    "b_ran": true,
+    "budget_calls": 6,
+    "drop_checkpoint_isolated": true,
+    "drop_handoff_isolated": true,
+    "env_denied": true,
+    "first_error": "handoff_not_delivered",
+    "got_outputs": {
+      "gas_cy11": {
+        "tank": "N2-A",
+        "bar": 180
+      },
+      "gas_cy12": {
+        "tank": "He-B",
+        "bar": 95
+      },
+      "gas_cy13": {
+        "tank": "Ar-C",
+        "bar": 40
+      }
+    },
+    "want_outputs": {
+      "gas_cy11": {
+        "tank": "N2-A",
+        "bar": 180
+      },
+      "gas_cy12": {
+        "tank": "He-B",
+        "bar": 95
+      },
+      "gas_cy13": {
+        "tank": "Ar-C",
+        "bar": 40
+      }
+    },
+    "got_actors": {
+      "gas_cy11": "worker_a",
+      "gas_cy12": "worker_b",
+      "gas_cy13": "worker_b"
+    },
+    "want_actors": {
+      "gas_cy11": "worker_a",
+      "gas_cy12": "worker_b",
+      "gas_cy13": "worker_b"
+    },
+    "ranking_note": "L1-01c interruption recovery regression, not a leaderboard"
+  }
+}

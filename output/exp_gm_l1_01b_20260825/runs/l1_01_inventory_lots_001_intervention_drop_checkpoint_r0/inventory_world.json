@@ -1,0 +1,53 @@
+{
+  "steps": {
+    "lot_px41": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "sku_q17": 12,
+        "sku_q18": 7
+      },
+      "event_index": 4
+    },
+    "lot_px42": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "sku_q17": 4,
+        "sku_q19": 9
+      },
+      "event_index": 16
+    },
+    "lot_px43": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "sku_q18": 5,
+        "sku_q20": 11
+      },
+      "event_index": 17
+    }
+  },
+  "completed_steps": [
+    "lot_px41",
+    "lot_px42",
+    "lot_px43"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "lot_px41"
+    ],
+    "outputs": {
+      "lot_px41": {
+        "sku_q17": 12,
+        "sku_q18": 7
+      }
+    },
+    "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"
+  },
+  "unavailable": [
+    "worker_a"
+  ]
+}

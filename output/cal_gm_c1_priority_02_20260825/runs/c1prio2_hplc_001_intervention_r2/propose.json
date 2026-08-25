@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "accepted": true,
+  "violations": [],
+  "observed_assignments": {
+    "agent_a": "hc51",
+    "agent_b": "hc52"
+  },
+  "retries_remaining": 0
+}

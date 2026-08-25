@@ -1,0 +1,4 @@
+{
+  "control": {"decision": "keep", "required_change": null},
+  "intervention": {"decision": "update", "required_change": {"path": "response_deadline", "old_value": 30, "new_value": 20}}
+}

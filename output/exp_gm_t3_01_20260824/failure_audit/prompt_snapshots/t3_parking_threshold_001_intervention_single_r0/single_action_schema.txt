@@ -1,0 +1,4 @@
+只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。
+批准：{"action": "approve_draft", "evidence_id": "<登记 evidence_id>"}。批准时不要输出 target 或 required_value。
+要求修改：{"action": "request_revision", "target": "<登记 target>", "required_value": <要求值>, "evidence_id": "<登记 evidence_id>"}}。
+不要输出 decision、mismatches、required_change，不要使用 NONE。

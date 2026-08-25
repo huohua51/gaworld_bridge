@@ -1,0 +1,12 @@
+{
+  "control": {
+    "completed_steps": ["badge_draft31"],
+    "resume_step": "badge_print32",
+    "remaining_steps": ["badge_print32", "badge_issue33"]
+  },
+  "intervention": {
+    "completed_steps": ["badge_draft31"],
+    "resume_step": "badge_print32",
+    "remaining_steps": ["badge_print32", "badge_issue33"]
+  }
+}

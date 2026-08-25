@@ -1,0 +1,14 @@
+{
+  "reviewer_output_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+  "channel_sent_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+  "executor_read_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+  "dropped": false,
+  "envelope": {
+    "review_id": "review-001",
+    "spec_version": "v1",
+    "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+    "review_payload_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+    "decision": "keep",
+    "required_changes": []
+  }
+}

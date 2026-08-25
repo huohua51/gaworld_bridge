@@ -1,0 +1,3 @@
+```json
+{"action": "revise_plan", "target": "entry", "value": "wait_outside", "evidence_message_id": "verified-msg-n1_warehouse_gate_001_control_direct_r0-3"}
+```

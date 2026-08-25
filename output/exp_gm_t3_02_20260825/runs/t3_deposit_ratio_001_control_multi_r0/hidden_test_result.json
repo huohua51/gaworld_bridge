@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "evaluable": true,
+    "passed": true,
+    "pass_count": 3,
+    "fail_count": 0,
+    "returncode": 0,
+    "stdout_tail": "...                                                                      [100%]\n3 passed in 0.01s\n\n",
+    "first_error": "none"
+  },
+  "v2": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 0,
+    "fail_count": 3,
+    "returncode": 1,
+    "stdout_tail": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_p_xum67u/test_oracle.py:5: assert 20 == 30\n/tmp/w1_oracle_p_xum67u/test_oracle.py:9: assert 10 == 15\n/tmp/w1_oracle_p_xum67u/test_oracle.py:13: assert 20 != 20\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_hundred - assert 20 == 30\nFAILED test_oracle.py::test_fifty - assert 10 == 15\nFAILED test_oracle.py::test_not_v1_rate - assert 20 != 20\n3 failed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "target_correct": true,
+  "exclusive_ok": true
+}

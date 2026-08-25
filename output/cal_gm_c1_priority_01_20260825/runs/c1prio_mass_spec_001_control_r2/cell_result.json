@@ -1,0 +1,182 @@
+{
+  "workflow_id": "cal_gm_c1_priority_01",
+  "instance_id": "c1prio_mass_spec_001_control_r2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "call_budget",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "repair_slot_not_in_nack",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "contract_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "no_unregistered_modification",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "priority_preserved",
+      "layer": "R2",
+      "scorer": "initial_vs_final",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "earliest_idle_low",
+      "layer": "R2",
+      "scorer": "feasible_order",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "actual_final_conflict_free",
+      "layer": "R2",
+      "scorer": "occupancy",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "joint_constraint_satisfaction",
+      "layer": "R2",
+      "scorer": "feasible_sets",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_constrained_plan",
+      "layer": "R2",
+      "scorer": "oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "priority_component",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "contract_error": "ok"
+  },
+  "extra": {
+    "task_id": "c1prio_mass_spec_001",
+    "variant": "control",
+    "repeat_id": 2,
+    "got": {
+      "agent_a": "ms41",
+      "agent_b": "ms42"
+    },
+    "want": {
+      "agent_a": "ms41",
+      "agent_b": "ms42"
+    },
+    "priority_preserved": true,
+    "earliest_idle_low": true,
+    "actual_final_conflict_free": true,
+    "joint_constraint_satisfaction": true,
+    "policy_constrained_plan": true,
+    "unregistered_modification": 0,
+    "leaked_repair_slot_in_nack": false,
+    "first_error": "none",
+    "calls": 1,
+    "mode": "llm",
+    "model_version": "GLM-4-Flash"
+  }
+}

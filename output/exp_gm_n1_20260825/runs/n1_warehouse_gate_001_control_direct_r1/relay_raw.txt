@@ -1,0 +1,3 @@
+```json
+{"verified_state": "gate_open", "source_id": "src_ok", "state_version": "v1"}
+```

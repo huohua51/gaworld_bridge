@@ -1,0 +1,101 @@
+{
+  "workflow_id": "exp_gm_04e_r_reviewer_only",
+  "instance_id": "w1_budget_remaining_intervention_evidence_bound_s1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "reviewer-only cell executed"
+    },
+    {
+      "gate_id": "reviewer_only",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "executor not run"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "review_correct",
+      "layer": "R2",
+      "scorer": "reviewer_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "draft_fixed",
+      "facts_extracted",
+      "reviewer_call_1",
+      "review_verified"
+    ]
+  },
+  "extra": {
+    "task_id": "w1_budget_remaining",
+    "variant": "intervention",
+    "protocol": "evidence_bound",
+    "seed": 1,
+    "mode": "llm",
+    "split": "development",
+    "reviewer_calls": 1,
+    "false_positive_revision": false,
+    "true_revision": true,
+    "grounded": true,
+    "review_parseable": true,
+    "review": {
+      "decision": "revise",
+      "mismatches": [
+        {
+          "criterion_id": "spec_version",
+          "fact_id": "fact-01",
+          "observed_value": "v1",
+          "required_value": "v2",
+          "operator": "equals"
+        },
+        {
+          "criterion_id": "total_budget",
+          "fact_id": "fact-02",
+          "observed_value": 100,
+          "required_value": 80,
+          "operator": "equals"
+        }
+      ]
+    },
+    "verify": {
+      "ok": true,
+      "reason": "ok",
+      "nack": "mismatch evidence is not supported by the current artifact"
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

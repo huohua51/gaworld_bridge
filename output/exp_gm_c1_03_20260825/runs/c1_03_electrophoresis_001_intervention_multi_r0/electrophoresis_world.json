@@ -1,0 +1,30 @@
+{
+  "claims": [
+    {
+      "agent_id": "agent_a",
+      "slot": "et82",
+      "plan_version": "plan-001"
+    },
+    {
+      "agent_id": "agent_b",
+      "slot": "et82",
+      "plan_version": "plan-001"
+    }
+  ],
+  "by_agent": {
+    "agent_a": "et82",
+    "agent_b": "et82"
+  },
+  "occupied": {
+    "et82": [
+      "agent_a",
+      "agent_b"
+    ]
+  },
+  "duplicates": {
+    "et82": [
+      "agent_a",
+      "agent_b"
+    ]
+  }
+}

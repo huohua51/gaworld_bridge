@@ -1,0 +1,20 @@
+id: t3_ho_queue_max_001
+title: 窗口排队上限
+kind: threshold
+artifact: queue_max.py
+criterion_id: queue_max
+symbol: QUEUE_MAX
+target: queue_max
+function: queue_full
+allow_names: [SPEC_VERSION, QUEUE_MAX]
+change_v1: {queue_max: 15}
+change_v2: {queue_max: 11}
+evidence_v1: evidence-queue-ho-001
+evidence_v2: evidence-queue-ho-002
+leak_tokens:
+  - "QUEUE_MAX = 11"
+  - "排队上限改为 11"
+brief_rule: >
+  人数达到或超过 QUEUE_MAX 时 queue_full 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 QUEUE_MAX。函数签名 queue_full(n)。
+  不要输出 Markdown 围栏。

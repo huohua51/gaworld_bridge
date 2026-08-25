@@ -1,0 +1,32 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "bal_ck21": "worker_a",
+      "bal_ck22": "worker_a",
+      "bal_ck23": "worker_a"
+    },
+    "outputs": {
+      "bal_ck21": {"scale": "S-7", "residual_mg": 0},
+      "bal_ck22": {"scale": "S-8", "residual_mg": 2},
+      "bal_ck23": {"scale": "S-9", "residual_mg": 1}
+    },
+    "resume_step": "bal_ck22",
+    "interrupt_after": "bal_ck21"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "bal_ck21": "worker_a",
+      "bal_ck22": "worker_b",
+      "bal_ck23": "worker_b"
+    },
+    "outputs": {
+      "bal_ck21": {"scale": "S-7", "residual_mg": 0},
+      "bal_ck22": {"scale": "S-8", "residual_mg": 2},
+      "bal_ck23": {"scale": "S-9", "residual_mg": 1}
+    },
+    "resume_step": "bal_ck22",
+    "interrupt_after": "bal_ck21"
+  }
+}

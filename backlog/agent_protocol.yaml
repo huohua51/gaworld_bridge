@@ -1,0 +1,530 @@
+# Agent-protocol improvements. Not platform-repair items.
+# Freeze EXP-GM-04c 54 cells as the regression set after any protocol change.
+
+items:
+  - id: AP-04c-01
+    source: EXP-GM-04c
+    name: false_positive_revision
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      Reviewer 在草稿已满足登记标准时仍输出 decision=revise。
+      返还率和预算题的 control Full 上稳定出现。
+    evidence:
+      - w1_return_floor_control_full_review (3/3, advice=false)
+      - w1_budget_remaining_control_full_review (3/3, advice=false)
+    proposed_tries:
+      - bind review fields to concrete code locations
+      - require approve when observed == required_change
+      - post-rework automatic re-review
+    retest: >
+      EXP-GM-04c 旧 54 格作 regression。04d-A 看开发集 Full-control；
+      普适性看 held-out：shipping_threshold / eligibility_age / inventory_reorder_point。
+    source: EXP-GM-04c
+    name: incomplete_required_change_adoption
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      Executor 收到正确 revise 后只改 SPEC_VERSION，不改 required_change 数值。
+      最低返还干预 Full 三次均为 SPEC_VERSION=v2 且 RATE=0.3。
+    evidence:
+      - w1_return_floor_intervention_full_review (3/3, advice=true, artifact v2, value stale)
+    proposed_tries:
+      - bind required_change keys to identifier rewrite
+      - post-rework automatic re-review against required_change
+    retest: >
+      EXP-GM-04c 旧 54 格作 regression。04d-B 看开发集 Full-intervention PatchAdoptionRate；
+      普适性看 held-out 三题。环境不得替 Executor 改文件。
+    source: EXP-GM-I1
+    name: dispatcher_action_value_field_swap
+    status: fixed_on_i1_direct_verified_state
+    summary: >
+      I1 Focused 避难所 control 曾把 action 与 value 填反。契约小修后重跑 18 格，
+      direct_verified_state=1.0。REL1 Focused 避难所同类错误仍在，不自动视为已修。
+    evidence:
+      - shelter_capacity_001_control_focused (I1 3/3)
+      - shelter_capacity_001_control_focused (REL1 3/3, value=None)
+      - shelter_capacity_001_intervention_focused (REL1 3/3, update action/value 错填)
+    proposed_tries:
+      - schema-constrain action/value enums
+      - reject swapped fields at submit
+    retest: EXP-GM-I1 frozen 72-cell matrix and EXP-GM-REL1 Focused shelter
+
+  - id: AP-REL1-01
+    source: EXP-GM-REL1
+    name: majority_not_recency_update
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      TrustUpdater 用历史累计多数形成信任后，最新揭示结果与多数冲突时不更新。
+      这是相对登记规则 latest_is_binding=true 的功能失败，不是“人类不会这样更新信任”的证据。
+      道路/诊所 control Full 稳定出现：形成信 A，更新轮仍信 A。
+    evidence:
+      - road_status_001_control_full (3/3, trust_not_updated)
+      - clinic_service_001_control_full (3/3, trust_not_updated)
+    proposed_tries:
+      - bind update phase to the latest outcome row only
+      - reject emitting the same trusted_person_id when the new outcome contradicts it
+    retest: EXP-GM-REL1 frozen 72-cell matrix, especially Full control
+
+  - id: AP-REL1-02
+    source: EXP-GM-REL1
+    name: history_ignored_person_a_default
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      当前报告完全相同、历史显示 person_b 全对时，TrustUpdater 仍默认信 person_a。
+      intervention Full 三次形成就走 A，像没读历史账本。
+    evidence:
+      - road_status_001_intervention_full (3/3, formation_action_incorrect)
+      - shelter_capacity_001_intervention_full (3/3)
+      - clinic_service_001_intervention_full (3/3)
+    proposed_tries:
+      - require evidence_count to cite matching history rows
+      - list persons without a privileged first-slot
+    retest: EXP-GM-REL1 frozen 72-cell matrix, especially Full intervention
+
+  - id: AP-REL1-03
+    source: EXP-GM-REL1
+    name: dispatcher_evidence_null
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      道路 Focused 两轮动作正确，更新轮 evidence_message_id 写成 "None"。
+      信任状态已送达并被 adopt，不算通道失败。
+    evidence:
+      - road_status_001_control_focused (3/3)
+      - road_status_001_intervention_focused (3/3)
+    proposed_tries:
+      - reject null/None evidence_message_id at submit
+      - copy message_id from the delivered trust message when the field is empty
+    retest: EXP-GM-REL1 frozen 72-cell matrix, especially Focused road
+
+  - id: AP-04e-E-01
+    source: EXP-GM-04e
+    name: typed_patch_acknowledged_not_applied
+    status: retired_protocol
+    layer: agent_protocol
+    ranking_eligible: false
+    retired_as: not_official_gaworld_interface
+    scores_unchanged: true
+    symptom: 模型声明采用 patch，但登记常量没有改变
+    evidence:
+      declared_patch_adoption_rate: 1.0
+      verified_patch_adoption_rate: 0.0
+      acknowledgement_execution_gap: 1.0
+      cells:
+        - w1_wage_gate_evidence_bound (3/3, APPLIED_PATCH_IDS 已写，THRESHOLD 仍为 60000)
+        - w1_return_floor_evidence_bound (3/3, RATE 仍为 0.3)
+        - w1_budget_remaining_evidence_bound (3/3, BUDGET 仍为 100，另写 THRESHOLD=80)
+    do_not_conclude:
+      - Executor 不会修改数字
+      - GAWorld 文件工具失效
+    do_not_build:
+      - 自动应用 patch 的环境工具（那会让环境替 Agent 完成修改）
+    retest_requirement:
+      - 必须检查真实文件值
+      - 不能只检查 APPLIED_PATCH_IDS
+      - 不得使用原 04e 开发集继续调参
+    retest: >
+      另开协议版本与新开发题（例如 EXP-GM-04f）。
+      04e 开发集与原留出集封存。旧 required_change 在 04e-E 对照上 9/9 采用。
+
+  - id: AP-GM-05b-01
+    source: EXP-GM-05b
+    name: self_review_false_positive_on_matching_v1
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      固定 v1 初稿已满足 control 标准时，Single 自检 9/9 仍输出 revise。
+      独立 Reviewer 对同一初稿 9/9 正确 approve。不是 Executor 落地失败。
+    evidence:
+      - gm05b_aid_elig_001_control_single (3/3)
+      - gm05b_hours_cert_001_control_single (3/3)
+      - gm05b_route_closed_001_control_single (3/3)
+    do_not_conclude:
+      - 多 Agent 没有价值
+      - Executor 不会修改文件
+      - 应立刻开 04f
+    retest: EXP-GM-05c L1 完整等预算工作流；不要改 L2 复合题，不要用原 04e 开发集
+
+  - id: AP-GM-05c-r1-01
+    source: EXP-GM-05c-r1
+    name: review_action_output_contract_gap
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      Rule 审核轨可通过，模型 16/18 格 model_contract_failure。
+      更准确的缺口是当前 Agent—平台审核动作契约不兼容，还不能笼统写成
+      GAWorld 底层通道损坏。第一次回复常有唯一结构化字段，但键名与 schema
+      不一致；格式重试把输出改坏。GM-05 已关闭，不再围着审核 JSON 打转。
+    evidence:
+      first_pass_unique_but_wrong_keys:
+        - aid control: decision=revise, mismatches path=MIN_AGE old_value/new_value
+        - hours control: decision=revise, mismatches path=max_hours
+        - route intervention: decision=revise, HIGH_PRIORITY_THRESHOLD 7→6
+      retry_collapse: '{"review_action":{"required_change":"Yes"}}'
+      valid_cells:
+        - gm05b_route_closed_001_control_multi
+        - gm05b_route_closed_001_control_drop
+    do_not:
+      - 继续调审核提示词后重跑同一 18 格
+      - 把第一次错误键名离线猜成动作后当正式分
+      - 开 04f 或补 repeat 1/2
+    retest: >
+      若再测完整工作流，必须先有可解析审核动作的平台契约，
+      且 Coverage=1.0。不要用 L2 题，不要用原 04e 开发集。
+
+  - id: AP-GM-01-01
+    source: EXP-GM-01
+    name: false_positive_reroute_when_venue_open
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      模型把“重新评估当前状态”误解成“必须重新选择地点”，缺少
+      “状态未改变就保持原计划”的决策分支。Full ControlStabilityRate=0.3333，
+      UnnecessaryReplanRate=0.6667。关闭后改道（ClosureAdaptationRate）
+      direct/full=1.0、drop=0.0，所以不是通道未送达。不建 T1 留出题，不调开发题提示。
+    evidence:
+      restaurant_clinic_control_direct_full: 12/12 target_action_incorrect
+      store_control_full: 3/3 FullPass
+      store_control_direct: 3/3 event_not_adopted
+      intervention_direct_full: 18/18 FullPass
+      drop_intervention: 9/9 destination_closed
+    do_not_conclude:
+      - GAWorld 底层通道损坏
+      - 多 Agent 没有价值
+      - 应回到审核 JSON
+    retest: T1 留出题另建；不要改已跑通的三道开发场景来调提示
+
+  - id: AP-GM-02-01
+    source: EXP-GM-02
+    name: control_false_positive_care_across_task
+    status: backlog
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      GM-01 过度适应在 T2 复现。无照料事件时 direct/full 对照 18/18 未使用 NONE 占位，
+      常把登记照料者/患者 ID 写入动作；Drop 对照 6/9 能保持 NONE。
+      看到“无照料”状态比看不到事件更容易绑定成员。不是 FamilyCareChannel 送达失败。
+    evidence:
+      control_stability_direct_full: 0.0
+      control_stability_drop: 0.6667
+      child_fever_intervention_direct: 3/3
+      elder_postop_intervention: conflicting_schedule_not_updated
+    do_not_conclude:
+      - GAWorld 家庭通道损坏
+      - EventValue_full 为负等于通信有害
+      - 应回到审核 JSON
+    retest: 不建 T2 留出题；不要用原三道开发题调提示
+
+  - id: AP-GM-OA-01
+    source: EXP-GM-OA-01
+    name: keep_placeholder_contract
+    status: frozen_open
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      OA-01 已冻结。need_change 布尔字段无增益，不能据此声称过度适应已解决或仍存在。
+      开发题语义判断全部正确。剩余失败是 keep 的统一 JSON 仍要求填写 target/value 占位符。
+    evidence:
+      coverage: 1.0
+      improvement_gate: fail
+      need_change_gate_result: no_gain
+      semantic_decision_result: pass
+      remaining_failure: keep_placeholder_contract
+      over_adaptation_mechanism: unresolved
+    do_not:
+      - 修改 OA-01 Scorer 让 target=assignee_id 的 keep 事后通过
+      - 改写或重跑 GM-01/02
+      - 继续增加 need_change 字段
+      - 继续使用 NONE 占位符
+    retest: EXP-GM-OA-02 互斥动作 keep_current_plan / revise_plan
+
+  - id: AP-GM-OA-02
+    source: EXP-GM-OA-02
+    name: exclusive_keep_revise_dev_pass
+    status: frozen_open
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      协议校准完成。旧接口让语义正确的 keep 因占位符失败；互斥动作消除测量污染。
+      generalization_status=untested。留出题等 T3 repeat 0 与 N1 development pilot 后交叉出题。
+    evidence:
+      coverage: 1.0
+      control_stability_rate: 1.0
+      adaptation_rate: 1.0
+      contract_failure_rate: 0.0
+      responsibility_control: keep_current_plan_without_target_value
+    do_not:
+      - 修改 OA-01 历史分数
+      - 重跑或改写 GM-01/02
+      - 把开发集过门写成过度适应已解决
+    retest: 交叉出题时由同学设计 OA-02 留出题；原开发者不得按留出结果继续调协议。
+
+  - id: AP-GM-T3-01
+    source: EXP-GM-T3-01
+    name: exclusive_review_full_workflow
+    status: stopped_at_seed0
+    layer: agent_protocol
+    ranking_eligible: false
+    summary: >
+      seed0 Coverage=0.7778。三轨初稿、预算和 Drop 隔离过门，但 Single 自检 4/6
+      无法提取审核动作。完整工作流多 Agent 净收益不可估计。T3-01 不重跑。
+    do_not:
+      - 重开 GM-05 审核 JSON
+      - 使用 typed-patch
+      - 把 OA-02 留出题插进本线
+      - 重跑 EXP-GM-T3-01
+      - 比较 14 个有效格或把 FullPass=0 说成共同地板
+
+  - id: AP-T3-01-01-single-self-review-fields-not-extractable
+    source: EXP-GM-T3-01
+    name: single_self_review_fields_not_extractable
+    status: open
+    layer: agent_protocol
+    ranking_eligible: false
+    experiment: EXP-GM-T3-01
+    scope: single_self_review
+    rule_baseline: pass
+    model_cells_invalid: 4/6
+    effect: full_workflow_comparison_unidentifiable
+    classification: agent_platform_contract_incompatibility
+    historical_results_changed: false
+    same_task_rerun_allowed: false
+    summary: >
+      Single 与 Multi 最终渲染的动作 Schema 逐字一致，同一提取器对 Multi 和 2 格
+      有效 Single 成功。4 格 Single 只留下空的 review_raw，contract_error=empty。
+      审核调用逐字原文未被保存，无法再细分为包装/键名/动作缺失/多段 JSON。
+      登记为模型未遵守相同契约，不是 Harness Schema 污染。
+    evidence:
+      - t3_parking_threshold_001_control_single_r0
+      - t3_parking_threshold_001_intervention_single_r0
+      - t3_deposit_ratio_001_control_single_r0
+      - t3_queue_cap_001_control_single_r0
+    proposed_tries:
+      - 新编号做 Single 自检动作契约校准，不重开完整工作流
+      - 新实验必须持久化审核调用逐字输出
+    do_not:
+      - 重跑 T3-01
+      - 放宽 T3-01 Parser
+      - 在联合检查前直接开 T3-02
+    retest: 若开校准实验，使用新实验编号和新任务，不复用 T3-01 开发格。
+
+  - id: AP-C1-B-01
+    source: CAL-GM-C1-COMP-01
+    name: final_state_validation_polarity_lock
+    status: mitigated_in_protocol_v2
+    verification: component_calibration_pass
+    closure_pending: full_workflow_regression
+    still_not_resolved: true
+    c1_02:
+      path: output/exp_gm_c1_02_20260825
+      original_always_false_reproduced: false
+      matrix_complete: true
+      still_not_resolved: true
+      remaining: C1-02 未复现极性锁死。完整工作流回归前不写 resolved。
+    retest_experiment: CAL-GM-C1-REPAIR-01
+    retest_path: output/cal_gm_c1_repair_01_20260825
+    layer: agent_protocol
+    ranking_eligible: false
+    symptom: always outputs final_plan_conflict_free=false
+    strategy: always_false
+    summary: >
+      最终方案核验极性锁死。三次重复始终输出 false。
+      无冲突时稳定答错；仍有冲突时因 Oracle 也是 false 而碰巧答对。
+      B intervention 3/3 不代表会核验冲突方案。
+    evidence:
+      B_control: 0/3
+      B_intervention: 3/3
+      raw: '{"final_plan_conflict_free": false}'
+    first_broken_stage: final_state_validation
+    do_not_conclude:
+      - 模型有一半概率会核验最终方案
+      - B intervention 代表该组件真正通过
+      - GAWorld 通信机制失败
+    do_not:
+      - 修改 C1-01
+      - 用 C1-01 或 C1-COMP-01 原题调协议
+      - 让环境代填 final_plan_conflict_free
+      - 开 L1
+      - 把 AP 写成 resolved（需完整工作流回归）
+    proposed_tries:
+      - 协调闭环把最终无冲突交给 Scorer 按真实占用计算
+      - 模型布尔只作 SelfAssessmentCorrect 诊断，不作世界事实
+    retest: CAL-GM-C1-REPAIR-01 全新实例，最终方案核验 StrictPair=1.0
+
+  - id: AP-C1-C-01
+    source: CAL-GM-C1-COMP-01
+    name: conflict_detected_but_not_repaired
+    status: mitigated_in_protocol_v2
+    verification: component_calibration_pass
+    closure_pending: full_workflow_regression
+    still_not_resolved: true
+    c1_02:
+      path: output/exp_gm_c1_02_20260825
+      original_preserve_initial_reproduced: false
+      matrix_complete: true
+      still_not_resolved: true
+      remaining: >
+        C1-02 未再提交重复占用。光学台挪走高优先级已单列为 AP-C1-D-01。
+        完整工作流回归前不写 resolved。
+    retest_experiment: CAL-GM-C1-REPAIR-01
+    retest_path: output/cal_gm_c1_repair_01_20260825
+    layer: agent_protocol
+    ranking_eligible: false
+    symptom: preserves conflicting initial assignment after conflict is known
+    behavior: preserve_initial_assignment
+    summary: >
+      冲突已明确、优先级规则已给出，仍提交重复占用。
+      C control 3/3 只证明会保持一个本来就正确的方案，不证明会协调。
+      首要瓶颈是检测结果没有转化为新的联合方案。
+    evidence:
+      C_control: 3/3
+      C_intervention: 0/3
+      raw: '{"assignments": {"agent_a": "h8", "agent_b": "h8"}}'
+    first_broken_stage: conflict_resolution
+    do_not_conclude:
+      - 多 Agent 不会协调
+      - 模型有一半概率会重新分配
+      - C control 代表重新分配真正通过
+      - 模型根本没发现冲突（A 已 6/6）
+    do_not:
+      - 修改 C1-01
+      - 用 C1-01 或 C1-COMP-01 原题调协议
+      - 环境计算正确分配并塞给 Agent
+      - 开 L1
+      - 把 AP 写成 resolved（需完整工作流回归）
+    proposed_tries:
+      - 保存初始方案后只返回 duplicate_resource_claim 证据
+      - 要求重新调用 propose_joint_assignment
+      - 仍冲突则结构化违规并允许一次重试，不得自动修正
+    retest: CAL-GM-C1-REPAIR-01 全新实例，冲突后重新分配 StrictPair=1.0
+
+  - id: AP-C1-D-01
+    source: EXP-GM-C1-02
+    name: priority_preservation_violation
+    status: mitigated_in_protocol_v2
+    protocol_change_implemented: true
+    rule_retry_path: pass
+    llm_first_proposal_calibration: pass
+    llm_retry_path: exercised_seed0_not_recovered
+    verification: >
+      component_calibration_pass 仅覆盖第一次提案与平台 Rule 重试路径。
+      C1-03 测量有效。nack 3/3，系统可接受终局 0/3。
+      直接证据是冷冻切片机契约合规后原样交回。两格 plan-002 单列为 AP-C1-F-01；
+      其 assignments 语义诊断亦不正确（0/3），但不把握手失败算成优先级推理错误。
+    closure_pending: successful_full_workflow_retry
+    still_not_resolved: true
+    direct_failure_evidence:
+      retry_not_adapted: 1
+      cell: c1_03_cryostat_001_intervention_multi_r0
+    calibration:
+      PRIORITY-01:
+        path: output/cal_gm_c1_priority_01_20260825
+        intervention: 0.8889
+        failed_cell: c1prio_mass_spec_001_intervention_r2
+        first_proposal: {A: ms42, B: ms43}
+        retry: {A: ms41, B: ms41}
+      PRIORITY-02:
+        path: output/cal_gm_c1_priority_02_20260825
+        coverage: 1.0
+        control: 1.0
+        intervention: 1.0
+        llm_retry_path: not_exercised
+        nack_named_repair_slot: false
+        unregistered_modification: 0
+      C1-03:
+        path: output/exp_gm_c1_03_20260825
+        status: stopped_at_seed0_retry_gate
+        measurement_result: pass
+        phase: seed0_planid_rescore
+        gate: retry_not_recovered
+        direct_ok: true
+        coverage_multi: 1.0
+        nack_path_exercised: 3/3
+        retry_evaluable: 3/3
+        retry_recovered: 0/3
+        retry_contract_failure: 2/3
+        retry_not_adapted: 1/3
+        semantic_retry_assignment_correct: 0/3
+        system_retry_recovered: 0/3
+        ap_closable: false
+    layer: agent_protocol
+    ranking_eligible: false
+    first_broken_stage: policy_constrained_replanning
+    symptom: >
+      Conflict is removed, but the coordinator moves the protected
+      high-priority assignment instead of reallocating the lower-priority agent.
+    evidence:
+      task: optical_bench
+      task_id: c1_02_optics_table_001
+      variant: intervention
+      track: multi
+      repeats_failed: 3
+      expected: {A: w08, B: w10}
+      observed: {A: w09, B: w10}
+    summary: >
+      C1-02 Full Multi 最终无冲突率和双方约束满足率均为 1.0。
+      光学台 intervention 三次都把 A 从 w08 挪到 w09，B 分到 w10。
+      这不是 AP-C1-C-01 的“发现冲突后完全不重分配”；已经发生了重分配，只是改错了对象。
+    do_not_conclude:
+      - 集体协调已经通过
+      - GAWorld 不会集体协调
+      - 模型有一半概率会协调
+      - 真模型的NACK重试已经18/18通过
+      - 原来的约束回退在真模型重试中已经消失
+      - AP-C1-D-01已经解决
+      - C1完整多智能体协调已经通过
+      - Coverage只有0.6667
+      - 两格不可测量
+      - C1重试已经修好
+      - 三次都是优先级推理错误
+      - 应当继续做C1-04
+    do_not:
+      - 把本题并入 AP-C1-C-01
+      - 把 AP 写成 resolved（完整工作流回归前）
+      - 覆盖 C1-02 分数
+      - 用开 L1 来宣称 AP-C1-D-01 已关闭
+      - 建 C1 留出题
+      - 环境告诉模型 B 应改到哪个时段
+      - 做 C1-04 或继续用当前模型调 C1 开发题
+    proposed_tries:
+      - propose_joint_assignment 增加 priority_preservation 校验
+      - "违规只返回 {violation: priority_preservation_violation, agent: A}"
+      - CAL-GM-C1-PRIORITY-01 用全新实例做窄组件校准
+    retest: >
+      关闭本题需要一次成功的完整工作流 NACK 重试终局。C1-03 seed0 未提供。
+      不覆盖 C1-02。不把 AP-C1-F-01 并入本题。
+
+  - id: AP-C1-F-01
+    source: EXP-GM-C1-03
+    name: retry_plan_version_contract_violation
+    status: open
+    layer: agent_protocol
+    ranking_eligible: false
+    construct_relation: workflow_interoperability
+    symptom: parseable retry uses plan-002 outside the registered allowlist
+    affected_cells: 2
+    cells:
+      - c1_03_electrophoresis_001_intervention_multi_r0
+      - c1_03_incubator_shelf_001_intervention_multi_r0
+    long_term_fix: platform_managed_plan_version
+    summary: >
+      重试 JSON 可解析，但 plan_version 写成 plan-002，允许集仅为 plan-001。
+      这是 Agent 与平台接口契约不一致，不是测量无效，也不应直接算成优先级推理错误。
+    do_not_conclude:
+      - 这两格不可测量
+      - 这两格就是 AP-C1-D-01
+      - 忽略版本后方案已经算对（语义诊断 0/3）
+    still_not_resolved: true
+
+

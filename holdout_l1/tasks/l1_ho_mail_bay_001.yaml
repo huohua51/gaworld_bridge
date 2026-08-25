@@ -1,0 +1,27 @@
+id: l1_ho_mail_bay_001
+title: 三阶段邮包接收核对入格
+kind: receive_verify_archive
+artifact: mail_bay_world.json
+interrupt_token: worker_a_offline_mail_ho_v1
+rule: complete_in_order_no_repeat
+output_rule: >
+  接收 output 只能包含 received_ids 与 batch。
+  核验必须沿用已接收 ID：verified_ids 等于 received_ids，missing_ids 为空列表。
+  禁止编造未出现的 ID。不要计算 checksum。
+  入库 output 只能包含 bin 与 sealed，sealed 必须为 true。
+checkpoint_after: mail_rx61
+steps:
+  - id: mail_rx61
+    title: 接收
+  - id: mail_ck62
+    title: 核对
+  - id: mail_st63
+    title: 入格
+materials:
+  mail_rx61:
+    received_ids:
+      - P3
+      - P4
+    batch: M7
+  mail_st63:
+    bin: B2

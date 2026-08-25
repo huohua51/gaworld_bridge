@@ -1,0 +1,29 @@
+{
+  "task_id": "gm05_shift_roster_001",
+  "variant": "intervention",
+  "track": "single",
+  "budget": {
+    "calls": 3,
+    "max_calls": 3,
+    "kinds": [
+      "executor_draft",
+      "review",
+      "executor_final"
+    ],
+    "elapsed_s": [
+      30.15005087852478,
+      3.4490768909454346,
+      33.66349744796753
+    ],
+    "prompt_chars": [
+      303,
+      3230,
+      3344
+    ],
+    "total_elapsed_s": 67.263,
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "max_tokens": 2048,
+    "valid": true
+  }
+}

@@ -1,0 +1,16 @@
+first_direct:
+  fullpass: 0.8333
+  failed: c1_02_uav_pad_001_intervention_direct_r0
+  first_error: invalid_joint_assignment
+attempts:
+  - slots: [p-alpha, p-bravo, p-charlie]
+    got: {agent_a: p-alpha, agent_b: p-bravo}
+  - slots: [pad08, pad09, pad10]
+    got: {agent_a: pad08, agent_b: pad09}
+  - slots: [u08, u09, u10]
+    got: {agent_a: u08, agent_b: u09}
+diagnosis: >
+  三次都把 B 分到不在 feasible 中的中间时段。光学台与冷库同构题 Direct 已过。
+  UAV 题对当前钉死模型不可做，已退役。正式三题改为实验台、温室灌溉阀、冷库。
+replacement_task: c1_02_greenhouse_001
+not_a_multi_result: true

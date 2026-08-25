@@ -1,0 +1,3 @@
+```json
+{"decision": "keep", "evidence": {"path": "DEPOSIT_PERCENT", "observed": 20, "required": 20}, "required_changes": []}
+```

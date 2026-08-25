@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-23T02:09:50.519063+00:00",
+  "eval_mode": {
+    "enabled": true,
+    "disable_dynamic_behavior": true,
+    "disable_routine_change": true,
+    "disable_diary_fallback": true,
+    "strict_interview_json": true,
+    "write_run_manifest": true,
+    "unique_intervention_paths": []
+  },
+  "dynamic_behavior_enabled": false,
+  "routine_change_enabled": false,
+  "agent_ids": [
+    4,
+    5
+  ],
+  "sim_days": 1,
+  "random_seed": null,
+  "extra": {
+    "apply_eval_mode": {
+      "applied": true,
+      "enabled": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ]
+    }
+  }
+}

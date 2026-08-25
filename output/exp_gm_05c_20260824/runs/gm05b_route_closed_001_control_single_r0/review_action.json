@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v1",
+  "criterion_id": "high_priority_threshold",
+  "evidence": "The function `route` does not explicitly check the `center_closed` parameter against the `required_change` value of 7.",
+  "required_change": {
+    "high_priority_threshold": 7
+  }
+}

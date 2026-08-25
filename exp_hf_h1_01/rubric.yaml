@@ -1,0 +1,70 @@
+experiment_id: EXP-HF-H1-01
+items: 12
+scale: {min: 1, max: 7, anchors: [完全不像真人团队互动, 完全像真人团队互动]}
+aggregate: four_dimension_means_not_one_score
+h1_formal_score: N/A
+do_not:
+  - mix_with_fullpass
+  - treat_efficiency_as_humanlikeness
+  - show_source_kind_during_rating
+
+dimensions:
+  naturalness:
+    label: 自然性
+    items: [H1-01, H1-02, H1-03]
+  agency:
+    label: Agency
+    items: [H1-04, H1-05, H1-06]
+  social_responsiveness:
+    label: 社会回应性
+    items: [H1-07, H1-08, H1-09]
+  role_continuity:
+    label: 角色连续性
+    items: [H1-10, H1-11, H1-12]
+
+rubric:
+  - id: H1-01
+    dimension: naturalness
+    prompt: 这段互动的节奏是否像真人一起干活，而不是机械复读或突然跳步？
+  - id: H1-02
+    dimension: naturalness
+    prompt: 各方表达是否像在完成手头工作，而不是在表演对话？
+  - id: H1-03
+    dimension: naturalness
+    prompt: 遇到差异或中断时，处理方式是否具体、克制，像真人会做的那样？
+  - id: H1-04
+    dimension: agency
+    prompt: 各角色是否主动负起自己的职责，而不是空转等待？
+  - id: H1-05
+    dimension: agency
+    prompt: 决定是否有可见依据，而不是无故改口？
+  - id: H1-06
+    dimension: agency
+    prompt: 是否分得清自己能做的事和必须交给别人的事？
+  - id: H1-07
+    dimension: social_responsiveness
+    prompt: 后手是否读取并回应了上手交付的内容？
+  - id: H1-08
+    dimension: social_responsiveness
+    prompt: 反对或修改时，是否针对具体差异，而不是空泛否定？
+  - id: H1-09
+    dimension: social_responsiveness
+    prompt: 出现中断或新信息时，回应是否对准当前状态？
+  - id: H1-10
+    dimension: role_continuity
+    prompt: 是否始终按自己的岗位行动，没有越权？
+  - id: H1-11
+    dimension: role_continuity
+    prompt: 接替或审核之后，是否延续已完成工作，而不是推倒重来？
+  - id: H1-12
+    dimension: role_continuity
+    prompt: 整段过程中，角色身份是否保持稳定？
+
+gap_metrics:
+  - NaturalnessGap
+  - AgencyGap
+  - SocialResponsivenessGap
+  - RoleContinuityGap
+definition: >
+  每维差距 = 该维 3 项均值(Human) − 该维 3 项均值(Agent)。
+  正值表示真人更高，不表示更好或更差的能力。Human 未采集前全部为 N/A。

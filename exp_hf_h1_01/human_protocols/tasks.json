@@ -1,0 +1,107 @@
+{
+  "T3": [
+    {
+      "task_id": "t3_ho_queue_max_001",
+      "label": "窗口排队上限",
+      "symbol": "QUEUE_MAX",
+      "function": "queue_full",
+      "brief": "人数达到或超过 QUEUE_MAX 时 queue_full 返回 True，否则 False。必须在模块顶层写 SPEC_VERSION 和 QUEUE_MAX。函数签名 queue_full(n)。",
+      "public_value": 15,
+      "A_required": 15,
+      "B_required": 11,
+      "draft_template": "SPEC_VERSION = \"v1\"\nQUEUE_MAX = 15\n\ndef queue_full(n):\n    return n >= QUEUE_MAX\n"
+    },
+    {
+      "task_id": "t3_ho_battery_pct_001",
+      "label": "电量下限告警",
+      "symbol": "MIN_BATTERY",
+      "function": "battery_ok",
+      "brief": "电量百分比达到或超过 MIN_BATTERY 时 battery_ok 返回 True，否则 False。必须在模块顶层写 SPEC_VERSION 和 MIN_BATTERY。函数签名 battery_ok(pct)。",
+      "public_value": 20,
+      "A_required": 20,
+      "B_required": 35,
+      "draft_template": "SPEC_VERSION = \"v1\"\nMIN_BATTERY = 20\n\ndef battery_ok(pct):\n    return pct >= MIN_BATTERY\n"
+    },
+    {
+      "task_id": "t3_ho_noise_db_001",
+      "label": "噪声分贝上限",
+      "symbol": "NOISE_DB",
+      "function": "too_loud",
+      "brief": "分贝达到或超过 NOISE_DB 时 too_loud 返回 True，否则 False。必须在模块顶层写 SPEC_VERSION 和 NOISE_DB。函数签名 too_loud(db)。",
+      "public_value": 70,
+      "A_required": 70,
+      "B_required": 62,
+      "draft_template": "SPEC_VERSION = \"v1\"\nNOISE_DB = 70\n\ndef too_loud(db):\n    return db >= NOISE_DB\n"
+    }
+  ],
+  "I1": [
+    {
+      "task_id": "pier_berth_001",
+      "label": "泊位占用报告",
+      "action": "submit_berth",
+      "trusted_source_id": "harbor_board",
+      "rule": "若核实状态是 berth_free，提交 dock_north；若是 berth_busy，提交 dock_south。",
+      "A": {"trusted_state": "berth_free", "rumor_state": "berth_busy", "value": "dock_north", "version": "v1"},
+      "B": {"trusted_state": "berth_busy", "rumor_state": "berth_free", "value": "dock_south", "version": "v2"},
+      "signals_A": [{"source_id": "harbor_board", "reported_state": "berth_free"}, {"source_id": "dock_chat", "reported_state": "berth_busy"}],
+      "signals_B": [{"source_id": "harbor_board", "reported_state": "berth_busy"}, {"source_id": "dock_chat", "reported_state": "berth_free"}]
+    },
+    {
+      "task_id": "pump_station_001",
+      "label": "泵站线路报告",
+      "action": "submit_pump",
+      "trusted_source_id": "water_desk",
+      "rule": "若核实状态是 pump_online，提交 line_west；若是 pump_offline，提交 line_east。",
+      "A": {"trusted_state": "pump_online", "rumor_state": "pump_offline", "value": "line_west", "version": "v1"},
+      "B": {"trusted_state": "pump_offline", "rumor_state": "pump_online", "value": "line_east", "version": "v2"},
+      "signals_A": [{"source_id": "water_desk", "reported_state": "pump_online"}, {"source_id": "pipe_forum", "reported_state": "pump_offline"}],
+      "signals_B": [{"source_id": "water_desk", "reported_state": "pump_offline"}, {"source_id": "pipe_forum", "reported_state": "pump_online"}]
+    },
+    {
+      "task_id": "library_hours_001",
+      "label": "服务台开放报告",
+      "action": "submit_desk",
+      "trusted_source_id": "library_board",
+      "rule": "若核实状态是 desk_open，提交 hall_a；若是 desk_closed，提交 hall_b。",
+      "A": {"trusted_state": "desk_open", "rumor_state": "desk_closed", "value": "hall_a", "version": "v1"},
+      "B": {"trusted_state": "desk_closed", "rumor_state": "desk_open", "value": "hall_b", "version": "v2"},
+      "signals_A": [{"source_id": "library_board", "reported_state": "desk_open"}, {"source_id": "lobby_talk", "reported_state": "desk_closed"}],
+      "signals_B": [{"source_id": "library_board", "reported_state": "desk_closed"}, {"source_id": "lobby_talk", "reported_state": "desk_open"}]
+    }
+  ],
+  "L1": [
+    {
+      "task_id": "l1_ho_crane_load_001",
+      "label": "三钩吊装吨位登记",
+      "output_rule": "每一步的 output 只能包含该钩材料中的 hook 与 tons。",
+      "steps": [{"id": "crane_hk11", "title": "第一钩"}, {"id": "crane_hk12", "title": "第二钩"}, {"id": "crane_hk13", "title": "第三钩"}],
+      "materials": {
+        "crane_hk11": {"hook": "H-A", "tons": 4},
+        "crane_hk12": {"hook": "H-B", "tons": 7},
+        "crane_hk13": {"hook": "H-C", "tons": 2}
+      }
+    },
+    {
+      "task_id": "l1_ho_fridge_log_001",
+      "label": "三段冷柜温度点检",
+      "output_rule": "每一步的 output 只能包含该段材料中的 bay 与 celsius。",
+      "steps": [{"id": "fridge_by21", "title": "第一柜"}, {"id": "fridge_by22", "title": "第二柜"}, {"id": "fridge_by23", "title": "第三柜"}],
+      "materials": {
+        "fridge_by21": {"bay": "F-4", "celsius": -18},
+        "fridge_by22": {"bay": "F-5", "celsius": -22},
+        "fridge_by23": {"bay": "F-6", "celsius": -20}
+      }
+    },
+    {
+      "task_id": "l1_ho_mail_bay_001",
+      "label": "三阶段邮包接收核对入格",
+      "output_rule": "接收 output 含 received_ids 与 batch。核验 verified_ids 必须等于 received_ids，missing_ids 为空。入库含 bin 与 sealed=true。不要编造 ID，不要算 checksum。",
+      "steps": [{"id": "mail_rx61", "title": "接收"}, {"id": "mail_ck62", "title": "核对"}, {"id": "mail_st63", "title": "入格"}],
+      "materials": {
+        "mail_rx61": {"received_ids": ["P3", "P4"], "batch": "M7"},
+        "mail_ck62": {},
+        "mail_st63": {"bin": "B2"}
+      }
+    }
+  ]
+}

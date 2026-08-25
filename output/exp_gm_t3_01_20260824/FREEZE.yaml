@@ -1,0 +1,41 @@
+experiment_id: EXP-GM-T3-01
+phase: seed0
+frozen_at: '2026-08-24T13:59:41.758946+00:00'
+task_card_hash: 1c681ecabf4e0fdd682f50f613785cc1a9355451f88867c0b6be1ffddf3694aa
+oracle_hash: fb8ff3580ef00c49cec510aff465fefe271388d9f1141269ca6435b502150788
+protocol_hash: a31bdaed7112418ee0212c37bd9f763c2cfca6eedebc000f0ab676d9dbf4990c
+scorer_hash: 9f0c9b93ce0a4b21135fbbd8e4202b7cdc02fda4aedad704b78444baa1a671e6
+runner_hash: 980c538c8d40bbb65ece0d7447f31bd45a28899b3bb1ab068198f3de95d9b195
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    single:
+    - Executor 根据 v1 brief 生成初稿；提示不得含 Intervention 值
+    - 同一 Agent 读取最终标准并自检（self_check_prompt）
+    - 同一 Agent 根据自检完成终稿
+    multi:
+    - Executor 根据 v1 brief 生成初稿；与 Single/Drop 共享同一初稿哈希
+    - 独立 Reviewer 读取私有最终标准并审核（reviewer_prompt）
+    - Executor 收到审核意见并完成终稿
+    drop:
+    - Executor 根据 v1 brief 生成初稿；与 Single/Multi 共享同一初稿哈希
+    - Reviewer 必须实际运行并读取私有最终标准，但意见随后丢弃
+    - Executor 收不到审核意见，仍消耗第三次调用完成终稿
+  hidden_oracle_in_prompts: false
+  environment_rewrites_files: false
+  drop_reviewer_skipped: false
+  logical_calls_per_cell: 3
+do_not_edit_after_freeze:
+- task_card.yaml
+- tasks/
+- oracle/
+- protocol.md
+- scorer.py
+- run_matrix.py
+- loop.py
+- roles.py
+- contracts/review_action.py

@@ -1,0 +1,21 @@
+experiment_id: EXP-GM-05c
+construct: equal_budget_multi_agent_value
+difficulty: L1
+shared_draft_fork: true
+v2_published_after_draft: true
+calls_per_cell: 3
+repeat0_matrix: 3x2x3
+frozen:
+  - task_content
+  - v1_v2_values
+  - initial_draft_prompt
+  - role_information
+  - required_change_semantics
+  - hidden_tests
+  - scorer_semantics
+  - model
+  - temperature
+  - track_budget
+review_action: structured_json
+max_format_retries: 1
+

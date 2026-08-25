@@ -1,0 +1,6 @@
+id: cal_response_deadline_001
+title: 响应时限
+path: response_deadline
+current: 30
+control_required: 30
+intervention_required: 20

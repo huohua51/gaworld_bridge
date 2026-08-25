@@ -1,0 +1,29 @@
+{
+  "task_id": "gm05_aid_allocation_001",
+  "variant": "control",
+  "track": "drop",
+  "budget": {
+    "calls": 3,
+    "max_calls": 3,
+    "kinds": [
+      "executor_draft",
+      "review",
+      "executor_final"
+    ],
+    "elapsed_s": [
+      37.72843408584595,
+      8.45073652267456,
+      20.940414905548096
+    ],
+    "prompt_chars": [
+      305,
+      2319,
+      2175
+    ],
+    "total_elapsed_s": 67.12,
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "max_tokens": 2048,
+    "valid": true
+  }
+}

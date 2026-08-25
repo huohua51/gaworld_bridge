@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "ALERT_C",
+    "observed": 38,
+    "required": 38
+  },
+  "required_changes": []
+}

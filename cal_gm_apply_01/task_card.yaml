@@ -1,0 +1,33 @@
+experiment_id: CAL-GM-APPLY-01
+construct: complete_change_adoption
+role: executor_component_calibration
+ranking_eligible: false
+status: rule_calibration
+tracks: [executor]
+variants: [control, intervention]
+tasks: [cal_apply_limit_fallback_001, cal_apply_weekday_weekend_001, cal_apply_normal_emergency_001]
+matrix_first: 3x2x1
+matrix_full: 3x2x3
+reviewer: rule
+decision: rule
+model_role: executor_only
+does_not_use:
+  - n1_tasks
+  - t3_tasks
+  - oa02_tasks
+  - gm01_gm02_gm05
+  - 04e_dev_tasks
+  - communication
+  - model_reviewer
+heldout: not_created
+pass_gate_seed0:
+  coverage: 1.0
+  FieldAdoptionRate: 1.0
+  CompleteChangeAdoptionRate: 1.0
+  PartialChangeRate: 0.0
+  UnregisteredChangeRate: 0.0
+  HiddenTestPass: 1.0
+  AcknowledgementExecutionGap: 0.0
+note: >
+  只测完整落实修改。Reviewer 与决策由 Rule 提供，模型只做 Executor。
+  Scorer 读取真实文件，不按模型声称计分。不改 T3 完整工作流。

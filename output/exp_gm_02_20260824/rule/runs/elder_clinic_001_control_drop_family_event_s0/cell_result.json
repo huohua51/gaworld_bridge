@@ -1,0 +1,129 @@
+{
+  "workflow_id": "exp_gm_02_household_care",
+  "instance_id": "elder_clinic_001_control_drop_family_event_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "care_event_injected",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "version_correct",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "r0_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_submitted_by_agent",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_assign",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "care_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "action=keep_schedule caregiver=NONE expense=0 slot=planned"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "care_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "evidence=NONE version=v1"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "care_event_injected",
+      "perception_packaged",
+      "perception_dropped",
+      "perception_read",
+      "action_submitted"
+    ],
+    "agent_calls": 1,
+    "responsibility": null,
+    "expense_count": 0,
+    "slot_status": "planned",
+    "injected_event_id": "care-evt-elder_clinic_001_control_drop_family_event_s0-1"
+  },
+  "extra": {
+    "probe_id": "elder_clinic_001",
+    "track": "drop_family_event",
+    "variant": "control",
+    "seed": 0,
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "control_false_positive": false,
+    "action": {
+      "action": "keep_schedule",
+      "caregiver_id": "NONE",
+      "patient_id": "NONE",
+      "event_id": "NONE",
+      "slot_id": "shopping-slot-02",
+      "schedule_decision": "keep",
+      "expense_amount": 0,
+      "adopted_state_version": "v1",
+      "evidence_event_id": "NONE",
+      "task_id": "elder_clinic_001_control_drop_family_event_s0",
+      "agent_id": 1
+    },
+    "ranking_note": "pilot, not a leaderboard",
+    "mode": "rule",
+    "model_version": "rule",
+    "temperature": 0
+  }
+}

@@ -1,0 +1,25 @@
+task_id: TASK-W1-review-loop
+experiment_id: EXP-GM-04c
+task_family: T3
+target_axis: 功能能力
+mechanism: M4 Reviewer—Executor 信息异质审核闭环
+status: pilot
+ranking_eligible: false
+conformance_result: pass
+agent_workflow_result: partial
+conformance_targets:
+  - private_information_isolation
+  - role_permission_enforcement
+  - review_message_delivery
+  - review_rework_trigger
+diagnosed_failures:
+  - false_positive_revision
+  - incomplete_required_change_adoption
+human_reference: N/A
+roadmap: >
+  04c 三题冻结为 development + regression；协议改进看 04d 与 held-out。
+  平台通道通过，不进入底层修复；Agent 协议问题进入 Backlog。
+note: >
+  平台结论成立：私有信息隔离、权限、审核送达和返工触发可用。
+  不能登记成“没有问题”。真模型仍有两类协议失败：无需修改时仍要求修改；
+  读到正确建议后只改版本号、不改数值。

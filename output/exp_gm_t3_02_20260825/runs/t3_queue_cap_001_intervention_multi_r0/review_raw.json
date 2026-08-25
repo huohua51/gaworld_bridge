@@ -1,0 +1,16 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "QUEUE_CAP",
+    "observed": 50,
+    "required": 40
+  },
+  "required_changes": [
+    {
+      "change_id": "change-01",
+      "path": "QUEUE_CAP",
+      "old_value": 50,
+      "new_value": 40
+    }
+  ]
+}

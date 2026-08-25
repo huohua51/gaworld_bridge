@@ -1,0 +1,5 @@
+{
+  "control": {"action": "keep_current_plan"},
+  "intervention_delivered": {"action": "revise_plan", "target": "transport", "value": "take_bus"},
+  "intervention_dropped": {"action": "keep_current_plan"}
+}

@@ -1,0 +1,40 @@
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92", "window_token": "b_window_v1", "window_key": "cy91+cy92+cy93", "priority": "low"}}
+{"event": "private_read", "role": "agent_a", "owner": "agent_a"}
+{"event": "private_read", "role": "agent_b", "owner": "agent_b"}
+{"event": "report_emitted", "agent_id": "agent_a", "hash": "fd7b8fe3657f5808d31c8f37ce84ab6d5f2c6f08fe15bde6a534a812d950dc07", "payload": {"agent_id": "agent_a", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91"}}
+{"event": "report_delivered", "agent_id": "agent_a", "hash": "fd7b8fe3657f5808d31c8f37ce84ab6d5f2c6f08fe15bde6a534a812d950dc07"}
+{"event": "report_emitted", "agent_id": "agent_b", "hash": "1f5e890835d460988311d72fcccc9c4f8558dfc05e3d3e106b5de51860460a79", "payload": {"agent_id": "agent_b", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92"}}
+{"event": "report_delivered", "agent_id": "agent_b", "hash": "1f5e890835d460988311d72fcccc9c4f8558dfc05e3d3e106b5de51860460a79"}
+{"event": "reports_read", "role": "coordinator", "agents": ["agent_a", "agent_b"]}
+{"event": "plan_emitted", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_dropped", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056"}
+{"event": "denied", "ok": false, "reason": "plan_not_delivered", "role": "agent_a"}
+{"event": "denied", "ok": false, "reason": "plan_not_delivered", "role": "agent_b"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "cy91", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "cy92", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_drop_coordinator_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_drop_coordinator_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "coordinator"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "agent_a", "owner": "agent_b"}
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92", "window_token": "b_window_v1", "window_key": "cy91+cy92+cy93", "priority": "low"}}
+{"event": "private_read", "role": "agent_a", "owner": "agent_a"}
+{"event": "private_read", "role": "agent_b", "owner": "agent_b"}
+{"event": "report_emitted", "agent_id": "agent_a", "hash": "fd7b8fe3657f5808d31c8f37ce84ab6d5f2c6f08fe15bde6a534a812d950dc07", "payload": {"agent_id": "agent_a", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91"}}
+{"event": "report_delivered", "agent_id": "agent_a", "hash": "fd7b8fe3657f5808d31c8f37ce84ab6d5f2c6f08fe15bde6a534a812d950dc07"}
+{"event": "report_emitted", "agent_id": "agent_b", "hash": "1f5e890835d460988311d72fcccc9c4f8558dfc05e3d3e106b5de51860460a79", "payload": {"agent_id": "agent_b", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92"}}
+{"event": "report_delivered", "agent_id": "agent_b", "hash": "1f5e890835d460988311d72fcccc9c4f8558dfc05e3d3e106b5de51860460a79"}
+{"event": "reports_read", "role": "coordinator", "agents": ["agent_a", "agent_b"]}
+{"event": "plan_emitted", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_dropped", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056"}
+{"event": "denied", "ok": false, "reason": "plan_not_delivered", "role": "agent_a"}
+{"event": "denied", "ok": false, "reason": "plan_not_delivered", "role": "agent_b"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "cy91", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "cy92", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_drop_coordinator_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_drop_coordinator_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "coordinator"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "agent_a", "owner": "agent_b"}

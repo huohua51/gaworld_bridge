@@ -1,0 +1,3 @@
+{"event": "initial_saved", "assignments": {"agent_a": "w08", "agent_b": "w08"}}
+{"event": "violations_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "optics_table", "slot": "w08", "agents": ["agent_a", "agent_b"]}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "w09", "agent_b": "w10"}, "violations": [{"type": "priority_not_preserved", "agent": "agent_a", "observed": "w09", "initial": "w08"}, {"type": "not_earliest_feasible_idle", "agent": "agent_b", "observed": "w10"}]}

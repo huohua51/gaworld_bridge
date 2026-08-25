@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 0,
+    "fail_count": 0,
+    "returncode": 2,
+    "stdout_tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/home/wuxingye/miniconda3/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntest_oracle.py:1: in <module>\n    from main import fee_required\nE     File \"/tmp/w1_oracle_eymwoklu/main.py\", line 1\nE       ```python\nE       ^\nE   SyntaxError: invalid syntax\n=========================== short test summary info ============================\nERROR test_oracle.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.18s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "v2": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 0,
+    "fail_count": 0,
+    "returncode": 2,
+    "stdout_tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/home/wuxingye/miniconda3/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntest_oracle.py:1: in <module>\n    from main import fee_required\nE     File \"/tmp/w1_oracle_705o_5v7/main.py\", line 1\nE       ```python\nE       ^\nE   SyntaxError: invalid syntax\n=========================== short test summary info ============================\nERROR test_oracle.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.12s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "target_correct": false,
+  "exclusive_ok": true
+}

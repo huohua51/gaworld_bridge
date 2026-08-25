@@ -1,0 +1,32 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "file_rx41": "worker_a",
+      "file_ck41": "worker_a",
+      "file_ar41": "worker_a"
+    },
+    "outputs": {
+      "file_rx41": {"received_ids": ["D17", "D18"], "batch": "B4"},
+      "file_ck41": {"verified_ids": ["D17", "D18"], "missing_ids": []},
+      "file_ar41": {"folder": "F2", "sealed": true}
+    },
+    "resume_step": "file_ck41",
+    "interrupt_after": "file_rx41"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "file_rx41": "worker_a",
+      "file_ck41": "worker_b",
+      "file_ar41": "worker_b"
+    },
+    "outputs": {
+      "file_rx41": {"received_ids": ["D17", "D18"], "batch": "B4"},
+      "file_ck41": {"verified_ids": ["D17", "D18"], "missing_ids": []},
+      "file_ar41": {"folder": "F2", "sealed": true}
+    },
+    "resume_step": "file_ck41",
+    "interrupt_after": "file_rx41"
+  }
+}

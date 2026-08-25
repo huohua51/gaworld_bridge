@@ -1,0 +1,195 @@
+{
+  "workflow_id": "eval_mode_environment_001",
+  "requested": 2,
+  "measurement_valid": 2,
+  "coverage": 1.0,
+  "full_pass_rate": 0.5,
+  "mean_task_score": 0.5,
+  "ranking_eligible": true,
+  "cells": [
+    {
+      "workflow_id": "eval_mode_environment_001",
+      "instance_id": "current_default_config",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.0,
+      "ranking_eligible": true,
+      "status": "artifact_gate_failed",
+      "gates": [
+        {
+          "gate_id": "eval_mode_declared",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "CONFIG has eval_mode block"
+        },
+        {
+          "gate_id": "default_config_does_not_rewrite",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "dynamic_behavior.enabled=True"
+        },
+        {
+          "gate_id": "default_eval_mode_off",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "default run remains a city simulator"
+        },
+        {
+          "gate_id": "disable_flag_freezes_activity",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "{'changed': False, 'activity': '工作'}"
+        },
+        {
+          "gate_id": "default_interview_has_no_prose_fallback",
+          "passed": false,
+          "critical": false,
+          "layer": "R1",
+          "detail": "default interview still allows prose fallback (product path)"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "rewrite_detectable",
+          "layer": "R3",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "{'enabled_changed': True, 'enabled_activity': '找点吃的', 'reason': '肚子有点占据注意力，想先找点吃的。(hunger=0.95)'}"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "dynamic_behavior_enabled": true,
+        "eval_mode_enabled": false,
+        "rewrite_when_enabled": {
+          "activity": "找点吃的",
+          "changed": true,
+          "reason": "肚子有点占据注意力，想先找点吃的。(hunger=0.95)",
+          "interrupt": {
+            "source": "need",
+            "kind": "hunger",
+            "activity": "找点吃的",
+            "reason": "肚子有点占据注意力，想先找点吃的。(hunger=0.95)",
+            "priority": 0.745,
+            "duration_minutes": 25,
+            "resumable": true,
+            "mood_delta": 0.02,
+            "extra": {}
+          },
+          "social_encounters": [],
+          "mood_delta": 0.02,
+          "schedule_insert": {
+            "insert_time": "12:00",
+            "activity": "找点吃的",
+            "duration_minutes": 25,
+            "original_activity": "工作"
+          },
+          "all_candidates": 4,
+          "cascade_events": []
+        },
+        "frozen_when_disabled": {
+          "activity": "工作",
+          "changed": false,
+          "reason": "",
+          "interrupt": null,
+          "social_encounters": [],
+          "mood_delta": 0.0,
+          "schedule_insert": null,
+          "all_candidates": 0,
+          "cascade_events": []
+        }
+      }
+    },
+    {
+      "workflow_id": "eval_mode_environment_001",
+      "instance_id": "eval_mode_enabled_runtime",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "eval_mode_applied",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "['dynamic_behavior.enabled=False', 'routine_change.enabled=False']"
+        },
+        {
+          "gate_id": "dynamic_behavior_off",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        },
+        {
+          "gate_id": "interview_no_prose_fallback",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "[]"
+        },
+        {
+          "gate_id": "diary_no_fallback",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "''"
+        },
+        {
+          "gate_id": "routine_change_frozen",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        },
+        {
+          "gate_id": "fallback_helper_denied",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "eval_contract_holds",
+          "layer": "R2",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "enabled eval_mode refuses rewrite, interview fallback, diary fallback"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "applied": {
+          "applied": true,
+          "enabled": true,
+          "changes": [
+            "dynamic_behavior.enabled=False",
+            "routine_change.enabled=False"
+          ]
+        },
+        "interview_answers": [],
+        "diary": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+id: c1prio_mass_spec_001
+title: 质谱仪预约
+resource_id: mass_spec_queue
+slots: [ms41, ms42, ms43]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [ms41, ms42, ms43]
+  preferred: ms41
+agent_b:
+  control:
+    feasible: [ms42, ms43]
+    preferred: ms42
+  intervention:
+    feasible: [ms41, ms42, ms43]
+    preferred: ms41

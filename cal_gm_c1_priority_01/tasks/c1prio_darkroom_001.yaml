@@ -1,0 +1,15 @@
+id: c1prio_darkroom_001
+title: 暗房冲洗槽
+resource_id: darkroom_tray
+slots: [dr31, dr32, dr33]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [dr31, dr32, dr33]
+  preferred: dr31
+agent_b:
+  control:
+    feasible: [dr32, dr33]
+    preferred: dr32
+  intervention:
+    feasible: [dr31, dr32, dr33]
+    preferred: dr31

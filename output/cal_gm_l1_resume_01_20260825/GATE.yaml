@@ -1,0 +1,32 @@
+experiment_id: CAL-GM-L1-RESUME-01
+parent: EXP-GM-L1-01b
+phase: all
+pass_gate:
+  coverage_ok: true
+  resume_ok: true
+  not_repeated_ok: true
+  not_skipped_ok: true
+  contract_ok: true
+  strict_ok: true
+  holds: true
+rates:
+  Coverage: 1.0
+  ResumeStepAccuracy: 1.0
+  CompletedStepNotRepeated: 1.0
+  RemainingStepNotSkipped: 1.0
+  ResumeContractValid: 1.0
+  StrictPair: 1.0
+  control_fullpass: 1.0
+  intervention_fullpass: 1.0
+claim: >
+  Coordinator 续做位置组件校准 18/18 通过。L1-01c 54 格开发集回归已通过。
+  原失败 resolved_on_development_regression。不能写泛化或进入排名。
+  不能修改 L1-01b 的 StrictPair 2/3。
+ranking_eligible: false
+l1_01c_allowed: true
+coordinator_resume_component: pass
+workflow_regression: pass
+original_failure_status: resolved_on_development_regression
+does_not_overwrite:
+- EXP-GM-L1-01
+- EXP-GM-L1-01b

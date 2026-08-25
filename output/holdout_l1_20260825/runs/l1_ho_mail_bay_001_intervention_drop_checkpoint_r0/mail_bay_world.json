@@ -1,0 +1,59 @@
+{
+  "steps": {
+    "mail_rx61": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "received_ids": [
+          "P3",
+          "P4"
+        ],
+        "batch": "M7"
+      },
+      "event_index": 4
+    },
+    "mail_ck62": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "verified_ids": [],
+        "missing_ids": []
+      },
+      "event_index": 16
+    },
+    "mail_st63": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "bin": "B2",
+        "sealed": true
+      },
+      "event_index": 17
+    }
+  },
+  "completed_steps": [
+    "mail_rx61",
+    "mail_ck62",
+    "mail_st63"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "mail_rx61"
+    ],
+    "outputs": {
+      "mail_rx61": {
+        "received_ids": [
+          "P3",
+          "P4"
+        ],
+        "batch": "M7"
+      }
+    },
+    "world_digest": "f18c6fed893424f6da88fe44f37684379b04b0b3c94773b799747959ab2ad4d6"
+  },
+  "unavailable": [
+    "worker_a"
+  ]
+}

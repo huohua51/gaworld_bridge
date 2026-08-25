@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "QUEUE_MAX",
+    "observed": 15,
+    "required": 15
+  },
+  "required_changes": []
+}

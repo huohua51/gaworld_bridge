@@ -1,0 +1,3193 @@
+{
+  "generated_at": "2026-08-25T10:15:26.205371+00:00",
+  "experiment_id": "CAL-GM-L1-RESUME-01",
+  "parent": "EXP-GM-L1-01b",
+  "phase": "all",
+  "ranking_eligible": false,
+  "summary": {
+    "workflow_id": "cal_gm_l1_resume_01",
+    "requested": 18,
+    "measurement_valid": 18,
+    "coverage": 1.0,
+    "full_pass_rate": 1.0,
+    "mean_task_score": 1.0,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_mail_sort_001_control_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_mail_sort_001",
+          "variant": "control",
+          "repeat_id": 0,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_mail_sort_001_intervention_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_mail_sort_001",
+          "variant": "intervention",
+          "repeat_id": 0,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_pump_prime_001_control_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_pump_prime_001",
+          "variant": "control",
+          "repeat_id": 0,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_pump_prime_001_intervention_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_pump_prime_001",
+          "variant": "intervention",
+          "repeat_id": 0,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_badge_print_001_control_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_badge_print_001",
+          "variant": "control",
+          "repeat_id": 0,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_badge_print_001_intervention_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_badge_print_001",
+          "variant": "intervention",
+          "repeat_id": 0,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_mail_sort_001_control_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_mail_sort_001",
+          "variant": "control",
+          "repeat_id": 1,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_mail_sort_001_intervention_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_mail_sort_001",
+          "variant": "intervention",
+          "repeat_id": 1,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_pump_prime_001_control_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_pump_prime_001",
+          "variant": "control",
+          "repeat_id": 1,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_pump_prime_001_intervention_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_pump_prime_001",
+          "variant": "intervention",
+          "repeat_id": 1,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_badge_print_001_control_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_badge_print_001",
+          "variant": "control",
+          "repeat_id": 1,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_badge_print_001_intervention_r1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_badge_print_001",
+          "variant": "intervention",
+          "repeat_id": 1,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_mail_sort_001_control_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_mail_sort_001",
+          "variant": "control",
+          "repeat_id": 2,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_mail_sort_001_intervention_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_mail_sort_001",
+          "variant": "intervention",
+          "repeat_id": 2,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "mail_in11"
+            ],
+            "resume_step": "mail_bin12",
+            "remaining_steps": [
+              "mail_bin12",
+              "mail_seal13"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_pump_prime_001_control_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_pump_prime_001",
+          "variant": "control",
+          "repeat_id": 2,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_pump_prime_001_intervention_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_pump_prime_001",
+          "variant": "intervention",
+          "repeat_id": 2,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "pump_fill21"
+            ],
+            "resume_step": "pump_vent22",
+            "remaining_steps": [
+              "pump_vent22",
+              "pump_lock23"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_badge_print_001_control_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_badge_print_001",
+          "variant": "control",
+          "repeat_id": 2,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "cal_gm_l1_resume_01",
+        "instance_id": "l1res_badge_print_001_intervention_r2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "coordinator_did_not_execute",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "resume_json_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "resume_contract_valid",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "resume_step_accuracy",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "completed_step_not_repeated",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "remaining_step_not_skipped",
+            "layer": "R2",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "resume_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "contract_error": "ok",
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          }
+        },
+        "extra": {
+          "task_id": "l1res_badge_print_001",
+          "variant": "intervention",
+          "repeat_id": 2,
+          "resume_contract_valid": true,
+          "resume_step_accuracy": true,
+          "completed_step_not_repeated": true,
+          "remaining_step_not_skipped": true,
+          "action": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "want": {
+            "completed_steps": [
+              "badge_draft31"
+            ],
+            "resume_step": "badge_print32",
+            "remaining_steps": [
+              "badge_print32",
+              "badge_issue33"
+            ]
+          },
+          "first_error": "none",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "rates": {
+      "Coverage": 1.0,
+      "ResumeStepAccuracy": 1.0,
+      "CompletedStepNotRepeated": 1.0,
+      "RemainingStepNotSkipped": 1.0,
+      "ResumeContractValid": 1.0,
+      "StrictPair": 1.0,
+      "control_fullpass": 1.0,
+      "intervention_fullpass": 1.0
+    },
+    "pass_gate": {
+      "coverage_ok": true,
+      "resume_ok": true,
+      "not_repeated_ok": true,
+      "not_skipped_ok": true,
+      "contract_ok": true,
+      "strict_ok": true,
+      "holds": true
+    }
+  },
+  "claim": "Coordinator 续做位置校准 18/18 通过。不覆盖 L1-01b。下一步才是新建 L1-01c 做完整多智能体回归。",
+  "freeze": {
+    "experiment_id": "CAL-GM-L1-RESUME-01",
+    "parent": "EXP-GM-L1-01b",
+    "phase": "rule",
+    "frozen_at": "2026-08-25T10:14:22.371925+00:00",
+    "task_card_hash": "7c589fd913f95cab7aeaa58a8e69b6a4d7c8237b44832f9b8f5bbb91860183b8",
+    "oracle_hash": "a50bdbe7ae8e58d7adc66cad1bea6db93ee8ea4e55049c34965439cec066ce47",
+    "protocol_hash": "6e796059c1d8b7a36a77d3d10dc0013c828d4de6425a59148fe5779587c6709a",
+    "scorer_hash": "5b6dda657f71c6ab417e9a0212f19168393638429c6bcf35eb975babb3427dd6",
+    "gaworld_next_step": "5f939c546565e28905624f679a13e774c4e23bab44722a3ba70d802d85e5ef26",
+    "runner_hash": "2ec3687bfb7b89dde9d5b7720b22b7895e6b76b8a00930ef62cff0135d09a134",
+    "base_commit": "a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c",
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "do_not_edit_after_freeze": [
+      "task_card.yaml",
+      "tasks/",
+      "oracle/",
+      "protocol.md",
+      "scorer.py",
+      "prompts.py",
+      "contract.py",
+      "loader.py"
+    ],
+    "does_not_overwrite": [
+      "EXP-GM-L1-01",
+      "EXP-GM-L1-01b"
+    ]
+  },
+  "first_error": {
+    "none": 18
+  },
+  "model": "GLM-4-Flash",
+  "temperature": 0,
+  "does_not_overwrite": [
+    "EXP-GM-L1-01",
+    "EXP-GM-L1-01b"
+  ],
+  "l1_01c_allowed": true
+}

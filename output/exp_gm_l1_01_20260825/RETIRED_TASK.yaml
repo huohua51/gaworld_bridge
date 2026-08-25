@@ -1,0 +1,8 @@
+experiment_id: EXP-GM-L1-01
+task_id: l1_01_specimen_log_001
+task_status: retired_after_direct_gate
+reason: downstream_dependency_generation_confounds_recovery_construct
+failed_variant: intervention
+failure: completed_stage_output_not_consumed
+original_results_retained: true
+next_experiment: EXP-GM-L1-01b

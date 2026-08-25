@@ -1,0 +1,3 @@
+```json
+{"steps": {"label_ck52": {"verified_ids": ["L9", "L10"], "missing_ids": []}, "label_st53": {"bin": "S8", "sealed": true}}}
+```

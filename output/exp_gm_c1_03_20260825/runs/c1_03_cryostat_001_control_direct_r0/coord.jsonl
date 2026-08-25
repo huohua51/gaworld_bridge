@@ -1,0 +1,36 @@
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92", "window_token": "b_window_v1", "window_key": "cy91+cy92+cy93", "priority": "low"}}
+{"event": "plan_emitted", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_delivered", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "cy91", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "cy92", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92", "window_token": "b_window_v1", "window_key": "cy91+cy92+cy93", "priority": "low"}}
+{"event": "plan_emitted", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_delivered", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "cy91", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "cy92", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92", "window_token": "b_window_v1", "window_key": "cy91+cy92+cy93", "priority": "low"}}
+{"event": "plan_emitted", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_delivered", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "cy91", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "cy92", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy92", "window_token": "b_window_v1", "window_key": "cy91+cy92+cy93", "priority": "low"}}
+{"event": "plan_emitted", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "cy91", "agent_b": "cy92"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_delivered", "hash": "ba01982e77a6fdab521c1f951cc5cf692f1b3bfa5d8a4e5c23fb05d3f1e8a056"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "cy91", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "cy92", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_03_20260825/runs/c1_03_cryostat_001_control_direct_r0/cryostat_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}

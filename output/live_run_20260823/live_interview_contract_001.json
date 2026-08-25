@@ -1,0 +1,75 @@
+{
+  "workflow_id": "live_interview_contract_001",
+  "requested": 1,
+  "measurement_valid": 1,
+  "coverage": 1.0,
+  "full_pass_rate": 1.0,
+  "mean_task_score": 1.0,
+  "ranking_eligible": true,
+  "cells": [
+    {
+      "workflow_id": "live_interview_contract_001",
+      "instance_id": "agent4_eval_mode",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live interview_agent"
+        },
+        {
+          "gate_id": "json_shape_1to1",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "parsed=3"
+        },
+        {
+          "gate_id": "no_identical_reuse",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": ""
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "each_question_answered",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "[{\"question\": \"你今天为什么选择这个行动？\", \"answer\": \"今天选择这个行动是因为它符合我的职业规划，有助于提升我的专业技能。\"}, {\"question\": \"你记得昨天的日程吗？\", \"answer\": \"昨天的日程主要是处理一些日常事务，包括会议和文件审核。\"}, {\"question\": \"如果工资降到保留线以下，你还会接受吗？\", \"answer\": \"如果工资降到保留线以下，我会重新评估我的职业选择和市场需求，如果情况允许，我可能会考虑接受。\"}]"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "answers": [
+          {
+            "question": "你今天为什么选择这个行动？",
+            "answer": "今天选择这个行动是因为它符合我的职业规划，有助于提升我的专业技能。"
+          },
+          {
+            "question": "你记得昨天的日程吗？",
+            "answer": "昨天的日程主要是处理一些日常事务，包括会议和文件审核。"
+          },
+          {
+            "question": "如果工资降到保留线以下，你还会接受吗？",
+            "answer": "如果工资降到保留线以下，我会重新评估我的职业选择和市场需求，如果情况允许，我可能会考虑接受。"
+          }
+        ]
+      }
+    }
+  ]
+}

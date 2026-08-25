@@ -1,0 +1,47 @@
+{
+  "stimulus_id": "h1dev-i1-pier-control",
+  "construct": "I1",
+  "task_label": "泊位占用报告",
+  "variant_code": "A",
+  "roles": [
+    "观察员",
+    "核验员",
+    "调度员"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "观察员",
+      "kind": "report",
+      "visible_to_role": "两个来源的现场报告；不要判断谁可信",
+      "body": "[\n  {\n    \"source_id\": \"harbor_board\",\n    \"reported_state\": \"berth_free\"\n  },\n  {\n    \"source_id\": \"dock_chat\",\n    \"reported_state\": \"berth_busy\"\n  }\n]"
+    },
+    {
+      "t": 2,
+      "role": "核验员",
+      "kind": "verify",
+      "visible_to_role": "原始报告 + 私有可信来源表",
+      "body": "{\n  \"verified_state\": \"berth_free\",\n  \"source_id\": \"harbor_board\",\n  \"state_version\": \"v1\"\n}"
+    },
+    {
+      "t": 3,
+      "role": "调度员",
+      "kind": "act",
+      "visible_to_role": "已核实状态与动作规则；不能读私有可信表",
+      "body": "{\n  \"action\": \"submit_berth\",\n  \"value\": \"dock_north\",\n  \"adopted_state_version\": \"v1\"\n}"
+    }
+  ],
+  "source_kind": "agent",
+  "h1_role": "development_stimulus",
+  "functional_role": "sealed_holdout_result",
+  "not_future_h1_holdout": true,
+  "rater_must_not_see": [
+    "source_kind",
+    "functional_role",
+    "full_pass",
+    "model",
+    "experiment_id"
+  ],
+  "source_run": "output/holdout_i1_20260825/runs/pier_berth_001_control_full_s0",
+  "source_cell_sha256": "251243bb75e5a7c43b96ced56c6f1f8c96bdeede5f6a8d4ea1ae55a29adfd885"
+}

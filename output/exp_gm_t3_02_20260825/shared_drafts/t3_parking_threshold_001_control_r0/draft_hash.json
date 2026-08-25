@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_parking_threshold_001",
+  "variant": "control",
+  "repeat_id": 0,
+  "sha256": "780b94747b17e837d5a6c2e8e99cd903a16ef0aee42edc7411c70359a3897408",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 fee_required\n【简报】停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。 不要输出 Markdown 围栏。 常量 PARKING_FREE_MINUTES = 120。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "bef9c0edd589ec6a516977959d26318e12c2d1b34ab405d4b20958eece7297de",
+  "draft_has_v2_tokens": []
+}

@@ -1,0 +1,129 @@
+{
+  "workflow_id": "exp_gm_02_household_care",
+  "instance_id": "child_fever_001_intervention_direct_household_state_s2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "care_event_injected",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "version_correct",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "r0_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_submitted_by_agent",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_assign",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "care_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "action=provide_care caregiver=parent-01 expense=200 slot=cancelled"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "care_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "evidence=care-evt-child_fever_001_intervention_direct_household_state_s2-1 version=v2"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "care_event_injected",
+      "current_state_seeded",
+      "perception_read",
+      "action_submitted",
+      "event_adopted"
+    ],
+    "agent_calls": 1,
+    "responsibility": "parent-01",
+    "expense_count": 1,
+    "slot_status": "cancelled",
+    "injected_event_id": "care-evt-child_fever_001_intervention_direct_household_state_s2-1"
+  },
+  "extra": {
+    "probe_id": "child_fever_001",
+    "track": "direct_household_state",
+    "variant": "intervention",
+    "seed": 2,
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "control_false_positive": false,
+    "action": {
+      "action": "provide_care",
+      "caregiver_id": "parent-01",
+      "patient_id": "child-01",
+      "event_id": "care-evt-child_fever_001_intervention_direct_household_state_s2-1",
+      "slot_id": "work-slot-01",
+      "schedule_decision": "cancel",
+      "expense_amount": 200,
+      "adopted_state_version": "v2",
+      "evidence_event_id": "care-evt-child_fever_001_intervention_direct_household_state_s2-1",
+      "task_id": "child_fever_001_intervention_direct_household_state_s2",
+      "agent_id": 1
+    },
+    "ranking_note": "pilot, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0
+  }
+}

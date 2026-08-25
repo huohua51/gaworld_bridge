@@ -1,0 +1,53 @@
+task_id: TASK-REL1
+experiment_id: EXP-GM-REL1
+task_family: T2
+target_axis: 功能能力
+construct: registered_reliability_update
+latest_is_binding: true
+mechanism: M 登记来源可靠性更新
+status: pilot
+ranking_eligible: false
+conformance_result: pass
+agent_workflow_result: fail
+conformance_target: registered_reliability_update
+conformance_targets:
+  - private_history_isolation
+  - role_permission_enforcement
+  - trust_state_delivery
+  - trust_update_after_reversal
+  - relationship_write_on_adopt
+diagnosed_failures:
+  - majority_not_recency_update
+  - history_ignored_person_a_default
+  - dispatcher_evidence_null
+  - dispatcher_action_value_field_error
+human_reference: N/A
+oracle_rule: >
+  形成阶段：历史正确次数更多的来源。
+  更新阶段：latest_is_binding=true，最新一条带 outcome 的记录绝对覆盖历史多数。
+  这是登记的功能规则，不是唯一正确的人类信任行为，不能扩写为 H3 人际信任。
+roadmap: >
+  I1 Focused 契约小修 → 冻结 REL1 → 04d-A/B 协议改进 → 留出题验证
+  → 再决定是否把协议方法迁移到 REL1。不增加自动信任更新器。
+note: >
+  平台结论成立：历史账本隔离、权限、信任送达、反转后可写 v2、采用时写入 relationship_update。
+  真模型 Full=0 记为功能能力失败：未能按登记规则（latest_is_binding）更新来源可靠性。
+  禁止扩写为“模型不会形成人际信任”。H3 需要匹配人类 dyad 数据。
+  Rule Full=1.0 / Drop=0 / No-history=0，不进入底层平台修复，不加自动信任更新器。
+
+roles: [observer, trust_updater, dispatcher]
+tracks: [focused, full, drop_trust, no_history]
+variants: [control, intervention]
+probes: [road_status_001, shelter_capacity_001, clinic_service_001]
+seeds_first: [0]
+seeds_if_valid: [1, 2]
+model: GLM-4-Flash
+temperature: 0
+matrix_full: 3 pairs × 2 variants × 4 tracks × 3 repeats = 72
+matrix_first: 3 × 2 × 4 × 1 = 24
+primary_metrics:
+  - oracle_conditioned FullPass
+  - TrustDeliveryValue
+  - HistoryValue
+  - TrustUpdatePair
+  - StrictPair

@@ -1,0 +1,10 @@
+{
+  "task_id": "gm05b_aid_elig_001",
+  "variant": "control",
+  "repeat_id": 0,
+  "brief_version": "v1",
+  "v2_published": false,
+  "sha256": "8e0c63f6a2ad94332d75f7189ee557f9ef622d99ec702691bf2634b9f9052322",
+  "leak_on_first_brief": [],
+  "generation_prompt": "【工程师】王思远\n【职业】产品经理\n【任务】写 eligible(age, income)\n【简报】年龄 >= 18 且收入 <= 50000 才返回 True，否则 False。常量 MIN_AGE = 18，INCOME_CAP = 50000。必须在模块顶层写 SPEC_VERSION 和下面点名的常量。函数签名必须与任务一致，不要改参数名。不要输出 Markdown 围栏。不要只改版本号。"
+}

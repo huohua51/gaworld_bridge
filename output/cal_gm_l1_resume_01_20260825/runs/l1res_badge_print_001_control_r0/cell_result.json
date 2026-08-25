@@ -1,0 +1,173 @@
+{
+  "workflow_id": "cal_gm_l1_resume_01",
+  "instance_id": "l1res_badge_print_001_control_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_call",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "coordinator_did_not_execute",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "resume_json_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resume_contract_valid",
+      "layer": "R2",
+      "scorer": "resume_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "resume_step_accuracy",
+      "layer": "R2",
+      "scorer": "resume_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "completed_step_not_repeated",
+      "layer": "R2",
+      "scorer": "resume_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "remaining_step_not_skipped",
+      "layer": "R2",
+      "scorer": "resume_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "resume_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "contract_error": "ok",
+    "action": {
+      "completed_steps": [
+        "badge_draft31"
+      ],
+      "resume_step": "badge_print32",
+      "remaining_steps": [
+        "badge_print32",
+        "badge_issue33"
+      ]
+    }
+  },
+  "extra": {
+    "task_id": "l1res_badge_print_001",
+    "variant": "control",
+    "repeat_id": 0,
+    "resume_contract_valid": true,
+    "resume_step_accuracy": true,
+    "completed_step_not_repeated": true,
+    "remaining_step_not_skipped": true,
+    "action": {
+      "completed_steps": [
+        "badge_draft31"
+      ],
+      "resume_step": "badge_print32",
+      "remaining_steps": [
+        "badge_print32",
+        "badge_issue33"
+      ]
+    },
+    "want": {
+      "completed_steps": [
+        "badge_draft31"
+      ],
+      "resume_step": "badge_print32",
+      "remaining_steps": [
+        "badge_print32",
+        "badge_issue33"
+      ]
+    },
+    "first_error": "none",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash"
+  }
+}

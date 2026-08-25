@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v1",
+  "criterion_id": "income_cap",
+  "evidence": "The function `eligible` checks if the income is less than or equal to `INCOME_CAP` but does not enforce that the income is less than or equal to `MIN_AGE` * 2 as required by the `required_change` criterion.",
+  "required_change": {
+    "income_cap": 100000
+  }
+}

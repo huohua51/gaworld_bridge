@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "NOISE_DB",
+    "observed": 70,
+    "required": 70
+  },
+  "required_changes": []
+}

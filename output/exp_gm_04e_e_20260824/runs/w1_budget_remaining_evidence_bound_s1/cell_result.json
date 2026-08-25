@@ -1,0 +1,108 @@
+{
+  "workflow_id": "exp_gm_04e_e_executor_only",
+  "instance_id": "w1_budget_remaining_evidence_bound_s1",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "executor-only cell executed"
+    },
+    {
+      "gate_id": "executor_only",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "reviewer is rule-supplied patch"
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "patch_applied",
+      "layer": "R2",
+      "scorer": "artifact_value",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "wrong_location_modified",
+    "events": [
+      "draft_fixed",
+      "patch_delivered",
+      "executor_call_1"
+    ]
+  },
+  "extra": {
+    "task_id": "w1_budget_remaining",
+    "protocol": "evidence_bound",
+    "seed": 1,
+    "mode": "llm",
+    "split": "development",
+    "patch_applied": false,
+    "tests_ok": false,
+    "verify": {
+      "ok": false,
+      "reason": "wrong_location_modified",
+      "applied": false,
+      "applied_ids": [],
+      "claim": {
+        "applied_patch_ids": [
+          "patch-01"
+        ],
+        "artifact_spec_version": "v1",
+        "artifact_hash_after": null
+      },
+      "before_hash": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79",
+      "after_hash": "sha256:58e7bca488259307c372b2e904337494aa7d355f563e6ac92ecc941032a980fe",
+      "after_values": {
+        "spec_version": "v1",
+        "total_budget": 100
+      },
+      "nack": "patch was not applied to the current artifact"
+    },
+    "patches": [
+      {
+        "patch_id": "patch-01",
+        "path": "total_budget",
+        "observed_value": 100,
+        "required_value": 80,
+        "artifact_hash_before": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+      }
+    ],
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

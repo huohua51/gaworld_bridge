@@ -1,0 +1,5 @@
+【工程师】陈可
+【职业】后台开发
+【任务】写 should_alert
+【简报】温度达到或超过 ALERT_C 时 should_alert 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 ALERT_C。函数签名 should_alert(temp)。 不要输出 Markdown 围栏。 常量 ALERT_C = 38。SPEC_VERSION = "v1"。
+只输出完整 Python 源码。

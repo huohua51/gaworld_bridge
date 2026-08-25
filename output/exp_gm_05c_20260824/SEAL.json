@@ -1,0 +1,33 @@
+{
+  "experiment_id": "EXP-GM-05c-r0",
+  "status": "measurement_invalid_repeat_0",
+  "gate": "A_r0",
+  "coverage": {
+    "single": 0.8333,
+    "multi": 1.0,
+    "drop": 1.0
+  },
+  "paired_coverage": 0.8333,
+  "estimands": {
+    "outcome_multi_agent_net_benefit": "N/A",
+    "workflow_multi_agent_net_benefit": "N/A",
+    "review_delivery_value_target": "N/A",
+    "review_delivery_value_full": "N/A"
+  },
+  "invalid_cell": {
+    "task": "aid_intervention",
+    "track": "single",
+    "instance_id": "gm05b_aid_elig_001_intervention_single_r0",
+    "reason": "fields_extractable_failed",
+    "diagnosis": "case_2_no_unique_target_fields",
+    "stored_review_action": {},
+    "note": "No raw reviewer transcript was saved. Stored extract is empty object; cannot uniquely recover decision or required_change. Do not hand-patch JSON or drop this cell."
+  },
+  "preserved_outputs": "output/exp_gm_05c_20260824",
+  "do_not": [
+    "hand_patch_json",
+    "drop_invalid_cell_and_average_remaining_pairs",
+    "fill_repeats",
+    "open_04f"
+  ]
+}

@@ -1,0 +1,3 @@
+```json
+{"action": "revise_plan", "target": "route", "value": "alternative_route", "evidence_message_id": "verified-msg-n1_bridge_status_001_intervention_full_r1-2"}
+```

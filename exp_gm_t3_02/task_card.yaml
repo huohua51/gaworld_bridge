@@ -1,0 +1,27 @@
+experiment_id: EXP-GM-T3-02
+parent: EXP-GM-T3-01
+status: planned_integration_regression
+ranking_eligible: false
+construct: component_to_workflow_integration
+task_set: T3-01_frozen_development_tasks
+role: component_to_workflow_integration_regression
+change_scope:
+  - use_frozen_CHANGE_01_decision_contract
+  - use_frozen_APPLY_01_execution_contract
+  - add_review_payload_integrity_trace
+unchanged:
+  - task_content
+  - control_intervention
+  - hidden_tests
+  - model
+  - temperature
+  - three_call_budget
+  - single_multi_drop_tracks
+tracks: [single, multi, drop]
+variants: [control, intervention]
+tasks: [t3_parking_threshold_001, t3_deposit_ratio_001, t3_queue_cap_001]
+matrix_first: 3x2x3x1
+heldout: not_created
+note: >
+  组件集成回归。任务仍是 T3-01 已见过的开发题，只能证明回归，不能证明泛化。
+  不覆盖 T3-01，不补 54 格，不建留出，不开 C1。

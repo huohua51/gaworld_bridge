@@ -1,0 +1,7 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "bal_ck21", "output": {"scale": "S-7", "residual_mg": 0}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "bal_ck22", "output": {"scale": "S-8", "residual_mg": 2}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "bal_ck23", "output": {"scale": "S-9", "residual_mg": 1}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_balance_check_001_control_direct_r0/balance_check_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_balance_check_001_control_direct_r0/balance_check_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

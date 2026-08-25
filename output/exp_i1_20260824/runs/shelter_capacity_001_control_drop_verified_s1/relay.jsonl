@@ -1,0 +1,22 @@
+{"ts": 1787548413.5229602, "event": "private_put", "task_id": "shelter_capacity_001_control_drop_verified_s1", "role": "verifier", "payload": {"trusted_source_id": "city_roster"}}
+{"ts": 1787548413.5231786, "event": "private_put", "task_id": "shelter_capacity_001_control_drop_verified_s1", "role": "dispatcher", "payload": {"rule": "若核实状态是 shelter_open，提交 send_to_A；若是 shelter_full，提交 send_to_B。", "action": "submit_shelter"}}
+{"ts": 1787548421.8196063, "event": "denied", "ok": false, "reason": "raw_signal_not_sent", "task_id": "shelter_capacity_001_control_drop_verified_s1"}
+{"ts": 1787548421.8199298, "event": "raw_inbox_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "n": 0}
+{"ts": 1787548421.820081, "event": "private_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548426.820475, "event": "denied", "ok": false, "reason": "verification_not_requested", "task_id": "shelter_capacity_001_control_drop_verified_s1"}
+{"ts": 1787548426.820767, "event": "inbox_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "n": 0}
+{"ts": 1787548430.5140831, "event": "action_submitted", "task_id": "shelter_capacity_001_control_drop_verified_s1", "action": {"action": "None", "value": "None", "adopted_state_version": "None", "evidence_message_id": "None", "task_id": "shelter_capacity_001_control_drop_verified_s1", "dispatcher_id": 3}}
+{"ts": 1787548430.5144415, "event": "inbox_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "n": 0}
+{"ts": 1787548679.3643973, "event": "private_put", "task_id": "shelter_capacity_001_control_drop_verified_s1", "role": "verifier", "payload": {"trusted_source_id": "city_roster"}}
+{"ts": 1787548679.364576, "event": "private_put", "task_id": "shelter_capacity_001_control_drop_verified_s1", "role": "dispatcher", "payload": {"rule": "若核实状态是 shelter_open，提交 send_to_A；若是 shelter_full，提交 send_to_B。", "action": "submit_shelter"}}
+{"ts": 1787548681.7343116, "event": "raw_sent", "task_id": "shelter_capacity_001_control_drop_verified_s1", "message": {"message_id": "raw-msg-shelter_capacity_001_control_drop_verified_s1-1", "source_id": "city_roster", "reported_state": "shelter_open", "observer_id": 1}}
+{"ts": 1787548681.7346044, "event": "raw_sent", "task_id": "shelter_capacity_001_control_drop_verified_s1", "message": {"message_id": "raw-msg-shelter_capacity_001_control_drop_verified_s1-2", "source_id": "crowd_post", "reported_state": "shelter_full", "observer_id": 1}}
+{"ts": 1787548681.7347646, "event": "raw_delivered", "task_id": "shelter_capacity_001_control_drop_verified_s1", "message": {"message_id": "raw-msg-shelter_capacity_001_control_drop_verified_s1-1", "source_id": "city_roster", "reported_state": "shelter_open", "observer_id": 1}}
+{"ts": 1787548681.7349107, "event": "raw_delivered", "task_id": "shelter_capacity_001_control_drop_verified_s1", "message": {"message_id": "raw-msg-shelter_capacity_001_control_drop_verified_s1-2", "source_id": "crowd_post", "reported_state": "shelter_full", "observer_id": 1}}
+{"ts": 1787548681.735033, "event": "raw_inbox_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "n": 2}
+{"ts": 1787548681.7351506, "event": "private_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548684.787933, "event": "verified_emitted", "task_id": "shelter_capacity_001_control_drop_verified_s1", "message": {"message_id": "verified-msg-shelter_capacity_001_control_drop_verified_s1-3", "verified_state": "shelter_open", "source_id": "city_roster", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787548684.788219, "event": "verified_dropped", "task_id": "shelter_capacity_001_control_drop_verified_s1", "dropped": true, "message": {"message_id": "verified-msg-shelter_capacity_001_control_drop_verified_s1-3", "verified_state": "shelter_open", "source_id": "city_roster", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787548684.7883766, "event": "inbox_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "n": 0}
+{"ts": 1787548694.5779312, "event": "action_submitted", "task_id": "shelter_capacity_001_control_drop_verified_s1", "action": {"action": "None", "value": "None", "adopted_state_version": "None", "evidence_message_id": "None", "task_id": "shelter_capacity_001_control_drop_verified_s1", "dispatcher_id": 3}}
+{"ts": 1787548694.5782738, "event": "inbox_read", "task_id": "shelter_capacity_001_control_drop_verified_s1", "n": 0}

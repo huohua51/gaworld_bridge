@@ -1,0 +1,51 @@
+{
+  "stimulus_id": "h1dev-t3-noise-control",
+  "construct": "T3",
+  "task_label": "噪声分贝上限",
+  "variant_code": "A",
+  "roles": [
+    "起草人",
+    "审核员",
+    "执行人"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "起草人",
+      "kind": "produce",
+      "visible_to_role": "公开任务说明与当前草稿要求",
+      "body": "SPEC_VERSION = \"v1\"\nNOISE_DB = 70\n\ndef too_loud(db):\n    return db >= NOISE_DB"
+    },
+    {
+      "t": 2,
+      "role": "审核员",
+      "kind": "decide",
+      "visible_to_role": "草稿，以及本轮审核可见标准",
+      "body": "{\n  \"decision\": \"keep\",\n  \"evidence\": {\n    \"path\": \"NOISE_DB\",\n    \"observed\": 70,\n    \"required\": 70\n  },\n  \"required_changes\": []\n}"
+    },
+    {
+      "t": 3,
+      "role": "执行人",
+      "kind": "apply",
+      "visible_to_role": "草稿与审核意见（keep 则确认，update 则按 required_changes 修改）",
+      "body": "SPEC_VERSION = \"v1\"\nNOISE_DB = 70\n\ndef too_loud(db):\n    return db >= 70"
+    }
+  ],
+  "source_kind": "agent",
+  "h1_role": "development_stimulus",
+  "functional_role": "sealed_holdout_result",
+  "not_future_h1_holdout": true,
+  "rater_must_not_see": [
+    "source_kind",
+    "functional_role",
+    "full_pass",
+    "model",
+    "experiment_id"
+  ],
+  "internal": {
+    "channel_delivered": true,
+    "spec_version": "v1"
+  },
+  "source_run": "output/holdout_t3_20260825/runs/t3_ho_noise_db_001_control_multi_r0",
+  "source_cell_sha256": "830f3b8d2f739574f615c5947c7bed3ef147eb8c0170be798a471c4e58712736"
+}

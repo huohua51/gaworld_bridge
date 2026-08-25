@@ -1,0 +1,173 @@
+generated_at: '2026-08-25T12:40:17.877102+00:00'
+experiment_id: HO-GM-L1-01
+parent: EXP-GM-L1-01c
+phase: seed0
+gate: regression_pass
+status: regression_pass
+measurement_result: pass
+ranking_eligible: false
+holdout_allowed: false
+direct_ok: true
+direct_coverage: null
+direct_fullpass: 1.0
+direct_strict_pair: null
+direct_is_formal_result: false
+primary_track: multi
+coverage: 1.0
+environment_auto_repair: 0
+multi_agent_matrix_run: true
+full_multi:
+  control: 3/3
+  interruption: 3/3
+  strict_pair: 3/3
+drop_checkpoint:
+  control: 3/3
+  interruption: 0/3
+drop_handoff:
+  control: 3/3
+  interruption: 0/3
+checkpoint_causal_dependency: observed_holdout_seed0
+handoff_causal_dependency: observed_holdout_seed0
+interruption_recovery_holdout_result: pass
+interruption_recovery_development_result: see EXP-GM-L1-01c
+resume_workflow_regression: see CAL-GM-L1-RESUME-01
+original_failure_status: see EXP-GM-L1-01b
+interruption_recovery_result: holdout_seed0_pass
+repeat_1_2_allowed: false
+repeat_1_2_run: false
+holdout_run_once: true
+n_cells: 18
+c1_status: development_partial_pass
+function_progress: ~85%
+function_progress_means: evaluation_construction_and_mechanism_coverage
+does_not_overwrite:
+- EXP-GM-L1-01
+- EXP-GM-L1-01b
+- EXP-GM-L1-01c
+- CAL-GM-L1-RESUME-01
+- EXP-GM-C1-01
+- EXP-GM-C1-02
+- EXP-GM-C1-03
+claim: 留出 seed0 通过预注册门。不补 repeat。不能写泛化或排名。
+interpretation: 留出 seed0 通过预注册门。不补 repeat。不能写泛化或排名。
+metrics:
+  Coverage:
+    multi: 1.0
+    drop_checkpoint: 1.0
+    drop_handoff: 1.0
+  checkpoint_created:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  checkpoint_delivered_to_successor:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 0.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  checkpoint_content_correct:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  handoff_delivered:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 0.0
+  handoff_adopted:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 0.0
+  resume_step_correct:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 0.3333
+  completed_step_not_repeated:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  remaining_step_not_skipped:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  target_correct:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 0.6667
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  FullPass:
+    multi: 1.0
+    drop_checkpoint: 0.5
+    drop_handoff: 0.5
+  StrictPair:
+    multi: 1.0
+    drop_checkpoint: 0.0
+    drop_handoff: 0.0
+  RecoveryLatency: 7.0
+  environment_auto_repair: 0
+  first_error:
+    none: 12
+    checkpoint_not_delivered: 3
+    handoff_not_delivered: 3
+model: GLM-4-Flash
+temperature: 0
+freeze: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+do_not:
+- run_c1_04
+- tune_c1_prompts
+- create_c1_holdout
+- overwrite_l1_01b_strict_pair
+- claim_generalization
+- enter_ranking
+- tune_protocol_and_rerun_same_holdout
+- run_repeats

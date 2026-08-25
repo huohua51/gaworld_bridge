@@ -1,0 +1,27 @@
+[
+  {
+    "stage": "builder_draft",
+    "prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 deposit\n【简报】deposit(price) 返回 price * DEPOSIT_PERCENT // 100，只使用整数除法。 必须在模块顶层写 SPEC_VERSION 和 DEPOSIT_PERCENT。函数签名 deposit(price)。 不要输出 Markdown 围栏。 常量 DEPOSIT_PERCENT = 20。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+    "prompt_sha": "768539b0d326024d52370ebd751c27b74ba3b1518f14403241a14f223b1a634e"
+  },
+  {
+    "stage": "review",
+    "prompt": "只输出一个 JSON 对象。不要输出解释、Markdown、代码或其它文字。\n对象只能包含已登记字段，不能多键。\n批准只能是：{\"action\": \"approve_draft\", \"evidence_id\": \"<登记 evidence_id>\"}\n批准时禁止出现 target 和 required_value。\n要求修改只能是：{\"action\": \"request_revision\", \"target\": \"<登记 target>\", \"required_value\": <数字>, \"evidence_id\": \"<登记 evidence_id>\"}}\n禁止输出 decision、mismatches、required_change、NONE，以及任何未登记键。\n你是代码审核员。只能根据登记标准和草稿做决定。不要改文件，不要编造隐藏测试。\n【审查标准】{\"spec_version\": \"v2\", \"criterion_id\": \"deposit_percent\", \"target\": \"deposit_percent\", \"required_value\": 30, \"evidence_id\": \"evidence-deposit-002\", \"instruction\": \"草稿已满足 required_value 时输出 approve_draft；否则输出 request_revision。不要改文件，不要编造隐藏测试。\"}\n【草稿】\n```python\nSPEC_VERSION = \"v1\"\nDEPOSIT_PERCENT = 20\n\ndef deposit(price):\n    return price * DEPOSIT_PERCENT // 100\n```\n",
+    "track": "drop",
+    "prompt_sha": "dd4bc277ea24f076194c9cf1f14719c6c917ad412f4e86d3e3f109fbbc085745",
+    "raw_text": "```json\n{\"action\": \"request_revision\", \"target\": \"deposit_percent\", \"required_value\": 30, \"evidence_id\": \"evidence-deposit-002\"}\n```",
+    "parsed": {
+      "action": "request_revision",
+      "target": "deposit_percent",
+      "required_value": 30,
+      "evidence_id": "evidence-deposit-002"
+    }
+  },
+  {
+    "stage": "builder_final",
+    "prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 deposit\n【简报】deposit(price) 返回 price * DEPOSIT_PERCENT // 100，只使用整数除法。 必须在模块顶层写 SPEC_VERSION 和 DEPOSIT_PERCENT。函数签名 deposit(price)。 不要输出 Markdown 围栏。 常量 DEPOSIT_PERCENT = 20。SPEC_VERSION = \"v1\"。\n\n【当前草稿】从这份草稿修改或确认。环境不会替你改文件。\n```python\nSPEC_VERSION = \"v1\"\nDEPOSIT_PERCENT = 20\n\ndef deposit(price):\n    return price * DEPOSIT_PERCENT // 100\n```\n只输出完整 Python 源码。\n",
+    "had_review": false,
+    "prompt_sha": "c4baea0ec9e33e2219b7a5d7292b35076e0eb3bfa9e7daaf2b631dc372d0b33d",
+    "raw_text": "```python\nSPEC_VERSION = \"v1\"\nDEPOSIT_PERCENT = 20\n\ndef deposit(price):\n    return price * DEPOSIT_PERCENT // 100\n```"
+  }
+]

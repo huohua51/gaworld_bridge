@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v1",
+  "criterion_id": "income_cap",
+  "evidence": "The applicant 'Eve' has an income of 50000, which exceeds the income_cap of 50000.",
+  "required_change": {
+    "income_cap": 50000
+  }
+}

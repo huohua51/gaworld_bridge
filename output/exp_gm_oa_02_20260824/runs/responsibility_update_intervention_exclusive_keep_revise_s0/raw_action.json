@@ -1,0 +1,6 @@
+{
+  "action": "revise_plan",
+  "target": "assignee_id",
+  "value": "backup-01",
+  "evidence_event_id": "event-responsibility_update-intervention"
+}

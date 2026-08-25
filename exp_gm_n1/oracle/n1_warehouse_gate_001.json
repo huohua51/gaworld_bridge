@@ -1,0 +1,5 @@
+{
+  "control": {"action": "keep_current_plan"},
+  "intervention_delivered": {"action": "revise_plan", "target": "entry", "value": "wait_outside"},
+  "intervention_dropped": {"action": "keep_current_plan"}
+}

@@ -1,0 +1,33 @@
+experiment_id: CAL-GM-L1-RESUME-01
+parent: EXP-GM-L1-01b
+construct: coordinator_resume_point_selection
+role: component_calibration
+status: rule_calibration
+ranking_eligible: false
+generalization_claim: false
+tracks: [direct]
+variants: [control, intervention]
+tasks: [l1res_mail_sort_001, l1res_pump_prime_001, l1res_badge_print_001]
+matrix: 3x2x3
+does_not_overwrite:
+  - EXP-GM-L1-01
+  - EXP-GM-L1-01b
+  - EXP-GM-C1-01
+  - EXP-GM-C1-02
+  - EXP-GM-C1-03
+does_not_use:
+  - l1_01_inventory_lots_001
+  - l1_01_centrifuge_rotor_001
+  - l1_01b_file_intake_001
+  - l1_01_specimen_log_001
+heldout: not_created
+pass_gate:
+  coverage: 1.0
+  ResumeStepAccuracy: 1.0
+  CompletedStepNotRepeated: 1.0
+  RemainingStepNotSkipped: 1.0
+  ResumeContractValid: 1.0
+  StrictPair: 1.0
+note: >
+  只测 Coordinator 能否根据有序步骤和已完成步骤选择第一个尚未完成的步骤。
+  不覆盖 L1-01b。18/18 通过后才建 L1-01c。

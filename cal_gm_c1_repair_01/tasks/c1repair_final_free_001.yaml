@@ -1,0 +1,14 @@
+id: c1repair_final_free_001
+component: B
+title: 最终方案无冲突核验
+resource_id: radio_desk
+final:
+  control:
+    agent_a: desk-n
+    agent_b: desk-s
+  intervention:
+    agent_a: desk-n
+    agent_b: desk-n
+oracle:
+  control: true
+  intervention: false

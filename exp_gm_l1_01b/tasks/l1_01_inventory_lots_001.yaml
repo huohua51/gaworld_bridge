@@ -1,0 +1,25 @@
+id: l1_01_inventory_lots_001
+title: 三批库存核对
+kind: sequential_workflow
+artifact: inventory_world.json
+interrupt_token: worker_a_offline_inv_v1
+rule: complete_in_order_no_repeat
+output_rule: 每一步的 output 只能包含该批材料中的 sku 及其数量，不要添加其它字段。
+checkpoint_after: lot_px41
+steps:
+  - id: lot_px41
+    title: 第一批库存核对
+  - id: lot_px42
+    title: 第二批库存核对
+  - id: lot_px43
+    title: 第三批库存核对
+materials:
+  lot_px41:
+    sku_q17: 12
+    sku_q18: 7
+  lot_px42:
+    sku_q17: 4
+    sku_q19: 9
+  lot_px43:
+    sku_q18: 5
+    sku_q20: 11

@@ -1,0 +1,51 @@
+experiment_id: EXP-GM-T3-02
+parent: EXP-GM-T3-01
+phase: seed0
+frozen_at: '2026-08-25T02:26:51.258652+00:00'
+task_card_hash: 15337202fcf6d1b07596a0643962aedd007ba33bb4809cda3917856a31099e43
+t3_01_task_hash: fb8ff3580ef00c49cec510aff465fefe271388d9f1141269ca6435b502150788
+protocol_hash: 0fc1a3c0040764e25ce05068d8cd9cd8ecf647395891804ec9a08f3ff76c5e04
+scorer_hash: f350712cbc7a3f084b50e1e5ba7a7d27b0c5b89663252148742cf0ccc03759fd
+runner_hash: d41754e57ce87ecb135259af2f6747526ae7cb53a64b0832da30201bd4570d5e
+change_01_contract: 8ff4bbd1ae155920311402783545153c9e0544a0b33fdeee08f11fc4e55b6b65
+apply_01_prompt: 228c62c6cf8f3d49da5aabe75b201c51978aafa3f773ffbaba9d3299f4727dc9
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    single:
+    - Builder 生成初稿
+    - 同一 Agent 按 CHANGE-01 判断 keep/update
+    - 同一 Agent 按 APPLY-01 修改或确认
+    multi:
+    - Builder 生成初稿
+    - 独立 Reviewer 按 CHANGE-01 输出决定
+    - IntegrityMailbox 原样传递
+    - Executor 按 APPLY-01 修改或确认
+    drop:
+    - Builder 生成初稿
+    - Reviewer 正常输出完整决定
+    - 通道丢弃消息
+    - Executor 收到空消息并提交
+  hidden_oracle_in_prompts: false
+  environment_rewrites_files: false
+  channel_rewrites_payload: false
+  logical_calls_per_cell: 3
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- integrity.py
+unchanged_from_t3_01:
+- tasks
+- oracle
+- hidden_tests
+- model
+- temperature
+- three_call_budget
+- tracks

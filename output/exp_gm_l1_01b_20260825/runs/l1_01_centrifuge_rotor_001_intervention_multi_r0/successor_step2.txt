@@ -1,0 +1,11 @@
+【任务】三段离心转子检查
+【步骤】[{"id": "rotor_cf21", "title": "第一段转子检查"}, {"id": "rotor_cf22", "title": "第二段转子检查"}, {"id": "rotor_cf23", "title": "第三段转子检查"}]
+【规则】步骤必须按顺序执行。已完成步骤不得重复、不得覆盖。检查点由平台盖章为 ckpt-001。接替者必须读取同一版本检查点，从下一个未完成步骤继续。Coordinator 只确认检查点并指定接替者，不能代为执行。
+【输出字段】每一步的 output 只能包含该段材料中的 serial、status、torque_ncm，不要添加其它字段。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是 worker_b。只执行当前步骤 rotor_cf22。不要重复已完成步骤。
+输出 {"worker_id": "worker_b", "step_id": "rotor_cf22", "output": {...}}。
+【当前步骤】rotor_cf22
+【本步材料】{"serial": "CF-22-M", "status": "pass", "torque_ncm": 41}
+【检查点】{"checkpoint_version": "ckpt-001", "completed_steps": ["rotor_cf21"], "outputs": {"rotor_cf22": {"serial": "CF-22-K", "status": "pass", "torque_ncm": 42}, "rotor_cf23": {"serial": "CF-23-K", "status": "pass", "torque_ncm": 45}}, "world_digest": "42d0dc1d83f77818908c34cdf22cad265237bdb753d872fc3f3407d92d301d19"}
+【已有结果】{"rotor_cf22": {"serial": "CF-22-K", "status": "pass", "torque_ncm": 42}, "rotor_cf23": {"serial": "CF-23-K", "status": "pass", "torque_ncm": 45}}

@@ -1,0 +1,3 @@
+{"event": "initial_saved", "assignments": {"agent_a": "w08", "agent_b": "w09"}}
+{"event": "violations_inspected", "violations": []}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "w08", "agent_b": "w09"}, "violations": []}

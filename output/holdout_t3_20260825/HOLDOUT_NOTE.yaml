@@ -1,0 +1,9 @@
+holdout_run_once: true
+repeat_1_2_allowed: false
+repeat_1_2_run: false
+multi_agent_value_estimable: false
+ranking_eligible: false
+note: >
+  REPORT/GATE 模板仍可能写「补 repeat 1/2 后再报告」。
+  密封留出预注册为只跑 seed0 一次，该句不授权补跑。
+  seed0 方向与开发集相同，但不能当正式价值估计。

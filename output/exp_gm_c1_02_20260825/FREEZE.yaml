@@ -1,0 +1,52 @@
+experiment_id: EXP-GM-C1-02
+parent: CAL-GM-C1-REPAIR-01
+phase: rule
+frozen_at: '2026-08-25T06:46:23.492250+00:00'
+task_card_hash: fe785b0954c70257ac6c04519ccc329e488af51acc6661223ecbd898fb8806e3
+task_hash: 6a03b844b3454583630da77daf6d267a78131d0705950383496fc54b17d73675
+protocol_hash: ce3c2261c8dd748be8ddf849bcaaeeb2008a2fe58bae0d206b440c098b4b87cc
+scorer_hash: 847c1a4354a87fd207ac42df49ae64fbf5fccb7343df2be15617ff8f89b74901
+gaworld_coordination_hash: 2d6ace3217a9482b896f30217ed431129057be9e5292583288d431764de095dc
+runner_hash: 57c8605432494708e1ddf39e054057f7ebe5510076172fcfba72f886acadc5bd
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    direct:
+    - 一次调用看到双方最新约束并输出唯一联合方案；非正式结果
+    multi:
+    - A/B 先交初始报告，Coordinator 形成初始方案
+    - B 发送约束修订
+    - JointAssignmentChannel 只返回违规证据
+    - Coordinator propose_joint_assignment，A/B 自己执行
+    drop_revision:
+    - A/B 和 Coordinator 都运行
+    - 只丢 B 的最新约束修订，不丢初始报告
+    - control 修订与基线相同，应成功；intervention 应失败
+    drop_coordinator:
+    - A/B 信息送达
+    - 最终联合方案不交付
+    - Coordinator 不能代执行
+  logical_calls_per_matrix_cell: 7
+  environment_rewrites_world: false
+  coordinator_executes: false
+  primary_track: multi
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- channel.py
+- loader.py
+- tasks
+- oracle
+not_c1_01_items: true
+not_c1_comp_01_items: true
+not_c1_repair_01_items: true
+heldout: not_created
+direct_is_formal_result: false
+primary_track: multi

@@ -1,0 +1,18 @@
+```json
+{
+  "steps": {
+    "mail_rx61": {
+      "received_ids": ["P3", "P4"],
+      "batch": "M7"
+    },
+    "mail_ck62": {
+      "verified_ids": ["P3", "P4"],
+      "missing_ids": []
+    },
+    "mail_st63": {
+      "bin": "B2",
+      "sealed": true
+    }
+  }
+}
+```

@@ -1,0 +1,11 @@
+只输出完整 Python 源码。不要输出解释、Markdown 或其它文字。
+你是执行者。必须从【当前草稿】修改，不要从零编造无关文件。
+按 required_changes 把对应常量从 old_value 改成 new_value。
+不要改未出现在 required_changes 中的登记字段。环境不会替你改文件。
+【修改要求】{"decision": "keep", "evidence": {"path": "PARKING_FREE_MINUTES", "observed": 120, "required": 120}, "required_changes": []}
+【当前草稿】
+PARKING_FREE_MINUTES = 120
+SPEC_VERSION = "v1"
+
+def fee_required(minutes):
+    return minutes >= PARKING_FREE_MINUTES

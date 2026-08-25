@@ -1,0 +1,28 @@
+id: c1_02_cold_store_001
+title: 冷库装卸时段
+kind: exclusive_slot
+artifact: cold_world.json
+resource_id: cold_store
+slots: ["c14", "c15", "c16"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: truck_in
+  feasible: ["c14", "c15", "c16"]
+  preferred: "c14"
+agent_b:
+  label: truck_out
+  baseline:
+    feasible: ["c15", "c16"]
+    preferred: "c15"
+    window_token: b_rev_cold_v1
+  control:
+    feasible: ["c15", "c16"]
+    preferred: "c15"
+    window_token: b_rev_cold_v1
+  intervention:
+    feasible: ["c14", "c16"]
+    preferred: "c14"
+    window_token: b_rev_cold_v2
+leak_tokens:
+  - "b_rev_cold_v2"

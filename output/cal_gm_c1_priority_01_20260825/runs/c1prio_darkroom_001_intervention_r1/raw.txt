@@ -1,0 +1,3 @@
+```json
+{"assignments": {"agent_a": "dr32", "agent_b": "dr33"}}
+```

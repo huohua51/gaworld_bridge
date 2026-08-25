@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "evaluable": true,
+    "passed": true,
+    "pass_count": 3,
+    "fail_count": 0,
+    "returncode": 0,
+    "stdout_tail": "...                                                                      [100%]\n3 passed in 0.01s\n\n",
+    "first_error": "none"
+  },
+  "v2": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 1,
+    "fail_count": 2,
+    "returncode": 1,
+    "stdout_tail": ".FF                                                                      [100%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_zm_o7z57/test_oracle.py:9: assert False is True\n/tmp/w1_oracle_zm_o7z57/test_oracle.py:13: assert False is True\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_at_v2_threshold - assert False is True\nFAILED test_oracle.py::test_v1_near_miss_now_alerts - assert False is True\n2 failed, 1 passed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "target_correct": true,
+  "exclusive_ok": true
+}

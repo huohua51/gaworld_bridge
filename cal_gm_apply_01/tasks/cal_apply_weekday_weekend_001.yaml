@@ -1,0 +1,16 @@
+id: cal_apply_weekday_weekend_001
+title: 工作日时限与周末时限
+artifact: main.py
+primary: WEEKDAY_DEADLINE
+secondary: WEEKEND_DEADLINE
+function: deadline
+current: 30
+required: 20
+allow_names: [SPEC_VERSION, WEEKDAY_DEADLINE, WEEKEND_DEADLINE]
+draft: |
+  SPEC_VERSION = "v1"
+  WEEKDAY_DEADLINE = 30
+  WEEKEND_DEADLINE = 30
+
+  def deadline(weekend: bool) -> int:
+      return WEEKEND_DEADLINE if weekend else WEEKDAY_DEADLINE

@@ -1,0 +1,22 @@
+# Addendum after FUNCTIONAL-DEVSET-20260825 freeze. Does not change family scores.
+
+addendum_id: ADDENDUM-20260825-MEASUREMENT-HOLDOUT
+does_not_change_devset_scores: true
+ranking_eligible: false
+
+measurement_gaps:
+  first_error_enumeration: landed_in_compose
+  platform_plan_version: landed_on_joint_assignment_channel
+  ap_c1_f_01: still_open_c1_uses_eval_bridge_channel
+
+holdout_started: true
+holdout_run_once: true
+holdout_experiments:
+  T3: HO-GM-T3-01
+  I1: HO-GM-I1-01
+  L1: HO-GM-L1-01
+holdout_not_created: [C1, REL1, N1]
+summary: output/holdout_20260825/HOLDOUT.yaml
+note: >
+  留出 seed0 与开发集同一可解释模式。不是泛化证明，不是排名资格。
+  开发集总表分数保持冻结。

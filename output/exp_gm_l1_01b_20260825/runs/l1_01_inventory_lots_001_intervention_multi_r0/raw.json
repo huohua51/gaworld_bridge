@@ -1,0 +1,8 @@
+{
+  "step1": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"lot_px41\", \"output\": {\"sku_q17\": 12, \"sku_q18\": 7}}\n```",
+  "checkpoint": "```json\n{\"worker_id\": \"worker_a\", \"completed_steps\": [\"lot_px41\"], \"outputs\": {\"lot_px41\": {\"sku_q17\": 12, \"sku_q18\": 7}}}\n```",
+  "handoff": "```json\n{\"successor\": \"worker_b\", \"checkpoint_version\": \"ckpt-001\", \"resume_step\": \"lot_px42\"}\n```",
+  "resume": "```json\n{\n  \"worker_id\": \"worker_b\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"resume_step\": \"lot_px42\"\n}\n```",
+  "step2": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"lot_px42\", \"output\": {\"sku_q17\": 4, \"sku_q19\": 9}}\n```",
+  "step3": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"lot_px43\", \"output\": {\"sku_q18\": 5, \"sku_q20\": 11}}\n```"
+}

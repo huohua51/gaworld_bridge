@@ -1,0 +1,8 @@
+{
+  "step1": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"fridge_by21\", \"output\": {\"bay\": \"F-4\", \"celsius\": -18}}\n```",
+  "checkpoint": "```json\n{\"worker_id\": \"worker_a\", \"completed_steps\": [\"fridge_by21\"], \"outputs\": {\"fridge_by21\": {\"bay\": \"F-4\", \"celsius\": -18}}}\n```",
+  "handoff": "```json\n{\n  \"successor\": \"worker_b\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"completed_steps\": [\"fridge_by21\"],\n  \"resume_step\": \"fridge_by22\",\n  \"remaining_steps\": [\"fridge_by22\", \"fridge_by23\"]\n}\n```",
+  "resume": "```json\n{\"worker_id\": \"worker_b\", \"checkpoint_version\": \"ckpt-001\", \"resume_step\": \"fridge_by22\"}\n```",
+  "step2": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"fridge_by22\", \"output\": {\"bay\": \"F-5\", \"celsius\": -22}}\n```",
+  "step3": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"fridge_by23\", \"output\": {\"bay\": \"F-6\", \"celsius\": -20}}\n```"
+}

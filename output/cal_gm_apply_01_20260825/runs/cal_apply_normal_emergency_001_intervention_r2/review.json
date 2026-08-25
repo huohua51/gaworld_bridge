@@ -1,0 +1,15 @@
+{
+  "decision": "update",
+  "required_changes": [
+    {
+      "path": "NORMAL_CAPACITY",
+      "old_value": 80,
+      "new_value": 60
+    },
+    {
+      "path": "EMERGENCY_CAPACITY",
+      "old_value": 80,
+      "new_value": 60
+    }
+  ]
+}

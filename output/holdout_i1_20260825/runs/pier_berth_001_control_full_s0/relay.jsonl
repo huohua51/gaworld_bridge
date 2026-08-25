@@ -1,0 +1,14 @@
+{"ts": 1787661889.421904, "event": "private_put", "task_id": "pier_berth_001_control_full_s0", "role": "verifier", "payload": {"trusted_source_id": "harbor_board"}}
+{"ts": 1787661889.4220178, "event": "private_put", "task_id": "pier_berth_001_control_full_s0", "role": "dispatcher", "payload": {"rule": "若核实状态是 berth_free，提交 dock_north；若是 berth_busy，提交 dock_south。", "action": "submit_berth"}}
+{"ts": 1787661895.5194278, "event": "raw_sent", "task_id": "pier_berth_001_control_full_s0", "message": {"message_id": "raw-msg-pier_berth_001_control_full_s0-1", "source_id": "harbor_board", "reported_state": "berth_free", "observer_id": 1}}
+{"ts": 1787661895.519719, "event": "raw_sent", "task_id": "pier_berth_001_control_full_s0", "message": {"message_id": "raw-msg-pier_berth_001_control_full_s0-2", "source_id": "dock_chat", "reported_state": "berth_busy", "observer_id": 1}}
+{"ts": 1787661895.5198956, "event": "raw_delivered", "task_id": "pier_berth_001_control_full_s0", "message": {"message_id": "raw-msg-pier_berth_001_control_full_s0-1", "source_id": "harbor_board", "reported_state": "berth_free", "observer_id": 1}}
+{"ts": 1787661895.520017, "event": "raw_delivered", "task_id": "pier_berth_001_control_full_s0", "message": {"message_id": "raw-msg-pier_berth_001_control_full_s0-2", "source_id": "dock_chat", "reported_state": "berth_busy", "observer_id": 1}}
+{"ts": 1787661895.5201342, "event": "raw_inbox_read", "task_id": "pier_berth_001_control_full_s0", "n": 2}
+{"ts": 1787661895.520242, "event": "private_read", "task_id": "pier_berth_001_control_full_s0", "role": "verifier", "owner": "verifier"}
+{"ts": 1787661897.6435018, "event": "verified_emitted", "task_id": "pier_berth_001_control_full_s0", "message": {"message_id": "verified-msg-pier_berth_001_control_full_s0-3", "verified_state": "berth_free", "source_id": "harbor_board", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787661897.6438231, "event": "verified_delivered", "task_id": "pier_berth_001_control_full_s0", "dropped": false, "message": {"message_id": "verified-msg-pier_berth_001_control_full_s0-3", "verified_state": "berth_free", "source_id": "harbor_board", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787661897.6439958, "event": "inbox_read", "task_id": "pier_berth_001_control_full_s0", "n": 1}
+{"ts": 1787661900.168745, "event": "verified_adopted", "task_id": "pier_berth_001_control_full_s0", "message_id": "verified-msg-pier_berth_001_control_full_s0-3", "state_version": "v1"}
+{"ts": 1787661900.1691294, "event": "action_submitted", "task_id": "pier_berth_001_control_full_s0", "action": {"action": "submit_berth", "value": "dock_north", "adopted_state_version": "v1", "evidence_message_id": "verified-msg-pier_berth_001_control_full_s0-3", "task_id": "pier_berth_001_control_full_s0", "dispatcher_id": 3}}
+{"ts": 1787661900.1693356, "event": "inbox_read", "task_id": "pier_berth_001_control_full_s0", "n": 1}

@@ -1,0 +1,10 @@
+{
+  "decision": "update",
+  "required_changes": [
+    {
+      "path": "LIMIT",
+      "old_value": 40,
+      "new_value": 35
+    }
+  ]
+}

@@ -1,0 +1,2777 @@
+{
+  "generated_at": "2026-08-25T12:47:41.960905+00:00",
+  "experiment_id": "HO-GM-I1-01",
+  "task_id": "TASK-I1",
+  "status": "pilot",
+  "ranking_eligible": false,
+  "phase": "seed0",
+  "summary": {
+    "workflow_id": "holdout_i1_verified_information_relay",
+    "requested": 24,
+    "measurement_valid": 24,
+    "coverage": 1.0,
+    "full_pass_rate": 0.5,
+    "mean_task_score": 0.6667,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_control_focused_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_north oracle=dock_north"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pier_berth_001_control_focused_s0-1 version=v1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "focused_verified",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v1",
+          "evidence_message_id": "verified-msg-pier_berth_001_control_focused_s0-1",
+          "verified_message_id": "verified-msg-pier_berth_001_control_focused_s0-1",
+          "observer_calls": 0,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "focused",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_north",
+            "adopted_state_version": "v1",
+            "evidence_message_id": "verified-msg-pier_berth_001_control_focused_s0-1",
+            "task_id": "pier_berth_001_control_focused_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_control_full_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_north oracle=dock_north"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pier_berth_001_control_full_s0-3 version=v1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v1",
+          "evidence_message_id": "verified-msg-pier_berth_001_control_full_s0-3",
+          "verified_message_id": "verified-msg-pier_berth_001_control_full_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "full",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_north",
+            "adopted_state_version": "v1",
+            "evidence_message_id": "verified-msg-pier_berth_001_control_full_s0-3",
+            "task_id": "pier_berth_001_control_full_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_control_drop_verified_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_north oracle=dock_north"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=msg12345 version=20231201"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_dropped",
+            "verified_message_read",
+            "dispatcher_retry_without_verified",
+            "action_submitted"
+          ],
+          "adopted_state_version": "20231201",
+          "evidence_message_id": "msg12345",
+          "verified_message_id": "verified-msg-pier_berth_001_control_drop_verified_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 2
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "drop_verified",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_north",
+            "adopted_state_version": "20231201",
+            "evidence_message_id": "msg12345",
+            "task_id": "pier_berth_001_control_drop_verified_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_control_no_verification_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_north oracle=dock_north"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=raw-msg-pier_berth_001_control_no_verification_s0-1 version=berth_free"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_to_dispatcher",
+            "action_submitted"
+          ],
+          "adopted_state_version": "berth_free",
+          "evidence_message_id": "raw-msg-pier_berth_001_control_no_verification_s0-1",
+          "verified_message_id": null,
+          "observer_calls": 1,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "no_verification",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_north",
+            "adopted_state_version": "berth_free",
+            "evidence_message_id": "raw-msg-pier_berth_001_control_no_verification_s0-1",
+            "task_id": "pier_berth_001_control_no_verification_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_intervention_focused_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_south oracle=dock_south"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pier_berth_001_intervention_focused_s0-1 version=v2"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "focused_verified",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v2",
+          "evidence_message_id": "verified-msg-pier_berth_001_intervention_focused_s0-1",
+          "verified_message_id": "verified-msg-pier_berth_001_intervention_focused_s0-1",
+          "observer_calls": 0,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "focused",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_south",
+            "adopted_state_version": "v2",
+            "evidence_message_id": "verified-msg-pier_berth_001_intervention_focused_s0-1",
+            "task_id": "pier_berth_001_intervention_focused_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_intervention_full_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_south oracle=dock_south"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pier_berth_001_intervention_full_s0-3 version=v2"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v2",
+          "evidence_message_id": "verified-msg-pier_berth_001_intervention_full_s0-3",
+          "verified_message_id": "verified-msg-pier_berth_001_intervention_full_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "full",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_south",
+            "adopted_state_version": "v2",
+            "evidence_message_id": "verified-msg-pier_berth_001_intervention_full_s0-3",
+            "task_id": "pier_berth_001_intervention_full_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_intervention_drop_verified_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=dock_north oracle=dock_south"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=msg12345 version=20231201"
+          }
+        ],
+        "process_profile": {
+          "first_error": "target_action_incorrect",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_dropped",
+            "verified_message_read",
+            "dispatcher_retry_without_verified",
+            "action_submitted"
+          ],
+          "adopted_state_version": "20231201",
+          "evidence_message_id": "msg12345",
+          "verified_message_id": "verified-msg-pier_berth_001_intervention_drop_verified_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 2
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "drop_verified",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": false,
+          "oracle_conditioned_success": false,
+          "other_also": true,
+          "action": {
+            "action": "submit_berth",
+            "value": "dock_north",
+            "adopted_state_version": "20231201",
+            "evidence_message_id": "msg12345",
+            "task_id": "pier_berth_001_intervention_drop_verified_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "target_action_incorrect"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pier_berth_001_intervention_no_verification_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=submit_berth oracle=dock_south"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=None version=None"
+          }
+        ],
+        "process_profile": {
+          "first_error": "target_action_incorrect",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_to_dispatcher",
+            "value_not_in_contract"
+          ],
+          "adopted_state_version": null,
+          "evidence_message_id": null,
+          "verified_message_id": null,
+          "observer_calls": 1,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pier_berth_001",
+          "track": "no_verification",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": false,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_berth",
+            "value": "submit_berth",
+            "adopted_state_version": null,
+            "evidence_message_id": null
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "target_action_incorrect"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_control_focused_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_west oracle=line_west"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pump_station_001_control_focused_s0-1 version=v1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "focused_verified",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v1",
+          "evidence_message_id": "verified-msg-pump_station_001_control_focused_s0-1",
+          "verified_message_id": "verified-msg-pump_station_001_control_focused_s0-1",
+          "observer_calls": 0,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "focused",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_west",
+            "adopted_state_version": "v1",
+            "evidence_message_id": "verified-msg-pump_station_001_control_focused_s0-1",
+            "task_id": "pump_station_001_control_focused_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_control_full_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_west oracle=line_west"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pump_station_001_control_full_s0-3 version=v1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v1",
+          "evidence_message_id": "verified-msg-pump_station_001_control_full_s0-3",
+          "verified_message_id": "verified-msg-pump_station_001_control_full_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "full",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_west",
+            "adopted_state_version": "v1",
+            "evidence_message_id": "verified-msg-pump_station_001_control_full_s0-3",
+            "task_id": "pump_station_001_control_full_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_control_drop_verified_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_west oracle=line_west"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=msg12345 version=20230101"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_dropped",
+            "verified_message_read",
+            "dispatcher_retry_without_verified",
+            "action_submitted"
+          ],
+          "adopted_state_version": "20230101",
+          "evidence_message_id": "msg12345",
+          "verified_message_id": "verified-msg-pump_station_001_control_drop_verified_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 2
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "drop_verified",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_west",
+            "adopted_state_version": "20230101",
+            "evidence_message_id": "msg12345",
+            "task_id": "pump_station_001_control_drop_verified_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_control_no_verification_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_west oracle=line_west"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=raw-msg-pump_station_001_control_no_verification_s0-1 version=pump_online"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_to_dispatcher",
+            "action_submitted"
+          ],
+          "adopted_state_version": "pump_online",
+          "evidence_message_id": "raw-msg-pump_station_001_control_no_verification_s0-1",
+          "verified_message_id": null,
+          "observer_calls": 1,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "no_verification",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_west",
+            "adopted_state_version": "pump_online",
+            "evidence_message_id": "raw-msg-pump_station_001_control_no_verification_s0-1",
+            "task_id": "pump_station_001_control_no_verification_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_intervention_focused_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_east oracle=line_east"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pump_station_001_intervention_focused_s0-1 version=v2"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "focused_verified",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v2",
+          "evidence_message_id": "verified-msg-pump_station_001_intervention_focused_s0-1",
+          "verified_message_id": "verified-msg-pump_station_001_intervention_focused_s0-1",
+          "observer_calls": 0,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "focused",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_east",
+            "adopted_state_version": "v2",
+            "evidence_message_id": "verified-msg-pump_station_001_intervention_focused_s0-1",
+            "task_id": "pump_station_001_intervention_focused_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_intervention_full_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_east oracle=line_east"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-pump_station_001_intervention_full_s0-3 version=v2"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v2",
+          "evidence_message_id": "verified-msg-pump_station_001_intervention_full_s0-3",
+          "verified_message_id": "verified-msg-pump_station_001_intervention_full_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "full",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_east",
+            "adopted_state_version": "v2",
+            "evidence_message_id": "verified-msg-pump_station_001_intervention_full_s0-3",
+            "task_id": "pump_station_001_intervention_full_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_intervention_drop_verified_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_west oracle=line_east"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=msg12345 version=20230101"
+          }
+        ],
+        "process_profile": {
+          "first_error": "target_action_incorrect",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_dropped",
+            "verified_message_read",
+            "dispatcher_retry_without_verified",
+            "action_submitted"
+          ],
+          "adopted_state_version": "20230101",
+          "evidence_message_id": "msg12345",
+          "verified_message_id": "verified-msg-pump_station_001_intervention_drop_verified_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 2
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "drop_verified",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": false,
+          "oracle_conditioned_success": false,
+          "other_also": true,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_west",
+            "adopted_state_version": "20230101",
+            "evidence_message_id": "msg12345",
+            "task_id": "pump_station_001_intervention_drop_verified_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "target_action_incorrect"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "pump_station_001_intervention_no_verification_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=line_east oracle=line_east"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=raw-msg-pump_station_001_intervention_no_verification_s0-2 version=pump_online"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_to_dispatcher",
+            "action_submitted"
+          ],
+          "adopted_state_version": "pump_online",
+          "evidence_message_id": "raw-msg-pump_station_001_intervention_no_verification_s0-2",
+          "verified_message_id": null,
+          "observer_calls": 1,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "pump_station_001",
+          "track": "no_verification",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_pump",
+            "value": "line_east",
+            "adopted_state_version": "pump_online",
+            "evidence_message_id": "raw-msg-pump_station_001_intervention_no_verification_s0-2",
+            "task_id": "pump_station_001_intervention_no_verification_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_control_focused_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_a oracle=hall_a"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-library_hours_001_control_focused_s0-1 version=v1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "focused_verified",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v1",
+          "evidence_message_id": "verified-msg-library_hours_001_control_focused_s0-1",
+          "verified_message_id": "verified-msg-library_hours_001_control_focused_s0-1",
+          "observer_calls": 0,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "focused",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_a",
+            "adopted_state_version": "v1",
+            "evidence_message_id": "verified-msg-library_hours_001_control_focused_s0-1",
+            "task_id": "library_hours_001_control_focused_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_control_full_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_a oracle=hall_a"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-library_hours_001_control_full_s0-3 version=v1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v1",
+          "evidence_message_id": "verified-msg-library_hours_001_control_full_s0-3",
+          "verified_message_id": "verified-msg-library_hours_001_control_full_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "full",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_a",
+            "adopted_state_version": "v1",
+            "evidence_message_id": "verified-msg-library_hours_001_control_full_s0-3",
+            "task_id": "library_hours_001_control_full_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_control_drop_verified_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_a oracle=hall_a"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=msg_12345 version=2023-04-01T12:00:00Z"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_dropped",
+            "verified_message_read",
+            "dispatcher_retry_without_verified",
+            "action_submitted"
+          ],
+          "adopted_state_version": "2023-04-01T12:00:00Z",
+          "evidence_message_id": "msg_12345",
+          "verified_message_id": "verified-msg-library_hours_001_control_drop_verified_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 2
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "drop_verified",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_a",
+            "adopted_state_version": "2023-04-01T12:00:00Z",
+            "evidence_message_id": "msg_12345",
+            "task_id": "library_hours_001_control_drop_verified_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_control_no_verification_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_a oracle=hall_a"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=raw-msg-library_hours_001_control_no_verification_s0-1 version=raw-msg-library_hours_001_control_no_verification_s0-1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_to_dispatcher",
+            "action_submitted"
+          ],
+          "adopted_state_version": "raw-msg-library_hours_001_control_no_verification_s0-1",
+          "evidence_message_id": "raw-msg-library_hours_001_control_no_verification_s0-1",
+          "verified_message_id": null,
+          "observer_calls": 1,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "no_verification",
+          "variant": "control",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_a",
+            "adopted_state_version": "raw-msg-library_hours_001_control_no_verification_s0-1",
+            "evidence_message_id": "raw-msg-library_hours_001_control_no_verification_s0-1",
+            "task_id": "library_hours_001_control_no_verification_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_intervention_focused_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_b oracle=hall_b"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-library_hours_001_intervention_focused_s0-1 version=v2"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "focused_verified",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v2",
+          "evidence_message_id": "verified-msg-library_hours_001_intervention_focused_s0-1",
+          "verified_message_id": "verified-msg-library_hours_001_intervention_focused_s0-1",
+          "observer_calls": 0,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "focused",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_b",
+            "adopted_state_version": "v2",
+            "evidence_message_id": "verified-msg-library_hours_001_intervention_focused_s0-1",
+            "task_id": "library_hours_001_intervention_focused_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_intervention_full_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_b oracle=hall_b"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=verified-msg-library_hours_001_intervention_full_s0-3 version=v2"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_delivered",
+            "verified_message_read",
+            "verified_state_adopted",
+            "action_submitted"
+          ],
+          "adopted_state_version": "v2",
+          "evidence_message_id": "verified-msg-library_hours_001_intervention_full_s0-3",
+          "verified_message_id": "verified-msg-library_hours_001_intervention_full_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "full",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_b",
+            "adopted_state_version": "v2",
+            "evidence_message_id": "verified-msg-library_hours_001_intervention_full_s0-3",
+            "task_id": "library_hours_001_intervention_full_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_intervention_drop_verified_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_a oracle=hall_b"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=msg_12345 version=2023-04-01T12:00:00Z"
+          }
+        ],
+        "process_profile": {
+          "first_error": "target_action_incorrect",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_signal_delivered",
+            "verification_requested",
+            "verified_message_emitted",
+            "verified_dropped",
+            "verified_message_read",
+            "dispatcher_retry_without_verified",
+            "action_submitted"
+          ],
+          "adopted_state_version": "2023-04-01T12:00:00Z",
+          "evidence_message_id": "msg_12345",
+          "verified_message_id": "verified-msg-library_hours_001_intervention_drop_verified_s0-3",
+          "observer_calls": 1,
+          "verifier_calls": 1,
+          "dispatcher_calls": 2
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "drop_verified",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": false,
+          "oracle_conditioned_success": false,
+          "other_also": true,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_a",
+            "adopted_state_version": "2023-04-01T12:00:00Z",
+            "evidence_message_id": "msg_12345",
+            "task_id": "library_hours_001_intervention_drop_verified_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "target_action_incorrect"
+        }
+      },
+      {
+        "workflow_id": "holdout_i1_verified_information_relay",
+        "instance_id": "library_hours_001_intervention_no_verification_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "roles_legal",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "action_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "got=hall_b oracle=hall_b"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "verified_bind",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=raw-msg-library_hours_001_intervention_no_verification_s0-1 version=raw-msg-library_hours_001_intervention_no_verification_s0-1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "stale_state_used",
+          "events": [
+            "observation_created",
+            "raw_signal_sent",
+            "raw_signal_sent",
+            "raw_to_dispatcher",
+            "action_submitted"
+          ],
+          "adopted_state_version": "raw-msg-library_hours_001_intervention_no_verification_s0-1",
+          "evidence_message_id": "raw-msg-library_hours_001_intervention_no_verification_s0-1",
+          "verified_message_id": null,
+          "observer_calls": 1,
+          "verifier_calls": 0,
+          "dispatcher_calls": 1
+        },
+        "extra": {
+          "probe_id": "library_hours_001",
+          "track": "no_verification",
+          "variant": "intervention",
+          "seed": 0,
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0,
+          "target_correct": true,
+          "oracle_conditioned_success": false,
+          "other_also": false,
+          "action": {
+            "action": "submit_desk",
+            "value": "hall_b",
+            "adopted_state_version": "raw-msg-library_hours_001_intervention_no_verification_s0-1",
+            "evidence_message_id": "raw-msg-library_hours_001_intervention_no_verification_s0-1",
+            "task_id": "library_hours_001_intervention_no_verification_s0",
+            "dispatcher_id": 3
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "first_error": "stale_state_used"
+        }
+      }
+    ]
+  },
+  "target_correct_rate": 0.8333,
+  "rates": {
+    "focused": 1.0,
+    "full": 1.0,
+    "drop_verified": 0.0,
+    "no_verification": 0.0,
+    "full_control": 1.0,
+    "full_intervention": 1.0,
+    "drop_control": 0.0,
+    "drop_intervention": 0.0
+  },
+  "communication_value": 1.0,
+  "verification_value": 1.0,
+  "communication_propagation_gap": 0.0,
+  "strict_pair": 0.5,
+  "strict_pair_full": 1.0,
+  "strict_pair_focused": 1.0,
+  "strategy_lock_rate": 0.25,
+  "unauthorized_read_rate": 0.0,
+  "decision": "direct_verified_state/Full 高、Drop 低：通信与核验闭环有效。",
+  "communication_propagation_interpretable": true,
+  "holdout_run_once": true,
+  "parent": "EXP-GM-I1",
+  "freeze": "a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c"
+}

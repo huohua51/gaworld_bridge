@@ -1,0 +1,20 @@
+id: t3_queue_cap_001
+title: 窗口排队人数上限
+kind: cap
+artifact: queue_cap.py
+criterion_id: queue_cap
+symbol: QUEUE_CAP
+target: queue_cap
+function: can_join
+allow_names: [SPEC_VERSION, QUEUE_CAP]
+change_v1: {queue_cap: 50}
+change_v2: {queue_cap: 40}
+evidence_v1: evidence-queue-001
+evidence_v2: evidence-queue-002
+leak_tokens:
+  - "QUEUE_CAP = 40"
+  - "排队上限改为 40"
+brief_rule: >
+  当前排队人数严格小于 QUEUE_CAP 时 can_join 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 QUEUE_CAP。函数签名 can_join(length)。
+  不要输出 Markdown 围栏。

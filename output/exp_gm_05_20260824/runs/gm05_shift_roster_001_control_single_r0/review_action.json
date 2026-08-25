@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v1",
+  "criterion_id": "night_shift_minimum",
+  "evidence": "The function `assign` does not enforce the `night_shift_minimum` of 1. It allows for more than one night shift without ensuring that there is at least one worker assigned to a night shift.",
+  "required_change": {
+    "night_shift_minimum": 1
+  }
+}

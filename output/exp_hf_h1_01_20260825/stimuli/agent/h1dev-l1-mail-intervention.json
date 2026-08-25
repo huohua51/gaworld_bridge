@@ -1,0 +1,79 @@
+{
+  "stimulus_id": "h1dev-l1-mail-intervention",
+  "construct": "L1",
+  "task_label": "三阶段邮包接收核对入格",
+  "variant_code": "B",
+  "roles": [
+    "执行者甲",
+    "协调员",
+    "执行者乙"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "执行者甲",
+      "kind": "produce",
+      "visible_to_role": "任务步骤与第一步材料",
+      "body": "{\"worker_id\": \"worker_a\", \"step_id\": \"mail_rx61\", \"output\": {\"received_ids\": [\"P3\", \"P4\"], \"batch\": \"M7\"}}"
+    },
+    {
+      "t": 2,
+      "role": "执行者甲",
+      "kind": "checkpoint",
+      "visible_to_role": "已完成第一步的结果；版本由平台盖章",
+      "body": "{\"worker_id\": \"worker_a\", \"completed_steps\": [\"mail_rx61\"], \"outputs\": {\"mail_rx61\": {\"received_ids\": [\"P3\", \"P4\"], \"batch\": \"M7\"}}}"
+    },
+    {
+      "t": 3,
+      "role": "协调员",
+      "kind": "handoff",
+      "visible_to_role": "检查点。不能执行具体步骤，不能给出剩余步骤的正确答案",
+      "body": "{\n  \"successor\": \"worker_b\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"completed_steps\": [\"mail_rx61\"],\n  \"resume_step\": \"mail_ck62\",\n  \"remaining_steps\": [\"mail_ck62\", \"mail_st63\"]\n}"
+    },
+    {
+      "t": 4,
+      "role": "执行者甲",
+      "kind": "unavailable",
+      "visible_to_role": "现场状态",
+      "body": "执行者甲在第一里程碑后不可用。"
+    },
+    {
+      "t": 5,
+      "role": "执行者乙",
+      "kind": "resume",
+      "visible_to_role": "同一检查点与协调员接替指令",
+      "body": "{\"worker_id\": \"worker_b\", \"checkpoint_version\": \"ckpt-001\", \"resume_step\": \"mail_ck62\"}"
+    },
+    {
+      "t": 6,
+      "role": "执行者乙",
+      "kind": "produce",
+      "visible_to_role": "当前应继续的步骤材料",
+      "body": "{\"worker_id\": \"worker_b\", \"step_id\": \"mail_ck62\", \"output\": {\"verified_ids\": [\"P3\", \"P4\"], \"missing_ids\": []}}"
+    },
+    {
+      "t": 7,
+      "role": "执行者乙",
+      "kind": "produce",
+      "visible_to_role": "最后一步材料；不得覆盖已完成工作",
+      "body": "{\"worker_id\": \"worker_b\", \"step_id\": \"mail_st63\", \"output\": {\"bin\": \"B2\", \"sealed\": true}}"
+    }
+  ],
+  "source_kind": "agent",
+  "h1_role": "development_stimulus",
+  "functional_role": "sealed_holdout_result",
+  "not_future_h1_holdout": true,
+  "rater_must_not_see": [
+    "source_kind",
+    "functional_role",
+    "full_pass",
+    "model",
+    "experiment_id"
+  ],
+  "internal": {
+    "interrupted": true,
+    "variant_note_internal": "变体 B：甲中断，乙从检查点继续。"
+  },
+  "source_run": "output/holdout_l1_20260825/runs/l1_ho_mail_bay_001_intervention_multi_r0",
+  "source_cell_sha256": "37a82f9daf20742c960186b168f83cb23cdb353f25761b798a874824529f49f8"
+}

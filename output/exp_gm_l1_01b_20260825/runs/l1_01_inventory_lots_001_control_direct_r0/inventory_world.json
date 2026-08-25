@@ -1,0 +1,39 @@
+{
+  "steps": {
+    "lot_px41": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "sku_q17": 12,
+        "sku_q18": 7
+      },
+      "event_index": 1
+    },
+    "lot_px42": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "sku_q17": 4,
+        "sku_q19": 9
+      },
+      "event_index": 2
+    },
+    "lot_px43": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "sku_q18": 5,
+        "sku_q20": 11
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "lot_px41",
+    "lot_px42",
+    "lot_px43"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

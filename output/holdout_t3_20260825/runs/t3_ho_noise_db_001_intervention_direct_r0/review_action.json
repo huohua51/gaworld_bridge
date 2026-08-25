@@ -1,0 +1,16 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "NOISE_DB",
+    "observed": 70,
+    "required": 62
+  },
+  "required_changes": [
+    {
+      "path": "NOISE_DB",
+      "old_value": 70,
+      "new_value": 62,
+      "change_id": "change-01"
+    }
+  ]
+}

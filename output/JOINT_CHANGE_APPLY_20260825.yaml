@@ -1,0 +1,8 @@
+change_01: pass
+apply_01: pass
+conclusion: component_ok_workflow_or_context_fail
+t3_02: not_created
+ranking_eligible: false
+note: >
+  能判断该不该改，也能完整执行正确修改。T3-01 共同地板来自完整工作流编排或上下文传播。
+  不覆盖 T3-01，不开 C1，不建留出。

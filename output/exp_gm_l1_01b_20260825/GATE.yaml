@@ -1,0 +1,161 @@
+generated_at: '2026-08-25T09:54:41.280572+00:00'
+experiment_id: EXP-GM-L1-01b
+parent: EXP-GM-L1-01
+phase: seed0
+gate: off_floor
+status: development_partial_pass
+measurement_result: pass
+checkpoint_causal_dependency: observed_seed0
+handoff_causal_dependency: observed_seed0
+full_multi_intervention: pass_3_of_3
+full_multi_strict_pair: 2_of_3
+workflow_bottleneck: coordinator_resume_point_selection
+interruption_recovery_result: not_passed
+repeat_1_2_allowed: false
+ranking_eligible: false
+holdout_allowed: false
+coverage: 1.0
+n_cells: 18
+budget_calls_per_cell: 6
+drop_isolation: pass
+direct_ok: true
+direct_coverage: 1.0
+direct_fullpass: 6/6
+direct_strict_pair: 3/3
+direct_is_formal_result: false
+multi_agent_matrix_run: true
+primary_track: multi
+c1_status: development_partial_pass
+does_not_overwrite:
+- EXP-GM-L1-01
+- EXP-GM-C1-01
+- EXP-GM-C1-02
+- EXP-GM-C1-03
+fullpass:
+  multi: 5/6
+  drop_checkpoint: 3/6
+  drop_handoff: 3/6
+pair_pattern:
+  multi:
+    control: 2/3
+    intervention: 3/3
+  drop_checkpoint:
+    control: 3/3
+    intervention: 0/3
+  drop_handoff:
+    control: 3/3
+    intervention: 0/3
+claim: >
+  在 seed0 的三道中断任务中，只要检查点和接替消息都正常交付，B 在三个
+  interruption 实例上都能从正确阶段继续，并完成任务；丢掉任一信息后，
+  三个 interruption 实例全部失败，说明 Checkpoint 与 Handoff 都具有明确的因果作用。
+  但 Full Multi 的一格 control 中，Coordinator 错把续做位置从第二步跳到第三步，
+  因此 StrictPair 只有 2/3，完整中断恢复闭环未通过。
+interpretation: >
+  登记为开发集部分通过，不是中断恢复通过。
+  CheckpointStatePreserved=1.0 只表示检查点已创建并保存在平台，不表示 B 收到了它。
+  Drop Handoff 的 HandoffDelivered=0.5 是 control=1、intervention=0 的变体平均，
+  不是一半接替消息被随机送达。
+  功能进度约 85% 是评测建设与机制覆盖进度，不是 GAWorld 能力得分。
+  下一步 CAL-GM-L1-RESUME-01，不补 54 格，不重跑 L1，不覆盖 L1-01b。
+model: GLM-4-Flash
+temperature: 0
+freeze: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+next: CAL-GM-L1-RESUME-01
+function_progress: ~85%
+function_progress_means: evaluation_construction_and_mechanism_coverage
+not: gaworld_ability_score
+do_not:
+- run_repeat_1_2
+- rerun_l1_01b
+- run_c1_04
+- tune_c1_prompts
+- create_c1_holdout
+- modify_exp_gm_l1_01
+path: output/exp_gm_l1_01b_20260825
+formal_metrics:
+  Coverage: 1.0
+  CheckpointCreated:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  CheckpointDeliveredToSuccessor:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 0.0
+    drop_handoff:
+      control: 1.0
+      intervention: 1.0
+  CheckpointContentCorrect:
+    multi:
+      control: 0.6667
+      intervention: 0.6667
+    drop_checkpoint:
+      control: 0.6667
+      intervention: 0.6667
+    drop_handoff:
+      control: 0.6667
+      intervention: 0.6667
+    note: >
+      离心转子六格检查点 outputs 都写成后续步骤键，而 completed_steps 只有第一步。
+      不改 FullPass。库存题与文件题内容正确。
+  CheckpointStatePreserved_do_not_use_as_delivered: 1.0
+  HandoffDelivered:
+    multi:
+      control: 1.0
+      intervention: 1.0
+    drop_checkpoint:
+      control: 1.0
+      intervention: 1.0
+    drop_handoff:
+      control: 1.0
+      intervention: 0.0
+    note: Drop Handoff 的 0.5 平均值禁止单独报告。
+  ResumeFromCorrectStage:
+    multi:
+      control: 0.6667
+      intervention: 1.0
+    drop_checkpoint:
+      control: 0.6667
+      intervention: 1.0
+    drop_handoff:
+      control: 0.6667
+      intervention: 0.3333
+  DuplicateCompletedStepRate:
+    multi: 0.0
+    drop_checkpoint: 0.0
+    drop_handoff: 0.0
+  MissingRemainingStepRate:
+    multi: 0.0
+    drop_checkpoint: 0.0
+    drop_handoff: 0.0
+  TargetCorrect:
+    multi: 1.0
+    drop_checkpoint: 0.8333
+    drop_handoff: 1.0
+  FullPass:
+    multi: 0.8333
+    drop_checkpoint: 0.5
+    drop_handoff: 0.5
+  StrictPair:
+    multi: 0.6667
+    drop_checkpoint: 0.0
+    drop_handoff: 0.0
+  first_error_node:
+    none: 12
+    checkpoint_not_delivered: 3
+    handoff_not_delivered: 3
+diagnostic_erratum:
+  cell: l1_01_centrifuge_rotor_001_control_multi_r0
+  recorded_first_error: none
+  corrected_diagnostic_first_error: resume_from_wrong_step
+  score_changed: false

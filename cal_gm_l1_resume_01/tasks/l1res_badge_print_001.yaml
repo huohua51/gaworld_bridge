@@ -1,0 +1,10 @@
+id: l1res_badge_print_001
+title: 三阶段工牌打印
+interrupt_token: worker_a_offline_badge_v1
+steps:
+  - id: badge_draft31
+    title: 排版
+  - id: badge_print32
+    title: 打印
+  - id: badge_issue33
+    title: 发放

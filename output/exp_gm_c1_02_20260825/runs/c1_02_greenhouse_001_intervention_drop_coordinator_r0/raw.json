@@ -1,0 +1,9 @@
+{
+  "report_a": "```json\n{\"agent_id\": \"agent_a\", \"feasible\": [\"g14\", \"g15\", \"g16\"], \"preferred\": \"g14\"}\n```",
+  "report_b": "```json\n{\"agent_id\": \"agent_b\", \"feasible\": [\"g15\", \"g16\"], \"preferred\": \"g15\"}\n```",
+  "initial": "```json\n{\"plan_version\": \"plan-init\", \"assignments\": {\"agent_a\": \"g14\", \"agent_b\": \"g15\"}, \"rule\": \"priority_keep_then_earliest_free\"}\n```",
+  "revision": "```json\n{\"agent_id\": \"agent_b\", \"feasible\": [\"g14\", \"g16\"], \"preferred\": \"g14\"}\n```",
+  "plan": "```json\n{\"plan_version\": \"plan-001\", \"assignments\": {\"agent_a\": \"g14\", \"agent_b\": \"g16\"}, \"rule\": \"priority_keep_then_earliest_free\"}\n```",
+  "commit_a": "```json\n{\"agent_id\": \"agent_a\", \"plan_version\": \"plan-001\", \"confirm\": true, \"slot\": \"g14\"}\n```",
+  "commit_b": "```json\n{\"agent_id\": \"agent_b\", \"plan_version\": \"plan-001\", \"confirm\": true, \"slot\": \"g14\"}\n```"
+}

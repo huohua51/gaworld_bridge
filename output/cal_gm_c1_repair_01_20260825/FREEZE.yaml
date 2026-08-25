@@ -1,0 +1,26 @@
+experiment_id: CAL-GM-C1-REPAIR-01
+parent: CAL-GM-C1-COMP-01
+ap_items:
+- AP-C1-B-01
+- AP-C1-C-01
+frozen_at: '2026-08-25T06:16:28.997152+00:00'
+task_card_hash: bd4f981e9c5d17cc8ca934426be2649ed7bba900f97d5ba55a4f57b230a37b15
+task_hash: 35e0324e746e251b8ea66ab13af37912402bcc940000102b954e14bf09dfa87e
+protocol_hash: 87beeefd79bd65a92f3fd620a13e222e2bd07c7e00041b6f890630d9707b4874
+scorer_hash: 26776ba312586a88c8ba7dd816c453d9ea90bec01bb5115aaf4b53f3cf1231f5
+gaworld_coordination_hash: 2d6ace3217a9482b896f30217ed431129057be9e5292583288d431764de095dc
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- loader.py
+- tasks
+- oracle
+not_c1_01_items: true
+not_c1_comp_01_items: true
+heldout: not_created

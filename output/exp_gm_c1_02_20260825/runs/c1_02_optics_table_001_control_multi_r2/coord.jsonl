@@ -1,0 +1,22 @@
+{"event": "private_put", "role": "agent_a", "payload": {"agent_id": "agent_a", "label": "group_red", "resource_id": "optics_table", "feasible": ["w08", "w09", "w10"], "preferred": "w08", "window_token": "a_window_v1", "window_key": "w08+w09+w10", "priority": "high"}}
+{"event": "private_put", "role": "agent_b", "payload": {"agent_id": "agent_b", "label": "group_blue", "resource_id": "optics_table", "feasible": ["w09", "w10"], "preferred": "w09", "window_token": "b_rev_optics_v1", "window_key": "w09+w10", "priority": "low"}}
+{"event": "private_read", "role": "agent_a", "owner": "agent_a"}
+{"event": "private_read", "role": "agent_b", "owner": "agent_b"}
+{"event": "report_emitted", "agent_id": "agent_a", "hash": "2d3d6005e721c9457496f7d71383de13ed0bdba91933ba491b0d84f0300bc135", "payload": {"agent_id": "agent_a", "feasible": ["w08", "w09", "w10"], "preferred": "w08"}}
+{"event": "report_delivered", "agent_id": "agent_a", "hash": "2d3d6005e721c9457496f7d71383de13ed0bdba91933ba491b0d84f0300bc135"}
+{"event": "report_emitted", "agent_id": "agent_b", "hash": "253622b97f4c69bf44280917ccc8ed61e21dd0c5c9e58d21485d41b6f890217f", "payload": {"agent_id": "agent_b", "feasible": ["w09", "w10"], "preferred": "w09"}}
+{"event": "report_delivered", "agent_id": "agent_b", "hash": "253622b97f4c69bf44280917ccc8ed61e21dd0c5c9e58d21485d41b6f890217f"}
+{"event": "reports_read", "role": "coordinator", "agents": ["agent_a", "agent_b"]}
+{"event": "revision_emitted", "agent_id": "agent_b", "hash": "253622b97f4c69bf44280917ccc8ed61e21dd0c5c9e58d21485d41b6f890217f", "payload": {"agent_id": "agent_b", "feasible": ["w09", "w10"], "preferred": "w09"}}
+{"event": "revision_delivered", "agent_id": "agent_b", "hash": "253622b97f4c69bf44280917ccc8ed61e21dd0c5c9e58d21485d41b6f890217f"}
+{"event": "plan_emitted", "hash": "4389608173f82da988b06ce386f52515c1382a4b9a08e3dc0f6429b6a4a91871", "payload": {"plan_version": "plan-001", "assignments": {"agent_a": "w08", "agent_b": "w09"}, "rule": "priority_keep_then_earliest_free"}}
+{"event": "plan_delivered", "hash": "4389608173f82da988b06ce386f52515c1382a4b9a08e3dc0f6429b6a4a91871"}
+{"event": "plan_read", "role": "agent_a"}
+{"event": "plan_read", "role": "agent_b"}
+{"event": "claim_submitted", "agent_id": "agent_a", "slot": "w08", "plan_version": "plan-001"}
+{"event": "claim_submitted", "agent_id": "agent_b", "slot": "w09", "plan_version": "plan-001"}
+{"event": "world_write", "role": "agent_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_02_20260825/runs/c1_02_optics_table_001_control_multi_r2/optics_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_c1_02_20260825/runs/c1_02_optics_table_001_control_multi_r2/optics_world.json"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "coordinator"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "agent_a"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "agent_a", "owner": "agent_b"}

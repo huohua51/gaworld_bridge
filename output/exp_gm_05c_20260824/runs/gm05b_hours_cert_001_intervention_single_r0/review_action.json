@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v2",
+  "criterion_id": "max_hours",
+  "evidence": "The current code does not enforce the maximum hours specified in the required_change.",
+  "required_change": {
+    "max_hours": 35
+  }
+}

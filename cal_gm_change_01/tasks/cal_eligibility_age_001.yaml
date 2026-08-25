@@ -1,0 +1,6 @@
+id: cal_eligibility_age_001
+title: 资格年龄
+path: eligibility_age
+current: 18
+control_required: 18
+intervention_required: 21

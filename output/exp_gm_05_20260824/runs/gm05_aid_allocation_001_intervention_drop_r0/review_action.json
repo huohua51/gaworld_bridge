@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v2",
+  "criterion_id": "income_cap",
+  "evidence": "The current income cap is set to 50000 in the source code, which does not meet the required change of 45000 as specified in the review standard.",
+  "required_change": {
+    "income_cap": 45000
+  }
+}

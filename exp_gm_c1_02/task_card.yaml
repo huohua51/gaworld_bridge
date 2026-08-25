@@ -1,0 +1,32 @@
+experiment_id: EXP-GM-C1-02
+parent: CAL-GM-C1-REPAIR-01
+task_family: C1
+construct: joint_resource_coordination
+status: matrix_complete_dev
+ranking_eligible: false
+generalization_claim: false
+role: multi_agent_primary_system
+primary_track: multi
+tracks: [multi, drop_revision, drop_coordinator]
+direct_doability: required_before_matrix
+direct_is_formal_result: false
+single_is_primary: false
+variants: [control, intervention]
+tasks: [c1_02_optics_table_001, c1_02_greenhouse_001, c1_02_cold_store_001]
+roles: [agent_a, agent_b, coordinator]
+call_budget: 7
+call_kinds: [agent_a_report, agent_b_report, coordinator_initial, agent_b_revision, coordinator_propose, agent_a_commit, agent_b_commit]
+resolution_rule: priority_keep_then_earliest_free
+drop_revision_target: agent_b_constraint_revision
+drop_coordinator_target: final_joint_plan
+matrix_first: 3x2x3x1
+matrix_full: 3x2x3x3
+heldout: not_created
+c1_02_allowed: true
+environment_may_rewrite_world: false
+coordinator_may_execute: false
+agents_may_read_peer_private: false
+note: >
+  组件修复已通过，不能提前说集体协调已通过。正式对象是 A+B+Coordinator。
+  Direct 只作可做性校准。Drop 只丢 intervention 中 B 的约束修订，或丢 Coordinator 最终方案。
+  不用 C1-01 / COMP-01 / REPAIR-01 原题。不开 L1，不改 C1-01。

@@ -1,0 +1,39 @@
+experiment_id: EXP-GM-C1-03
+audit: plan_id_r0_classification
+called_model: false
+decision: case_1_explicit_output_contract
+not_meas_c1_03_01: true
+principle: >
+  只要模型行为已经被完整记录，而且 Scorer 能够明确判断它违反了输出契约，
+  就应该记模型失败，不能因为模型不守契约而删出分母。
+evidence:
+  json_parseable: true
+  cells:
+    - id: c1_03_electrophoresis_001_intervention_multi_r0
+      retry: {plan_version: plan-002, agent_a: et82, agent_b: et83, rule: priority_keep_then_earliest_free}
+    - id: c1_03_incubator_shelf_001_intervention_multi_r0
+      retry: {plan_version: plan-002, agent_a: ic82, agent_b: ic81, rule: priority_keep_then_earliest_free}
+  allowed_final_plan_version:
+    task_card_before_audit: not_listed
+    prompt_retry_template: plan-001
+    contract_constant: plan-001
+    commit_prompt: plan-001
+    unique_enough: true
+  plan_002_in_allowlist: false
+plan_id_is_c1_construct: false
+construct_note: >
+  C1 构念是发现冲突、遵守优先级、形成无冲突联合方案并交付执行。
+  plan_version 只是输出契约/握手字段，不是协调能力本身。
+  本轮不改 Agent 协议；填错记 contract_compliance=false，不删出分母。
+  更合理的长期接口是模型只引用平台发放的 base_plan_id，新版本号由平台生成。
+misclassification: >
+  plan_contract 把版本不匹配记成 fields_not_extractable，触发 R0 无效。
+  正确分类是 measurement_valid + retry_plan_version_invalid。
+rescored: seed0_planid_rescore
+status: stopped_at_seed0_retry_gate
+measurement_result: pass
+repeat_1_2_allowed: false
+system_retry_recovered: 0/3
+semantic_retry_assignment_correct: 0/3
+ap_c1_d_01_closable: false
+ap_c1_f_01: open

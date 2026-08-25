@@ -1,0 +1,8 @@
+{
+  "step1": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"mail_rx61\", \"output\": {\"received_ids\": [\"P3\", \"P4\"], \"batch\": \"M7\"}}\n```",
+  "checkpoint": "```json\n{\"worker_id\": \"worker_a\", \"completed_steps\": [\"mail_rx61\"], \"outputs\": {\"mail_rx61\": {\"received_ids\": [\"P3\", \"P4\"], \"batch\": \"M7\"}}}\n```",
+  "handoff": "```json\n{\n  \"successor\": \"worker_b\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"completed_steps\": [\"mail_rx61\"],\n  \"resume_step\": \"mail_ck62\",\n  \"remaining_steps\": [\"mail_ck62\", \"mail_st63\"]\n}\n```",
+  "resume": "```json\n{\"worker_id\": \"worker_b\", \"checkpoint_version\": \"ckpt-001\", \"resume_step\": \"mail_ck62\"}\n```",
+  "step2": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"mail_ck62\", \"output\": {\"verified_ids\": [], \"missing_ids\": []}}\n```",
+  "step3": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"mail_st63\", \"output\": {\"bin\": \"B2\", \"sealed\": true}}\n```"
+}

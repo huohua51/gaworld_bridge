@@ -1,0 +1,10 @@
+{
+  "decision": "update",
+  "required_changes": [
+    {
+      "path": "WEEKDAY_DEADLINE",
+      "old_value": 30,
+      "new_value": 20
+    }
+  ]
+}

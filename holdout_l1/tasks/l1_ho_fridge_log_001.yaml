@@ -1,0 +1,25 @@
+id: l1_ho_fridge_log_001
+title: 三段冷柜温度点检
+kind: sequential_workflow
+artifact: fridge_log_world.json
+interrupt_token: worker_a_offline_fridge_ho_v1
+rule: complete_in_order_no_repeat
+output_rule: 每一步的 output 只能包含该段材料中的 bay 与 celsius，不要添加其它字段。
+checkpoint_after: fridge_by21
+steps:
+  - id: fridge_by21
+    title: 第一柜
+  - id: fridge_by22
+    title: 第二柜
+  - id: fridge_by23
+    title: 第三柜
+materials:
+  fridge_by21:
+    bay: F-4
+    celsius: -18
+  fridge_by22:
+    bay: F-5
+    celsius: -22
+  fridge_by23:
+    bay: F-6
+    celsius: -20

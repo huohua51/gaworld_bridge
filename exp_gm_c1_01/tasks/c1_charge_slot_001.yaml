@@ -1,0 +1,24 @@
+id: c1_charge_slot_001
+title: 充电时段分配
+kind: exclusive_slot
+artifact: charger_world.json
+resource_id: charger_A
+slots: ["09:00", "10:00", "11:00"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: east_car
+  feasible: ["09:00", "10:00", "11:00"]
+  preferred: "09:00"
+agent_b:
+  label: west_car
+  control:
+    feasible: ["10:00", "11:00"]
+    preferred: "10:00"
+    window_token: b_window_v1
+  intervention:
+    feasible: ["09:00", "11:00"]
+    preferred: "09:00"
+    window_token: b_window_v2
+leak_tokens:
+  - "b_window_v2"

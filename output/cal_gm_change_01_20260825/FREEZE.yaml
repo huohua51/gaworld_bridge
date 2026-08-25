@@ -1,0 +1,19 @@
+experiment_id: CAL-GM-CHANGE-01
+phase: seed0
+frozen_at: '2026-08-25T01:39:03.218424+00:00'
+task_card_hash: 3e88967197ce1f246e82e5fc1ad35058752c54ce244d4a63326036e519fd2f4a
+oracle_hash: 414b24c138df3672838610c5364395e76f23fc7c9e63b3eaadc6f576da367e1a
+protocol_hash: 56c02e4001991ba92fed52aea16d1b1dacbf8e2cb75958e8cf15cc6a07abe8a2
+scorer_hash: 2223e4a0699ab27551a2d4bb19f9027dcb5c72d72ad3d52c6eb2344ba0c71cfa
+runner_hash: c999c2595a794fb9a346865835dcf38f9bf3a49a39010c5a1e87971483cc4249
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+do_not_edit_after_freeze:
+- task_card.yaml
+- tasks/
+- oracle/
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py

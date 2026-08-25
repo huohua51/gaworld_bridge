@@ -1,0 +1,24 @@
+task_id: TASK-W1-team-value
+experiment_id: EXP-GM-05
+task_family: T3
+target_dimension: F5_multi_agent_value
+construct: equal_budget_multi_agent_value
+model: GLM-4-Flash
+temperature: 0
+calls_per_cell: 3
+max_tokens: 2048
+ranking_eligible: false
+protocol: required_change
+development_set: [gm05_aid_allocation_001, gm05_shift_roster_001, gm05_incident_routing_001]
+does_not_use:
+  - typed_patch
+  - 04e_dev_tasks
+  - 04d_04e_heldout
+tracks: [single, multi, drop]
+variants: [control, intervention]
+primary_metric: MultiAgentNetBenefit
+causal_metric: ReviewCausalValue
+fullpass: OracleConditionedFullPass
+note: >
+  评测 GAWorld 多 Agent 组织方式，不是给 GLM 排名。
+  Reviewer 误报与 Executor 返工作为系统真实成本保留。

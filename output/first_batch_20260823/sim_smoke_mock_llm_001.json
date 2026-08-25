@@ -1,0 +1,117 @@
+{
+  "workflow_id": "sim_smoke_mock_llm_001",
+  "requested": 1,
+  "measurement_valid": 1,
+  "coverage": 1.0,
+  "full_pass_rate": 1.0,
+  "mean_task_score": 1.0,
+  "ranking_eligible": false,
+  "cells": [
+    {
+      "workflow_id": "sim_smoke_mock_llm_001",
+      "instance_id": "seed_agents_4_5_day1_mock",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "run_simulation returned"
+        },
+        {
+          "gate_id": "trace_logs_present",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "{4: True, 5: True}"
+        },
+        {
+          "gate_id": "per_agent_log_nonempty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "{4: True, 5: True}"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "canonical_llm_tasks_dispatched",
+          "layer": "R2",
+          "scorer": "set",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "actions",
+            "daily_diary",
+            "daily_routine",
+            "location_actions",
+            "perception",
+            "planning",
+            "reflection",
+            "schedule",
+            "summary",
+            "weekend_routine"
+          ],
+          "detail": "tasks=['actions', 'daily_diary', 'daily_routine', 'location_actions', 'perception', 'planning', 'reflection', 'schedule', 'summary', 'weekend_routine']"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "tasks_seen": [
+          "actions",
+          "daily_diary",
+          "daily_routine",
+          "location_actions",
+          "perception",
+          "planning",
+          "reflection",
+          "schedule",
+          "summary",
+          "weekend_routine"
+        ],
+        "output_files": [
+          "output/diaries/agent_4/day_001.md",
+          "output/diaries/agent_5/day_001.md",
+          "output/economy/agents/agent_4_ledger.csv",
+          "output/economy/agents/agent_4_snapshot.json",
+          "output/economy/agents/agent_5_ledger.csv",
+          "output/economy/agents/agent_5_snapshot.json",
+          "output/economy/daily_ledger.csv",
+          "output/economy/macro_state.json",
+          "output/economy/wealth_snapshot.csv",
+          "output/environment/timeline.jsonl",
+          "output/life_events/events.lock",
+          "output/logs/agent_4.log",
+          "output/logs/agent_5.log",
+          "output/memory/agent_4.json",
+          "output/memory/agent_4_actions.json",
+          "output/memory/agent_4_location_action_bias.json",
+          "output/memory/agent_4_schedule.json",
+          "output/memory/agent_5.json",
+          "output/memory/agent_5_actions.json",
+          "output/memory/agent_5_location_action_bias.json",
+          "output/memory/agent_5_schedule.json",
+          "output/memory/vector_db.sqlite",
+          "output/memory/vector_db.sqlite-shm",
+          "output/memory/vector_db.sqlite-wal",
+          "output/network/social_network.png",
+          "output/state/agent_state_history.csv",
+          "output/state/agent_state_over_time.png"
+        ],
+        "output_file_count": 27,
+        "workdir": "/tmp/gaw_smoke_42fmzkz7",
+        "note": "Mock LLM Execution Validity only; not a model ranking cell"
+      }
+    }
+  ],
+  "status": "calibration"
+}

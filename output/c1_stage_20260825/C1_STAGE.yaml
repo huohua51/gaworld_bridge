@@ -1,0 +1,42 @@
+c1_status: development_partial_pass
+measurement_valid: true
+basic_conflict_resolution: pass
+private_constraint_integration: pass
+policy_constrained_replanning: partial
+llm_retry_recovery: fail
+holdout_allowed: false
+ranking_eligible: false
+function_progress: 0.75
+closed_as: regression_suite_only
+no_c1_04: true
+no_prompt_tuning_on_dev_items: true
+no_c1_holdout: true
+no_repeat_1_2_on_c1_03: true
+system_retry_recovered: 0/3
+semantic_retry_assignment_correct: 0/3
+retry_contract_failure: 2/3
+retry_not_adapted: 1/3
+ap_open:
+  - AP-C1-D-01
+  - AP-C1-F-01
+experiments:
+  EXP-GM-C1-01: direct_fail_diagnosis
+  CAL-GM-C1-COMP-01: component_gate_not_held
+  CAL-GM-C1-REPAIR-01: component_pass
+  EXP-GM-C1-02: development_partial_pass
+  CAL-GM-C1-PRIORITY-01: component_gate_not_held
+  CAL-GM-C1-PRIORITY-02: first_proposal_and_rule_retry_pass
+  EXP-GM-C1-03: stopped_at_seed0_retry_gate
+claim: >
+  C1 开发阶段测量有效、部分通过。系统已具备基本冲突消解和私有约束整合，
+  政策约束重规划只部分成立，真模型完整工作流 NACK 重试恢复未通过。
+  C1 以后只作为新模型或新系统版本的回归套件，不再用当前模型反复调开发题。
+do_not_conclude:
+  - C1完整集体协调已经通过
+  - C1重试已经修好
+  - Coverage只有0.6667
+  - 两格不可测量
+  - 三次都是优先级推理错误
+  - 应当继续做C1-04或留出题
+next: EXP-GM-L1-01
+next_construct: interruption_recovery_and_role_succession

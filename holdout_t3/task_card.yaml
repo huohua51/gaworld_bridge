@@ -1,0 +1,26 @@
+experiment_id: HO-GM-T3-01
+parent: EXP-GM-T3-02
+development_set: EXP-GM-T3-03
+ranking_eligible: false
+generalization_claim: false
+multi_agent_value_estimable: false
+construct: independent_reviewer_private_information
+role: multi_vs_single_discrimination
+retained_from_t3_02:
+  - CHANGE_01_decision_contract
+  - APPLY_01_required_changes
+  - payload_integrity_trace
+  - three_call_budget
+  - single_multi_drop_tracks
+new:
+  - unpublished_tasks
+  - reviewer_private_spec_not_in_single_self_check
+tracks: [single, multi, drop]
+direct_doability: required_before_matrix
+variants: [control, intervention]
+tasks: [t3_ho_queue_max_001, t3_ho_battery_pct_001, t3_ho_noise_db_001]
+matrix_first: 3x2x3x1
+heldout: this_experiment
+note: >
+  密封留出。全新阈值题。不使用 T3-03 开发题。只跑 Direct + seed0 一次。
+  失败后不得回头调协议。结果与开发集分开报告。

@@ -1,0 +1,5 @@
+【工程师】陈可
+【职业】后台开发
+【任务】写 too_loud
+【简报】分贝达到或超过 NOISE_DB 时 too_loud 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 NOISE_DB。函数签名 too_loud(db)。 不要输出 Markdown 围栏。 常量 NOISE_DB = 70。SPEC_VERSION = "v1"。
+只输出完整 Python 源码。

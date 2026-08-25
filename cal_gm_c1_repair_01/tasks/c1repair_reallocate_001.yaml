@@ -1,0 +1,19 @@
+id: c1repair_reallocate_001
+component: C
+title: 冲突后重新分配
+resource_id: ferry_berth
+slots: [k1, k2, k3]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [k1, k2, k3]
+  preferred: k1
+agent_b:
+  control:
+    feasible: [k1, k2, k3]
+    preferred: k2
+  intervention:
+    feasible: [k1, k2, k3]
+    preferred: k1
+oracle:
+  control: {agent_a: k1, agent_b: k2}
+  intervention: {agent_a: k1, agent_b: k2}

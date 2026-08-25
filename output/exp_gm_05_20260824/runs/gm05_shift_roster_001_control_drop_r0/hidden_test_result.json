@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 0,
+    "fail_count": 4,
+    "returncode": 1,
+    "stdout_tail": "=================\n/tmp/w1_oracle_0n91rpnf/main.py:22: AttributeError: 'list' object has no attribute 'get'\n/tmp/w1_oracle_0n91rpnf/main.py:22: AttributeError: 'list' object has no attribute 'get'\n/tmp/w1_oracle_0n91rpnf/main.py:22: AttributeError: 'list' object has no attribute 'get'\n/tmp/w1_oracle_0n91rpnf/main.py:52: AttributeError: 'list' object has no attribute 'items'\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_v1_one_night_ok - AttributeError: 'list' object h...\nFAILED test_oracle.py::test_uncertified_medic_fails - AttributeError: 'list' ...\nFAILED test_oracle.py::test_hours_overflow - AttributeError: 'list' object ha...\nFAILED test_oracle.py::test_assign_covers_all_slots - AttributeError: 'list' ...\n4 failed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "v2": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 0,
+    "fail_count": 4,
+    "returncode": 1,
+    "stdout_tail": "=================\n/tmp/w1_oracle_2rbp5y6w/main.py:22: AttributeError: 'list' object has no attribute 'get'\n/tmp/w1_oracle_2rbp5y6w/main.py:22: AttributeError: 'list' object has no attribute 'get'\n/tmp/w1_oracle_2rbp5y6w/main.py:22: AttributeError: 'list' object has no attribute 'get'\n/tmp/w1_oracle_2rbp5y6w/main.py:52: AttributeError: 'list' object has no attribute 'items'\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_v2_one_night_rejected - AttributeError: 'list' ob...\nFAILED test_oracle.py::test_v2_two_night_ok - AttributeError: 'list' object h...\nFAILED test_oracle.py::test_uncertified_medic_fails - AttributeError: 'list' ...\nFAILED test_oracle.py::test_assign_meets_night_minimum - AttributeError: 'lis...\n4 failed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "target_correct": false,
+  "exclusive_ok": true
+}

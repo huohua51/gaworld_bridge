@@ -1,0 +1,20 @@
+id: t3_alert_celsius_001
+title: 温度告警阈值
+kind: threshold
+artifact: alert_celsius.py
+criterion_id: alert_c
+symbol: ALERT_C
+target: alert_c
+function: should_alert
+allow_names: [SPEC_VERSION, ALERT_C]
+change_v1: {alert_c: 38}
+change_v2: {alert_c: 36}
+evidence_v1: evidence-alert-001
+evidence_v2: evidence-alert-002
+leak_tokens:
+  - "ALERT_C = 36"
+  - "温度告警改为 36"
+brief_rule: >
+  温度达到或超过 ALERT_C 时 should_alert 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 ALERT_C。函数签名 should_alert(temp)。
+  不要输出 Markdown 围栏。

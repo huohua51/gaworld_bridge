@@ -1,0 +1,11 @@
+【任务】三钩吊装吨位登记
+【步骤】[{"id": "crane_hk11", "title": "第一钩"}, {"id": "crane_hk12", "title": "第二钩"}, {"id": "crane_hk13", "title": "第三钩"}]
+【规则】步骤必须按顺序执行。已完成步骤不得重复、不得覆盖。检查点由平台盖章为 ckpt-001。接替者必须读取同一版本检查点，从下一个未完成步骤继续。Coordinator 只确认检查点并指定接替者，不能代为执行。
+【输出字段】每一步的 output 只能包含该钩材料中的 hook 与 tons，不要添加其它字段。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是 worker_b。只执行当前步骤 crane_hk13。不要重复已完成步骤。
+输出 {"worker_id": "worker_b", "step_id": "crane_hk13", "output": {...}}。
+【当前步骤】crane_hk13
+【本步材料】{"hook": "H-C", "tons": 2}
+【检查点】null
+【已有结果】{"crane_hk12": {"hook": "H-B", "tons": 7}}

@@ -1,0 +1,12 @@
+experiment_id: EXP-GM-05b
+construct: f5_identifiability_calibration
+ranking_eligible: false
+l0_anchor: [w1_wage_gate, w1_return_floor, w1_budget_remaining]
+l1_dev: [gm05b_aid_elig_001, gm05b_hours_cert_001, gm05b_route_closed_001]
+l2_frozen: [gm05_aid_allocation_001, gm05_shift_roster_001, gm05_incident_routing_001]
+direct_matrix: 3x2x1
+review_matrix: 3x2x3x3
+calls_direct: 1
+calls_review: 2
+protocol: required_change
+status: calibration_complete_repeats_filled

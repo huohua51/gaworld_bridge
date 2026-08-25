@@ -1,0 +1,25 @@
+id: l1_01c_gas_cylinder_001
+title: 三瓶气瓶余量登记
+kind: sequential_workflow
+artifact: gas_cylinder_world.json
+interrupt_token: worker_a_offline_gas_v1
+rule: complete_in_order_no_repeat
+output_rule: 每一步的 output 只能包含该瓶材料中的 tank 与 bar，不要添加其它字段。
+checkpoint_after: gas_cy11
+steps:
+  - id: gas_cy11
+    title: 第一瓶余量
+  - id: gas_cy12
+    title: 第二瓶余量
+  - id: gas_cy13
+    title: 第三瓶余量
+materials:
+  gas_cy11:
+    tank: N2-A
+    bar: 180
+  gas_cy12:
+    tank: He-B
+    bar: 95
+  gas_cy13:
+    tank: Ar-C
+    bar: 40

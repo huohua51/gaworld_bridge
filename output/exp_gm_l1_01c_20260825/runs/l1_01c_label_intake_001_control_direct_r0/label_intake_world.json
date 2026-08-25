@@ -1,0 +1,45 @@
+{
+  "steps": {
+    "label_rx51": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "received_ids": [
+          "L9",
+          "L10"
+        ],
+        "batch": "T2"
+      },
+      "event_index": 1
+    },
+    "label_ck52": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "verified_ids": [
+          "L9",
+          "L10"
+        ],
+        "missing_ids": []
+      },
+      "event_index": 2
+    },
+    "label_st53": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "bin": "S8",
+        "sealed": true
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "label_rx51",
+    "label_ck52",
+    "label_st53"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

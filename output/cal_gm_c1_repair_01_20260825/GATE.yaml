@@ -1,0 +1,42 @@
+experiment_id: CAL-GM-C1-REPAIR-01
+parent: CAL-GM-C1-COMP-01
+status: protocol_retest_pass
+role: protocol_repair_retest
+phase: all
+measurement_result: pass
+platform_conformance_result: pass
+agent_component_result: pass
+coverage: 1.0
+pass_gate:
+  coverage_ok: true
+  a_ok: true
+  b_strict_pair: true
+  c_strict_pair: true
+  actual_final_free_ok: true
+  no_unregistered_mod: true
+  holds: true
+c1_02_allowed: true
+ranking_eligible: false
+generalization_claim: false
+multi_agent_matrix_run: false
+ap_items: [AP-C1-B-01, AP-C1-C-01]
+rates:
+  Coverage: 1.0
+  A_initial_conflict: 1.0
+  B_self_assessment_correct: 1.0
+  C_reallocate: 1.0
+  ActualFinalConflictFree: 1.0
+  UnregisteredModification: 0.0
+  AssessmentExecutionGap: 0.0
+split:
+  A_control: 1.0
+  A_intervention: 1.0
+  B_control: 1.0
+  B_intervention: 1.0
+  C_control: 1.0
+  C_intervention: 1.0
+claim: >
+  全新组件复测 18/18 通过。B 不再极性锁死，C 在只收到 duplicate_resource_claim
+  时完成重新分配，Scorer 自算最终无冲突，环境未代改。
+  c1_02_allowed=true。不改 C1-01，不开 L1，不跑 Multi，不宣称 C1-01 已修好。
+

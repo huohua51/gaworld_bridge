@@ -1,0 +1,39 @@
+experiment_id: EXP-GM-C1-03
+parent: CAL-GM-C1-PRIORITY-02
+task_family: C1
+construct: joint_resource_coordination_retry
+status: in_progress
+ranking_eligible: false
+generalization_claim: false
+role: full_workflow_retry_regression
+primary_track: multi
+tracks: [multi, drop_protection, drop_coordinator]
+direct_doability: required_before_matrix
+direct_is_formal_result: false
+single_is_primary: false
+variants: [control, intervention]
+tasks: [c1_03_electrophoresis_001, c1_03_cryostat_001, c1_03_incubator_shelf_001]
+roles: [agent_a, agent_b, coordinator]
+call_budget: 6
+call_kinds: [agent_a_report, agent_b_report, coordinator_initial, coordinator_retry, agent_a_commit, agent_b_commit]
+resolution_rule: priority_keep_then_earliest_free
+drop_protection_target: registered_priority_protection_revision
+drop_coordinator_target: final_joint_plan
+matrix_first: 3x2x3x1
+heldout: not_created
+does_not_overwrite: [EXP-GM-C1-02, CAL-GM-C1-PRIORITY-01, CAL-GM-C1-PRIORITY-02]
+ap_items: [AP-C1-D-01]
+environment_may_rewrite_world: false
+coordinator_may_execute: false
+agents_may_read_peer_private: false
+preregistered_gate:
+  coverage: 1.0
+  nack_path_coverage_intervention: 1.0
+  retry_recovery_success: 1.0
+  constraint_regression_rate: 0.0
+  environment_auto_repair: 0
+note: >
+  完整多智能体重试回归。intervention 通过登记保护修订使第一版方案确定性失效，
+  进入 priority_preservation_violation NACK，再由 Coordinator 重提。
+  不篡改模型答案。C1-02 维持原分。不开 L1，不建留出。
+  只有 R0 有效且真模型确实进入过 NACK 路径，才有资格关闭 AP-C1-D-01。

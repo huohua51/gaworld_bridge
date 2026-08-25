@@ -1,0 +1,19 @@
+experiment_id: EXP-GM-C1-01
+status: stopped_at_direct_gate
+role: frozen_direct_diagnostic
+measurement_result: pass
+direct_coverage: 1.0
+direct_fullpass: 0.1667
+allocation_accuracy: 0.8333
+multi_agent_matrix_run: false
+multi_agent_value:
+  value: N/A
+  reason: direct_solvability_gate_failed
+ranking_eligible: false
+generalization_claim: false
+primary_failure: conflict_detection_or_semantic_binding
+repeat_1_2: not_run
+holdout: not_created
+claim: >
+  测量有效，但 Direct 可做性门未过。不能进入多智能体矩阵，也不能解释协调能力。
+  唯一分配正确率 5/6，FullPass 1/6。不要把冲突字段判断错误夸大成协调能力为 0.1667。

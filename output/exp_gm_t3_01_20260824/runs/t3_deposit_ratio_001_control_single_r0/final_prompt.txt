@@ -1,0 +1,14 @@
+【工程师】林晓
+【职业】后台开发
+【任务】写 deposit
+【简报】deposit(price) 返回 price * DEPOSIT_PERCENT // 100，只使用整数除法。 必须在模块顶层写 SPEC_VERSION 和 DEPOSIT_PERCENT。函数签名 deposit(price)。 不要输出 Markdown 围栏。 常量 DEPOSIT_PERCENT = 20。SPEC_VERSION = "v1"。
+
+【当前草稿】从这份草稿修改或确认。环境不会替你改文件。
+```python
+SPEC_VERSION = "v1"
+DEPOSIT_PERCENT = 20
+
+def deposit(price):
+    return price * DEPOSIT_PERCENT // 100
+```
+只输出完整 Python 源码。

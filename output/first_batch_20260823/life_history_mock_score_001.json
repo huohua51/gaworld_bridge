@@ -1,0 +1,127 @@
+{
+  "workflow_id": "life_history_mock_score_001",
+  "requested": 1,
+  "measurement_valid": 0,
+  "coverage": 0.0,
+  "full_pass_rate": null,
+  "mean_task_score": null,
+  "ranking_eligible": false,
+  "cells": [
+    {
+      "workflow_id": "life_history_mock_score_001",
+      "instance_id": "agent52_mock_humanscore",
+      "measurement_valid": false,
+      "full_pass": null,
+      "task_score": null,
+      "ranking_eligible": false,
+      "status": "measurement_invalid",
+      "gates": [
+        {
+          "gate_id": "human_reference_eligibility",
+          "passed": false,
+          "critical": true,
+          "layer": "R0",
+          "detail": "scores come from create_mock_scores(), not a matched human sample"
+        },
+        {
+          "gate_id": "trace_bound_scorer",
+          "passed": false,
+          "critical": true,
+          "layer": "R0",
+          "detail": "LifeHistoryEvaluator does not read canonical_trace"
+        },
+        {
+          "gate_id": "engine_in_main_loop",
+          "passed": false,
+          "critical": true,
+          "layer": "R0",
+          "detail": "LifeHistoryEngine is not wired into the main simulator"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "mock_score_detected",
+          "layer": "R2",
+          "scorer": "rule",
+          "evaluable": false,
+          "score": null,
+          "max_score": 1.0,
+          "passed": null,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "raw HumanScore retained as diagnostic only"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "mock_scores": {
+          "memory_score": {
+            "raw": 19,
+            "max": 30,
+            "percentage": 63.3,
+            "sub_scores": {
+              "recall_accuracy": 7,
+              "consistency": 7,
+              "recency_effect": 5
+            }
+          },
+          "personality_score": {
+            "raw": 16,
+            "max": 25,
+            "percentage": 64.0,
+            "sub_scores": {
+              "personality_consistency": 8,
+              "role_stability": 5,
+              "background_coverage": 3
+            }
+          },
+          "affect_score": {
+            "raw": 12,
+            "max": 20,
+            "percentage": 60.0,
+            "sub_scores": {
+              "emotion_wave": 6,
+              "emotional_memory": 3,
+              "expression_diversity": 3
+            }
+          },
+          "bounded_rationality_score": {
+            "raw": 8,
+            "max": 15,
+            "percentage": 53.3,
+            "sub_scores": {
+              "decision_diversity": 4,
+              "uncertainty_expression": 2,
+              "bounded_options": 2
+            }
+          },
+          "learning_score": {
+            "raw": 5,
+            "max": 10,
+            "percentage": 50.0,
+            "sub_scores": {
+              "behavior_drift_detection": 3,
+              "learning_from_error": 1,
+              "preference_adaptation": 1
+            }
+          },
+          "relationship_score": {
+            "raw": 4,
+            "max": 20,
+            "percentage": 20.0,
+            "sub_scores": {
+              "relationship_tracking": 2,
+              "trust_evolution": 1,
+              "conflict_resolution": 1
+            }
+          }
+        },
+        "uses_mock": true,
+        "engine_wired": false,
+        "ranking_eligible": false
+      }
+    }
+  ],
+  "human_fidelity_status": "diagnostic"
+}

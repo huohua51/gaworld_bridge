@@ -1,0 +1,39 @@
+experiment_id: EXP-GM-C1-02
+phase: all
+gate: off_floor
+status: partial_pass
+measurement_valid: true
+direct_ok: true
+direct_fullpass: 1.0
+direct_is_formal_result: false
+primary_track: multi
+c1_development_status: partial_pass
+basic_conflict_resolution: pass
+private_constraint_integration: pass
+policy_constrained_replanning: fail
+strict_pair: 0.6667
+holdout_allowed: false
+ranking_eligible: false
+multi_fullpass: 0.8333
+drop_revision_fullpass: 0.5
+drop_coordinator_fullpass: 0.0
+RevisionDeliveryValue: 0.3333
+CoordinatorDeliveryValue: 0.8333
+repeat_1_2: complete
+holdout: not_created
+claim: >
+  C1正式多智能体开发集测量有效。系统已经具备基本冲突消解能力，
+  但没有完全通过登记式集体协调。不能说集体协调已经通过，
+  也不能说GAWorld不会集体协调。
+interpretation: >
+  GAWorld多智能体系统能够稳定发现并消除资源冲突，但在光学台
+  intervention上稳定违反优先级保持规则。缺口已从“能否消除冲突”
+  收缩到“能否在消除冲突时同时遵守分配政策”。
+capabilities:
+  conflict_detection_and_resolution: 1.0
+  joint_private_constraints: 1.0
+  policy_constrained_unique_plan: 0.8333
+  strict_pair_adaptation: 0.6667
+  full_coordination_loop: 0.8333
+next: CAL-GM-C1-PRIORITY-01
+ap_new: AP-C1-D-01

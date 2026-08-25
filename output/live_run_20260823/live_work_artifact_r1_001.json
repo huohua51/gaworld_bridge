@@ -1,0 +1,255 @@
+{
+  "workflow_id": "live_work_artifact_r1_001",
+  "requested": 3,
+  "measurement_valid": 3,
+  "coverage": 1.0,
+  "full_pass_rate": 1.0,
+  "mean_task_score": 1.0,
+  "ranking_eligible": true,
+  "cells": [
+    {
+      "workflow_id": "live_work_artifact_r1_001",
+      "instance_id": "content_md_article",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live GLM adapter=content"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and placeholder checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/content_md_article/article.md']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=445"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "hash_not_forbidden",
+          "passed": true,
+          "critical": false,
+          "layer": "R1",
+          "detail": "not_enabled: no sealed reference blacklist"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "artifact_gate_pass",
+          "layer": "R1",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/content_md_article/article.md"
+          ],
+          "detail": "完成文章：写一篇杭州滨江骑行通勤观察"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "summary": "完成文章：写一篇杭州滨江骑行通勤观察",
+        "artifact_paths": [
+          "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/content_md_article/article.md"
+        ],
+        "chars": 445,
+        "note": "artifact_gate_pass only; no hidden reference / domain verifier"
+      }
+    },
+    {
+      "workflow_id": "live_work_artifact_r1_001",
+      "instance_id": "teaching_lesson_plan",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live GLM adapter=teaching"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and placeholder checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/teaching_lesson_plan/lesson_plan.md']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=570"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "hash_not_forbidden",
+          "passed": true,
+          "critical": false,
+          "layer": "R1",
+          "detail": "not_enabled: no sealed reference blacklist"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "artifact_gate_pass",
+          "layer": "R1",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/teaching_lesson_plan/lesson_plan.md"
+          ],
+          "detail": "完成教案：一节 45 分钟的数据分析入门课"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "summary": "完成教案：一节 45 分钟的数据分析入门课",
+        "artifact_paths": [
+          "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/teaching_lesson_plan/lesson_plan.md"
+        ],
+        "chars": 570,
+        "note": "artifact_gate_pass only; no hidden reference / domain verifier"
+      }
+    },
+    {
+      "workflow_id": "live_work_artifact_r1_001",
+      "instance_id": "code_py_script",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "live GLM adapter=code"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and placeholder checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/code_py_script/main.py']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=577"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "hash_not_forbidden",
+          "passed": true,
+          "critical": false,
+          "layer": "R1",
+          "detail": "not_enabled: no sealed reference blacklist"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "artifact_gate_pass",
+          "layer": "R1",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/code_py_script/main.py"
+          ],
+          "detail": "完成 Python 脚本：写一个独立 Python 脚本，计算两组整数的保留工资决策"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "summary": "完成 Python 脚本：写一个独立 Python 脚本，计算两组整数的保留工资决策",
+        "artifact_paths": [
+          "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/work/artifacts/agent_4/code_py_script/main.py"
+        ],
+        "chars": 577,
+        "note": "artifact_gate_pass only; no hidden reference / domain verifier"
+      }
+    }
+  ],
+  "note": "Live GLM-4-Flash WorkAdapter R1. Legal deliverable only; not Task Competence / FullPass of a work workflow."
+}

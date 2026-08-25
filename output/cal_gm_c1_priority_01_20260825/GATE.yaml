@@ -1,0 +1,30 @@
+experiment_id: CAL-GM-C1-PRIORITY-01
+parent: EXP-GM-C1-02
+phase: all
+ap_items:
+- AP-C1-D-01
+pass_gate:
+  coverage_ok: true
+  control_ok: true
+  intervention_ok: false
+  priority_ok: true
+  earliest_ok: false
+  policy_ok: false
+  no_unregistered_mod: true
+  holds: false
+rates:
+  Coverage: 1.0
+  PriorityPreserved: 1.0
+  EarliestIdleLow: 0.9444
+  ActualFinalConflictFree: 0.9444
+  JointConstraintSatisfaction: 1.0
+  PolicyConstrainedPlan: 0.9444
+  FullPass: 0.9444
+  UnregisteredModification: 0.0
+split:
+  control: 1.0
+  intervention: 0.8889
+interpretation: '优先级组件门未过。split={''control'': 1.0, ''intervention'': 0.8889}。不开 L1，不覆盖
+  C1-02，不建留出。'
+ranking_eligible: false
+does_not_overwrite: EXP-GM-C1-02

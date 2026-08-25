@@ -1,0 +1,10 @@
+【共同资源】cold_store 同一时段只能被一个 Agent 占用。
+【可选时段】["c14", "c15", "c16"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是 agent_b。确认联合方案中分配给你的时段，并自己占用该时段。Coordinator 不能代你执行。
+输出 {"agent_id": "agent_b", "plan_version": "plan-001", "confirm": true或false, "slot": "<slot或null>"}。
+分配不在你的可行集内、方案缺失或版本不一致时 confirm=false。
+【你的私有约束】{"agent_id": "agent_b", "label": "truck_out", "resource_id": "cold_store", "feasible": ["c14", "c16"], "preferred": "c14", "window_token": "b_rev_cold_v2", "window_key": "c14+c16", "priority": "low"}
+【联合方案】{"plan_version": "plan-001", "assignments": {"agent_a": "c14", "agent_b": "c15"}, "rule": "priority_keep_then_earliest_free"}

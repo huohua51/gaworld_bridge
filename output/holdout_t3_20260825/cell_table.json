@@ -1,0 +1,4428 @@
+{
+  "generated_at": "2026-08-25T12:44:21.536238+00:00",
+  "experiment_id": "HO-GM-T3-01",
+  "parent": "EXP-GM-T3-02",
+  "phase": "seed0",
+  "gate": "off_floor",
+  "ranking_eligible": false,
+  "generalization_claim": false,
+  "multi_agent_value_estimable": false,
+  "direct_ok": true,
+  "direct_fullpass": 1.0,
+  "claim": "R0 有效且不共地板、不共天花板；方向符合 Multi>Single 且 Multi>Drop，首错指向 Reviewer 私有信息。补 repeat 1/2 后再报告。",
+  "freeze": {
+    "experiment_id": "HO-GM-T3-01",
+    "parent": "EXP-GM-T3-03",
+    "phase": "rule",
+    "frozen_at": "2026-08-25T12:35:01.316846+00:00",
+    "task_card_hash": "f17307ee03347caad9b09445ab13547e32bb4f57e72e2ef6c0e7ba4aaf0b2803",
+    "task_hash": "f607e3493cfca6b31e3c10d030bbc71cbc9099f5fe2cd2074ea534da0a91a9ba",
+    "protocol_hash": "7b9c555d5924a6e75ba73d6934fde54e2a33e6fd49aaf5ef1abaebbde525ba6d",
+    "scorer_hash": "3804a3c887a7c43ab137d9309648fdfbdfaeb9151fc099d413a16b5b526de977",
+    "runner_hash": "69f470f6fd5c250f3df0704872557fb0eb97ba0db40cc73b63a655a33e12a85f",
+    "t3_02_contract": "df74f30350773e95bbc6889bdf4d0e6330af86cfed0f96e4a0cc916578af13e8",
+    "t3_02_integrity": "ed0ac66bd8b14ddb63fb87be03aa847289fe73156a21af1414439878a328c872",
+    "change_01_contract": "8ff4bbd1ae155920311402783545153c9e0544a0b33fdeee08f11fc4e55b6b65",
+    "apply_01_prompt": "228c62c6cf8f3d49da5aabe75b201c51978aafa3f773ffbaba9d3299f4727dc9",
+    "base_commit": "a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c",
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "fairness_preflight": {
+      "ok": true,
+      "leaks": [],
+      "call_contract": {
+        "direct": [
+          "Builder 生成初稿；提示不得含 Intervention 值",
+          "决策者读取私有最终标准并判断 keep/update",
+          "同一 Agent 按 APPLY-01 修改或确认"
+        ],
+        "single": [
+          "Builder 生成初稿；提示不得含 Intervention 值",
+          "同一 Agent 只按公开 v1 简报自检，看不到私有核验信息",
+          "同一 Agent 按 APPLY-01 修改或确认"
+        ],
+        "multi": [
+          "Builder 生成初稿",
+          "独立 Reviewer 读取私有最终标准并输出决定",
+          "IntegrityMailbox 原样传递",
+          "Executor 按 APPLY-01 修改或确认"
+        ],
+        "drop": [
+          "Builder 生成初稿",
+          "Reviewer 读取私有最终标准并正常输出",
+          "通道丢弃消息",
+          "Executor 收到空消息并提交"
+        ]
+      },
+      "hidden_oracle_in_prompts": false,
+      "environment_rewrites_files": false,
+      "channel_rewrites_payload": false,
+      "logical_calls_per_cell": 3,
+      "single_lacks_private_v2": true,
+      "reviewer_has_private_v2": true
+    },
+    "do_not_edit_after_freeze": [
+      "task_card.yaml",
+      "protocol.md",
+      "scorer.py",
+      "prompts.py",
+      "loader.py",
+      "artifacts.py",
+      "tasks",
+      "oracle"
+    ],
+    "retained_from_t3_02": [
+      "CHANGE_01_decision_contract",
+      "APPLY_01_required_changes",
+      "payload_integrity_trace"
+    ],
+    "not_t3_01_or_t3_02_items": true,
+    "heldout": "this_experiment",
+    "holdout_run_once": true,
+    "does_not_overwrite": [
+      "EXP-GM-T3-01",
+      "EXP-GM-T3-02",
+      "EXP-GM-T3-03"
+    ]
+  },
+  "summary": {
+    "workflow_id": "holdout_t3_discrimination",
+    "requested": 18,
+    "measurement_valid": 18,
+    "coverage": 1.0,
+    "full_pass_rate": 0.6667,
+    "mean_task_score": 0.7083,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_queue_max_001_control_single_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "channel_sent_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "executor_read_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+              "review_payload_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_queue_max_001",
+          "variant": "control",
+          "track": "single",
+          "repeat_id": 0,
+          "private_visible": false,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 15,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_queue_max_001_control_multi_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "channel_sent_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "executor_read_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+              "review_payload_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_queue_max_001",
+          "variant": "control",
+          "track": "multi",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 15,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_queue_max_001_control_drop_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_dropped",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "channel_sent_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "executor_read_hash": null,
+            "dropped": true,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+              "review_payload_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_queue_max_001",
+          "variant": "control",
+          "track": "drop",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": false,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 15,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_queue_max_001_intervention_single_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "review_decision_incorrect",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "channel_sent_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "executor_read_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+              "review_payload_hash": "dc9211ea8c0aa954ae6fc5114437624604ec3c1d794c8b5ce1fea194ce6f5a90",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_queue_max_001",
+          "variant": "intervention",
+          "track": "single",
+          "repeat_id": 0,
+          "private_visible": false,
+          "target_correct": false,
+          "review_decision_correct": false,
+          "review_evidence_correct": false,
+          "payload_integrity": true,
+          "complete": false,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "review_decision_incorrect",
+          "got": 15,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_queue_max_001_intervention_multi_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+            "channel_sent_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+            "executor_read_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+              "review_payload_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+              "decision": "update",
+              "required_changes": [
+                {
+                  "path": "QUEUE_MAX",
+                  "old_value": 15,
+                  "new_value": 11,
+                  "change_id": "change-01"
+                }
+              ]
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_queue_max_001",
+          "variant": "intervention",
+          "track": "multi",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 11,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_queue_max_001_intervention_drop_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.25,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "review_payload_not_delivered",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_dropped",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+            "channel_sent_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+            "executor_read_hash": null,
+            "dropped": true,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+              "review_payload_hash": "0eb5378f99521442fc9480fddef5d5583050396aca05481752d44c6f0a034a3f",
+              "decision": "update",
+              "required_changes": [
+                {
+                  "path": "QUEUE_MAX",
+                  "old_value": 15,
+                  "new_value": 11,
+                  "change_id": "change-01"
+                }
+              ]
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_queue_max_001",
+          "variant": "intervention",
+          "track": "drop",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": false,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": false,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": false,
+          "drop_inbox_empty": true,
+          "first_error": "review_payload_not_delivered",
+          "got": 15,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_battery_pct_001_control_single_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "channel_sent_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "executor_read_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+              "review_payload_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_battery_pct_001",
+          "variant": "control",
+          "track": "single",
+          "repeat_id": 0,
+          "private_visible": false,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 20,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_battery_pct_001_control_multi_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "channel_sent_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "executor_read_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+              "review_payload_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_battery_pct_001",
+          "variant": "control",
+          "track": "multi",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 20,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_battery_pct_001_control_drop_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_dropped",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "channel_sent_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "executor_read_hash": null,
+            "dropped": true,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+              "review_payload_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_battery_pct_001",
+          "variant": "control",
+          "track": "drop",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": false,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 20,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_battery_pct_001_intervention_single_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "review_decision_incorrect",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "channel_sent_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "executor_read_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+              "review_payload_hash": "54a280dd615297359085ebea6f0bd634161b7337f5adac45b0eaa28d580e57ff",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_battery_pct_001",
+          "variant": "intervention",
+          "track": "single",
+          "repeat_id": 0,
+          "private_visible": false,
+          "target_correct": false,
+          "review_decision_correct": false,
+          "review_evidence_correct": false,
+          "payload_integrity": true,
+          "complete": false,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "review_decision_incorrect",
+          "got": 20,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_battery_pct_001_intervention_multi_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+            "channel_sent_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+            "executor_read_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+              "review_payload_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+              "decision": "update",
+              "required_changes": [
+                {
+                  "path": "MIN_BATTERY",
+                  "old_value": 20,
+                  "new_value": 35,
+                  "change_id": "change-01"
+                }
+              ]
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_battery_pct_001",
+          "variant": "intervention",
+          "track": "multi",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 35,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_battery_pct_001_intervention_drop_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.25,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "review_payload_not_delivered",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_dropped",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+            "channel_sent_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+            "executor_read_hash": null,
+            "dropped": true,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+              "review_payload_hash": "a1db0200bdae3320be01a476686fa4a9db297b7b88f4c145c05455032727e801",
+              "decision": "update",
+              "required_changes": [
+                {
+                  "path": "MIN_BATTERY",
+                  "old_value": 20,
+                  "new_value": 35,
+                  "change_id": "change-01"
+                }
+              ]
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_battery_pct_001",
+          "variant": "intervention",
+          "track": "drop",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": false,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": false,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "ec9b620511f63387cc9f45dd1f3efa5199ce15769eda28beea57dc405d5dd2e9",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": false,
+          "drop_inbox_empty": true,
+          "first_error": "review_payload_not_delivered",
+          "got": 20,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "a8f7bcb5ff4f2185d1d27e122f254dc68add6605e1b3b5309955aa9150c82a77"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_noise_db_001_control_single_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "channel_sent_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "executor_read_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+              "review_payload_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_noise_db_001",
+          "variant": "control",
+          "track": "single",
+          "repeat_id": 0,
+          "private_visible": false,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 70,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "c2e1d89f51fedb9e3f9d23b597319dc19e5dec01e09e07f3e9c92e4ae14e4a56"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_noise_db_001_control_multi_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "channel_sent_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "executor_read_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+              "review_payload_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_noise_db_001",
+          "variant": "control",
+          "track": "multi",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 70,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "c2e1d89f51fedb9e3f9d23b597319dc19e5dec01e09e07f3e9c92e4ae14e4a56"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_noise_db_001_control_drop_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v1_still_binding",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_dropped",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "channel_sent_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "executor_read_hash": null,
+            "dropped": true,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v1",
+              "artifact_before_hash": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+              "review_payload_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_noise_db_001",
+          "variant": "control",
+          "track": "drop",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": false,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 70,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "c2e1d89f51fedb9e3f9d23b597319dc19e5dec01e09e07f3e9c92e4ae14e4a56"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_noise_db_001_intervention_single_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "review_decision_incorrect",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "channel_sent_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "executor_read_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+              "review_payload_hash": "15fe75ba3a81ee842aaa2311e2dc889fb5a0ff4e93fd93f286a3960ddc11acbd",
+              "decision": "keep",
+              "required_changes": []
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_noise_db_001",
+          "variant": "intervention",
+          "track": "single",
+          "repeat_id": 0,
+          "private_visible": false,
+          "target_correct": false,
+          "review_decision_correct": false,
+          "review_evidence_correct": false,
+          "payload_integrity": true,
+          "complete": false,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "review_decision_incorrect",
+          "got": 70,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "c2e1d89f51fedb9e3f9d23b597319dc19e5dec01e09e07f3e9c92e4ae14e4a56"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_noise_db_001_intervention_multi_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_delivered",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+            "channel_sent_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+            "executor_read_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+            "dropped": false,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+              "review_payload_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+              "decision": "update",
+              "required_changes": [
+                {
+                  "path": "NOISE_DB",
+                  "old_value": 70,
+                  "new_value": 62,
+                  "change_id": "change-01"
+                }
+              ]
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_noise_db_001",
+          "variant": "intervention",
+          "track": "multi",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": true,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": true,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": true,
+          "drop_inbox_empty": true,
+          "first_error": "none",
+          "got": 62,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "c2e1d89f51fedb9e3f9d23b597319dc19e5dec01e09e07f3e9c92e4ae14e4a56"
+        }
+      },
+      {
+        "workflow_id": "holdout_t3_discrimination",
+        "instance_id": "t3_ho_noise_db_001_intervention_drop_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.25,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "no_v2_leak_on_draft",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_no_private_v2",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "shared_draft_present",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "three_calls",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_executor_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "final_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "reviewer_did_not_write",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_decision_correct",
+            "layer": "R2",
+            "scorer": "change_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "complete_adoption",
+            "layer": "R2",
+            "scorer": "file_values",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "pytest_hidden",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "review_loop",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "review_payload_not_delivered",
+          "events": [
+            "requirement_available",
+            "draft_created",
+            "v2_published",
+            "review_started",
+            "review_decision",
+            "review_emitted",
+            "review_dropped",
+            "submitted"
+          ],
+          "budget": {
+            "calls": 3,
+            "max_calls": 3,
+            "kinds": [
+              "builder_draft",
+              "review",
+              "builder_final"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "max_tokens": 2048,
+            "valid": true
+          },
+          "payload_trace": {
+            "reviewer_output_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+            "channel_sent_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+            "executor_read_hash": null,
+            "dropped": true,
+            "envelope": {
+              "review_id": "review-001",
+              "spec_version": "v2",
+              "artifact_before_hash": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+              "review_payload_hash": "9bb427bb88f6f42ef7a61652022ace4da5b429fef641535a82a16bb038a28978",
+              "decision": "update",
+              "required_changes": [
+                {
+                  "path": "NOISE_DB",
+                  "old_value": 70,
+                  "new_value": 62,
+                  "change_id": "change-01"
+                }
+              ]
+            }
+          }
+        },
+        "extra": {
+          "task_id": "t3_ho_noise_db_001",
+          "variant": "intervention",
+          "track": "drop",
+          "repeat_id": 0,
+          "private_visible": true,
+          "target_correct": false,
+          "review_decision_correct": true,
+          "review_evidence_correct": true,
+          "payload_integrity": true,
+          "complete": false,
+          "partial": false,
+          "unregistered_change": false,
+          "shared_draft_sha256": "067ea5bb2e05ea5542e7c29691dff10b1a6a3a66054b35408b7d6df0f25b533e",
+          "budget_calls": 3,
+          "budget_kinds": [
+            "builder_draft",
+            "review",
+            "builder_final"
+          ],
+          "reviewer_ran": true,
+          "executor_saw_review": false,
+          "drop_inbox_empty": true,
+          "first_error": "review_payload_not_delivered",
+          "got": 70,
+          "ranking_note": "discrimination experiment, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "draft_prompt_sha": "c2e1d89f51fedb9e3f9d23b597319dc19e5dec01e09e07f3e9c92e4ae14e4a56"
+        }
+      }
+    ]
+  },
+  "fairness": {
+    "coverage": 1.0,
+    "draft_hash_ok": true,
+    "budget_ok": true,
+    "isolation_ok": true,
+    "payload_integrity_ok": true,
+    "single_full": 0.5,
+    "multi_full": 1.0,
+    "drop_full": 0.5
+  },
+  "metrics": {
+    "Coverage": {
+      "single": 1.0,
+      "multi": 1.0,
+      "drop": 1.0
+    },
+    "ReviewDecisionAccuracy": {
+      "single": 0.5,
+      "multi": 1.0,
+      "drop": 1.0
+    },
+    "PayloadIntegrityWhenTransmitted": {
+      "single": 1.0,
+      "multi": 1.0,
+      "note": "有传输时完整性。Drop 干预没有交付，不能读成成功传输。"
+    },
+    "DropPayloadIsolation": 1.0,
+    "CompleteChangeAdoptionRate": {
+      "single": 0.5,
+      "multi": 1.0,
+      "drop": {
+        "control": 1.0,
+        "intervention": 0.0,
+        "pooled_average": 0.5
+      }
+    },
+    "TargetCorrect": {
+      "single": 0.5,
+      "multi": 1.0,
+      "drop": {
+        "control": 1.0,
+        "intervention": 0.0,
+        "pooled_average": 0.5
+      }
+    },
+    "FullPass": {
+      "single": 0.5,
+      "multi": 1.0,
+      "drop": 0.5
+    },
+    "StrictPair": {
+      "single": 0.0,
+      "multi": 1.0,
+      "drop": 0.0
+    },
+    "OutcomeMultiAgentNetBenefit": {
+      "value": 0.5,
+      "reason": "multi_minus_single"
+    },
+    "ReviewDeliveryValue": {
+      "value": 0.5,
+      "reason": "multi_minus_drop",
+      "drop_complete_not_partial_adoption": true
+    },
+    "first_error": {
+      "none": 12,
+      "review_decision_incorrect": 3,
+      "review_payload_not_delivered": 3
+    },
+    "first_error_single_intervention": {
+      "review_decision_incorrect": 3
+    },
+    "first_error_drop_intervention": {
+      "review_payload_not_delivered": 3
+    },
+    "value_pattern": {
+      "multi_gt_single": true,
+      "multi_gt_drop": true,
+      "pattern": true,
+      "single_intervention_first_error": {
+        "review_decision_incorrect": 3
+      },
+      "drop_intervention_first_error": {
+        "review_payload_not_delivered": 3
+      },
+      "first_error_locates_to_reviewer_private_info": true,
+      "advantage_vanishes_on_drop": true,
+      "estimable": true
+    }
+  },
+  "model": "GLM-4-Flash",
+  "temperature": 0,
+  "note": "区分度实验。不能使用 T3-01/T3-02 开发题。不覆盖历史分数。"
+}

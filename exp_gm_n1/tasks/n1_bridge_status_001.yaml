@@ -1,0 +1,15 @@
+id: n1_bridge_status_001
+title: 桥梁通行状态
+target: route
+source_id: src_ok
+evidence_v1: evidence-bridge-001
+evidence_v2: evidence-bridge-002
+plan: {route: main_bridge}
+control_state: bridge_open
+intervention_state: bridge_closed
+control_value: main_bridge
+intervention_value: river_detour
+leak_tokens:
+  - bridge_closed
+  - river_detour
+brief: 当前计划经主桥通行。只有核实后的通行状态可以改变路线。

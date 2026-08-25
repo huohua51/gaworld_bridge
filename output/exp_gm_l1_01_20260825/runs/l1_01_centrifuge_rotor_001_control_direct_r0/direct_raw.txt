@@ -1,0 +1,3 @@
+```json
+{"steps": {"rotor_cf21": {"serial": "CF-21-K", "status": "pass", "torque_ncm": 38}, "rotor_cf22": {"serial": "CF-22-M", "status": "pass", "torque_ncm": 41}, "rotor_cf23": {"serial": "CF-23-P", "status": "hold", "torque_ncm": 29}}}
+```

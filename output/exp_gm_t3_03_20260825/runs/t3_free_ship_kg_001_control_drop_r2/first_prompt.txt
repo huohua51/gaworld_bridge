@@ -1,0 +1,5 @@
+【工程师】陈可
+【职业】后台开发
+【任务】写 free_shipping
+【简报】包裹公斤数达到或超过 FREE_SHIP_KG 时 free_shipping 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 FREE_SHIP_KG。函数签名 free_shipping(kg)。 不要输出 Markdown 围栏。 常量 FREE_SHIP_KG = 8。SPEC_VERSION = "v1"。
+只输出完整 Python 源码。

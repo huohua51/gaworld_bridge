@@ -1,0 +1,23 @@
+{"ts": 1787548189.9999049, "event": "private_put", "task_id": "clinic_service_001_control_full_s0", "role": "verifier", "payload": {"trusted_source_id": "clinic_board"}}
+{"ts": 1787548190.0001395, "event": "private_put", "task_id": "clinic_service_001_control_full_s0", "role": "dispatcher", "payload": {"rule": "若核实状态是 clinic_open，提交 clinic_A；若是 clinic_paused，提交 clinic_B。", "action": "submit_clinic"}}
+{"ts": 1787548192.4013562, "event": "denied", "ok": false, "reason": "raw_signal_not_sent", "task_id": "clinic_service_001_control_full_s0"}
+{"ts": 1787548192.4015489, "event": "raw_inbox_read", "task_id": "clinic_service_001_control_full_s0", "n": 0}
+{"ts": 1787548192.4016166, "event": "private_read", "task_id": "clinic_service_001_control_full_s0", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548194.392737, "event": "denied", "ok": false, "reason": "verification_not_requested", "task_id": "clinic_service_001_control_full_s0"}
+{"ts": 1787548194.3930652, "event": "inbox_read", "task_id": "clinic_service_001_control_full_s0", "n": 0}
+{"ts": 1787548196.8115427, "event": "action_submitted", "task_id": "clinic_service_001_control_full_s0", "action": {"action": "None", "value": "None", "adopted_state_version": "None", "evidence_message_id": "None", "task_id": "clinic_service_001_control_full_s0", "dispatcher_id": 3}}
+{"ts": 1787548196.8119457, "event": "inbox_read", "task_id": "clinic_service_001_control_full_s0", "n": 0}
+{"ts": 1787548450.2536678, "event": "private_put", "task_id": "clinic_service_001_control_full_s0", "role": "verifier", "payload": {"trusted_source_id": "clinic_board"}}
+{"ts": 1787548450.2538733, "event": "private_put", "task_id": "clinic_service_001_control_full_s0", "role": "dispatcher", "payload": {"rule": "若核实状态是 clinic_open，提交 clinic_A；若是 clinic_paused，提交 clinic_B。", "action": "submit_clinic"}}
+{"ts": 1787548451.7789485, "event": "raw_sent", "task_id": "clinic_service_001_control_full_s0", "message": {"message_id": "raw-msg-clinic_service_001_control_full_s0-1", "source_id": "clinic_board", "reported_state": "clinic_open", "observer_id": 1}}
+{"ts": 1787548451.7792737, "event": "raw_sent", "task_id": "clinic_service_001_control_full_s0", "message": {"message_id": "raw-msg-clinic_service_001_control_full_s0-2", "source_id": "hallway_talk", "reported_state": "clinic_paused", "observer_id": 1}}
+{"ts": 1787548451.7794385, "event": "raw_delivered", "task_id": "clinic_service_001_control_full_s0", "message": {"message_id": "raw-msg-clinic_service_001_control_full_s0-1", "source_id": "clinic_board", "reported_state": "clinic_open", "observer_id": 1}}
+{"ts": 1787548451.779565, "event": "raw_delivered", "task_id": "clinic_service_001_control_full_s0", "message": {"message_id": "raw-msg-clinic_service_001_control_full_s0-2", "source_id": "hallway_talk", "reported_state": "clinic_paused", "observer_id": 1}}
+{"ts": 1787548451.779687, "event": "raw_inbox_read", "task_id": "clinic_service_001_control_full_s0", "n": 2}
+{"ts": 1787548451.779821, "event": "private_read", "task_id": "clinic_service_001_control_full_s0", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548453.2983668, "event": "verified_emitted", "task_id": "clinic_service_001_control_full_s0", "message": {"message_id": "verified-msg-clinic_service_001_control_full_s0-3", "verified_state": "clinic_open", "source_id": "clinic_board", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787548453.2987046, "event": "verified_delivered", "task_id": "clinic_service_001_control_full_s0", "dropped": false, "message": {"message_id": "verified-msg-clinic_service_001_control_full_s0-3", "verified_state": "clinic_open", "source_id": "clinic_board", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787548453.298894, "event": "inbox_read", "task_id": "clinic_service_001_control_full_s0", "n": 1}
+{"ts": 1787548455.9254746, "event": "verified_adopted", "task_id": "clinic_service_001_control_full_s0", "message_id": "verified-msg-clinic_service_001_control_full_s0-3", "state_version": "v1"}
+{"ts": 1787548455.9258492, "event": "action_submitted", "task_id": "clinic_service_001_control_full_s0", "action": {"action": "submit_clinic", "value": "clinic_A", "adopted_state_version": "v1", "evidence_message_id": "verified-msg-clinic_service_001_control_full_s0-3", "task_id": "clinic_service_001_control_full_s0", "dispatcher_id": 3}}
+{"ts": 1787548455.926108, "event": "inbox_read", "task_id": "clinic_service_001_control_full_s0", "n": 1}

@@ -1,0 +1,10 @@
+{
+  "control": {
+    "initial_conflict": false,
+    "assignments": {"agent_a": "w08", "agent_b": "w09"}
+  },
+  "intervention": {
+    "initial_conflict": true,
+    "assignments": {"agent_a": "w08", "agent_b": "w10"}
+  }
+}

@@ -1,0 +1,36 @@
+task_id: TASK-W1-evidence-bound-review
+experiment_id: EXP-GM-04e
+phase: 04e-R
+task_family: T3
+target_axis: 功能能力
+mechanism: M4 证据绑定审核
+status: calibration
+ranking_eligible: false
+development_set: [w1_wage_gate, w1_return_floor, w1_budget_remaining]
+held_out_set: [shipping_threshold, eligibility_age, inventory_reorder_point]
+note: >
+  先只测 Reviewer（04e-R），过门后再测 Executor（04e-E）。
+  平台只提供草稿事实，不提供应改成的值。
+  Verifier 只能拒绝虚假审核/虚假采用，不能生成正确审核，不能改产物。
+  04e-R：3题×2协议×2变体×3重复=36格。
+  04e-E：3题×2协议×3重复=18格。
+  未过门不跑下一阶段，也不跑留出题。
+  协议提示模板不得出现留出题字段名。
+
+roles: [reviewer]
+tracks: [reviewer_only]
+variants: [control, intervention]
+protocols: [legacy, evidence_bound]
+seeds: [0, 1, 2]
+model: GLM-4-Flash
+temperature: 0
+max_reviewer_calls: 2
+primary_metrics:
+  - FalsePositiveRevisionRate
+  - TrueRevisionRate
+  - EvidenceGroundingRate
+gates_to_04e_e:
+  - FalsePositiveRevisionRate 低于旧协议
+  - TrueRevisionRate 不低于旧协议
+  - EvidenceGroundingRate = 1
+  - 无新增 Contract/Coverage 失败

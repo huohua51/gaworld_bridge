@@ -1,0 +1,32 @@
+id: c1_02_uav_pad_001
+title: 无人机起降坪
+status: retired_direct_undoable
+note: >
+  Direct intervention 三次表面校准后仍把 B 分到不在可行集中的中间时段。
+  光学台与冷库同构题 Direct 已过。本题不进入 C1-02 正式三题。
+kind: exclusive_slot
+artifact: uav_world.json
+resource_id: uav_pad
+slots: ["u08", "u09", "u10"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: craft_north
+  feasible: ["u08", "u09", "u10"]
+  preferred: "u08"
+agent_b:
+  label: craft_south
+  baseline:
+    feasible: ["u09", "u10"]
+    preferred: "u09"
+    window_token: b_rev_uav_v1
+  control:
+    feasible: ["u09", "u10"]
+    preferred: "u09"
+    window_token: b_rev_uav_v1
+  intervention:
+    feasible: ["u08", "u10"]
+    preferred: "u08"
+    window_token: b_rev_uav_v2
+leak_tokens:
+  - "b_rev_uav_v2"

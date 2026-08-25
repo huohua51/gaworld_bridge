@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "violations": [
+    {
+      "type": "duplicate_resource_claim",
+      "resource": "optics_table",
+      "slot": "w08",
+      "agents": [
+        "agent_a",
+        "agent_b"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "violations": [
+    {
+      "type": "duplicate_resource_claim",
+      "resource": "darkroom_tray",
+      "slot": "dr31",
+      "agents": [
+        "agent_a",
+        "agent_b"
+      ]
+    }
+  ]
+}

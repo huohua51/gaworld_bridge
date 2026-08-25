@@ -1,0 +1,117 @@
+{
+  "workflow_id": "cal_gm_c1_comp_01",
+  "instance_id": "c1comp_reallocate_001_intervention_r0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_call",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "contract_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "ok"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "component_correct",
+      "layer": "R2",
+      "scorer": "c1comp_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "c1comp_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "allocation_incorrect",
+    "contract_error": "ok",
+    "scorer_fact": {
+      "agent_a": "h8",
+      "agent_b": "h9"
+    }
+  },
+  "extra": {
+    "task_id": "c1comp_reallocate_001",
+    "component": "C",
+    "variant": "intervention",
+    "repeat_id": 0,
+    "correct": false,
+    "got": {
+      "agent_a": "h8",
+      "agent_b": "h8"
+    },
+    "want": {
+      "agent_a": "h8",
+      "agent_b": "h9"
+    },
+    "scorer_fact": {
+      "agent_a": "h8",
+      "agent_b": "h9"
+    },
+    "action": {
+      "assignments": {
+        "agent_a": "h8",
+        "agent_b": "h8"
+      }
+    },
+    "first_error": "allocation_incorrect",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash"
+  }
+}

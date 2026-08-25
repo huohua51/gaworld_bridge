@@ -1,0 +1,20 @@
+id: cal_apply_limit_fallback_001
+title: 主阈值与备用阈值
+artifact: main.py
+primary: LIMIT
+secondary: FALLBACK_LIMIT
+function: classify
+current: 40
+required: 35
+allow_names: [SPEC_VERSION, LIMIT, FALLBACK_LIMIT]
+draft: |
+  SPEC_VERSION = "v1"
+  LIMIT = 40
+  FALLBACK_LIMIT = 40
+
+  def classify(value: int) -> str:
+      if value <= LIMIT:
+          return "primary"
+      if value <= FALLBACK_LIMIT:
+          return "fallback"
+      return "reject"

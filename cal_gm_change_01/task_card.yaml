@@ -1,0 +1,27 @@
+experiment_id: CAL-GM-CHANGE-01
+construct: registered_change_decision
+role: cross_task_protocol_calibration
+ranking_eligible: false
+status: rule_calibration
+tracks: [direct]
+variants: [control, intervention]
+tasks: [cal_service_capacity_001, cal_response_deadline_001, cal_eligibility_age_001]
+matrix_first: 3x2x1
+matrix_full: 3x2x3
+does_not_use:
+  - n1_tasks
+  - t3_tasks
+  - oa02_tasks
+  - gm01_gm02_gm05
+  - communication
+  - reviewer
+  - file_generation
+heldout: not_created
+pass_gate_seed0:
+  coverage: 1.0
+  KeepAccuracy: 1.0
+  UpdateAccuracy: 1.0
+  EvidenceGroundingRate: 1.0
+note: >
+  只测当前值已满足时能否 keep、冲突时能否 update。不改 N1/T3。
+  seed0 若 control 全部乱 update 则停止，不继续调这三道题。

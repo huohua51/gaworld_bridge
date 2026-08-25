@@ -1,0 +1,22 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "private_put", "role": "worker_b", "index": 1}
+{"event": "private_read", "role": "worker_a", "owner": "worker_a", "index": 2}
+{"event": "private_read", "role": "worker_b", "owner": "worker_b", "index": 3}
+{"event": "step_completed", "role": "worker_a", "step_id": "crane_hk11", "output": {"hook": "H-A", "tons": 4}, "index": 4}
+{"event": "checkpoint_emitted", "role": "worker_a", "hash": "030d57fe6e6842e4668a006e53f376174e6690ae6fe804b9faa665684c9dba3c", "payload": {"checkpoint_version": "ckpt-001", "completed_steps": ["crane_hk11"], "outputs": {"crane_hk11": {"hook": "H-A", "tons": 4}}, "world_digest": "d500878f0b668d4a1d6299660019319857ff906dff36c7e975a50c8a7827d4cd"}, "index": 5}
+{"event": "checkpoint_delivered", "reader": "coordinator", "hash": "030d57fe6e6842e4668a006e53f376174e6690ae6fe804b9faa665684c9dba3c", "index": 6}
+{"event": "checkpoint_delivered", "reader": "worker_a", "hash": "030d57fe6e6842e4668a006e53f376174e6690ae6fe804b9faa665684c9dba3c", "index": 7}
+{"event": "checkpoint_dropped", "reader": "worker_b", "hash": "030d57fe6e6842e4668a006e53f376174e6690ae6fe804b9faa665684c9dba3c", "index": 8}
+{"event": "checkpoint_read", "role": "coordinator", "version": "ckpt-001", "index": 9}
+{"event": "handoff_emitted", "payload": {"successor": "worker_a", "checkpoint_version": "ckpt-001", "resume_step": "crane_hk12"}, "index": 10}
+{"event": "handoff_delivered", "reader": "worker_a", "hash": "c56520f806c3a2bed2772cc0873deca1dec179f5ebde600b30429f1d71df0a2a", "index": 11}
+{"event": "handoff_delivered", "reader": "worker_b", "hash": "c56520f806c3a2bed2772cc0873deca1dec179f5ebde600b30429f1d71df0a2a", "index": 12}
+{"event": "checkpoint_read", "role": "worker_a", "version": "ckpt-001", "index": 13}
+{"event": "handoff_read", "role": "worker_a", "index": 14}
+{"event": "step_completed", "role": "worker_a", "step_id": "crane_hk12", "output": {"hook": "H-B", "tons": 7}, "index": 15}
+{"event": "step_completed", "role": "worker_a", "step_id": "crane_hk13", "output": {"hook": "H-C", "tons": 2}, "index": 16}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_crane_load_001_control_drop_checkpoint_r0/crane_load_world.json", "index": 17}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_crane_load_001_control_drop_checkpoint_r0/crane_load_world.json", "index": 18}
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "crane_hk12", "index": 19}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 20}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "worker_b", "owner": "worker_a", "index": 21}

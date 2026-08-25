@@ -1,0 +1,10 @@
+{
+  "stimulus_id": "h1dev-t3-noise-intervention-human",
+  "pairs_with": "h1dev-t3-noise-intervention",
+  "construct": "T3",
+  "task_id": "t3_ho_noise_db_001",
+  "variant": "intervention",
+  "status": "not_collected",
+  "source_kind": "human",
+  "h1_role": "development_stimulus"
+}

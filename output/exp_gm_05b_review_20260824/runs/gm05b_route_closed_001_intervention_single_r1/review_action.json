@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "v1",
+  "required_spec_version": "v2",
+  "criterion_id": "high_priority_threshold",
+  "evidence": "HIGH_PRIORITY_THRESHOLD = 7",
+  "required_change": {
+    "high_priority_threshold": 6
+  }
+}

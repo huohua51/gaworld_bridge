@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_ho_queue_max_001",
+  "variant": "intervention",
+  "repeat_id": 0,
+  "sha256": "feeb38b1fdab62d19cb7d8d26ca291c8a0beb3d177d517785d4ef85107fb4a2e",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】陈可\n【职业】后台开发\n【任务】写 queue_full\n【简报】人数达到或超过 QUEUE_MAX 时 queue_full 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 QUEUE_MAX。函数签名 queue_full(n)。 不要输出 Markdown 围栏。 常量 QUEUE_MAX = 15。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "9ceb09837f40c070d4203da2d2b28b8dbe2ccca27d3805b6abe32e77db39379b",
+  "draft_has_v2_tokens": []
+}

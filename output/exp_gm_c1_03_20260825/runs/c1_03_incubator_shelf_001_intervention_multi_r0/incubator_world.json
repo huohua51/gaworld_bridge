@@ -1,0 +1,30 @@
+{
+  "claims": [
+    {
+      "agent_id": "agent_a",
+      "slot": "ic82",
+      "plan_version": "plan-001"
+    },
+    {
+      "agent_id": "agent_b",
+      "slot": "ic82",
+      "plan_version": "plan-001"
+    }
+  ],
+  "by_agent": {
+    "agent_a": "ic82",
+    "agent_b": "ic82"
+  },
+  "occupied": {
+    "ic82": [
+      "agent_a",
+      "agent_b"
+    ]
+  },
+  "duplicates": {
+    "ic82": [
+      "agent_a",
+      "agent_b"
+    ]
+  }
+}

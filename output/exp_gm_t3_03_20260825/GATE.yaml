@@ -1,0 +1,37 @@
+experiment_id: EXP-GM-T3-03
+parent: EXP-GM-T3-02
+status: r0r1r2
+role: multi_vs_single_discrimination
+ranking_eligible: false
+generalization_claim: false
+multi_agent_value_estimable: true
+gate: off_floor
+direct_ok: true
+direct_fullpass: 1.0
+coverage: 1.0
+single_fullpass: 0.5
+multi_fullpass: 1.0
+drop_fullpass: 0.5
+drop_complete_change_adoption:
+  control: 1.0
+  intervention: 0.0
+  pooled_average: 0.5
+  not_partial_adoption: true
+single_complete_change_adoption:
+  control: 1.0
+  intervention: 0.0
+  pooled_average: 0.5
+  not_partial_adoption: true
+  reason: self_check_lacks_private_spec
+value_pattern:
+  multi_gt_single: true
+  multi_gt_drop: true
+  pattern: true
+  single_intervention_first_error:
+    review_decision_incorrect: 9
+  drop_intervention_first_error:
+    review_payload_not_delivered: 9
+  first_error_locates_to_reviewer_private_info: true
+  advantage_vanishes_on_drop: true
+  estimable: true
+claim: 出现 Multi>Single 且 Multi>Drop，且首错定位到 Reviewer 提供的信息；丢弃后优势消失。仍不能作为排名分，也不能宣称泛化。

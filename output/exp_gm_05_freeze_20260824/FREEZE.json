@@ -1,0 +1,83 @@
+{
+  "experiment_id": "EXP-GM-05",
+  "frozen_at": "2026-08-24T08:17:29.209046+00:00",
+  "note": "Do not modify these files after GLM cells start.",
+  "files": [
+    {
+      "path": "task_card.yaml",
+      "sha256": "sha256:b7bf0d7151eab60253ffd533d4fce0f44bf95f33853416c6518dd4be58e3e994"
+    },
+    {
+      "path": "tasks.py",
+      "sha256": "sha256:f9ec6ee08f67fef76daafa6ade6ed43d03130c4f471cd5c9899b84070fc74cc5"
+    },
+    {
+      "path": "roles.py",
+      "sha256": "sha256:1c8313a2b05f0f0e4d2abc865308da48c67138a9e36db11955b63dbde90ef973"
+    },
+    {
+      "path": "artifacts.py",
+      "sha256": "sha256:c5c6ebf004ae49e1c5a4af9c17172557781a8063240158827410e5e8ed7e18c2"
+    },
+    {
+      "path": "budget.py",
+      "sha256": "sha256:de5b269609453372068777d2e3cc481638134e6f8cc1d78c1692df000e5f470e"
+    },
+    {
+      "path": "scoring.py",
+      "sha256": "sha256:d4b1a627205c05a0bdab8173154c82dafa78be422727574ad1800a14b7220584"
+    },
+    {
+      "path": "aggregate.py",
+      "sha256": "sha256:4c61346789a75d59c183b723417e02176fcf7414f88f5b4c92c56643dfe3ae48"
+    },
+    {
+      "path": "engine.py",
+      "sha256": "sha256:0baebbb3f1e86b4b7aeda490ac1ccd8b87ecca37fba0840659f02dce9e148176"
+    },
+    {
+      "path": "single_loop.py",
+      "sha256": "sha256:8bb736e5483b79e227cb76c7b5cd8ba77985d3fa95d4aa5b1da890b0c0ac1574"
+    },
+    {
+      "path": "multi_loop.py",
+      "sha256": "sha256:aac4835667fb978f099cb0bcee10f444fc3fac50458b4acaf3fbc8da673c7c51"
+    },
+    {
+      "path": "drop_loop.py",
+      "sha256": "sha256:aa71edcaf4653934fa683b8a257c846f51bf1065d41fabb6ba7303564a823943"
+    },
+    {
+      "path": "rule_controls.py",
+      "sha256": "sha256:a79aac79c41598c916402bdd2249815d99c96a7099fee577ced751a5f42ec287"
+    },
+    {
+      "path": "run.py",
+      "sha256": "sha256:0c7d3f5e43ec5914f0d84d2913b692b3f23cf56384871209c52669c240226b1f"
+    },
+    {
+      "path": "oracle/test_aid_v1.py",
+      "sha256": "sha256:6d0392103eb831fb69b6079c66c63162254ef6a1bb611ae50e31f47d25bb3b55"
+    },
+    {
+      "path": "oracle/test_aid_v2.py",
+      "sha256": "sha256:f36c140fc6e3c722c2d8ad2fbfaba57430460634e167f3ed3ec50252dcf4e5de"
+    },
+    {
+      "path": "oracle/test_roster_v1.py",
+      "sha256": "sha256:e982ec23e5af6e1d0d333d05860d1a82448b50b1f018a3914231aaf5fbe5e214"
+    },
+    {
+      "path": "oracle/test_roster_v2.py",
+      "sha256": "sha256:7bfd43b7f129888718a59c2d381dca71d095fe9164ff02fa78efc84b96d6e104"
+    },
+    {
+      "path": "oracle/test_routing_v1.py",
+      "sha256": "sha256:94b8a697d4620f58265897c84805d0b49fe7a2111dda54f3bdb64364adb8ad17"
+    },
+    {
+      "path": "oracle/test_routing_v2.py",
+      "sha256": "sha256:979f7560c58d2759e4bc3619374300a6826e25a8d40bae215d71c7009a0df7f8"
+    }
+  ]
+}

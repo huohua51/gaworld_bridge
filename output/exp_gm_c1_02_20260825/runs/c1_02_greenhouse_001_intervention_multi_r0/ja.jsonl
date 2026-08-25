@@ -1,0 +1,3 @@
+{"event": "initial_saved", "assignments": {"agent_a": "g14", "agent_b": "g14"}}
+{"event": "violations_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "greenhouse_valve", "slot": "g14", "agents": ["agent_a", "agent_b"]}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "g14", "agent_b": "g16"}, "violations": []}

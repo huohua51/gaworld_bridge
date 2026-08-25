@@ -1,0 +1,3 @@
+{"event": "review_emitted", "review_id": "review-001", "spec_version": "v1", "artifact_before_hash": "01f4f64fb6c8194b5e2e51986d36432ac9c7330f7b43a1f6eb8b675c9ec781c5", "review_payload_hash": "e667e2c435e8aff808c4dd82aae64e6f69aa13615c9a75d49605cbeebe0d9a7c", "decision": "keep", "required_changes": [], "payload": {"decision": "keep", "evidence": {"path": "FREE_SHIP_KG", "observed": 8, "required": 8}, "required_changes": []}}
+{"event": "review_dropped", "dropped": true, "review_payload_hash": "e667e2c435e8aff808c4dd82aae64e6f69aa13615c9a75d49605cbeebe0d9a7c", "payload": {"decision": "keep", "evidence": {"path": "FREE_SHIP_KG", "observed": 8, "required": 8}, "required_changes": []}}
+{"event": "inbox_read", "n": 0, "dropped": true}

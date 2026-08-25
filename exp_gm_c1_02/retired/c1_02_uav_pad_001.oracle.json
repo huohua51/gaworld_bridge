@@ -1,0 +1,11 @@
+{
+  "control": {
+    "initial_conflict": false,
+    "assignments": {"agent_a": "u08", "agent_b": "u09"}
+  },
+  "intervention": {
+    "initial_conflict": true,
+    "assignments": {"agent_a": "u08", "agent_b": "u10"}
+  },
+  "direct_intervention_got": {"agent_a": "u08", "agent_b": "u09"}
+}

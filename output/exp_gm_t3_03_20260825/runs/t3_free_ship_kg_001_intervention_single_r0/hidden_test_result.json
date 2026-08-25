@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "evaluable": true,
+    "passed": true,
+    "pass_count": 3,
+    "fail_count": 0,
+    "returncode": 0,
+    "stdout_tail": "...                                                                      [100%]\n3 passed in 0.01s\n\n",
+    "first_error": "none"
+  },
+  "v2": {
+    "evaluable": true,
+    "passed": false,
+    "pass_count": 1,
+    "fail_count": 2,
+    "returncode": 1,
+    "stdout_tail": "F.F                                                                      [100%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_l087lulu/test_oracle.py:5: assert True is False\n/tmp/w1_oracle_l087lulu/test_oracle.py:13: assert True is False\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_below_v2_threshold - assert True is False\nFAILED test_oracle.py::test_v1_cutover_now_paid - assert True is False\n2 failed, 1 passed in 0.01s\n\n",
+    "first_error": "oracle_tests_failed"
+  },
+  "target_correct": false,
+  "exclusive_ok": false
+}

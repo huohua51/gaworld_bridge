@@ -1,0 +1,154 @@
+{
+  "workflow_id": "exp_gm_04c_task_w1_review_loop",
+  "instance_id": "w1_budget_remaining_control_drop_review_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "v2_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "[]"
+    },
+    {
+      "gate_id": "oracle_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "final_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04c_20260824/runs/w1_budget_remaining_control_drop_review_s0/final_main.py"
+    },
+    {
+      "gate_id": "draft_from_executor",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "reviewer_did_not_write",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04c_20260824/runs/w1_budget_remaining_control_drop_review_s0/final_main.py"
+      ],
+      "detail": "...                                                                      [100%]\n3 passed in 0.01s\n\n"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "review_loop",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "input_final=v1 expected=v1 advice=False other_also=False"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "queue_submit",
+      "queue_claim",
+      "executor_draft",
+      "draft_submitted",
+      "review_requested",
+      "review_emitted",
+      "review_dropped",
+      "review_read",
+      "executor_retry_without_review",
+      "final_result",
+      "queue_result",
+      "absorb"
+    ],
+    "review_requested": true,
+    "review_emitted": true,
+    "review_delivered": false,
+    "review_read": true,
+    "review_adopted": false,
+    "artifact_reworked": false,
+    "final_verified": true,
+    "review_advice_correct": false,
+    "review_decision": "revise",
+    "input_spec_version": "v1",
+    "artifact_spec_version": "v1",
+    "executor_calls": 2,
+    "reviewer_calls": 1
+  },
+  "extra": {
+    "task_id": "w1_budget_remaining",
+    "track": "drop_review",
+    "variant": "control",
+    "seed": 0,
+    "mode": "llm",
+    "run_id": "w1_budget_remaining_control_drop_review_s0",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0,
+    "expected_version": "v1",
+    "oracle_expected": {
+      "evaluable": true,
+      "passed": true,
+      "pass_count": 3,
+      "fail_count": 0,
+      "returncode": 0,
+      "stdout_tail": "...                                                                      [100%]\n3 passed in 0.01s\n\n",
+      "first_error": "none"
+    },
+    "oracle_other": {
+      "evaluable": true,
+      "passed": false,
+      "pass_count": 0,
+      "fail_count": 3,
+      "returncode": 1,
+      "stdout_tail": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_ecqek4rm/test_oracle.py:5: assert 70 == 50\n/tmp/w1_oracle_ecqek4rm/test_oracle.py:9: assert 20 == 0\n/tmp/w1_oracle_ecqek4rm/test_oracle.py:13: assert 10 == 0\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_positive - assert 70 == 50\nFAILED test_oracle.py::test_exact - assert 20 == 0\nFAILED test_oracle.py::test_old_budget_overspend - assert 10 == 0\n3 failed in 0.01s\n\n",
+      "first_error": "oracle_tests_failed"
+    },
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "other_version_also_passes": false,
+    "elapsed_s": 16.672,
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

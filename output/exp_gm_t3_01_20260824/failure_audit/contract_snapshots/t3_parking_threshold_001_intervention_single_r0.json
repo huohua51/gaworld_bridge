@@ -1,0 +1,38 @@
+{
+  "expected_action": "request_revision",
+  "expected_schema": {
+    "action": "request_revision",
+    "target": "parking_free_minutes",
+    "required_value": 90,
+    "evidence_id": "evidence-parking-002"
+  },
+  "registered_actions": [
+    "approve_draft",
+    "request_revision"
+  ],
+  "forbidden_fields": [
+    "decision",
+    "mismatches",
+    "required_change",
+    "NONE"
+  ],
+  "approve_must_not_carry": [
+    "target",
+    "required_value"
+  ],
+  "revise_must_carry": [
+    "target",
+    "required_value",
+    "evidence_id"
+  ],
+  "persisted_review_raw": {},
+  "persisted_review_action": {},
+  "contract_error": "empty",
+  "multi_counterpart_extracted": {
+    "action": "request_revision",
+    "target": "SPEC_VERSION",
+    "required_value": 2,
+    "evidence_id": "evidence-parking-002"
+  },
+  "multi_counterpart_contract_error": "ok"
+}

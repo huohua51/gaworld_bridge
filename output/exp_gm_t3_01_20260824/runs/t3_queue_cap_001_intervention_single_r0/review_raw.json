@@ -1,0 +1,6 @@
+{
+  "action": "request_revision",
+  "target": "QUEUE_CAP",
+  "required_value": 40,
+  "evidence_id": "evidence-queue-002"
+}

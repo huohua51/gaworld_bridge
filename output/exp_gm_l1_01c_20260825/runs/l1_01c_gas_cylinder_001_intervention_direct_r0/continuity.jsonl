@@ -1,0 +1,7 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy11", "output": {"tank": "N2-A", "bar": 180}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy12", "output": {"tank": "He-B", "bar": 95}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "gas_cy13", "output": {"tank": "Ar-C", "bar": 40}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_gas_cylinder_001_intervention_direct_r0/gas_cylinder_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_gas_cylinder_001_intervention_direct_r0/gas_cylinder_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

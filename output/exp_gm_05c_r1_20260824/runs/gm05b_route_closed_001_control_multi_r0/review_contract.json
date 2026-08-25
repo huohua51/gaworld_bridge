@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "error": null,
+  "missing": [],
+  "parser_repair_used": true,
+  "contract_retry_used": false,
+  "contract_retry_success": false,
+  "total_review_calls": 1,
+  "problems": []
+}

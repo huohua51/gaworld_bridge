@@ -1,0 +1,12 @@
+{"ts": 1787620203.0945606, "event": "private_put", "task_id": "n1_bridge_status_001_control_drop_r1", "role": "observer", "payload": {"source_id": "src_ok", "reported_state": "bridge_open", "state_version": "v1", "evidence_id": "evidence-bridge-001"}}
+{"ts": 1787620203.0948012, "event": "private_put", "task_id": "n1_bridge_status_001_control_drop_r1", "role": "verifier", "payload": {"trusted_source_id": "src_ok"}}
+{"ts": 1787620204.344579, "event": "raw_sent", "task_id": "n1_bridge_status_001_control_drop_r1", "message": {"message_id": "raw-msg-n1_bridge_status_001_control_drop_r1-1", "source_id": "src_ok", "reported_state": "bridge_open", "observer_id": 1}}
+{"ts": 1787620204.3448834, "event": "raw_delivered", "task_id": "n1_bridge_status_001_control_drop_r1", "message": {"message_id": "raw-msg-n1_bridge_status_001_control_drop_r1-1", "source_id": "src_ok", "reported_state": "bridge_open", "observer_id": 1}}
+{"ts": 1787620204.345043, "event": "raw_inbox_read", "task_id": "n1_bridge_status_001_control_drop_r1", "n": 1}
+{"ts": 1787620204.3451674, "event": "private_read", "task_id": "n1_bridge_status_001_control_drop_r1", "role": "verifier", "owner": "verifier"}
+{"ts": 1787620207.6954517, "event": "verified_emitted", "task_id": "n1_bridge_status_001_control_drop_r1", "message": {"message_id": "verified-msg-n1_bridge_status_001_control_drop_r1-2", "verified_state": "bridge_open", "source_id": "src_ok", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787620207.695751, "event": "verified_dropped", "task_id": "n1_bridge_status_001_control_drop_r1", "dropped": true, "message": {"message_id": "verified-msg-n1_bridge_status_001_control_drop_r1-2", "verified_state": "bridge_open", "source_id": "src_ok", "state_version": "v1", "verifier_id": 2}}
+{"ts": 1787620207.6959324, "event": "denied", "ok": false, "reason": "unauthorized_private_read", "task_id": "n1_bridge_status_001_control_drop_r1", "role": "dispatcher", "owner": "observer"}
+{"ts": 1787620207.6960642, "event": "denied", "ok": false, "reason": "unauthorized_private_read", "task_id": "n1_bridge_status_001_control_drop_r1", "role": "dispatcher", "owner": "verifier"}
+{"ts": 1787620207.6961815, "event": "inbox_read", "task_id": "n1_bridge_status_001_control_drop_r1", "n": 0}
+{"ts": 1787620212.046962, "event": "action_submitted", "task_id": "n1_bridge_status_001_control_drop_r1", "action": {"action": "keep_current_plan", "value": "main_bridge", "adopted_state_version": "v1", "evidence_message_id": "none", "task_id": "n1_bridge_status_001_control_drop_r1", "dispatcher_id": 3}}

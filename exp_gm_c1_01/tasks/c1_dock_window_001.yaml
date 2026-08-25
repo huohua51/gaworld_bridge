@@ -1,0 +1,24 @@
+id: c1_dock_window_001
+title: 装卸口安排
+kind: exclusive_slot
+artifact: dock_world.json
+resource_id: dock_1
+slots: ["win-1", "win-2", "win-3"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: east_truck
+  feasible: ["win-1", "win-2", "win-3"]
+  preferred: "win-2"
+agent_b:
+  label: west_truck
+  control:
+    feasible: ["win-1", "win-2", "win-3"]
+    preferred: "win-1"
+    window_token: b_window_v1
+  intervention:
+    feasible: ["win-2", "win-3"]
+    preferred: "win-2"
+    window_token: b_window_v2
+leak_tokens:
+  - "b_window_v2"

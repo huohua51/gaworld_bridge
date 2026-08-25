@@ -1,0 +1,4 @@
+{
+  "control": {"agent_a": "k1", "agent_b": "k2"},
+  "intervention": {"agent_a": "k1", "agent_b": "k2"}
+}

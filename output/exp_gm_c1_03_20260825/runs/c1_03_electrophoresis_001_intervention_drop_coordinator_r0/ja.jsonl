@@ -1,0 +1,6 @@
+{"event": "initial_saved", "assignments": {"agent_a": "et81", "agent_b": "et81"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "et81"}
+{"event": "registered_constraints_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "electrophoresis_tank", "slot": "et81", "agents": ["agent_a", "agent_b"]}, {"type": "not_earliest_feasible_idle", "agent": "B"}]}
+{"event": "initial_saved", "assignments": {"agent_a": "et82", "agent_b": "et81"}}
+{"event": "protection_registered", "agent": "agent_a", "slot": "et81"}
+{"event": "registered_constraints_inspected", "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]}

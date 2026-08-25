@@ -1,0 +1,26 @@
+experiment_id: EXP-GM-N1
+status: retired
+retired_at: '2026-08-25'
+ranking_eligible: false
+n1_02_created: false
+rerun_allowed: false
+holdout_allowed: false
+scores_unchanged: true
+raw_results_source: GATE.yaml
+retirement_reason:
+  - direct_and_full_common_floor
+  - cannot_separate_message_value_from_task_solvability
+  - construct_overlaps_i1_verified_relay_and_rel1_latest_update
+covered_by:
+  - EXP-GM-I1
+  - EXP-GM-REL1
+do_not:
+  - supplement_original_n1_seeds
+  - compute_multi_agent_benefit_on_common_floor
+  - create_n1_02
+  - create_n1_holdout
+  - overwrite_raw_scores
+note: >
+  Direct/Full 共同处于约 0.333 地板，无法回答“是消息传播没用，还是题目本身模型就不会做”。
+  原 N1 正式退役。核实传播由 I1 覆盖，最新状态更新由 REL1 覆盖。
+  不新建 N1-02。54 格分数保持冻结。

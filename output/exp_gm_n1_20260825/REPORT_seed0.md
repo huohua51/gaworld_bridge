@@ -1,0 +1,38 @@
+# EXP-GM-N1
+
+- 时间：2026-08-25T01:09:41.541250+00:00
+- phase：seed0；gate：fill_repeats
+- ranking_eligible：false
+- 冻结：a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+
+## 测量门
+
+- Coverage：1.0
+- 预算均为 3 次：True
+- Drop 隔离且 Relay 实际运行：True
+- FullPass Direct / Full / Drop：0.3333 / 0.3333 / 0.5
+
+- first_error：{'false_positive_revision': 6, 'none': 7, 'wrong_revision_value': 2, 'message_not_delivered': 3}
+
+| instance | valid | FullPass | track | first_error |
+|---|---|---|---|---|
+| n1_bridge_status_001_control_direct_r0 | True | 0 | direct | false_positive_revision |
+| n1_bridge_status_001_control_full_r0 | True | 0 | full | false_positive_revision |
+| n1_bridge_status_001_control_drop_r0 | True | 1 | drop | none |
+| n1_bridge_status_001_intervention_direct_r0 | True | 0 | direct | wrong_revision_value |
+| n1_bridge_status_001_intervention_full_r0 | True | 0 | full | wrong_revision_value |
+| n1_bridge_status_001_intervention_drop_r0 | True | 0 | drop | message_not_delivered |
+| n1_ferry_status_001_control_direct_r0 | True | 0 | direct | false_positive_revision |
+| n1_ferry_status_001_control_full_r0 | True | 0 | full | false_positive_revision |
+| n1_ferry_status_001_control_drop_r0 | True | 1 | drop | none |
+| n1_ferry_status_001_intervention_direct_r0 | True | 1 | direct | none |
+| n1_ferry_status_001_intervention_full_r0 | True | 1 | full | none |
+| n1_ferry_status_001_intervention_drop_r0 | True | 0 | drop | message_not_delivered |
+| n1_warehouse_gate_001_control_direct_r0 | True | 0 | direct | false_positive_revision |
+| n1_warehouse_gate_001_control_full_r0 | True | 0 | full | false_positive_revision |
+| n1_warehouse_gate_001_control_drop_r0 | True | 1 | drop | none |
+| n1_warehouse_gate_001_intervention_direct_r0 | True | 1 | direct | none |
+| n1_warehouse_gate_001_intervention_full_r0 | True | 1 | full | none |
+| n1_warehouse_gate_001_intervention_drop_r0 | True | 0 | drop | message_not_delivered |
+
+**分支：** Coverage 通过。不在 seed0 宣布信息传播价值。

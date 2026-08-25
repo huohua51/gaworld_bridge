@@ -1,0 +1,28 @@
+id: c1_02_optics_table_001
+title: 光学实验台使用窗口
+kind: exclusive_slot
+artifact: optics_world.json
+resource_id: optics_table
+slots: ["w08", "w09", "w10"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: group_red
+  feasible: ["w08", "w09", "w10"]
+  preferred: "w08"
+agent_b:
+  label: group_blue
+  baseline:
+    feasible: ["w09", "w10"]
+    preferred: "w09"
+    window_token: b_rev_optics_v1
+  control:
+    feasible: ["w09", "w10"]
+    preferred: "w09"
+    window_token: b_rev_optics_v1
+  intervention:
+    feasible: ["w08", "w10"]
+    preferred: "w08"
+    window_token: b_rev_optics_v2
+leak_tokens:
+  - "b_rev_optics_v2"

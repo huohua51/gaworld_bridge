@@ -1,0 +1,16 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "MIN_BATTERY",
+    "observed": 20,
+    "required": 35
+  },
+  "required_changes": [
+    {
+      "change_id": "change-01",
+      "path": "MIN_BATTERY",
+      "old_value": 20,
+      "new_value": 35
+    }
+  ]
+}

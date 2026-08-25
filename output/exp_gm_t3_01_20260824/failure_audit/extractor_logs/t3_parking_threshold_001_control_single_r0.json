@@ -1,0 +1,25 @@
+{
+  "cell": "t3_parking_threshold_001_control_single_r0",
+  "persisted_review_raw": {},
+  "verbatim_llm_text_available": false,
+  "parse_json_object_on_empty_string": null,
+  "action_contract_on_persisted_raw": {
+    "action": {},
+    "error": "empty"
+  },
+  "multi_counterpart_raw": {
+    "action": "approve_draft",
+    "evidence_id": "evidence-parking-001"
+  },
+  "action_contract_on_multi_raw": {
+    "action": {
+      "action": "approve_draft",
+      "evidence_id": "evidence-parking-001"
+    },
+    "error": "ok"
+  },
+  "same_extractor": "exp_gm_t3_01.contracts.review_action.parse_json_object + action_contract",
+  "extractor_error": "empty",
+  "first_error_node": "fields_not_extractable",
+  "note": "Empty persisted raw means parse_json_object(llm_text) returned None/{} before action_contract."
+}

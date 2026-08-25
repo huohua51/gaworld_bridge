@@ -1,0 +1,42 @@
+experiment_id: EXP-GM-C1-03
+phase: seed0_planid_rescore
+status: stopped_at_seed0_retry_gate
+measurement_result: pass
+coverage: 1.0
+nack_path_exercised: 3/3
+retry_evaluable: 3/3
+system_retry_recovered: 0/3
+semantic_retry_assignment_correct: 0/3
+failure_breakdown:
+  retry_contract_failure: 2/3
+  retry_not_adapted: 1/3
+repeat_1_2_allowed: false
+direct_ok: true
+direct_fullpass: 1.0
+direct_is_formal_result: false
+primary_track: multi
+multi_fullpass: 0.3333
+gate: retry_not_recovered
+retry_recovery_success: 0.0
+constraint_regression_rate: 0.0
+constraint_regression_not_success: true
+environment_auto_repair: 0
+drop_protection_fullpass: 0.5
+drop_coordinator_fullpass: 0.0
+interpretation: >
+  C1-03 测量有效。平台成功让真模型三次进入优先级 NACK 重试，但没有一次形成系统可接受的正确终局：
+  两次违反版本握手契约，一次在契约合规的情况下原样交回被拒绝方案。忽略版本后三格语义分配也均不正确。
+  不能关闭 AP-C1-D-01。
+holdout: not_created
+holdout_allowed: false
+does_not_overwrite:
+- EXP-GM-C1-02
+- CAL-GM-C1-PRIORITY-01
+- CAL-GM-C1-PRIORITY-02
+claim: >
+  完整多智能体重试能力尚未通过。AP-C1-D-01 不能关闭。AP-C1-F-01 已单列版本握手失败。
+ranking_eligible: false
+ap_c1_d_01_closable: false
+ap_items:
+- AP-C1-D-01
+- AP-C1-F-01

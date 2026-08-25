@@ -1,0 +1,25 @@
+id: l1_01c_balance_check_001
+title: 三段天平点检
+kind: sequential_workflow
+artifact: balance_check_world.json
+interrupt_token: worker_a_offline_bal_v1
+rule: complete_in_order_no_repeat
+output_rule: 每一步的 output 只能包含该段材料中的 scale 与 residual_mg，不要添加其它字段。
+checkpoint_after: bal_ck21
+steps:
+  - id: bal_ck21
+    title: 第一段点检
+  - id: bal_ck22
+    title: 第二段点检
+  - id: bal_ck23
+    title: 第三段点检
+materials:
+  bal_ck21:
+    scale: S-7
+    residual_mg: 0
+  bal_ck22:
+    scale: S-8
+    residual_mg: 2
+  bal_ck23:
+    scale: S-9
+    residual_mg: 1

@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "v1",
+  "required_spec_version": "v1",
+  "criterion_id": "income_cap",
+  "evidence": "INCOME_CAP = 50000",
+  "required_change": {
+    "income_cap": 50000
+  }
+}

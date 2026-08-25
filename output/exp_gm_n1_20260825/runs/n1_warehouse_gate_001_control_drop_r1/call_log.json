@@ -1,0 +1,34 @@
+[
+  {
+    "stage": "source",
+    "prompt": "你是 Source。你掌握的状态是私有的，只根据私有状态发出报告。\n只输出一个 JSON 对象：\n{\"source_id\": \"<source_id>\", \"reported_state\": \"<状态>\", \"state_version\": \"v1 或 v2\"}\n不要编造隐藏测试，不要输出 DecisionMaker 动作。\n【私有状态】{\"source_id\": \"src_ok\", \"reported_state\": \"gate_open\", \"state_version\": \"v1\", \"evidence_id\": \"evidence-gate-001\"}\n",
+    "raw_text": "```json\n{\"source_id\": \"src_ok\", \"reported_state\": \"gate_open\", \"state_version\": \"v1\"}\n```",
+    "parsed": {
+      "source_id": "src_ok",
+      "reported_state": "gate_open",
+      "state_version": "v1"
+    },
+    "error": "ok"
+  },
+  {
+    "stage": "relay",
+    "prompt": "你是 Relay。根据原始报告和可信来源核验状态。不要改 DecisionMaker 的计划。\n只输出一个 JSON 对象：\n{\"verified_state\": \"<状态>\", \"source_id\": \"<source_id>\", \"state_version\": \"v1 或 v2\"}\n只核验 trusted_source_id 对应的来源。\n【可信来源】{\"trusted_source_id\": \"src_ok\"}\n【原始报告】[{\"message_id\": \"raw-msg-n1_warehouse_gate_001_control_drop_r1-1\", \"source_id\": \"src_ok\", \"reported_state\": \"gate_open\", \"observer_id\": 1}]\n",
+    "raw_text": "```json\n{\"verified_state\": \"gate_open\", \"source_id\": \"src_ok\", \"state_version\": \"v1\"}\n```",
+    "parsed": {
+      "verified_state": "gate_open",
+      "source_id": "src_ok",
+      "state_version": "v1"
+    },
+    "error": "ok"
+  },
+  {
+    "stage": "decision",
+    "prompt": "你是 DecisionMaker。只能根据当前计划和收件箱里已送达的核实消息做决定。\n收件箱为空时保持当前计划。不要读取全局状态，不要编造消息。\n只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。\n保持：{\"action\": \"keep_current_plan\", \"evidence_message_id\": \"<message_id 或 none>\"}。保持时不要输出 target 或 value。\n修改：{\"action\": \"revise_plan\", \"target\": \"entry\", \"value\": \"<新值>\", \"evidence_message_id\": \"<message_id>\"}}。\n不要输出 need_change，不要使用 NONE。\n【当前计划】{\"entry\": \"enter_now\"}\n【收件箱】[]\n【任务说明】当前计划立即进仓。只有核实后的闸门状态可以改为在外等候。\n",
+    "raw_text": "```json\n{\"action\": \"keep_current_plan\", \"evidence_message_id\": \"none\"}\n```",
+    "parsed": {
+      "action": "keep_current_plan",
+      "evidence_message_id": "none"
+    },
+    "error": "ok"
+  }
+]

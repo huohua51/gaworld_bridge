@@ -1,0 +1,3 @@
+```json
+{"steps": {"fridge_by22": {"bay": "F-5", "celsius": -22}, "fridge_by23": {"bay": "F-6", "celsius": -20}}}
+```

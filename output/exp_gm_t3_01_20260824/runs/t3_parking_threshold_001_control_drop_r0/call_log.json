@@ -1,0 +1,19 @@
+[
+  {
+    "stage": "builder_draft",
+    "prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 fee_required\n【简报】停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。 不要输出 Markdown 围栏。 常量 PARKING_FREE_MINUTES = 120。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+    "prompt_sha": "bef9c0edd589ec6a516977959d26318e12c2d1b34ab405d4b20958eece7297de"
+  },
+  {
+    "stage": "review",
+    "prompt": "你是代码审核员。只能根据登记标准和草稿做决定。不要改文件，不要编造隐藏测试。\n只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。\n批准：{\"action\": \"approve_draft\", \"evidence_id\": \"<登记 evidence_id>\"}。批准时不要输出 target 或 required_value。\n要求修改：{\"action\": \"request_revision\", \"target\": \"<登记 target>\", \"required_value\": <要求值>, \"evidence_id\": \"<登记 evidence_id>\"}}。\n不要输出 decision、mismatches、required_change，不要使用 NONE。\n【审查标准】{\"spec_version\": \"v1\", \"criterion_id\": \"parking_free_minutes\", \"target\": \"parking_free_minutes\", \"required_value\": 120, \"evidence_id\": \"evidence-parking-001\", \"instruction\": \"草稿已满足 required_value 时输出 approve_draft；否则输出 request_revision。不要改文件，不要编造隐藏测试。\"}\n【草稿】\n```python\nPARKING_FREE_MINUTES = 120\nSPEC_VERSION = \"v1\"\n\ndef fee_required(minutes):\n    return minutes >= PARKING_FREE_MINUTES\n```\n",
+    "track": "drop",
+    "prompt_sha": "df06ea0fc4c68bed1e4d6c92a5cc2e4845be42efe3da092e2cefcc100003880f"
+  },
+  {
+    "stage": "builder_final",
+    "prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 fee_required\n【简报】停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。 不要输出 Markdown 围栏。 常量 PARKING_FREE_MINUTES = 120。SPEC_VERSION = \"v1\"。\n\n【当前草稿】从这份草稿修改或确认。环境不会替你改文件。\n```python\nPARKING_FREE_MINUTES = 120\nSPEC_VERSION = \"v1\"\n\ndef fee_required(minutes):\n    return minutes >= PARKING_FREE_MINUTES\n```\n只输出完整 Python 源码。\n",
+    "had_review": false,
+    "prompt_sha": "05c8064353db8621ee8b720c5b9322311136f90cf87421a47735d0477f16cf88"
+  }
+]

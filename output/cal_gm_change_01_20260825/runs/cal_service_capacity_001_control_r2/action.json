@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "service_capacity",
+    "observed": 40,
+    "required": 40
+  },
+  "required_change": null
+}

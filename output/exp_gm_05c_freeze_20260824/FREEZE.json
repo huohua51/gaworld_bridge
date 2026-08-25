@@ -1,0 +1,36 @@
+{
+  "experiment_id": "EXP-GM-05c",
+  "frozen_at": "2026-08-24T10:40:28.811232+00:00",
+  "l1_tasks": "frozen_from_exp_gm_05b",
+  "l1_freeze": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_05b_freeze_20260824/FREEZE.json",
+  "files": [
+    {
+      "path": "tasks.py",
+      "sha256": "sha256:dfb3ca035ea3e6b543ca8dec4c2451194c7412f6b83627417ef4efba3ee142ff"
+    },
+    {
+      "path": "roles.py",
+      "sha256": "sha256:b4803addbf7b81924a9c7ebffc66ef9d84ae59e9b8add4fbd3cda0779e33da8a"
+    },
+    {
+      "path": "scoring.py",
+      "sha256": "sha256:95d96603eede9b5bb1311cfa7a85c23e6007c1b5fe2c5c28bd3391e84d03109a"
+    },
+    {
+      "path": "fork_loop.py",
+      "sha256": "sha256:ede4f4b97b0aeb195e01b7577838ba43a037ff633f452071a4a163e7d7ece737"
+    },
+    {
+      "path": "aggregate.py",
+      "sha256": "sha256:e7aed1a82be1e42e65ec6d941ff454afb4f6c6e21bbcd5a8a3cbc87d744471ec"
+    },
+    {
+      "path": "budget.py",
+      "sha256": "sha256:54da735770ca7cc03dc56fb0577aad60350ebf66a8e701282e58cf1de07dc142"
+    },
+    {
+      "path": "inspect.py",
+      "sha256": "sha256:69e4734abb487fbdb9f7d8d869adfec08f93365721736735e9c258c05729512b"
+    }
+  ]
+}

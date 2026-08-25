@@ -1,0 +1,3 @@
+```json
+{"plan_version": "plan-001", "assignments": {"agent_a": "g14", "agent_b": "g16"}, "rule": "priority_keep_then_earliest_free"}
+```

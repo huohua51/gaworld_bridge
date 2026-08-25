@@ -1,0 +1,1396 @@
+# Formal experiment registry. Model is a control variable, not the ranking object.
+# F-axes and H-axes stay separate. Do not mix WorkDiag / SocietyDiag numbers here.
+
+core_finding: >
+  GAWorld 的底层通信、权限和状态传播机制可以正常工作；
+  随着任务从“传递明确状态”升级为“理解审核意见”和“按登记规则更新来源可靠性”，
+  失败逐渐转移到 Agent 协作协议与社会推理层。
+  功能侧做完不等于满分。每个代表功能只需落到可解释状态。
+
+functional_devset:
+  freeze: output/functional_devset_20260825
+  frozen: true
+  addendum: output/functional_devset_20260825/ADDENDUM_20260825_HOLDOUT.yaml
+  ranking_eligible: false
+  holdout_started: true
+  holdout_run_once: true
+  holdout_summary: output/holdout_20260825
+  developmental_diagnosis: ~85%
+  developmental_diagnosis_means: 机制覆盖与可解释状态，不是能力满分
+  formal_benchmark: not_started
+  n1_disposition: retired
+  n1_02_created: false
+  typed_patch_protocol: retired
+  outcomes:
+    T3: pass
+    I1: pass
+    REL1: fail
+    N1: retired
+    C1: partial_pass
+    L1: pass
+  remaining_developmental: []
+  measurement_gaps:
+    first_error_enumeration: landed_in_compose
+    platform_plan_version: landed_on_joint_assignment_channel
+    ap_c1_f_01: still_open
+  holdout_allowed: [T3, I1, L1]
+  holdout_not_allowed: [C1, REL1, N1]
+  holdout_experiments:
+    T3: HO-GM-T3-01
+    I1: HO-GM-I1-01
+    L1: HO-GM-L1-01
+  next:
+    - do_not_tune_holdout_protocol
+    - do_not_enter_ranking
+    - h1_infrastructure: EXP-HF-H1-01
+    - cross_model_robustness_not_started
+
+h1_family:
+  experiment_id: EXP-HF-H1-01
+  status: infrastructure
+  ranking_eligible: false
+  h1_formal_score: N/A
+  h1_human_reference: not_collected
+  agent_stimuli: 18
+  human_stimuli: 0
+  tracks: {T3: full_multi, I1: full, L1: full_multi}
+  c1_included: false
+  path: output/exp_hf_h1_01_20260825
+  allowed_claim: 三项密封留出在 seed0 上复现了开发集的同类正负控模式。
+  note: >
+    功能留出只作 H1 开发素材。未来正式泛化需另备未参与 Rubric 和网页修改的新刺激。
+
+c1_family:
+  c1_status: development_partial_pass
+  measurement_valid: true
+  basic_conflict_resolution: pass
+  private_constraint_integration: pass
+  policy_constrained_replanning: partial
+  llm_retry_recovery: fail
+  holdout_allowed: false
+  ranking_eligible: false
+  system_retry_recovered: 0/3
+  semantic_retry_assignment_correct: 0/3
+  retry_contract_failure: 2/3
+  retry_not_adapted: 1/3
+  path: output/c1_stage_20260825
+  next: EXP-GM-L1-01b
+  note: >
+    C1 开发阶段已收口。以后只作新模型或新系统版本回归套件。
+    不做 C1-04，不建 C1 留出，不再围绕同一缺陷调提示。
+    L1-01 已停在 Direct 门。下一步 L1-01b。
+
+experiments:
+  - id: EXP-GM-04a
+    mechanism: 基础工作队列
+    model_result: 全通过
+    conclusion: 静态微任务中工作管线不丢产物
+    ranking_eligible: false
+
+  - id: EXP-GM-04b
+    mechanism: 需求版本传播
+    model_result: 全通过
+    conclusion: 执行前能读取并采用最新需求
+    ranking_eligible: false
+
+  - id: EXP-GM-04c
+    mechanism: 审核通道与权限
+    model_result: 部分成功
+    conclusion: Reviewer—Executor 协作协议不稳定
+    set: development_and_regression
+    ranking_eligible: false
+
+  - id: EXP-GM-I1
+    mechanism: 可信信息通信
+    model_result: Full=1.0
+    conclusion: 核验消息具有因果价值，Verifier 角色必要
+    track_aliases:
+      focused: direct_verified_state
+    communication_propagation_gap: 0.0_after_direct_state_contract_fix
+    ranking_eligible: false
+    holdout: HO-GM-I1-01
+    scores_unchanged: true
+
+  - id: EXP-GM-REL1
+    mechanism: 历史账本与关系写入
+    construct: registered_reliability_update
+    latest_is_binding: true
+    model_result: Full=0
+    conclusion: 模型不能稳定按登记规则更新来源可靠性；不能扩写为 H3 人际信任
+    ranking_eligible: false
+
+  - id: EXP-GM-04d
+    mechanism: Reviewer—Executor 协议改进
+    status: pilot_no_gain_on_dev
+    conclusion: 开发集上 mismatches 冻结规则未降低错误修改，也未提高采用率；留出题未跑
+    development_set: [w1_wage_gate, w1_return_floor, w1_budget_remaining]
+    held_out_set: [shipping_threshold, eligibility_age, inventory_reorder_point]
+    ranking_eligible: false
+
+  - id: EXP-GM-04e
+    experiment_id: EXP-GM-04e
+    mechanism: 证据绑定审核
+    status: stop_before_full
+    ranking_eligible: false
+    reviewer_component:
+      status: calibration_pass
+      note: Reviewer 组件校准通过，不是完整审核协议已经改进
+      false_positive_revision_rate: 0.0
+      true_revision_rate: 1.0
+      evidence_grounding_rate: 1.0
+    executor_component:
+      status: calibration_fail
+      protocol: typed_patch
+      protocol_status: retired
+      note: typed-patch 协议失败并退役，不作为 GAWorld 正式接口。不能扩写成 Executor 不会修改文件。不为把 04e-E 修到满分继续投入。
+      declared_patch_adoption_rate: 1.0
+      verified_patch_adoption_rate: 0.0
+      acknowledgement_execution_gap: 1.0
+      legacy_required_change_adoption_rate: 1.0
+    full_workflow:
+      status: not_run
+    heldout:
+      status: sealed_not_run
+    development_set: [w1_wage_gate, w1_return_floor, w1_budget_remaining]
+    held_out_set: [shipping_threshold, eligibility_age, inventory_reorder_point]
+    seal: output/exp_gm_04e_seal_20260824/MANIFEST.json
+
+  - id: EXP-GM-05
+    experiment_id: EXP-GM-05
+    task_id: TASK-W1-team-value
+    task_family: T3
+    target_dimension: F5_multi_agent_value
+    construct: equal_budget_multi_agent_value
+    model: GLM-4-Flash
+    temperature: 0
+    status: stopped_at_repeat_0
+    gate_result: C_floor
+    ranking_eligible: false
+    coverage: 1.0
+    measurement_valid: true
+    raw_results:
+      single_fullpass: 0.0
+      multi_fullpass: 0.0
+      drop_fullpass: 0.0
+      raw_multi_agent_net_benefit: 0.0
+      raw_review_causal_value: 0.0
+    estimands:
+      multi_agent_net_benefit:
+        value: N/A
+        reason: common_capability_floor
+      review_causal_value:
+        value: N/A
+        reason: treatment_and_control_both_at_floor
+    diagnostics:
+      coverage_ok: true
+      rule_controls_passed: true
+      drop_intervention_failed: true
+      drop_does_not_prove_reviewer_value: true
+    heldout:
+      status: not_created
+    difficulty: L2_composite_floor_anchor
+    development_set: [gm05_aid_allocation_001, gm05_shift_roster_001, gm05_incident_routing_001]
+    freeze: do_not_modify_or_add_repeats
+    uses: required_change
+    does_not_use: [typed_patch, 04e_dev_tasks, 04d_04e_heldout]
+    conclusion: >
+      当前三道复合任务对固定模型形成共同能力地板，因此 F5 多 Agent 净价值无法识别。
+      原始算术 0 不得对外记为零效应。
+
+  - id: EXP-GM-05b
+    experiment_id: EXP-GM-05b
+    construct: f5_identifiability_calibration
+    purpose: find_intermediate_difficulty_for_review_value
+    model: GLM-4-Flash
+    temperature: 0
+    status: frozen_calibration_complete
+    ranking_eligible: false
+    l0_anchor: [w1_wage_gate, w1_return_floor, w1_budget_remaining]
+    l1_dev: [gm05b_aid_elig_001, gm05b_hours_cert_001, gm05b_route_closed_001]
+    l2_frozen: [gm05_aid_allocation_001, gm05_shift_roster_001, gm05_incident_routing_001]
+    does_not_use: [typed_patch, 04e_dev_tasks, gm05_l2_tasks]
+    direct_final_spec:
+      matrix: 3x2x1
+      target_correct: 6/6
+      gate: maybe_too_easy
+      advance_to_review_stage: true
+    fixed_draft_review:
+      matrix: 3x2x3x3
+      coverage: 1.0
+      measurement_valid: true
+      gate: review_has_value_fill_repeats
+      single_fullpass: 0.5
+      multi_fullpass: 1.0
+      drop_fullpass: 0.5
+      false_positive_revision_rate: 0.3333
+      true_revision_rate: 1.0
+      verified_patch_adoption_rate_multi_intervention: 1.0
+    estimands:
+      review_stage_multi_agent_benefit:
+        value: 0.5
+        reason: independent_reviewer_avoids_self_review_false_positive
+      review_delivery_value:
+        value: 0.5
+        reason: drop_intervention_stays_at_v1
+    open_04f: false
+    open_05c: true
+    heldout:
+      status: not_created
+    freeze: output/exp_gm_05b_freeze_20260824/FREEZE.json
+    report: output/exp_gm_05b_20260824/REPORT.md
+    conclusion: >
+      L1 使 F5 可识别。Direct 6/6 说明基础生成不是地板；
+      固定初稿下独立 Reviewer 相对自检有净价值，审核送达有因果价值。
+      失败集中在 Single control 假阳性修订，不是 Executor 改文件。
+      这不是完整工作流的 MultiAgentNetBenefit。
+
+  - id: EXP-GM-05c-r0
+    experiment_id: EXP-GM-05c-r0
+    parent: EXP-GM-05c
+    status: measurement_invalid_repeat_0
+    gate: A_r0
+    ranking_eligible: false
+    coverage:
+      single: 0.8333
+      multi: 1.0
+      drop: 1.0
+    paired_coverage: 0.8333
+    estimands:
+      outcome_multi_agent_net_benefit: N/A
+      workflow_multi_agent_net_benefit: N/A
+      review_delivery_value_target: N/A
+      review_delivery_value_full: N/A
+    invalid_cell:
+      task: aid_intervention
+      track: single
+      reason: fields_extractable_failed
+      diagnosis: case_2_no_unique_target_fields
+    seal: output/exp_gm_05c_20260824/SEAL.json
+    report: output/exp_gm_05c_20260824/REPORT.md
+    do_not: [hand_patch_json, drop_cell_and_average, fill_repeats, open_04f]
+
+  - id: EXP-GM-05c-r1
+    experiment_id: EXP-GM-05c-r1
+    parent: EXP-GM-05c-r0
+    change_scope: review_action_output_contract_only
+    status: stopped_coverage_failed
+    gate: A_r0_again
+    ranking_eligible: false
+    coverage:
+      single: 0.0
+      multi: 0.1667
+      drop: 0.1667
+    valid_cells: 2/18
+    estimands:
+      outcome_multi_agent_net_benefit: N/A
+      workflow_multi_agent_net_benefit: N/A
+      review_delivery_value_target: N/A
+      review_delivery_value_full: N/A
+    common_first_error: model_contract_failure
+    fill_repeats: false
+    heldout: {status: not_created}
+    uses: required_change
+    does_not_use: [typed_patch, gm05_l2_tasks, 04e_dev_tasks]
+    freeze: output/exp_gm_05c_r1_freeze_20260824/FREEZE.json
+    report: output/exp_gm_05c_r1_20260824/REPORT.md
+    conclusion: >
+      Coverage 2/18 再次失败。两格合法结果不得单独平均，也不能用来说明
+      Multi 和 Drop 都是 1.0。Rule 通过、模型失败：当前 Agent—平台审核动作
+      契约不兼容，还不能写成 GAWorld 底层通道损坏。端到端多 Agent 净收益 N/A。
+      GM-05 系列在此关闭，不再围着审核 JSON 打转。
+
+  - id: EXP-GM-01
+    experiment_id: EXP-GM-01
+    task_id: TASK-L1-venue-close
+    task_family: T1
+    target_dimension: F_individual_adaptation
+    construct: pre_departure_venue_close_reroute
+    model: GLM-4-Flash
+    temperature: 0
+    status: frozen_development_pilot
+    ranking_eligible: false
+    tracks: [direct_current_state, full_event, drop_event]
+    variants: [control, intervention]
+    probes: [restaurant_close_001, clinic_close_001, store_close_001]
+    matrix: 3x2x3x3
+    coverage: 1.0
+    measurement_valid: 54
+    rates:
+      fullpass_direct: 0.5
+      fullpass_full: 0.6667
+      fullpass_drop: 0.0
+      target_direct: 0.6667
+      target_full: 0.6667
+      target_drop: 0.3333
+      full_control: 0.3333
+      full_intervention: 1.0
+    estimands:
+      event_value_full: 0.6667
+      event_value_target: 0.3334
+      propagation_gap: -0.1667
+    diagnostics:
+      closure_adaptation_rate:
+        direct_current_state: 1.0
+        full_event: 1.0
+        drop_event: 0.0
+      control_stability_rate:
+        direct_current_state: 0.3333
+        full_event: 0.3333
+        drop_event: 0.6667
+      unnecessary_replan_rate:
+        direct_current_state: 0.6667
+        full_event: 0.6667
+        drop_event: 0.3333
+    uses: [venue_event_channel, flat_visit_action]
+    does_not_use: [review_json, typed_patch, gm05_l2_tasks, 04e_dev_tasks]
+    report: output/exp_gm_01_20260824/REPORT.md
+    heldout: {status: not_created, reason: control_false_positive_not_cleared}
+    freeze: do_not_tune_prompts_or_edit_dev_tasks
+    conclusion: >
+      GAWorld 的关闭事件能够沿感知链送达并改变目的地与日程；模型在真正关闭时
+      能够稳定重规划，但存在明显的“过度适应”——场所没有关闭时也主动改道。
+      平台通道通过，Agent 条件判断部分成功。ControlStabilityRate(full)=0.3333，
+      UnnecessaryReplanRate(full)=0.6667。不建 T1 留出题。
+
+  - id: EXP-GM-02
+    experiment_id: EXP-GM-02
+    task_id: TASK-L2-household-care
+    task_family: T2
+    target_dimension: F_household_responsibility
+    construct: registered_care_event_loop
+    model: GLM-4-Flash
+    temperature: 0
+    status: completed_repeats
+    ranking_eligible: false
+    tracks: [direct_household_state, full_family_event, drop_family_event]
+    variants: [control, intervention]
+    probes: [child_fever_001, elder_clinic_001, postop_pickup_001]
+    matrix: 3x2x3x3
+    coverage: 1.0
+    measurement_valid: 54
+    rates:
+      fullpass_direct: 0.1667
+      fullpass_full: 0.1111
+      fullpass_drop: 0.3333
+      event_value_full: -0.2222
+    diagnostics:
+      care_adaptation_rate:
+        direct_household_state: 0.3333
+        full_family_event: 0.2222
+        drop_family_event: 0.0
+      control_stability_rate:
+        direct_household_state: 0.0
+        full_family_event: 0.0
+        drop_family_event: 0.6667
+      unnecessary_replan_rate:
+        direct_household_state: 1.0
+        full_family_event: 1.0
+        drop_family_event: 0.3333
+    uses: [family_care_channel, flat_care_action]
+    does_not_use: [review_json, typed_patch, gm01_dev_tasks]
+    report: output/exp_gm_02_20260824/REPORT.md
+    heldout: {status: not_created, reason: control_false_positive_not_cleared}
+    conclusion: >
+      家庭消息通道与扁平动作契约 Coverage=1.0。无事件时的过度适应跨任务复现：
+      看到家庭状态后 ControlStabilityRate(direct/full)=0.0，Drop 对照反而 0.6667。
+      干预侧儿童发热能闭环，老人/术后常认领并记账但不覆盖冲突日程。
+      EventValue_full 为负是聚合假象，用分变体指标解释。不建 T2 留出题。
+
+  - id: EXP-GM-OA-01
+    experiment_id: EXP-GM-OA-01
+    task_id: TASK-OA-need-change-gate
+    task_family: OA
+    construct: need_change_gate_vs_legacy_direct
+    parent_findings: [EXP-GM-01, EXP-GM-02]
+    model: GLM-4-Flash
+    temperature: 0
+    status: development_pilot
+    frozen: true
+    ranking_eligible: false
+    coverage: 1.0
+    improvement_gate: fail
+    need_change_gate_result: no_gain
+    semantic_decision_result: pass
+    remaining_failure: keep_placeholder_contract
+    over_adaptation_mechanism: unresolved
+    protocols: [legacy_direct, need_change_gate]
+    variants: [control, intervention]
+    tasks: [appointment_update, resource_threshold, responsibility_update]
+    matrix: 3x2x2x3
+    measurement_valid: 36
+    calls_per_cell: 1
+    environment_may_rewrite_plan: false
+    rates:
+      legacy_direct:
+        Coverage: 1.0
+        NeedChangeAccuracy: 1.0
+        ControlStabilityRate: 0.6667
+        AdaptationRate: 1.0
+        UnnecessaryReplanRate: 0.3333
+        ConditionalActionScore: 0.8334
+      need_change_gate:
+        Coverage: 1.0
+        NeedChangeAccuracy: 1.0
+        ControlStabilityRate: 0.6667
+        AdaptationRate: 1.0
+        UnnecessaryReplanRate: 0.3333
+        ConditionalActionScore: 0.8334
+    freeze: do_not_edit_tasks_scorer_or_historical_scores
+    uses: [local_change_gate_channel]
+    does_not_use: [gm01_dev_tasks, gm02_dev_tasks, gm03, heldout]
+    report: output/exp_gm_oa_01_20260824/REPORT.md
+    heldout: {status: not_created, reason: keep_placeholder_contract_unresolved}
+    conclusion: >
+      OA-01 没有证明 GM-01/02 的过度适应已经解决，也不能证明它仍然存在；
+      它只证明增加 need_change 布尔字段没有改善严格路径分（improvement_gate=fail，
+      need_change_gate_result=no_gain）。新任务中语义判断全部正确
+      （semantic_decision_result=pass）。唯一失败来自 keep 动作仍被要求填写
+      无意义的 target/value 占位符（remaining_failure=keep_placeholder_contract）。
+      over_adaptation_mechanism=unresolved。不改历史分数，不把 target=assignee_id
+      的 keep 事后改成通过。
+
+  - id: EXP-GM-OA-02
+    experiment_id: EXP-GM-OA-02
+    task_id: TASK-OA-exclusive-keep-revise
+    task_family: OA
+    construct: exclusive_keep_revise_actions
+    parent: EXP-GM-OA-01
+    model: GLM-4-Flash
+    temperature: 0
+    status: development_pass
+    role: action_contract_calibration
+    protocol_result: pass
+    coverage: 1.0
+    action_selection_accuracy: 1.0
+    control_stability_rate: 1.0
+    adaptation_rate: 1.0
+    contract_failure_rate: 0.0
+    oracle_conditioned_fullpass: 1.0
+    ranking_eligible: false
+    holdout_status: not_created
+    generalization_status: untested
+    protocol: exclusive_keep_revise
+    actions: [keep_current_plan, revise_plan]
+    variants: [control, intervention]
+    tasks: [appointment_update, resource_threshold, responsibility_update]
+    matrix: 3x2x3
+    measurement_valid: 18
+    frozen_baseline: output/exp_gm_oa_01_20260824
+    rates:
+      Coverage: 1.0
+      ActionSelectionAccuracy: 1.0
+      ControlStabilityRate: 1.0
+      AdaptationRate: 1.0
+      ContractFailureRate: 0.0
+      TargetCorrect: 1.0
+      OracleConditionedFullPass: 1.0
+    pass_gate: true
+    uses: [exclusive_action_channel, submit_time_conditional_schema]
+    does_not_use: [need_change, NONE_placeholder, oa01_scorer]
+    report: output/exp_gm_oa_02_20260824/REPORT.md
+    heldout: {status: not_created, reason: wait_for_t3_repeat0_and_n1_pilot}
+    conclusion: >
+      协议开发实验完成。旧接口让语义正确的 keep 因无意义占位符失败；
+      互斥动作接口消除了这个测量污染。不能据此声称过度适应机制已解决，
+      也不能在新业务字段上宣称已经泛化。留出题暂不创建。
+
+  - id: EXP-GM-T3-01
+    experiment_id: EXP-GM-T3-01
+    task_family: T3
+    construct: generate_review_revise_deliver
+    parent_gap: EXP-GM-05c-r1
+    status: pilot_complete_floor
+    role: full_workflow_development_pilot
+    ranking_eligible: false
+    prior_seed0:
+      path: output/exp_gm_t3_01_20260824
+      status: measurement_invalid
+      gate: A_r0
+      coverage: 0.7778
+      frozen: true
+      note: 测量台损坏。不得与 R0-valid 版本平均。
+    r0_valid:
+      path: output/exp_gm_t3_01_r0fix_20260825
+      gate: r0_pass
+      coverage: 1.0
+      common_draft_hash_valid: true
+      equal_budget_valid: true
+      drop_isolation_valid: true
+    measurement_result: pass
+    agent_workflow_result: fail
+    single_fullpass: 0.0
+    multi_fullpass: 0.0
+    drop_fullpass: 0.0
+    multi_agent_net_benefit:
+      value: N/A
+      reason: common_workflow_floor
+    first_errors:
+      false_positive_revision: 6
+      partial_change_applied: 7
+      required_change_not_read: 2
+      review_not_delivered: 3
+    review_delivery_value: N/A
+    repeat_1_2: not_run
+    holdout: not_created
+    holdout_status: not_created
+    tracks: [single, multi, drop]
+    variants: [control, intervention]
+    tasks: [t3_parking_threshold_001, t3_deposit_ratio_001, t3_queue_cap_001]
+    frozen: true
+    note: >
+      测量有效，但 Agent 工作流失败。FullPass=0 可解释为 Agent/协议问题，
+      但不能解释为多 Agent 没价值：Single/Multi/Drop 共同地板。
+      原 20260824 为 measurement_invalid，本轮为 R0-valid，二者不能平均。
+      不补 54 格，不改完整工作流，不开 C1，不建留出。
+      回归见 EXP-GM-T3-02，不得与 T3-02 平均，也不得覆盖本条。
+      T3-02 闭环：失败归因于组件接口和上下文组织不兼容，不是 Reviewer 不会判断、
+      Executor 不会修改、也不是 GAWorld 通道丢失信息。
+
+  - id: EXP-GM-T3-02
+    experiment_id: EXP-GM-T3-02
+    parent: EXP-GM-T3-01
+    status: calibration_pass
+    role: component_integration_positive_control
+    ranking_eligible: false
+    generalization_claim: false
+    multi_agent_value_estimable: false
+    construct: component_to_workflow_integration
+    task_set: T3-01_frozen_development_tasks
+    gate: C_ceiling
+    path: output/exp_gm_t3_02_20260825
+    frozen: true
+    future_use: integration_positive_control_after_protocol_changes
+    change_scope:
+      - use_frozen_CHANGE_01_decision_contract
+      - use_frozen_APPLY_01_execution_contract
+      - add_review_payload_integrity_trace
+    measurement_result: pass
+    diagnostic_conclusion: >
+      The calibrated decision and execution contracts can be integrated
+      without payload mutation or capability loss.
+    single_fullpass: 1.0
+    multi_fullpass: 1.0
+    drop_fullpass: 0.5
+    payload_integrity_when_transmitted: 1.0
+    drop_complete_change_adoption:
+      control: 1.0
+      intervention: 0.0
+      pooled_average: 0.5
+      not_partial_adoption: true
+    t3_01_to_t3_02_fullpass_gain:
+      single: 1.0
+      multi: 1.0
+      drop: 0.5
+    outcome_multi_agent_net_benefit:
+      value: 0.0
+      reason: multi_equals_single_ceiling
+    review_delivery_value:
+      value: 0.5
+      reason: drop_intervention_payload_not_delivered
+    first_errors:
+      none: 15
+      review_payload_not_delivered: 3
+    repeat_1_2: not_run
+    holdout: not_created
+    note: >
+      T3-01 失败归因于组件接口和上下文组织不兼容，不是 Reviewer 不会判断、
+      Executor 不会修改、也不是通道丢失信息。Single/Multi 同天花板，不补 54 格。
+      Drop 的 PayloadIntegrity 只表示有传输时完整性；干预未交付，不能读成成功传输。
+      Drop CompleteChangeAdoptionRate 的 0.5 是 control=1.0 与 intervention=0.0 的平均，
+      不表示部分采用。不能报告多智能体审核价值。今后作协议改动后的集成正控。不覆盖 T3-01。
+
+  - id: EXP-GM-T3-03
+    experiment_id: EXP-GM-T3-03
+    parent: EXP-GM-T3-02
+    status: discrimination_pass_dev
+    role: multi_vs_single_discrimination
+    ranking_eligible: false
+    generalization_claim: false
+    multi_agent_value_estimable: true
+    construct: independent_reviewer_private_information
+    task_set: T3-03_unpublished_development_tasks
+    tasks: [t3_free_ship_kg_001, t3_redeem_points_001, t3_alert_celsius_001]
+    path: output/exp_gm_t3_03_20260825
+    gate: off_floor
+    frozen: true
+    retained_from_t3_02:
+      - CHANGE_01_decision_contract
+      - APPLY_01_required_changes
+      - payload_integrity_trace
+    not_t3_01_or_t3_02_items: true
+    direct_fullpass: 1.0
+    coverage: 1.0
+    single_fullpass: 0.5
+    multi_fullpass: 1.0
+    drop_fullpass: 0.5
+    payload_integrity_when_transmitted: 1.0
+    single_complete_change_adoption:
+      control: 1.0
+      intervention: 0.0
+      pooled_average: 0.5
+      not_partial_adoption: true
+    drop_complete_change_adoption:
+      control: 1.0
+      intervention: 0.0
+      pooled_average: 0.5
+      not_partial_adoption: true
+    outcome_multi_agent_net_benefit:
+      value: 0.5
+      reason: multi_minus_single
+    review_delivery_value:
+      value: 0.5
+      reason: drop_intervention_payload_not_delivered
+    first_errors:
+      none: 36
+      review_decision_incorrect: 9
+      review_payload_not_delivered: 9
+    first_error_single_intervention:
+      review_decision_incorrect: 9
+    first_error_drop_intervention:
+      review_payload_not_delivered: 9
+    repeat_1_2: complete
+    holdout: HO-GM-T3-01
+    scores_unchanged: true
+    note: >
+      新题 Direct=1.0，协议沿用 T3-02 已校准契约。54 格 Coverage=1.0。
+      Multi=1.0 > Single=0.5，且 Multi=1.0 > Drop=0.5。
+      Single intervention 9 格首错均为 review_decision_incorrect（自检无私有核验信息）。
+      Drop intervention 9 格首错均为 review_payload_not_delivered（优势随丢弃消失）。
+      可在本开发集上报告独立 Reviewer 私有信息的审核价值；不能作为排名分，不能宣称泛化。
+      不覆盖、不平均 T3-01/T3-02。密封留出见 HO-GM-T3-01，本条分数不改。
+
+  - id: EXP-GM-C1-01
+    experiment_id: EXP-GM-C1-01
+    parent: EXP-GM-T3-03
+    status: stopped_at_direct_gate
+    role: frozen_direct_diagnostic
+    measurement_result: pass
+    direct_coverage: 1.0
+    direct_fullpass: 0.1667
+    allocation_accuracy: 0.8333
+    multi_agent_matrix_run: false
+    multi_agent_value:
+      value: N/A
+      reason: direct_solvability_gate_failed
+    ranking_eligible: false
+    generalization_claim: false
+    primary_failure: conflict_detection_or_semantic_binding
+    construct: joint_resource_coordination
+    tasks: [c1_charge_slot_001, c1_device_book_001, c1_dock_window_001]
+    path: output/exp_gm_c1_01_20260825
+    frozen: true
+    rerun_allowed: false
+    holdout: not_created
+    note: >
+      测量有效，但 Direct 可做性门未过。不能进入多智能体矩阵，也不能解释协调能力。
+      唯一分配正确率 5/6，FullPass 1/6。不要把 conflict 字段判断错误夸大成协调能力为 0.1667。
+      不回头修改本题。组件拆解见 CAL-GM-C1-COMP-01。
+
+  - id: CAL-GM-C1-COMP-01
+    experiment_id: CAL-GM-C1-COMP-01
+    parent: EXP-GM-C1-01
+    status: component_gate_failed
+    role: conflict_detection_allocation_decoupling
+    measurement_result: pass
+    platform_conformance_result: pass
+    agent_component_result: fail
+    first_broken_stage: conflict_resolution
+    secondary_failure: final_state_validation_polarity_lock
+    coverage: 1.0
+    pass_gate: false
+    c1_02_allowed: false
+    multi_agent_value: N/A
+    ap_items: [AP-C1-B-01, AP-C1-C-01]
+    ranking_eligible: false
+    generalization_claim: false
+    multi_agent_matrix_run: false
+    components: [initial_conflict, final_conflict_free, reallocate_after_conflict]
+    matrix: 3x2x3
+    model: GLM-4-Flash
+    temperature: 0
+    path: output/cal_gm_c1_comp_01_20260825
+    frozen: true
+    rerun_allowed: false
+    holdout: not_created
+    not_c1_01_items: true
+    rates:
+      Coverage: 1.0
+      A_initial_conflict: 1.0
+      B_final_conflict_free: 0.5
+      C_reallocate: 0.5
+    split:
+      A_control: 1.0
+      A_intervention: 1.0
+      B_control: 0.0
+      B_intervention: 1.0
+      C_control: 1.0
+      C_intervention: 0.0
+    primary_failure: conflict_detected_but_not_repaired
+    failures:
+      AP-C1-C-01:
+        failure: conflict_detected_but_not_repaired
+        behavior: preserve_initial_assignment
+      AP-C1-B-01:
+        failure: final_state_validation_polarity_lock
+        strategy: always_false
+    note: >
+      测量台与 Rule 正负控有效（Coverage=1.0，platform_conformance_result=pass），
+      Agent 组件失败。因果链：冲突检测通过 → 按优先级重新分配失败 → 最终核验极性锁死。
+      不要把 B/C 的 0.5 说成半对半错。A 6/6。B 恒 false。C intervention 保持 {h8,h8}。
+      不能建立 C1-02（本题门未过）。协议复测见 CAL-GM-C1-REPAIR-01。
+      不开 L1，不改 C1-01，不跑 Multi。
+
+  - id: CAL-GM-C1-REPAIR-01
+    experiment_id: CAL-GM-C1-REPAIR-01
+    parent: CAL-GM-C1-COMP-01
+    status: protocol_retest_pass
+    role: protocol_repair_retest
+    measurement_result: pass
+    platform_conformance_result: pass
+    agent_component_result: pass
+    coverage: 1.0
+    pass_gate: true
+    c1_02_allowed: true
+    ranking_eligible: false
+    generalization_claim: false
+    multi_agent_matrix_run: false
+    ap_items: [AP-C1-B-01, AP-C1-C-01]
+    matrix: 3x2x3
+    model: GLM-4-Flash
+    temperature: 0
+    path: output/cal_gm_c1_repair_01_20260825
+    frozen: true
+    rerun_allowed: false
+    holdout: not_created
+    not_c1_01_items: true
+    not_c1_comp_01_items: true
+    rates:
+      Coverage: 1.0
+      A_initial_conflict: 1.0
+      B_self_assessment_correct: 1.0
+      C_reallocate: 1.0
+      ActualFinalConflictFree: 1.0
+      UnregisteredModification: 0.0
+      AssessmentExecutionGap: 0.0
+    split:
+      A_control: 1.0
+      A_intervention: 1.0
+      B_control: 1.0
+      B_intervention: 1.0
+      C_control: 1.0
+      C_intervention: 1.0
+    note: >
+      全新实例 18/18 通过。B 不再极性锁死；C 在只收到 duplicate_resource_claim 时完成重新分配。
+      Scorer 自算最终无冲突，环境未代改。c1_02_allowed=true。
+      不改 C1-01，不开 L1，不跑 Multi，不把本次通过写成 C1-01 已修好。
+
+  - id: EXP-GM-C1-02
+    experiment_id: EXP-GM-C1-02
+    parent: CAL-GM-C1-REPAIR-01
+    status: matrix_complete_dev
+    c1_development_status: partial_pass
+    measurement_valid: true
+    basic_conflict_resolution: pass
+    private_constraint_integration: pass
+    policy_constrained_replanning: fail
+    holdout_allowed: false
+    ranking_eligible: false
+    generalization_claim: false
+    direct_is_formal_result: false
+    primary_track: multi
+    c1_02_allowed: true
+    tracks: [multi, drop_revision, drop_coordinator]
+    tasks: [c1_02_optics_table_001, c1_02_greenhouse_001, c1_02_cold_store_001]
+    holdout: not_created
+    path: output/exp_gm_c1_02_20260825
+    capabilities:
+      conflict_detection_and_resolution: 1.0
+      joint_private_constraints: 1.0
+      policy_constrained_unique_plan: 0.8333
+      strict_pair_adaptation: 0.6667
+      full_coordination_loop: 0.8333
+    causal:
+      RevisionDeliveryValue: 0.3333
+      CoordinatorDeliveryValue: 0.8333
+      note: 开发集因果值，不能扩写为一般性多智能体优势
+    seed0:
+      coverage: 1.0
+      gate: off_floor
+    matrix_54:
+      Coverage: 1.0
+      FullPass:
+        multi: 0.8333
+        drop_revision: 0.5
+        drop_coordinator: 0.0
+      StrictPair:
+        multi: 0.6667
+        drop_revision: 0.0
+        drop_coordinator: 0.0
+      first_error:
+        none: 24
+        plan_not_delivered: 18
+        constraint_revision_not_delivered: 9
+        invalid_joint_assignment: 3
+    note: >
+      测量有效。具备基本冲突消解，未完全通过登记式集体协调。
+      光学台失败登记为 AP-C1-D-01，不并入 AP-C1-C-01。
+      下一步 CAL-GM-C1-PRIORITY-01。不建留出，不开 L1，不覆盖本题。
+
+  - id: CAL-GM-C1-PRIORITY-01
+    experiment_id: CAL-GM-C1-PRIORITY-01
+    parent: EXP-GM-C1-02
+    status: component_gate_not_held
+    role: component_calibration
+    ap_items: [AP-C1-D-01]
+    ranking_eligible: false
+    generalization_claim: false
+    does_not_overwrite: EXP-GM-C1-02
+    holdout: not_created
+    path: output/cal_gm_c1_priority_01_20260825
+    coverage: 1.0
+    split:
+      control: 1.0
+      intervention: 0.8889
+    failed_cell:
+      id: c1prio_mass_spec_001_intervention_r2
+      first_proposal: {agent_a: ms42, agent_b: ms43}
+      retry: {agent_a: ms41, agent_b: ms41}
+      first_error: final_state_conflict
+    note: >
+      18 格 Coverage=1.0。control 9/9。intervention 8/9。
+      失败格第一次提案是挪走高优先级，nack 只标了 A；重试把冲突方案交了回去。
+      组件门未过，不另开修复回归，不覆盖 C1-02，不开 L1。
+
+  - id: CAL-GM-C1-PRIORITY-02
+    experiment_id: CAL-GM-C1-PRIORITY-02
+    parent: CAL-GM-C1-PRIORITY-01
+    status: first_proposal_and_rule_retry_pass
+    role: component_calibration
+    ap_items: [AP-C1-D-01]
+    ranking_eligible: false
+    does_not_overwrite: [EXP-GM-C1-02, CAL-GM-C1-PRIORITY-01]
+    holdout: not_created
+    path: output/cal_gm_c1_priority_02_20260825
+    coverage: 1.0
+    split:
+      control: 1.0
+      intervention: 1.0
+    llm_retry_path: not_exercised
+    llm_first_proposal_calibration: pass
+    rule_retry_path: pass
+    calls_all_first_proposal: true
+    proved:
+      - 新协议没有破坏正常提案能力
+      - 三组新任务第一次提案全部满足优先级、可行集和无冲突要求
+      - NACK 载荷没有泄漏 B 的正确时段
+      - Rule 能够沿新 NACK 路径完成正确重试
+      - 平台不会代替 Coordinator 填写方案
+    not_proved:
+      - 真模型的 NACK 重试已经 18/18 通过
+      - 原来的约束回退在真模型重试中已经消失
+      - AP-C1-D-01 已经解决
+      - C1 完整多智能体协调已经通过
+    note: >
+      18/18 全是第一次提案通过（calls=1）。Rule 正控覆盖 trap→正确重试，
+      真模型 NACK 重试触发次数为 0。component_calibration_pass 只覆盖
+      第一次提案和平台 Rule 路径。下一步 EXP-GM-C1-03。
+      不覆盖 C1-02。不写 resolved。不开 L1。功能进度仍约 75%。
+
+  - id: EXP-GM-C1-03
+    experiment_id: EXP-GM-C1-03
+    parent: CAL-GM-C1-PRIORITY-02
+    status: stopped_at_seed0_retry_gate
+    measurement_result: pass
+    role: full_workflow_retry_regression
+    ap_items: [AP-C1-D-01, AP-C1-F-01]
+    ranking_eligible: false
+    generalization_claim: false
+    does_not_overwrite: [EXP-GM-C1-02, CAL-GM-C1-PRIORITY-01, CAL-GM-C1-PRIORITY-02]
+    holdout: not_created
+    holdout_allowed: false
+    repeat_1_2_allowed: false
+    path: output/exp_gm_c1_03_20260825
+    primary_track: multi
+    direct_ok: true
+    direct_fullpass: 1.0
+    gate: retry_not_recovered
+    coverage: 1.0
+    coverage_tracks:
+      multi: 1.0
+      drop_protection: 1.0
+      drop_coordinator: 1.0
+    nack_path_exercised: 3/3
+    retry_evaluable: 3/3
+    system_retry_recovered: 0/3
+    semantic_retry_assignment_correct: 0/3
+    retry_contract_failure: 2/3
+    retry_not_adapted: 1/3
+    retry_recovery_success: 0.0
+    constraint_regression_rate: 0.0
+    constraint_regression_not_success: true
+    environment_auto_repair: 0
+    ap_c1_d_01_closable: false
+    note: >
+      C1-03 测量有效。平台成功让真模型三次进入优先级 NACK 重试，但没有一次形成
+      系统可接受的正确终局：两次违反版本握手契约（AP-C1-F-01），一次契约合规后
+      原样交回被拒绝方案（AP-C1-D-01 直接证据）。忽略版本后语义分配也是 0/3。
+      seed0 已表明正式重试门 0/3，不补 repeat 1/2。不覆盖 C1-02。不做 C1-04。
+      不建留出。不改 Agent 协议。不改冻结 Task Card 正文。C1 阶段已收口。
+      下一步 EXP-GM-L1-01。功能进度仍约 75%。
+
+  - id: EXP-GM-L1-01
+    experiment_id: EXP-GM-L1-01
+    parent: C1_STAGE
+    task_family: L1
+    construct: interruption_recovery_and_role_succession
+    status: stopped_at_direct_gate
+    measurement_result: pass
+    ranking_eligible: false
+    holdout_allowed: false
+    primary_track: multi
+    tracks: [multi, drop_checkpoint, drop_handoff]
+    tasks: [l1_01_inventory_lots_001, l1_01_centrifuge_rotor_001, l1_01_specimen_log_001]
+    roles: [worker_a, worker_b, coordinator]
+    path: output/exp_gm_l1_01_20260825
+    does_not_overwrite: [EXP-GM-C1-01, EXP-GM-C1-02, EXP-GM-C1-03]
+    direct_ok: false
+    direct_coverage: 1.0
+    direct_fullpass: 5/6
+    direct_strict_pair: 2/3
+    failed_task: l1_01_specimen_log_001
+    failed_variant: intervention
+    multi_agent_matrix_run: false
+    interruption_recovery_result: N/A
+    retired_task:
+      id: l1_01_specimen_log_001
+      task_status: retired_after_direct_gate
+      reason: downstream_dependency_generation_confounds_recovery_construct
+    next: EXP-GM-L1-01b
+    note: >
+      测量有效，Direct 可做性门未通过，未进入多智能体中断恢复实验。
+      不能解释为 GAWorld 中断恢复失败。不能把 5/6 四舍五入成 Direct 通过。
+      失败格保留。第三题退役。下一步 L1-01b。功能进度仍约 75%。
+
+  - id: EXP-GM-L1-01b
+    experiment_id: EXP-GM-L1-01b
+    parent: EXP-GM-L1-01
+    task_family: L1
+    construct: interruption_recovery_and_role_succession
+    status: development_partial_pass
+    measurement_result: pass
+    ranking_eligible: false
+    holdout_allowed: false
+    primary_track: multi
+    tracks: [multi, drop_checkpoint, drop_handoff]
+    tasks: [l1_01_inventory_lots_001, l1_01_centrifuge_rotor_001, l1_01b_file_intake_001]
+    path: output/exp_gm_l1_01b_20260825
+    does_not_overwrite: [EXP-GM-L1-01, EXP-GM-C1-01, EXP-GM-C1-02, EXP-GM-C1-03]
+    direct_ok: true
+    direct_coverage: 1.0
+    direct_fullpass: 6/6
+    direct_strict_pair: 3/3
+    multi_agent_matrix_run: true
+    coverage: 1.0
+    checkpoint_causal_dependency: observed_seed0
+    handoff_causal_dependency: observed_seed0
+    full_multi_intervention: pass_3_of_3
+    full_multi_strict_pair: 2_of_3
+    workflow_bottleneck: coordinator_resume_point_selection
+    interruption_recovery_result: not_passed
+    repeat_1_2_allowed: false
+    next: CAL-GM-L1-RESUME-01
+    diagnostic_erratum:
+      cell: l1_01_centrifuge_rotor_001_control_multi_r0
+      recorded_first_error: none
+      corrected_diagnostic_first_error: resume_from_wrong_step
+      score_changed: false
+    note: >
+      开发集部分通过，不是中断恢复通过。B 的 3 个 interruption 都续做成功；
+      丢掉 Checkpoint 或 Handoff 后 3 个 interruption 全失败。
+      Full Multi StrictPair=2/3，瓶颈是 Coordinator 续做位置。
+      CheckpointStatePreserved 不表示已交付。Drop Handoff 的 0.5 是变体平均。
+      不补 54 格，不重跑 L1。功能进度约 85% 是评测建设与机制覆盖，不是能力得分。
+
+  - id: CAL-GM-L1-RESUME-01
+    experiment_id: CAL-GM-L1-RESUME-01
+    parent: EXP-GM-L1-01b
+    role: component_calibration
+    construct: coordinator_resume_point_selection
+    status: development_pass
+    measurement_result: pass
+    ranking_eligible: false
+    holdout_allowed: false
+    tasks: [l1res_mail_sort_001, l1res_pump_prime_001, l1res_badge_print_001]
+    variants: [control, intervention]
+    matrix: 3x2x3
+    path: output/cal_gm_l1_resume_01_20260825
+    does_not_overwrite: [EXP-GM-L1-01, EXP-GM-L1-01b, EXP-GM-C1-01, EXP-GM-C1-02, EXP-GM-C1-03]
+    coverage: 1.0
+    ResumeStepAccuracy: 1.0
+    CompletedStepNotRepeated: 1.0
+    RemainingStepNotSkipped: 1.0
+    ResumeContractValid: 1.0
+    StrictPair: 1.0
+    coordinator_resume_component: pass
+    workflow_regression: pass
+    original_failure_status: resolved_on_development_regression
+    l1_01c_allowed: true
+    next: EXP-GM-L1-01c
+    note: >
+      组件层通过。L1-01c 54 格开发集回归已通过，原失败改为
+      resolved_on_development_regression。不能写泛化或进入排名。
+      不能修改 L1-01b 的 StrictPair 2/3。
+
+  - id: EXP-GM-L1-01c
+    experiment_id: EXP-GM-L1-01c
+    parent: EXP-GM-L1-01b
+    task_family: L1
+    construct: interruption_recovery_and_role_succession
+    status: development_regression_pass
+    measurement_result: pass
+    ranking_eligible: false
+    holdout_allowed: false
+    primary_track: multi
+    tracks: [multi, drop_checkpoint, drop_handoff]
+    tasks: [l1_01c_gas_cylinder_001, l1_01c_balance_check_001, l1_01c_label_intake_001]
+    path: output/exp_gm_l1_01c_20260825
+    does_not_overwrite: [EXP-GM-L1-01, EXP-GM-L1-01b, CAL-GM-L1-RESUME-01, EXP-GM-C1-01, EXP-GM-C1-02, EXP-GM-C1-03]
+    direct_ok: true
+    direct_coverage: 1.0
+    direct_fullpass: 6/6
+    direct_strict_pair: 3/3
+    direct_is_formal_result: false
+    multi_agent_matrix_run: true
+    coverage: 1.0
+    environment_auto_repair: 0
+    n_cells: 54
+    full_multi:
+      control: 9/9
+      interruption: 9/9
+      strict_pair: 9/9
+    drop_checkpoint:
+      control: 9/9
+      interruption: 0/9
+      first_error: checkpoint_not_delivered
+    drop_handoff:
+      control: 9/9
+      interruption: 0/9
+      first_error: handoff_not_delivered
+    checkpoint_causal_dependency: replicated
+    handoff_causal_dependency: replicated
+    interruption_recovery_development_result: pass
+    resume_workflow_regression: pass
+    original_failure_status: resolved_on_development_regression
+    interruption_recovery_result: development_pass
+    repeat_1_2_allowed: true
+    repeat_1_2_run: true
+    l1_01b_strict_pair_unchanged: 2_of_3
+    holdout: HO-GM-L1-01
+    scores_unchanged: true
+    ranking_eligible_note: 开发集回归通过，不是泛化通过，不进入正式排名
+    note: >
+      三道全新任务。54 格保持 seed0 同一模式。L1 这一类功能覆盖在开发集上闭环。
+      不覆盖 L1-01b 的 2/3。不能写泛化通过或进入正式排名。
+      功能进度约 85% 是评测建设与机制覆盖，不是 GAWorld 能力得分。
+      密封留出见 HO-GM-L1-01，本条分数不改。
+
+  - id: HO-GM-T3-01
+    experiment_id: HO-GM-T3-01
+    parent: EXP-GM-T3-03
+    protocol_parent: EXP-GM-T3-02
+    status: holdout_seed0_complete
+    role: sealed_holdout
+    ranking_eligible: false
+    generalization_claim: false
+    multi_agent_value_estimable: false
+    holdout_run_once: true
+    repeat_1_2_run: false
+    path: output/holdout_t3_20260825
+    tasks: [t3_ho_queue_max_001, t3_ho_battery_pct_001, t3_ho_noise_db_001]
+    gate: off_floor
+    n_cells: 18
+    direct_fullpass: 1.0
+    coverage: 1.0
+    single_fullpass: 0.5
+    multi_fullpass: 1.0
+    drop_fullpass: 0.5
+    first_error_single_intervention: review_decision_incorrect
+    first_error_drop_intervention: review_payload_not_delivered
+    does_not_overwrite: [EXP-GM-T3-01, EXP-GM-T3-02, EXP-GM-T3-03]
+    note: >
+      密封留出 seed0。方向与开发集相同：Multi>Single 且 Multi>Drop。
+      不补 repeat。不能当正式价值估计或排名分。
+
+  - id: HO-GM-I1-01
+    experiment_id: HO-GM-I1-01
+    parent: EXP-GM-I1
+    status: holdout_seed0_complete
+    role: sealed_holdout
+    ranking_eligible: false
+    generalization_claim: false
+    holdout_run_once: true
+    path: output/holdout_i1_20260825
+    probes: [pier_berth_001, pump_station_001, library_hours_001]
+    n_cells: 24
+    coverage: 1.0
+    measurement_valid: 24
+    rates:
+      direct_verified_state: 1.0
+      full: 1.0
+      drop_verified: 0.0
+      no_verification: 0.0
+      unauthorized_read: 0.0
+    communication_value: 1.0
+    verification_value: 1.0
+    does_not_overwrite: [EXP-GM-I1, EXP-GM-REL1, EXP-GM-N1]
+    note: >
+      密封留出 seed0 24 格。正负控与开发集相同。不补 repeat。不能写泛化。
+
+  - id: HO-GM-L1-01
+    experiment_id: HO-GM-L1-01
+    parent: EXP-GM-L1-01c
+    status: holdout_seed0_pass
+    role: sealed_holdout
+    ranking_eligible: false
+    generalization_claim: false
+    holdout_run_once: true
+    repeat_1_2_run: false
+    path: output/holdout_l1_20260825
+    tasks: [l1_ho_crane_load_001, l1_ho_fridge_log_001, l1_ho_mail_bay_001]
+    gate: regression_pass
+    n_cells: 18
+    direct_fullpass: 1.0
+    coverage: 1.0
+    full_multi:
+      control: 3/3
+      interruption: 3/3
+      strict_pair: 3/3
+    drop_checkpoint:
+      control: 3/3
+      interruption: 0/3
+      first_error: checkpoint_not_delivered
+    drop_handoff:
+      control: 3/3
+      interruption: 0/3
+      first_error: handoff_not_delivered
+    interruption_recovery_holdout_result: pass
+    l1_01b_strict_pair_unchanged: 2_of_3
+    does_not_overwrite: [EXP-GM-L1-01, EXP-GM-L1-01b, EXP-GM-L1-01c, CAL-GM-L1-RESUME-01]
+    note: >
+      密封留出 seed0 通过预注册门。不补 54 格。不覆盖 L1-01b 的 2/3。
+
+  - id: EXP-HF-H1-01
+    experiment_id: EXP-HF-H1-01
+    axis: H1
+    construct: team_interaction_human_likeness
+    status: infrastructure
+    ranking_eligible: false
+    h1_formal_score: N/A
+    h1_human_reference: not_collected
+    agent_stimuli: 18
+    human_stimuli_collected: 0
+    selection_rule: mechanical_task_variant_repeat
+    manual_best_case_selection: prohibited
+    tracks_in_v1: {T3: full_multi, I1: full, L1: full_multi}
+    c1_included: false
+    path: output/exp_hf_h1_01_20260825
+    web: http://127.0.0.1:8765
+    functional_role_of_holdout: sealed_holdout_result
+    H1_role_of_holdout: development_stimulus
+    not_future_h1_holdout: true
+    allowed_claim: 三项密封留出在 seed0 上复现了开发集的同类正负控模式。
+    next:
+      - collect_18_human_traces
+      - cognitive_interview_5_to_8
+      - internal_pilot_15_to_20
+    note: >
+      第一版只使用完整工作流。Drop 不进入，以免拟人化与机制损坏缠在一起。
+      功能留出可作开发刺激，不能冒充未来 H1 密封留出。
+
+  - id: EXP-GM-N1
+    experiment_id: EXP-GM-N1
+    task_family: N1
+    construct: source_relay_decision_delivery
+    status: retired
+    ranking_eligible: false
+    measurement_result: pass
+    platform_conformance_result: pass
+    agent_workflow_result: fail
+    construct_opened: false
+    information_propagation_value:
+      value: N/A
+      reason: direct_and_full_common_floor
+    raw_results:
+      direct_fullpass: 0.3333
+      full_fullpass: 0.3333
+      drop_fullpass: 0.5
+    scores_unchanged: true
+    n1_02_created: false
+    covered_by: [EXP-GM-I1, EXP-GM-REL1]
+    retirement: output/exp_gm_n1_20260825/RETIRE.yaml
+    validated:
+      - private_source_isolation
+      - relay_message_delivery
+      - drop_message_isolation
+      - rule_pipeline_success
+      - no_private_state_leakage
+    agent_failure:
+      - false_positive_revision_on_control
+    holdout_status: not_created
+    tracks: [direct, full, drop]
+    variants: [control, intervention]
+    tasks: [n1_bridge_status_001, n1_ferry_status_001, n1_warehouse_gate_001]
+    model: GLM-4-Flash
+    temperature: 0
+    frozen: true
+    rerun_allowed: false
+    note: >
+      Direct/Full 共同处于约 0.333 地板，构念未测开。正式退役。分数不改。
+      不补 Seed，不建 N1-02，不在共同地板上计算 Multi-Agent Benefit。
+      核实传播由 I1 覆盖，最新状态更新由 REL1 覆盖。
+
+  - id: CAL-GM-CHANGE-01
+    experiment_id: CAL-GM-CHANGE-01
+    construct: registered_change_decision
+    role: cross_task_protocol_calibration
+    status: development_pass
+    ranking_eligible: false
+    protocol_result: pass
+    measurement_result: pass
+    generalization_status: untested
+    holdout_status: not_created
+    n1_v2_status: not_created_n1_retired
+    t3_02_status: seed0_complete
+    path: output/cal_gm_change_01_20260825
+    matrix: 3x2x3
+    model: GLM-4-Flash
+    temperature: 0
+    rates:
+      Coverage: 1.0
+      KeepAccuracy: 1.0
+      UpdateAccuracy: 1.0
+      FalsePositiveRevisionRate: 0.0
+      MissedRevisionRate: 0.0
+      EvidenceGroundingRate: 1.0
+      StrictPair: 1.0
+    tasks: [cal_service_capacity_001, cal_response_deadline_001, cal_eligibility_age_001]
+    does_not_use: [n1_tasks, t3_tasks, oa02_tasks, gm01_gm02_gm05]
+    note: >
+      定位 T3/N1 的 false_positive_revision：在无通信、无审核、无文件生成的中性题上，
+      keep/update 过门。T3-02 seed0 已把该契约接入完整工作流。不能当留出泛化。
+      不开 C1，不建留出。
+
+  - id: CAL-GM-APPLY-01
+    experiment_id: CAL-GM-APPLY-01
+    construct: complete_change_adoption
+    role: executor_component_calibration
+    status: development_pass
+    ranking_eligible: false
+    protocol_result: pass
+    measurement_result: pass
+    generalization_status: untested
+    holdout_status: not_created
+    t3_02_status: seed0_complete
+    path: output/cal_gm_apply_01_20260825
+    matrix: 3x2x3
+    reviewer: rule
+    decision: rule
+    model_role: executor_only
+    scorer: reads_real_file
+    model: GLM-4-Flash
+    temperature: 0
+    rates:
+      Coverage: 1.0
+      FieldAdoptionRate: 1.0
+      CompleteChangeAdoptionRate: 1.0
+      PartialChangeRate: 0.0
+      UnregisteredChangeRate: 0.0
+      HiddenTestPass: 1.0
+      AcknowledgementExecutionGap: 0.0
+    tasks: [cal_apply_limit_fallback_001, cal_apply_weekday_weekend_001, cal_apply_normal_emergency_001]
+    does_not_use: [n1_tasks, t3_tasks, oa02_tasks, gm01_gm02_gm05, 04e_dev_tasks]
+    note: >
+      固定初稿 + Rule 正确修改要求下，Executor 能完整落实单字段和双字段修改。
+      Scorer 读取真实文件。T3-02 seed0 已把该契约接入完整工作流。不能当留出泛化。
+
+joint_check_t3_components:
+  change_01: pass
+  apply_01: pass
+  t3_02: seed0_complete
+  conclusion: integration_regression_pass_on_development_tasks
+  note: >
+    单组件能做。接入 T3-01 冻结开发题后 Single/Multi FullPass 1.0，
+    失败不是传输丢失（payload hash 一致），也不是 Drop 负控失效。
+    不能证明泛化。不覆盖 T3-01，不补 54 格，不开 C1，不建留出。
+
+gm05_series:
+  status: closed
+  next_full_workflow: EXP-GM-T3-01
+  do_not_reopen: true
+  do_not:
+    - average_two_valid_05c_r1_cells
+    - claim_multi_and_drop_are_1
+    - continue_review_json_tuning
+    - open_04f
+  conclusion:
+    - L2 复合任务形成共同地板，整体 F5 不可识别。
+    - L1 固定初稿下，独立 Reviewer 的审核阶段价值可识别：Multi 1.0、Single 0.5、Drop 0.5。
+    - L1 完整工作流因审核动作契约 Coverage 连续两版未过门，端到端多 Agent 净收益为 N/A。
+
+held_out_policy: >
+  04c/04e 三道留出题已封存未跑。EXP-GM-05 系列已关闭，不再创建 05c 留出题。
+  EXP-GM-01 冻结为 development pilot，因 control 假阳性稳定存在，不建 T1 留出题。
+  EXP-GM-02 开发集已跑 54 格，因 control 假阳性跨任务复现，不建 T2 留出题。
+  EXP-GM-OA-01 冻结为 development_pilot：need_change 无增益，剩余失败是 keep 占位契约，
+  过度适应机制未决。EXP-GM-OA-02 已完成协议校准（development_pass），泛化未测，
+  留出题等 T3 失败审计与 N1 development pilot 之后交叉出题。
+  EXP-GM-T3-01 原 seed0 以 measurement_invalid 冻结在 output/exp_gm_t3_01_20260824；
+  R0-valid 版本冻结为 pilot_complete_floor（共同地板，多 Agent 净收益 N/A），二者不能平均。
+  EXP-GM-N1 正式退役：Direct/Full 共同地板，构念未测开。分数不改。不建 N1-02。
+  核实传播由 I1 覆盖，最新状态更新由 REL1 覆盖。不建 N1 留出。
+  功能侧开发集总表已冻结于 output/functional_devset_20260825。
+  T3/I1/L1 密封留出已跑 seed0 一次：HO-GM-T3-01、HO-GM-I1-01、HO-GM-L1-01。
+  结果与开发集分开报告。C1/REL1/N1 不可以建留出。
+  typed_patch 退役，不为 04e-E 满分继续投入。
+  第一轮开发性功能诊断约 85%：机制覆盖完成，不是能力满分。
+  first_error 枚举已在 compose() 落地；平台 plan_id/spec_version 已在 JointAssignmentChannel 落地。
+  AP-C1-F-01 仍开：C1 评测通道未切换。L1-01b 历史 first_error=none 不改分。
+  正式 Benchmark 不能按 85% 理解：跨任务泛化与跨模型稳健性未做；留出 seed0 不能当排名分。
+  不重跑 GM-01/02，不加 OA-03。
+  CAL-GM-CHANGE-01 与 CAL-GM-APPLY-01 均过门。EXP-GM-T3-02 seed0 完成集成回归
+  （开发集，非留出）。不建 T3/N1/OA-02 留出题，不开 C1，不补 T3-02 的 54 格。
+  EXP-GM-T3-03 开发集 54 格已完成区分度：Multi=1.0 > Single=0.5 且 Multi > Drop。
+  EXP-GM-C1-01 冻结为 Direct 失败诊断（分配 5/6，FullPass 1/6），不跑 Multi。
+  CAL-GM-C1-COMP-01 组件门未过：A=1.0，B/C 的 0.5 是单变体稳定失败。
+  CAL-GM-C1-REPAIR-01 全新实例 18/18 通过，c1_02_allowed=true。AP 记为 mitigated_in_protocol_v2，closure_pending=C1-02。
+  EXP-GM-C1-02 开发集 54 格测量有效、部分通过：具备冲突消解，未完全通过登记式集体协调。
+  AP-C1-D-01 已开。CAL-GM-C1-PRIORITY-01 组件门未过（intervention 8/9）。
+  CAL-GM-C1-PRIORITY-02 第一次提案与 Rule 重试通过；当时真模型 NACK 重试 not_exercised。
+  EXP-GM-C1-03 已冻结为 stopped_at_seed0_retry_gate：measurement_result=pass，Coverage=1.0。
+  nack_path_exercised=3/3，retry_evaluable=3/3，system_retry_recovered=0/3，
+  semantic_retry_assignment_correct=0/3（诊断，不改变 FullPass）。
+  failure_breakdown：retry_contract_failure 2/3，retry_not_adapted 1/3。
+  不补 repeat 1/2。AP-C1-F-01 已开。不关闭 AP-C1-D-01。不覆盖 C1-02。
+  C1 阶段收口为 development_partial_pass，只作新模型/新系统回归套件。
+  不做 C1-04，不再围绕同一缺陷调提示，不建 C1 留出题。不改 C1 Agent 协议。
+  下一步 EXP-GM-L1-01（中断恢复与角色接替）。功能进度仍约 75%。
+  EXP-GM-L1-01 已冻结为 stopped_at_direct_gate：测量有效，Direct 5/6，未进 Multi。
+  标本题退役。L1-01b 登记为 development_partial_pass：测量有效，
+  checkpoint/handoff 因果在 seed0 可观察，Full Multi interruption 3/3，
+  StrictPair 2/3，瓶颈是 Coordinator 续做位置。中断恢复未通过。不补 54 格。
+  下一步 CAL-GM-L1-RESUME-01。Coordinator 续做位置校准 18/18 已通过。
+  下一步才是新建 EXP-GM-L1-01c，不能覆盖 L1-01b。
+  EXP-GM-L1-01c 54 格开发集回归已通过：Full Multi 9/9+9/9+9/9，
+  Drop Checkpoint / Drop Handoff 的 interruption 均为 0/9，
+  首错分别为 checkpoint_not_delivered / handoff_not_delivered。
+  interruption_recovery_development_result=pass；
+  checkpoint/handoff 因果 replicated；resume_workflow_regression=pass。
+  续做位置问题从 mitigated 改为 resolved_on_development_regression。
+  L1 这一类功能覆盖在开发集上闭环。L1-01b StrictPair 仍为 2/3，不得回改。
+  不能写泛化通过或进入正式排名。
+  功能进度约 85% 是评测建设与机制覆盖，不是 GAWorld 能力得分。
+  功能侧开发集总表已冻结。N1 已退役。不建 N1-02。
+  密封留出 HO-GM-T3-01 / HO-GM-I1-01 / HO-GM-L1-01 已各跑 seed0 一次，不补 repeat。
+  汇总见 output/holdout_20260825。不能写泛化或进入排名。
+  EXP-HF-H1-01 基础设施已启动：18 条 Agent 刺激已机械抽取，真人 0/18，正式分 N/A。
+  C1 不进第一版 H1。不重跑 GM-01/02，不加 OA-03。

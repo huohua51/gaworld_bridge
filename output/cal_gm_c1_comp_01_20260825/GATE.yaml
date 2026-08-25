@@ -1,0 +1,48 @@
+experiment_id: CAL-GM-C1-COMP-01
+parent: EXP-GM-C1-01
+status: component_gate_failed
+role: conflict_detection_allocation_decoupling
+phase: all
+measurement_result: pass
+platform_conformance_result: pass
+agent_component_result: fail
+first_broken_stage: conflict_resolution
+secondary_failure: final_state_validation_polarity_lock
+coverage: 1.0
+pass_gate: false
+c1_02_allowed: false
+multi_agent_value: N/A
+ap_items: [AP-C1-B-01, AP-C1-C-01]
+ranking_eligible: false
+generalization_claim: false
+multi_agent_matrix_run: false
+rates:
+  Coverage: 1.0
+  A_initial_conflict: 1.0
+  B_final_conflict_free: 0.5
+  C_reallocate: 0.5
+split:
+  A_control: 1.0
+  A_intervention: 1.0
+  B_control: 0.0
+  B_intervention: 1.0
+  C_control: 1.0
+  C_intervention: 0.0
+primary_failure: conflict_detected_but_not_repaired
+failures:
+  AP-C1-C-01:
+    failure: conflict_detected_but_not_repaired
+    behavior: preserve_initial_assignment
+  AP-C1-B-01:
+    failure: final_state_validation_polarity_lock
+    strategy: always_false
+first_error:
+  none: 12
+  final_conflict_free_incorrect: 3
+  allocation_incorrect: 3
+claim: >
+  测量有效，组件门未过。不要把 B/C 的 0.5 说成半对半错。
+  A 全过：能判断初始冲突。B control 三格恒输出 false：不能断言最终已无冲突。
+  C intervention 三格仍把两人分到 h8：被告知冲突后不会按规则重新分配。
+  不能建立 C1-02，也不能把 C1-01 归因成完整上下文接口退化。
+  不开 L1，不改 C1-01，不跑 Multi。

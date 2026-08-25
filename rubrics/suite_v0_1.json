@@ -1,0 +1,100 @@
+{
+  "schema_version": "gaworld.scale-rubric.v0.1",
+  "suite_id": "gaworld-scale-rubric-pilot-v0.1",
+  "description": "Two psychology/sociology scales rewritten as paired, Oracle-conditioned GAWorld rubrics. Likert totals are never the capability score.",
+  "scoring": {
+    "pair_rule": "Both control and intervention variants must match the registered oracle.",
+    "na_policy": "Missing target_action or out-of-domain values are not_evaluable, never 0.",
+    "human_similarity": "These scores are capability/consistency, not human-likeness."
+  },
+  "pairs": [
+    {
+      "pair_id": "trust_reciprocity_scale_001",
+      "source_scale": {
+        "name": "Berg Trust Game + Yamagishi general trust item",
+        "why_not_likert": "Asking 'most people can be trusted' (GSS/Yamagishi) only yields talk. GAWorld can observe a return transfer.",
+        "mapped_construct": "Exchange / reciprocity under a registered return rule"
+      },
+      "gaworld_hooks": [
+        "interview",
+        "social encounter / personal-what-if",
+        "structured action payload"
+      ],
+      "decision_point": {
+        "agent_role": "Trustee",
+        "action": "submit_return"
+      },
+      "target_signal": "return amount obeys the registered minimum-return rule after the multiplier is applied",
+      "prediction_field": "return_amount",
+      "control": {
+        "context": {
+          "endowment": 10,
+          "investment": 10,
+          "multiplier": 3,
+          "received": 30,
+          "min_return_rate": 1.0,
+          "rule": "return at least the original investment"
+        },
+        "oracle": {
+          "return_amount": 10,
+          "comparator": "gte"
+        }
+      },
+      "intervention": {
+        "registered_change": "min_return_rate: 1.0 -> 0.0 (no reciprocity obligation)",
+        "context": {
+          "endowment": 10,
+          "investment": 10,
+          "multiplier": 3,
+          "received": 30,
+          "min_return_rate": 0.0,
+          "rule": "trustee may keep the multiplied pot; zero return is allowed"
+        },
+        "oracle": {
+          "return_amount": 0,
+          "comparator": "eq"
+        }
+      }
+    },
+    {
+      "pair_id": "reservation_wage_apply_001",
+      "source_scale": {
+        "name": "Labor-economics reservation wage (not a Likert employability scale)",
+        "why_not_likert": "Occupational self-efficacy inventories score talk. WorkDiag already showed the observable is apply / do_not_apply against a registered wage.",
+        "mapped_construct": "Constraint reasoning / Role Fulfillment for a job-seeking twin"
+      },
+      "gaworld_hooks": [
+        "personal-what-if",
+        "economy / job band",
+        "interview + structured decision"
+      ],
+      "decision_point": {
+        "agent_role": "JobSeekerTwin",
+        "action": "evaluate_job_offer"
+      },
+      "target_signal": "accept only if offered net monthly pay is at least the registered reservation wage",
+      "prediction_field": "decision",
+      "control": {
+        "context": {
+          "reservation_wage": 8000,
+          "offered_net": 9000,
+          "job": "仓储调度"
+        },
+        "oracle": {
+          "decision": "accept"
+        }
+      },
+      "intervention": {
+        "registered_change": "offered_net: 9000 -> 6500",
+        "context": {
+          "reservation_wage": 8000,
+          "offered_net": 6500,
+          "job": "仓储调度"
+        },
+        "oracle": {
+          "decision": "reject"
+        }
+      }
+    }
+  ]
+}

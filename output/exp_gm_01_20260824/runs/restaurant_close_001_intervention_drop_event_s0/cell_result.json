@@ -1,0 +1,143 @@
+{
+  "workflow_id": "exp_gm_01_venue_close",
+  "instance_id": "restaurant_close_001_intervention_drop_event_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "event_injected",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "version_correct",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "tracks_consistent",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "r0_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_submitted_by_agent",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "schedule_not_rewritten_by_env",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "visit_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=Student Canteen oracle=Riverside Night Market r2={'destination_open': False, 'type_match': True, 'reachable': True, 'no_conflict': True, 'overwritten': False}"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "event_bind",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "evidence= version= r3={'delivered': False, 'adopted': False, 'overwritten': False, 'stale': False}"
+    }
+  ],
+  "process_profile": {
+    "first_error": "destination_closed",
+    "events": [
+      "event_injected",
+      "perception_packaged",
+      "perception_dropped",
+      "perception_read",
+      "action_submitted"
+    ],
+    "agent_calls": 1,
+    "r2": {
+      "destination_open": false,
+      "type_match": true,
+      "reachable": true,
+      "no_conflict": true,
+      "overwritten": false
+    },
+    "r3": {
+      "delivered": false,
+      "adopted": false,
+      "overwritten": false,
+      "stale": false
+    },
+    "notice_event_id": null,
+    "injected_event_id": "venue-evt-restaurant_close_001_intervention_drop_event_s0-1"
+  },
+  "extra": {
+    "probe_id": "restaurant_close_001",
+    "track": "drop_event",
+    "variant": "intervention",
+    "seed": 0,
+    "target_correct": false,
+    "oracle_conditioned_success": false,
+    "other_also": true,
+    "action": {
+      "action": "update_visit",
+      "destination": "Student Canteen",
+      "slot_id": "visit_1200",
+      "adopted_state_version": "",
+      "evidence_event_id": "",
+      "task_id": "restaurant_close_001_intervention_drop_event_s0",
+      "agent_id": 1
+    },
+    "ranking_note": "pilot, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0
+  }
+}

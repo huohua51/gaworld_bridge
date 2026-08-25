@@ -1,0 +1,34 @@
+{
+  "stimulus_id": "h1dev-t3-battery-control",
+  "construct": "T3",
+  "task_label": "电量下限告警",
+  "variant_code": "A",
+  "roles": [
+    "起草人",
+    "审核员",
+    "执行人"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "起草人",
+      "kind": "produce",
+      "visible_to_role": "公开任务说明与当前草稿要求",
+      "body": "MIN_BATTERY = 20\nSPEC_VERSION = \"v1\"\n\ndef battery_ok(pct):\n    return pct >= MIN_BATTERY"
+    },
+    {
+      "t": 2,
+      "role": "审核员",
+      "kind": "decide",
+      "visible_to_role": "草稿，以及本轮审核可见标准",
+      "body": "{\n  \"decision\": \"keep\",\n  \"evidence\": {\n    \"path\": \"MIN_BATTERY\",\n    \"observed\": 20,\n    \"required\": 20\n  },\n  \"required_changes\": []\n}"
+    },
+    {
+      "t": 3,
+      "role": "执行人",
+      "kind": "apply",
+      "visible_to_role": "草稿与审核意见（keep 则确认，update 则按 required_changes 修改）",
+      "body": "MIN_BATTERY = 20\nSPEC_VERSION = \"v1\"\n\ndef battery_ok(pct):\n    return pct >= MIN_BATTERY"
+    }
+  ]
+}

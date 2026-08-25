@@ -1,0 +1,617 @@
+{
+  "experiment_id": "EXP-GM-04e",
+  "status": "stop_before_full",
+  "sealed_at": "2026-08-24T08:15:04.392001+00:00",
+  "do_not": [
+    "retune 04e development prompts",
+    "run 04e-Full",
+    "run original held-out tasks",
+    "build auto-apply-patch environment tools"
+  ],
+  "prompts": [
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04e/roles.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04e__roles.py",
+      "sha256": "sha256:0abc4174bdcc82a3d5e0c2c5de67064234f036faf29a0e43e2db0bddf71d4f74"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04e/executor.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04e__executor.py",
+      "sha256": "sha256:6d29aafcacf87a7046a92386b948562d37edd62e325492dc1b61443071bdc16e"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04e/loop.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04e__loop.py",
+      "sha256": "sha256:2c761b0dc4526f3266091c3b628aea2b44709d4b23821545f3d1e4cb31f3483f"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04e/loop_e.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04e__loop_e.py",
+      "sha256": "sha256:d692490ba9a1500a795ec643ca8ba9a08a9beacc67950443ea990ace0d0c0366"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04e/tasks.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04e__tasks.py",
+      "sha256": "sha256:5ebb00335e7658279eba8592b49960523d683e07013df105521f9edb15af1e2c"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04e/task_card.yaml",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04e__task_card.yaml",
+      "sha256": "sha256:aaf6c451df3e089aad7f4daf7b44aa2aa8a2f6c338644868f1683c7e4132e3d2"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04c/roles.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/prompts/exp_gm_04c__roles.py",
+      "sha256": "sha256:137df9c37f141e63d96176da162cd336f3829419d27216e675eea09efe079a41"
+    }
+  ],
+  "reviewer_cells": [
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:a3706ee9eba47f4e0f4b30a067e8f52b07a52a568437c6d248204f3456a8e3c9"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:bbb1e1dc5cb5a321a9c74d875abf72f5b7fe68dc105d2ff67c8c970e1e3831b3"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:4e1fc15d0d85149f50e486a3c97b5790d29674386cd1fd3859fe4f7d39fb298f"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_legacy_s0/cell_result.json",
+      "sha256": "sha256:023c55ce56ad4f753b95767ed5d390dad60de7790123cd943a6078b28fdd2f29"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_legacy_s1/cell_result.json",
+      "sha256": "sha256:faef968d5581e93cdf21bbec418a46e7c6530a0f7229defce7424184d2f0a236"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_legacy_s2/cell_result.json",
+      "sha256": "sha256:4d38ee5612af6f078f4beda0321b1ea1afa46425f816510af70b0b6eafa264e9"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:ebe67de31672d1b620307d3d7b95db5b3374f24036510a8a899030d7e2103e14"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:b2ea7e35ef983c5f876c197ff76650dc76699c47425db54ab885a5c20ec341cd"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:e209758af2bf3217010a7e8370bf249e44dbc29fd4d4bb4cacf2a8ccf72ef920"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_legacy_s0/cell_result.json",
+      "sha256": "sha256:f64551ac2d85ddae8ff0d625f505bcb228f1a9002495f64600f8e86001a549d6"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_legacy_s1/cell_result.json",
+      "sha256": "sha256:e62c05e77b2c8acd5a163a17abd2ad5483aff727b901e4830b1a176609965b37"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_legacy_s2/cell_result.json",
+      "sha256": "sha256:652d18099fbd9ab38c09d8370d06c6c61cb27d6483ecf39374c8621db86ddda0"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:abb70ab3006a660edaa8098a087e5894e57b2116f77305bfbd096058d416addc"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:09665eeaa4f9a906449eb6d699d464ddf9eb2478f6c01d90f40e8d4d8af3e257"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:99a06833a15a5b6dcd3a28a8989e2edcd5c117ff0bf7fd1556a22be12457f9a8"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_legacy_s0/cell_result.json",
+      "sha256": "sha256:dbf21ea40ffa520d1dbb25b54ad22fe5e777dd2e99c2083ae502b519ab5c56ae"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_legacy_s1/cell_result.json",
+      "sha256": "sha256:f1db3aeedaa4eaf80a8b11d1055c9f0c4e6298ba597b7159bab6047e744dce39"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_legacy_s2/cell_result.json",
+      "sha256": "sha256:75a8ad737f0dd8b19256534ed6f78ed747b229191a7cf091e7fbb8ff36592f1f"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:fcace00dd8faa51c62dbc6df20593d4b109524cdcdc8ce5649ce21c3a23a5a3b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:a67106031cf9a99666e717f50751a201fd8b95486996350131daf15e6381b207"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:d704ead62c082faf1c6cfb764ee44c5fbaf2bea9d1e314eb7fff7c83d3504185"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_legacy_s0/cell_result.json",
+      "sha256": "sha256:36b0856673769f76d22905c80c5e5389c15d105038a858a7151a624981e7e515"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_legacy_s1/cell_result.json",
+      "sha256": "sha256:6cc4456ccda300ab1be7596db802b5bdf39dd47cd566468718a204c0e59a4347"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_legacy_s2/cell_result.json",
+      "sha256": "sha256:d1402ee68828cddc5ef2d507161bb87a3a3be684e3386f9a3ca333398c4857a5"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:1448a6467f4657b5eeed8b3b5192c2c01dd5b230be7473ea3489f37ccd16702c"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:b4ce4df9d0f28c7edeefa80730512b612e56a04efc448367bb5bb79227e94256"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:aa3d408104fb0e599dc585062cb3ac5043520d3a277542138633bb0956c6f81e"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_legacy_s0/cell_result.json",
+      "sha256": "sha256:da3ead5050c65826eafebc1ecaf38fb091162fd7f077e0546ce578454db4531b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_legacy_s1/cell_result.json",
+      "sha256": "sha256:322fc44c77916fd50fe1be382be435132f6f0d88a88f3c7417dc3c1d1f8785be"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_legacy_s2/cell_result.json",
+      "sha256": "sha256:08283498e22e76ea54fa54139cd8b906fa77841d751238a806257a333c0271a9"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:32990231d7a35e605ae9f6c3b2a93455daf348376bd51f759ebfddb959ae20d6"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:58f09ba49755e82fd9ed9f621e322a1f365e2a3cddb9615c5cdfbb83c0fd3956"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:1a7af1953b41dbd2b0564e8cbb4eb4e670b6cd8c694b9f830148e5e7a26cd759"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_legacy_s0/cell_result.json",
+      "sha256": "sha256:256b3ca6e67413b66b90cb80d3d7391fc16b3b9e6b3f82b9ec0fd55dc65579eb"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_legacy_s1/cell_result.json",
+      "sha256": "sha256:16aec858848a53d8d74f17f0f5ae402f6316b2c20aa121e68f8c1bf25b77449f"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_legacy_s2/cell_result.json",
+      "sha256": "sha256:dafd35ea71c62b275748f594a29c849737f28a13b672174fc748cbaf21c9dee8"
+    }
+  ],
+  "executor_cells": [
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:cd5973512c3c9cae7c580575fe9b436249054072a25fc2d2e29173c287facf8e"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:5e593d17b11af36c89e0b1cfe35814d1a4749396a0238374dc150c4fe27ce179"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:0a6171a651173dd04eb7d5649f6d400c4ad4a39bf89ab187d1c2bc694b83a2ea"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s0/cell_result.json",
+      "sha256": "sha256:7bce0d12a709641011afdb605afde416b4851cf1890ac1066a60bb893bbf0104"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s1/cell_result.json",
+      "sha256": "sha256:beb4e269aaa23e031eca081100ae217fb4c20d604836ff6139c577471dfe464d"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s2/cell_result.json",
+      "sha256": "sha256:9c7f9de18afdb59d8a0be5e74a00d82526bf7f9282c28a5b2e2701ead9e836e0"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:911c3678fa66684186b56e95aab3a2bf4ed1b5faa0ca259d142b2feb479b6ac6"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:94bf623b0b99af226f5f451ed00ce458cb4947f48eb6f050efb613a8953c9274"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:88693c772487c6be623779cb4c85b26e8d3f5210d7a1d30323fe953c622434e6"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s0/cell_result.json",
+      "sha256": "sha256:f896555e3367528b9dc4a4f5df501e2a36fb21bd127d49144fdd10b7b1c74496"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s1/cell_result.json",
+      "sha256": "sha256:4801ef74d40ddebfb5640a58ef0cd5e0e6d032b2a539f216bd5b26352731b6ef"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s2/cell_result.json",
+      "sha256": "sha256:4cf0e09b3cf5713b9911fb6fdbd6d4ea26a2c18fde1b310a938d866045bfe43a"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s0/cell_result.json",
+      "sha256": "sha256:cd96240e6d68ab023e5303a79ea26cc0052610b4e9bf5345f5b40d8c10b6ee51"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s1/cell_result.json",
+      "sha256": "sha256:916185b68230a29fd945037c4348bc7e7935c381ed98335ed8db9d9b67c6cfe5"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s2/cell_result.json",
+      "sha256": "sha256:0f00f8632ab362b5c65f6e36790fadae2b43a95f0c63f810d6b8146349c2cab4"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s0/cell_result.json",
+      "sha256": "sha256:412be3d183333e8d790e498f1d5fdc5dcf0ada62683158d4e74a7cf2dd0a88e1"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s1/cell_result.json",
+      "sha256": "sha256:d10f9f27d6bd7726a3fca5da0b32299083ef47ec8bc7dde05d96474cbc825b17"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s2/cell_result.json",
+      "sha256": "sha256:a9f3a1d80f2b153f32f27161a8f8a14a32128812f7b0900e5e9c8218eec988fb"
+    }
+  ],
+  "reports": [
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/REPORT.md",
+      "sha256": "sha256:733daaf79947152a8ba1311a797b60a068554d47081aa635b860c8ea3a0fcb3d"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/cell_table.json",
+      "sha256": "sha256:8a856ed3887f4dd32206c0093f397a4d1623c4218930156c2ce5d159bbfbf8fd"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/REPORT.md",
+      "sha256": "sha256:4aba2ce5c1aaa3f942600dcfa2f8f45de4fe9da28c28a1bcda9cb0097827c87d"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/cell_table.json",
+      "sha256": "sha256:591a083b1a48576ae1166b32f265071d38272eaf9cbdb70ba2b7541f7fce2d3d"
+    }
+  ],
+  "heldout": [
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/tasks.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/tasks.py",
+      "sha256": "sha256:c0edce5c698d13f4d13eeae416b1a396fe0e33b555a1a25aa410eaa7daed0925"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/oracle/test_ship_v1.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/test_ship_v1.py",
+      "sha256": "sha256:4718b44dd8ba87e9b2235d9cb45f943b405d1e39949124daf17f594d69ec1c4a"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/oracle/test_ship_v2.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/test_ship_v2.py",
+      "sha256": "sha256:e804b2ea652082fdc65eb6cbb52a2b4cac1d0fd2cb3f9ec0d6ca29823c85b030"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/oracle/test_age_v1.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/test_age_v1.py",
+      "sha256": "sha256:acb4109f2861325fbec55ecbcd9928764b3f0e1e87fc8b0627aa352ada76731b"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/oracle/test_age_v2.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/test_age_v2.py",
+      "sha256": "sha256:d85af0eebc7488b340616c8f65f24c35a7ec3eb310a832ea3b8ea6271f730ed8"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/oracle/test_stock_v1.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/test_stock_v1.py",
+      "sha256": "sha256:c799401334aec7267744c978adaf50a4f25c0616ce929ae424a4f7360eba4258"
+    },
+    {
+      "src": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04d/oracle/test_stock_v2.py",
+      "seal": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_seal_20260824/heldout_snapshot/test_stock_v2.py",
+      "sha256": "sha256:cb01a86932790c2a5ae6072ec4a7458dc153cd7b7b9492ca5a70399e79147830"
+    }
+  ],
+  "reviewer_drafts": [
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_legacy_s0/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_legacy_s1/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_control_legacy_s2/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_legacy_s0/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_legacy_s1/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_budget_remaining_intervention_legacy_s2/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_legacy_s0/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_legacy_s1/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_control_legacy_s2/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_legacy_s0/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_legacy_s1/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_return_floor_intervention_legacy_s2/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_legacy_s0/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_legacy_s1/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_control_legacy_s2/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_legacy_s0/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_legacy_s1/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_r_20260824/runs/w1_wage_gate_intervention_legacy_s2/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    }
+  ],
+  "executor_before": [
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s0/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s1/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s2/draft_main.py",
+      "sha256": "sha256:d161f70f83c01e4c3499fdd4ba25c2202c6ad48cb9f7f818e2e8939491014f79"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s0/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s1/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s2/draft_main.py",
+      "sha256": "sha256:a84c8f228d12ea404ef8ecf9967bd59dc6dff4d2053546d543b8009ca2912f71"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s0/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s1/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s2/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s0/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s1/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s2/draft_main.py",
+      "sha256": "sha256:de3f8f49047c0e21ca2feab304b4851f28e73cba472fcd7369933694130ce38b"
+    }
+  ],
+  "executor_after": [
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s0/final_main.py",
+      "sha256": "sha256:58e7bca488259307c372b2e904337494aa7d355f563e6ac92ecc941032a980fe"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s1/final_main.py",
+      "sha256": "sha256:58e7bca488259307c372b2e904337494aa7d355f563e6ac92ecc941032a980fe"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_evidence_bound_s2/final_main.py",
+      "sha256": "sha256:58e7bca488259307c372b2e904337494aa7d355f563e6ac92ecc941032a980fe"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s0/final_main.py",
+      "sha256": "sha256:f405beda5019f53a22754152a0ae664f11ea47e8de9011f0eaf2e8285925b9bc"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s1/final_main.py",
+      "sha256": "sha256:f405beda5019f53a22754152a0ae664f11ea47e8de9011f0eaf2e8285925b9bc"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_budget_remaining_legacy_s2/final_main.py",
+      "sha256": "sha256:f405beda5019f53a22754152a0ae664f11ea47e8de9011f0eaf2e8285925b9bc"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s0/final_main.py",
+      "sha256": "sha256:41c3807ad206e4a8b3397afad338289df4376cd161690e5458ea2f1d5a5fb2ae"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s1/final_main.py",
+      "sha256": "sha256:41c3807ad206e4a8b3397afad338289df4376cd161690e5458ea2f1d5a5fb2ae"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_evidence_bound_s2/final_main.py",
+      "sha256": "sha256:41c3807ad206e4a8b3397afad338289df4376cd161690e5458ea2f1d5a5fb2ae"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s0/final_main.py",
+      "sha256": "sha256:5ad336837256381320c665174c867597c570a034b979718e7701875c3ae73f89"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s1/final_main.py",
+      "sha256": "sha256:5ad336837256381320c665174c867597c570a034b979718e7701875c3ae73f89"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_return_floor_legacy_s2/final_main.py",
+      "sha256": "sha256:5ad336837256381320c665174c867597c570a034b979718e7701875c3ae73f89"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s0/final_main.py",
+      "sha256": "sha256:de04059b45abef71b91a3059cf6a56a933f6813e12261b5cbf26f17435fd4f40"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s1/final_main.py",
+      "sha256": "sha256:de04059b45abef71b91a3059cf6a56a933f6813e12261b5cbf26f17435fd4f40"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_evidence_bound_s2/final_main.py",
+      "sha256": "sha256:de04059b45abef71b91a3059cf6a56a933f6813e12261b5cbf26f17435fd4f40"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s0/final_main.py",
+      "sha256": "sha256:937588b15e8d03a4e1cec652434d564615e818b75ea4fd4eb1914761202aba6c"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s1/final_main.py",
+      "sha256": "sha256:937588b15e8d03a4e1cec652434d564615e818b75ea4fd4eb1914761202aba6c"
+    },
+    {
+      "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04e_e_20260824/runs/w1_wage_gate_legacy_s2/final_main.py",
+      "sha256": "sha256:937588b15e8d03a4e1cec652434d564615e818b75ea4fd4eb1914761202aba6c"
+    }
+  ]
+}

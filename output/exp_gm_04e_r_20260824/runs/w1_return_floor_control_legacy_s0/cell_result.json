@@ -1,0 +1,91 @@
+{
+  "workflow_id": "exp_gm_04e_r_reviewer_only",
+  "instance_id": "w1_return_floor_control_legacy_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "reviewer-only cell executed"
+    },
+    {
+      "gate_id": "reviewer_only",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "executor not run"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "review_correct",
+      "layer": "R2",
+      "scorer": "reviewer_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "false_positive_revision",
+    "events": [
+      "draft_fixed",
+      "facts_extracted",
+      "reviewer_call_1",
+      "review_parsed"
+    ]
+  },
+  "extra": {
+    "task_id": "w1_return_floor",
+    "variant": "control",
+    "protocol": "legacy",
+    "seed": 0,
+    "mode": "llm",
+    "split": "development",
+    "reviewer_calls": 1,
+    "false_positive_revision": true,
+    "true_revision": false,
+    "grounded": true,
+    "review_parseable": true,
+    "review": {
+      "decision": "revise",
+      "reviewed_spec_version": "v1",
+      "required_spec_version": "v1",
+      "criterion_id": "min_return_rate",
+      "evidence": "The function `min_return` calculates the return as `int(principal * RATE)` which is equal to `int(principal * 0.3)`. The required change is to ensure the return rate is at least 0.3, but the current implementation does not guarantee this as it truncates the result to an integer.",
+      "required_change": {
+        "min_return_rate": 0.3
+      }
+    },
+    "verify": {
+      "ok": true,
+      "reason": "ok"
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

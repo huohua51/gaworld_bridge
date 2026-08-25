@@ -1,0 +1,8 @@
+{
+  "step1": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"crane_hk11\", \"output\": {\"hook\": \"H-A\", \"tons\": 4}}\n```",
+  "checkpoint": "```json\n{\"worker_id\": \"worker_a\", \"completed_steps\": [\"crane_hk11\"], \"outputs\": {\"crane_hk11\": {\"hook\": \"H-A\", \"tons\": 4}}}\n```",
+  "handoff": "```json\n{\n  \"successor\": \"worker_a\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"completed_steps\": [\"crane_hk11\"],\n  \"resume_step\": \"crane_hk12\",\n  \"remaining_steps\": [\"crane_hk12\", \"crane_hk13\"]\n}\n```",
+  "resume": "```json\n{\n  \"worker_id\": \"worker_a\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"resume_step\": \"crane_hk12\"\n}\n```",
+  "step2": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"crane_hk12\", \"output\": {\"hook\": \"H-B\", \"tons\": 7}}\n```",
+  "step3": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"crane_hk13\", \"output\": {\"hook\": \"H-C\", \"tons\": 2}}\n```"
+}

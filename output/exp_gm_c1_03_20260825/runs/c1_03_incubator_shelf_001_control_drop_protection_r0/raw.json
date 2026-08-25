@@ -1,0 +1,8 @@
+{
+  "report_a": "```json\n{\"agent_id\": \"agent_a\", \"feasible\": [\"ic81\", \"ic82\", \"ic83\"], \"preferred\": \"ic81\"}\n```",
+  "report_b": "```json\n{\"agent_id\": \"agent_b\", \"feasible\": [\"ic81\", \"ic82\", \"ic83\"], \"preferred\": \"ic82\"}\n```",
+  "initial": "```json\n{\"plan_version\": \"plan-init\", \"assignments\": {\"agent_a\": \"ic81\", \"agent_b\": \"ic82\"}, \"rule\": \"priority_keep_then_earliest_free\"}\n```",
+  "plan": "```json\n{\"plan_version\": \"plan-001\", \"assignments\": {\"agent_a\": \"ic81\", \"agent_b\": \"ic82\"}, \"rule\": \"priority_keep_then_earliest_free\"}\n```",
+  "commit_a": "```json\n{\"agent_id\": \"agent_a\", \"plan_version\": \"plan-001\", \"confirm\": true, \"slot\": \"ic81\"}\n```",
+  "commit_b": "```json\n{\"agent_id\": \"agent_b\", \"plan_version\": \"plan-001\", \"confirm\": true, \"slot\": \"ic82\"}\n```"
+}

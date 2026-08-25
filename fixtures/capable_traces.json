@@ -1,0 +1,42 @@
+{
+  "batch_id": "gaworld-rubric-pilot-capable",
+  "note": "GAWorld-shaped structured actions. Interview text is logged but not scored.",
+  "pairs": {
+    "trust_reciprocity_scale_001": {
+      "control": {
+        "agent_id": 31,
+        "interview": "对方把10块放大到30，规矩是至少还本金，我还10。",
+        "target_action": {
+          "action": "submit_return",
+          "payload": {"return_amount": 10}
+        }
+      },
+      "intervention": {
+        "agent_id": 31,
+        "interview": "这次没有返还义务，我选择留下。",
+        "target_action": {
+          "action": "submit_return",
+          "payload": {"return_amount": 0}
+        }
+      }
+    },
+    "reservation_wage_apply_001": {
+      "control": {
+        "agent_id": 2,
+        "interview": "到手9000高于我的保留工资8000，接。",
+        "target_action": {
+          "action": "evaluate_job_offer",
+          "payload": {"decision": "accept"}
+        }
+      },
+      "intervention": {
+        "agent_id": 2,
+        "interview": "到手6500低于8000，不接。",
+        "target_action": {
+          "action": "evaluate_job_offer",
+          "payload": {"decision": "reject"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+```json
+{"decision":"revise","mismatches":[{"path":"max_hours","old_value":"40","new_value":"40"}]}
+```

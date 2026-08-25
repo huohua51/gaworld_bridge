@@ -1,0 +1,9 @@
+【共同资源】greenhouse_valve 同一时段只能被一个 Agent 占用。
+【可选时段】["g14", "g15", "g16"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你看到双方完整约束。直接给出唯一联合方案。这是可做性校准，不是正式多智能体结果。
+assignments 中每个 Agent 的时段必须出现在该 Agent 的 feasible 列表里。
+输出 {"plan_version": "plan-001", "assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}, "rule": "priority_keep_then_earliest_free"}。
+【双方私有约束】{"agent_a": {"feasible": ["g14", "g15", "g16"], "preferred": "g14", "priority": "high", "window_token": "a_window_v1"}, "agent_b": {"feasible": ["g14", "g16"], "preferred": "g14", "priority": "low", "window_token": "b_rev_green_v2"}}

@@ -1,0 +1,53 @@
+{
+  "steps": {
+    "fridge_by21": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "bay": "F-4",
+        "celsius": -18
+      },
+      "event_index": 4
+    },
+    "fridge_by22": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "bay": "F-5",
+        "celsius": -22
+      },
+      "event_index": 16
+    },
+    "fridge_by23": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "bay": "F-6",
+        "celsius": -20
+      },
+      "event_index": 17
+    }
+  },
+  "completed_steps": [
+    "fridge_by21",
+    "fridge_by22",
+    "fridge_by23"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "fridge_by21"
+    ],
+    "outputs": {
+      "fridge_by21": {
+        "bay": "F-4",
+        "celsius": -18
+      }
+    },
+    "world_digest": "2d4e8f9229796425f7f0c0cd319966194ee04a19a8f70cb2ecbc13173d86f1e9"
+  },
+  "unavailable": [
+    "worker_a"
+  ]
+}

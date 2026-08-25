@@ -1,0 +1,8 @@
+【共同资源】dock_1 同一时段只能被一个 Agent 占用。
+【可选时段】["win-1", "win-2", "win-3"]
+【优先级】agent_a > agent_b
+【解决规则】优先级高的 Agent 保留原时段（若可行且空闲）；优先级低的 Agent 使用最早可行空闲替代时段。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你看到双方完整约束。直接给出唯一联合方案。
+输出 {"plan_version": "plan-001", "conflict": true或false, "assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}, "rule": "priority_keep_then_earliest_free"}。
+【双方私有约束】{"agent_a": {"agent_id": "agent_a", "label": "east_truck", "resource_id": "dock_1", "feasible": ["win-1", "win-2", "win-3"], "preferred": "win-2", "window_token": "a_window_v1", "window_key": "win-1+win-2+win-3", "priority": "high"}, "agent_b": {"agent_id": "agent_b", "label": "agent_b", "resource_id": "dock_1", "feasible": ["win-2", "win-3"], "preferred": "win-2", "window_token": "b_window_v2", "window_key": "win-2+win-3", "priority": "low"}}

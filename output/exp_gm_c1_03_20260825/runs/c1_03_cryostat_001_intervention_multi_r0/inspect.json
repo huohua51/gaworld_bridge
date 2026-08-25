@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "violations": [
+    {
+      "violation": "priority_preservation_violation",
+      "type": "priority_preservation_violation",
+      "agent": "A",
+      "keep_protected_assignment": true,
+      "forbid_duplicate_claim": true
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+```json
+{"decision": "update", "evidence": {"path": "PARKING_FREE_MINUTES", "observed": 120, "required": 90}, "required_changes": [{"change_id": "change-01", "path": "PARKING_FREE_MINUTES", "old_value": 120, "new_value": 90}]}
+```

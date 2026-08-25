@@ -1,0 +1,20 @@
+id: t3_parking_threshold_001
+title: 停车免费时长阈值
+kind: threshold
+artifact: parking_threshold.py
+criterion_id: parking_free_minutes
+symbol: PARKING_FREE_MINUTES
+target: parking_free_minutes
+function: fee_required
+allow_names: [SPEC_VERSION, PARKING_FREE_MINUTES]
+change_v1: {parking_free_minutes: 120}
+change_v2: {parking_free_minutes: 90}
+evidence_v1: evidence-parking-001
+evidence_v2: evidence-parking-002
+leak_tokens:
+  - "PARKING_FREE_MINUTES = 90"
+  - "免费时长改为 90"
+brief_rule: >
+  停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。
+  不要输出 Markdown 围栏。

@@ -1,0 +1,7 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "crane_hk11", "output": {"hook": "H-A", "tons": 4}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "crane_hk12", "output": {"hook": "H-B", "tons": 7}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "crane_hk13", "output": {"hook": "H-C", "tons": 2}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_crane_load_001_control_direct_r0/crane_load_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_crane_load_001_control_direct_r0/crane_load_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

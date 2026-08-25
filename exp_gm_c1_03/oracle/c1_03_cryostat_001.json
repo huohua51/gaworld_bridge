@@ -1,0 +1,12 @@
+{
+  "control": {
+    "nack_expected": false,
+    "first": {"agent_a": "cy91", "agent_b": "cy92"},
+    "assignments": {"agent_a": "cy91", "agent_b": "cy92"}
+  },
+  "intervention": {
+    "nack_expected": true,
+    "first": {"agent_a": "cy92", "agent_b": "cy91"},
+    "assignments": {"agent_a": "cy91", "agent_b": "cy92"}
+  }
+}

@@ -1,0 +1,11 @@
+task_id: resource_threshold
+control:
+  need_change: false
+  action: keep
+  target: NONE
+  value: NONE
+intervention:
+  need_change: true
+  action: revise
+  target: purchase_qty
+  value: 1

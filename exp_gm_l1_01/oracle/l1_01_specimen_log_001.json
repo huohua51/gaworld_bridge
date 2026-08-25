@@ -1,0 +1,32 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "intake_sp71": "worker_a",
+      "verify_sp71": "worker_a",
+      "archive_sp71": "worker_a"
+    },
+    "outputs": {
+      "intake_sp71": {"specimens": ["SP-771", "SP-772"]},
+      "verify_sp71": {"checksum": "vfy-SP-771-SP-772", "count": 2},
+      "archive_sp71": {"bin": "AR-29", "seal": "vfy-SP-771-SP-772"}
+    },
+    "resume_step": "verify_sp71",
+    "interrupt_after": "intake_sp71"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "intake_sp71": "worker_a",
+      "verify_sp71": "worker_b",
+      "archive_sp71": "worker_b"
+    },
+    "outputs": {
+      "intake_sp71": {"specimens": ["SP-771", "SP-772"]},
+      "verify_sp71": {"checksum": "vfy-SP-771-SP-772", "count": 2},
+      "archive_sp71": {"bin": "AR-29", "seal": "vfy-SP-771-SP-772"}
+    },
+    "resume_step": "verify_sp71",
+    "interrupt_after": "intake_sp71"
+  }
+}

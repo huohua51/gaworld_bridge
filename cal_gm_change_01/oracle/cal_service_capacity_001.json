@@ -1,0 +1,4 @@
+{
+  "control": {"decision": "keep", "required_change": null},
+  "intervention": {"decision": "update", "required_change": {"path": "service_capacity", "old_value": 40, "new_value": 35}}
+}

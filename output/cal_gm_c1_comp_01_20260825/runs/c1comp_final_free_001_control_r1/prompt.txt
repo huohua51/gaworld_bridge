@@ -1,0 +1,6 @@
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+只输出 {"final_plan_conflict_free": true 或 false}。不要输出 assignments 或其它字段。
+判断的是已经形成的最终方案：是否仍有两个 Agent 占用同一时段。
+最终方案没有重复占用为 true；仍有重复占用为 false。这不是初始冲突判断。
+【最终方案】{"agent_a": "bench-1", "agent_b": "bench-2"}
+【共同资源】lab_bench

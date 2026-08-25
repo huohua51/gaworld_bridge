@@ -1,0 +1,15 @@
+```json
+{
+  "decision": "update",
+  "evidence": {
+    "path": "eligibility_age",
+    "observed": 18,
+    "required": 21
+  },
+  "required_change": {
+    "path": "eligibility_age",
+    "old_value": 18,
+    "new_value": 21
+  }
+}
+```

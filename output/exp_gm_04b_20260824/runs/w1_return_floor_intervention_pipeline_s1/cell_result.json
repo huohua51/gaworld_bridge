@@ -1,0 +1,164 @@
+{
+  "workflow_id": "exp_gm_04b_task_w1_revision",
+  "instance_id": "w1_return_floor_intervention_pipeline_s1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "track=pipeline variant=intervention elapsed=6.175s"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "eval_mode.enabled"
+    },
+    {
+      "gate_id": "revision_timing",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "['queue_submit', 'queue_claim', 'requirement_revision', 'revision_delivered', 'adapter_run', 'queue_result', 'absorb']"
+    },
+    {
+      "gate_id": "control_has_no_revision",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "oracle_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "artifact_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "['/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04b_20260824/runs/w1_return_floor_intervention_pipeline_s1/artifacts/agent_5/w1_return_floor_intervention_pipeline_s1/main.py']"
+    },
+    {
+      "gate_id": "producer_is_agent_adapter",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04b_20260824/runs/w1_return_floor_intervention_pipeline_s1/artifacts/agent_5/w1_return_floor_intervention_pipeline_s1/main.py"
+      ],
+      "detail": "...                                                                      [100%]\n3 passed in 0.01s\n\n"
+    },
+    {
+      "criterion_id": "hidden_test_pass_rate",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "3/3"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "version_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "input=v2 artifact=v2 expected=v2 other_also=False"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "queue_submit",
+      "queue_claim",
+      "requirement_revision",
+      "revision_delivered",
+      "adapter_run",
+      "queue_result",
+      "absorb"
+    ],
+    "producer": "work_pipeline",
+    "absorb_occurred": true,
+    "input_spec_version": "v2",
+    "artifact_spec_version": "v2",
+    "claim_spec_version": "v1",
+    "delivered_version": "v2"
+  },
+  "extra": {
+    "task_id": "w1_return_floor",
+    "track": "pipeline",
+    "variant": "intervention",
+    "seed": 1,
+    "run_id": "w1_return_floor_intervention_pipeline_s1",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0,
+    "mechanism_condition": "pipeline:intervention",
+    "expected_version": "v2",
+    "adapter_status": "ok",
+    "adapter_error": null,
+    "oracle_expected": {
+      "evaluable": true,
+      "passed": true,
+      "pass_count": 3,
+      "fail_count": 0,
+      "returncode": 0,
+      "stdout_tail": "...                                                                      [100%]\n3 passed in 0.01s\n\n",
+      "first_error": "none"
+    },
+    "oracle_other": {
+      "evaluable": true,
+      "passed": false,
+      "pass_count": 2,
+      "fail_count": 1,
+      "returncode": 1,
+      "stdout_tail": "F..                                                                      [100%]\n=================================== FAILURES ===================================\n/tmp/w1_oracle_m3hfzphe/test_oracle.py:5: assert 50 == 30\n=========================== short test summary info ============================\nFAILED test_oracle.py::test_rate_on_100 - assert 50 == 30\n1 failed, 2 passed in 0.01s\n\n",
+      "first_error": "oracle_tests_failed"
+    },
+    "revision": {
+      "ok": true,
+      "task_id": "w1_return_floor_intervention_pipeline_s1",
+      "from_version": "v1",
+      "to_version": "v2",
+      "status": "running"
+    },
+    "elapsed_s": 6.175,
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "other_version_also_passes": false,
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

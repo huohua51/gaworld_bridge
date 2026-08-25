@@ -1,0 +1,112 @@
+{
+  "workflow_id": "exp_gm_04a_task_w1_lite",
+  "instance_id": "w1_wage_gate_e2e_s2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "track=e2e elapsed=9.786s"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "eval_mode.enabled"
+    },
+    {
+      "gate_id": "oracle_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "/home/wuxingye/projects/gaworld_eval_bridge/exp_gm_04/oracle/test_w1_wage_gate.py"
+    },
+    {
+      "gate_id": "artifact_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "['/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04a_20260824/runs/w1_wage_gate_e2e_s2/artifacts/agent_5/w1_wage_gate_e2e_s2/main.py']"
+    },
+    {
+      "gate_id": "producer_is_agent_adapter",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "hidden_oracle_full_pass",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_04a_20260824/runs/w1_wage_gate_e2e_s2/artifacts/agent_5/w1_wage_gate_e2e_s2/main.py"
+      ],
+      "detail": "....                                                                     [100%]\n4 passed in 0.01s\n\n"
+    },
+    {
+      "criterion_id": "hidden_test_pass_rate",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "4/4"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "queue_submit",
+      "queue_claim",
+      "adapter_run",
+      "queue_result",
+      "absorb"
+    ],
+    "producer": "work_pipeline",
+    "absorb_occurred": true
+  },
+  "extra": {
+    "task_id": "w1_wage_gate",
+    "track": "e2e",
+    "seed": 2,
+    "run_id": "w1_wage_gate_e2e_s2",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0,
+    "mechanism_condition": "e2e",
+    "adapter_status": "ok",
+    "adapter_error": null,
+    "oracle": {
+      "evaluable": true,
+      "passed": true,
+      "pass_count": 4,
+      "fail_count": 0,
+      "returncode": 0,
+      "stdout_tail": "....                                                                     [100%]\n4 passed in 0.01s\n\n",
+      "first_error": "none"
+    },
+    "elapsed_s": 9.786,
+    "agent_success": true,
+    "system_success": true,
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

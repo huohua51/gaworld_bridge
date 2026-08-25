@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>盲评 · H1</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <nav><a href="/">返回</a></nav>
+    <h1>12 项盲评</h1>
+    <p>1 = 完全不像真人团队互动，7 = 完全像。不要根据任务对错打分。正式 H1 分尚未产生。</p>
+  </header>
+  <main>
+    <label>刺激
+      <select id="sid"></select>
+    </label>
+    <label>评委代号
+      <input id="rater" placeholder="内部代号，不要写真名" />
+    </label>
+    <div id="trace"></div>
+    <h2>量表</h2>
+    <div id="items"></div>
+    <button id="save" type="button">提交评分</button>
+    <p class="status" id="status"></p>
+  </main>
+  <script src="/rater.js"></script>
+</body>
+</html>

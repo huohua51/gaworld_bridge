@@ -1,0 +1,1464 @@
+{
+  "generated_at": "2026-08-25T05:50:08.981989+00:00",
+  "experiment_id": "EXP-GM-C1-01",
+  "parent": "EXP-GM-T3-03",
+  "phase": "direct",
+  "gate": "direct_fail",
+  "ranking_eligible": false,
+  "generalization_claim": false,
+  "direct_ok": false,
+  "direct_fullpass": 0.1667,
+  "claim": "Direct 不可做。停止。不解释 Single/Multi/Drop。",
+  "freeze": {
+    "experiment_id": "EXP-GM-C1-01",
+    "parent": "EXP-GM-T3-03",
+    "phase": "rule",
+    "frozen_at": "2026-08-25T05:49:08.015382+00:00",
+    "task_card_hash": "4ad1318f66d16c363884bd4f26c6800e57163939412e2324491e1a9e112c4dcf",
+    "task_hash": "8d38c770e5a67b63e0a7b9ae72e54c009c16d9eef8848a014f17d92103b87e94",
+    "protocol_hash": "ab91cf505ad9d16f354cdd13863739c1149f5e08029158937d8312c28baeabab",
+    "scorer_hash": "1699e75cf85bd4001eb5851680e70ecb90ce225f22541918b6fa4ddad3a02bfb",
+    "runner_hash": "f24f9bceb02f46d7b73c46a075740fb32ef25e238cade65a4ed495373021b4f0",
+    "base_commit": "a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c",
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "fairness_preflight": {
+      "ok": true,
+      "leaks": [],
+      "call_contract": {
+        "direct": [
+          "一次调用看到双方约束并输出唯一联合方案"
+        ],
+        "single": [
+          "同一 Agent 看到双方约束",
+          "仍走 5 次调用：A报告、B报告、协调、A确认执行、B确认执行"
+        ],
+        "multi": [
+          "A/B 各持私有约束并发送报告",
+          "协调者只读已送达报告",
+          "两人确认同一方案版本并占用资源"
+        ],
+        "drop": [
+          "A/B 和协调者都运行",
+          "B 的约束报告被丢弃",
+          "协调者收件箱没有 B"
+        ]
+      },
+      "logical_calls_per_matrix_cell": 5,
+      "environment_rewrites_world": false,
+      "channel_rewrites_payload": false
+    },
+    "do_not_edit_after_freeze": [
+      "task_card.yaml",
+      "protocol.md",
+      "scorer.py",
+      "prompts.py",
+      "contract.py",
+      "channel.py",
+      "loader.py",
+      "tasks",
+      "oracle"
+    ],
+    "not_t3_items": true,
+    "heldout": "not_created"
+  },
+  "summary": {
+    "workflow_id": "exp_gm_c1_01_coordination",
+    "requested": 6,
+    "measurement_valid": 6,
+    "coverage": 1.0,
+    "full_pass_rate": 0.1667,
+    "mean_task_score": 0.7667,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "exp_gm_c1_01_coordination",
+        "instance_id": "c1_charge_slot_001_control_direct_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.8,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "private_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_sender_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_receiver_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "world_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "individual_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "no_resource_conflict",
+            "layer": "R2",
+            "scorer": "world_occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_plan_committed",
+            "layer": "R2",
+            "scorer": "plan_version",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "execution_matches_plan",
+            "layer": "R2",
+            "scorer": "world_vs_plan",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "joint_coordination",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "conflict_not_detected",
+          "events": [
+            "direct_plan"
+          ],
+          "budget": {
+            "calls": 1,
+            "max_calls": 1,
+            "kinds": [
+              "direct_plan"
+            ],
+            "expected": [
+              "direct_plan"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "valid": true
+          },
+          "world": {
+            "claims": [
+              {
+                "agent_id": "agent_a",
+                "slot": "09:00",
+                "plan_version": "plan-001"
+              },
+              {
+                "agent_id": "agent_b",
+                "slot": "10:00",
+                "plan_version": "plan-001"
+              }
+            ],
+            "by_agent": {
+              "agent_a": "09:00",
+              "agent_b": "10:00"
+            },
+            "occupied": {
+              "09:00": [
+                "agent_a"
+              ],
+              "10:00": [
+                "agent_b"
+              ]
+            },
+            "duplicates": {}
+          }
+        },
+        "extra": {
+          "task_id": "c1_charge_slot_001",
+          "variant": "control",
+          "track": "direct",
+          "repeat_id": 0,
+          "individual_constraint_satisfaction": true,
+          "no_resource_conflict": true,
+          "joint_plan_committed": true,
+          "execution_matches_plan": true,
+          "b_ran": true,
+          "b_delivered": true,
+          "budget_calls": 1,
+          "budget_kinds": [
+            "direct_plan"
+          ],
+          "first_error": "conflict_not_detected",
+          "got": {
+            "agent_a": "09:00",
+            "agent_b": "10:00"
+          },
+          "want": {
+            "agent_a": "09:00",
+            "agent_b": "10:00"
+          },
+          "ranking_note": "coordination pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_c1_01_coordination",
+        "instance_id": "c1_charge_slot_001_intervention_direct_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.8,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "private_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_sender_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_receiver_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "world_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "individual_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "no_resource_conflict",
+            "layer": "R2",
+            "scorer": "world_occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_plan_committed",
+            "layer": "R2",
+            "scorer": "plan_version",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "execution_matches_plan",
+            "layer": "R2",
+            "scorer": "world_vs_plan",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "joint_coordination",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "conflict_not_detected",
+          "events": [
+            "direct_plan"
+          ],
+          "budget": {
+            "calls": 1,
+            "max_calls": 1,
+            "kinds": [
+              "direct_plan"
+            ],
+            "expected": [
+              "direct_plan"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "valid": true
+          },
+          "world": {
+            "claims": [
+              {
+                "agent_id": "agent_a",
+                "slot": "09:00",
+                "plan_version": "plan-001"
+              },
+              {
+                "agent_id": "agent_b",
+                "slot": "11:00",
+                "plan_version": "plan-001"
+              }
+            ],
+            "by_agent": {
+              "agent_a": "09:00",
+              "agent_b": "11:00"
+            },
+            "occupied": {
+              "09:00": [
+                "agent_a"
+              ],
+              "11:00": [
+                "agent_b"
+              ]
+            },
+            "duplicates": {}
+          }
+        },
+        "extra": {
+          "task_id": "c1_charge_slot_001",
+          "variant": "intervention",
+          "track": "direct",
+          "repeat_id": 0,
+          "individual_constraint_satisfaction": true,
+          "no_resource_conflict": true,
+          "joint_plan_committed": true,
+          "execution_matches_plan": true,
+          "b_ran": true,
+          "b_delivered": true,
+          "budget_calls": 1,
+          "budget_kinds": [
+            "direct_plan"
+          ],
+          "first_error": "conflict_not_detected",
+          "got": {
+            "agent_a": "09:00",
+            "agent_b": "11:00"
+          },
+          "want": {
+            "agent_a": "09:00",
+            "agent_b": "11:00"
+          },
+          "ranking_note": "coordination pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_c1_01_coordination",
+        "instance_id": "c1_device_book_001_control_direct_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.4,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "private_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_sender_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_receiver_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "world_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "individual_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "no_resource_conflict",
+            "layer": "R2",
+            "scorer": "world_occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_plan_committed",
+            "layer": "R2",
+            "scorer": "plan_version",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "execution_matches_plan",
+            "layer": "R2",
+            "scorer": "world_vs_plan",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "joint_coordination",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "invalid_joint_plan",
+          "events": [
+            "direct_plan"
+          ],
+          "budget": {
+            "calls": 1,
+            "max_calls": 1,
+            "kinds": [
+              "direct_plan"
+            ],
+            "expected": [
+              "direct_plan"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "valid": true
+          },
+          "world": {
+            "claims": [
+              {
+                "agent_id": "agent_a",
+                "slot": "slot-1",
+                "plan_version": "plan-001"
+              },
+              {
+                "agent_id": "agent_b",
+                "slot": "slot-3",
+                "plan_version": "plan-001"
+              }
+            ],
+            "by_agent": {
+              "agent_a": "slot-1",
+              "agent_b": "slot-3"
+            },
+            "occupied": {
+              "slot-1": [
+                "agent_a"
+              ],
+              "slot-3": [
+                "agent_b"
+              ]
+            },
+            "duplicates": {}
+          }
+        },
+        "extra": {
+          "task_id": "c1_device_book_001",
+          "variant": "control",
+          "track": "direct",
+          "repeat_id": 0,
+          "individual_constraint_satisfaction": true,
+          "no_resource_conflict": true,
+          "joint_plan_committed": false,
+          "execution_matches_plan": false,
+          "b_ran": true,
+          "b_delivered": true,
+          "budget_calls": 1,
+          "budget_kinds": [
+            "direct_plan"
+          ],
+          "first_error": "invalid_joint_plan",
+          "got": {
+            "agent_a": "slot-1",
+            "agent_b": "slot-3"
+          },
+          "want": {
+            "agent_a": "slot-1",
+            "agent_b": "slot-2"
+          },
+          "ranking_note": "coordination pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_c1_01_coordination",
+        "instance_id": "c1_device_book_001_intervention_direct_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.8,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "private_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_sender_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_receiver_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "world_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "individual_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "no_resource_conflict",
+            "layer": "R2",
+            "scorer": "world_occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_plan_committed",
+            "layer": "R2",
+            "scorer": "plan_version",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "execution_matches_plan",
+            "layer": "R2",
+            "scorer": "world_vs_plan",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "joint_coordination",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "conflict_not_detected",
+          "events": [
+            "direct_plan"
+          ],
+          "budget": {
+            "calls": 1,
+            "max_calls": 1,
+            "kinds": [
+              "direct_plan"
+            ],
+            "expected": [
+              "direct_plan"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "valid": true
+          },
+          "world": {
+            "claims": [
+              {
+                "agent_id": "agent_a",
+                "slot": "slot-1",
+                "plan_version": "plan-001"
+              },
+              {
+                "agent_id": "agent_b",
+                "slot": "slot-3",
+                "plan_version": "plan-001"
+              }
+            ],
+            "by_agent": {
+              "agent_a": "slot-1",
+              "agent_b": "slot-3"
+            },
+            "occupied": {
+              "slot-1": [
+                "agent_a"
+              ],
+              "slot-3": [
+                "agent_b"
+              ]
+            },
+            "duplicates": {}
+          }
+        },
+        "extra": {
+          "task_id": "c1_device_book_001",
+          "variant": "intervention",
+          "track": "direct",
+          "repeat_id": 0,
+          "individual_constraint_satisfaction": true,
+          "no_resource_conflict": true,
+          "joint_plan_committed": true,
+          "execution_matches_plan": true,
+          "b_ran": true,
+          "b_delivered": true,
+          "budget_calls": 1,
+          "budget_kinds": [
+            "direct_plan"
+          ],
+          "first_error": "conflict_not_detected",
+          "got": {
+            "agent_a": "slot-1",
+            "agent_b": "slot-3"
+          },
+          "want": {
+            "agent_a": "slot-1",
+            "agent_b": "slot-3"
+          },
+          "ranking_note": "coordination pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_c1_01_coordination",
+        "instance_id": "c1_dock_window_001_control_direct_r0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "private_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_sender_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_receiver_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "world_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "individual_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "no_resource_conflict",
+            "layer": "R2",
+            "scorer": "world_occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_plan_committed",
+            "layer": "R2",
+            "scorer": "plan_version",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "execution_matches_plan",
+            "layer": "R2",
+            "scorer": "world_vs_plan",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "joint_coordination",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "direct_plan"
+          ],
+          "budget": {
+            "calls": 1,
+            "max_calls": 1,
+            "kinds": [
+              "direct_plan"
+            ],
+            "expected": [
+              "direct_plan"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "valid": true
+          },
+          "world": {
+            "claims": [
+              {
+                "agent_id": "agent_a",
+                "slot": "win-2",
+                "plan_version": "plan-001"
+              },
+              {
+                "agent_id": "agent_b",
+                "slot": "win-1",
+                "plan_version": "plan-001"
+              }
+            ],
+            "by_agent": {
+              "agent_a": "win-2",
+              "agent_b": "win-1"
+            },
+            "occupied": {
+              "win-2": [
+                "agent_a"
+              ],
+              "win-1": [
+                "agent_b"
+              ]
+            },
+            "duplicates": {}
+          }
+        },
+        "extra": {
+          "task_id": "c1_dock_window_001",
+          "variant": "control",
+          "track": "direct",
+          "repeat_id": 0,
+          "individual_constraint_satisfaction": true,
+          "no_resource_conflict": true,
+          "joint_plan_committed": true,
+          "execution_matches_plan": true,
+          "b_ran": true,
+          "b_delivered": true,
+          "budget_calls": 1,
+          "budget_kinds": [
+            "direct_plan"
+          ],
+          "first_error": "none",
+          "got": {
+            "agent_a": "win-2",
+            "agent_b": "win-1"
+          },
+          "want": {
+            "agent_a": "win-2",
+            "agent_b": "win-1"
+          },
+          "ranking_note": "coordination pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_c1_01_coordination",
+        "instance_id": "c1_dock_window_001_intervention_direct_r0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.8,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "budget_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "private_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_sender_ran",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "drop_receiver_isolated",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "oracle_not_in_prompts",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "world_exists",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "individual_constraint_satisfaction",
+            "layer": "R2",
+            "scorer": "feasible_sets",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "no_resource_conflict",
+            "layer": "R2",
+            "scorer": "world_occupancy",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "joint_plan_committed",
+            "layer": "R2",
+            "scorer": "plan_version",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "execution_matches_plan",
+            "layer": "R2",
+            "scorer": "world_vs_plan",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "joint_coordination",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "conflict_not_detected",
+          "events": [
+            "direct_plan"
+          ],
+          "budget": {
+            "calls": 1,
+            "max_calls": 1,
+            "kinds": [
+              "direct_plan"
+            ],
+            "expected": [
+              "direct_plan"
+            ],
+            "model": "GLM-4-Flash",
+            "temperature": 0,
+            "valid": true
+          },
+          "world": {
+            "claims": [
+              {
+                "agent_id": "agent_a",
+                "slot": "win-2",
+                "plan_version": "plan-001"
+              },
+              {
+                "agent_id": "agent_b",
+                "slot": "win-3",
+                "plan_version": "plan-001"
+              }
+            ],
+            "by_agent": {
+              "agent_a": "win-2",
+              "agent_b": "win-3"
+            },
+            "occupied": {
+              "win-2": [
+                "agent_a"
+              ],
+              "win-3": [
+                "agent_b"
+              ]
+            },
+            "duplicates": {}
+          }
+        },
+        "extra": {
+          "task_id": "c1_dock_window_001",
+          "variant": "intervention",
+          "track": "direct",
+          "repeat_id": 0,
+          "individual_constraint_satisfaction": true,
+          "no_resource_conflict": true,
+          "joint_plan_committed": true,
+          "execution_matches_plan": true,
+          "b_ran": true,
+          "b_delivered": true,
+          "budget_calls": 1,
+          "budget_kinds": [
+            "direct_plan"
+          ],
+          "first_error": "conflict_not_detected",
+          "got": {
+            "agent_a": "win-2",
+            "agent_b": "win-3"
+          },
+          "want": {
+            "agent_a": "win-2",
+            "agent_b": "win-3"
+          },
+          "ranking_note": "coordination pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash"
+        }
+      }
+    ]
+  },
+  "fairness": {
+    "coverage": 1.0,
+    "budget_ok": false,
+    "isolation_ok": false,
+    "single_full": null,
+    "multi_full": null,
+    "drop_full": null
+  },
+  "metrics": {
+    "Coverage": {
+      "single": 0.0,
+      "multi": 0.0,
+      "drop": 0.0
+    },
+    "individual_constraint_satisfaction": {
+      "single": null,
+      "multi": null,
+      "drop": null
+    },
+    "no_resource_conflict": {
+      "single": null,
+      "multi": null,
+      "drop": null
+    },
+    "joint_plan_committed": {
+      "single": null,
+      "multi": null,
+      "drop": null
+    },
+    "execution_matches_plan": {
+      "single": null,
+      "multi": null,
+      "drop": null
+    },
+    "FullPass": {
+      "single": null,
+      "multi": null,
+      "drop": null
+    },
+    "StrictPair": {
+      "single": null,
+      "multi": null,
+      "drop": null
+    },
+    "first_error": {
+      "conflict_not_detected": 4,
+      "invalid_joint_plan": 1,
+      "none": 1
+    },
+    "interpretation": "Coverage 不足，不解释。",
+    "floor": false,
+    "ceiling": false
+  },
+  "model": "GLM-4-Flash",
+  "temperature": 0,
+  "note": "集体协调试点。不补 T3，不建留出。第一轮只跑 18 格。"
+}

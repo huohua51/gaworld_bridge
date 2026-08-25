@@ -1,0 +1,2427 @@
+{
+  "generated_at": "2026-08-24T13:16:35.994279+00:00",
+  "experiment_id": "EXP-GM-OA-02",
+  "task_id": "TASK-OA-exclusive-keep-revise",
+  "phase": "all",
+  "mode": "llm",
+  "ranking_eligible": false,
+  "oa01_frozen": true,
+  "summary": {
+    "workflow_id": "exp_gm_oa_02_exclusive_action",
+    "requested": 18,
+    "measurement_valid": 18,
+    "coverage": 1.0,
+    "full_pass_rate": 1.0,
+    "mean_task_score": 1.0,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "appointment_update_control_exclusive_keep_revise_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-appointment_update-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 0,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "appointment_update_intervention_exclusive_keep_revise_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=appointment_slot value=16:00"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-appointment_update-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 0,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "resource_threshold_control_exclusive_keep_revise_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-resource_threshold-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 0,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "resource_threshold_intervention_exclusive_keep_revise_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=purchase_qty value=1"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-resource_threshold-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 0,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "purchase_qty",
+            "value": "1",
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "responsibility_update_control_exclusive_keep_revise_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-responsibility_update-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 0,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "responsibility_update_intervention_exclusive_keep_revise_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=assignee_id value=backup-01"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-responsibility_update-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 0,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "appointment_update_control_exclusive_keep_revise_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-appointment_update-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 1,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "appointment_update_control_exclusive_keep_revise_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-appointment_update-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 2,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "appointment_update_intervention_exclusive_keep_revise_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=appointment_slot value=16:00"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-appointment_update-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 1,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "appointment_update_intervention_exclusive_keep_revise_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=appointment_slot value=16:00"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-appointment_update-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 2,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "resource_threshold_control_exclusive_keep_revise_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-resource_threshold-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 1,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "resource_threshold_control_exclusive_keep_revise_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-resource_threshold-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 2,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "resource_threshold_intervention_exclusive_keep_revise_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=purchase_qty value=1"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-resource_threshold-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 1,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "purchase_qty",
+            "value": "1",
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "resource_threshold_intervention_exclusive_keep_revise_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=purchase_qty value=1"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-resource_threshold-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 2,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "purchase_qty",
+            "value": "1",
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "responsibility_update_control_exclusive_keep_revise_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-responsibility_update-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 1,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "responsibility_update_control_exclusive_keep_revise_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep_current_plan expected=keep_current_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=None value=None"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-responsibility_update-control"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "control",
+          "seed": 2,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "keep_current_plan",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "responsibility_update_intervention_exclusive_keep_revise_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=assignee_id value=backup-01"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-responsibility_update-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 1,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_02_exclusive_action",
+        "instance_id": "responsibility_update_intervention_exclusive_keep_revise_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "contract_accepted",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "ok"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "action_selection_correct",
+            "layer": "R2",
+            "scorer": "oa02_action",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise_plan expected=revise_plan"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa02_target",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "target=assignee_id value=backup-01"
+          },
+          {
+            "criterion_id": "oracle_conditioned_success",
+            "layer": "R3",
+            "scorer": "oa02_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "evidence=event-responsibility_update-intervention"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "contract_error": "ok",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "exclusive_keep_revise",
+          "variant": "intervention",
+          "seed": 2,
+          "action_selection_correct": true,
+          "target_correct": true,
+          "oracle_conditioned_success": true,
+          "contract_rejected": false,
+          "action": {
+            "action": "revise_plan",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "rates": {
+      "Coverage": 1.0,
+      "ActionSelectionAccuracy": 1.0,
+      "ControlStabilityRate": 1.0,
+      "AdaptationRate": 1.0,
+      "ContractFailureRate": 0.0,
+      "TargetCorrect": 1.0,
+      "OracleConditionedFullPass": 1.0
+    },
+    "pass_gate": {
+      "coverage_ok": true,
+      "stability_ok": true,
+      "adaptation_ok": true,
+      "contract_ok": true,
+      "holds": true
+    }
+  },
+  "oa01_need_change_gate_baseline": {
+    "source": "EXP-GM-OA-01 need_change_gate, frozen, not rerun",
+    "n": 18,
+    "Coverage": 1.0,
+    "ActionSelectionAccuracy": 1.0,
+    "ControlStabilityRate": 0.6667,
+    "AdaptationRate": 1.0,
+    "ContractFailureRate": 0.0,
+    "TargetCorrect": 0.8333,
+    "OracleConditionedFullPass": 0.8333,
+    "note": "ContractFailureRate=0 是因为 OA-01 统一 JSON 接受了 keep 的占位字段；失败记在 TargetCorrect / FullPass，不是提交拒绝。"
+  },
+  "claim": "将 keep 与 revise 拆成两个动作，消除了开发集中的无意义占位符失败。这还不等于过度适应机制已解决，暂不建留出题。"
+}

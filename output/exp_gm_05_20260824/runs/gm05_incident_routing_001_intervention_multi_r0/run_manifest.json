@@ -1,0 +1,29 @@
+{
+  "task_id": "gm05_incident_routing_001",
+  "variant": "intervention",
+  "track": "multi",
+  "budget": {
+    "calls": 3,
+    "max_calls": 3,
+    "kinds": [
+      "executor_draft",
+      "review",
+      "executor_final"
+    ],
+    "elapsed_s": [
+      23.197101831436157,
+      6.570576906204224,
+      39.50565528869629
+    ],
+    "prompt_chars": [
+      283,
+      2110,
+      2352
+    ],
+    "total_elapsed_s": 69.273,
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "max_tokens": 2048,
+    "valid": true
+  }
+}

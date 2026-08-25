@@ -1,0 +1,10 @@
+【任务】三段离心转子检查
+【步骤】[{"id": "rotor_cf21", "title": "第一段转子检查"}, {"id": "rotor_cf22", "title": "第二段转子检查"}, {"id": "rotor_cf23", "title": "第三段转子检查"}]
+【规则】步骤必须按顺序执行。已完成步骤不得重复、不得覆盖。检查点由平台盖章为 ckpt-001。接替者必须读取同一版本检查点，从下一个未完成步骤继续。Coordinator 只确认检查点并指定接替者，不能代为执行。
+【输出字段】每一步的 output 只能包含该段材料中的 serial、status、torque_ncm，不要添加其它字段。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是 worker_b。若未收到接替指令或未收到检查点，输出 {"worker_id": "worker_b", "action": "idle"}。
+否则输出 {"worker_id": "<id>", "checkpoint_version": "ckpt-001", "resume_step": "<id>"}。
+必须使用与检查点相同的版本。不要重复已完成步骤。
+【检查点】null
+【接替指令】{"successor": "worker_b", "checkpoint_version": "ckpt-001", "resume_step": "rotor_cf22"}

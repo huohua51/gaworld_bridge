@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>真人执行 · H1</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <nav><a href="/">返回</a></nav>
+    <h1>真人执行</h1>
+    <p>一人按角色顺序完成整条工作流。保存的轨迹与 Agent 刺激同一展示格式。内部采集，最小风险；数据只用于 H1 开发。</p>
+  </header>
+  <main>
+    <div class="row">
+      <label>构念
+        <select id="construct"><option>T3</option><option>I1</option><option>L1</option></select>
+      </label>
+      <label>题目
+        <select id="task"></select>
+      </label>
+      <label>变体
+        <select id="variant"><option value="A">A</option><option value="B">B</option></select>
+      </label>
+    </div>
+    <p id="brief"></p>
+    <div id="workspace"></div>
+    <button id="save" type="button">保存 Human Trace</button>
+    <p class="status" id="status"></p>
+  </main>
+  <script src="/human.js"></script>
+</body>
+</html>

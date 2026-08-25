@@ -1,0 +1,45 @@
+{
+  "steps": {
+    "file_rx41": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "received_ids": [
+          "D17",
+          "D18"
+        ],
+        "batch": "B4"
+      },
+      "event_index": 1
+    },
+    "file_ck41": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "verified_ids": [
+          "D17",
+          "D18"
+        ],
+        "missing_ids": []
+      },
+      "event_index": 2
+    },
+    "file_ar41": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "folder": "F2",
+        "sealed": true
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "file_rx41",
+    "file_ck41",
+    "file_ar41"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

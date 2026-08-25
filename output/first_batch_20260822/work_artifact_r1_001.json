@@ -1,0 +1,701 @@
+{
+  "workflow_id": "work_artifact_r1_001",
+  "requested": 9,
+  "measurement_valid": 9,
+  "coverage": 1.0,
+  "full_pass_rate": 0.4444,
+  "mean_task_score": 0.4444,
+  "ranking_eligible": true,
+  "cells": [
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "content_ok",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=content status=ok"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/tmp/gaw_r1_w6pknzqs/art/agent_2/wt_md_article/article.md']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=17"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/tmp/gaw_r1_w6pknzqs/art/agent_2/wt_md_article/article.md"
+          ],
+          "detail": "完成文章：demo"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "artifact": [
+          "/tmp/gaw_r1_w6pknzqs/art/agent_2/wt_md_article/article.md"
+        ]
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "content_empty",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.0,
+      "ranking_eligible": true,
+      "status": "artifact_gate_failed",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=content status=failed"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "[]"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=0"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "empty markdown"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "failed",
+        "error": "empty markdown",
+        "artifact": []
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "content_placeholder",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.0,
+      "ranking_eligible": true,
+      "status": "artifact_gate_failed",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=content status=ok"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/tmp/gaw_r1_05hfdjxz/art/agent_2/wt_md_article/article.md']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=32"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "placeholder marker"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/tmp/gaw_r1_05hfdjxz/art/agent_2/wt_md_article/article.md"
+          ],
+          "detail": "完成文章：demo"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "artifact": [
+          "/tmp/gaw_r1_05hfdjxz/art/agent_2/wt_md_article/article.md"
+        ]
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "content_copy_reference",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.0,
+      "ranking_eligible": true,
+      "status": "artifact_gate_failed",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=content status=ok"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/tmp/gaw_r1_hiixpnp0/art/agent_2/wt_md_article/article.md']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=61"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "copied hidden reference"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/tmp/gaw_r1_hiixpnp0/art/agent_2/wt_md_article/article.md"
+          ],
+          "detail": "完成文章：demo"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "artifact": [
+          "/tmp/gaw_r1_hiixpnp0/art/agent_2/wt_md_article/article.md"
+        ]
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "code_ok",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=code status=ok"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/tmp/gaw_r1_rky4b0lx/art/agent_2/wt_py_script/main.py']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=44"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/tmp/gaw_r1_rky4b0lx/art/agent_2/wt_py_script/main.py"
+          ],
+          "detail": "完成 Python 脚本：demo"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "artifact": [
+          "/tmp/gaw_r1_rky4b0lx/art/agent_2/wt_py_script/main.py"
+        ]
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "code_syntax_fail",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.0,
+      "ranking_eligible": true,
+      "status": "artifact_gate_failed",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=code status=failed"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "[]"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=0"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "syntax error: invalid syntax at line 1"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "failed",
+        "error": "syntax error: invalid syntax at line 1",
+        "artifact": []
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "web_html_ok",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=web_design status=ok"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/tmp/gaw_r1_xuroi68e/art/agent_2/wt_html_landing/index.html']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=95"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/tmp/gaw_r1_xuroi68e/art/agent_2/wt_html_landing/index.html"
+          ],
+          "detail": "完成 HTML 设计稿：完成任务"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "artifact": [
+          "/tmp/gaw_r1_xuroi68e/art/agent_2/wt_html_landing/index.html"
+        ]
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "web_html_invalid",
+      "measurement_valid": true,
+      "full_pass": 0,
+      "task_score": 0.0,
+      "ranking_eligible": true,
+      "status": "artifact_gate_failed",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=web_design status=failed"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "[]"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": false,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=0"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 0.0,
+          "max_score": 1.0,
+          "passed": false,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "missing <html> tag"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "failed",
+        "error": "missing <html> tag",
+        "artifact": []
+      }
+    },
+    {
+      "workflow_id": "work_artifact_r1_001",
+      "instance_id": "teaching_ok",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "adapter=teaching status=ok"
+        },
+        {
+          "gate_id": "scorer_executable",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "file existence and text checks"
+        },
+        {
+          "gate_id": "artifact_exists",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "['/tmp/gaw_r1_6nuecy8z/art/agent_2/wt_lesson_plan/lesson_plan.md']"
+        },
+        {
+          "gate_id": "non_empty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "chars=18"
+        },
+        {
+          "gate_id": "not_placeholder",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "clean"
+        },
+        {
+          "gate_id": "not_copy_reference",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "no leak"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "adapter_status_ok",
+          "layer": "R2",
+          "scorer": "exact",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "/tmp/gaw_r1_6nuecy8z/art/agent_2/wt_lesson_plan/lesson_plan.md"
+          ],
+          "detail": "完成教案：demo"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "status": "ok",
+        "error": null,
+        "artifact": [
+          "/tmp/gaw_r1_6nuecy8z/art/agent_2/wt_lesson_plan/lesson_plan.md"
+        ]
+      }
+    }
+  ]
+}

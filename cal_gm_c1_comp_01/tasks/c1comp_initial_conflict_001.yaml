@@ -1,0 +1,17 @@
+id: c1comp_initial_conflict_001
+component: A
+title: 初始冲突检测
+resource_id: locker_bay
+agent_a:
+  resource: locker_bay
+  slot: bay-1
+agent_b:
+  control:
+    resource: locker_bay
+    slot: bay-2
+  intervention:
+    resource: locker_bay
+    slot: bay-1
+oracle:
+  control: false
+  intervention: true

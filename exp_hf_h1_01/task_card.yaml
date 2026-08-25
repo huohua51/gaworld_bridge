@@ -1,0 +1,42 @@
+experiment_id: EXP-HF-H1-01
+axis: H1
+construct: team_interaction_human_likeness
+status: infrastructure
+ranking_eligible: false
+h1_formal_score: N/A
+h1_human_reference: not_collected
+h1_construction_allowed: true
+c1_included: false
+tracks_in_v1:
+  T3: full_multi
+  I1: full
+  L1: full_multi
+tracks_excluded:
+  T3: [direct, single, drop]
+  I1: [focused, drop_verified, no_verification]
+  L1: [direct, drop_checkpoint, drop_handoff]
+question: >
+  在机制正常工作的情况下，GAWorld 的团队互动过程是否像真人？
+forbidden_claims:
+  - 已经证明跨任务泛化
+  - 多智能体价值已经正式估计
+  - 留出通过等于正式 Benchmark 完成
+  - 一个 seed 等于稳定复现
+allowed_claim: >
+  三项密封留出在 seed0 上复现了开发集的同类正负控模式。
+functional_trace_measurement_valid: true
+stable_constructs:
+  - T3_review_collaboration
+  - I1_verified_information_propagation
+  - L1_interruption_handoff
+single_run_holdout_pattern_replication: true
+cross_task_generalization: false
+cross_model_robustness: false
+agent_stimuli: 18
+human_stimuli_target: 18
+total_stimuli_target: 36
+model_control: GLM-4-Flash
+temperature: 0
+note: >
+  功能留出只作 H1 开发素材，不能同时冒充未来 H1 密封留出。
+  C1 不进入第一版。版本通道迁移为独立 Backlog。

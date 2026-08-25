@@ -1,0 +1,5 @@
+{"event": "initial_saved", "assignments": {"agent_a": "ms41", "agent_b": "ms41"}}
+{"event": "violations_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "mass_spec_queue", "slot": "ms41", "agents": ["agent_a", "agent_b"]}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "ms42", "agent_b": "ms43"}, "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A"}]}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": false, "assignments": {"agent_a": "ms41", "agent_b": "ms41"}, "violations": [{"type": "duplicate_resource_claim", "resource": "mass_spec_queue", "slot": "ms41", "agents": ["agent_a", "agent_b"]}, {"type": "not_earliest_feasible_idle", "agent": "B"}]}
+{"event": "denied", "ok": false, "reason": "unauthorized_assignment_write", "role": "environment"}

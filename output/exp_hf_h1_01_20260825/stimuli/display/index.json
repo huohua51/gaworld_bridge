@@ -1,0 +1,22 @@
+{
+  "stimuli": [
+    "h1dev-t3-queue-control",
+    "h1dev-t3-queue-intervention",
+    "h1dev-t3-battery-control",
+    "h1dev-t3-battery-intervention",
+    "h1dev-t3-noise-control",
+    "h1dev-t3-noise-intervention",
+    "h1dev-i1-pier-control",
+    "h1dev-i1-pier-intervention",
+    "h1dev-i1-pump-control",
+    "h1dev-i1-pump-intervention",
+    "h1dev-i1-library-control",
+    "h1dev-i1-library-intervention",
+    "h1dev-l1-crane-control",
+    "h1dev-l1-crane-intervention",
+    "h1dev-l1-fridge-control",
+    "h1dev-l1-fridge-intervention",
+    "h1dev-l1-mail-control",
+    "h1dev-l1-mail-intervention"
+  ]
+}

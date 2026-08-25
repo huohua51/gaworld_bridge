@@ -1,0 +1,5 @@
+{"event": "initial_saved", "assignments": {"agent_a": "dr31", "agent_b": "dr31"}}
+{"event": "violations_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "darkroom_tray", "slot": "dr31", "agents": ["agent_a", "agent_b"]}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "dr32", "agent_b": "dr33"}, "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A"}]}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": true, "assignments": {"agent_a": "dr31", "agent_b": "dr32"}, "violations": []}
+{"event": "denied", "ok": false, "reason": "unauthorized_assignment_write", "role": "environment"}

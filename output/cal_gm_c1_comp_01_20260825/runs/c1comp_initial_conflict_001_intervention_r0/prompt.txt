@@ -1,0 +1,6 @@
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+只输出 {"initial_conflict_detected": true 或 false}。不要输出 assignments 或其它字段。
+判断的是调整前的初始方案：两个 Agent 最初选择的资源与时段是否相同。
+同一资源且同一时段为 true；资源或时段不同为 false。
+【Agent A 初始选择】资源 locker_bay，时段 bay-1
+【Agent B 初始选择】资源 locker_bay，时段 bay-1

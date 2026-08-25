@@ -1,0 +1,6 @@
+{
+  "action": "revise_plan",
+  "target": "purchase_qty",
+  "value": "1",
+  "evidence_event_id": "event-resource_threshold-intervention"
+}

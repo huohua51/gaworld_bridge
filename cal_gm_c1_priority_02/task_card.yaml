@@ -1,0 +1,18 @@
+experiment_id: CAL-GM-C1-PRIORITY-02
+parent: CAL-GM-C1-PRIORITY-01
+construct: policy_constrained_replanning
+role: component_calibration
+status: rule_calibration
+ap_items: [AP-C1-D-01]
+ranking_eligible: false
+generalization_claim: false
+does_not_overwrite: [EXP-GM-C1-02, CAL-GM-C1-PRIORITY-01]
+tracks: [direct]
+variants: [control, intervention]
+tasks: [c1prio2_hplc_001, c1prio2_gown_001, c1prio2_vivarium_001]
+matrix: 3x2x3
+heldout: not_created
+note: >
+  修复 PRIORITY-01 的重试缺陷：nack 后禁止把初始冲突方案原样交回，
+  必须保持高优先级原分配并只改低优先级。不给出 B 的正确时段。
+  全新实例。不覆盖 C1-02 / PRIORITY-01。不开 L1，不建留出。

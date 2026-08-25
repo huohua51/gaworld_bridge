@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_redeem_points_001",
+  "variant": "control",
+  "repeat_id": 0,
+  "sha256": "3c73648508a1cac25b0de17ffd088b316d05bbe14674a51e0fa516987aff0482",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】陈可\n【职业】后台开发\n【任务】写 can_redeem\n【简报】积分达到或超过 REDEEM_MIN 时 can_redeem 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 REDEEM_MIN。函数签名 can_redeem(points)。 不要输出 Markdown 围栏。 常量 REDEEM_MIN = 200。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "59f47512077a32ba956edffb34582e31bf2fc24597c27beb82f8ad6c4b9d1992",
+  "draft_has_v2_tokens": []
+}

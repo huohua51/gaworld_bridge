@@ -1,0 +1,27 @@
+id: l1_01_specimen_log_001
+title: 三阶段标本记录
+kind: sequential_workflow
+artifact: specimen_world.json
+interrupt_token: worker_a_offline_sp_v1
+rule: complete_in_order_no_repeat
+output_rule: >
+  采集 output 只能包含 specimens 列表。
+  校验 output 只能包含 checksum 与 count：checksum 为 vfy- 接标本号（以-连接），count 为标本数量。
+  归档 output 只能包含 bin 与 seal，seal 等于校验 checksum。
+
+checkpoint_after: intake_sp71
+verify_prefix: vfy-
+steps:
+  - id: intake_sp71
+    title: 采集
+  - id: verify_sp71
+    title: 校验
+  - id: archive_sp71
+    title: 归档
+materials:
+  intake_sp71:
+    specimens:
+      - SP-771
+      - SP-772
+  archive_sp71:
+    bin: AR-29

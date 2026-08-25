@@ -1,0 +1,6 @@
+{
+  "action": "request_revision",
+  "target": "deposit",
+  "required_value": 0.2,
+  "evidence_id": "evidence-deposit-001"
+}

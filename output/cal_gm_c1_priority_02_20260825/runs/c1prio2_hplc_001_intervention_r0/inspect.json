@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "violations": [
+    {
+      "type": "duplicate_resource_claim",
+      "resource": "hplc_column",
+      "slot": "hc51",
+      "agents": [
+        "agent_a",
+        "agent_b"
+      ]
+    }
+  ]
+}

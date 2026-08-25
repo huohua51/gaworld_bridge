@@ -1,0 +1,72 @@
+{
+  "stimulus_id": "h1dev-l1-fridge-control",
+  "construct": "L1",
+  "task_label": "三段冷柜温度点检",
+  "variant_code": "A",
+  "roles": [
+    "执行者甲",
+    "协调员",
+    "执行者乙"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "执行者甲",
+      "kind": "produce",
+      "visible_to_role": "任务步骤与第一步材料",
+      "body": "{\"worker_id\": \"worker_a\", \"step_id\": \"fridge_by21\", \"output\": {\"bay\": \"F-4\", \"celsius\": -18}}"
+    },
+    {
+      "t": 2,
+      "role": "执行者甲",
+      "kind": "checkpoint",
+      "visible_to_role": "已完成第一步的结果；版本由平台盖章",
+      "body": "{\"worker_id\": \"worker_a\", \"completed_steps\": [\"fridge_by21\"], \"outputs\": {\"fridge_by21\": {\"bay\": \"F-4\", \"celsius\": -18}}}"
+    },
+    {
+      "t": 3,
+      "role": "协调员",
+      "kind": "handoff",
+      "visible_to_role": "检查点。不能执行具体步骤，不能给出剩余步骤的正确答案",
+      "body": "{\n  \"successor\": \"worker_a\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"completed_steps\": [\"fridge_by21\"],\n  \"resume_step\": \"fridge_by22\",\n  \"remaining_steps\": [\"fridge_by22\", \"fridge_by23\"]\n}"
+    },
+    {
+      "t": 4,
+      "role": "执行者甲",
+      "kind": "resume",
+      "visible_to_role": "同一检查点与协调员接替指令",
+      "body": "{\"worker_id\": \"worker_a\", \"checkpoint_version\": \"ckpt-001\", \"resume_step\": \"fridge_by22\"}"
+    },
+    {
+      "t": 5,
+      "role": "执行者甲",
+      "kind": "produce",
+      "visible_to_role": "当前应继续的步骤材料",
+      "body": "{\"worker_id\": \"worker_a\", \"step_id\": \"fridge_by22\", \"output\": {\"bay\": \"F-5\", \"celsius\": -22}}"
+    },
+    {
+      "t": 6,
+      "role": "执行者甲",
+      "kind": "produce",
+      "visible_to_role": "最后一步材料；不得覆盖已完成工作",
+      "body": "{\"worker_id\": \"worker_a\", \"step_id\": \"fridge_by23\", \"output\": {\"bay\": \"F-6\", \"celsius\": -20}}"
+    }
+  ],
+  "source_kind": "agent",
+  "h1_role": "development_stimulus",
+  "functional_role": "sealed_holdout_result",
+  "not_future_h1_holdout": true,
+  "rater_must_not_see": [
+    "source_kind",
+    "functional_role",
+    "full_pass",
+    "model",
+    "experiment_id"
+  ],
+  "internal": {
+    "interrupted": false,
+    "variant_note_internal": "变体 A：甲仍在岗，从下一步继续。"
+  },
+  "source_run": "output/holdout_l1_20260825/runs/l1_ho_fridge_log_001_control_multi_r0",
+  "source_cell_sha256": "9706033adbffc0a3716c304762ad1717a6c4346344fe34929fd481b54ee1e135"
+}

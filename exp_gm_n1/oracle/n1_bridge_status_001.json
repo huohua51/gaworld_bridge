@@ -1,0 +1,5 @@
+{
+  "control": {"action": "keep_current_plan"},
+  "intervention_delivered": {"action": "revise_plan", "target": "route", "value": "river_detour"},
+  "intervention_dropped": {"action": "keep_current_plan"}
+}

@@ -1,0 +1,6 @@
+{
+  "action": "keep",
+  "target": "assignee_id",
+  "value": "NONE",
+  "evidence_event_id": "event-responsibility_update-control"
+}

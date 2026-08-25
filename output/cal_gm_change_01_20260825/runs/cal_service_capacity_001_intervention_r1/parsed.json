@@ -1,0 +1,13 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "service_capacity",
+    "observed": 40,
+    "required": 35
+  },
+  "required_change": {
+    "path": "service_capacity",
+    "old_value": 40,
+    "new_value": 35
+  }
+}

@@ -1,0 +1,24 @@
+id: c1_device_book_001
+title: 设备预约
+kind: exclusive_slot
+artifact: mill_world.json
+resource_id: mill_01
+slots: ["slot-1", "slot-2", "slot-3"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: cut_job
+  feasible: ["slot-1", "slot-2"]
+  preferred: "slot-1"
+agent_b:
+  label: drill_job
+  control:
+    feasible: ["slot-2", "slot-3"]
+    preferred: "slot-2"
+    window_token: b_window_v1
+  intervention:
+    feasible: ["slot-1", "slot-3"]
+    preferred: "slot-1"
+    window_token: b_window_v2
+leak_tokens:
+  - "b_window_v2"

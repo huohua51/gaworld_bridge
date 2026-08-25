@@ -1,0 +1,11 @@
+【任务】三段天平点检
+【步骤】[{"id": "bal_ck21", "title": "第一段点检"}, {"id": "bal_ck22", "title": "第二段点检"}, {"id": "bal_ck23", "title": "第三段点检"}]
+【规则】步骤必须按顺序执行。已完成步骤不得重复、不得覆盖。检查点由平台盖章为 ckpt-001。接替者必须读取同一版本检查点，从下一个未完成步骤继续。Coordinator 只确认检查点并指定接替者，不能代为执行。
+【输出字段】每一步的 output 只能包含该段材料中的 scale 与 residual_mg，不要添加其它字段。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是 worker_b。只执行当前步骤 bal_ck22。不要重复已完成步骤。
+输出 {"worker_id": "worker_b", "step_id": "bal_ck22", "output": {...}}。
+【当前步骤】bal_ck22
+【本步材料】{"scale": "S-8", "residual_mg": 2}
+【检查点】null
+【已有结果】{}

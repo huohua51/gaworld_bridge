@@ -1,0 +1,19 @@
+experiment_id: CAL-GM-C1-PRIORITY-01
+parent: EXP-GM-C1-02
+construct: policy_constrained_replanning
+role: component_calibration
+status: rule_calibration
+ap_items: [AP-C1-D-01]
+ranking_eligible: false
+generalization_claim: false
+does_not_overwrite: EXP-GM-C1-02
+tracks: [direct]
+variants: [control, intervention]
+tasks: [c1prio_autoclave_001, c1prio_darkroom_001, c1prio_mass_spec_001]
+matrix: 3x2x3
+heldout: not_created
+note: >
+  只校准优先级保持：冲突时高优先级原分配不变，低优先级选最早可行空闲，
+  最终方案同时无冲突、满足私有约束和优先级规则。
+  平台只返回 priority_preservation_violation 与 agent，不给出正确时段。
+  不用 C1-01 / COMP / REPAIR / C1-02 原题。不开 L1，不建留出，不覆盖 C1-02。

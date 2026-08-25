@@ -1,0 +1,37 @@
+task_id: TASK-L2-household-care
+experiment_id: EXP-GM-02
+task_family: T2
+target_axis: 功能能力
+mechanism: 登记照料事件送达、责任认领、冲突日程覆盖、一次合法支出
+status: running
+ranking_eligible: false
+not_h3: true
+tracks: [direct_household_state, full_family_event, drop_family_event]
+variants: [control, intervention]
+probes: [child_fever_001, elder_clinic_001, postop_pickup_001]
+seeds_first: [0]
+seeds_if_valid: [1, 2]
+model: GLM-4-Flash
+temperature: 0
+action: submit_care_action
+action_fields:
+  - action
+  - caregiver_id
+  - patient_id
+  - event_id
+  - slot_id
+  - schedule_decision
+  - expense_amount
+  - adopted_state_version
+  - evidence_event_id
+action_enum: [keep_schedule, provide_care]
+schedule_decision_enum: [keep, cancel, reschedule]
+control_placeholders: {caregiver_id: NONE, patient_id: NONE, event_id: NONE, evidence_event_id: NONE, expense_amount: 0}
+does_not_use: [review_json, nested_mismatches, moral_judgment]
+registered_rules:
+  child_fever_001: {patient: child-01, caregiver: parent-01, slot: work-slot-01, expense: 200, requires_care: true}
+  elder_clinic_001: {patient: elder-01, caregiver: adult-child-01, slot: shopping-slot-02, expense: 300, requires_care: true}
+  postop_pickup_001: {patient: patient-01, caregiver: spouse-01, slot: leisure-slot-03, expense: 120, requires_care: true}
+note: >
+  不问是否值得照料。检查无事件时会不会像 GM-01 一样过度适应。
+  Coverage=1 且可识别才补重复。不建 GM-01 留出题。

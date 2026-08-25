@@ -1,0 +1,16 @@
+【工程师】林晓
+【职业】后台开发
+【任务】写 can_join
+【简报】当前排队人数严格小于 QUEUE_CAP 时 can_join 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 QUEUE_CAP。函数签名 can_join(length)。 不要输出 Markdown 围栏。 常量 QUEUE_CAP = 50。SPEC_VERSION = "v1"。
+
+【当前草稿】从这份草稿修改或确认。环境不会替你改文件。
+```python
+SPEC_VERSION = "v1"
+QUEUE_CAP = 50
+
+def can_join(length):
+    return length < QUEUE_CAP
+```
+【审核意见】若 action=request_revision，把登记常量改成 required_value，并更新 SPEC_VERSION。不要只改版本号，不要只写 APPLIED_PATCH_IDS。approve_draft 时保持原文件。
+{"action": "request_revision", "target": "QUEUE_CAP", "required_value": 50, "evidence_id": "evidence-queue-001"}
+只输出完整 Python 源码。

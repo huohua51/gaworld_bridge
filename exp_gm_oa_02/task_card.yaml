@@ -1,0 +1,45 @@
+experiment_id: EXP-GM-OA-02
+task_family: OA
+construct: exclusive_keep_revise_actions
+parent: EXP-GM-OA-01
+status: development_pass
+role: action_contract_calibration
+protocol_result: pass
+coverage: 1.0
+action_selection_accuracy: 1.0
+control_stability_rate: 1.0
+adaptation_rate: 1.0
+contract_failure_rate: 0.0
+oracle_conditioned_fullpass: 1.0
+ranking_eligible: false
+holdout_status: not_created
+generalization_status: untested
+frozen_baseline: output/exp_gm_oa_01_20260824
+reuse_tasks_from: exp_gm_oa_01
+do_not:
+  - modify_oa01_scorer
+  - rerun_oa01
+  - use_none_placeholder
+  - add_need_change_field
+  - modify_gm01
+  - modify_gm02
+  - create_heldout
+  - start_gm03
+protocol: exclusive_keep_revise
+actions: [keep_current_plan, revise_plan]
+variants: [control, intervention]
+tasks: [appointment_update, resource_threshold, responsibility_update]
+matrix: 3x2x3
+model: GLM-4-Flash
+temperature: 0
+calls_per_cell: 1
+environment_may_rewrite_plan: false
+pass_gate:
+  coverage: 1.0
+  control_stability_rate: 1.0
+  adaptation_rate: 1.0
+  contract_failure_rate: 0
+pass_claim: >
+  将 keep 与 revise 拆成两个动作，消除了开发集中的无意义占位符失败。
+note: >
+  通过后才能建全新留出题。通过不等于过度适应机制已解决。

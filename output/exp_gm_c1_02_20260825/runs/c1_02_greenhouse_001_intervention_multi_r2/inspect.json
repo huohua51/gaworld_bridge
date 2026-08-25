@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "violations": [
+    {
+      "type": "duplicate_resource_claim",
+      "resource": "greenhouse_valve",
+      "slot": "g14",
+      "agents": [
+        "agent_a",
+        "agent_b"
+      ]
+    }
+  ]
+}

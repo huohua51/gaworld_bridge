@@ -1,0 +1,23 @@
+{"ts": 1787548325.8941329, "event": "private_put", "task_id": "road_status_001_intervention_full_s1", "role": "verifier", "payload": {"trusted_source_id": "traffic_desk"}}
+{"ts": 1787548325.8943427, "event": "private_put", "task_id": "road_status_001_intervention_full_s1", "role": "dispatcher", "payload": {"rule": "若核实状态是 main_open，提交 main_route；若是 main_closed，提交 alternate_route。", "action": "submit_route"}}
+{"ts": 1787548329.7079277, "event": "denied", "ok": false, "reason": "raw_signal_not_sent", "task_id": "road_status_001_intervention_full_s1"}
+{"ts": 1787548329.708207, "event": "raw_inbox_read", "task_id": "road_status_001_intervention_full_s1", "n": 0}
+{"ts": 1787548329.708346, "event": "private_read", "task_id": "road_status_001_intervention_full_s1", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548331.2117126, "event": "denied", "ok": false, "reason": "verification_not_requested", "task_id": "road_status_001_intervention_full_s1"}
+{"ts": 1787548331.212001, "event": "inbox_read", "task_id": "road_status_001_intervention_full_s1", "n": 0}
+{"ts": 1787548333.0196548, "event": "action_submitted", "task_id": "road_status_001_intervention_full_s1", "action": {"action": "None", "value": "None", "adopted_state_version": "None", "evidence_message_id": "None", "task_id": "road_status_001_intervention_full_s1", "dispatcher_id": 3}}
+{"ts": 1787548333.0200272, "event": "inbox_read", "task_id": "road_status_001_intervention_full_s1", "n": 0}
+{"ts": 1787548592.0546083, "event": "private_put", "task_id": "road_status_001_intervention_full_s1", "role": "verifier", "payload": {"trusted_source_id": "traffic_desk"}}
+{"ts": 1787548592.054808, "event": "private_put", "task_id": "road_status_001_intervention_full_s1", "role": "dispatcher", "payload": {"rule": "若核实状态是 main_open，提交 main_route；若是 main_closed，提交 alternate_route。", "action": "submit_route"}}
+{"ts": 1787548596.5638685, "event": "raw_sent", "task_id": "road_status_001_intervention_full_s1", "message": {"message_id": "raw-msg-road_status_001_intervention_full_s1-1", "source_id": "traffic_desk", "reported_state": "main_closed", "observer_id": 1}}
+{"ts": 1787548596.564195, "event": "raw_sent", "task_id": "road_status_001_intervention_full_s1", "message": {"message_id": "raw-msg-road_status_001_intervention_full_s1-2", "source_id": "street_chat", "reported_state": "main_open", "observer_id": 1}}
+{"ts": 1787548596.5643609, "event": "raw_delivered", "task_id": "road_status_001_intervention_full_s1", "message": {"message_id": "raw-msg-road_status_001_intervention_full_s1-1", "source_id": "traffic_desk", "reported_state": "main_closed", "observer_id": 1}}
+{"ts": 1787548596.564496, "event": "raw_delivered", "task_id": "road_status_001_intervention_full_s1", "message": {"message_id": "raw-msg-road_status_001_intervention_full_s1-2", "source_id": "street_chat", "reported_state": "main_open", "observer_id": 1}}
+{"ts": 1787548596.5646212, "event": "raw_inbox_read", "task_id": "road_status_001_intervention_full_s1", "n": 2}
+{"ts": 1787548596.5647402, "event": "private_read", "task_id": "road_status_001_intervention_full_s1", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548598.2695196, "event": "verified_emitted", "task_id": "road_status_001_intervention_full_s1", "message": {"message_id": "verified-msg-road_status_001_intervention_full_s1-3", "verified_state": "main_closed", "source_id": "traffic_desk", "state_version": "v2", "verifier_id": 2}}
+{"ts": 1787548598.269838, "event": "verified_delivered", "task_id": "road_status_001_intervention_full_s1", "dropped": false, "message": {"message_id": "verified-msg-road_status_001_intervention_full_s1-3", "verified_state": "main_closed", "source_id": "traffic_desk", "state_version": "v2", "verifier_id": 2}}
+{"ts": 1787548598.2700093, "event": "inbox_read", "task_id": "road_status_001_intervention_full_s1", "n": 1}
+{"ts": 1787548602.296722, "event": "verified_adopted", "task_id": "road_status_001_intervention_full_s1", "message_id": "verified-msg-road_status_001_intervention_full_s1-3", "state_version": "v2"}
+{"ts": 1787548602.297156, "event": "action_submitted", "task_id": "road_status_001_intervention_full_s1", "action": {"action": "alternate_route", "value": "alternate_route", "adopted_state_version": "v2", "evidence_message_id": "verified-msg-road_status_001_intervention_full_s1-3", "task_id": "road_status_001_intervention_full_s1", "dispatcher_id": 3}}
+{"ts": 1787548602.2973664, "event": "inbox_read", "task_id": "road_status_001_intervention_full_s1", "n": 1}

@@ -1,0 +1,7 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "label_rx51", "output": {"received_ids": ["L9", "L10"], "batch": "T2"}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "label_ck52", "output": {"verified_ids": ["L9", "L10"], "missing_ids": []}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "label_st53", "output": {"bin": "S8", "sealed": true}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_label_intake_001_intervention_direct_r0/label_intake_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01c_20260825/runs/l1_01c_label_intake_001_intervention_direct_r0/label_intake_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

@@ -1,0 +1,9 @@
+你是 DecisionMaker。只能根据当前计划和收件箱里已送达的核实消息做决定。
+收件箱为空时保持当前计划。不要读取全局状态，不要编造消息。
+只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。
+保持：{"action": "keep_current_plan", "evidence_message_id": "<message_id 或 none>"}。保持时不要输出 target 或 value。
+修改：{"action": "revise_plan", "target": "transport", "value": "<新值>", "evidence_message_id": "<message_id>"}}。
+不要输出 need_change，不要使用 NONE。
+【当前计划】{"transport": "take_ferry"}
+【收件箱】[{"message_id": "verified-msg-n1_ferry_status_001_intervention_full_r0-2", "verified_state": "ferry_cancelled", "source_id": "src_ok", "state_version": "v1", "verifier_id": 2}]
+【任务说明】当前计划乘渡轮。只有核实后的渡轮状态可以改交通方式。

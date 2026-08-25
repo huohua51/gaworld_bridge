@@ -1,0 +1,15 @@
+id: c1prio2_hplc_001
+title: 色谱柱窗口
+resource_id: hplc_column
+slots: [hc51, hc52, hc53]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [hc51, hc52, hc53]
+  preferred: hc51
+agent_b:
+  control:
+    feasible: [hc52, hc53]
+    preferred: hc52
+  intervention:
+    feasible: [hc51, hc52, hc53]
+    preferred: hc51

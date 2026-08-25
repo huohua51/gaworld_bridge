@@ -1,0 +1,19 @@
+experiment_id: CAL-GM-CHANGE-01
+phase: all
+pass_gate:
+  coverage_ok: true
+  keep_ok: true
+  update_ok: true
+  grounding_ok: true
+  holds: true
+rates:
+  Coverage: 1.0
+  KeepAccuracy: 1.0
+  UpdateAccuracy: 1.0
+  FalsePositiveRevisionRate: 0.0
+  MissedRevisionRate: 0.0
+  EvidenceGroundingRate: 1.0
+  StrictPair: 1.0
+control_all_false_positive: false
+claim: 证据绑定的 keep/update 在这三道中性题上过门。这还不等于 N1/T3 已修复，也不建留出。
+ranking_eligible: false

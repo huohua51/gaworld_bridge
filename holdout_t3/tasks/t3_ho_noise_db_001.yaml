@@ -1,0 +1,20 @@
+id: t3_ho_noise_db_001
+title: 噪声分贝上限
+kind: threshold
+artifact: noise_db.py
+criterion_id: noise_db
+symbol: NOISE_DB
+target: noise_db
+function: too_loud
+allow_names: [SPEC_VERSION, NOISE_DB]
+change_v1: {noise_db: 70}
+change_v2: {noise_db: 62}
+evidence_v1: evidence-noise-ho-001
+evidence_v2: evidence-noise-ho-002
+leak_tokens:
+  - "NOISE_DB = 62"
+  - "噪声上限改为 62"
+brief_rule: >
+  分贝达到或超过 NOISE_DB 时 too_loud 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 NOISE_DB。函数签名 too_loud(db)。
+  不要输出 Markdown 围栏。

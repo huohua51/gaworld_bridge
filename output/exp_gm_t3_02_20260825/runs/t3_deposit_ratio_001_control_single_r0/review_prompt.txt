@@ -1,0 +1,19 @@
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+decision 只能是 keep 或 update。
+keep 时 required_changes 必须是 []，不能带修改字段。
+update 时 required_changes 必须包含 path、old_value、new_value。
+evidence 必须包含 path、observed、required。observed 必须等于当前值，required 必须等于本轮要求值。
+keep 示例：{"decision": "keep", "evidence": {"path": "DEPOSIT_PERCENT", "observed": 20, "required": 20}, "required_changes": []}
+update 示例：{"decision": "update", "evidence": {"path": "<path>", "observed": <当前值>, "required": <要求值>}, "required_changes": [{"change_id": "change-01", "path": "<path>", "old_value": <当前值>, "new_value": <要求值>}]}
+你正在自检刚才写的代码。只能根据当前验收要求和草稿做决定。这一步不要改文件。
+【登记字段】DEPOSIT_PERCENT
+【当前值】20
+【本轮要求值】20
+当前值已经等于要求值时输出 keep；当前值与要求值冲突时输出 update。
+【草稿】
+SPEC_VERSION = "v1"
+DEPOSIT_PERCENT = 20
+
+def deposit(price):
+    return price * DEPOSIT_PERCENT // 100
+

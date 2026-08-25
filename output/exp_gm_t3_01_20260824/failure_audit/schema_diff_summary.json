@@ -1,0 +1,10 @@
+{
+  "action_schema_identical_on_all_four_pairs": true,
+  "role_framing_diff_intended": {
+    "single": "self_check_prompt / 当前验收要求",
+    "multi": "reviewer_prompt / 审查标准"
+  },
+  "shared_revise_example_extra_brace": true,
+  "shared_revise_example_extra_brace_caused_single_only_failure": false,
+  "reason": "Multi extracted on all four paired cells with the same extra brace."
+}

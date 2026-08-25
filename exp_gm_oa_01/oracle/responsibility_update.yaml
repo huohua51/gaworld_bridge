@@ -1,0 +1,11 @@
+task_id: responsibility_update
+control:
+  need_change: false
+  action: keep
+  target: NONE
+  value: NONE
+intervention:
+  need_change: true
+  action: revise
+  target: assignee_id
+  value: backup-01

@@ -1,0 +1,32 @@
+experiment_id: HO-GM-T3-01
+parent: EXP-GM-T3-03
+protocol_parent: EXP-GM-T3-02
+status: seed0
+role: multi_vs_single_discrimination
+ranking_eligible: false
+generalization_claim: false
+multi_agent_value_estimable: false
+gate: off_floor
+direct_ok: true
+direct_fullpass: 1.0
+coverage: 1.0
+single_fullpass: 0.5
+multi_fullpass: 1.0
+drop_fullpass: 0.5
+drop_complete_change_adoption:
+  control: 1.0
+  intervention: 0.0
+  pooled_average: 0.5
+value_pattern:
+  multi_gt_single: true
+  multi_gt_drop: true
+  pattern: true
+  single_intervention_first_error:
+    review_decision_incorrect: 3
+  drop_intervention_first_error:
+    review_payload_not_delivered: 3
+  first_error_locates_to_reviewer_private_info: true
+  advantage_vanishes_on_drop: true
+  estimable: true
+claim: R0 有效且不共地板、不共天花板；方向符合 Multi>Single 且 Multi>Drop，首错指向 Reviewer 私有信息。补 repeat
+  1/2 后再报告。

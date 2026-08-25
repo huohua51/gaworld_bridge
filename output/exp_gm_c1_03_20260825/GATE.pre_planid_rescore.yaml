@@ -1,0 +1,26 @@
+experiment_id: EXP-GM-C1-03
+phase: seed0
+gate: A_r0
+direct_ok: true
+direct_fullpass: 1.0
+direct_is_formal_result: false
+primary_track: multi
+multi_fullpass: 0.5
+nack_path_coverage_intervention: 1.0
+retry_recovery_success: 0.0
+constraint_regression_rate: 0.0
+environment_auto_repair: 0
+drop_protection_fullpass: 0.5
+drop_coordinator_fullpass: 0.0
+interpretation: 进入了 NACK 路径，但重试未形成完全正确的新方案。不能关闭 AP-C1-D-01。
+holdout: not_created
+does_not_overwrite:
+- EXP-GM-C1-02
+- CAL-GM-C1-PRIORITY-01
+- CAL-GM-C1-PRIORITY-02
+claim: Coverage 或公平性未过，回到 R0。不解释能力。不关闭 AP-C1-D-01。
+ranking_eligible: false
+ap_c1_d_01_closable: false
+nack_entered_intervention_multi: 3
+coverage_blocker: plan_version_plan-002_on_two_intervention_cells
+valid_intervention_multi_first_error: retry_not_recovered

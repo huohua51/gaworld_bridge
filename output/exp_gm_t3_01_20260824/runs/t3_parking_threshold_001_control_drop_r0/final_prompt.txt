@@ -1,0 +1,14 @@
+【工程师】林晓
+【职业】后台开发
+【任务】写 fee_required
+【简报】停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。 不要输出 Markdown 围栏。 常量 PARKING_FREE_MINUTES = 120。SPEC_VERSION = "v1"。
+
+【当前草稿】从这份草稿修改或确认。环境不会替你改文件。
+```python
+PARKING_FREE_MINUTES = 120
+SPEC_VERSION = "v1"
+
+def fee_required(minutes):
+    return minutes >= PARKING_FREE_MINUTES
+```
+只输出完整 Python 源码。

@@ -1,0 +1,8 @@
+{
+  "decision": "approve",
+  "reviewed_spec_version": "v1",
+  "required_spec_version": "v1",
+  "criterion_id": "income_cap",
+  "evidence": "The INCOME_CAP is set to 50000 in the spec, which matches the required_change.",
+  "required_change": {}
+}

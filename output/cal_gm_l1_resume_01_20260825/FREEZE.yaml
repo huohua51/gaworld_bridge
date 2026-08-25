@@ -1,0 +1,25 @@
+experiment_id: CAL-GM-L1-RESUME-01
+parent: EXP-GM-L1-01b
+phase: rule
+frozen_at: '2026-08-25T10:14:22.371925+00:00'
+task_card_hash: 7c589fd913f95cab7aeaa58a8e69b6a4d7c8237b44832f9b8f5bbb91860183b8
+oracle_hash: a50bdbe7ae8e58d7adc66cad1bea6db93ee8ea4e55049c34965439cec066ce47
+protocol_hash: 6e796059c1d8b7a36a77d3d10dc0013c828d4de6425a59148fe5779587c6709a
+scorer_hash: 5b6dda657f71c6ab417e9a0212f19168393638429c6bcf35eb975babb3427dd6
+gaworld_next_step: 5f939c546565e28905624f679a13e774c4e23bab44722a3ba70d802d85e5ef26
+runner_hash: 2ec3687bfb7b89dde9d5b7720b22b7895e6b76b8a00930ef62cff0135d09a134
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+do_not_edit_after_freeze:
+- task_card.yaml
+- tasks/
+- oracle/
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- loader.py
+does_not_overwrite:
+- EXP-GM-L1-01
+- EXP-GM-L1-01b

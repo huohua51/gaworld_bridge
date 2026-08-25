@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_alert_celsius_001",
+  "variant": "intervention",
+  "repeat_id": 1,
+  "sha256": "c90325d8df40257a0948aa449d6eff1982a4dea3851dfd1f051e70ba895cf9b3",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】陈可\n【职业】后台开发\n【任务】写 should_alert\n【简报】温度达到或超过 ALERT_C 时 should_alert 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 ALERT_C。函数签名 should_alert(temp)。 不要输出 Markdown 围栏。 常量 ALERT_C = 38。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "9dd327caf788965c5cfacd7303261c386847bdd939875b77ab8c9f861b9af550",
+  "draft_has_v2_tokens": []
+}

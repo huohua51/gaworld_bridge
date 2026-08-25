@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_free_ship_kg_001",
+  "variant": "intervention",
+  "repeat_id": 1,
+  "sha256": "01f4f64fb6c8194b5e2e51986d36432ac9c7330f7b43a1f6eb8b675c9ec781c5",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】陈可\n【职业】后台开发\n【任务】写 free_shipping\n【简报】包裹公斤数达到或超过 FREE_SHIP_KG 时 free_shipping 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 FREE_SHIP_KG。函数签名 free_shipping(kg)。 不要输出 Markdown 围栏。 常量 FREE_SHIP_KG = 8。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "8f6249aeb3701e1f03584fb15dfe493335640125dd07ee47897d389c55f0e49b",
+  "draft_has_v2_tokens": []
+}

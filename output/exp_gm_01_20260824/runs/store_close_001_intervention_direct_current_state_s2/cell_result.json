@@ -1,0 +1,143 @@
+{
+  "workflow_id": "exp_gm_01_venue_close",
+  "instance_id": "store_close_001_intervention_direct_current_state_s2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "event_injected",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "version_correct",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "tracks_consistent",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "r0_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_submitted_by_agent",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "schedule_not_rewritten_by_env",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "visit_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=Corner Mart oracle=Corner Mart r2={'destination_open': True, 'type_match': True, 'reachable': True, 'no_conflict': True, 'overwritten': True}"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "event_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "evidence=venue-evt-store_close_001_intervention_direct_current_state_s2-1 version=v2 r3={'delivered': True, 'adopted': True, 'overwritten': True, 'stale': False}"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "event_injected",
+      "current_state_seeded",
+      "perception_read",
+      "event_adopted",
+      "action_submitted"
+    ],
+    "agent_calls": 1,
+    "r2": {
+      "destination_open": true,
+      "type_match": true,
+      "reachable": true,
+      "no_conflict": true,
+      "overwritten": true
+    },
+    "r3": {
+      "delivered": true,
+      "adopted": true,
+      "overwritten": true,
+      "stale": false
+    },
+    "notice_event_id": "venue-evt-store_close_001_intervention_direct_current_state_s2-1",
+    "injected_event_id": "venue-evt-store_close_001_intervention_direct_current_state_s2-1"
+  },
+  "extra": {
+    "probe_id": "store_close_001",
+    "track": "direct_current_state",
+    "variant": "intervention",
+    "seed": 2,
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "other_also": false,
+    "action": {
+      "action": "update_visit",
+      "destination": "Corner Mart",
+      "slot_id": "visit_1200",
+      "adopted_state_version": "v2",
+      "evidence_event_id": "venue-evt-store_close_001_intervention_direct_current_state_s2-1",
+      "task_id": "store_close_001_intervention_direct_current_state_s2",
+      "agent_id": 1
+    },
+    "ranking_note": "pilot, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0
+  }
+}

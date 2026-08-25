@@ -1,0 +1,22 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "private_put", "role": "worker_b", "index": 1}
+{"event": "private_read", "role": "worker_a", "owner": "worker_a", "index": 2}
+{"event": "private_read", "role": "worker_b", "owner": "worker_b", "index": 3}
+{"event": "step_completed", "role": "worker_a", "step_id": "lot_px41", "output": {"sku_q17": 12, "sku_q18": 7}, "index": 4}
+{"event": "checkpoint_emitted", "role": "worker_a", "hash": "a94b6ab678f3d0b2b06a3b01f17924f421eba3c12f8ce0dac5af4f39607d342e", "payload": {"checkpoint_version": "ckpt-001", "completed_steps": ["lot_px41"], "outputs": {"lot_px41": {"sku_q17": 12, "sku_q18": 7}}, "world_digest": "713f9c2d7c1242589b64faf8052caec3981b25fa4086fdd7cfae37885be1639a"}, "index": 5}
+{"event": "checkpoint_delivered", "reader": "coordinator", "hash": "a94b6ab678f3d0b2b06a3b01f17924f421eba3c12f8ce0dac5af4f39607d342e", "index": 6}
+{"event": "checkpoint_delivered", "reader": "worker_a", "hash": "a94b6ab678f3d0b2b06a3b01f17924f421eba3c12f8ce0dac5af4f39607d342e", "index": 7}
+{"event": "checkpoint_dropped", "reader": "worker_b", "hash": "a94b6ab678f3d0b2b06a3b01f17924f421eba3c12f8ce0dac5af4f39607d342e", "index": 8}
+{"event": "checkpoint_read", "role": "coordinator", "version": "ckpt-001", "index": 9}
+{"event": "handoff_emitted", "payload": {"successor": "worker_a", "checkpoint_version": "ckpt-001", "resume_step": "lot_px42"}, "index": 10}
+{"event": "handoff_delivered", "reader": "worker_a", "hash": "e4cddf3f48183d687ac6596003d7cecaf6c7dea1ca9f16acb0c241d382d32eec", "index": 11}
+{"event": "handoff_delivered", "reader": "worker_b", "hash": "e4cddf3f48183d687ac6596003d7cecaf6c7dea1ca9f16acb0c241d382d32eec", "index": 12}
+{"event": "checkpoint_read", "role": "worker_a", "version": "ckpt-001", "index": 13}
+{"event": "handoff_read", "role": "worker_a", "index": 14}
+{"event": "step_completed", "role": "worker_a", "step_id": "lot_px42", "output": {"sku_q17": 4, "sku_q19": 9}, "index": 15}
+{"event": "step_completed", "role": "worker_a", "step_id": "lot_px43", "output": {"sku_q18": 5, "sku_q20": 11}, "index": 16}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01b_20260825/runs/l1_01_inventory_lots_001_control_drop_checkpoint_r0/inventory_world.json", "index": 17}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01b_20260825/runs/l1_01_inventory_lots_001_control_drop_checkpoint_r0/inventory_world.json", "index": 18}
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "lot_px42", "index": 19}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 20}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "worker_b", "owner": "worker_a", "index": 21}

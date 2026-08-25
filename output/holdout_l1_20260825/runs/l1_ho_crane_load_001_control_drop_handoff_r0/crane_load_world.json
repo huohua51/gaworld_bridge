@@ -1,0 +1,51 @@
+{
+  "steps": {
+    "crane_hk11": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "hook": "H-A",
+        "tons": 4
+      },
+      "event_index": 4
+    },
+    "crane_hk12": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "hook": "H-B",
+        "tons": 7
+      },
+      "event_index": 15
+    },
+    "crane_hk13": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "hook": "H-C",
+        "tons": 2
+      },
+      "event_index": 16
+    }
+  },
+  "completed_steps": [
+    "crane_hk11",
+    "crane_hk12",
+    "crane_hk13"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "crane_hk11"
+    ],
+    "outputs": {
+      "crane_hk11": {
+        "hook": "H-A",
+        "tons": 4
+      }
+    },
+    "world_digest": "d500878f0b668d4a1d6299660019319857ff906dff36c7e975a50c8a7827d4cd"
+  },
+  "unavailable": []
+}

@@ -1,0 +1,6 @@
+{
+  "action": "request_revision",
+  "target": "parking_free_minutes",
+  "required_value": 90,
+  "evidence_id": "evidence-parking-002"
+}

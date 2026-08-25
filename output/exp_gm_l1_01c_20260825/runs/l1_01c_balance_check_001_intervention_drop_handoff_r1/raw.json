@@ -1,0 +1,8 @@
+{
+  "step1": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"bal_ck21\", \"output\": {\"scale\": \"S-7\", \"residual_mg\": 0}}\n```",
+  "checkpoint": "```json\n{\"worker_id\": \"worker_a\", \"completed_steps\": [\"bal_ck21\"], \"outputs\": {\"bal_ck21\": {\"scale\": \"S-7\", \"residual_mg\": 0}}}\n```",
+  "handoff": "```json\n{\n  \"successor\": \"worker_b\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"completed_steps\": [\"bal_ck21\"],\n  \"resume_step\": \"bal_ck22\",\n  \"remaining_steps\": [\"bal_ck22\", \"bal_ck23\"]\n}\n```",
+  "resume": "```json\n{\"worker_id\": \"worker_b\", \"action\": \"idle\"}\n```",
+  "step2": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"bal_ck22\", \"output\": {\"scale\": \"S-8\", \"residual_mg\": 2}}\n```",
+  "step3": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"bal_ck23\", \"output\": {\"scale\": \"S-9\", \"residual_mg\": 1}}\n```"
+}

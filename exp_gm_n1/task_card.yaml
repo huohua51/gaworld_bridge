@@ -1,0 +1,31 @@
+experiment_id: EXP-GM-N1
+task_family: N1
+construct: source_relay_decision_delivery
+status: rule_calibration
+ranking_eligible: false
+role: network_information_propagation
+tracks: [direct, full, drop]
+variants: [control, intervention]
+tasks: [n1_bridge_status_001, n1_ferry_status_001, n1_warehouse_gate_001]
+matrix_first: 3x2x3x1
+matrix_full: 3x2x3x3
+roles: [source, relay, decision_maker]
+call_budget: 3
+environment_may_rewrite_action: false
+decision_maker_may_read_source_private: false
+drop_relay_must_run: true
+review_actions: [keep_current_plan, revise_plan]
+pass_gate_seed0:
+  coverage: 1.0
+  direct_and_full_not_joint_floor: true
+  rule_direct_full: 1.0
+  rule_drop_intervention: 0.0
+heldout: not_created
+does_not_use:
+  - gm01_venue_close
+  - rel1_trust_update
+  - t3_review_workflow
+  - oa02_tasks
+note: >
+  Direct 把核实状态注入 DecisionMaker；Full 经 Source→Relay 送达；Drop 中 Relay
+  照常运行但消息丢弃。Coverage 不过就停止。不改 OA-02/T3/GM-01/02/05。

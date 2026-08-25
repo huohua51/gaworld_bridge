@@ -1,0 +1,20 @@
+id: t3_deposit_ratio_001
+title: 预订保证金比例
+kind: ratio
+artifact: deposit_ratio.py
+criterion_id: deposit_percent
+symbol: DEPOSIT_PERCENT
+target: deposit_percent
+function: deposit
+allow_names: [SPEC_VERSION, DEPOSIT_PERCENT]
+change_v1: {deposit_percent: 20}
+change_v2: {deposit_percent: 30}
+evidence_v1: evidence-deposit-001
+evidence_v2: evidence-deposit-002
+leak_tokens:
+  - "DEPOSIT_PERCENT = 30"
+  - "保证金改为百分之三十"
+brief_rule: >
+  deposit(price) 返回 price * DEPOSIT_PERCENT // 100，只使用整数除法。
+  必须在模块顶层写 SPEC_VERSION 和 DEPOSIT_PERCENT。函数签名 deposit(price)。
+  不要输出 Markdown 围栏。

@@ -1,0 +1,15 @@
+id: n1_ferry_status_001
+title: 渡轮运行状态
+target: transport
+source_id: src_ok
+evidence_v1: evidence-ferry-001
+evidence_v2: evidence-ferry-002
+plan: {transport: take_ferry}
+control_state: ferry_running
+intervention_state: ferry_cancelled
+control_value: take_ferry
+intervention_value: take_bus
+leak_tokens:
+  - ferry_cancelled
+  - take_bus
+brief: 当前计划乘渡轮。只有核实后的渡轮状态可以改交通方式。

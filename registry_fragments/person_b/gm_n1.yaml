@@ -1,0 +1,12 @@
+experiment_id: EXP-GM-N1
+status: pilot_complete
+ranking_eligible: false
+measurement_result: pass
+platform_conformance_result: pass
+agent_workflow_result: fail
+information_propagation_value:
+  value: N/A
+  reason: direct_anchor_failed_downstream_change_decision
+frozen: true
+rerun_allowed: false
+note: 正式口径已写入 registry.yaml。不修改 OA-02/T3 或旧实验结果。

@@ -1,0 +1,21 @@
+experiment_id: CAL-GM-C1-COMP-01
+parent: EXP-GM-C1-01
+frozen_at: '2026-08-25T06:00:56.253957+00:00'
+task_card_hash: ee9ce68f24e6744b4d36df071a49aad97cf65b7593807795521732870f9b14e9
+task_hash: 733259801a71cff5dd249feb49764911a1e0915d121908ec75a61a9810a437d7
+protocol_hash: 2779c3c74533178f96e9b4763490f854900bfb72177bd736ea09722cdc3ccd12
+scorer_hash: 411f06b48174f88cb4437184bd3ea54c1a99b790c1dc72df1587319882abc6d5
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- loader.py
+- tasks
+- oracle
+not_c1_01_items: true
+heldout: not_created

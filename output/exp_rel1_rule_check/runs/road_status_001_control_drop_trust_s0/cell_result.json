@@ -1,0 +1,131 @@
+{
+  "workflow_id": "exp_rel1_trust_formation_update",
+  "instance_id": "road_status_001_control_drop_trust_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_legal",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "formation_correct",
+      "layer": "R2",
+      "scorer": "formation_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=None oracle=main_route"
+    },
+    {
+      "criterion_id": "update_correct",
+      "layer": "R2",
+      "scorer": "update_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=None oracle=alternate_route"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "trust_bind",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "formation=None update=None"
+    }
+  ],
+  "process_profile": {
+    "first_error": "formation_action_incorrect",
+    "events": [
+      "observation_created",
+      "current_signal_sent",
+      "current_signal_sent",
+      "current_signal_delivered",
+      "trust_requested",
+      "history_read",
+      "trust_message_emitted",
+      "trust_dropped",
+      "trust_message_read",
+      "dispatcher_retry_without_trust",
+      "outcome_appended",
+      "trust_requested",
+      "history_read",
+      "trust_message_emitted",
+      "trust_updated",
+      "trust_dropped",
+      "trust_message_read",
+      "dispatcher_retry_without_trust"
+    ],
+    "observer_calls": 1,
+    "updater_calls": 2,
+    "dispatcher_calls": 4,
+    "relationships": {}
+  },
+  "extra": {
+    "probe_id": "road_status_001",
+    "track": "drop_trust",
+    "variant": "control",
+    "seed": 0,
+    "mode": "rule",
+    "model_version": "rule",
+    "temperature": 0,
+    "target_correct": false,
+    "formation_correct": false,
+    "update_correct": false,
+    "oracle_conditioned_success": false,
+    "other_also": false,
+    "formation_action": {},
+    "update_action": {},
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

@@ -1,0 +1,12 @@
+experiment_id: EXP-GM-C1-03
+erratum:
+  type: documentation_omission
+  field: plan_version
+  allowed_values: [plan-001]
+  runtime_prompt_already_explicit: true
+  scorer_rule_already_explicit: true
+  scoring_change: none
+  rerun_required: false
+  note: >
+    冻结 Task Card 正文未改。运行时重试提示与 Scorer 允许集均为 plan-001；
+    摘要漏写该枚举。plan_version 不是 C1 协调构念。

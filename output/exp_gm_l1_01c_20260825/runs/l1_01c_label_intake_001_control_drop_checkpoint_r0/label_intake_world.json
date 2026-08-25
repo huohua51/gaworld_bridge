@@ -1,0 +1,60 @@
+{
+  "steps": {
+    "label_rx51": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "received_ids": [
+          "L9",
+          "L10"
+        ],
+        "batch": "T2"
+      },
+      "event_index": 4
+    },
+    "label_ck52": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "verified_ids": [
+          "L9",
+          "L10"
+        ],
+        "missing_ids": []
+      },
+      "event_index": 15
+    },
+    "label_st53": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "bin": "S8",
+        "sealed": true
+      },
+      "event_index": 16
+    }
+  },
+  "completed_steps": [
+    "label_rx51",
+    "label_ck52",
+    "label_st53"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "label_rx51"
+    ],
+    "outputs": {
+      "label_rx51": {
+        "received_ids": [
+          "L9",
+          "L10"
+        ],
+        "batch": "T2"
+      }
+    },
+    "world_digest": "5ce11a67cdddc25d34555472c12c16d4703832d699aee34d0a81ced5af848e98"
+  },
+  "unavailable": []
+}

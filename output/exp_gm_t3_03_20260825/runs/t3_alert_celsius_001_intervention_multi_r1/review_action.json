@@ -1,0 +1,16 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "ALERT_C",
+    "observed": 38,
+    "required": 36
+  },
+  "required_changes": [
+    {
+      "path": "ALERT_C",
+      "old_value": 38,
+      "new_value": 36,
+      "change_id": "change-01"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+只输出 {"assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}}。
+不要输出 conflict、initial_conflict_detected、final_plan_conflict_free 或任何布尔字段。
+初始方案没有冲突。高优先级 Agent 保留原时段；低优先级 Agent 使用最早可行空闲时段。
+【可选时段】["h8", "h9", "h10"]
+【优先级】agent_a > agent_b
+【Agent A】可行 ["h8", "h9", "h10"]，首选 h8
+【Agent B】可行 ["h8", "h9", "h10"]，首选 h9

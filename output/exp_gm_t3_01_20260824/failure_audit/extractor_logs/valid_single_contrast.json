@@ -1,0 +1,34 @@
+[
+  {
+    "instance_id": "t3_deposit_ratio_001_intervention_single_r0",
+    "review_raw": {
+      "action": "request_revision",
+      "target": "deposit_percent",
+      "required_value": 30,
+      "evidence_id": "evidence-deposit-002"
+    },
+    "contract_error": "ok",
+    "action": {
+      "action": "request_revision",
+      "target": "deposit_percent",
+      "required_value": 30,
+      "evidence_id": "evidence-deposit-002"
+    }
+  },
+  {
+    "instance_id": "t3_queue_cap_001_intervention_single_r0",
+    "review_raw": {
+      "action": "request_revision",
+      "target": "QUEUE_CAP",
+      "required_value": 40,
+      "evidence_id": "evidence-queue-002"
+    },
+    "contract_error": "ok",
+    "action": {
+      "action": "request_revision",
+      "target": "QUEUE_CAP",
+      "required_value": 40,
+      "evidence_id": "evidence-queue-002"
+    }
+  }
+]

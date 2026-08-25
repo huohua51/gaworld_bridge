@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "FREE_SHIP_KG",
+    "observed": 8,
+    "required": 8
+  },
+  "required_changes": []
+}

@@ -1,0 +1,21 @@
+{
+  "initial_assignments": {
+    "agent_a": "vb71",
+    "agent_b": "vb72"
+  },
+  "assignments": {
+    "agent_a": "vb71",
+    "agent_b": "vb72"
+  },
+  "occupancy": {
+    "vb71": [
+      "agent_a"
+    ],
+    "vb72": [
+      "agent_b"
+    ]
+  },
+  "actual_final_conflict_free": true,
+  "attempts": 1,
+  "unregistered_modification": 0
+}

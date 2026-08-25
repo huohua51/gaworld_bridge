@@ -1,0 +1,21 @@
+experiment_id: EXP-GM-T3-01
+status: stopped_at_seed0
+role: full_workflow_development_pilot
+gate: A_r0
+coverage: 0.7778
+invalid_cells: 4
+invalid_scope: single_self_review
+failure_reason: fields_not_extractable
+draft_fairness: pass
+budget_parity: pass
+drop_isolation: pass
+multi_agent_net_benefit: N/A
+review_delivery_value: N/A
+ranking_eligible: false
+repeat_1_2: not_run
+holdout_status: not_created
+protocol_gap: AP-T3-01-01-single-self-review-fields-not-extractable
+note: >
+  三轨初稿、预算和信息隔离满足公平性要求，但 Single 自检轨有 4 格无法提取审核动作，
+  Coverage 只有 0.7778，因此完整工作流的多 Agent 净收益不可估计。
+  不能比较 14 个有效格，也不能用 FullPass=0 说明共同地板。

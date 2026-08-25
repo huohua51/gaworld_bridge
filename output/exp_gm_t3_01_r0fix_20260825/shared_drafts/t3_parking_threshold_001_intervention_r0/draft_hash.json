@@ -1,0 +1,13 @@
+{
+  "task_id": "t3_parking_threshold_001",
+  "variant": "intervention",
+  "repeat_id": 0,
+  "brief_version": "v1",
+  "v2_published": false,
+  "sha256": "dea7383409b9d14aa395b75ebe2343ade5b600a4d6073220cf69e4b4c00f845c",
+  "leak_on_first_brief": [],
+  "generation_prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 fee_required\n【简报】停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。 不要输出 Markdown 围栏。 常量 PARKING_FREE_MINUTES = 120。SPEC_VERSION = \"v1\"。\n",
+  "draft_prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 fee_required\n【简报】停车分钟数达到或超过 PARKING_FREE_MINUTES 时 fee_required 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 PARKING_FREE_MINUTES。函数签名 fee_required(minutes)。 不要输出 Markdown 围栏。 常量 PARKING_FREE_MINUTES = 120。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "bef9c0edd589ec6a516977959d26318e12c2d1b34ab405d4b20958eece7297de",
+  "draft_has_v2_tokens": []
+}

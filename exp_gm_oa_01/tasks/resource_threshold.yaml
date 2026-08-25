@@ -1,0 +1,15 @@
+id: resource_threshold
+title: 资源是否低于最低需求
+state_key: stock
+target: purchase_qty
+min_need: 5
+control:
+  stock: 6
+  description: 当前库存 6，高于最低需求 5。
+intervention:
+  stock: 4
+  description: 当前库存 4，低于最低需求 5。
+rule: >
+  最低需求固定为 5。库存高于或等于 5 时不购买。
+  库存低于 5 时购买缺口（5 减当前库存）。
+  不要在库存充足时购买。

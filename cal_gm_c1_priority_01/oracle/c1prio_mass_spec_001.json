@@ -1,0 +1,4 @@
+{
+  "control": {"assignments": {"agent_a": "ms41", "agent_b": "ms42"}, "initial_conflict": false},
+  "intervention": {"assignments": {"agent_a": "ms41", "agent_b": "ms42"}, "initial_conflict": true}
+}

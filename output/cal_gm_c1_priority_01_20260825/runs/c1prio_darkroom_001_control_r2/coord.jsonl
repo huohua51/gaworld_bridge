@@ -1,0 +1,4 @@
+{"event": "initial_saved", "assignments": {"agent_a": "dr31", "agent_b": "dr32"}}
+{"event": "violations_inspected", "violations": []}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "dr31", "agent_b": "dr32"}, "violations": []}
+{"event": "denied", "ok": false, "reason": "unauthorized_assignment_write", "role": "environment"}

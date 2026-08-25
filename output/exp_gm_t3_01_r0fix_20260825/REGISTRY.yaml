@@ -1,0 +1,24 @@
+experiment_id: EXP-GM-T3-01
+status: pilot_complete_floor
+ranking_eligible: false
+measurement_result: pass
+coverage: 1.0
+common_draft_hash_valid: true
+equal_budget_valid: true
+drop_isolation_valid: true
+agent_workflow_result: fail
+single_fullpass: 0.0
+multi_fullpass: 0.0
+drop_fullpass: 0.0
+multi_agent_net_benefit:
+  value: N/A
+  reason: common_workflow_floor
+first_errors:
+  false_positive_revision: 6
+  partial_change_applied: 7
+repeat_1_2: not_run
+holdout: not_created
+prior_seed0:
+  path: output/exp_gm_t3_01_20260824
+  status: measurement_invalid
+note: 不得与 20260824 平均。FullPass=0 不是多 Agent 无价值。

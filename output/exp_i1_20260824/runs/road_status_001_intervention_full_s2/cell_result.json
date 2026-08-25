@@ -1,0 +1,116 @@
+{
+  "workflow_id": "exp_i1_verified_information_relay",
+  "instance_id": "road_status_001_intervention_full_s2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_legal",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "action_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=alternate_route oracle=alternate_route"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "verified_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "evidence=verified-msg-road_status_001_intervention_full_s2-3 version=v2"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "observation_created",
+      "raw_signal_sent",
+      "raw_signal_sent",
+      "raw_signal_delivered",
+      "verification_requested",
+      "verified_message_emitted",
+      "verified_delivered",
+      "verified_message_read",
+      "verified_state_adopted",
+      "action_submitted"
+    ],
+    "adopted_state_version": "v2",
+    "evidence_message_id": "verified-msg-road_status_001_intervention_full_s2-3",
+    "verified_message_id": "verified-msg-road_status_001_intervention_full_s2-3",
+    "observer_calls": 1,
+    "verifier_calls": 1,
+    "dispatcher_calls": 1
+  },
+  "extra": {
+    "probe_id": "road_status_001",
+    "track": "full",
+    "variant": "intervention",
+    "seed": 2,
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0,
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "other_also": false,
+    "action": {
+      "action": "alternate_route",
+      "value": "alternate_route",
+      "adopted_state_version": "v2",
+      "evidence_message_id": "verified-msg-road_status_001_intervention_full_s2-3",
+      "task_id": "road_status_001_intervention_full_s2",
+      "dispatcher_id": 3
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

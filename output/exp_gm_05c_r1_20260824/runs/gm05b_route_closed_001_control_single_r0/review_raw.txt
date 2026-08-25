@@ -1,0 +1,3 @@
+```json
+{"decision":"revise","required_change":{"path":"spec_version","old_value":"1.0","new_value":"v1"}}
+```

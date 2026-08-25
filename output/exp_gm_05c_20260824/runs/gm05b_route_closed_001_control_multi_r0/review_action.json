@@ -1,0 +1,8 @@
+{
+  "decision": "approve",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v1",
+  "criterion_id": "high_priority_threshold",
+  "evidence": "The module defines HIGH_PRIORITY_THRESHOLD as 7 and uses it in the route function to determine the message routing.",
+  "required_change": {}
+}

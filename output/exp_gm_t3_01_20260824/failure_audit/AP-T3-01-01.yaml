@@ -1,0 +1,26 @@
+id: AP-T3-01-01-single-self-review-fields-not-extractable
+experiment: EXP-GM-T3-01
+scope: single_self_review
+rule_baseline: pass
+model_cells_invalid: 4/6
+effect: full_workflow_comparison_unidentifiable
+classification: agent_platform_contract_incompatibility
+historical_results_changed: false
+same_task_rerun_allowed: false
+harness_schema_contamination: false
+extractor_failure: false
+verbatim_llm_text_persisted: false
+attribution: model_contract_failure
+subtype_unresolvable_without_raw_text:
+  - wrap_error
+  - key_error
+  - action_error
+  - multi_json
+next_if_needed: single_self_review_action_contract_calibration
+do_not:
+  - rerun EXP-GM-T3-01
+  - open T3-02 before joint review with N1
+  - loosen the T3-01 parser
+  - compare the 14 valid cells
+  - call FullPass=0 a joint floor
+  - report multi-agent deltas

@@ -1,0 +1,15 @@
+```json
+{
+  "decision": "update",
+  "evidence": {
+    "path": "response_deadline",
+    "observed": 30,
+    "required": 20
+  },
+  "required_change": {
+    "path": "response_deadline",
+    "old_value": 30,
+    "new_value": 20
+  }
+}
+```

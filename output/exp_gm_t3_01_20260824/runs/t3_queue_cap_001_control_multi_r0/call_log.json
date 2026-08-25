@@ -1,0 +1,19 @@
+[
+  {
+    "stage": "builder_draft",
+    "prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 can_join\n【简报】当前排队人数严格小于 QUEUE_CAP 时 can_join 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 QUEUE_CAP。函数签名 can_join(length)。 不要输出 Markdown 围栏。 常量 QUEUE_CAP = 50。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+    "prompt_sha": "f90496c4dfde92c2121897495578850d4b661abf120d0aff32e30e89f8cba817"
+  },
+  {
+    "stage": "review",
+    "prompt": "你是代码审核员。只能根据登记标准和草稿做决定。不要改文件，不要编造隐藏测试。\n只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。\n批准：{\"action\": \"approve_draft\", \"evidence_id\": \"<登记 evidence_id>\"}。批准时不要输出 target 或 required_value。\n要求修改：{\"action\": \"request_revision\", \"target\": \"<登记 target>\", \"required_value\": <要求值>, \"evidence_id\": \"<登记 evidence_id>\"}}。\n不要输出 decision、mismatches、required_change，不要使用 NONE。\n【审查标准】{\"spec_version\": \"v1\", \"criterion_id\": \"queue_cap\", \"target\": \"queue_cap\", \"required_value\": 50, \"evidence_id\": \"evidence-queue-001\", \"instruction\": \"草稿已满足 required_value 时输出 approve_draft；否则输出 request_revision。不要改文件，不要编造隐藏测试。\"}\n【草稿】\n```python\nSPEC_VERSION = \"v1\"\nQUEUE_CAP = 50\n\ndef can_join(length):\n    return length < QUEUE_CAP\n```\n",
+    "track": "multi",
+    "prompt_sha": "7079df2bb6bfaecfd18eeb7c72f1d5520ea778f2ba1c57da9365432f69e2975d"
+  },
+  {
+    "stage": "builder_final",
+    "prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 can_join\n【简报】当前排队人数严格小于 QUEUE_CAP 时 can_join 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 QUEUE_CAP。函数签名 can_join(length)。 不要输出 Markdown 围栏。 常量 QUEUE_CAP = 50。SPEC_VERSION = \"v1\"。\n\n【当前草稿】从这份草稿修改或确认。环境不会替你改文件。\n```python\nSPEC_VERSION = \"v1\"\nQUEUE_CAP = 50\n\ndef can_join(length):\n    return length < QUEUE_CAP\n```\n【审核意见】若 action=request_revision，把登记常量改成 required_value，并更新 SPEC_VERSION。不要只改版本号，不要只写 APPLIED_PATCH_IDS。approve_draft 时保持原文件。\n{\"action\": \"request_revision\", \"target\": \"QUEUE_CAP\", \"required_value\": 50, \"evidence_id\": \"evidence-queue-001\"}\n只输出完整 Python 源码。\n",
+    "had_review": true,
+    "prompt_sha": "08b4b7bb192d0cd9c36e8bf8eb6b7bbcd31146080413eb9c3dbcf12f15362e77"
+  }
+]

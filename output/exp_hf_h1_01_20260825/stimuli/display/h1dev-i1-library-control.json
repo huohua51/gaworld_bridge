@@ -1,0 +1,34 @@
+{
+  "stimulus_id": "h1dev-i1-library-control",
+  "construct": "I1",
+  "task_label": "服务台开放报告",
+  "variant_code": "A",
+  "roles": [
+    "观察员",
+    "核验员",
+    "调度员"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "观察员",
+      "kind": "report",
+      "visible_to_role": "两个来源的现场报告；不要判断谁可信",
+      "body": "[\n  {\n    \"source_id\": \"library_board\",\n    \"reported_state\": \"desk_open\"\n  },\n  {\n    \"source_id\": \"lobby_talk\",\n    \"reported_state\": \"desk_closed\"\n  }\n]"
+    },
+    {
+      "t": 2,
+      "role": "核验员",
+      "kind": "verify",
+      "visible_to_role": "原始报告 + 私有可信来源表",
+      "body": "{\n  \"verified_state\": \"desk_open\",\n  \"source_id\": \"library_board\",\n  \"state_version\": \"v1\"\n}"
+    },
+    {
+      "t": 3,
+      "role": "调度员",
+      "kind": "act",
+      "visible_to_role": "已核实状态与动作规则；不能读私有可信表",
+      "body": "{\n  \"action\": \"submit_desk\",\n  \"value\": \"hall_a\",\n  \"adopted_state_version\": \"v1\"\n}"
+    }
+  ]
+}

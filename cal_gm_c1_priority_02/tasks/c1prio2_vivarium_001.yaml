@@ -1,0 +1,15 @@
+id: c1prio2_vivarium_001
+title: 动物房操作台
+resource_id: vivarium_bench
+slots: [vb71, vb72, vb73]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [vb71, vb72, vb73]
+  preferred: vb71
+agent_b:
+  control:
+    feasible: [vb72, vb73]
+    preferred: vb72
+  intervention:
+    feasible: [vb71, vb72, vb73]
+    preferred: vb71

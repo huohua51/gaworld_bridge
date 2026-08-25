@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "v1",
+  "required_spec_version": "v2",
+  "criterion_id": "max_hours",
+  "evidence": "MAX_HOURS = 40",
+  "required_change": {
+    "max_hours": 35
+  }
+}

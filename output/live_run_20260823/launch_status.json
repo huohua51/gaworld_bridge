@@ -1,0 +1,62 @@
+{
+  "interview_full_pass": 1,
+  "sim": {
+    "pid": 3925295,
+    "cwd": "/home/wuxingye/projects/GAWorld",
+    "log": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/run.log",
+    "overrides": {
+      "agent_ids": [
+        4,
+        5
+      ],
+      "sim_days": 1,
+      "stateful": false,
+      "simulate_realtime": false,
+      "seconds_per_day": 1,
+      "eval_mode": {
+        "enabled": true,
+        "disable_dynamic_behavior": true,
+        "disable_routine_change": true,
+        "disable_diary_fallback": true,
+        "strict_interview_json": true,
+        "write_run_manifest": true
+      },
+      "dynamic_behavior": {
+        "enabled": false
+      },
+      "routine_change": {
+        "enabled": false
+      },
+      "news": {
+        "enabled": false,
+        "info_seek": {
+          "enabled": false
+        }
+      },
+      "intervention": {
+        "enabled": false
+      },
+      "distributed": {
+        "enabled": false
+      },
+      "visualization": {
+        "enabled": false
+      },
+      "life_events": {
+        "enabled": false
+      },
+      "external_rag": {
+        "bootstrap": {
+          "enabled": false
+        }
+      },
+      "memory_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/memory",
+      "log_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/logs",
+      "state_output_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/state",
+      "diary_output_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/diaries",
+      "network_output_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/network",
+      "environment_output_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/environment"
+    },
+    "started_at": "2026-08-23T02:08:51.804912+00:00"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "workflow_id": "compare_event_unique_path_001",
+  "requested": 3,
+  "measurement_valid": 2,
+  "coverage": 0.6667,
+  "full_pass_rate": 1.0,
+  "mean_task_score": 1.0,
+  "ranking_eligible": false,
+  "cells": [
+    {
+      "workflow_id": "compare_event_unique_path_001",
+      "instance_id": "unique_path_only",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "state csv written"
+        },
+        {
+          "gate_id": "unique_intervention_audit",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "only registered path moved or nothing moved"
+        },
+        {
+          "gate_id": "comparison_rows_exist",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "n=3"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "registered_path_changed",
+          "layer": "R2",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "mobility_intent"
+          ],
+          "detail": "{'mobility_intent': 0.5}"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "rows": [
+          {
+            "metric": "mobility_intent",
+            "baseline_final": 0.3,
+            "event_final": 0.8,
+            "delta_final": 0.5,
+            "baseline_mean": 0.3,
+            "event_mean": 0.55,
+            "delta_mean": 0.25000000000000006
+          },
+          {
+            "metric": "emotion",
+            "baseline_final": 0.5,
+            "event_final": 0.5,
+            "delta_final": 0.0,
+            "baseline_mean": 0.55,
+            "event_mean": 0.55,
+            "delta_mean": 0.0
+          },
+          {
+            "metric": "stress",
+            "baseline_final": 0.5,
+            "event_final": 0.5,
+            "delta_final": 0.0,
+            "baseline_mean": 0.45,
+            "event_mean": 0.45,
+            "delta_mean": 0.0
+          }
+        ],
+        "unique_path_ok": true,
+        "leaked_metrics": [],
+        "registered_deltas": {
+          "mobility_intent": 0.5
+        }
+      }
+    },
+    {
+      "workflow_id": "compare_event_unique_path_001",
+      "instance_id": "spillover_unregistered_metrics",
+      "measurement_valid": false,
+      "full_pass": null,
+      "task_score": null,
+      "ranking_eligible": false,
+      "status": "measurement_invalid",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "state csv written"
+        },
+        {
+          "gate_id": "unique_intervention_audit",
+          "passed": false,
+          "critical": true,
+          "layer": "R0",
+          "detail": "leaked emotion,stress"
+        },
+        {
+          "gate_id": "comparison_rows_exist",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "n=3"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "registered_path_changed",
+          "layer": "R2",
+          "scorer": "rule",
+          "evaluable": false,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "mobility_intent"
+          ],
+          "detail": "{'mobility_intent': 0.5}"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "rows": [
+          {
+            "metric": "mobility_intent",
+            "baseline_final": 0.3,
+            "event_final": 0.8,
+            "delta_final": 0.5,
+            "baseline_mean": 0.3,
+            "event_mean": 0.55,
+            "delta_mean": 0.25000000000000006
+          },
+          {
+            "metric": "emotion",
+            "baseline_final": 0.5,
+            "event_final": 0.2,
+            "delta_final": -0.3,
+            "baseline_mean": 0.55,
+            "event_mean": 0.4,
+            "delta_mean": -0.15000000000000002
+          },
+          {
+            "metric": "stress",
+            "baseline_final": 0.5,
+            "event_final": 0.7,
+            "delta_final": 0.19999999999999996,
+            "baseline_mean": 0.45,
+            "event_mean": 0.55,
+            "delta_mean": 0.10000000000000003
+          }
+        ],
+        "unique_path_ok": false,
+        "leaked_metrics": [
+          {
+            "metric": "emotion",
+            "delta_final": -0.3
+          },
+          {
+            "metric": "stress",
+            "delta_final": 0.19999999999999996
+          }
+        ],
+        "registered_deltas": {
+          "mobility_intent": 0.5
+        }
+      }
+    },
+    {
+      "workflow_id": "compare_event_unique_path_001",
+      "instance_id": "null_no_change",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 1.0,
+      "ranking_eligible": true,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "state csv written"
+        },
+        {
+          "gate_id": "unique_intervention_audit",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "only registered path moved or nothing moved"
+        },
+        {
+          "gate_id": "comparison_rows_exist",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "n=3"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "registered_path_changed",
+          "layer": "R2",
+          "scorer": "rule",
+          "evaluable": true,
+          "score": 1.0,
+          "max_score": 1.0,
+          "passed": true,
+          "critical": true,
+          "weight": 1.0,
+          "evidence_ids": [
+            "mobility_intent"
+          ],
+          "detail": "{'mobility_intent': 0.0}"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "rows": [
+          {
+            "metric": "emotion",
+            "baseline_final": 0.5,
+            "event_final": 0.5,
+            "delta_final": 0.0,
+            "baseline_mean": 0.55,
+            "event_mean": 0.55,
+            "delta_mean": 0.0
+          },
+          {
+            "metric": "mobility_intent",
+            "baseline_final": 0.3,
+            "event_final": 0.3,
+            "delta_final": 0.0,
+            "baseline_mean": 0.3,
+            "event_mean": 0.3,
+            "delta_mean": 0.0
+          },
+          {
+            "metric": "stress",
+            "baseline_final": 0.5,
+            "event_final": 0.5,
+            "delta_final": 0.0,
+            "baseline_mean": 0.45,
+            "event_mean": 0.45,
+            "delta_mean": 0.0
+          }
+        ],
+        "unique_path_ok": true,
+        "leaked_metrics": [],
+        "registered_deltas": {
+          "mobility_intent": 0.0
+        }
+      }
+    }
+  ]
+}

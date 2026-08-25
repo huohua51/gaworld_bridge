@@ -1,0 +1,10 @@
+experiment_id: EXP-GM-L1-01b
+cell: l1_01_centrifuge_rotor_001_control_multi_r0
+recorded_first_error: none
+corrected_diagnostic_first_error: resume_from_wrong_step
+score_changed: false
+full_pass_unchanged: 0
+note: >
+  冻结 Scorer 已用 ResumeFromCorrectStage 抓住 Coordinator 把续做从 rotor_cf22
+  跳到 rotor_cf23。first_error_node 对 control 未枚举该错误，故记录为 none。
+  本勘误不改分、不覆盖实验正文。

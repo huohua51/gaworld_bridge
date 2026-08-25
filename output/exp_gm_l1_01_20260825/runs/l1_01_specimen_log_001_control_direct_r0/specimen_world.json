@@ -1,0 +1,41 @@
+{
+  "steps": {
+    "intake_sp71": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "specimens": [
+          "SP-771",
+          "SP-772"
+        ]
+      },
+      "event_index": 1
+    },
+    "verify_sp71": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "checksum": "vfy-SP-771-SP-772",
+        "count": 2
+      },
+      "event_index": 2
+    },
+    "archive_sp71": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "bin": "AR-29",
+        "seal": "vfy-SP-771-SP-772"
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "intake_sp71",
+    "verify_sp71",
+    "archive_sp71"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

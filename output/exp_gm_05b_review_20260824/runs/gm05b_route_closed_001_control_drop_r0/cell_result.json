@@ -1,0 +1,107 @@
+{
+  "workflow_id": "exp_gm_05b_review_stage",
+  "instance_id": "gm05b_route_closed_001_control_drop_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "budget_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "final_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "pytest_hidden",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "review_loop",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "requirement_available",
+      "draft_created",
+      "review_started",
+      "review_decision",
+      "review_dropped",
+      "submitted"
+    ],
+    "budget": {
+      "calls": 2,
+      "max_calls": 2,
+      "kinds": [
+        "review",
+        "executor_final"
+      ],
+      "model": "GLM-4-Flash",
+      "temperature": 0,
+      "max_tokens": 2048,
+      "valid": true
+    }
+  },
+  "extra": {
+    "task_id": "gm05b_route_closed_001",
+    "variant": "control",
+    "track": "drop",
+    "repeat_id": 0,
+    "target_correct": true,
+    "oracle_conditioned_fullpass": true,
+    "review_decision_correct": true,
+    "evidence_grounding": true,
+    "declared_patch_adoption": false,
+    "verified_patch_adoption": false,
+    "acknowledgement_execution_gap": false,
+    "unregistered_change": false,
+    "first_error": "none",
+    "ranking_note": "calibration, not a leaderboard",
+    "measurement_valid": true
+  }
+}

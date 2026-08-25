@@ -1,0 +1,3 @@
+```json
+{"decision":"revise","mismatches":[{"path":"HIGH_PRIORITY_THRESHOLD","old_value":"7","new_value":"6"}]}
+```

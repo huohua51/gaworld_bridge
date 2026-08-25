@@ -1,0 +1,56 @@
+experiment_id: EXP-GM-C1-03
+parent: CAL-GM-C1-PRIORITY-02
+phase: rule
+frozen_at: '2026-08-25T08:10:23.379277+00:00'
+task_card_hash: f7ece3a3443903fdeed7de0c762c70e227a321606082ce0e92b2f331feb31861
+task_hash: 46cbb1241f27f019353075c05dd73d31575bc25565f9d653c2861b1345e04f62
+protocol_hash: cfbff1bdb381702ab7478654c44195a55f86d451151140af5a9faafd0723396b
+scorer_hash: 2f7994433a4ea0fdf70fc5387220b25f6055dabc3532f35b090760a96ad100e0
+gaworld_coordination_hash: 211661e1c1f3000c1f4474d67cd236123a8018174e3457fca9ad032872a5827b
+runner_hash: 2e1c395cbad4c8c01293d933b79e73f9ea6f607006db7bd390ed2e70580dec4d
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    direct:
+    - 一次调用看到含保护修订的完整时间线并输出最终联合方案；非正式结果
+    multi:
+    - A/B 先交初始报告，Coordinator 形成第一版方案
+    - 平台送达登记保护修订，Validator 返回 NACK（intervention 必须进入）
+    - Coordinator 按新 NACK 重提，A/B 自己执行
+    drop_protection:
+    - A/B 和 Coordinator 都运行
+    - 只丢保护修订，不丢初始报告
+    - control 保护为 no-op 应成功；intervention 应失败
+    drop_coordinator:
+    - A/B 信息送达
+    - 最终联合方案不交付
+    - Coordinator 不能代执行
+  logical_calls_per_matrix_cell: 6
+  environment_rewrites_world: false
+  coordinator_executes: false
+  primary_track: multi
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- channel.py
+- loader.py
+- tasks
+- oracle
+not_c1_01_items: true
+not_c1_02_items: true
+not_priority_01_items: true
+not_priority_02_items: true
+heldout: not_created
+direct_is_formal_result: false
+primary_track: multi
+does_not_overwrite:
+- EXP-GM-C1-02
+- CAL-GM-C1-PRIORITY-01
+- CAL-GM-C1-PRIORITY-02

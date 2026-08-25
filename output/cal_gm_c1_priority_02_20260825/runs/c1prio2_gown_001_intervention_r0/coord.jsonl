@@ -1,0 +1,4 @@
+{"event": "initial_saved", "assignments": {"agent_a": "ga61", "agent_b": "ga61"}}
+{"event": "violations_inspected", "violations": [{"type": "duplicate_resource_claim", "resource": "gown_airlock", "slot": "ga61", "agents": ["agent_a", "agent_b"]}]}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "ga61", "agent_b": "ga62"}, "violations": []}
+{"event": "denied", "ok": false, "reason": "unauthorized_assignment_write", "role": "environment"}

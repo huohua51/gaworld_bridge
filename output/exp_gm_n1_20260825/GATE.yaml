@@ -1,0 +1,33 @@
+experiment_id: EXP-GM-N1
+status: retired
+ranking_eligible: false
+measurement_result: pass
+platform_conformance_result: pass
+agent_workflow_result: fail
+information_propagation_value:
+  value: N/A
+  reason: direct_anchor_failed_downstream_change_decision
+raw_results:
+  direct_fullpass: 0.3333
+  full_fullpass: 0.3333
+  drop_fullpass: 0.5
+validated:
+  - private_source_isolation
+  - relay_message_delivery
+  - drop_message_isolation
+  - rule_pipeline_success
+  - no_private_state_leakage
+agent_failure:
+  - false_positive_revision_on_control
+frozen: true
+rerun_allowed: false
+holdout_status: not_created
+n1_02_created: false
+covered_by:
+- EXP-GM-I1
+- EXP-GM-REL1
+retirement: output/exp_gm_n1_20260825/RETIRE.yaml
+note: >
+  Direct/Full 共同地板，构念未测开。正式退役。分数不改。
+  不补 Seed，不建 N1-02，不在共同地板上计算 Multi-Agent Benefit。
+  核实传播由 I1 覆盖，最新状态更新由 REL1 覆盖。

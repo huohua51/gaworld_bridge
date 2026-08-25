@@ -1,0 +1,15 @@
+id: n1_warehouse_gate_001
+title: 仓库闸门状态
+target: entry
+source_id: src_ok
+evidence_v1: evidence-gate-001
+evidence_v2: evidence-gate-002
+plan: {entry: enter_now}
+control_state: gate_open
+intervention_state: gate_locked
+control_value: enter_now
+intervention_value: wait_outside
+leak_tokens:
+  - gate_locked
+  - wait_outside
+brief: 当前计划立即进仓。只有核实后的闸门状态可以改为在外等候。

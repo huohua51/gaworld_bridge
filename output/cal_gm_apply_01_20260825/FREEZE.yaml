@@ -1,0 +1,19 @@
+experiment_id: CAL-GM-APPLY-01
+phase: seed0
+frozen_at: '2026-08-25T01:57:57.844499+00:00'
+task_card_hash: 7d2d9db2c6750e6db43665d6dfe8f360debbadbb143b1579cc4d2e7ed0c54b79
+oracle_hash: 3dde578baa568d671627139b6ab7e4e6633de1e329d504c56267e52d470e4b9b
+protocol_hash: 7091838d2b1fdb6dac130be5b4b21a9574c3bb68177ccc9c223a6fe39a764c6a
+scorer_hash: db642b1064a15223f94354d404f631d672c9660384faa805993b1b5330ea783e
+runner_hash: 189a028a8020a29a8e360ae990986b6d728c5f80e2e8c2ac1c588369f7f17e87
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+do_not_edit_after_freeze:
+- task_card.yaml
+- tasks/
+- oracle/
+- protocol.md
+- scorer.py
+- prompts.py
+- inspect.py

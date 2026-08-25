@@ -1,0 +1,8 @@
+{"ts": 1787554623.7558935, "event": "private_put", "task_id": "road_status_001_control_focused_s1", "role": "verifier", "payload": {"trusted_source_id": "traffic_desk"}}
+{"ts": 1787554623.7560308, "event": "private_put", "task_id": "road_status_001_control_focused_s1", "role": "dispatcher", "payload": {"rule": "若核实状态是 main_open，提交 main_route；若是 main_closed，提交 alternate_route。", "action": "submit_route"}}
+{"ts": 1787554623.756117, "event": "verified_emitted", "task_id": "road_status_001_control_focused_s1", "message": {"message_id": "verified-msg-road_status_001_control_focused_s1-1", "verified_state": "main_open", "source_id": "focused", "state_version": "v1", "verifier_id": 0, "focused": true}}
+{"ts": 1787554623.7561784, "event": "verified_delivered", "task_id": "road_status_001_control_focused_s1", "dropped": false, "message": {"message_id": "verified-msg-road_status_001_control_focused_s1-1", "verified_state": "main_open", "source_id": "focused", "state_version": "v1", "verifier_id": 0, "focused": true}}
+{"ts": 1787554623.756239, "event": "inbox_read", "task_id": "road_status_001_control_focused_s1", "n": 1}
+{"ts": 1787554626.2701886, "event": "verified_adopted", "task_id": "road_status_001_control_focused_s1", "message_id": "verified-msg-road_status_001_control_focused_s1-1", "state_version": "v1"}
+{"ts": 1787554626.270608, "event": "action_submitted", "task_id": "road_status_001_control_focused_s1", "action": {"action": "submit_route", "value": "main_route", "adopted_state_version": "v1", "evidence_message_id": "verified-msg-road_status_001_control_focused_s1-1", "task_id": "road_status_001_control_focused_s1", "dispatcher_id": 3}}
+{"ts": 1787554626.2708688, "event": "inbox_read", "task_id": "road_status_001_control_focused_s1", "n": 1}

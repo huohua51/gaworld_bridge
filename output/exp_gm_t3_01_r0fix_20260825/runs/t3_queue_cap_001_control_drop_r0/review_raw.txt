@@ -1,0 +1,3 @@
+```json
+{"action": "request_revision", "target": "queue_cap", "required_value": 50, "evidence_id": "evidence-queue-001"}
+```

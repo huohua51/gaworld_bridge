@@ -1,0 +1,122 @@
+{
+  "workflow_id": "exp_gm_oa_01_over_adaptation",
+  "instance_id": "appointment_update_control_legacy_direct_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "event_injected",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "current_state_seeded",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_call",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_submitted_by_agent",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "need_change_correct",
+      "layer": "R2",
+      "scorer": "oa_need_change",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "predicted=False actual=False consistent=True"
+    },
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "oa_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "action=keep target=NONE value=NONE"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "event_injected",
+      "current_state_seeded",
+      "action_submitted"
+    ],
+    "agent_calls": 1,
+    "protocol": "legacy_direct",
+    "variant": "control",
+    "injected_event_id": "event-appointment_update-control",
+    "source_contamination": false
+  },
+  "extra": {
+    "task_id": "appointment_update",
+    "protocol": "legacy_direct",
+    "variant": "control",
+    "seed": 0,
+    "need_change_correct": true,
+    "target_correct": true,
+    "predicted_need_change": false,
+    "actual_need_change": false,
+    "unnecessary_replan": false,
+    "action": {
+      "action": "keep",
+      "target": "NONE",
+      "value": "NONE",
+      "evidence_event_id": "event-appointment_update-control"
+    },
+    "ranking_note": "pilot, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0
+  }
+}

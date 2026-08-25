@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_queue_cap_001",
+  "variant": "control",
+  "repeat_id": 0,
+  "sha256": "caaaacf49c1f15b798b01764e92b2036328a196d50e2a96f4e07d517f22f9ad7",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 can_join\n【简报】当前排队人数严格小于 QUEUE_CAP 时 can_join 返回 True，否则 False。 必须在模块顶层写 SPEC_VERSION 和 QUEUE_CAP。函数签名 can_join(length)。 不要输出 Markdown 围栏。 常量 QUEUE_CAP = 50。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "f90496c4dfde92c2121897495578850d4b661abf120d0aff32e30e89f8cba817",
+  "draft_has_v2_tokens": []
+}

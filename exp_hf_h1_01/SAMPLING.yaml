@@ -1,0 +1,71 @@
+# Frozen Agent stimulus sampling for EXP-HF-H1-01 v1.
+# Mechanical extraction only. No manual best-case selection.
+
+experiment_id: EXP-HF-H1-01
+frozen: true
+selection_rule: mechanical_task_variant_repeat
+manual_best_case_selection: prohibited
+cherry_pick_full_pass: prohibited
+repeat_index: 0
+seed: 0
+
+agent_stimulus_source:
+  T3:
+    experiment: HO-GM-T3-01
+    path: output/holdout_t3_20260825
+    track: multi
+    functional_role: sealed_holdout_result
+    H1_role: development_stimulus
+    not_future_h1_holdout: true
+  I1:
+    experiment: HO-GM-I1-01
+    path: output/holdout_i1_20260825
+    track: full
+    functional_role: sealed_holdout_result
+    H1_role: development_stimulus
+    not_future_h1_holdout: true
+  L1:
+    experiment: HO-GM-L1-01
+    path: output/holdout_l1_20260825
+    track: multi
+    functional_role: sealed_holdout_result
+    H1_role: development_stimulus
+    not_future_h1_holdout: true
+
+matrix:
+  constructs: [T3, I1, L1]
+  variants: [control, intervention]
+  tasks:
+    T3: [t3_ho_queue_max_001, t3_ho_battery_pct_001, t3_ho_noise_db_001]
+    I1: [pier_berth_001, pump_station_001, library_hours_001]
+    L1: [l1_ho_crane_load_001, l1_ho_fridge_log_001, l1_ho_mail_bay_001]
+  n_agent: 18
+  formula: 3 constructs × 2 variants × 3 tasks × 1 seed
+
+exclude_tracks:
+  - direct
+  - single
+  - drop
+  - drop_checkpoint
+  - drop_handoff
+  - drop_verified
+  - no_verification
+  - focused
+
+exclude_constructs:
+  - C1
+  - REL1
+  - N1
+
+display:
+  hide_source_kind_from_rater: true
+  hide_full_pass: true
+  hide_model_name: true
+  hide_experiment_id: true
+  variant_label: A_or_B
+  A: control
+  B: intervention
+
+human_slots:
+  same_matrix: true
+  status: not_collected

@@ -1,0 +1,4 @@
+{"event": "initial_saved", "assignments": {"agent_a": "et81", "agent_b": "et82"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "et81", "agent_b": "et82"}, "violations": []}
+{"event": "initial_saved", "assignments": {"agent_a": "et81", "agent_b": "et82"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "et81", "agent_b": "et82"}, "violations": []}

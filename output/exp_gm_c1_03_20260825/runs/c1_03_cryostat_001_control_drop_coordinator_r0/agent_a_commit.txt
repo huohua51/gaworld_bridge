@@ -1,0 +1,10 @@
+【共同资源】cryostat_chamber 同一时段只能被一个 Agent 占用。
+【可选时段】["cy91", "cy92", "cy93"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。登记保护修订后，被保护的高优先级原分配必须保留；只调整低优先级。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是 agent_a。确认联合方案中分配给你的时段，并自己占用该时段。Coordinator 不能代你执行。
+输出 {"agent_id": "agent_a", "plan_version": "plan-001", "confirm": true或false, "slot": "<slot或null>"}。
+分配不在你的可行集内、方案缺失或版本不一致时 confirm=false。
+【你的私有约束】{"agent_id": "agent_a", "label": "group_red", "resource_id": "cryostat_chamber", "feasible": ["cy91", "cy92", "cy93"], "preferred": "cy91", "window_token": "a_window_v1", "window_key": "cy91+cy92+cy93", "priority": "high"}
+【联合方案】null

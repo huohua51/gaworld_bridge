@@ -1,0 +1,3 @@
+```json
+{"steps": {"bal_ck22": {"scale": "S-8", "residual_mg": 2}, "bal_ck23": {"scale": "S-9", "residual_mg": 1}}}
+```

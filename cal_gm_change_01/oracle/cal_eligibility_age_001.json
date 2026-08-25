@@ -1,0 +1,4 @@
+{
+  "control": {"decision": "keep", "required_change": null},
+  "intervention": {"decision": "update", "required_change": {"path": "eligibility_age", "old_value": 18, "new_value": 21}}
+}

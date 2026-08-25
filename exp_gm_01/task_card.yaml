@@ -1,0 +1,35 @@
+task_id: TASK-L1-venue-close
+experiment_id: EXP-GM-01
+task_family: T1
+target_axis: 功能能力
+mechanism: 出发前场所关闭后的感知、合法改道与日程覆盖
+status: running
+ranking_eligible: false
+tracks: [direct_current_state, full_event, drop_event]
+variants: [control, intervention]
+probes: [restaurant_close_001, clinic_close_001, store_close_001]
+seeds_first: [0]
+seeds_if_valid: [1, 2]
+model: GLM-4-Flash
+temperature: 0
+matrix_first: 3 scenes × 2 variants × 3 tracks × 1 = 18
+action: update_visit
+action_fields: [action, destination, slot_id, adopted_state_version, evidence_event_id]
+does_not_use: [review_json, typed_patch, nested_mismatches]
+r0:
+  - 事件真实注入
+  - 版本正确
+  - 动作字段可提取
+  - 三轨配置一致
+r1:
+  - 目的地与日程更新由 Agent 提交
+  - 环境不得改日程
+r2:
+  - 目的地开放、类型匹配、可达
+  - 日程无冲突
+r3:
+  - 关闭/状态事件送达、采用
+  - 旧日程被覆盖
+note: >
+  GM-05 已关闭。本实验横向扩 T1 覆盖，不依赖 Reviewer 复杂 JSON。
+  Coverage=1 且脱离地板/天花板才补重复。

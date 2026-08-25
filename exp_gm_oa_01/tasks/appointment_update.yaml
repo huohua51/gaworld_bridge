@@ -1,0 +1,17 @@
+id: appointment_update
+title: 预约时间是否冲突
+state_key: appointment_time
+target: appointment_slot
+plan_time: "10:00"
+busy_times: ["14:00"]
+alternate_time: "16:00"
+control:
+  appointment_time: "10:00"
+  description: 预约仍在 10:00，与现有日程无冲突。
+intervention:
+  appointment_time: "14:00"
+  description: 预约改到 14:00，与已有工作时段冲突。
+rule: >
+  若预约时间与计划相同且不在忙碌时段，保持原计划。
+  若预约时间落入忙碌时段，改到登记的空闲替代时间 16:00。
+  不要在时间没有冲突时改期。

@@ -1,0 +1,50 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "crane_hk11": "worker_a",
+      "crane_hk12": "worker_a",
+      "crane_hk13": "worker_a"
+    },
+    "outputs": {
+      "crane_hk11": {
+        "hook": "H-A",
+        "tons": 4
+      },
+      "crane_hk12": {
+        "hook": "H-B",
+        "tons": 7
+      },
+      "crane_hk13": {
+        "hook": "H-C",
+        "tons": 2
+      }
+    },
+    "resume_step": "crane_hk12",
+    "interrupt_after": "crane_hk11"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "crane_hk11": "worker_a",
+      "crane_hk12": "worker_b",
+      "crane_hk13": "worker_b"
+    },
+    "outputs": {
+      "crane_hk11": {
+        "hook": "H-A",
+        "tons": 4
+      },
+      "crane_hk12": {
+        "hook": "H-B",
+        "tons": 7
+      },
+      "crane_hk13": {
+        "hook": "H-C",
+        "tons": 2
+      }
+    },
+    "resume_step": "crane_hk12",
+    "interrupt_after": "crane_hk11"
+  }
+}

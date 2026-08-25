@@ -1,0 +1,32 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "label_rx51": "worker_a",
+      "label_ck52": "worker_a",
+      "label_st53": "worker_a"
+    },
+    "outputs": {
+      "label_rx51": {"received_ids": ["L9", "L10"], "batch": "T2"},
+      "label_ck52": {"verified_ids": ["L9", "L10"], "missing_ids": []},
+      "label_st53": {"bin": "S8", "sealed": true}
+    },
+    "resume_step": "label_ck52",
+    "interrupt_after": "label_rx51"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "label_rx51": "worker_a",
+      "label_ck52": "worker_b",
+      "label_st53": "worker_b"
+    },
+    "outputs": {
+      "label_rx51": {"received_ids": ["L9", "L10"], "batch": "T2"},
+      "label_ck52": {"verified_ids": ["L9", "L10"], "missing_ids": []},
+      "label_st53": {"bin": "S8", "sealed": true}
+    },
+    "resume_step": "label_ck52",
+    "interrupt_after": "label_rx51"
+  }
+}

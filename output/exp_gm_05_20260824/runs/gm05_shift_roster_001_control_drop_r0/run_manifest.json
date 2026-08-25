@@ -1,0 +1,29 @@
+{
+  "task_id": "gm05_shift_roster_001",
+  "variant": "control",
+  "track": "drop",
+  "budget": {
+    "calls": 3,
+    "max_calls": 3,
+    "kinds": [
+      "executor_draft",
+      "review",
+      "executor_final"
+    ],
+    "elapsed_s": [
+      29.74405074119568,
+      4.411290407180786,
+      36.040730237960815
+    ],
+    "prompt_chars": [
+      303,
+      3230,
+      3070
+    ],
+    "total_elapsed_s": 70.196,
+    "model": "GLM-4-Flash",
+    "temperature": 0,
+    "max_tokens": 2048,
+    "valid": true
+  }
+}

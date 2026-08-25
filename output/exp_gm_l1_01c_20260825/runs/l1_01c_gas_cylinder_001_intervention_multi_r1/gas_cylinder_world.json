@@ -1,0 +1,53 @@
+{
+  "steps": {
+    "gas_cy11": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "tank": "N2-A",
+        "bar": 180
+      },
+      "event_index": 4
+    },
+    "gas_cy12": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "tank": "He-B",
+        "bar": 95
+      },
+      "event_index": 16
+    },
+    "gas_cy13": {
+      "status": "completed",
+      "actor": "worker_b",
+      "output": {
+        "tank": "Ar-C",
+        "bar": 40
+      },
+      "event_index": 17
+    }
+  },
+  "completed_steps": [
+    "gas_cy11",
+    "gas_cy12",
+    "gas_cy13"
+  ],
+  "duplicates": [],
+  "checkpoint": {
+    "checkpoint_version": "ckpt-001",
+    "completed_steps": [
+      "gas_cy11"
+    ],
+    "outputs": {
+      "gas_cy11": {
+        "tank": "N2-A",
+        "bar": 180
+      }
+    },
+    "world_digest": "c0a235253f31db443a41da0585d294764cd9cb6e46089471c1f14720a1ca1f83"
+  },
+  "unavailable": [
+    "worker_a"
+  ]
+}

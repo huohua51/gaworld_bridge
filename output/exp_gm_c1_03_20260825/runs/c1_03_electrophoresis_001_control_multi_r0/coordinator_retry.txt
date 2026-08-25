@@ -1,0 +1,16 @@
+【共同资源】electrophoresis_tank 同一时段只能被一个 Agent 占用。
+【可选时段】["et81", "et82", "et83"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。登记保护修订后，被保护的高优先级原分配必须保留；只调整低优先级。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是协调者。登记过的优先级或保护状态已发生修订。平台只返回违规证据，不会给出低优先级的正确时段，也不会自动修正。
+请调用 propose_joint_assignment：提交无重复占用的联合方案。Coordinator 不能替 A/B 执行。
+输出 {"plan_version": "plan-001", "assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}, "rule": "priority_keep_then_earliest_free"}。
+当前第一版方案仍满足修订后的保护约束。请提交最终 plan-001。
+【登记保护修订】高优先级已修订为 agent_a。必须保持其最初申报的首选。令牌：protect_a_et_v2
+【被保护的高优先级原分配】{"agent": "A", "must_keep": "et81"}
+【违规证据】[]
+【被拒绝的方案】{"agent_a": "et81", "agent_b": "et82"}
+【Agent A 可行集】["et81", "et82", "et83"]，首选 et81
+【Agent B 可行集】["et81", "et82", "et83"]，首选 et82
+【已送达初始报告】{"agent_a": {"agent_id": "agent_a", "feasible": ["et81", "et82", "et83"], "preferred": "et81"}, "agent_b": {"agent_id": "agent_b", "feasible": ["et81", "et82", "et83"], "preferred": "et82"}}

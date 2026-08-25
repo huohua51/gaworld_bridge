@@ -1,0 +1,32 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "lot_px41": "worker_a",
+      "lot_px42": "worker_a",
+      "lot_px43": "worker_a"
+    },
+    "outputs": {
+      "lot_px41": {"sku_q17": 12, "sku_q18": 7},
+      "lot_px42": {"sku_q17": 4, "sku_q19": 9},
+      "lot_px43": {"sku_q18": 5, "sku_q20": 11}
+    },
+    "resume_step": "lot_px42",
+    "interrupt_after": "lot_px41"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "lot_px41": "worker_a",
+      "lot_px42": "worker_b",
+      "lot_px43": "worker_b"
+    },
+    "outputs": {
+      "lot_px41": {"sku_q17": 12, "sku_q18": 7},
+      "lot_px42": {"sku_q17": 4, "sku_q19": 9},
+      "lot_px43": {"sku_q18": 5, "sku_q20": 11}
+    },
+    "resume_step": "lot_px42",
+    "interrupt_after": "lot_px41"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "workflow_id": "live_eval_mode_city_run_001",
+  "requested": 1,
+  "measurement_valid": 1,
+  "coverage": 1.0,
+  "full_pass_rate": 1.0,
+  "mean_task_score": 0.0,
+  "ranking_eligible": false,
+  "cells": [
+    {
+      "workflow_id": "live_eval_mode_city_run_001",
+      "instance_id": "live_run_20260823_agents_4_5_day1",
+      "measurement_valid": true,
+      "full_pass": 1,
+      "task_score": 0.0,
+      "ranking_eligible": false,
+      "status": "scored",
+      "gates": [
+        {
+          "gate_id": "execution_valid",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "run.log has 模拟完成"
+        },
+        {
+          "gate_id": "run_manifest_present",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim/run_manifest.json"
+        },
+        {
+          "gate_id": "eval_mode_enabled",
+          "passed": true,
+          "critical": true,
+          "layer": "R0",
+          "detail": "{\"enabled\": true, \"disable_dynamic_behavior\": true, \"disable_routine_change\": true, \"disable_diary_fallback\": true, \"strict_interview_json\": true, \"write_run_manifest\": true, \"unique_intervention_paths\": []}"
+        },
+        {
+          "gate_id": "dynamic_behavior_off",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "False"
+        },
+        {
+          "gate_id": "routine_change_off",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "False"
+        },
+        {
+          "gate_id": "diaries_nonempty",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "{\"agent_4\": 726, \"agent_5\": 712}"
+        },
+        {
+          "gate_id": "state_csv_present",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "rows=880"
+        },
+        {
+          "gate_id": "no_diary_fallback_in_log",
+          "passed": true,
+          "critical": true,
+          "layer": "R1",
+          "detail": "[]"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "city_run_execution_only",
+          "layer": "R2",
+          "scorer": "not_enabled",
+          "evaluable": false,
+          "score": null,
+          "max_score": 1.0,
+          "passed": null,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "No Oracle / target action on this 1-day city_run; do not upgrade to TaskScore"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "sim_dir": "/home/wuxingye/projects/gaworld_eval_bridge/output/live_run_20260823/sim",
+        "started_at": "2026-08-23T02:09:49.734950+00:00",
+        "manifest_generated_at": "2026-08-23T02:09:50.519063+00:00",
+        "agent_ids": [
+          4,
+          5
+        ],
+        "sim_days": 1,
+        "diary_chars": {
+          "agent_4": 726,
+          "agent_5": 712
+        },
+        "state_rows": 880,
+        "attribution": {
+          "agent_caused_success": "not_enabled",
+          "environment_assisted_success": "not_enabled",
+          "system_success": true,
+          "reason": "override event stream not written; only disable-flags + refused fallback"
+        }
+      }
+    }
+  ],
+  "note": "Sealed eval_mode city_run. P0/R1 only. No Oracle, no attribution split, not a model leaderboard."
+}

@@ -1,0 +1,147 @@
+{
+  "workflow_id": "exp_gm_n1_delivery",
+  "instance_id": "n1_bridge_status_001_intervention_full_r1",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "budget_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "source_private_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "relay_ran",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "drop_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "oracle_not_in_prompts",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "decision_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "action_correct",
+      "layer": "R2",
+      "scorer": "n1_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "n1_delivery",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "wrong_revision_value",
+    "events": [
+      "source_emitted",
+      "raw_sent",
+      "relay_ran",
+      "verified_emitted",
+      "verified_delivered",
+      "action_submitted"
+    ],
+    "budget": {
+      "calls": 3,
+      "max_calls": 3,
+      "kinds": [
+        "source",
+        "relay",
+        "decision"
+      ],
+      "model": "GLM-4-Flash",
+      "temperature": 0,
+      "valid": true
+    }
+  },
+  "extra": {
+    "task_id": "n1_bridge_status_001",
+    "variant": "intervention",
+    "track": "full",
+    "repeat_id": 1,
+    "action_correct": false,
+    "oracle_conditioned_fullpass": false,
+    "relay_ran": true,
+    "executor_saw_message": true,
+    "budget_calls": 3,
+    "budget_kinds": [
+      "source",
+      "relay",
+      "decision"
+    ],
+    "false_positive_revision": false,
+    "true_revision": false,
+    "first_error": "wrong_revision_value",
+    "ranking_note": "pilot, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash"
+  }
+}

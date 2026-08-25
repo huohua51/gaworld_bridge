@@ -1,0 +1,158 @@
+{
+  "workflow_id": "exp_rel1_trust_formation_update",
+  "instance_id": "shelter_capacity_001_control_focused_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.3333,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_legal",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "formation_correct",
+      "layer": "R2",
+      "scorer": "formation_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=None oracle=send_to_A"
+    },
+    {
+      "criterion_id": "update_correct",
+      "layer": "R2",
+      "scorer": "update_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=send_to_B oracle=send_to_B"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "trust_bind",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "formation=trust-msg-shelter_capacity_001_control_focused_s0-1 update=trust-msg-shelter_capacity_001_control_focused_s0-2"
+    }
+  ],
+  "process_profile": {
+    "first_error": "formation_action_incorrect",
+    "events": [
+      "focused_trust_formation",
+      "trust_delivered",
+      "trust_message_read",
+      "trust_state_adopted",
+      "action_submitted",
+      "outcome_appended",
+      "focused_trust_update",
+      "trust_delivered",
+      "trust_updated",
+      "trust_message_read",
+      "trust_state_adopted",
+      "action_submitted"
+    ],
+    "observer_calls": 0,
+    "updater_calls": 0,
+    "dispatcher_calls": 2,
+    "relationships": {
+      "volunteer_chen": {
+        "closeness": 0.49000000000000005,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      },
+      "stranger_zhao": {
+        "closeness": 0.49,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      }
+    }
+  },
+  "extra": {
+    "probe_id": "shelter_capacity_001",
+    "track": "focused",
+    "variant": "control",
+    "seed": 0,
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0,
+    "target_correct": false,
+    "formation_correct": false,
+    "update_correct": true,
+    "oracle_conditioned_success": false,
+    "other_also": false,
+    "formation_action": {
+      "action": "send_to_A",
+      "value": "None",
+      "adopted_trust_version": "v1",
+      "evidence_message_id": "trust-msg-shelter_capacity_001_control_focused_s0-1",
+      "round": "formation",
+      "task_id": "shelter_capacity_001_control_focused_s0",
+      "dispatcher_id": 3
+    },
+    "update_action": {
+      "action": "submit_shelter",
+      "value": "send_to_B",
+      "adopted_trust_version": "v2",
+      "evidence_message_id": "trust-msg-shelter_capacity_001_control_focused_s0-2",
+      "round": "update",
+      "task_id": "shelter_capacity_001_control_focused_s0",
+      "dispatcher_id": 3
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

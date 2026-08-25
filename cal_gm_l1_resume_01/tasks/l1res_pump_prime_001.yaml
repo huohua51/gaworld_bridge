@@ -1,0 +1,10 @@
+id: l1res_pump_prime_001
+title: 三阶段泵预充
+interrupt_token: worker_a_offline_pump_v1
+steps:
+  - id: pump_fill21
+    title: 注液
+  - id: pump_vent22
+    title: 排气
+  - id: pump_lock23
+    title: 锁定

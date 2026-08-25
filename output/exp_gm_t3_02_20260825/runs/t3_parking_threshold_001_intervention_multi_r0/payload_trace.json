@@ -1,0 +1,21 @@
+{
+  "reviewer_output_hash": "2feb7a88c6390922aacae5443cdc04b9bb002c2b3af7c73bbd7fad471bdb27ea",
+  "channel_sent_hash": "2feb7a88c6390922aacae5443cdc04b9bb002c2b3af7c73bbd7fad471bdb27ea",
+  "executor_read_hash": "2feb7a88c6390922aacae5443cdc04b9bb002c2b3af7c73bbd7fad471bdb27ea",
+  "dropped": false,
+  "envelope": {
+    "review_id": "review-001",
+    "spec_version": "v2",
+    "artifact_before_hash": "780b94747b17e837d5a6c2e8e99cd903a16ef0aee42edc7411c70359a3897408",
+    "review_payload_hash": "2feb7a88c6390922aacae5443cdc04b9bb002c2b3af7c73bbd7fad471bdb27ea",
+    "decision": "update",
+    "required_changes": [
+      {
+        "path": "PARKING_FREE_MINUTES",
+        "old_value": 120,
+        "new_value": 90,
+        "change_id": "change-01"
+      }
+    ]
+  }
+}

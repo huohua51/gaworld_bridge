@@ -1,0 +1,7 @@
+experiment_id: CAL-GM-APPLY-01
+status: development_pass
+ranking_eligible: false
+protocol_result: pass
+t3_02_status: not_run
+path: output/cal_gm_apply_01_20260825
+note: 正式口径已写入 registry.yaml。Scorer 读取真实文件。不建 T3-02。

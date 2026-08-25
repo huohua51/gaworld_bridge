@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "accepted": false,
+  "violations": [
+    {
+      "type": "duplicate_resource_claim",
+      "resource": "mass_spec_queue",
+      "slot": "ms41",
+      "agents": [
+        "agent_a",
+        "agent_b"
+      ]
+    },
+    {
+      "type": "not_earliest_feasible_idle",
+      "agent": "B"
+    }
+  ],
+  "observed_assignments": {
+    "agent_a": "ms41",
+    "agent_b": "ms41"
+  },
+  "retries_remaining": 0
+}

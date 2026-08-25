@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v1",
+  "criterion_id": "max_hours",
+  "evidence": "The function `can_work` checks if an employee can work based on certification and hours worked. The `MAX_HOURS` constant is set to 40, which meets the required_change criterion.",
+  "required_change": {
+    "max_hours": 40
+  }
+}

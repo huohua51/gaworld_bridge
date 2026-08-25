@@ -1,0 +1,33 @@
+experiment_id: EXP-GM-T3-01
+task_family: T3
+construct: generate_review_revise_deliver
+parent_gap: EXP-GM-05c-r1
+status: rule_calibration
+ranking_eligible: false
+role: full_workflow_contract
+does_not_use:
+  - gm05_l1_tasks
+  - gm05_l2_tasks
+  - 04e_dev_tasks
+  - 04c_wage_return_budget
+  - typed_patch
+  - decision_mismatches_required_change
+  - oa03
+tracks: [single, multi, drop]
+variants: [control, intervention]
+tasks: [t3_parking_threshold_001, t3_deposit_ratio_001, t3_queue_cap_001]
+matrix_first: 3x2x3x1
+matrix_full: 3x2x3x3
+shared_draft_hash: required
+reviewer_private_not_in_executor_brief: true
+environment_may_rewrite_artifact: false
+single_multi_equal_budget: true
+review_actions: [approve_draft, request_revision]
+pass_gate_seed0:
+  coverage: 1.0
+  single_and_multi_not_joint_floor: true
+  rule_full: 1.0
+  rule_drop_intervention: 0.0
+heldout: not_created
+note: >
+  Coverage 不过就停止。通过后才补 54 格。不重跑 GM-01/02，不加 OA-03，不建 OA-02 留出题。

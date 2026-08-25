@@ -1,0 +1,6 @@
+{"event": "requirement_available", "variant": "intervention", "track": "multi"}
+{"event": "draft_created", "ok": true, "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_05_20260824/runs/gm05_aid_allocation_001_intervention_multi_r0/artifact_before.py"}
+{"event": "review_started"}
+{"event": "review_decision", "ok": true, "decision": "revise"}
+{"event": "review_delivered", "ok": true}
+{"event": "submitted", "budget_calls": 3}

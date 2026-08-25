@@ -1,0 +1,17 @@
+experiment_id: CAL-GM-C1-PRIORITY-02
+parent: CAL-GM-C1-PRIORITY-01
+ap_items:
+- AP-C1-D-01
+frozen_at: '2026-08-25T07:33:56.779501+00:00'
+task_card_hash: eaa60f3a0d39a05a8016f25e93722405853976f30edaa255db88c1dc897f547b
+task_hash: 709b96a29d74edd6220e535b16a35ce3278aa895f396971360262a577b00a294
+protocol_hash: bfecf203fb24d53f6020b7fd35e9b7af8c6725591b4a46e7110b0baf4c8f7d17
+scorer_hash: f8090a9a4f052766af04a021a34091ae25c7304f1e02150bfdcb5579fcc46a19
+gaworld_coordination_hash: 7ba6bbee25865d7569a0aab444b4f25b7d09b737336e4d6d729885f5ce2828bf
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+does_not_overwrite:
+- EXP-GM-C1-02
+- CAL-GM-C1-PRIORITY-01
+heldout: not_created

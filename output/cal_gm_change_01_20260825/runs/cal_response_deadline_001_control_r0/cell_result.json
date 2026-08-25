@@ -1,0 +1,122 @@
+{
+  "workflow_id": "cal_gm_change_01",
+  "instance_id": "cal_response_deadline_001_control_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_call",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "decision_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "contract_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "ok"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "keep_or_update_correct",
+      "layer": "R2",
+      "scorer": "change_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "evidence_grounded",
+      "layer": "R2",
+      "scorer": "change_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "change_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "contract_error": "ok"
+  },
+  "extra": {
+    "task_id": "cal_response_deadline_001",
+    "variant": "control",
+    "repeat_id": 0,
+    "keep_correct": true,
+    "update_correct": false,
+    "evidence_grounded": true,
+    "false_positive_revision": false,
+    "missed_revision": false,
+    "decision": "keep",
+    "action": {
+      "decision": "keep",
+      "evidence": {
+        "path": "response_deadline",
+        "observed": 30,
+        "required": 30
+      },
+      "required_change": null
+    },
+    "first_error": "none",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0
+  }
+}

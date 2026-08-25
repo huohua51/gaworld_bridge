@@ -1,0 +1,16 @@
+只输出一个 JSON 对象。不要输出解释、Markdown、代码或其它文字。
+对象只能包含已登记字段，不能多键。
+批准只能是：{"action": "approve_draft", "evidence_id": "<登记 evidence_id>"}
+批准时禁止出现 target 和 required_value。
+要求修改只能是：{"action": "request_revision", "target": "<登记 target>", "required_value": <数字>, "evidence_id": "<登记 evidence_id>"}}
+禁止输出 decision、mismatches、required_change、NONE，以及任何未登记键。
+你正在自检刚才写的代码。只能根据当前验收要求和草稿做决定。不要编造隐藏测试，这一步不要改文件。
+【当前验收要求】{"spec_version": "v2", "criterion_id": "parking_free_minutes", "target": "parking_free_minutes", "required_value": 90, "evidence_id": "evidence-parking-002", "instruction": "草稿已满足 required_value 时输出 approve_draft；否则输出 request_revision。不要改文件，不要编造隐藏测试。"}
+【草稿】
+```python
+PARKING_FREE_MINUTES = 120
+SPEC_VERSION = "v1"
+
+def fee_required(minutes):
+    return minutes >= PARKING_FREE_MINUTES
+```

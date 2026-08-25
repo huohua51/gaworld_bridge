@@ -1,0 +1,21 @@
+{
+  "initial_assignments": {
+    "agent_a": "ms41",
+    "agent_b": "ms42"
+  },
+  "assignments": {
+    "agent_a": "ms41",
+    "agent_b": "ms42"
+  },
+  "occupancy": {
+    "ms41": [
+      "agent_a"
+    ],
+    "ms42": [
+      "agent_b"
+    ]
+  },
+  "actual_final_conflict_free": true,
+  "attempts": 1,
+  "unregistered_modification": 0
+}

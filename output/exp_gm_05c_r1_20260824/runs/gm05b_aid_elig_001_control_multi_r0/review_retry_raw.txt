@@ -1,0 +1,11 @@
+```json
+{
+  "review_action": {
+    "action": "revise",
+    "required_change": {
+      "change_type": "content",
+      "description": "The content needs to be rewritten for clarity."
+    }
+  }
+}
+```

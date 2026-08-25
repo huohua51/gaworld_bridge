@@ -1,0 +1,29 @@
+experiment_id: EXP-GM-T3-03
+parent: EXP-GM-T3-02
+status: planned_discrimination
+ranking_eligible: false
+generalization_claim: false
+multi_agent_value_estimable: false
+construct: independent_reviewer_private_information
+role: multi_vs_single_discrimination
+retained_from_t3_02:
+  - CHANGE_01_decision_contract
+  - APPLY_01_required_changes
+  - payload_integrity_trace
+  - three_call_budget
+  - single_multi_drop_tracks
+new:
+  - unpublished_tasks
+  - reviewer_private_spec_not_in_single_self_check
+tracks: [single, multi, drop]
+direct_doability: required_before_matrix
+variants: [control, intervention]
+tasks: [t3_free_ship_kg_001, t3_redeem_points_001, t3_alert_celsius_001]
+matrix_first: 3x2x3x1
+heldout: not_created
+note: >
+  区分度实验，不是集成正控。不能使用 T3-01/T3-02 三道开发题。
+  题目本身 Direct 可做、协议已校准。独立 Reviewer 拥有 Single 自检没有的私有核验信息。
+  只有 Multi>Single 且 Multi>Drop，并且首错能定位到 Reviewer 提供的信息，
+  才能报告多智能体审核价值。否则只能证明集成已修好，不能证明多 Agent 更好。
+  共地板或共天花板不补 repeat 1/2。不开 C1，不建留出。

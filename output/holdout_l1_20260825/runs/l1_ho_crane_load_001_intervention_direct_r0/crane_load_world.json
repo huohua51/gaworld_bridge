@@ -1,0 +1,39 @@
+{
+  "steps": {
+    "crane_hk11": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "hook": "H-A",
+        "tons": 4
+      },
+      "event_index": 1
+    },
+    "crane_hk12": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "hook": "H-B",
+        "tons": 7
+      },
+      "event_index": 2
+    },
+    "crane_hk13": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "hook": "H-C",
+        "tons": 2
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "crane_hk11",
+    "crane_hk12",
+    "crane_hk13"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

@@ -1,0 +1,8 @@
+{
+  "step1": "```json\n{\"worker_id\": \"worker_a\", \"step_id\": \"file_rx41\", \"output\": {\"received_ids\": [\"D17\", \"D18\"], \"batch\": \"B4\"}}\n```",
+  "checkpoint": "```json\n{\"worker_id\": \"worker_a\", \"completed_steps\": [\"file_rx41\"], \"outputs\": {\"file_rx41\": {\"received_ids\": [\"D17\", \"D18\"], \"batch\": \"B4\"}}}\n```",
+  "handoff": "```json\n{\"successor\": \"worker_b\", \"checkpoint_version\": \"ckpt-001\", \"resume_step\": \"file_ck41\"}\n```",
+  "resume": "```json\n{\n  \"worker_id\": \"worker_b\",\n  \"checkpoint_version\": \"ckpt-001\",\n  \"resume_step\": \"file_ck41\"\n}\n```",
+  "step2": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"file_ck41\", \"output\": {\"verified_ids\": [\"D17\", \"D18\"], \"missing_ids\": []}}\n```",
+  "step3": "```json\n{\"worker_id\": \"worker_b\", \"step_id\": \"file_ar41\", \"output\": {\"folder\": \"F2\", \"sealed\": true}}\n```"
+}

@@ -1,0 +1,4461 @@
+{
+  "generated_at": "2026-08-24T13:05:33.058482+00:00",
+  "experiment_id": "EXP-GM-OA-01",
+  "task_id": "TASK-OA-need-change-gate",
+  "phase": "all",
+  "mode": "llm",
+  "ranking_eligible": false,
+  "summary": {
+    "workflow_id": "exp_gm_oa_01_over_adaptation",
+    "requested": 36,
+    "measurement_valid": 36,
+    "coverage": 1.0,
+    "full_pass_rate": 0.8333,
+    "mean_task_score": 0.9167,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_control_legacy_direct_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_control_legacy_direct_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_control_legacy_direct_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_control_need_change_gate_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_control_need_change_gate_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_control_need_change_gate_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-appointment_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-appointment_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_intervention_legacy_direct_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=appointment_slot value=16:00"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_intervention_legacy_direct_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=appointment_slot value=16:00"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_intervention_legacy_direct_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=appointment_slot value=16:00"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_intervention_need_change_gate_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=appointment_slot value=16:00"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_intervention_need_change_gate_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=appointment_slot value=16:00"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "appointment_update_intervention_need_change_gate_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=appointment_slot value=16:00"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-appointment_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "appointment_update",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "appointment_slot",
+            "value": "16:00",
+            "evidence_event_id": "event-appointment_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_control_legacy_direct_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_control_legacy_direct_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_control_legacy_direct_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_control_need_change_gate_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_control_need_change_gate_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_control_need_change_gate_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=NONE value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-resource_threshold-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "NONE",
+            "value": "NONE",
+            "evidence_event_id": "event-resource_threshold-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_intervention_legacy_direct_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=purchase_qty value=1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "purchase_qty",
+            "value": "1",
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_intervention_legacy_direct_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=purchase_qty value=1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "purchase_qty",
+            "value": "1",
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_intervention_legacy_direct_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=purchase_qty value=1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "purchase_qty",
+            "value": "1",
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_intervention_need_change_gate_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=purchase_qty value=1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "purchase_qty",
+            "value": 1,
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_intervention_need_change_gate_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=purchase_qty value=1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "purchase_qty",
+            "value": 1,
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "resource_threshold_intervention_need_change_gate_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=purchase_qty value=1"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-resource_threshold-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "resource_threshold",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "purchase_qty",
+            "value": 1,
+            "evidence_event_id": "event-resource_threshold-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_control_legacy_direct_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=assignee_id value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "keep_placeholder_not_none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": false,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": true,
+          "action": {
+            "action": "keep",
+            "target": "assignee_id",
+            "value": "NONE",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_control_legacy_direct_s1",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=assignee_id value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "keep_placeholder_not_none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": false,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": true,
+          "action": {
+            "action": "keep",
+            "target": "assignee_id",
+            "value": "NONE",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_control_legacy_direct_s2",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=assignee_id value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "keep_placeholder_not_none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "legacy_direct",
+          "variant": "control",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": false,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": true,
+          "action": {
+            "action": "keep",
+            "target": "assignee_id",
+            "value": "NONE",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_control_need_change_gate_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=assignee_id value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "keep_placeholder_not_none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": false,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": true,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "assignee_id",
+            "value": "NONE",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_control_need_change_gate_s1",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=assignee_id value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "keep_placeholder_not_none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": false,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": true,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "assignee_id",
+            "value": "NONE",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_control_need_change_gate_s2",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.5,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=False actual=False consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=keep target=assignee_id value=NONE"
+          }
+        ],
+        "process_profile": {
+          "first_error": "keep_placeholder_not_none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "injected_event_id": "event-responsibility_update-control",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "need_change_gate",
+          "variant": "control",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": false,
+          "predicted_need_change": false,
+          "actual_need_change": false,
+          "unnecessary_replan": true,
+          "action": {
+            "need_change": false,
+            "action": "keep",
+            "target": "assignee_id",
+            "value": "NONE",
+            "evidence_event_id": "event-responsibility_update-control"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_intervention_legacy_direct_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=assignee_id value=backup-01"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_intervention_legacy_direct_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=assignee_id value=backup-01"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_intervention_legacy_direct_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=assignee_id value=backup-01"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "legacy_direct",
+          "variant": "intervention",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "action": "revise",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_intervention_need_change_gate_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=assignee_id value=backup-01"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 0,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_intervention_need_change_gate_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=assignee_id value=backup-01"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 1,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      },
+      {
+        "workflow_id": "exp_gm_oa_01_over_adaptation",
+        "instance_id": "responsibility_update_intervention_need_change_gate_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "event_injected",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "current_state_seeded",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "single_call",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "action_submitted_by_agent",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          },
+          {
+            "gate_id": "environment_did_not_rewrite",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": ""
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "need_change_correct",
+            "layer": "R2",
+            "scorer": "oa_need_change",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": false,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "predicted=True actual=True consistent=True"
+          },
+          {
+            "criterion_id": "target_correct",
+            "layer": "R2",
+            "scorer": "oa_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": "action=revise target=assignee_id value=backup-01"
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "event_injected",
+            "current_state_seeded",
+            "action_submitted"
+          ],
+          "agent_calls": 1,
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "injected_event_id": "event-responsibility_update-intervention",
+          "source_contamination": false
+        },
+        "extra": {
+          "task_id": "responsibility_update",
+          "protocol": "need_change_gate",
+          "variant": "intervention",
+          "seed": 2,
+          "need_change_correct": true,
+          "target_correct": true,
+          "predicted_need_change": true,
+          "actual_need_change": true,
+          "unnecessary_replan": false,
+          "action": {
+            "need_change": true,
+            "action": "revise",
+            "target": "assignee_id",
+            "value": "backup-01",
+            "evidence_event_id": "event-responsibility_update-intervention"
+          },
+          "ranking_note": "pilot, not a leaderboard",
+          "mode": "llm",
+          "model_version": "GLM-4-Flash",
+          "temperature": 0
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "by_protocol": {
+      "legacy_direct": {
+        "Coverage": 1.0,
+        "NeedChangeAccuracy": 1.0,
+        "ControlStabilityRate": 0.6667,
+        "AdaptationRate": 1.0,
+        "UnnecessaryReplanRate": 0.3333,
+        "ConditionalActionScore": 0.8334
+      },
+      "need_change_gate": {
+        "Coverage": 1.0,
+        "NeedChangeAccuracy": 1.0,
+        "ControlStabilityRate": 0.6667,
+        "AdaptationRate": 1.0,
+        "UnnecessaryReplanRate": 0.3333,
+        "ConditionalActionScore": 0.8334
+      }
+    },
+    "improvement_gate": {
+      "coverage_ok": true,
+      "stability_lift": 0.0,
+      "stability_lift_ok": false,
+      "adaptation_drop": 0.0,
+      "adaptation_ok": true,
+      "unnecessary_replan_down": false,
+      "always_keep_trap": false,
+      "improvement_holds": false
+    },
+    "coverage": 1.0
+  },
+  "note": "禁止把总体 EventValue 当主结论。主报五个指标，ConditionalActionScore 只作附报。"
+}

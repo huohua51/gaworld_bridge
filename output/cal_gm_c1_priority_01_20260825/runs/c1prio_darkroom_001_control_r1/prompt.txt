@@ -1,0 +1,11 @@
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+只输出 {"assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}}。
+不要输出 conflict 或任何布尔字段。平台只返回违规类型，不会给出正确时段，也不会自动修正。
+【解决规则】冲突时高优先级 Agent 必须保持原分配（若该时段仍在其可行集内）；低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。
+【共同资源】darkroom_tray
+【可选时段】["dr31", "dr32", "dr33"]
+【优先级】agent_a > agent_b
+【初始方案】{"agent_a": "dr31", "agent_b": "dr32"}
+【违规证据】[]
+【Agent A 可行集】["dr31", "dr32", "dr33"]，首选 dr31
+【Agent B 可行集】["dr32", "dr33"]，首选 dr32

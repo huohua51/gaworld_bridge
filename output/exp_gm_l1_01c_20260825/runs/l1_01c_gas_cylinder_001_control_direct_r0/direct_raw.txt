@@ -1,0 +1,3 @@
+```json
+{"steps": {"gas_cy11": {"tank": "N2-A", "bar": 180}, "gas_cy12": {"tank": "He-B", "bar": 95}, "gas_cy13": {"tank": "Ar-C", "bar": 40}}}
+```

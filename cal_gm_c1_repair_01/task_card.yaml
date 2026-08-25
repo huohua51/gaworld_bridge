@@ -1,0 +1,23 @@
+experiment_id: CAL-GM-C1-REPAIR-01
+parent: CAL-GM-C1-COMP-01
+construct: conflict_detection_allocation_decoupling
+role: protocol_repair_retest
+status: rule_calibration
+ap_items: [AP-C1-B-01, AP-C1-C-01]
+ranking_eligible: false
+generalization_claim: false
+c1_02_allowed: false
+tracks: [direct]
+variants: [control, intervention]
+tasks: [c1repair_initial_conflict_001, c1repair_final_free_001, c1repair_reallocate_001]
+matrix: 3x2x3
+does_not_use:
+  - c1_01_frozen_tasks
+  - c1_comp_01_tasks
+  - t3_tasks
+  - n1_tasks
+heldout: not_created
+note: >
+  复测「冲突证据 → 重新提案 → Scorer 核验最终占用」。
+  不用 C1-01 / C1-COMP-01 原题。环境不得写入正确分配。
+  组件门全部通过后才能把 c1_02_allowed 改为 true。

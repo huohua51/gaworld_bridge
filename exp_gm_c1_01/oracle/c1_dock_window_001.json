@@ -1,0 +1,10 @@
+{
+  "control": {
+    "conflict": false,
+    "assignments": {"agent_a": "win-2", "agent_b": "win-1"}
+  },
+  "intervention": {
+    "conflict": true,
+    "assignments": {"agent_a": "win-2", "agent_b": "win-3"}
+  }
+}

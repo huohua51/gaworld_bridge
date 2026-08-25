@@ -1,0 +1,2 @@
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "mail_bin12", "index": 0}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/cal_gm_l1_resume_01_20260825/runs/l1res_mail_sort_001_intervention_r1/world.json", "index": 1}

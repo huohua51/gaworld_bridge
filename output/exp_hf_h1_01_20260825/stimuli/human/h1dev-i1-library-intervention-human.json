@@ -1,0 +1,10 @@
+{
+  "stimulus_id": "h1dev-i1-library-intervention-human",
+  "pairs_with": "h1dev-i1-library-intervention",
+  "construct": "I1",
+  "task_id": "library_hours_001",
+  "variant": "intervention",
+  "status": "not_collected",
+  "source_kind": "human",
+  "h1_role": "development_stimulus"
+}

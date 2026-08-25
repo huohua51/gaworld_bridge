@@ -1,0 +1,3337 @@
+{
+  "generated_at": "2026-08-24T07:36:18.575756+00:00",
+  "experiment_id": "EXP-GM-04e",
+  "phase": "04e-R",
+  "ranking_eligible": false,
+  "held_out_run": false,
+  "summary": {
+    "workflow_id": "exp_gm_04e_r_reviewer_only",
+    "requested": 36,
+    "measurement_valid": 36,
+    "coverage": 1.0,
+    "full_pass_rate": 0.9167,
+    "mean_task_score": 0.9167,
+    "ranking_eligible": false,
+    "cells": [
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_control_legacy_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "reservation_wage_threshold",
+            "evidence": "The function `decide` checks if `take_home` is greater than or equal to `THRESHOLD` (60000) and returns 'accept' if true, otherwise 'reject'.",
+            "required_change": {}
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_control_legacy_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "reservation_wage_threshold",
+            "evidence": "The function `decide` checks if `take_home` is greater than or equal to `THRESHOLD` (60000) and returns 'accept' if true, otherwise 'reject'.",
+            "required_change": {}
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_control_legacy_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "reservation_wage_threshold",
+            "evidence": "The function `decide` checks if `take_home` is greater than or equal to `THRESHOLD` (60000) and returns 'accept' if true, otherwise 'reject'.",
+            "required_change": {}
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_intervention_legacy_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "reservation_wage_threshold",
+            "evidence": "The current threshold is set to 60000, which does not meet the required_change of 70000.",
+            "required_change": {
+              "reservation_wage": 70000
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_intervention_legacy_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "reservation_wage_threshold",
+            "evidence": "The current threshold is set to 60000, which does not meet the required_change of 70000.",
+            "required_change": {
+              "reservation_wage": 70000
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_intervention_legacy_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "reservation_wage_threshold",
+            "evidence": "The current threshold is set to 60000, which does not meet the required_change of 70000.",
+            "required_change": {
+              "reservation_wage": 70000
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_control_evidence_bound_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_control_evidence_bound_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_control_evidence_bound_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_intervention_evidence_bound_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "reservation_wage_threshold",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "reservation_wage_threshold",
+                "fact_id": "fact-02",
+                "observed_value": 60000,
+                "required_value": 70000,
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_intervention_evidence_bound_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "reservation_wage_threshold",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "reservation_wage_threshold",
+                "fact_id": "fact-02",
+                "observed_value": 60000,
+                "required_value": 70000,
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_wage_gate_intervention_evidence_bound_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_wage_gate",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "reservation_wage_threshold",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "reservation_wage_threshold",
+                "fact_id": "fact-02",
+                "observed_value": 60000,
+                "required_value": 70000,
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_control_legacy_s0",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "false_positive_revision",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": true,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "min_return_rate",
+            "evidence": "The function `min_return` calculates the return as `int(principal * RATE)` which is equal to `int(principal * 0.3)`. The required change is to ensure the return rate is at least 0.3, but the current implementation does not guarantee this as it truncates the result to an integer.",
+            "required_change": {
+              "min_return_rate": 0.3
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_control_legacy_s1",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "false_positive_revision",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": true,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "min_return_rate",
+            "evidence": "The function `min_return` calculates the return as `int(principal * RATE)` which is equal to `int(principal * 0.3)`. The required change is to ensure the return rate is at least 0.3, but the current implementation does not guarantee this as it truncates the result to an integer.",
+            "required_change": {
+              "min_return_rate": 0.3
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_control_legacy_s2",
+        "measurement_valid": true,
+        "full_pass": 0,
+        "task_score": 0.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 0.0,
+            "max_score": 1.0,
+            "passed": false,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "false_positive_revision",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": true,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "min_return_rate",
+            "evidence": "The function `min_return` calculates the return as `int(principal * RATE)` which is equal to `int(principal * 0.3)`. The required change is to ensure the return rate is at least 0.3, but the current implementation does not guarantee this as it truncates the result to an integer.",
+            "required_change": {
+              "min_return_rate": 0.3
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_intervention_legacy_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "min_return_rate",
+            "evidence": "The function `min_return` calculates the return rate as 0.3, which is less than the required 0.5.",
+            "required_change": {
+              "min_return_rate": 0.5
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_intervention_legacy_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "min_return_rate",
+            "evidence": "The function min_return does not meet the required min_return_rate of 0.5 as specified in the required_change.",
+            "required_change": {
+              "min_return_rate": 0.5
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_intervention_legacy_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "min_return_rate",
+            "evidence": "The function min_return does not meet the required min_return_rate of 0.5 as specified in the required_change.",
+            "required_change": {
+              "min_return_rate": 0.5
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_control_evidence_bound_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_control_evidence_bound_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_control_evidence_bound_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_intervention_evidence_bound_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "min_return_rate",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "min_return_rate",
+                "fact_id": "fact-02",
+                "observed_value": "0.3",
+                "required_value": "0.5",
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_intervention_evidence_bound_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "min_return_rate",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "min_return_rate",
+                "fact_id": "fact-02",
+                "observed_value": "0.3",
+                "required_value": "0.5",
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_return_floor_intervention_evidence_bound_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_return_floor",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "min_return_rate",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "min_return_rate",
+                "fact_id": "fact-02",
+                "observed_value": "0.3",
+                "required_value": "0.5",
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_control_legacy_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "total_budget",
+            "evidence": "The function `remaining(spent)` returns the remaining budget which is calculated by subtracting the `spent` from the `BUDGET` constant, which is set to 100. This meets the required_change of having a `total_budget` of 100.",
+            "required_change": {}
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_control_legacy_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "total_budget",
+            "evidence": "The function `remaining(spent)` returns the remaining budget which is calculated by subtracting the `spent` from the `BUDGET` constant, which is set to 100. This meets the required_change of having a `total_budget` of 100.",
+            "required_change": {}
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_control_legacy_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "control",
+          "protocol": "legacy",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "total_budget",
+            "evidence": "The function `remaining(spent)` returns the remaining budget which is calculated by subtracting the `spent` from the `BUDGET` constant, which is set to 100. This meets the required_change of having a `total_budget` of 100.",
+            "required_change": {}
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_intervention_legacy_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "total_budget",
+            "evidence": "The source code specifies a budget of 100, which does not meet the required change of 80.",
+            "required_change": {
+              "total_budget": 80
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_intervention_legacy_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "total_budget",
+            "evidence": "The source code specifies a budget of 100, which does not meet the required change of 80.",
+            "required_change": {
+              "total_budget": 80
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_intervention_legacy_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_parsed"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "intervention",
+          "protocol": "legacy",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v2",
+            "criterion_id": "total_budget",
+            "evidence": "The source code specifies a budget of 100, which does not meet the required change of 80.",
+            "required_change": {
+              "total_budget": 80
+            }
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_control_evidence_bound_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_control_evidence_bound_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_control_evidence_bound_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "control",
+          "protocol": "evidence_bound",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": false,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "approve",
+            "mismatches": []
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_intervention_evidence_bound_s0",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 0,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "spec_version",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "total_budget",
+                "fact_id": "fact-02",
+                "observed_value": 100,
+                "required_value": 80,
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_intervention_evidence_bound_s1",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 1,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "spec_version",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "total_budget",
+                "fact_id": "fact-02",
+                "observed_value": 100,
+                "required_value": 80,
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      },
+      {
+        "workflow_id": "exp_gm_04e_r_reviewer_only",
+        "instance_id": "w1_budget_remaining_intervention_evidence_bound_s2",
+        "measurement_valid": true,
+        "full_pass": 1,
+        "task_score": 1.0,
+        "ranking_eligible": false,
+        "status": "scored",
+        "gates": [
+          {
+            "gate_id": "execution_valid",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "ok"
+          },
+          {
+            "gate_id": "eval_mode_on",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": ""
+          },
+          {
+            "gate_id": "fields_extractable",
+            "passed": true,
+            "critical": true,
+            "layer": "R0",
+            "detail": "reviewer-only cell executed"
+          },
+          {
+            "gate_id": "reviewer_only",
+            "passed": true,
+            "critical": true,
+            "layer": "R1",
+            "detail": "executor not run"
+          }
+        ],
+        "criteria": [
+          {
+            "criterion_id": "review_correct",
+            "layer": "R2",
+            "scorer": "reviewer_oracle",
+            "evaluable": true,
+            "score": 1.0,
+            "max_score": 1.0,
+            "passed": true,
+            "critical": true,
+            "weight": 1.0,
+            "evidence_ids": [],
+            "detail": ""
+          }
+        ],
+        "process_profile": {
+          "first_error": "none",
+          "events": [
+            "draft_fixed",
+            "facts_extracted",
+            "reviewer_call_1",
+            "review_verified"
+          ]
+        },
+        "extra": {
+          "task_id": "w1_budget_remaining",
+          "variant": "intervention",
+          "protocol": "evidence_bound",
+          "seed": 2,
+          "mode": "llm",
+          "split": "development",
+          "reviewer_calls": 1,
+          "false_positive_revision": false,
+          "true_revision": true,
+          "grounded": true,
+          "review_parseable": true,
+          "review": {
+            "decision": "revise",
+            "mismatches": [
+              {
+                "criterion_id": "spec_version",
+                "fact_id": "fact-01",
+                "observed_value": "v1",
+                "required_value": "v2",
+                "operator": "equals"
+              },
+              {
+                "criterion_id": "total_budget",
+                "fact_id": "fact-02",
+                "observed_value": 100,
+                "required_value": 80,
+                "operator": "equals"
+              }
+            ]
+          },
+          "verify": {
+            "ok": true,
+            "reason": "ok",
+            "nack": "mismatch evidence is not supported by the current artifact"
+          },
+          "ranking_note": "pilot, not a leaderboard"
+        }
+      }
+    ]
+  },
+  "false_positive_revision_rate_old": 0.3333,
+  "false_positive_revision_rate_new": 0.0,
+  "true_revision_rate_old": 1.0,
+  "true_revision_rate_new": 1.0,
+  "evidence_grounding_rate": 1.0,
+  "parse_rate_old": 1.0,
+  "parse_rate_new": 1.0,
+  "mean_reviewer_calls_old": 1.0,
+  "mean_reviewer_calls_new": 1.0,
+  "advance_to_04e_e": true
+}

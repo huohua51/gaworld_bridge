@@ -1,0 +1,111 @@
+{
+  "workflow_id": "exp_i1_verified_information_relay",
+  "instance_id": "clinic_service_001_control_focused_s2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_legal",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_correct",
+      "layer": "R2",
+      "scorer": "action_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=clinic_A oracle=clinic_A"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "verified_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "evidence=verified-msg-clinic_service_001_control_focused_s2-1 version=v1"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "focused_verified",
+      "verified_delivered",
+      "verified_message_read",
+      "verified_state_adopted",
+      "action_submitted"
+    ],
+    "adopted_state_version": "v1",
+    "evidence_message_id": "verified-msg-clinic_service_001_control_focused_s2-1",
+    "verified_message_id": "verified-msg-clinic_service_001_control_focused_s2-1",
+    "observer_calls": 0,
+    "verifier_calls": 0,
+    "dispatcher_calls": 1
+  },
+  "extra": {
+    "probe_id": "clinic_service_001",
+    "track": "focused",
+    "variant": "control",
+    "seed": 2,
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0,
+    "target_correct": true,
+    "oracle_conditioned_success": true,
+    "other_also": false,
+    "action": {
+      "action": "submit_clinic",
+      "value": "clinic_A",
+      "adopted_state_version": "v1",
+      "evidence_message_id": "verified-msg-clinic_service_001_control_focused_s2-1",
+      "task_id": "clinic_service_001_control_focused_s2",
+      "dispatcher_id": 3
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

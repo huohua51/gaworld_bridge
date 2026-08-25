@@ -1,0 +1,133 @@
+{
+  "workflow_id": "cal_gm_apply_01",
+  "instance_id": "cal_apply_normal_emergency_001_intervention_r1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_call",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "artifact_on_disk",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "reviewer_is_rule",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "complete_adoption",
+      "layer": "R2",
+      "scorer": "file_values",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "hidden_test_pass",
+      "layer": "R2",
+      "scorer": "hidden_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "field_status": {
+      "got": {
+        "NORMAL_CAPACITY": 60,
+        "EMERGENCY_CAPACITY": 60
+      },
+      "required_n": 2,
+      "adopted": [
+        "NORMAL_CAPACITY",
+        "EMERGENCY_CAPACITY"
+      ],
+      "missed": [],
+      "adopted_n": 2,
+      "extra_registered": [],
+      "extra_names": [],
+      "unregistered": false,
+      "complete": true,
+      "partial": false,
+      "declared": false
+    }
+  },
+  "extra": {
+    "task_id": "cal_apply_normal_emergency_001",
+    "variant": "intervention",
+    "repeat_id": 1,
+    "adopted_n": 2,
+    "required_n": 2,
+    "complete": true,
+    "partial": false,
+    "unregistered": false,
+    "hidden_test_pass": true,
+    "acknowledgement_execution_gap": false,
+    "declared": false,
+    "got": {
+      "NORMAL_CAPACITY": 60,
+      "EMERGENCY_CAPACITY": 60
+    },
+    "first_error": "none",
+    "control_oracle": false,
+    "intervention_oracle": true,
+    "mode": "llm",
+    "model_version": "GLM-4-Flash",
+    "temperature": 0
+  }
+}

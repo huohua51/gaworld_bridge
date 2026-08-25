@@ -1,0 +1,42 @@
+{
+  "batch_id": "gaworld-rubric-pilot-locked",
+  "note": "Mimics SocietyDiag Flash lock-in: trustee always returns 10; jobseeker always accepts. Pair accuracy must be 0.",
+  "pairs": {
+    "trust_reciprocity_scale_001": {
+      "control": {
+        "agent_id": 31,
+        "interview": "我信任别人，所以还10。",
+        "target_action": {
+          "action": "submit_return",
+          "payload": {"return_amount": 10}
+        }
+      },
+      "intervention": {
+        "agent_id": 31,
+        "interview": "我还是选择信任，还10。",
+        "target_action": {
+          "action": "submit_return",
+          "payload": {"return_amount": 10}
+        }
+      }
+    },
+    "reservation_wage_apply_001": {
+      "control": {
+        "agent_id": 2,
+        "interview": "有工作就接。",
+        "target_action": {
+          "action": "evaluate_job_offer",
+          "payload": {"decision": "accept"}
+        }
+      },
+      "intervention": {
+        "agent_id": 2,
+        "interview": "有工作就接。",
+        "target_action": {
+          "action": "evaluate_job_offer",
+          "payload": {"decision": "accept"}
+        }
+      }
+    }
+  }
+}

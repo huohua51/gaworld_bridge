@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "eligibility_age",
+    "observed": 18,
+    "required": 18
+  },
+  "required_change": null
+}

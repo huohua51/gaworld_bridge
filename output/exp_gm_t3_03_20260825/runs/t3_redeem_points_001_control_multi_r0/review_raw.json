@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "REDEEM_MIN",
+    "observed": 200,
+    "required": 200
+  },
+  "required_changes": []
+}

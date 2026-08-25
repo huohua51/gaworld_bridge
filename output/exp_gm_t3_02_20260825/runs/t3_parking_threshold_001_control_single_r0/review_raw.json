@@ -1,0 +1,9 @@
+{
+  "decision": "keep",
+  "evidence": {
+    "path": "PARKING_FREE_MINUTES",
+    "observed": 120,
+    "required": 120
+  },
+  "required_changes": []
+}

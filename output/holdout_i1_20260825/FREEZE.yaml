@@ -1,0 +1,27 @@
+experiment_id: HO-GM-I1-01
+parent: EXP-GM-I1
+phase: rule
+frozen_at: '2026-08-25T12:34:35.488808+00:00'
+task_card_hash: df47d110e10afdb90721aa5b4a654e589753e9984194b855992c13c8b045b8b6
+task_hash: 2b40d520ab373847fdb984433547a3bd3e6b5c088641e6ef9f99d6b577c7a8cb
+scorer_hash: e1fff3aa73bc504f228e5a9a98b31f13f4c0b8fbf9d70d87776751d6f8427311
+runner_hash: 73268b6ca3f2537df2383b5a240210f5b7c9a96cc096adcb3dc482ef00e75815
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+do_not_edit_after_freeze:
+- task_card.yaml
+- probes.py
+- scoring.py
+- roles.py
+- loop.py
+heldout: this_experiment
+holdout_run_once: true
+does_not_overwrite:
+- EXP-GM-I1
+- EXP-GM-REL1
+- EXP-GM-N1
+probes:
+- pier_berth_001
+- pump_station_001
+- library_hours_001

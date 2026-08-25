@@ -1,0 +1,45 @@
+{
+  "steps": {
+    "mail_rx61": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "received_ids": [
+          "P3",
+          "P4"
+        ],
+        "batch": "M7"
+      },
+      "event_index": 1
+    },
+    "mail_ck62": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "verified_ids": [
+          "P3",
+          "P4"
+        ],
+        "missing_ids": []
+      },
+      "event_index": 2
+    },
+    "mail_st63": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "bin": "B2",
+        "sealed": true
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "mail_rx61",
+    "mail_ck62",
+    "mail_st63"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

@@ -1,0 +1,100 @@
+# Sealed holdout seed0. Run once. Do not tune protocol and rerun.
+
+generated_at: '2026-08-25T12:47:42+00:00'
+ranking_eligible: false
+generalization_claim: false
+cross_task_generalization: unproven
+cross_model_robustness: not_run
+holdout_run_once: true
+repeat_1_2_run: false
+model: GLM-4-Flash
+temperature: 0
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+
+measurement_gaps_landed:
+  first_error_enumeration:
+    status: landed_in_compose
+    location: gaworld_eval_bridge/v0_first_batch/schema.py
+    rule: FullPass=0 cannot keep first_error=none; becomes unexplained_failure
+    historical_scores_unchanged: true
+    l1_01b_erratum: output/exp_gm_l1_01b_20260825/ERRATUM.yaml
+  platform_plan_version:
+    status: landed_on_joint_assignment_channel
+    location: GAWorld/gaworld/work/plan_registry.py
+    rule: platform stamps plan_id/spec_version; agent must not submit them
+    c1_channel_unchanged: true
+    ap_c1_f_01: still_open
+
+does_not_overwrite:
+  - EXP-GM-L1-01
+  - EXP-GM-L1-01b
+  - EXP-GM-L1-01c
+  - EXP-GM-T3-03
+  - EXP-GM-I1
+  - EXP-GM-C1-02
+  - EXP-GM-C1-03
+  - EXP-GM-N1_raw_scores
+
+experiments:
+  HO-GM-T3-01:
+    path: output/holdout_t3_20260825
+    parent: EXP-GM-T3-03
+    protocol_parent: EXP-GM-T3-02
+    phase: seed0
+    gate: off_floor
+    n_cells: 18
+    direct_fullpass: 1.0
+    coverage: 1.0
+    single_fullpass: 0.5
+    multi_fullpass: 1.0
+    drop_fullpass: 0.5
+    pattern: multi_gt_single_and_multi_gt_drop
+    single_intervention_first_error: review_decision_incorrect
+    drop_intervention_first_error: review_payload_not_delivered
+    multi_agent_value_estimable: false
+    note: seed0 方向与开发集相同；未补 54 格，不能当正式价值估计或排名分
+
+  HO-GM-I1-01:
+    path: output/holdout_i1_20260825
+    parent: EXP-GM-I1
+    phase: seed0
+    n_cells: 24
+    coverage: 1.0
+    measurement_valid: 24
+    direct_verified_state: 1.0
+    full: 1.0
+    drop_verified: 0.0
+    no_verification: 0.0
+    communication_value: 1.0
+    verification_value: 1.0
+    unauthorized_read_rate: 0.0
+    note: seed0 与开发集同一正负控模式；不能写泛化已证明
+
+  HO-GM-L1-01:
+    path: output/holdout_l1_20260825
+    parent: EXP-GM-L1-01c
+    phase: seed0
+    gate: regression_pass
+    n_cells: 18
+    direct_fullpass: 1.0
+    coverage: 1.0
+    full_multi:
+      control: 3/3
+      interruption: 3/3
+      strict_pair: 3/3
+    drop_checkpoint:
+      control: 3/3
+      interruption: 0/3
+      first_error: checkpoint_not_delivered
+    drop_handoff:
+      control: 3/3
+      interruption: 0/3
+      first_error: handoff_not_delivered
+    interruption_recovery_holdout_result: pass
+    l1_01b_strict_pair_unchanged: 2_of_3
+    note: 留出 seed0 通过预注册门；不是 54 格、不是排名、不覆盖 L1-01b
+
+claim: >
+  三个密封留出的 seed0 均与对应开发集同一可解释模式。
+  这不是跨任务泛化证明，也不是正式 Benchmark 完成。
+  失败后不得回头调协议再跑同一批。

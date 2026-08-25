@@ -1,0 +1,53 @@
+experiment_id: EXP-GM-L1-01b
+task_family: L1
+construct: interruption_recovery_and_role_succession
+status: rule_calibration
+ranking_eligible: false
+generalization_claim: false
+role: full_multi_handoff_system
+primary_track: multi
+tracks: [multi, drop_checkpoint, drop_handoff]
+direct_doability: required_before_matrix
+direct_is_formal_result: false
+single_is_primary: false
+variants: [control, intervention]
+tasks: [l1_01_inventory_lots_001, l1_01_centrifuge_rotor_001, l1_01b_file_intake_001]
+roles: [worker_a, worker_b, coordinator]
+call_budget: 6
+call_kinds:
+  - worker_a_step1
+  - worker_a_checkpoint
+  - coordinator_handoff
+  - successor_resume
+  - successor_step2
+  - successor_step3
+checkpoint_version: ckpt-001
+checkpoint_version_manager: platform
+drop_checkpoint_target: successor_checkpoint_copy
+drop_handoff_target: successor_handoff
+matrix_first: 3x2x3x1
+matrix_full: 3x2x3x3
+heldout: not_created
+holdout_allowed: false
+does_not_overwrite:
+  - EXP-GM-L1-01
+  - EXP-GM-C1-01
+  - EXP-GM-C1-02
+  - EXP-GM-C1-03
+  - EXP-GM-N1
+  - EXP-GM-T3-03
+environment_may_rewrite_world: false
+environment_may_complete_remaining_steps: false
+coordinator_may_execute: false
+workers_may_read_peer_private: false
+preregistered_gate:
+  coverage: 1.0
+  rule_multi_both_variants: 1.0
+  rule_drop_checkpoint_control: 1.0
+  rule_drop_checkpoint_intervention: 0.0
+  rule_drop_handoff_control: 1.0
+  rule_drop_handoff_intervention: 0.0
+  environment_auto_repair: 0
+note: >
+  继承 L1-01 前两题。第三题改为文件接收—核验—归档，只测从已完成里程碑继续，
+  不要求派生 checksum。不覆盖原 L1-01 结果。Direct 非正式结果。不做 C1-04。

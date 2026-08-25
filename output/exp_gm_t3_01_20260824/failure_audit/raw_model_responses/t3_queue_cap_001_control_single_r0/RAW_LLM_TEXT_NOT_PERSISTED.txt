@@ -1,0 +1,1 @@
+Harness only stored parse_json_object(text) or {}. Verbatim LLM review text was discarded and cannot be recovered.

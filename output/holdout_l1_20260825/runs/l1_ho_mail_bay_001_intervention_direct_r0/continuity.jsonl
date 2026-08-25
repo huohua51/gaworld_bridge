@@ -1,0 +1,7 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "mail_rx61", "output": {"received_ids": ["P3", "P4"], "batch": "M7"}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "mail_ck62", "output": {"verified_ids": ["P3", "P4"], "missing_ids": []}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "mail_st63", "output": {"bin": "B2", "sealed": true}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_mail_bay_001_intervention_direct_r0/mail_bay_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/holdout_l1_20260825/runs/l1_ho_mail_bay_001_intervention_direct_r0/mail_bay_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

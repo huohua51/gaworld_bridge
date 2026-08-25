@@ -1,0 +1,59 @@
+{
+  "workflow_id": "capability_quiz_not_workflow_001",
+  "requested": 1,
+  "measurement_valid": 0,
+  "coverage": 0.0,
+  "full_pass_rate": null,
+  "mean_task_score": null,
+  "ranking_eligible": false,
+  "cells": [
+    {
+      "workflow_id": "capability_quiz_not_workflow_001",
+      "instance_id": "question_bank_inspect",
+      "measurement_valid": false,
+      "full_pass": null,
+      "task_score": null,
+      "ranking_eligible": false,
+      "status": "measurement_invalid",
+      "gates": [
+        {
+          "gate_id": "workflow_verifiability",
+          "passed": false,
+          "critical": true,
+          "layer": "R0",
+          "detail": "items are arithmetic/analogy/working-memory quizzes, not GAWorld deliverables"
+        }
+      ],
+      "criteria": [
+        {
+          "criterion_id": "not_task_competence",
+          "layer": "R2",
+          "scorer": "rule",
+          "evaluable": false,
+          "score": null,
+          "max_score": 1.0,
+          "passed": null,
+          "critical": false,
+          "weight": 1.0,
+          "evidence_ids": [],
+          "detail": "do not promote this bank into P1 Workflow Performance"
+        }
+      ],
+      "process_profile": {},
+      "extra": {
+        "n_items": 8,
+        "dimensions": [
+          "logic",
+          "numerical",
+          "pattern",
+          "planning",
+          "reading",
+          "temporal",
+          "verbal",
+          "working_memory"
+        ]
+      }
+    }
+  ],
+  "status": "placeholder"
+}

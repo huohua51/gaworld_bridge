@@ -1,0 +1,16 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "DEPOSIT_PERCENT",
+    "observed": 20,
+    "required": 30
+  },
+  "required_changes": [
+    {
+      "change_id": "change-01",
+      "path": "DEPOSIT_PERCENT",
+      "old_value": 20,
+      "new_value": 30
+    }
+  ]
+}

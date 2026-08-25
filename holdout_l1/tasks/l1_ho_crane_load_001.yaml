@@ -1,0 +1,25 @@
+id: l1_ho_crane_load_001
+title: 三钩吊装吨位登记
+kind: sequential_workflow
+artifact: crane_load_world.json
+interrupt_token: worker_a_offline_crane_ho_v1
+rule: complete_in_order_no_repeat
+output_rule: 每一步的 output 只能包含该钩材料中的 hook 与 tons，不要添加其它字段。
+checkpoint_after: crane_hk11
+steps:
+  - id: crane_hk11
+    title: 第一钩
+  - id: crane_hk12
+    title: 第二钩
+  - id: crane_hk13
+    title: 第三钩
+materials:
+  crane_hk11:
+    hook: H-A
+    tons: 4
+  crane_hk12:
+    hook: H-B
+    tons: 7
+  crane_hk13:
+    hook: H-C
+    tons: 2

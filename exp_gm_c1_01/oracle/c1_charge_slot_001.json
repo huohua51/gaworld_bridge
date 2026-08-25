@@ -1,0 +1,10 @@
+{
+  "control": {
+    "conflict": false,
+    "assignments": {"agent_a": "09:00", "agent_b": "10:00"}
+  },
+  "intervention": {
+    "conflict": true,
+    "assignments": {"agent_a": "09:00", "agent_b": "11:00"}
+  }
+}

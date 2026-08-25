@@ -1,0 +1,19 @@
+id: c1comp_reallocate_001
+component: C
+title: 冲突后重新分配
+resource_id: van_bay
+slots: [h8, h9, h10]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [h8, h9, h10]
+  preferred: h8
+agent_b:
+  control:
+    feasible: [h8, h9, h10]
+    preferred: h9
+  intervention:
+    feasible: [h8, h9, h10]
+    preferred: h8
+oracle:
+  control: {agent_a: h8, agent_b: h9}
+  intervention: {agent_a: h8, agent_b: h9}

@@ -1,0 +1,32 @@
+{
+  "control": {
+    "interrupt": false,
+    "actor_by_step": {
+      "gas_cy11": "worker_a",
+      "gas_cy12": "worker_a",
+      "gas_cy13": "worker_a"
+    },
+    "outputs": {
+      "gas_cy11": {"tank": "N2-A", "bar": 180},
+      "gas_cy12": {"tank": "He-B", "bar": 95},
+      "gas_cy13": {"tank": "Ar-C", "bar": 40}
+    },
+    "resume_step": "gas_cy12",
+    "interrupt_after": "gas_cy11"
+  },
+  "intervention": {
+    "interrupt": true,
+    "actor_by_step": {
+      "gas_cy11": "worker_a",
+      "gas_cy12": "worker_b",
+      "gas_cy13": "worker_b"
+    },
+    "outputs": {
+      "gas_cy11": {"tank": "N2-A", "bar": 180},
+      "gas_cy12": {"tank": "He-B", "bar": 95},
+      "gas_cy13": {"tank": "Ar-C", "bar": 40}
+    },
+    "resume_step": "gas_cy12",
+    "interrupt_after": "gas_cy11"
+  }
+}

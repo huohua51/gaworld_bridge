@@ -1,0 +1,42 @@
+task_id: TASK-I1
+experiment_id: HO-GM-I1-01
+parent: EXP-GM-I1
+task_family: T2
+target_axis: 功能能力
+mechanism: M 可信信息核验与送达
+status: sealed_holdout
+ranking_eligible: false
+generalization_claim: false
+conformance_target: verified_information_relay
+conformance_targets:
+  - private_information_isolation
+  - role_permission_enforcement
+  - verified_message_delivery
+  - action_bound_to_verified_evidence
+track_aliases:
+  focused: direct_verified_state
+roles: [observer, verifier, dispatcher]
+tracks: [focused, full, drop_verified, no_verification]
+variants: [control, intervention]
+probes: [pier_berth_001, pump_station_001, library_hours_001]
+seeds_first: [0]
+seeds_if_valid: []
+model: GLM-4-Flash
+temperature: 0
+matrix_full: not_run
+matrix_first: 3 × 2 × 4 × 1 = 24
+heldout: this_experiment
+holdout_run_once: true
+does_not_overwrite:
+  - EXP-GM-I1
+  - EXP-GM-REL1
+  - EXP-GM-N1
+primary_metrics:
+  - oracle_conditioned FullPass
+  - CommunicationValue
+  - VerificationValue
+  - CommunicationPropagationGap
+  - StrictPair
+note: >
+  密封留出。全新场景。只跑 seed0 24 格一次。失败后不得回头调协议。
+  结果与 EXP-GM-I1 开发集分开报告。focused 对外登记为 direct_verified_state。

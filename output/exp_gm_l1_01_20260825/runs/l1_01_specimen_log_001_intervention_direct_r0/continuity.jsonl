@@ -1,0 +1,18 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_specimen_log_001_intervention_direct_r0/specimen_world.json", "index": 1}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_specimen_log_001_intervention_direct_r0/specimen_world.json", "index": 2}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 3}
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "intake_sp71", "output": {"specimens": ["SP-771", "SP-772"]}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "verify_sp71", "output": {"title": "校验"}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "archive_sp71", "output": {"title": "归档"}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_specimen_log_001_intervention_direct_r0/specimen_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_specimen_log_001_intervention_direct_r0/specimen_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "step_completed", "role": "worker_a", "step_id": "intake_sp71", "output": {"specimens": ["SP-771", "SP-772"]}, "index": 1}
+{"event": "step_completed", "role": "worker_a", "step_id": "verify_sp71", "output": {}, "index": 2}
+{"event": "step_completed", "role": "worker_a", "step_id": "archive_sp71", "output": {"bin": "AR-29"}, "index": 3}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_specimen_log_001_intervention_direct_r0/specimen_world.json", "index": 4}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01_20260825/runs/l1_01_specimen_log_001_intervention_direct_r0/specimen_world.json", "index": 5}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 6}

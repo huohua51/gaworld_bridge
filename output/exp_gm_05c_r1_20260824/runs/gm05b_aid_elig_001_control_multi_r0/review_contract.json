@@ -1,0 +1,17 @@
+{
+  "ok": false,
+  "error": "model_contract_failure",
+  "missing": [
+    "decision",
+    "mismatches",
+    "required_change"
+  ],
+  "parser_repair_used": true,
+  "contract_retry_used": true,
+  "contract_retry_success": false,
+  "total_review_calls": 2,
+  "problems": [
+    "revise_missing_change",
+    "missing_fields"
+  ]
+}

@@ -1,0 +1,18 @@
+```json
+{
+  "steps": {
+    "label_rx51": {
+      "received_ids": ["L9", "L10"],
+      "batch": "T2"
+    },
+    "label_ck52": {
+      "verified_ids": ["L9", "L10"],
+      "missing_ids": []
+    },
+    "label_st53": {
+      "bin": "S8",
+      "sealed": true
+    }
+  }
+}
+```

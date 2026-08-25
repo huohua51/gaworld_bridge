@@ -1,0 +1,15 @@
+id: c1prio2_gown_001
+title: 洁净服气闸
+resource_id: gown_airlock
+slots: [ga61, ga62, ga63]
+priority: [agent_a, agent_b]
+agent_a:
+  feasible: [ga61, ga62, ga63]
+  preferred: ga61
+agent_b:
+  control:
+    feasible: [ga62, ga63]
+    preferred: ga62
+  intervention:
+    feasible: [ga61, ga62, ga63]
+    preferred: ga61

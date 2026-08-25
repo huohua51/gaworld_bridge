@@ -1,0 +1,39 @@
+{
+  "steps": {
+    "bal_ck21": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "scale": "S-7",
+        "residual_mg": 0
+      },
+      "event_index": 1
+    },
+    "bal_ck22": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "scale": "S-8",
+        "residual_mg": 2
+      },
+      "event_index": 2
+    },
+    "bal_ck23": {
+      "status": "completed",
+      "actor": "worker_a",
+      "output": {
+        "scale": "S-9",
+        "residual_mg": 1
+      },
+      "event_index": 3
+    }
+  },
+  "completed_steps": [
+    "bal_ck21",
+    "bal_ck22",
+    "bal_ck23"
+  ],
+  "duplicates": [],
+  "checkpoint": null,
+  "unavailable": []
+}

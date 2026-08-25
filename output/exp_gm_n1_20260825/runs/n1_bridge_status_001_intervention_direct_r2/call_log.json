@@ -1,0 +1,36 @@
+[
+  {
+    "stage": "source",
+    "prompt": "你是 Source。你掌握的状态是私有的，只根据私有状态发出报告。\n只输出一个 JSON 对象：\n{\"source_id\": \"<source_id>\", \"reported_state\": \"<状态>\", \"state_version\": \"v1 或 v2\"}\n不要编造隐藏测试，不要输出 DecisionMaker 动作。\n【私有状态】{\"source_id\": \"src_ok\", \"reported_state\": \"bridge_closed\", \"state_version\": \"v2\", \"evidence_id\": \"evidence-bridge-002\"}\n",
+    "raw_text": "```json\n{\"source_id\": \"src_ok\", \"reported_state\": \"bridge_closed\", \"state_version\": \"v2\"}\n```",
+    "parsed": {
+      "source_id": "src_ok",
+      "reported_state": "bridge_closed",
+      "state_version": "v2"
+    },
+    "error": "ok"
+  },
+  {
+    "stage": "relay",
+    "prompt": "你是 Relay。根据原始报告和可信来源核验状态。不要改 DecisionMaker 的计划。\n只输出一个 JSON 对象：\n{\"verified_state\": \"<状态>\", \"source_id\": \"<source_id>\", \"state_version\": \"v1 或 v2\"}\n只核验 trusted_source_id 对应的来源。\n【可信来源】{\"trusted_source_id\": \"src_ok\"}\n【原始报告】[{\"message_id\": \"raw-msg-n1_bridge_status_001_intervention_direct_r2-1\", \"source_id\": \"src_ok\", \"reported_state\": \"bridge_closed\", \"observer_id\": 1}]\n",
+    "raw_text": "```json\n{\"verified_state\": \"bridge_closed\", \"source_id\": \"src_ok\", \"state_version\": \"v1\"}\n```",
+    "parsed": {
+      "verified_state": "bridge_closed",
+      "source_id": "src_ok",
+      "state_version": "v1"
+    },
+    "error": "ok"
+  },
+  {
+    "stage": "decision",
+    "prompt": "你是 DecisionMaker。只能根据当前计划和收件箱里已送达的核实消息做决定。\n收件箱为空时保持当前计划。不要读取全局状态，不要编造消息。\n只输出一个 JSON 对象。动作必须是下面两个之一，不能混用字段。\n保持：{\"action\": \"keep_current_plan\", \"evidence_message_id\": \"<message_id 或 none>\"}。保持时不要输出 target 或 value。\n修改：{\"action\": \"revise_plan\", \"target\": \"route\", \"value\": \"<新值>\", \"evidence_message_id\": \"<message_id>\"}}。\n不要输出 need_change，不要使用 NONE。\n【当前计划】{\"route\": \"main_bridge\"}\n【收件箱】[{\"message_id\": \"verified-msg-n1_bridge_status_001_intervention_direct_r2-3\", \"verified_state\": \"bridge_closed\", \"source_id\": \"src_ok\", \"state_version\": \"v2\", \"verifier_id\": 0, \"focused\": true}]\n【任务说明】当前计划经主桥通行。只有核实后的通行状态可以改变路线。\n",
+    "raw_text": "```json\n{\"action\": \"revise_plan\", \"target\": \"route\", \"value\": \"alternative_route\", \"evidence_message_id\": \"verified-msg-n1_bridge_status_001_intervention_direct_r2-3\"}\n```",
+    "parsed": {
+      "action": "revise_plan",
+      "target": "route",
+      "value": "alternative_route",
+      "evidence_message_id": "verified-msg-n1_bridge_status_001_intervention_direct_r2-3"
+    },
+    "error": "ok"
+  }
+]

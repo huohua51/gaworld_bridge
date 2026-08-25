@@ -1,0 +1,10 @@
+{
+  "task_id": "gm05b_route_closed_001",
+  "variant": "intervention",
+  "repeat_id": 0,
+  "brief_version": "v1",
+  "v2_published": false,
+  "sha256": "01a5ba9de3645a3b38f80ac17dac1ab5d03001e89f9837a65491509a6d182421",
+  "leak_on_first_brief": [],
+  "generation_prompt": "【工程师】王思远\n【职业】产品经理\n【任务】写 route(severity, center_closed)\n【简报】中心关闭时返回 None。未关闭时，严重程度 >= 7 返回 emergency，否则返回 standard。常量 HIGH_PRIORITY_THRESHOLD = 7。必须在模块顶层写 SPEC_VERSION 和下面点名的常量。函数签名必须与任务一致，不要改参数名。不要输出 Markdown 围栏。不要只改版本号。"
+}

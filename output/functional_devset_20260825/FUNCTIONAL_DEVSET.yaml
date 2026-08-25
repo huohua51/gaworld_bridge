@@ -1,0 +1,239 @@
+# Frozen 2026-08-25. Do not edit scores of source experiments.
+# Completing a function family means an interpretable outcome, not a perfect score.
+
+frozen_at: '2026-08-25T11:40:00+00:00'
+freeze_id: FUNCTIONAL-DEVSET-20260825
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+ranking_eligible: false
+holdout_started: false
+generalization_claim: false
+
+completion_standard:
+  pass: 测量有效，机制成功，正负控成立
+  partial_pass: 基本机制成功，明确某一阶段失败
+  fail: 题目可做、平台可运行，但 Agent/工作流稳定失败
+  retired: 共同地板、共同天花板、构念重复或任务设计有污染
+  N/A: 测量无效，不能解释能力
+  note: >
+    功能侧做完，不等于所有任务都要拿满分。
+    只要测量有效、任务可做、失败能够定位并产生明确改进项，即使结果是失败，这一类功能也已经完成评测。
+
+progress:
+  developmental_diagnosis: ~85%
+  developmental_diagnosis_means: 机制覆盖与可解释状态，不是能力满分
+  remaining_developmental:
+    - first_error_enumeration
+    - platform_plan_version
+  formal_benchmark: not_started
+  formal_benchmark_not: 85_percent
+  remaining_for_formal_benchmark:
+    - sealed_holdout_t3_i1_l1
+    - cross_task_generalization
+    - cross_model_robustness
+
+n1_disposition: retired
+n1_02_created: false
+typed_patch_protocol: retired
+do_not:
+  - supplement_original_n1_seeds
+  - compute_multi_agent_benefit_on_n1_common_floor
+  - create_n1_02
+  - create_c1_holdout
+  - create_rel1_holdout
+  - create_n1_holdout
+  - continue_typed_patch_to_full_score
+  - claim_generalization
+  - enter_ranking
+  - overwrite_l1_01b_strict_pair
+  - rerun_gm_01_02_05
+  - run_c1_04
+
+families:
+  T3:
+    outcome: pass
+    evaluation_complete: development_set
+    platform_improvement_closed: major_loop_closed
+    representative: EXP-GM-T3-03
+    path: output/exp_gm_t3_03_20260825
+    scores:
+      multi: 1.0
+      single: 0.5
+      drop: 0.5
+    conclusion: 独立 Reviewer 的私有信息有价值
+    holdout_allowed: true
+    ranking_eligible: false
+
+  I1:
+    outcome: pass
+    evaluation_complete: development_set
+    platform_improvement_closed: closed
+    representative: EXP-GM-I1
+    path: output/exp_i1_20260824
+    scores:
+      direct_verified_state: 1.0
+      full: 1.0
+      drop_verified: 0.0
+      no_verification: 0.0
+      unauthorized_read: 0.0
+    conclusion: Full 通过，Drop/NoVerify 失败，权限隔离有效
+    holdout_allowed: true
+    ranking_eligible: false
+
+  REL1:
+    outcome: fail
+    evaluation_complete: interpretable_fail
+    platform_improvement_closed: not_closed
+    representative: EXP-GM-REL1
+    path: output/exp_rel1_20260824
+    scores:
+      focused: 0.3333
+      full: 0.0
+      drop_trust: 0.0
+      no_history: 0.0
+    platform: 状态传输通过
+    agent: 不会让最新结果覆盖旧多数
+    open_item: AP-REL1-01
+    holdout_allowed: false
+    ranking_eligible: false
+
+  N1:
+    outcome: retired
+    evaluation_complete: construct_unopened
+    platform_improvement_closed: n/a
+    representative: EXP-GM-N1
+    path: output/exp_gm_n1_20260825
+    scores_frozen:
+      direct_fullpass: 0.3333
+      full_fullpass: 0.3333
+      drop_fullpass: 0.5
+      information_propagation_value: N/A
+    retirement_reason:
+      - direct_and_full_common_floor
+      - construct_overlaps_i1_and_rel1
+    covered_by:
+      - EXP-GM-I1
+      - EXP-GM-REL1
+    n1_02_created: false
+    holdout_allowed: false
+    ranking_eligible: false
+
+  C1:
+    outcome: partial_pass
+    evaluation_complete: interpretable_partial
+    platform_improvement_closed: retry_and_version_not_closed
+    representative: EXP-GM-C1-02
+    retry_representative: EXP-GM-C1-03
+    path: output/c1_stage_20260825
+    scores:
+      basic_conflict_resolution: pass
+      private_constraint_integration: pass
+      policy_constrained_replanning: partial
+      system_retry_recovered: 0/3
+      semantic_retry_assignment_correct: 0/3
+    open_items:
+      - AP-C1-D-01
+      - AP-C1-F-01
+    frozen_as: measurable_functional_failure
+    no_c1_04: true
+    holdout_allowed: false
+    ranking_eligible: false
+
+  L1:
+    outcome: pass
+    evaluation_complete: development_set
+    platform_improvement_closed: closed
+    representative: EXP-GM-L1-01c
+    historical_failure: EXP-GM-L1-01b
+    path: output/exp_gm_l1_01c_20260825
+    scores:
+      full_multi_control: 9/9
+      full_multi_interruption: 9/9
+      full_multi_strict_pair: 9/9
+      drop_checkpoint_control: 9/9
+      drop_checkpoint_interruption: 0/9
+      drop_handoff_control: 9/9
+      drop_handoff_interruption: 0/9
+    l1_01b_strict_pair_unchanged: 2_of_3
+    holdout_allowed: true
+    ranking_eligible: false
+
+  measurement_system:
+    outcome: partial_pass
+    evaluation_complete: mostly_complete
+    platform_improvement_closed: two_gaps_open
+    available:
+      - R0_R3
+      - permission_isolation
+      - drop_tracks
+      - trace
+      - first_error_mostly
+    open_gaps:
+      - first_error_must_cover_all_failures
+      - platform_must_own_plan_id_and_spec_version
+    typed_patch_protocol: retired
+
+  holdout_generalization:
+    outcome: N/A
+    evaluation_complete: not_started
+    platform_improvement_closed: n/a
+    note: 所有结果基本仍是开发集。无正式排名资格。
+
+open_system_items:
+  - id: AP-C1-D-01
+    status: open
+    summary: 平台触发 NACK，模型三次进入重试，0/3 形成正确终局；收到拒绝后没有正确调整联合方案
+  - id: AP-C1-F-01
+    status: open
+    summary: 让模型负责 plan_version 握手不合理；长期应由平台管理方案版本号
+  - id: AP-REL1-01
+    status: open
+    summary: latest_is_binding=true 时 Agent 仍按旧多数行动
+  - id: first_error_enumeration
+    status: open
+    summary: 不能再出现 FullPass=0 但 first_error=none；L1-01b 离心转子 control 已有勘误
+    evidence: output/exp_gm_l1_01b_20260825/ERRATUM.yaml
+  - id: platform_plan_version
+    status: open
+    summary: 平台管理 plan_id/spec_version，模型只提交业务方案
+
+retired_protocols:
+  - id: typed_patch
+    source: EXP-GM-04e
+    ap_item: AP-04e-E-01
+    status: retired
+    scores_unchanged: true
+    note: 不作为 GAWorld 正式接口。不为把 04e-E 修到满分继续投入。
+
+holdout_eligibility:
+  T3: allowed_not_created
+  I1: allowed_not_created
+  L1: allowed_not_created
+  C1: not_allowed_devset_not_fully_passed
+  REL1: not_allowed_rule_still_fails
+  N1: not_allowed_construct_unopened_retired
+
+next:
+  - freeze_this_table  # done
+  - n1_retire_or_redesign  # retired; no N1-02
+  - fix_first_error_enumeration
+  - platform_owns_plan_version
+  - sealed_holdout_t3_i1_l1
+  - holdout_run_once_no_protocol_tune
+  - report_devset_plus_holdout
+
+does_not_overwrite:
+  - EXP-GM-01
+  - EXP-GM-02
+  - EXP-GM-05
+  - EXP-GM-I1
+  - EXP-GM-REL1
+  - EXP-GM-T3-03
+  - EXP-GM-C1-02
+  - EXP-GM-C1-03
+  - EXP-GM-L1-01
+  - EXP-GM-L1-01b
+  - EXP-GM-L1-01c
+  - EXP-GM-N1_raw_scores
+  - EXP-GM-04e_raw_scores

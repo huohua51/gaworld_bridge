@@ -1,0 +1,3 @@
+```json
+{"steps": {"crane_hk12": {"hook": "H-B", "tons": 7}, "crane_hk13": {"hook": "H-C", "tons": 2}}}
+```

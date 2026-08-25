@@ -1,0 +1,12 @@
+只输出完整 Python 源码。不要输出解释、Markdown 或其它文字。
+你是执行者。必须从【当前草稿】修改，不要从零编造无关文件。
+按 required_changes 把对应常量从 old_value 改成 new_value。
+不要改未出现在 required_changes 中的登记字段。环境不会替你改文件。
+【修改要求】{"decision": "update", "required_changes": [{"path": "WEEKDAY_DEADLINE", "old_value": 30, "new_value": 20}]}
+【当前草稿】
+SPEC_VERSION = "v1"
+WEEKDAY_DEADLINE = 30
+WEEKEND_DEADLINE = 30
+
+def deadline(weekend: bool) -> int:
+    return WEEKEND_DEADLINE if weekend else WEEKDAY_DEADLINE

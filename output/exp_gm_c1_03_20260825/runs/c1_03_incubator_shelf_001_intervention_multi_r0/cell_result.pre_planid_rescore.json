@@ -1,0 +1,350 @@
+{
+  "workflow_id": "exp_gm_c1_03_retry",
+  "instance_id": "c1_03_incubator_shelf_001_intervention_multi_r0",
+  "measurement_valid": false,
+  "full_pass": null,
+  "task_score": null,
+  "ranking_eligible": false,
+  "status": "measurement_invalid",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": false,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "budget_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": false,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "private_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_ran",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "drop_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "oracle_not_in_prompts",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "environment_did_not_rewrite",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "coordinator_did_not_execute",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "nack_did_not_leak_repair_slot",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "world_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "actual_final_conflict_free",
+      "layer": "R2",
+      "scorer": "occupancy",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "joint_constraint_satisfaction",
+      "layer": "R2",
+      "scorer": "feasible_sets",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "joint_plan_committed",
+      "layer": "R2",
+      "scorer": "plan_version",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "execution_matches_plan",
+      "layer": "R2",
+      "scorer": "world_vs_plan",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "protected_assignment_retention",
+      "layer": "R2",
+      "scorer": "priority",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "low_priority_reallocation_correct",
+      "layer": "R2",
+      "scorer": "earliest_idle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "nack_path_coverage",
+      "layer": "R2",
+      "scorer": "nack",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "retry_recovery_success",
+      "layer": "R2",
+      "scorer": "retry",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "constraint_regression",
+      "layer": "R2",
+      "scorer": "regression",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "joint_coordination_retry",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "plan_not_delivered",
+    "events": [
+      "task_started",
+      "private_constraints_read",
+      "agent_a_reported",
+      "agent_b_reported",
+      "coordinator_collected_initial",
+      "joint_plan_initial",
+      "protection_registered",
+      "nack_returned",
+      "joint_plan_retried",
+      "agent_a_executed",
+      "agent_b_executed"
+    ],
+    "budget": {
+      "calls": 6,
+      "max_calls": 6,
+      "kinds": [
+        "agent_a_report",
+        "agent_b_report",
+        "coordinator_initial",
+        "coordinator_retry",
+        "agent_a_commit",
+        "agent_b_commit"
+      ],
+      "expected": [
+        "agent_a_report",
+        "agent_b_report",
+        "coordinator_initial",
+        "coordinator_retry",
+        "agent_a_commit",
+        "agent_b_commit"
+      ],
+      "model": "GLM-4-Flash",
+      "temperature": 0,
+      "valid": true
+    },
+    "world": {
+      "claims": [
+        {
+          "agent_id": "agent_a",
+          "slot": "ic82",
+          "plan_version": "plan-001"
+        },
+        {
+          "agent_id": "agent_b",
+          "slot": "ic82",
+          "plan_version": "plan-001"
+        }
+      ],
+      "by_agent": {
+        "agent_a": "ic82",
+        "agent_b": "ic82"
+      },
+      "occupied": {
+        "ic82": [
+          "agent_a",
+          "agent_b"
+        ]
+      },
+      "duplicates": {
+        "ic82": [
+          "agent_a",
+          "agent_b"
+        ]
+      }
+    },
+    "violations": [
+      {
+        "violation": "priority_preservation_violation",
+        "type": "priority_preservation_violation",
+        "agent": "A",
+        "keep_protected_assignment": true,
+        "forbid_duplicate_claim": true
+      }
+    ]
+  },
+  "extra": {
+    "task_id": "c1_03_incubator_shelf_001",
+    "variant": "intervention",
+    "track": "multi",
+    "repeat_id": 0,
+    "actual_final_conflict_free": false,
+    "joint_constraint_satisfaction": true,
+    "joint_plan_committed": false,
+    "execution_matches_plan": false,
+    "role_completion": true,
+    "protected_assignment_retention": false,
+    "low_priority_reallocation_correct": false,
+    "nack_path_coverage": true,
+    "retry_recovery_success": false,
+    "constraint_regression": true,
+    "protection_delivered": true,
+    "plan_delivered": false,
+    "b_ran": true,
+    "budget_calls": 6,
+    "budget_kinds": [
+      "agent_a_report",
+      "agent_b_report",
+      "coordinator_initial",
+      "coordinator_retry",
+      "agent_a_commit",
+      "agent_b_commit"
+    ],
+    "first_error": "plan_not_delivered",
+    "first_assignments": {
+      "agent_a": "ic82",
+      "agent_b": "ic81"
+    },
+    "got": {
+      "agent_a": "ic82",
+      "agent_b": "ic82"
+    },
+    "want": {
+      "agent_a": "ic81",
+      "agent_b": "ic82"
+    },
+    "unregistered_modification": 0,
+    "ranking_note": "C1-03 full-workflow retry regression, not a leaderboard",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash"
+  }
+}

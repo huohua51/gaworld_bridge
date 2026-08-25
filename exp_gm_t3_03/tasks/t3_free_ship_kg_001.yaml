@@ -1,0 +1,20 @@
+id: t3_free_ship_kg_001
+title: 免运费重量门槛
+kind: threshold
+artifact: free_ship_kg.py
+criterion_id: free_ship_kg
+symbol: FREE_SHIP_KG
+target: free_ship_kg
+function: free_shipping
+allow_names: [SPEC_VERSION, FREE_SHIP_KG]
+change_v1: {free_ship_kg: 8}
+change_v2: {free_ship_kg: 12}
+evidence_v1: evidence-ship-001
+evidence_v2: evidence-ship-002
+leak_tokens:
+  - "FREE_SHIP_KG = 12"
+  - "免运费重量改为 12"
+brief_rule: >
+  包裹公斤数达到或超过 FREE_SHIP_KG 时 free_shipping 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 FREE_SHIP_KG。函数签名 free_shipping(kg)。
+  不要输出 Markdown 围栏。

@@ -1,0 +1,102 @@
+{
+  "workflow_id": "cal_gm_c1_comp_01",
+  "instance_id": "c1comp_initial_conflict_001_control_r2",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "single_call",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "contract_ok",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "ok"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "component_correct",
+      "layer": "R2",
+      "scorer": "c1comp_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "c1comp_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "contract_error": "ok",
+    "scorer_fact": false
+  },
+  "extra": {
+    "task_id": "c1comp_initial_conflict_001",
+    "component": "A",
+    "variant": "control",
+    "repeat_id": 2,
+    "correct": true,
+    "got": false,
+    "want": false,
+    "scorer_fact": false,
+    "action": {
+      "initial_conflict_detected": false
+    },
+    "first_error": "none",
+    "mode": "llm",
+    "model_version": "GLM-4-Flash"
+  }
+}

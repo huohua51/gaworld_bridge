@@ -1,0 +1,9 @@
+只输出完整 Python 源码。不要输出解释、Markdown 或其它文字。
+你是执行者。必须从【当前草稿】修改或确认，不要从零编造无关文件。
+没有收到修改要求。确认并提交当前草稿。环境不会替你改文件。
+【当前草稿】
+SPEC_VERSION = "v1"
+QUEUE_CAP = 50
+
+def can_join(length):
+    return length < QUEUE_CAP

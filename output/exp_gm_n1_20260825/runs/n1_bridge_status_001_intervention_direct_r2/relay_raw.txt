@@ -1,0 +1,3 @@
+```json
+{"verified_state": "bridge_closed", "source_id": "src_ok", "state_version": "v1"}
+```

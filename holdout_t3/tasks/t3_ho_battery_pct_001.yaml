@@ -1,0 +1,20 @@
+id: t3_ho_battery_pct_001
+title: 电量下限告警
+kind: threshold
+artifact: battery_pct.py
+criterion_id: battery_pct
+symbol: MIN_BATTERY
+target: battery_pct
+function: battery_ok
+allow_names: [SPEC_VERSION, MIN_BATTERY]
+change_v1: {battery_pct: 20}
+change_v2: {battery_pct: 35}
+evidence_v1: evidence-batt-ho-001
+evidence_v2: evidence-batt-ho-002
+leak_tokens:
+  - "MIN_BATTERY = 35"
+  - "电量下限改为 35"
+brief_rule: >
+  电量百分比达到或超过 MIN_BATTERY 时 battery_ok 返回 True，否则 False。
+  必须在模块顶层写 SPEC_VERSION 和 MIN_BATTERY。函数签名 battery_ok(pct)。
+  不要输出 Markdown 围栏。

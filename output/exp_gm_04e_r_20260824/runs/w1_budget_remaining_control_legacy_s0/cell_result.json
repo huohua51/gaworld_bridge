@@ -1,0 +1,89 @@
+{
+  "workflow_id": "exp_gm_04e_r_reviewer_only",
+  "instance_id": "w1_budget_remaining_control_legacy_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "reviewer-only cell executed"
+    },
+    {
+      "gate_id": "reviewer_only",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "executor not run"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "review_correct",
+      "layer": "R2",
+      "scorer": "reviewer_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "draft_fixed",
+      "facts_extracted",
+      "reviewer_call_1",
+      "review_parsed"
+    ]
+  },
+  "extra": {
+    "task_id": "w1_budget_remaining",
+    "variant": "control",
+    "protocol": "legacy",
+    "seed": 0,
+    "mode": "llm",
+    "split": "development",
+    "reviewer_calls": 1,
+    "false_positive_revision": false,
+    "true_revision": false,
+    "grounded": true,
+    "review_parseable": true,
+    "review": {
+      "decision": "approve",
+      "reviewed_spec_version": "v1",
+      "required_spec_version": "v1",
+      "criterion_id": "total_budget",
+      "evidence": "The function `remaining(spent)` returns the remaining budget which is calculated by subtracting the `spent` from the `BUDGET` constant, which is set to 100. This meets the required_change of having a `total_budget` of 100.",
+      "required_change": {}
+    },
+    "verify": {
+      "ok": true,
+      "reason": "ok"
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

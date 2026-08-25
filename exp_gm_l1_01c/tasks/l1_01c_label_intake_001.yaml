@@ -1,0 +1,27 @@
+id: l1_01c_label_intake_001
+title: 三阶段标签接收核对入库
+kind: receive_verify_archive
+artifact: label_intake_world.json
+interrupt_token: worker_a_offline_lb_v1
+rule: complete_in_order_no_repeat
+output_rule: >
+  接收 output 只能包含 received_ids 与 batch。
+  核验必须沿用已接收 ID：verified_ids 等于 received_ids，missing_ids 为空列表。
+  禁止编造未出现的 ID。不要计算 checksum。
+  入库 output 只能包含 bin 与 sealed，sealed 必须为 true。
+checkpoint_after: label_rx51
+steps:
+  - id: label_rx51
+    title: 接收
+  - id: label_ck52
+    title: 核对
+  - id: label_st53
+    title: 入库
+materials:
+  label_rx51:
+    received_ids:
+      - L9
+      - L10
+    batch: T2
+  label_st53:
+    bin: S8

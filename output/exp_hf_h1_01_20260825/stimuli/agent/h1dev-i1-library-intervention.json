@@ -1,0 +1,47 @@
+{
+  "stimulus_id": "h1dev-i1-library-intervention",
+  "construct": "I1",
+  "task_label": "服务台开放报告",
+  "variant_code": "B",
+  "roles": [
+    "观察员",
+    "核验员",
+    "调度员"
+  ],
+  "turns": [
+    {
+      "t": 1,
+      "role": "观察员",
+      "kind": "report",
+      "visible_to_role": "两个来源的现场报告；不要判断谁可信",
+      "body": "[\n  {\n    \"source_id\": \"library_board\",\n    \"reported_state\": \"desk_closed\"\n  },\n  {\n    \"source_id\": \"lobby_talk\",\n    \"reported_state\": \"desk_open\"\n  }\n]"
+    },
+    {
+      "t": 2,
+      "role": "核验员",
+      "kind": "verify",
+      "visible_to_role": "原始报告 + 私有可信来源表",
+      "body": "{\n  \"verified_state\": \"desk_closed\",\n  \"source_id\": \"library_board\",\n  \"state_version\": \"v2\"\n}"
+    },
+    {
+      "t": 3,
+      "role": "调度员",
+      "kind": "act",
+      "visible_to_role": "已核实状态与动作规则；不能读私有可信表",
+      "body": "{\n  \"action\": \"submit_desk\",\n  \"value\": \"hall_b\",\n  \"adopted_state_version\": \"v2\"\n}"
+    }
+  ],
+  "source_kind": "agent",
+  "h1_role": "development_stimulus",
+  "functional_role": "sealed_holdout_result",
+  "not_future_h1_holdout": true,
+  "rater_must_not_see": [
+    "source_kind",
+    "functional_role",
+    "full_pass",
+    "model",
+    "experiment_id"
+  ],
+  "source_run": "output/holdout_i1_20260825/runs/library_hours_001_intervention_full_s0",
+  "source_cell_sha256": "129cf5204f7ddd035c17e4cf10d243ae86065d10da056d63f0b73a5881153490"
+}

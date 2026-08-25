@@ -1,0 +1,31 @@
+experiment_id: EXP-GM-L1-01
+status: stopped_at_direct_gate
+measurement_result: pass
+direct_coverage: 1.0
+direct_fullpass: 5/6
+direct_strict_pair: 2/3
+failed_task: l1_01_specimen_log_001
+failed_variant: intervention
+failed_cell: l1_01_specimen_log_001_intervention_direct_r0
+failure: completed_stage_output_not_consumed
+symptom:
+  validation: {}
+  archive_missing: seal
+multi_agent_matrix_run: false
+interruption_recovery_result: N/A
+ranking_eligible: false
+holdout_allowed: false
+direct_is_formal_result: false
+repeat_1_2_allowed: false
+do_not_delete_failed_cell: true
+do_not_round_direct_pass: true
+retired_task:
+  id: l1_01_specimen_log_001
+  task_status: retired_after_direct_gate
+  reason: downstream_dependency_generation_confounds_recovery_construct
+claim: >
+  测量有效，但 Direct 可做性门未通过，未进入多智能体中断恢复实验。
+  不能解释为 GAWorld 中断恢复失败。
+next: EXP-GM-L1-01b
+does_not_overwrite: [EXP-GM-C1-01, EXP-GM-C1-02, EXP-GM-C1-03]
+path: output/exp_gm_l1_01_20260825

@@ -1,0 +1,11 @@
+experiment_id: EXP-GM-T3-01
+status: pilot_complete_floor
+ranking_eligible: false
+measurement_result: pass
+agent_workflow_result: fail
+multi_agent_net_benefit:
+  value: N/A
+  reason: common_workflow_floor
+prior_seed0: measurement_invalid
+r0_valid: output/exp_gm_t3_01_r0fix_20260825
+note: 正式口径已写入 registry.yaml。不得与 20260824 平均。

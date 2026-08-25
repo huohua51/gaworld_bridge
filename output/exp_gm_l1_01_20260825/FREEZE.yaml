@@ -1,0 +1,54 @@
+experiment_id: EXP-GM-L1-01
+parent: C1_STAGE
+phase: rule
+frozen_at: '2026-08-25T09:25:48.269036+00:00'
+task_card_hash: 6e046b6ca78a48cc41fc1c9a2ea90c8e533305d8a755c5daaa93931b1c170b68
+task_hash: 395903a738196422ac047e850426263de7b742e73f70f16e0554fba10428bc66
+protocol_hash: 58c3604befb3f6d514cd9fd9a65eaa03ff8b331d112ac9b36ef42b64c6a43d71
+scorer_hash: accf33612906015c594fda1ce29484444ac9ad43daad8b90c27864371780f30c
+gaworld_continuity_hash: 5f939c546565e28905624f679a13e774c4e23bab44722a3ba70d802d85e5ef26
+runner_hash: 77c989ad5a5da45ff3f48b96e0201e5763f91a5b3930577d55ce878ce1a6d584
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    direct:
+    - 一次调用看到完整步骤并输出三步结果；非正式结果
+    multi:
+    - A 执行第一步并形成平台盖章检查点
+    - Coordinator 确认检查点；intervention 将接替任务分配给 B
+    - 接替者从检查点继续，不重复已完成工作
+    drop_checkpoint:
+    - A 仍产生检查点
+    - 只丢 B 的检查点副本
+    - B 在 intervention 仍运行；control 由 A 继续应成功
+    drop_handoff:
+    - Coordinator 仍运行
+    - 接替指令不送达 B
+    - control 由 A 继续应成功；intervention 应失败
+  logical_calls_per_matrix_cell: 6
+  environment_rewrites_world: false
+  coordinator_executes: false
+  primary_track: multi
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- contract.py
+- loader.py
+- loop.py
+- tasks
+- oracle
+heldout: not_created
+direct_is_formal_result: false
+primary_track: multi
+does_not_overwrite:
+- EXP-GM-C1-01
+- EXP-GM-C1-02
+- EXP-GM-C1-03
+c1_status: development_partial_pass
+no_c1_04: true

@@ -1,0 +1,3 @@
+```json
+{"verified_state": "ferry_cancelled", "source_id": "src_ok", "state_version": "v1"}
+```

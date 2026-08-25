@@ -1,0 +1,12 @@
+【共同资源】optics_table 同一时段只能被一个 Agent 占用。
+【可选时段】["w08", "w09", "w10"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是协调者。平台只返回违规证据，不会给出正确时段，也不会自动修正。
+请调用 propose_joint_assignment：提交无重复占用的联合方案。Coordinator 不能替 A/B 执行。
+输出 {"plan_version": "plan-001", "assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}, "rule": "priority_keep_then_earliest_free"}。
+可选字段 initial_conflict_detected 仅作自我判断，不是世界事实。
+【初始方案】{"plan_version": "plan-init", "assignments": {"agent_a": "w08", "agent_b": "w09"}, "rule": "priority_keep_then_earliest_free"}
+【违规证据】[]
+【最新已送达约束】{"agent_a": {"agent_id": "agent_a", "feasible": ["w08", "w09", "w10"], "preferred": "w08"}, "agent_b": {"agent_id": "agent_b", "feasible": ["w09", "w10"], "preferred": "w09"}}

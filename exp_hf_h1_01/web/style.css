@@ -1,0 +1,80 @@
+:root {
+  --bg: #f4f1ea;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --line: #d6d3d1;
+  --paper: #fffcf7;
+  --accent: #1d4e4a;
+  --warn: #9a3412;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+header, main { max-width: 920px; margin: 0 auto; padding: 24px 20px; }
+header { border-bottom: 1px solid var(--line); }
+h1 { font-size: 28px; font-weight: 700; margin: 0 0 8px; }
+h2 { font-size: 18px; margin: 28px 0 12px; }
+p, li { color: var(--muted); }
+.banner {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 12px 14px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+a.card, .card {
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+a.card:hover { border-color: var(--accent); }
+.card strong { display: block; color: var(--ink); margin-bottom: 6px; }
+label { display: block; font-size: 14px; margin: 12px 0 4px; color: var(--ink); }
+select, textarea, input, button {
+  font: inherit;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+textarea { min-height: 140px; font-family: ui-monospace, monospace; font-size: 13px; }
+button {
+  width: auto;
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+.row > * { flex: 1; min-width: 160px; }
+.turn {
+  border-top: 1px solid var(--line);
+  padding: 16px 0;
+}
+.role { color: var(--accent); font-weight: 700; font-size: 14px; }
+.kind { color: var(--muted); font-size: 13px; }
+pre {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 12px;
+  overflow: auto;
+  font-size: 13px;
+  font-family: ui-monospace, monospace;
+  white-space: pre-wrap;
+}
+.scale { display: flex; gap: 6px; flex-wrap: wrap; }
+.scale label { display: flex; gap: 4px; align-items: center; margin: 0; width: auto; }
+.status { font-size: 13px; color: var(--warn); }
+nav a { color: var(--accent); margin-right: 16px; }

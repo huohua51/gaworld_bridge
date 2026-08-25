@@ -1,0 +1,10 @@
+{
+  "task_id": "t3_deposit_ratio_001",
+  "variant": "control",
+  "repeat_id": 0,
+  "sha256": "6e5e8ed921f1d8fbb485f2e8e17096fe57652259983e6bb8da72fe56be29aed2",
+  "leak_on_first_brief": [],
+  "draft_prompt": "【工程师】林晓\n【职业】后台开发\n【任务】写 deposit\n【简报】deposit(price) 返回 price * DEPOSIT_PERCENT // 100，只使用整数除法。 必须在模块顶层写 SPEC_VERSION 和 DEPOSIT_PERCENT。函数签名 deposit(price)。 不要输出 Markdown 围栏。 常量 DEPOSIT_PERCENT = 20。SPEC_VERSION = \"v1\"。\n只输出完整 Python 源码。\n",
+  "draft_prompt_sha256": "768539b0d326024d52370ebd751c27b74ba3b1518f14403241a14f223b1a634e",
+  "draft_has_v2_tokens": []
+}

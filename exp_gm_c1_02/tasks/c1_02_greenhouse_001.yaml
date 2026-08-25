@@ -1,0 +1,28 @@
+id: c1_02_greenhouse_001
+title: 温室灌溉阀窗口
+kind: exclusive_slot
+artifact: green_world.json
+resource_id: greenhouse_valve
+slots: ["g14", "g15", "g16"]
+priority: [agent_a, agent_b]
+rule: priority_keep_then_earliest_free
+agent_a:
+  label: bed_east
+  feasible: ["g14", "g15", "g16"]
+  preferred: "g14"
+agent_b:
+  label: bed_west
+  baseline:
+    feasible: ["g15", "g16"]
+    preferred: "g15"
+    window_token: b_rev_green_v1
+  control:
+    feasible: ["g15", "g16"]
+    preferred: "g15"
+    window_token: b_rev_green_v1
+  intervention:
+    feasible: ["g14", "g16"]
+    preferred: "g14"
+    window_token: b_rev_green_v2
+leak_tokens:
+  - "b_rev_green_v2"

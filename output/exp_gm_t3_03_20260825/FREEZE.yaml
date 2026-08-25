@@ -1,0 +1,58 @@
+experiment_id: EXP-GM-T3-03
+parent: EXP-GM-T3-02
+phase: seed0
+frozen_at: '2026-08-25T02:52:20.326531+00:00'
+task_card_hash: 34ccc8952ea346a9ebd7a1dd3d14c2a34aea7c6f832480ea30780afeba3d3b47
+task_hash: 738ebd85328693a44e2826de809667db28c017c9f2f6c5d0520e2cff36ec0ed8
+protocol_hash: c08fc8f547b1c5720b68e5e517f0d87b1e946b6d067250d07dc2fdceffa4bad2
+scorer_hash: 8bbae949fa275f47b480d2ec9d3bafabb35d6bd8cc684a7dd51a5f08a4a4ef6c
+runner_hash: 9e6a3422202713d4df985998ff717519e482169a04d1aa6505015c734b401a24
+t3_02_contract: df74f30350773e95bbc6889bdf4d0e6330af86cfed0f96e4a0cc916578af13e8
+t3_02_integrity: ed0ac66bd8b14ddb63fb87be03aa847289fe73156a21af1414439878a328c872
+change_01_contract: 8ff4bbd1ae155920311402783545153c9e0544a0b33fdeee08f11fc4e55b6b65
+apply_01_prompt: 228c62c6cf8f3d49da5aabe75b201c51978aafa3f773ffbaba9d3299f4727dc9
+base_commit: a6ff231b8f49b0280f3f4be63556b4bc6d3aa07c
+model: GLM-4-Flash
+temperature: 0
+fairness_preflight:
+  ok: true
+  leaks: []
+  call_contract:
+    direct:
+    - Builder 生成初稿；提示不得含 Intervention 值
+    - 决策者读取私有最终标准并判断 keep/update
+    - 同一 Agent 按 APPLY-01 修改或确认
+    single:
+    - Builder 生成初稿；提示不得含 Intervention 值
+    - 同一 Agent 只按公开 v1 简报自检，看不到私有核验信息
+    - 同一 Agent 按 APPLY-01 修改或确认
+    multi:
+    - Builder 生成初稿
+    - 独立 Reviewer 读取私有最终标准并输出决定
+    - IntegrityMailbox 原样传递
+    - Executor 按 APPLY-01 修改或确认
+    drop:
+    - Builder 生成初稿
+    - Reviewer 读取私有最终标准并正常输出
+    - 通道丢弃消息
+    - Executor 收到空消息并提交
+  hidden_oracle_in_prompts: false
+  environment_rewrites_files: false
+  channel_rewrites_payload: false
+  logical_calls_per_cell: 3
+  single_lacks_private_v2: true
+  reviewer_has_private_v2: true
+do_not_edit_after_freeze:
+- task_card.yaml
+- protocol.md
+- scorer.py
+- prompts.py
+- loader.py
+- artifacts.py
+- tasks
+- oracle
+retained_from_t3_02:
+- CHANGE_01_decision_contract
+- APPLY_01_required_changes
+- payload_integrity_trace
+not_t3_01_or_t3_02_items: true

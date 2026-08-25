@@ -1,0 +1,158 @@
+{
+  "workflow_id": "exp_rel1_trust_formation_update",
+  "instance_id": "clinic_service_001_intervention_focused_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fields_extractable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "roles_legal",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "formation_correct",
+      "layer": "R2",
+      "scorer": "formation_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=clinic_B oracle=clinic_B"
+    },
+    {
+      "criterion_id": "update_correct",
+      "layer": "R2",
+      "scorer": "update_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "got=clinic_A oracle=clinic_A"
+    },
+    {
+      "criterion_id": "oracle_conditioned_success",
+      "layer": "R3",
+      "scorer": "trust_bind",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": "formation=trust-msg-clinic_service_001_intervention_focused_s0-1 update=trust-msg-clinic_service_001_intervention_focused_s0-2"
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "focused_trust_formation",
+      "trust_delivered",
+      "trust_message_read",
+      "trust_state_adopted",
+      "action_submitted",
+      "outcome_appended",
+      "focused_trust_update",
+      "trust_delivered",
+      "trust_updated",
+      "trust_message_read",
+      "trust_state_adopted",
+      "action_submitted"
+    ],
+    "observer_calls": 0,
+    "updater_calls": 0,
+    "dispatcher_calls": 2,
+    "relationships": {
+      "visitor_sun": {
+        "closeness": 0.49000000000000005,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      },
+      "nurse_zhou": {
+        "closeness": 0.49,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      }
+    }
+  },
+  "extra": {
+    "probe_id": "clinic_service_001",
+    "track": "focused",
+    "variant": "intervention",
+    "seed": 0,
+    "mode": "rule",
+    "model_version": "rule",
+    "temperature": 0,
+    "target_correct": true,
+    "formation_correct": true,
+    "update_correct": true,
+    "oracle_conditioned_success": true,
+    "other_also": false,
+    "formation_action": {
+      "action": "submit_clinic",
+      "value": "clinic_B",
+      "adopted_trust_version": "v1",
+      "evidence_message_id": "trust-msg-clinic_service_001_intervention_focused_s0-1",
+      "round": "formation",
+      "task_id": "clinic_service_001_intervention_focused_s0",
+      "dispatcher_id": 3
+    },
+    "update_action": {
+      "action": "submit_clinic",
+      "value": "clinic_A",
+      "adopted_trust_version": "v2",
+      "evidence_message_id": "trust-msg-clinic_service_001_intervention_focused_s0-2",
+      "round": "update",
+      "task_id": "clinic_service_001_intervention_focused_s0",
+      "dispatcher_id": 3
+    },
+    "ranking_note": "pilot, not a leaderboard"
+  }
+}

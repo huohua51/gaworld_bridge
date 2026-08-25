@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "reviewed_spec_version": "1.0",
+  "required_spec_version": "v2",
+  "criterion_id": "night_shift_minimum",
+  "evidence": "The current NIGHT_SHIFT_MINIMUM is set to 1, but the required change is to set it to 2.",
+  "required_change": {
+    "night_shift_minimum": 2
+  }
+}

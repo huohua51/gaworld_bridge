@@ -1,0 +1,16 @@
+{
+  "decision": "update",
+  "evidence": {
+    "path": "REDEEM_MIN",
+    "observed": 200,
+    "required": 150
+  },
+  "required_changes": [
+    {
+      "path": "REDEEM_MIN",
+      "old_value": 200,
+      "new_value": 150,
+      "change_id": "change-01"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+【共同资源】greenhouse_valve 同一时段只能被一个 Agent 占用。
+【可选时段】["g14", "g15", "g16"]
+【优先级】agent_a > agent_b
+【解决规则】先给高优先级 Agent 分配其 preferred（须在其可行集内且空闲）；再给低优先级 Agent 按其可行集列表顺序选择第一个空闲时段。禁止把未出现在该 Agent 可行集中的时段分配给该 Agent。
+只输出一个 JSON 对象。不要输出解释、Markdown 或其它文字。
+你是协调者。根据已送达的初始报告形成初始联合方案。不要执行占用。
+输出 {"plan_version": "plan-init", "assignments": {"agent_a": "<slot>", "agent_b": "<slot>"}, "rule": "priority_keep_then_earliest_free"}。
+只能使用已送达报告。不要编造未送达 Agent 的可行集。
+【已送达初始报告】{"agent_a": {"agent_id": "agent_a", "feasible": ["g14", "g15", "g16"], "preferred": "g14"}, "agent_b": {"agent_id": "agent_b", "feasible": ["g15", "g16"], "preferred": "g15"}}

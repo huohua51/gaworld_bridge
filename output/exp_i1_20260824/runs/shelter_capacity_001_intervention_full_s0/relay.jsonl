@@ -1,0 +1,23 @@
+{"ts": 1787548148.3063507, "event": "private_put", "task_id": "shelter_capacity_001_intervention_full_s0", "role": "verifier", "payload": {"trusted_source_id": "city_roster"}}
+{"ts": 1787548148.3065717, "event": "private_put", "task_id": "shelter_capacity_001_intervention_full_s0", "role": "dispatcher", "payload": {"rule": "若核实状态是 shelter_open，提交 send_to_A；若是 shelter_full，提交 send_to_B。", "action": "submit_shelter"}}
+{"ts": 1787548151.796105, "event": "denied", "ok": false, "reason": "raw_signal_not_sent", "task_id": "shelter_capacity_001_intervention_full_s0"}
+{"ts": 1787548151.7963824, "event": "raw_inbox_read", "task_id": "shelter_capacity_001_intervention_full_s0", "n": 0}
+{"ts": 1787548151.7964761, "event": "private_read", "task_id": "shelter_capacity_001_intervention_full_s0", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548153.2200458, "event": "denied", "ok": false, "reason": "verification_not_requested", "task_id": "shelter_capacity_001_intervention_full_s0"}
+{"ts": 1787548153.2203643, "event": "inbox_read", "task_id": "shelter_capacity_001_intervention_full_s0", "n": 0}
+{"ts": 1787548156.3943942, "event": "action_submitted", "task_id": "shelter_capacity_001_intervention_full_s0", "action": {"action": "None", "value": "None", "adopted_state_version": "None", "evidence_message_id": "None", "task_id": "shelter_capacity_001_intervention_full_s0", "dispatcher_id": 3}}
+{"ts": 1787548156.3947604, "event": "inbox_read", "task_id": "shelter_capacity_001_intervention_full_s0", "n": 0}
+{"ts": 1787548413.9602993, "event": "private_put", "task_id": "shelter_capacity_001_intervention_full_s0", "role": "verifier", "payload": {"trusted_source_id": "city_roster"}}
+{"ts": 1787548413.9603846, "event": "private_put", "task_id": "shelter_capacity_001_intervention_full_s0", "role": "dispatcher", "payload": {"rule": "若核实状态是 shelter_open，提交 send_to_A；若是 shelter_full，提交 send_to_B。", "action": "submit_shelter"}}
+{"ts": 1787548416.54555, "event": "raw_sent", "task_id": "shelter_capacity_001_intervention_full_s0", "message": {"message_id": "raw-msg-shelter_capacity_001_intervention_full_s0-1", "source_id": "city_roster", "reported_state": "shelter_full", "observer_id": 1}}
+{"ts": 1787548416.5458815, "event": "raw_sent", "task_id": "shelter_capacity_001_intervention_full_s0", "message": {"message_id": "raw-msg-shelter_capacity_001_intervention_full_s0-2", "source_id": "crowd_post", "reported_state": "shelter_open", "observer_id": 1}}
+{"ts": 1787548416.54604, "event": "raw_delivered", "task_id": "shelter_capacity_001_intervention_full_s0", "message": {"message_id": "raw-msg-shelter_capacity_001_intervention_full_s0-1", "source_id": "city_roster", "reported_state": "shelter_full", "observer_id": 1}}
+{"ts": 1787548416.5461576, "event": "raw_delivered", "task_id": "shelter_capacity_001_intervention_full_s0", "message": {"message_id": "raw-msg-shelter_capacity_001_intervention_full_s0-2", "source_id": "crowd_post", "reported_state": "shelter_open", "observer_id": 1}}
+{"ts": 1787548416.5462718, "event": "raw_inbox_read", "task_id": "shelter_capacity_001_intervention_full_s0", "n": 2}
+{"ts": 1787548416.5463789, "event": "private_read", "task_id": "shelter_capacity_001_intervention_full_s0", "role": "verifier", "owner": "verifier"}
+{"ts": 1787548424.7911801, "event": "verified_emitted", "task_id": "shelter_capacity_001_intervention_full_s0", "message": {"message_id": "verified-msg-shelter_capacity_001_intervention_full_s0-3", "verified_state": "shelter_full", "source_id": "city_roster", "state_version": "v2", "verifier_id": 2}}
+{"ts": 1787548424.7915049, "event": "verified_delivered", "task_id": "shelter_capacity_001_intervention_full_s0", "dropped": false, "message": {"message_id": "verified-msg-shelter_capacity_001_intervention_full_s0-3", "verified_state": "shelter_full", "source_id": "city_roster", "state_version": "v2", "verifier_id": 2}}
+{"ts": 1787548424.7916737, "event": "inbox_read", "task_id": "shelter_capacity_001_intervention_full_s0", "n": 1}
+{"ts": 1787548427.301937, "event": "verified_adopted", "task_id": "shelter_capacity_001_intervention_full_s0", "message_id": "verified-msg-shelter_capacity_001_intervention_full_s0-3", "state_version": "v2"}
+{"ts": 1787548427.3023326, "event": "action_submitted", "task_id": "shelter_capacity_001_intervention_full_s0", "action": {"action": "submit_shelter", "value": "send_to_B", "adopted_state_version": "v2", "evidence_message_id": "verified-msg-shelter_capacity_001_intervention_full_s0-3", "task_id": "shelter_capacity_001_intervention_full_s0", "dispatcher_id": 3}}
+{"ts": 1787548427.3025694, "event": "inbox_read", "task_id": "shelter_capacity_001_intervention_full_s0", "n": 1}

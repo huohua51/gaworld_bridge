@@ -1,0 +1,22 @@
+{"event": "private_put", "role": "worker_a", "index": 0}
+{"event": "private_put", "role": "worker_b", "index": 1}
+{"event": "private_read", "role": "worker_a", "owner": "worker_a", "index": 2}
+{"event": "private_read", "role": "worker_b", "owner": "worker_b", "index": 3}
+{"event": "step_completed", "role": "worker_a", "step_id": "file_rx41", "output": {"received_ids": ["D17", "D18"], "batch": "B4"}, "index": 4}
+{"event": "checkpoint_emitted", "role": "worker_a", "hash": "5d612a228134936895c02f1cd3b38c8b88b0bc956a3fc252b4da9744caedd8b7", "payload": {"checkpoint_version": "ckpt-001", "completed_steps": ["file_rx41"], "outputs": {"file_rx41": {"received_ids": ["D17", "D18"], "batch": "B4"}}, "world_digest": "49d6f2d8a65a2cfec29b680da038c5e75bd460114b75bbc01c98fffb7f92f0bf"}, "index": 5}
+{"event": "checkpoint_delivered", "reader": "coordinator", "hash": "5d612a228134936895c02f1cd3b38c8b88b0bc956a3fc252b4da9744caedd8b7", "index": 6}
+{"event": "checkpoint_delivered", "reader": "worker_a", "hash": "5d612a228134936895c02f1cd3b38c8b88b0bc956a3fc252b4da9744caedd8b7", "index": 7}
+{"event": "checkpoint_dropped", "reader": "worker_b", "hash": "5d612a228134936895c02f1cd3b38c8b88b0bc956a3fc252b4da9744caedd8b7", "index": 8}
+{"event": "checkpoint_read", "role": "coordinator", "version": "ckpt-001", "index": 9}
+{"event": "handoff_emitted", "payload": {"successor": "worker_a", "checkpoint_version": "ckpt-001", "resume_step": "file_ck41"}, "index": 10}
+{"event": "handoff_delivered", "reader": "worker_a", "hash": "10e225ee2854f2eaf467533623ccffd40acc7686951a85c038409fc2bb21180b", "index": 11}
+{"event": "handoff_delivered", "reader": "worker_b", "hash": "10e225ee2854f2eaf467533623ccffd40acc7686951a85c038409fc2bb21180b", "index": 12}
+{"event": "checkpoint_read", "role": "worker_a", "version": "ckpt-001", "index": 13}
+{"event": "handoff_read", "role": "worker_a", "index": 14}
+{"event": "step_completed", "role": "worker_a", "step_id": "file_ck41", "output": {"verified_ids": ["D17", "D18"], "missing_ids": []}, "index": 15}
+{"event": "step_completed", "role": "worker_a", "step_id": "file_ar41", "output": {"folder": "F2", "sealed": true}, "index": 16}
+{"event": "world_write", "role": "worker_a", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01b_20260825/runs/l1_01b_file_intake_001_control_drop_checkpoint_r0/file_intake_world.json", "index": 17}
+{"event": "denied", "ok": false, "reason": "environment_fallback", "role": "environment", "path": "/home/wuxingye/projects/gaworld_eval_bridge/output/exp_gm_l1_01b_20260825/runs/l1_01b_file_intake_001_control_drop_checkpoint_r0/file_intake_world.json", "index": 18}
+{"event": "denied", "ok": false, "reason": "coordinator_cannot_execute", "role": "coordinator", "step_id": "file_ck41", "index": 19}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "coordinator", "owner": "worker_a", "index": 20}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "role": "worker_b", "owner": "worker_a", "index": 21}
