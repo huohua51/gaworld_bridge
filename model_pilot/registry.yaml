@@ -1,0 +1,19 @@
+schema_version: 1
+pilot_id: MODEL-PILOT-T4-T5-v1
+base_release: benchmark-v1.1-rule
+seed: 0
+status: offline_runner_calibration
+ranking_eligible: false
+live_calls_default: blocked
+experiments:
+  - task_family: T4
+    source_tasks: exp_gm_t4_01/tasks.yaml
+    protocol: gaworld-benchmark-t4-model-v1
+    maximum_cells: 18
+  - task_family: T5
+    source_tasks: exp_gm_t5_01/tasks.yaml
+    protocol: gaworld-benchmark-t5-model-v1
+    maximum_cells: 18
+claim_boundary: >-
+  Offline fixture results validate only prompt/response wiring, evidence capture,
+  strict JSON contracts and scorers. Live model results remain development evidence.

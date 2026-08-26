@@ -1051,6 +1051,29 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t6_01.run_matrix `
 规则校准版本的跨仓提交、Git对象、SHA-256、测试证据和排除项冻结在
 `releases/benchmark_v1_1_rule/FREEZE.yaml`，对应本地标签`benchmark-v1.1-rule`。
 
+### **16.5 T4/T5统一模型Pilot**
+
+`model_pilot/`在冻结规则版本之上增加统一调用预算、严格JSON契约、Prompt/原始响应哈希和独立
+Evidence JSONL。默认不调用真实Provider；先运行离线接线校准：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.run `
+  --fixture-oracle --experiment both --out $env:TEMP\gaworld_model_fixture
+```
+
+真实调用必须显式指定Provider和放行开关。先做一次最多64 tokens的Smoke，再启动Seed-0 Pilot：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.smoke `
+  --provider openai_gpt --allow-live-model --out $env:TEMP\gaworld_model_smoke
+
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.run `
+  --provider openai_gpt --allow-live-model --experiment both --max-calls 160 `
+  --out $env:TEMP\gaworld_model_seed0
+```
+
+上述真实Pilot最多包含36格；仍属于开发证据，`ranking_eligible`固定为`false`。
+
 ---
 
 ## **17. 目录索引**
@@ -1064,6 +1087,7 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t6_01.run_matrix `
 | `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
+| `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
