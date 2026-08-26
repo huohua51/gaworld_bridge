@@ -1,0 +1,312 @@
+pilot_id: T4-REGISTERED-TRANSPORT-GLM52-REPEATS-v1
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T4_REGISTERED_TRANSPORT_GLM52_REPEATS_v1.yaml
+registration_sha256: 0374bf30313dec60ab794570c4d870ac7b88b77a252c4d8b834a62143cd9391f
+base_commit: 8044126ff29ffeddecbb32a4d2a5fc750de5a28e
+reference_result_dir: F:\proj\gaworld_eval_bridge\output\model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+temperature: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+ranking_eligible: false
+registered_design_adherent: true
+all_registered_outcomes_pass: true
+new_cells: 12
+combined_cells: 18
+by_task_variant:
+  t4v2_reservoir_quality_001:control:
+    seeds:
+    - 0
+    - 1
+    - 2
+    source_forward:
+    - true
+    - true
+    - true
+    source_forward_exact_agreement: true
+    source_forward_rate: 1.0
+    complete_path_rate: 1.0
+    target_acceptance_rate: 1.0
+    full_pass_rate: 1.0
+    model_contract_rate: 1.0
+    source_prompt_sha256:
+    - 0149fd7702392ef7679c7f9672e5ee552bfe36ae6cc9289bdafa0cd2ee082ccf
+    prompt_stable_across_seed0_1_2: true
+  t4v2_reservoir_quality_001:intervention:
+    seeds:
+    - 0
+    - 1
+    - 2
+    source_forward:
+    - true
+    - true
+    - true
+    source_forward_exact_agreement: true
+    source_forward_rate: 1.0
+    complete_path_rate: 1.0
+    target_acceptance_rate: 1.0
+    full_pass_rate: 1.0
+    model_contract_rate: 1.0
+    source_prompt_sha256:
+    - 546274ca29eff30c5f1f7d3641ae8d89ca09811a20cb584de9c8ec1fc30cc657
+    prompt_stable_across_seed0_1_2: true
+  t4v2_substation_load_001:control:
+    seeds:
+    - 0
+    - 1
+    - 2
+    source_forward:
+    - true
+    - true
+    - true
+    source_forward_exact_agreement: true
+    source_forward_rate: 1.0
+    complete_path_rate: 1.0
+    target_acceptance_rate: 1.0
+    full_pass_rate: 1.0
+    model_contract_rate: 1.0
+    source_prompt_sha256:
+    - 9449ad80746ff007d4e62d007d8039a60faa5b856b80a0012425e733c8131725
+    prompt_stable_across_seed0_1_2: true
+  t4v2_substation_load_001:intervention:
+    seeds:
+    - 0
+    - 1
+    - 2
+    source_forward:
+    - true
+    - true
+    - true
+    source_forward_exact_agreement: true
+    source_forward_rate: 1.0
+    complete_path_rate: 1.0
+    target_acceptance_rate: 1.0
+    full_pass_rate: 1.0
+    model_contract_rate: 1.0
+    source_prompt_sha256:
+    - 22498c35bdf0c306207010d67deaccd5c518cf1ae304321491f92fb675ebda32
+    prompt_stable_across_seed0_1_2: true
+  t4v2_school_air_001:control:
+    seeds:
+    - 0
+    - 1
+    - 2
+    source_forward:
+    - true
+    - true
+    - true
+    source_forward_exact_agreement: true
+    source_forward_rate: 1.0
+    complete_path_rate: 1.0
+    target_acceptance_rate: 1.0
+    full_pass_rate: 1.0
+    model_contract_rate: 1.0
+    source_prompt_sha256:
+    - 3d65eff2b36c46536f9a2dddbdcc438250f23f1ffd174c2b5a75bdf37635834b
+    prompt_stable_across_seed0_1_2: true
+  t4v2_school_air_001:intervention:
+    seeds:
+    - 0
+    - 1
+    - 2
+    source_forward:
+    - true
+    - true
+    - true
+    source_forward_exact_agreement: true
+    source_forward_rate: 1.0
+    complete_path_rate: 1.0
+    target_acceptance_rate: 1.0
+    full_pass_rate: 1.0
+    model_contract_rate: 1.0
+    source_prompt_sha256:
+    - 3e790a14b7836ce4a2bb4e03fa4d871e3122044e79cf6747126782029a26d36d
+    prompt_stable_across_seed0_1_2: true
+pooled_seed0_1_2:
+  source_forward_rate: 1.0
+  complete_path_rate: 1.0
+  target_acceptance_rate: 1.0
+  full_pass_rate: 1.0
+  model_contract_rate: 1.0
+  new_first_error_counts:
+    none: 12
+budget:
+  max_calls: 48
+  calls_used: 48
+  calls_remaining: 0
+  prompt_chars: 60484
+  response_chars: 5848
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000
+cells:
+- task_id: t4v2_reservoir_quality_001
+  variant: control
+  seed: 1
+  source_forward: true
+  source_prompt_sha256: 0149fd7702392ef7679c7f9672e5ee552bfe36ae6cc9289bdafa0cd2ee082ccf
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_reservoir_quality_001_control_full_s1
+  new_model_calls: 4
+- task_id: t4v2_reservoir_quality_001
+  variant: control
+  seed: 2
+  source_forward: true
+  source_prompt_sha256: 0149fd7702392ef7679c7f9672e5ee552bfe36ae6cc9289bdafa0cd2ee082ccf
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_reservoir_quality_001_control_full_s2
+  new_model_calls: 4
+- task_id: t4v2_reservoir_quality_001
+  variant: intervention
+  seed: 1
+  source_forward: true
+  source_prompt_sha256: 546274ca29eff30c5f1f7d3641ae8d89ca09811a20cb584de9c8ec1fc30cc657
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_reservoir_quality_001_intervention_full_s1
+  new_model_calls: 4
+- task_id: t4v2_reservoir_quality_001
+  variant: intervention
+  seed: 2
+  source_forward: true
+  source_prompt_sha256: 546274ca29eff30c5f1f7d3641ae8d89ca09811a20cb584de9c8ec1fc30cc657
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_reservoir_quality_001_intervention_full_s2
+  new_model_calls: 4
+- task_id: t4v2_substation_load_001
+  variant: control
+  seed: 1
+  source_forward: true
+  source_prompt_sha256: 9449ad80746ff007d4e62d007d8039a60faa5b856b80a0012425e733c8131725
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_substation_load_001_control_full_s1
+  new_model_calls: 4
+- task_id: t4v2_substation_load_001
+  variant: control
+  seed: 2
+  source_forward: true
+  source_prompt_sha256: 9449ad80746ff007d4e62d007d8039a60faa5b856b80a0012425e733c8131725
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_substation_load_001_control_full_s2
+  new_model_calls: 4
+- task_id: t4v2_substation_load_001
+  variant: intervention
+  seed: 1
+  source_forward: true
+  source_prompt_sha256: 22498c35bdf0c306207010d67deaccd5c518cf1ae304321491f92fb675ebda32
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_substation_load_001_intervention_full_s1
+  new_model_calls: 4
+- task_id: t4v2_substation_load_001
+  variant: intervention
+  seed: 2
+  source_forward: true
+  source_prompt_sha256: 22498c35bdf0c306207010d67deaccd5c518cf1ae304321491f92fb675ebda32
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_substation_load_001_intervention_full_s2
+  new_model_calls: 4
+- task_id: t4v2_school_air_001
+  variant: control
+  seed: 1
+  source_forward: true
+  source_prompt_sha256: 3d65eff2b36c46536f9a2dddbdcc438250f23f1ffd174c2b5a75bdf37635834b
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_school_air_001_control_full_s1
+  new_model_calls: 4
+- task_id: t4v2_school_air_001
+  variant: control
+  seed: 2
+  source_forward: true
+  source_prompt_sha256: 3d65eff2b36c46536f9a2dddbdcc438250f23f1ffd174c2b5a75bdf37635834b
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_school_air_001_control_full_s2
+  new_model_calls: 4
+- task_id: t4v2_school_air_001
+  variant: intervention
+  seed: 1
+  source_forward: true
+  source_prompt_sha256: 3e790a14b7836ce4a2bb4e03fa4d871e3122044e79cf6747126782029a26d36d
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_school_air_001_intervention_full_s1
+  new_model_calls: 4
+- task_id: t4v2_school_air_001
+  variant: intervention
+  seed: 2
+  source_forward: true
+  source_prompt_sha256: 3e790a14b7836ce4a2bb4e03fa4d871e3122044e79cf6747126782029a26d36d
+  complete_path: true
+  target_accepted: true
+  model_contract_pass: true
+  measurement_valid: true
+  full_pass: 1
+  first_error: none
+  model_calls: 4
+  run_dir: output\model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345\runs\model_v2_t4v2_school_air_001_intervention_full_s2
+  new_model_calls: 4
+gate: registered_repeat_pilot_recorded

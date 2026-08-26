@@ -1,0 +1,8 @@
+{"seq": 1, "ts": 1787763280.2618647, "event": "message_injected", "message_id": "substation-load-v1", "message": {"message_id": "substation-load-v1", "source_id": "grid_telemetry", "state_version": "v1", "payload": {"action_required": false, "target_action": "keep_current", "fact": "substation_load_stable"}}}
+{"seq": 2, "ts": 1787763283.9883122, "event": "message_delivered", "message_id": "substation-load-v1", "sender_id": "grid_telemetry", "receiver_id": "operations_center", "depth": 1}
+{"seq": 3, "ts": 1787763292.2844613, "event": "message_accepted", "message_id": "substation-load-v1", "node_id": "operations_center"}
+{"seq": 4, "ts": 1787763292.2849903, "event": "message_delivered", "message_id": "substation-load-v1", "sender_id": "operations_center", "receiver_id": "regional_gateway", "depth": 2}
+{"seq": 5, "ts": 1787763295.1321673, "event": "message_accepted", "message_id": "substation-load-v1", "node_id": "regional_gateway"}
+{"seq": 6, "ts": 1787763295.1327276, "event": "message_delivered", "message_id": "substation-load-v1", "sender_id": "regional_gateway", "receiver_id": "load_dispatch", "depth": 3}
+{"seq": 7, "ts": 1787763298.6154926, "event": "message_accepted", "message_id": "substation-load-v1", "node_id": "load_dispatch"}
+{"seq": 8, "ts": 1787763298.6160123, "event": "action_submitted", "node_id": "load_dispatch", "action": {"action_id": "network-action-load_dispatch-8", "node_id": "load_dispatch", "action": "keep_current", "evidence_message_id": "substation-load-v1"}}
