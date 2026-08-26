@@ -1001,6 +1001,53 @@ cd ../GAWorld
 PYTHONPATH=. python -m unittest tests.test_joint_assignment
 ```
 
+### **16.4 版本化共享内核与只读审计**
+
+2026-08-25及以前的实验目录继续按各自`FREEZE.yaml`保存，不直接修改冻结后的Task Card、Runner、
+Scorer或历史分数。后续实验统一从`benchmark_core/`导入以下契约：
+
+- `RunContext`：强制记录Task、T1–T6、机制条件、Variant、Seed、Track、模型、预算和版本；
+- `capture_eval_mode_evidence()`：记录实际生效的eval mode状态，R0不再使用常量`True`；
+- `compose_cell()`：功能结果必须登记临界Criterion，并把Criterion绑定到原始Evidence ID；
+- `validate_task_card()`：按原实验计划检查Task Card必填字段；
+- `benchmark_catalog.yaml`：把当前实验映射回原始T1–T6和M1–M9，并区分规则校准与模型/真人证据。
+
+只读仓库审计：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m benchmark_core.audit `
+  --repo F:\proj\gaworld_eval_bridge
+```
+
+审计检查空Evidence文件、Task Card缺项、冻结基线是否存在、源文件哈希漂移、临界Criterion是否
+绑定证据。审计只报告问题，不修改冻结输出，也不重算历史分数。
+
+T4多跳网络传播的规则校准实验位于`exp_gm_t4_01/`。它覆盖完整链路、移除关键桥边和显式丢弃
+三条Track，并要求消息逐跳接收、接受后才能转发。当前结果只用于验证平台正负控与评分器，不作
+模型能力或排行榜声明：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t4_01.run_matrix `
+  --out $env:TEMP\gaworld_t4_rule
+```
+
+T5政策因果链校准位于`exp_gm_t5_01/`，成对覆盖无政策、真实政策、安慰剂政策，以及“已登记但
+未激活”的R0负控。只有居民显式提交的行动可以改变城市状态：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t5_01.run_matrix `
+  --out $env:TEMP\gaworld_t5_rule
+```
+
+T6长期人群近似校准位于`exp_gm_t6_01/`，在相同人口、Seed、天数和转移规则下比较individual、
+cohort与fast-forward，并同时验证continuous和checkpoint-resume。当前只登记均值、方差与亚群
+矩，不声称保留个体轨迹、分位数、网络结构或真人长期效度：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t6_01.run_matrix `
+  --out $env:TEMP\gaworld_t6_rule
+```
+
 ---
 
 ## **17. 目录索引**
@@ -1011,6 +1058,11 @@ PYTHONPATH=. python -m unittest tests.test_joint_assignment
 | `registry.yaml`                      | 正式实验登记、状态与证据等级                      |
 | `backlog/agent_protocol.yaml`        | Agent协议层开放问题                        |
 | `v0_first_batch/`                    | R0–R3统一Schema、compose与first_error覆盖 |
+| `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
+| `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
+| `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
+| `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
+| `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
 | `output/functional_devset_20260825/` | 功能侧开发集冻结总表                          |
 | `output/holdout_20260825/`           | T3、I1、L1的seed0留出汇总                  |
 | `output/exp_hf_h1_01_20260825/`      | H1刺激登记、Human Trace与Rubric输出         |

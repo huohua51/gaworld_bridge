@@ -1,0 +1,61 @@
+schema_version: 1
+tasks:
+  - id: t5_metro_fare_low_income
+    policy_id: metro-fare-v2
+    policy_version: v2
+    effective_step: 4
+    policy_signal:
+      name: metro fare adjustment
+      channel: city_notice
+    target_groups: [low_income_metro]
+    target_action: switch_to_bus
+    action_effects:
+      keep_current: {}
+      switch_to_bus:
+        travel_mode: bus
+        commute_cost: 5
+    residents:
+      - {agent_id: fare-low-1, group: low_income_metro, state: {travel_mode: metro, commute_cost: 8}}
+      - {agent_id: fare-low-2, group: low_income_metro, state: {travel_mode: metro, commute_cost: 8}}
+      - {agent_id: fare-high-1, group: high_income_metro, state: {travel_mode: metro, commute_cost: 8}}
+      - {agent_id: fare-bus-1, group: existing_bus, state: {travel_mode: bus, commute_cost: 5}}
+
+  - id: t5_low_emission_zone
+    policy_id: low-emission-zone-v1
+    policy_version: v1
+    effective_step: 6
+    policy_signal:
+      name: downtown low-emission zone
+      channel: transport_notice
+    target_groups: [high_emission_driver]
+    target_action: use_park_and_ride
+    action_effects:
+      keep_current: {}
+      use_park_and_ride:
+        travel_mode: park_and_ride
+        commute_cost: 7
+    residents:
+      - {agent_id: lez-car-1, group: high_emission_driver, state: {travel_mode: car, commute_cost: 12}}
+      - {agent_id: lez-car-2, group: high_emission_driver, state: {travel_mode: car, commute_cost: 11}}
+      - {agent_id: lez-ev-1, group: electric_driver, state: {travel_mode: electric_car, commute_cost: 10}}
+      - {agent_id: lez-rail-1, group: rail_commuter, state: {travel_mode: metro, commute_cost: 6}}
+
+  - id: t5_peak_access_restriction
+    policy_id: peak-access-v3
+    policy_version: v3
+    effective_step: 8
+    policy_signal:
+      name: peak-hour district access rule
+      channel: mobility_notice
+    target_groups: [flexible_car_commuter]
+    target_action: shift_to_off_peak
+    action_effects:
+      keep_current: {}
+      shift_to_off_peak:
+        departure_period: off_peak
+        commute_minutes: 38
+    residents:
+      - {agent_id: peak-flex-1, group: flexible_car_commuter, state: {departure_period: peak, commute_minutes: 55}}
+      - {agent_id: peak-flex-2, group: flexible_car_commuter, state: {departure_period: peak, commute_minutes: 52}}
+      - {agent_id: peak-fixed-1, group: fixed_shift_worker, state: {departure_period: peak, commute_minutes: 50}}
+      - {agent_id: peak-home-1, group: remote_worker, state: {departure_period: none, commute_minutes: 0}}

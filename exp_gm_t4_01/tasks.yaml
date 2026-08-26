@@ -1,0 +1,48 @@
+tasks:
+  - id: t4_ferry_closure_001
+    source: harbor_sensor
+    target: city_dispatch
+    path: [harbor_sensor, pier_office, transit_hub, city_dispatch]
+    bridge: [pier_office, transit_hub]
+    message_id: ferry-status-v2
+    state_version: v2
+    control_payload:
+      action_required: false
+      target_action: keep_current
+      fact: ferry_operating_normally
+    intervention_payload:
+      action_required: true
+      target_action: reroute_to_bridge_bus
+      fact: ferry_service_closed
+
+  - id: t4_clinic_recall_001
+    source: medicine_regulator
+    target: clinic_scheduler
+    path: [medicine_regulator, district_office, pharmacy_gateway, clinic_scheduler]
+    bridge: [district_office, pharmacy_gateway]
+    message_id: recall-status-v3
+    state_version: v3
+    control_payload:
+      action_required: false
+      target_action: keep_current
+      fact: medicine_batch_cleared
+    intervention_payload:
+      action_required: true
+      target_action: suspend_recalled_batch
+      fact: medicine_batch_recalled
+
+  - id: t4_shelter_capacity_001
+    source: shelter_counter
+    target: evacuation_dispatch
+    path: [shelter_counter, zone_coordinator, emergency_gateway, evacuation_dispatch]
+    bridge: [zone_coordinator, emergency_gateway]
+    message_id: shelter-capacity-v4
+    state_version: v4
+    control_payload:
+      action_required: false
+      target_action: keep_current
+      fact: shelter_has_capacity
+    intervention_payload:
+      action_required: true
+      target_action: redirect_to_south_shelter
+      fact: shelter_capacity_exhausted

@@ -1,0 +1,95 @@
+schema_version: 1
+purpose: map current experiment names back to the original T1-T6 and M1-M9 plan
+
+task_coverage:
+  T1: partial
+  T2: partial
+  T3: strong_development
+  T4: multi_hop_rule_calibrated
+  T5: policy_causal_chain_rule_calibrated
+  T6: longitudinal_approximation_rule_calibrated
+
+mechanism_coverage:
+  M1: partial
+  M2: partial_longitudinal_persistence_calibrated
+  M3: strong
+  M4: strong
+  M5: strong
+  M6: partial
+  M7: checkpoint_resume_rule_calibrated
+  M8: policy_intervention_rule_calibrated
+  M9: registered_moments_rule_calibrated
+
+experiments:
+  - experiment_id: EXP-GM-T4-01
+    planned_task_family: T4
+    mechanisms: [M3, M5, M8]
+    source_dir: exp_gm_t4_01
+    evidence_status: rule_calibration_no_model_claim
+
+  - experiment_id: EXP-GM-T5-01
+    planned_task_family: T5
+    mechanisms: [M1, M4, M8]
+    source_dir: exp_gm_t5_01
+    evidence_status: rule_calibration_no_model_or_human_claim
+
+  - experiment_id: EXP-GM-T6-01
+    planned_task_family: T6
+    mechanisms: [M2, M7, M9]
+    source_dir: exp_gm_t6_01
+    evidence_status: rule_calibration_registered_moments_only
+
+  - experiment_id: EXP-GM-T3-03
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5, M6]
+    source_dir: exp_gm_t3_03
+    result_dir: output/exp_gm_t3_03_20260825
+    evidence_status: development
+    hash_files:
+      task_card_hash: task_card.yaml
+      protocol_hash: protocol.md
+      scorer_hash: scorer.py
+      runner_hash: run_matrix.py
+
+  - experiment_id: HO-GM-I1-01
+    planned_task_family: T4
+    mechanisms: [M3, M5]
+    source_dir: holdout_i1
+    result_dir: output/holdout_i1_20260825
+    evidence_status: sealed_holdout_seed0
+    hash_files:
+      task_card_hash: task_card.yaml
+      scorer_hash: scoring.py
+      runner_hash: run_exp_i1.py
+
+  - experiment_id: EXP-GM-C1-03
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5, M6]
+    source_dir: exp_gm_c1_03
+    result_dir: output/exp_gm_c1_03_20260825
+    evidence_status: development_partial_pass
+    hash_files:
+      task_card_hash: task_card.yaml
+      protocol_hash: protocol.md
+      scorer_hash: scorer.py
+      runner_hash: run_matrix.py
+
+  - experiment_id: EXP-GM-L1-01c
+    planned_task_family: T3
+    mechanisms: [M4, M6, M7]
+    source_dir: exp_gm_l1_01c
+    result_dir: output/exp_gm_l1_01c_20260825
+    evidence_status: development
+    hash_files:
+      task_card_hash: task_card.yaml
+      protocol_hash: protocol.md
+      scorer_hash: scorer.py
+      runner_hash: run_matrix.py
+
+planned_gaps: []
+
+remaining_evidence_gaps:
+  - task_family: T5
+    gap: model_runs_multi_seed_and_matched_human_policy_reference
+  - task_family: T6
+    gap: nonlinear_quantile_network_and_matched_longitudinal_human_reference

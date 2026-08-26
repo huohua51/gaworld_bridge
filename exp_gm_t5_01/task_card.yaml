@@ -1,0 +1,37 @@
+schema_version: 1
+task_id: TASK-C1-urban-policy-response
+task_family: T5
+target_axis: functional
+mechanism: [M1, M4, M8]
+control:
+  condition: no_policy
+  expected_behavior_change: 0
+variant:
+  conditions: [real_policy, placebo_policy]
+  real_policy: only registered target groups change behaviour after activation
+  placebo_policy: matched announcement produces no registered behaviour change
+oracle:
+  full: policy activates at the registered step and every resident action matches condition and target group
+  disconnect_policy: R0 rejects treatment cells whose registered policy never activates
+required_events:
+  - population_registered
+  - policy_registered
+  - policy_activated
+  - policy_perceived
+  - resident_action_submitted
+primary_metric: attributable behaviour response rate
+diagnostic_metrics:
+  - policy activation rate
+  - affected resident share
+  - placebo response rate
+  - spillover rate
+  - first_error
+human_reference: N/A
+status: rule_calibration
+ranking_eligible: false
+conditions: [no_policy, real_policy, placebo_policy]
+tracks: [full, disconnect_policy]
+seeds: [0]
+note: >
+  本实验只验证政策事件、居民感知、显式行动和城市状态变化的功能证据链。
+  没有匹配真人政策数据，因此不报告H5/H7或真实城市政策效果。

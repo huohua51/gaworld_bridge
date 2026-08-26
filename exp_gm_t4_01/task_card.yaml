@@ -1,0 +1,35 @@
+schema_version: 1
+task_id: TASK-T4-multihop-propagation
+task_family: T4
+target_axis: functional
+mechanism: [M3, M5, M8]
+control:
+  information: registered no-action update
+  expected_action: keep_current
+variant:
+  information: registered action-required update
+  expected_action: task-specific target action
+oracle:
+  full: target node receives and adopts the immutable message before acting
+  remove_bridge: intervention cannot reach the target after the registered bridge is removed
+  drop_bridge: intervention cannot reach the target when only the bridge delivery is dropped
+required_events:
+  - message_injected
+  - message_delivered
+  - message_accepted
+  - action_submitted
+primary_metric: intervention multi-hop delivery value
+diagnostic_metrics:
+  - target delivery rate
+  - complete propagation path rate
+  - unauthorized jump denial
+  - first_error
+human_reference: N/A
+status: rule_calibration
+ranking_eligible: false
+tracks: [full, remove_bridge, drop_bridge]
+variants: [control, intervention]
+seeds: [0]
+note: >
+  本实验补原规划T4的多跳网络证据链，只完成Rule正控和平台机制校准。
+  不报告模型能力、社会扩散规律或人类效度。

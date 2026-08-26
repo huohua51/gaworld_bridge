@@ -1,0 +1,37 @@
+schema_version: 1
+tasks:
+  - id: t6_economic_security_60d
+    metric: economic_security
+    days: 60
+    population_seed: 0
+    persistence: 0.98
+    subgroup_drift: {low_income: -0.001, middle_income: 0.0005, high_income: 0.002}
+    shocks: {15: -0.08, 40: 0.04}
+    subgroup_values:
+      low_income: [0.28, 0.34, 0.40, 0.46]
+      middle_income: [0.48, 0.54, 0.60, 0.66]
+      high_income: [0.68, 0.74, 0.80, 0.86]
+
+  - id: t6_skill_growth_90d
+    metric: skill_index
+    days: 90
+    population_seed: 0
+    persistence: 0.995
+    subgroup_drift: {novice: 0.004, intermediate: 0.0025, experienced: 0.001}
+    shocks: {30: 0.03, 70: -0.015}
+    subgroup_values:
+      novice: [0.18, 0.24, 0.30, 0.36]
+      intermediate: [0.42, 0.48, 0.54, 0.60]
+      experienced: [0.66, 0.72, 0.78, 0.84]
+
+  - id: t6_stress_recovery_60d
+    metric: stress
+    days: 60
+    population_seed: 0
+    persistence: 0.97
+    subgroup_drift: {core_worker: -0.001, service_worker: 0.001, remote_worker: -0.002}
+    shocks: {10: 0.20, 35: -0.10}
+    subgroup_values:
+      core_worker: [0.32, 0.38, 0.44, 0.50]
+      service_worker: [0.40, 0.46, 0.52, 0.58]
+      remote_worker: [0.24, 0.30, 0.36, 0.42]

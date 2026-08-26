@@ -1,0 +1,38 @@
+schema_version: 1
+task_id: TASK-L1-population-approximation
+task_family: T6
+target_axis: functional
+mechanism: [M2, M7, M9]
+control:
+  mode: individual
+  population_seed: 0
+variant:
+  modes: [cohort, fast_forward]
+  invariant: same registered population, transition, seed and duration
+oracle:
+  distribution: registered overall mean, variance and subgroup moments match individual simulation
+  checkpoint_resume: resumed result matches continuous result without state loss or duplicate days
+required_events:
+  - population_registered
+  - projection_started
+  - projection_advanced
+  - checkpoint_written
+  - checkpoint_loaded
+  - projection_completed
+primary_metric: registered population distribution gap
+diagnostic_metrics:
+  - overall mean error
+  - overall variance error
+  - subgroup mean error
+  - subgroup variance error
+  - completion rate
+  - operation cost ratio
+human_reference: N/A
+status: rule_calibration
+ranking_eligible: false
+modes: [individual, cohort, fast_forward]
+tracks: [continuous, checkpoint_resume]
+seeds: [0]
+note: >
+  本实验只校准登记的一阶、二阶矩和亚群统计。未登记的个体轨迹、分位数、
+  社交网络结构及真人纵向效度均不在本实验声明范围内。
