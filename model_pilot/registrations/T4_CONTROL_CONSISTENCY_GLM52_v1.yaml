@@ -1,0 +1,72 @@
+preregistration_id: T4-CONTROL-CONSISTENCY-GLM52-v1
+registered_on: '2026-08-26'
+base_commit: 15cd075e1257d3076921c921b88613d1af2ba58e
+phase: exploratory_live_model_replication
+ranking_eligible: false
+
+question: >-
+  With the prompt and inference settings held fixed, does GLM-5.2 make a
+  consistent source-node forwarding decision for each registered T4 control
+  message, and how often does that decision produce a complete full-track path?
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t4_ferry_closure_001
+    - t4_clinic_recall_001
+    - t4_shelter_capacity_001
+  variant: control
+  track: full
+  replicate_ids: [0, 1, 2]
+  cells: 9
+  max_calls: 36
+  execution_order: task_then_replicate
+  prompt_protocol: gaworld-benchmark-t4-model-v1
+  scorer_version: model-pilot-t4-scorer-v2
+
+frozen_inputs:
+  model_pilot/t4.py: a00f9c9f6fa35cf86dbdf3147996840d480f5c0712e51da540e548ab645417fa
+  model_pilot/t4_scorer.py: 8abd5f132835005985ce7d6dfe63746c4d7b33a451997ffe135eb49285b6b746
+  exp_gm_t4_01/tasks.yaml: 2912d9d755f325d81df8058a2e5552316acfc5ef5fc204c8591a91a5245e3705
+  exp_gm_t4_01/task_card.yaml: 6d7c91a2de4ea83571d500a24e4052b81e44145ba5286be85d4266a4d6750a48
+
+outcomes:
+  primary:
+    - source_forward_rate_by_task
+    - source_forward_exact_agreement_by_task
+    - complete_path_rate_by_task
+  secondary:
+    - full_pass_rate_by_task
+    - model_contract_rate
+    - first_error_counts
+  pooled:
+    - source_forward_rate
+    - complete_path_rate
+    - full_pass_rate
+
+analysis_rules:
+  source_forward: >-
+    Read the parsed forward boolean from the first model response in each cell.
+  exact_agreement: >-
+    True only when all three source_forward values for a task are identical.
+  consistency_rate: >-
+    max(number true, number false) divided by three for each task.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+
+stopping_rules:
+  - Stop after all nine registered cells finish.
+  - Stop before any call that would exceed the shared 36-call budget.
+  - Do not retry a structurally valid model response.
+  - Do not replace an invalid or failed cell during this registered run.
+
+planned_entrypoint: python -m model_pilot.control_consistency
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
