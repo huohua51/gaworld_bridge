@@ -1,0 +1,63 @@
+tasks:
+  - id: t4v2_reservoir_quality_001
+    source: water_quality_sensor
+    target: distribution_dispatch
+    path:
+      - water_quality_sensor
+      - treatment_control
+      - municipal_gateway
+      - distribution_dispatch
+    bridge: [treatment_control, municipal_gateway]
+    message_id: reservoir-quality-v1
+    state_version: v1
+    message_class: registered_status_update
+    control_payload:
+      action_required: false
+      target_action: keep_current
+      fact: reservoir_water_safe
+    intervention_payload:
+      action_required: true
+      target_action: switch_to_backup_supply
+      fact: reservoir_contamination_detected
+
+  - id: t4v2_substation_load_001
+    source: grid_telemetry
+    target: load_dispatch
+    path:
+      - grid_telemetry
+      - operations_center
+      - regional_gateway
+      - load_dispatch
+    bridge: [operations_center, regional_gateway]
+    message_id: substation-load-v1
+    state_version: v1
+    message_class: registered_status_update
+    control_payload:
+      action_required: false
+      target_action: keep_current
+      fact: substation_load_stable
+    intervention_payload:
+      action_required: true
+      target_action: shed_noncritical_load
+      fact: substation_overload_detected
+
+  - id: t4v2_school_air_001
+    source: air_quality_monitor
+    target: school_scheduler
+    path:
+      - air_quality_monitor
+      - campus_operations
+      - district_gateway
+      - school_scheduler
+    bridge: [campus_operations, district_gateway]
+    message_id: school-air-quality-v1
+    state_version: v1
+    message_class: registered_status_update
+    control_payload:
+      action_required: false
+      target_action: keep_current
+      fact: outdoor_air_quality_safe
+    intervention_payload:
+      action_required: true
+      target_action: cancel_outdoor_activities
+      fact: hazardous_air_quality_detected

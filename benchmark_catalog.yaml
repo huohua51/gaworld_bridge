@@ -5,7 +5,7 @@ task_coverage:
   T1: partial
   T2: partial
   T3: strong_development
-  T4: multi_hop_rule_calibrated
+  T4: registered_transport_v2_rule_and_offline_model_calibrated
   T5: policy_causal_chain_rule_calibrated
   T6: longitudinal_approximation_rule_calibrated
 
@@ -21,6 +21,14 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: EXP-GM-T4-02
+    planned_task_family: T4
+    mechanisms: [M3, M5, M8]
+    source_dir: exp_gm_t4_02
+    evidence_status: rule_and_offline_model_wiring_calibrated_no_live_claim
+    supersedes: null
+    preserves_baseline: EXP-GM-T4-01
+
   - experiment_id: EXP-GM-T4-01
     planned_task_family: T4
     mechanisms: [M3, M5, M8]

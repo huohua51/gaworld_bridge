@@ -1,0 +1,45 @@
+schema_version: 1
+task_id: TASK-T4-registered-transport-v2
+task_family: T4
+target_axis: functional
+mechanism: [M3, M5, M8]
+control:
+  information: registered normal-status update
+  expected_transport: forward across every available registered hop
+  expected_action: keep_current
+variant:
+  information: registered action-required update
+  expected_transport: forward across every available registered hop
+  expected_action: task-specific target action
+oracle:
+  full: >-
+    Both normal and action-required updates traverse the complete registered
+    path and are accepted by the target before it acts.
+  remove_bridge: >-
+    Removing the registered bridge prevents target delivery; the control keeps
+    its current action while the intervention cannot produce its target action.
+  drop_bridge: >-
+    Dropping only the bridge delivery has the same registered causal contrast.
+required_events:
+  - message_injected
+  - message_delivered
+  - message_accepted
+  - action_submitted
+primary_metric: complete registered propagation path rate
+diagnostic_metrics:
+  - target acceptance rate
+  - control transport compliance rate
+  - intervention transport compliance rate
+  - communication value under bridge removal
+  - communication value under bridge delivery drop
+  - first_error
+human_reference: N/A
+status: rule_and_offline_model_calibration
+ranking_eligible: false
+tracks: [full, remove_bridge, drop_bridge]
+variants: [control, intervention]
+seeds: [0]
+note: >-
+  T4-v2 is a new experiment. It explicitly separates mandatory transport of a
+  registered update from the target's action decision. T4-v1 inputs, prompts,
+  scorers and results remain frozen.
