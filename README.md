@@ -1048,6 +1048,9 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t6_01.run_matrix `
   --out $env:TEMP\gaworld_t6_rule
 ```
 
+规则校准版本的跨仓提交、Git对象、SHA-256、测试证据和排除项冻结在
+`releases/benchmark_v1_1_rule/FREEZE.yaml`，对应本地标签`benchmark-v1.1-rule`。
+
 ---
 
 ## **17. 目录索引**
@@ -1060,6 +1063,7 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m exp_gm_t6_01.run_matrix `
 | `v0_first_batch/`                    | R0–R3统一Schema、compose与first_error覆盖 |
 | `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
+| `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |

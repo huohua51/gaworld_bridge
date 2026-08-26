@@ -1,0 +1,72 @@
+schema_version: 1
+release_id: benchmark-v1.1-rule
+freeze_date: 2026-08-26
+evidence_status: rule_calibration
+ranking_eligible: false
+claim_boundary: >-
+  T4-T6 platform mechanisms, deterministic controls and scorers are calibrated.
+  This release contains no model capability result and no human-validity result.
+
+repositories:
+  gaworld:
+    path: F:/proj/GAWorld
+    branch: eval-harness
+    commit: 3001decc9ea06d65c3de4e02886724d8cc13da5a
+    tag: benchmark-v1.1-rule
+    git_objects:
+      gaworld/comm: 281c49fbd29d84481f9ac7ebccac0d43bef9ba92
+      gaworld/city: 2010a41e664bb16355a6dc3c0175b4ab19ad0b84
+      gaworld/population: 3c184a26dd47602587f3ac788b372e0b9a0cb2cd
+      tests/test_comm_network.py: a7be8ca31eb3697bba8422e21ade2d68e2a1d1b4
+      tests/test_city_policy.py: 690f0c20df81a26a01c137a326e6c25c07936c6e
+      tests/test_population_projection.py: 597ac0c36ed7ca858c6c65cabacb07e5702bb8f7
+  evaluation_bridge:
+    path: F:/proj/gaworld_eval_bridge
+    branch: main
+    source_commit: 50a8ee1cf7f0d52473cd5060812b668e806dba18
+    freeze_commit: tag_target
+    tag: benchmark-v1.1-rule
+    git_objects:
+      benchmark_core: 56c0c3b6e68335c7bf64c02ce8ad865383bbe957
+      exp_gm_t4_01: bc5fc128658a098a5958c6994100fedd1b0c2a34
+      exp_gm_t5_01: c2bc1029c42852371f37e9485049fd171c51accc
+      exp_gm_t6_01: 6e93cb790aa8049c2facf2b6c6ed0da1c82d1c88
+
+sha256:
+  benchmark_catalog.yaml: aada93c888c365c3a4a416814359d6fb7eddffb3ed1a4755d0c6303b1a677122
+  exp_gm_t4_01/task_card.yaml: 6d7c91a2de4ea83571d500a24e4052b81e44145ba5286be85d4266a4d6750a48
+  exp_gm_t4_01/protocol.md: 683584234aea9ff2147a6c88cc8317c679c2157a894640e2f3d5bd405f75713f
+  exp_gm_t4_01/run_matrix.py: 3fc612a96c25d6f3cd19d0f42a72045ff7b679690cd32e43df13fa392902ae4e
+  exp_gm_t4_01/scorer.py: c773b1191709a3118fd49396bf4d1a1c1e6b2b5d302a589c5fb1b81253008c5c
+  exp_gm_t5_01/task_card.yaml: fcafb7e2ee92580ea24c0407afd4aabd0c3f03a7fd65bf4bfbb8e17d63c7eb17
+  exp_gm_t5_01/protocol.md: 978fc07d78f4af12e059d964f46df5aee99270325d8e5939872b04e5bff80474
+  exp_gm_t5_01/run_matrix.py: 56ad82ed44cb109b97aac96f7f82d531d1e4e87809bee0d353eebb5ffd6f5b7c
+  exp_gm_t5_01/scorer.py: bdefb955c0c1e6c60561c66a2be6b43b8325a1fabaa5ea188f52760feb1c90f4
+  exp_gm_t6_01/task_card.yaml: 47ee1d6865cc998aea312e8f9de69de00068cba20777975dd17966f985c01c46
+  exp_gm_t6_01/protocol.md: cd2452284618d487dda99d7cf231add59308bf536f548a00871f84b7a3a110d5
+  exp_gm_t6_01/run_matrix.py: 8451859cf4ff4790c4bb1ad8c445e3e618beef043189849b4cb046fd1797bdf7
+  exp_gm_t6_01/scorer.py: ca3908b824af0a5ab86c8d5c05e6574f4c2f7ad85ae04099c3f6080e6d404fbd
+
+calibration_evidence:
+  gaworld_related_tests:
+    passed: 61
+    command: >-
+      python -m pytest -q tests/test_comm_network.py tests/test_comm_relay.py
+      tests/test_eval_mode.py tests/test_joint_assignment.py
+      tests/test_real_work_review.py tests/test_city_policy.py
+      tests/test_population_projection.py
+  evaluation_bridge_related_tests:
+    passed: 50
+  matrices:
+    EXP-GM-T4-01: {cells: 18, gate: rule_calibration_pass}
+    EXP-GM-T5-01:
+      cells: 18
+      gate: rule_calibration_pass
+      expected_r0_invalid_cells: 6
+    EXP-GM-T6-01: {cells: 18, gate: rule_calibration_pass}
+
+excluded_from_freeze:
+  - F:/proj/GAWorld/start_openclaw_bridge.sh
+  - F:/proj/gaworld_eval_bridge/output
+  - historical frozen experiments and their scores
+  - API keys, local model configuration and paid model calls
