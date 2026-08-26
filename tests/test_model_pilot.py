@@ -97,6 +97,47 @@ def test_malformed_model_response_is_artifact_failure_without_fallback(
     assert cell["process_profile"]["first_error"] == "model_response_contract_invalid"
 
 
+def test_t4_full_track_cannot_pass_when_model_stops_propagation(tmp_path) -> None:
+    def stop_at_source(prompt: str, task: str, agent_id: str | None) -> str:
+        payload = json.loads(prompt)
+        if payload["role"] == "source":
+            return '{"forward":false,"reason":"no action requested"}'
+        return (
+            '{"accept":false,"target_action":"keep_current",'
+            '"reason":"message not received"}'
+        )
+
+    task = load_t4_tasks()[0]
+    run_dir = tmp_path / "stopped-control"
+    runner = RecordedModelRunner(
+        run_dir / "model_trace.jsonl",
+        CallableModelClient(stop_at_source),
+        ModelCallBudget(4),
+        temperature=0,
+        allow_live_model=False,
+        run_id="stopped-control",
+    )
+    loop = run_t4_cell(task, "control", "full", run_dir, runner)
+    cell = score_t4_cell(
+        task=task,
+        variant="control",
+        track="full",
+        seed=0,
+        loop=loop,
+        eval_mode_evidence=_eval_evidence(),
+    )
+
+    path_criterion = next(
+        item
+        for item in cell["criteria"]
+        if item["criterion_id"] == "complete_propagation_path"
+    )
+    assert cell["measurement_valid"] is True
+    assert cell["full_pass"] == 0
+    assert path_criterion["critical"] is True
+    assert path_criterion["passed"] is False
+
+
 def test_offline_smoke_records_one_call_without_ranking_claim(tmp_path) -> None:
     client = CallableModelClient(
         lambda prompt, task, agent_id: '{"status":"ok"}',

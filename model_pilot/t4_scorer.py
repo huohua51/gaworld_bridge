@@ -9,7 +9,7 @@ from model_pilot.evidence import model_trace_evidence, read_jsonl
 from v0_first_batch.schema import CriterionResult, GateResult
 
 WORKFLOW_ID = "model_pilot_t4_v1"
-SCORER_VERSION = "model-pilot-t4-scorer-v1"
+SCORER_VERSION = "model-pilot-t4-scorer-v2"
 
 
 def score_cell(
@@ -137,6 +137,7 @@ def score_cell(
                 True,
                 1.0 if full_path else 0.0,
                 passed=full_path,
+                critical=track == "full",
                 evidence_ids=[str(loop["trace_path"])],
             ),
         ],
