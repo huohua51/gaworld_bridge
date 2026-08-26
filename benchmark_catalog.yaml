@@ -5,8 +5,8 @@ task_coverage:
   T1: partial
   T2: partial
   T3: strong_development
-  T4: registered_transport_v2_glm52_seed0_pilot
-  T5: policy_causal_chain_rule_calibrated
+  T4: registered_transport_v2_glm52_seed0_1_2_stable
+  T5: glm52_minimal_policy_causal_discrimination_failed
   T6: longitudinal_approximation_rule_calibrated
 
 mechanism_coverage:
@@ -26,7 +26,8 @@ experiments:
     mechanisms: [M3, M5, M8]
     source_dir: exp_gm_t4_02
     result_dir: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
-    evidence_status: rule_offline_and_glm52_seed0_pilot
+    replication_result_dir: output/model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345
+    evidence_status: rule_offline_and_glm52_seed0_1_2_full_track_stable
     supersedes: null
     preserves_baseline: EXP-GM-T4-01
 
@@ -40,7 +41,8 @@ experiments:
     planned_task_family: T5
     mechanisms: [M1, M4, M8]
     source_dir: exp_gm_t5_01
-    evidence_status: rule_calibration_no_model_or_human_claim
+    result_dir: output/model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964
+    evidence_status: glm52_seed0_minimal_partial_real_pass_placebo_and_no_policy_fail
 
   - experiment_id: EXP-GM-T6-01
     planned_task_family: T6
@@ -99,8 +101,8 @@ planned_gaps: []
 
 remaining_evidence_gaps:
   - task_family: T4
-    gap: registered_transport_v2_repeats_and_cross_model_replication
+    gap: registered_transport_v2_cross_model_replication
   - task_family: T5
-    gap: model_runs_multi_seed_and_matched_human_policy_reference
+    gap: explicit_binding_placebo_protocol_multi_task_repeats_and_human_reference
   - task_family: T6
     gap: nonlinear_quantile_network_and_matched_longitudinal_human_reference

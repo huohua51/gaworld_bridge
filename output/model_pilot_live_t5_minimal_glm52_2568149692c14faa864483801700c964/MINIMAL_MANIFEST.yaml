@@ -1,0 +1,121 @@
+pilot_id: T5-MINIMAL-CAUSAL-GLM52-v1
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T5_MINIMAL_CAUSAL_GLM52_v1.yaml
+registration_sha256: 9a6e7eaa53d60fb00e39514eb08a2647f0173a5706b3d885179259ccb703455a
+base_commit: 3a46099faf593106d10d1ca57199079a32a00b80
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+temperature: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+ranking_eligible: false
+registered_design_adherent: true
+all_registered_outcomes_pass: false
+n_cells: 3
+target_agent_ids:
+- lez-car-1
+- lez-car-2
+FullPassByCondition:
+  no_policy: 0
+  real_policy: 1
+  placebo_policy: 0
+BehaviorChangeRateByCondition:
+  no_policy: 0.0
+  real_policy: 0.5
+  placebo_policy: 0.5
+causal_contrasts:
+  real_minus_no_policy: 0.5
+  real_minus_placebo: 0.0
+  placebo_minus_no_policy: 0.5
+model_contract_rate: 1.0
+first_error_counts:
+  none: 1
+  resident_policy_response_incorrect: 2
+budget:
+  max_calls: 12
+  calls_used: 12
+  calls_remaining: 0
+  prompt_chars: 7306
+  response_chars: 2399
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000
+cells:
+- condition: no_policy
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: resident_policy_response_incorrect
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  target_agent_ids:
+  - lez-car-1
+  - lez-car-2
+  no_untargeted_spillover: true
+  expected_actions:
+    lez-car-1: keep_current
+    lez-car-2: keep_current
+    lez-ev-1: keep_current
+    lez-rail-1: keep_current
+  actual_actions:
+    lez-ev-1: keep_current
+    lez-rail-1: keep_current
+  cell_result_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_no_policy_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_no_policy_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_no_policy_full_s0\policy_trace.jsonl
+- condition: real_policy
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - lez-car-1
+  - lez-car-2
+  target_agent_ids:
+  - lez-car-1
+  - lez-car-2
+  no_untargeted_spillover: true
+  expected_actions:
+    lez-car-1: use_park_and_ride
+    lez-car-2: use_park_and_ride
+    lez-ev-1: keep_current
+    lez-rail-1: keep_current
+  actual_actions:
+    lez-car-1: use_park_and_ride
+    lez-car-2: use_park_and_ride
+    lez-ev-1: keep_current
+    lez-rail-1: keep_current
+  cell_result_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_real_policy_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_real_policy_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_real_policy_full_s0\policy_trace.jsonl
+- condition: placebo_policy
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: resident_policy_response_incorrect
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - lez-car-1
+  - lez-car-2
+  target_agent_ids:
+  - lez-car-1
+  - lez-car-2
+  no_untargeted_spillover: true
+  expected_actions:
+    lez-car-1: keep_current
+    lez-car-2: keep_current
+    lez-ev-1: keep_current
+    lez-rail-1: keep_current
+  actual_actions:
+    lez-car-1: use_park_and_ride
+    lez-car-2: use_park_and_ride
+    lez-ev-1: keep_current
+    lez-rail-1: keep_current
+  cell_result_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_placebo_policy_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_placebo_policy_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964\runs\model_minimal_t5_low_emission_zone_placebo_policy_full_s0\policy_trace.jsonl
+gate: registered_minimal_pilot_recorded

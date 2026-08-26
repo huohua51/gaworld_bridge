@@ -523,7 +523,8 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
-| T4 多跳传播    | `v1_live_v2_live` | T4-01 / T4-02 | v1定位隐式转发歧义；v2显式协议真实Pilot命中全部预注册对照 | seed0完成 |
+| T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
+| T5 政策因果链   | `live_partial_fail` | T5 minimal | 真实政策格通过；无政策与安慰剂辨别失败 | seed0诊断完成 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -879,7 +880,8 @@ python -m exp_hf_h1_01.serve
 | AP-C1-D-01  | open    | NACK后联合方案未形成正确终局                | 建立重试语义组件与完整回归                                   |
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
-| AP-T4-01    | v2_live_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2补充重复与跨模型复测                                  |
+| AP-T4-01    | v2_repeat_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2下一步做跨模型复测                                    |
+| AP-T5-01    | open | 模型在无政策时自行采取目标动作，并把非约束安慰剂当作真实政策 | 保留v1证据；新编号下显式区分absence/binding/nonbinding语义             |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -913,7 +915,8 @@ python -m exp_hf_h1_01.serve
 - T3、I1、L1已经完成开发集闭环，并在各自seed0密封留出上复现同类正负控模式；
 - C1已经具备基本冲突消解与私有约束整合能力，优先级NACK重试是明确的后续改进点；
 - REL1已经把失败定位到最新可靠性状态的采用环节；
-- T4-v1预注册GLM-5.2 Pilot完成9格重复，control完整路径率为44.44%；T4-v2真实Pilot完成18格，JSON契约率100%，full Track两种variant均100%通过；
+- T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在seed0/1/2上Prompt哈希稳定，转发、完整路径、目标接受和FullPass均为100%；
+- T5最小真实Pilot中real policy正确，但no policy与placebo失败，模型尚未建立可靠的政策因果辨别；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -1156,6 +1159,22 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
   --out $env:TEMP\gaworld_t4v2_fixture
 ```
 
+### **16.8 T4-v2重复稳定性与T5最小真实因果链**
+
+T4-v2在先行提交的预注册下补跑repeat 1/2，共12个新格、48次逻辑调用。合并seed0/1/2后，
+六个任务变体组合的source决策均为`true,true,true`，各组Prompt SHA-256一致；完整路径、目标接受、
+模型契约和FullPass均为100%。证据和边界见
+[`REPORT.md`](output/model_pilot_live_t4_v2_repeats_glm52_142003658f0d4235a38333f23ff17345/REPORT.md)。
+
+T5随后以一个固定低排放区任务运行`no_policy / real_policy / placebo_policy`三格，共12次调用。
+真实政策格正确改变两个目标居民；无政策格中模型仍尝试目标动作但被证据门拒绝；安慰剂格则把
+`matched_nonbinding_notice`当作真实规则并改变同样两个居民。FullPass为`0 / 1 / 0`，变化率为
+`0 / 0.5 / 0.5`，所以real-minus-placebo为0。完整逐居民诊断见
+[`REPORT.md`](output/model_pilot_live_t5_minimal_glm52_2568149692c14faa864483801700c964/REPORT.md)。
+
+两轮均为GLM-5.2开发证据，`ranking_eligible=false`；T5-v1不事后改Prompt，后续显式语义修复必须
+使用新协议编号。
+
 ---
 
 ## **17. 目录索引**
@@ -1173,6 +1192,8 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
+| `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
+| `output/model_pilot_live_t5_minimal_glm52_*/` | T5最小真实政策因果链诊断证据                 |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
@@ -1202,6 +1223,6 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。当前证据表明，GAWorld的底层通信、权限控制和状态传播能够支撑T3、I1与L1三类可验证工作流；C1和REL1进一步把问题推进到政策约束重规划、最新状态采用与Agent协作协议层。T4-v1真实模型Pilot暴露了隐式转发歧义；T4-v2把注册消息传输与目标动作分离后，在GLM-5.2 seed0真实Pilot中命中了全部预注册正负控，同时仍保留重复设计与R3路径硬判据。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5最小真实Pilot则进一步定位到政策语义辨别层：模型能响应binding rule，却不能可靠区分无政策与matched nonbinding notice。两类结果共同说明JSON契约通过只是起点，显式协议、因果对照和R3证据链仍不可省略。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。
