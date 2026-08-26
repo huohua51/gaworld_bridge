@@ -1,0 +1,94 @@
+preregistration_id: T4-REGISTERED-TRANSPORT-GLM52-REPEATS-v1
+registered_on: '2026-08-27'
+base_commit: 8044126ff29ffeddecbb32a4d2a5fc750de5a28e
+phase: prospective_live_model_replication
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  When T4-v2 full-track prompts and inference settings are held fixed, do the
+  successful seed-0 source forwarding, target acceptance, complete path and
+  FullPass outcomes remain stable at repeats 1 and 2 for every task and variant?
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t4v2_reservoir_quality_001
+    - t4v2_substation_load_001
+    - t4v2_school_air_001
+  variants: [control, intervention]
+  track: full
+  reference_seed: 0
+  repeat_ids: [1, 2]
+  new_cells: 12
+  combined_cells: 18
+  max_calls: 48
+  execution_order: task_then_variant_then_repeat
+  prompt_protocol: gaworld-benchmark-t4-model-v2
+  scorer_version: model-pilot-t4-v2-scorer-v1
+  reference_result_dir: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
+
+frozen_inputs:
+  model_pilot/t4_v2.py: e1878279e539d2256372ec88dc9be3b9cc868c21ff69a0cba82a7e10f8611718
+  model_pilot/t4_v2_scorer.py: 82f1bcd265c1ef9136e52eda68386ab5102a7ada6017d81288dfb25b05152f76
+  model_pilot/t4_v2_repeats.py: 286846a8dfcb0f993906f6ca11cc511629f96b48c567b005eb26add6f390c7a0
+  exp_gm_t4_02/tasks.yaml: aa313c39b863c316931b0eb541a04c62cdf4c9c3b19ddf05d82df155c1c1d68c
+  exp_gm_t4_02/task_card.yaml: e9749a275004924197977e3cbbf97e4c5e1fae926bf23b1765f669dfbb5e43d3
+  exp_gm_t4_02/protocol.md: ac83b714c8b6cb8971d31283019c32c87102f7ea4e2d583309e9f719bbf3bd1c
+  exp_gm_t4_02/loader.py: c63d2586a27e5ac1b2ba59771c0902ab06153110e0cb09f6eada26b0dc10a761
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/RUN_MANIFEST.yaml: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_reservoir_quality_001_control_full_s0/cell_result.json: 306ffe8daf5e7413647056b1e304d6a34fc62bd97f760b3f389fdbdda0baee60
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_reservoir_quality_001_control_full_s0/model_trace.jsonl: 2cb533c23d59464d358afac1cd1f391b84fd141d4ee31cde4898a862d4069f97
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_reservoir_quality_001_intervention_full_s0/cell_result.json: 1e2a0a2c9687c6d9568870a47b1984b21cda327fae509c6f4124a7e5964610b5
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_reservoir_quality_001_intervention_full_s0/model_trace.jsonl: 7c0e9dfadd73ac6bca13282e0173de228d5b49f2d9a8f1ebdf5c80754791ec61
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_substation_load_001_control_full_s0/cell_result.json: 4e9ff4041c69ffe8d19a0daeca053b0586f83740a8ac6007ac66d308ab37a6a3
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_substation_load_001_control_full_s0/model_trace.jsonl: 8b0fcda2e8a6f3fd5267a181cc612659c74d18e73507b1d110911c633415635b
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_substation_load_001_intervention_full_s0/cell_result.json: be962a0ad21f925a8bac72200420c019c2230e6d3a18b1e6ac6dff9019fecb91
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_substation_load_001_intervention_full_s0/model_trace.jsonl: a8ae2c26467b68f60375fe4f68082c2e1f61e87d6d588425b113206af8a54b92
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_school_air_001_control_full_s0/cell_result.json: 5f4429384073c6d670102856451e83826bdab9ae8e4fb93e0b145d5380ea39f0
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_school_air_001_control_full_s0/model_trace.jsonl: 2c2b2a332d3ffb28a43bc0e5bcb0e4e3c70747ef5ee2d367bb2ed07c745d2d28
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_school_air_001_intervention_full_s0/cell_result.json: f5979b8cf161d12f7afad38831f71a091afc889bac1e5b3d8213e0b597a758cf
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/runs/model_v2_t4v2_school_air_001_intervention_full_s0/model_trace.jsonl: b9ac4ce5628c44c6d186e9abdf669e2120ad2117e41722c3bec6ab1c27eef34a
+
+outcomes:
+  primary:
+    - source_forward_exact_agreement_by_task_variant_seed0_1_2
+    - complete_path_rate_by_task_variant_seed0_1_2
+    - target_acceptance_rate_by_task_variant_seed0_1_2
+    - full_pass_rate_by_task_variant_seed0_1_2
+  secondary:
+    - model_contract_rate
+    - first_error_counts
+    - source_prompt_hash_stability
+
+analysis_rules:
+  exact_agreement: >-
+    True only when the seed-0, repeat-1 and repeat-2 source_forward values are
+    identical for the same task and variant.
+  success_stability: >-
+    A task-variant pair is stable-success only when all three runs have
+    source_forward=true, complete path, target acceptance, valid measurement,
+    structured model responses and FullPass=1.
+  prompt_stability: >-
+    The source prompt SHA-256 must be identical across seed 0, 1 and 2 for each
+    task-variant pair.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+  preserve_seed0_and_t4_v1: true
+
+stopping_rules:
+  - Stop after all 12 new registered cells finish.
+  - Stop before any call that would exceed the shared 48-call budget.
+  - Do not retry a structurally valid model response.
+  - Do not replace an invalid or failed cell during the registered run.
+
+planned_entrypoint: python -m model_pilot.t4_v2_repeats
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
