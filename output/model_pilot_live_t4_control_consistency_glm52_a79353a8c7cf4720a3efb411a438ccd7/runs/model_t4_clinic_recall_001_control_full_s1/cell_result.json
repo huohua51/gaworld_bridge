@@ -1,0 +1,176 @@
+{
+  "workflow_id": "model_pilot_t4_v1",
+  "instance_id": "model_t4_clinic_recall_001_control_full_s1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "network_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "bridge_intervention_effective",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "target_action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_action_correct",
+      "layer": "R2",
+      "scorer": "registered_action_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\\runs\\model_t4_clinic_recall_001_control_full_s1\\network_trace.jsonl",
+        "output\\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\\runs\\model_t4_clinic_recall_001_control_full_s1\\model_trace.jsonl",
+        "model-call:model_t4_clinic_recall_001_control_full_s1:call-1",
+        "model-call:model_t4_clinic_recall_001_control_full_s1:call-2",
+        "model-call:model_t4_clinic_recall_001_control_full_s1:call-3",
+        "model-call:model_t4_clinic_recall_001_control_full_s1:call-4",
+        "network-action-clinic_scheduler-8"
+      ],
+      "detail": "got=keep_current expected=keep_current"
+    },
+    {
+      "criterion_id": "complete_propagation_path",
+      "layer": "R3",
+      "scorer": "network_trace",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\\runs\\model_t4_clinic_recall_001_control_full_s1\\network_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "message_injected",
+      "message_delivered",
+      "message_accepted",
+      "message_delivered",
+      "message_accepted",
+      "message_delivered",
+      "message_accepted",
+      "action_submitted"
+    ],
+    "path_to_target": [
+      "medicine_regulator",
+      "district_office",
+      "pharmacy_gateway",
+      "clinic_scheduler"
+    ],
+    "target_received": true,
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "model_seed0_pilot",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "expected_action": "keep_current",
+    "action": {
+      "action_id": "network-action-clinic_scheduler-8",
+      "node_id": "clinic_scheduler",
+      "action": "keep_current",
+      "evidence_message_id": "recall-status-v3"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_t4_clinic_recall_001_control_full_s1",
+      "task_id": "t4_clinic_recall_001",
+      "task_family": "T4",
+      "mechanism_condition": "M3-M5-M8:full",
+      "variant": "control",
+      "seed": 1,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-network-channel-v1",
+      "trace_version": "network-and-model-jsonl-v1",
+      "scorer_version": "model-pilot-t4-scorer-v2",
+      "evidence_id": "bundle:model_t4_clinic_recall_001_control_full_s1"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

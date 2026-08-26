@@ -1,0 +1,8 @@
+{"seq": 1, "ts": 1787753162.9298227, "event": "message_injected", "message_id": "ferry-status-v2", "message": {"message_id": "ferry-status-v2", "source_id": "harbor_sensor", "state_version": "v2", "payload": {"action_required": false, "target_action": "keep_current", "fact": "ferry_operating_normally"}}}
+{"seq": 2, "ts": 1787753166.4760215, "event": "message_delivered", "message_id": "ferry-status-v2", "sender_id": "harbor_sensor", "receiver_id": "pier_office", "depth": 1}
+{"seq": 3, "ts": 1787753171.2696946, "event": "message_accepted", "message_id": "ferry-status-v2", "node_id": "pier_office"}
+{"seq": 4, "ts": 1787753171.2702272, "event": "message_delivered", "message_id": "ferry-status-v2", "sender_id": "pier_office", "receiver_id": "transit_hub", "depth": 2}
+{"seq": 5, "ts": 1787753175.4462726, "event": "message_accepted", "message_id": "ferry-status-v2", "node_id": "transit_hub"}
+{"seq": 6, "ts": 1787753175.4467957, "event": "message_delivered", "message_id": "ferry-status-v2", "sender_id": "transit_hub", "receiver_id": "city_dispatch", "depth": 3}
+{"seq": 7, "ts": 1787753180.4857192, "event": "message_accepted", "message_id": "ferry-status-v2", "node_id": "city_dispatch"}
+{"seq": 8, "ts": 1787753180.4862468, "event": "action_submitted", "node_id": "city_dispatch", "action": {"action_id": "network-action-city_dispatch-8", "node_id": "city_dispatch", "action": "keep_current", "evidence_message_id": "ferry-status-v2"}}

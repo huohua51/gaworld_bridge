@@ -1,0 +1,194 @@
+pilot_id: T4-CONTROL-CONSISTENCY-GLM52-v1
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T4_CONTROL_CONSISTENCY_GLM52_v1.yaml
+registration_sha256: b99047308fccf46cfb62403bb9abd97cd09374898305e2aa934a8cc4c4b1fda2
+base_commit: 15cd075e1257d3076921c921b88613d1af2ba58e
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+temperature: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+ranking_eligible: false
+registered_design_adherent: true
+n_cells: 9
+by_task:
+  t4_ferry_closure_001:
+    source_decisions:
+    - false
+    - false
+    - true
+    source_forward_rate: 0.3333
+    source_forward_exact_agreement: false
+    source_forward_consistency_rate: 0.6667
+    complete_path_rate: 0.3333
+    full_pass_rate: 0.3333
+    source_prompt_sha256:
+    - 1bc3d2e38986076fdcea382f50b9eff52bc5a6f03805262eac591fb1023bbffd
+    prompt_stable_across_replicates: true
+  t4_clinic_recall_001:
+    source_decisions:
+    - true
+    - true
+    - true
+    source_forward_rate: 1.0
+    source_forward_exact_agreement: true
+    source_forward_consistency_rate: 1.0
+    complete_path_rate: 1.0
+    full_pass_rate: 1.0
+    source_prompt_sha256:
+    - b4f4b3ce4c5fd97ae5b1545a88e8952efe62d20b1d2a877d0259a9e13ad581dd
+    prompt_stable_across_replicates: true
+  t4_shelter_capacity_001:
+    source_decisions:
+    - false
+    - false
+    - false
+    source_forward_rate: 0.0
+    source_forward_exact_agreement: true
+    source_forward_consistency_rate: 1.0
+    complete_path_rate: 0.0
+    full_pass_rate: 0.0
+    source_prompt_sha256:
+    - 5d7eb0a9e3bc1db42c6f68c546ff5069599d6ff75fb632aabea07790e41bfef3
+    prompt_stable_across_replicates: true
+pooled:
+  source_forward_rate: 0.4444
+  complete_path_rate: 0.4444
+  full_pass_rate: 0.4444
+  model_contract_rate: 1.0
+  first_error_counts:
+    none: 4
+    propagation_path_incomplete: 5
+budget:
+  max_calls: 36
+  calls_used: 26
+  calls_remaining: 10
+  prompt_chars: 15098
+  response_chars: 3129
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000
+cells:
+- task_id: t4_ferry_closure_001
+  replicate_id: 0
+  calls: 2
+  source_forward: false
+  source_reason: No action required; ferry operating normally and target action is
+    keep_current.
+  source_prompt_sha256: 1bc3d2e38986076fdcea382f50b9eff52bc5a6f03805262eac591fb1023bbffd
+  complete_path: false
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: propagation_path_incomplete
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_ferry_closure_001_control_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_ferry_closure_001_control_full_s0\model_trace.jsonl
+- task_id: t4_ferry_closure_001
+  replicate_id: 1
+  calls: 2
+  source_forward: false
+  source_reason: No action required; ferry operating normally and target action is
+    keep_current.
+  source_prompt_sha256: 1bc3d2e38986076fdcea382f50b9eff52bc5a6f03805262eac591fb1023bbffd
+  complete_path: false
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: propagation_path_incomplete
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_ferry_closure_001_control_full_s1\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_ferry_closure_001_control_full_s1\model_trace.jsonl
+- task_id: t4_ferry_closure_001
+  replicate_id: 2
+  calls: 4
+  source_forward: true
+  source_reason: Message received from harbor_sensor with next registered node pier_office;
+    action_required is false and target_action is keep_current, so message should
+    be forwarded to next node.
+  source_prompt_sha256: 1bc3d2e38986076fdcea382f50b9eff52bc5a6f03805262eac591fb1023bbffd
+  complete_path: true
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 1
+  first_error: none
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_ferry_closure_001_control_full_s2\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_ferry_closure_001_control_full_s2\model_trace.jsonl
+- task_id: t4_clinic_recall_001
+  replicate_id: 0
+  calls: 4
+  source_forward: true
+  source_reason: No action required; medicine batch cleared and target action is to
+    keep current.
+  source_prompt_sha256: b4f4b3ce4c5fd97ae5b1545a88e8952efe62d20b1d2a877d0259a9e13ad581dd
+  complete_path: true
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 1
+  first_error: none
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_clinic_recall_001_control_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_clinic_recall_001_control_full_s0\model_trace.jsonl
+- task_id: t4_clinic_recall_001
+  replicate_id: 1
+  calls: 4
+  source_forward: true
+  source_reason: No action required; medicine batch cleared, target action is keep_current.
+  source_prompt_sha256: b4f4b3ce4c5fd97ae5b1545a88e8952efe62d20b1d2a877d0259a9e13ad581dd
+  complete_path: true
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 1
+  first_error: none
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_clinic_recall_001_control_full_s1\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_clinic_recall_001_control_full_s1\model_trace.jsonl
+- task_id: t4_clinic_recall_001
+  replicate_id: 2
+  calls: 4
+  source_forward: true
+  source_reason: No action required; medicine batch cleared and target action is to
+    keep current.
+  source_prompt_sha256: b4f4b3ce4c5fd97ae5b1545a88e8952efe62d20b1d2a877d0259a9e13ad581dd
+  complete_path: true
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 1
+  first_error: none
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_clinic_recall_001_control_full_s2\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_clinic_recall_001_control_full_s2\model_trace.jsonl
+- task_id: t4_shelter_capacity_001
+  replicate_id: 0
+  calls: 2
+  source_forward: false
+  source_reason: No action required; shelter has capacity and target action is keep_current.
+  source_prompt_sha256: 5d7eb0a9e3bc1db42c6f68c546ff5069599d6ff75fb632aabea07790e41bfef3
+  complete_path: false
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: propagation_path_incomplete
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_shelter_capacity_001_control_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_shelter_capacity_001_control_full_s0\model_trace.jsonl
+- task_id: t4_shelter_capacity_001
+  replicate_id: 1
+  calls: 2
+  source_forward: false
+  source_reason: No action required; shelter has capacity and target action is keep_current.
+  source_prompt_sha256: 5d7eb0a9e3bc1db42c6f68c546ff5069599d6ff75fb632aabea07790e41bfef3
+  complete_path: false
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: propagation_path_incomplete
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_shelter_capacity_001_control_full_s1\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_shelter_capacity_001_control_full_s1\model_trace.jsonl
+- task_id: t4_shelter_capacity_001
+  replicate_id: 2
+  calls: 2
+  source_forward: false
+  source_reason: No action required; shelter has capacity and target action is keep_current.
+  source_prompt_sha256: 5d7eb0a9e3bc1db42c6f68c546ff5069599d6ff75fb632aabea07790e41bfef3
+  complete_path: false
+  measurement_valid: true
+  model_contract_pass: true
+  full_pass: 0
+  first_error: propagation_path_incomplete
+  cell_result_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_shelter_capacity_001_control_full_s2\cell_result.json
+  model_trace_path: output\model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7\runs\model_t4_shelter_capacity_001_control_full_s2\model_trace.jsonl

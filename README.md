@@ -12,7 +12,7 @@ projects/
 
 ```
 model_provider: paratera_glm
-model: GLM-4-Flash
+model: GLM-5.2
 temperature: 0
 eval_mode: true
 ```
@@ -523,6 +523,7 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
+| T4 多跳传播    | `live_pilot`   | T4 control consistency | 模型契约稳定，但control转发具有场景差异与重复不一致 | repeat 0/1/2完成 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -533,6 +534,10 @@ functional_development: largely_complete
 functional_holdout: seed0_pattern_replication
 ranking_eligible: false
 formal_benchmark: next_stage
+
+t4_rule_calibration: frozen
+t4_glm52_control_full: 4/9
+t4_glm52_model_contract: 9/9
 
 h1_infrastructure: ready
 h1_agent_stimuli: 18/18
@@ -874,6 +879,7 @@ python -m exp_hf_h1_01.serve
 | AP-C1-D-01  | open    | NACK后联合方案未形成正确终局                | 建立重试语义组件与完整回归                                   |
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
+| AP-T4-01    | open    | 同构control消息的源节点转发决策不稳定且依赖场景      | 保留v1基线；在新协议编号下预注册显式转发规则，不回改本轮Prompt            |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -907,6 +913,7 @@ python -m exp_hf_h1_01.serve
 - T3、I1、L1已经完成开发集闭环，并在各自seed0密封留出上复现同类正负控模式；
 - C1已经具备基本冲突消解与私有约束整合能力，优先级NACK重试是明确的后续改进点；
 - REL1已经把失败定位到最新可靠性状态的采用环节；
+- T4预注册GLM-5.2 Pilot完成9格重复，模型JSON契约率为100%，control完整路径率为44.44%；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -950,7 +957,8 @@ git push -u fork eval-harness
 export PYTHONPATH=/path/to/gaworld_eval_bridge:/path/to/GAWorld
 ```
 
-API Key保存在`GAWorld/.env`，仓库提交`.env.example`作为配置模板。
+API Key通过`PARATERA_API_KEY`环境变量或本地`GAWorld/.env`提供；真实Key不进入仓库，
+仓库只提交`.env.example`作为配置模板。
 
 ---
 
@@ -1061,18 +1069,58 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.run `
   --fixture-oracle --experiment both --out $env:TEMP\gaworld_model_fixture
 ```
 
-真实调用必须显式指定Provider和放行开关。先做一次最多64 tokens的Smoke，再启动Seed-0 Pilot：
+真实调用必须显式指定Provider和放行开关。GLM-5.2的低成本协议检查关闭Thinking，并先做一次
+最多256 tokens的Smoke，再启动Seed-0 Pilot：
 
 ```powershell
+$env:GAWORLD_LLM_THINKING = 'disabled'
+
 F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.smoke `
-  --provider openai_gpt --allow-live-model --out $env:TEMP\gaworld_model_smoke
+  --provider paratera_glm --allow-live-model --max-tokens 256 `
+  --out $env:TEMP\gaworld_model_smoke
 
 F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.run `
-  --provider openai_gpt --allow-live-model --experiment both --max-calls 160 `
+  --provider paratera_glm --allow-live-model --experiment both --max-tokens 256 `
+  --max-calls 160 `
   --out $env:TEMP\gaworld_model_seed0
 ```
 
 上述真实Pilot最多包含36格；仍属于开发证据，`ranking_eligible`固定为`false`。
+
+### **16.6 GLM-5.2 T4 control一致性Pilot进度**
+
+2026-08-26完成`T4-CONTROL-CONSISTENCY-GLM52-v1`。本轮先在提交`03f1c8f`中固定任务、
+Prompt、Scorer、三个repeat、指标和36次逻辑调用上限，再由提交`44aa027`中的独立入口执行。
+固定条件为`paratera_glm / GLM-5.2 / temperature=0 / thinking=disabled / max_tokens=256`。
+
+```powershell
+$env:PARATERA_API_KEY = [Environment]::GetEnvironmentVariable(
+  'PARATERA_API_KEY', 'User'
+)
+
+F:\proj\.venv_gaworld_eval\Scripts\python.exe `
+  -m model_pilot.control_consistency `
+  --provider paratera_glm --allow-live-model `
+  --out output\model_pilot_live_t4_control_consistency_glm52_<run_id>
+```
+
+9格均测量有效，模型结构化契约9/9通过；实际使用26/36个逻辑调用。每个任务的源节点转发序列、
+完整路径率和FullPass率如下：
+
+| **任务** | **三次source_forward** | **一致率** | **完整路径率** | **FullPass率** |
+| --- | --- | ---: | ---: | ---: |
+| `t4_ferry_closure_001` | `false, false, true` | 66.67% | 33.33% | 33.33% |
+| `t4_clinic_recall_001` | `true, true, true` | 100% | 100% | 100% |
+| `t4_shelter_capacity_001` | `false, false, false` | 100% | 0% | 0% |
+
+合并source转发率、完整路径率和FullPass率均为44.44%。每个任务的三次source Prompt SHA-256完全
+一致，因此差异不能归因于Prompt漂移；结果显示GLM-5.2在当前协议下同时存在场景依赖和同输入
+重复不一致。该结论是开发性诊断，不是跨模型结论或排行榜成绩，`ranking_eligible=false`。
+
+运行期间底层HTTP适配器对一次TLS EOF进行了同一逻辑请求的传输重试；26表示Benchmark逻辑
+调用数，不等于底层HTTP尝试总数。原始证据、逐格结果和完整清单位于
+[`CONSISTENCY_MANIFEST.yaml`](output/model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7/CONSISTENCY_MANIFEST.yaml)，
+简要报告位于同目录的[`REPORT.md`](output/model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7/REPORT.md)。
 
 ---
 
@@ -1088,6 +1136,8 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.run `
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
+| `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
+| `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
@@ -1116,6 +1166,6 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe -m model_pilot.run `
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。当前证据表明，GAWorld的底层通信、权限控制和状态传播能够支撑T3、I1与L1三类可验证工作流；C1和REL1进一步把问题推进到政策约束重规划、最新状态采用与Agent协作协议层。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。当前证据表明，GAWorld的底层通信、权限控制和状态传播能够支撑T3、I1与L1三类可验证工作流；C1和REL1进一步把问题推进到政策约束重规划、最新状态采用与Agent协作协议层。T4真实模型Pilot还表明，接口与JSON契约稳定并不自动保证多跳行为稳定，重复设计与R3路径判据必须保留。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。

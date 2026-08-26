@@ -1,0 +1,2 @@
+{"seq": 1, "ts": 1787753276.5964234, "event": "message_injected", "message_id": "shelter-capacity-v4", "message": {"message_id": "shelter-capacity-v4", "source_id": "shelter_counter", "state_version": "v4", "payload": {"action_required": false, "target_action": "keep_current", "fact": "shelter_has_capacity"}}}
+{"seq": 2, "ts": 1787753286.2856128, "event": "action_submitted", "node_id": "evacuation_dispatch", "action": {"action_id": "network-action-evacuation_dispatch-2", "node_id": "evacuation_dispatch", "action": "keep_current", "evidence_message_id": null}}

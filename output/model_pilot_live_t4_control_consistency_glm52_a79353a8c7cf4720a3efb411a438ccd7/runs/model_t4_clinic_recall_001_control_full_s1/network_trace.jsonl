@@ -1,0 +1,8 @@
+{"seq": 1, "ts": 1787753204.61291, "event": "message_injected", "message_id": "recall-status-v3", "message": {"message_id": "recall-status-v3", "source_id": "medicine_regulator", "state_version": "v3", "payload": {"action_required": false, "target_action": "keep_current", "fact": "medicine_batch_cleared"}}}
+{"seq": 2, "ts": 1787753208.99191, "event": "message_delivered", "message_id": "recall-status-v3", "sender_id": "medicine_regulator", "receiver_id": "district_office", "depth": 1}
+{"seq": 3, "ts": 1787753213.8090417, "event": "message_accepted", "message_id": "recall-status-v3", "node_id": "district_office"}
+{"seq": 4, "ts": 1787753213.8095627, "event": "message_delivered", "message_id": "recall-status-v3", "sender_id": "district_office", "receiver_id": "pharmacy_gateway", "depth": 2}
+{"seq": 5, "ts": 1787753218.2095063, "event": "message_accepted", "message_id": "recall-status-v3", "node_id": "pharmacy_gateway"}
+{"seq": 6, "ts": 1787753218.2100277, "event": "message_delivered", "message_id": "recall-status-v3", "sender_id": "pharmacy_gateway", "receiver_id": "clinic_scheduler", "depth": 3}
+{"seq": 7, "ts": 1787753226.859766, "event": "message_accepted", "message_id": "recall-status-v3", "node_id": "clinic_scheduler"}
+{"seq": 8, "ts": 1787753226.8603048, "event": "action_submitted", "node_id": "clinic_scheduler", "action": {"action_id": "network-action-clinic_scheduler-8", "node_id": "clinic_scheduler", "action": "keep_current", "evidence_message_id": "recall-status-v3"}}
