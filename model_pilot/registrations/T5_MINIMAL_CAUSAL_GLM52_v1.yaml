@@ -1,0 +1,97 @@
+preregistration_id: T5-MINIMAL-CAUSAL-GLM52-v1
+registered_on: '2026-08-27'
+base_commit: 3a46099faf593106d10d1ca57199079a32a00b80
+phase: prospective_live_model_pilot
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  In one fixed low-emission-zone population, does GLM-5.2 produce the
+  registered targeted behavior change only under a binding real policy, while
+  preserving no-change baselines under no policy and a matched placebo notice?
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_id: t5_low_emission_zone
+  conditions: [no_policy, real_policy, placebo_policy]
+  track: full
+  seed: 0
+  residents_per_cell: 4
+  cells: 3
+  max_calls: 12
+  execution_order: condition_then_resident
+  prompt_protocol: gaworld-benchmark-t5-model-v1
+  scorer_version: model-pilot-t5-scorer-v1
+
+frozen_inputs:
+  model_pilot/t5.py: 64f31b9ea4b11e0c09873073c50b0b4aa7ebbbf659d76dce5991a5f1478c2d01
+  model_pilot/t5_scorer.py: 4f017e92a9b23dfcaeedf440ea6bdb165d14bdd5f175356cdf976eea5494d6f5
+  model_pilot/t5_minimal.py: 968848a5febcf106b5207780380eb2d6d3813aa1b74c6656971befc045a59645
+  exp_gm_t5_01/tasks.yaml: 6032e8886463eb3f041d563a2018e3c44511a02d5b29c236457ee8550acb866e
+  exp_gm_t5_01/task_card.yaml: fcafb7e2ee92580ea24c0407afd4aabd0c3f03a7fd65bf4bfbb8e17d63c7eb17
+  exp_gm_t5_01/protocol.md: 978fc07d78f4af12e059d964f46df5aee99270325d8e5939872b04e5bff80474
+  exp_gm_t5_01/loader.py: ab6d35a935625a73d2d605141d9025c03f4f81b267db4a08f20c7d2adef5e3e0
+
+registered_oracle:
+  no_policy:
+    changed_agent_ids: []
+    behavior_change_rate: 0.0
+    full_pass: 1
+  real_policy:
+    changed_agent_ids: [lez-car-1, lez-car-2]
+    behavior_change_rate: 0.5
+    full_pass: 1
+  placebo_policy:
+    changed_agent_ids: []
+    behavior_change_rate: 0.0
+    full_pass: 1
+  causal_contrasts:
+    real_minus_no_policy: 0.5
+    real_minus_placebo: 0.5
+    placebo_minus_no_policy: 0.0
+
+outcomes:
+  primary:
+    - full_pass_by_condition
+    - changed_agent_ids_by_condition
+    - behavior_change_rate_by_condition
+    - real_minus_no_policy
+    - real_minus_placebo
+  secondary:
+    - placebo_minus_no_policy
+    - model_contract_rate
+    - no_untargeted_spillover
+    - first_error_counts
+
+analysis_rules:
+  behavior_change: >-
+    Count only state changes caused by recorded resident_action_submitted events.
+  targeted_response: >-
+    Under real_policy, exactly lez-car-1 and lez-car-2 must change by adopting
+    use_park_and_ride. Every other resident must keep_current.
+  baseline_and_placebo: >-
+    No resident may change under no_policy or placebo_policy.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+
+claim_boundary: >-
+  This is a one-task seed-0 functional causal-chain pilot. It does not estimate
+  real-world policy effects, human validity, cross-task generalization or
+  leaderboard performance.
+
+stopping_rules:
+  - Stop after all three registered cells finish.
+  - Stop before any call that would exceed the shared 12-call budget.
+  - Do not retry a structurally valid model response.
+  - Do not replace an invalid or failed cell during the registered run.
+
+planned_entrypoint: python -m model_pilot.t5_minimal
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
