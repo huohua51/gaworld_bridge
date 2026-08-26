@@ -1,584 +1,1041 @@
-# GAWorld 评测桥（gaworld_eval_bridge）
+# **GAWorld Evaluation Bridge**
 
-这是 GAWorld 的**外部评测台**，不是城市仿真本体。协作者请同时拿到：
+`gaworld_eval_bridge` 是 GAWorld 的外部评测仓库。GAWorld 继续负责世界状态、角色权限、通信通道和模型调用；本仓库负责把社会能力问题变成可运行任务，组织对照实验，保存证据，执行规则评分，并维护冻结结果。
 
-1. 仿真平台：[wuchaozju/GAWorld](https://github.com/wuchaozju/GAWorld) 的本机工作副本（评测通道：`eval_mode`、`ReviewChannel`、artifact 核验；联合方案盖章见 `PlanRegistry`）
-2. 本仓库：实验定义、Oracle、评分器、Registry、冻结报告、H1 实验室
-
-```text
+```
 projects/
-  GAWorld/                 # 仿真 + 评测运行时
-  gaworld_eval_bridge/     # 本仓库
+├─ GAWorld/                 世界、通道、权限、状态与 LLM 路由
+└─ gaworld_eval_bridge/     Task Card、Oracle、协议、Scorer、Registry、报告与 H1 实验室
 ```
 
-**本文件是整条评测战役的总账。** 格子级数字以各实验 `output/*/REPORT.md` 与 `GATE.yaml` 为准；这里写结论、结论为什么成立、以及明确禁止的扩写。登记簿是 `registry.yaml`。
+当前功能实验固定使用：
+
+```
+model_provider: paratera_glm
+model: GLM-4-Flash
+temperature: 0
+eval_mode: true
+```
+
+固定模型的目的，是让主要变化集中在 GAWorld 平台机制与 Agent 协作协议上。当前结果用于机制诊断；正式跨模型排行榜将在任务、留出和排名资格门全部冻结后另行开展。
+
+格子级结果以各实验目录中的 `REPORT.md`、`GATE.yaml` 和 `cell_result.json` 为准；`registry.yaml` 保存冻结后的实验登记。
 
 ---
 
-## 目录
+## **目录**
 
-1. [一页总状态](#一页总状态)
-2. [允许写 / 禁止写](#允许写--禁止写)
-3. [这套评测在测什么](#这套评测在测什么)
-4. [核心科学结论（怎么读）](#核心科学结论怎么读)
-5. [完成标准：可解释状态，不是满分](#完成标准可解释状态不是满分)
-6. [约 85% 是什么、不是什么](#约-85-是什么不是什么)
-7. [测量语法](#测量语法)
-8. [时间线与阶段结论](#时间线与阶段结论)
-9. [功能族分册](#功能族分册)
-10. [两个测量/平台缺口](#两个测量平台缺口)
-11. [密封留出 seed0](#密封留出-seed0)
-12. [H1 拟人化（已启动基础设施）](#h1-拟人化已启动基础设施)
-13. [仍开放的系统问题](#仍开放的系统问题)
-14. [两个仓库怎么对齐](#两个仓库怎么对齐)
-15. [环境与复现](#环境与复现)
-16. [目录索引](#目录索引)
+1. [评测框架的整体逻辑](#1-%E8%AF%84%E6%B5%8B%E6%A1%86%E6%9E%B6%E7%9A%84%E6%95%B4%E4%BD%93%E9%80%BB%E8%BE%91)
+2. [一次实验从问题到结论](#2-%E4%B8%80%E6%AC%A1%E5%AE%9E%E9%AA%8C%E4%BB%8E%E9%97%AE%E9%A2%98%E5%88%B0%E7%BB%93%E8%AE%BA)
+3. [一格实验如何定义](#3-%E4%B8%80%E6%A0%BC%E5%AE%9E%E9%AA%8C%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89)
+4. [R0–R3：先确认测到了什么](#4-r0r3%E5%85%88%E7%A1%AE%E8%AE%A4%E6%B5%8B%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88)
+5. [F1–F5：从同一批格子回答五个功能问题](#5-f1f5%E4%BB%8E%E5%90%8C%E4%B8%80%E6%89%B9%E6%A0%BC%E5%AD%90%E5%9B%9E%E7%AD%94%E4%BA%94%E4%B8%AA%E5%8A%9F%E8%83%BD%E9%97%AE%E9%A2%98)
+6. [如何增加一道新题](#6-%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%B8%80%E9%81%93%E6%96%B0%E9%A2%98)
+7. [代码模块如何协作](#7-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%A6%82%E4%BD%95%E5%8D%8F%E4%BD%9C)
+8. [T3一格真实工作流示例](#8-t3%E4%B8%80%E6%A0%BC%E7%9C%9F%E5%AE%9E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A4%BA%E4%BE%8B)
+9. [当前功能侧结果](#9-%E5%BD%93%E5%89%8D%E5%8A%9F%E8%83%BD%E4%BE%A7%E7%BB%93%E6%9E%9C)
+10. [各任务族的证据与结论](#10-%E5%90%84%E4%BB%BB%E5%8A%A1%E6%97%8F%E7%9A%84%E8%AF%81%E6%8D%AE%E4%B8%8E%E7%BB%93%E8%AE%BA)
+11. [密封留出](#11-%E5%AF%86%E5%B0%81%E7%95%99%E5%87%BA)
+12. [H1人类效度](#12-h1%E4%BA%BA%E7%B1%BB%E6%95%88%E5%BA%A6)
+13. [开放问题与下一阶段](#13-%E5%BC%80%E6%94%BE%E9%97%AE%E9%A2%98%E4%B8%8E%E4%B8%8B%E4%B8%80%E9%98%B6%E6%AE%B5)
+14. [证据等级与对外表述](#14-%E8%AF%81%E6%8D%AE%E7%AD%89%E7%BA%A7%E4%B8%8E%E5%AF%B9%E5%A4%96%E8%A1%A8%E8%BF%B0)
+15. [两个仓库如何协作](#15-%E4%B8%A4%E4%B8%AA%E4%BB%93%E5%BA%93%E5%A6%82%E4%BD%95%E5%8D%8F%E4%BD%9C)
+16. [环境与复现](#16-%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%A4%8D%E7%8E%B0)
+17. [目录索引](#17-%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95)
 
 ---
 
-## 一页总状态
+## **1. 评测框架的整体逻辑**
 
-冻结日：2026-08-25。控制变量：`paratera_glm` / **GLM-4-Flash**，temperature=0，必须 `eval_mode`。评测对象是 **GAWorld 平台机制与 Agent 协议**，不是给 GLM 排名。
+这套框架的目标不止是得到成功率，还要把多智能体社会中的问题定位到可以修改的模块。每项实验都沿着同一条链运行：
 
-```yaml
+```
+提出一个可修改的社会机制问题
+        ↓
+写成 Task Card 与唯一干预
+        ↓
+将完成条件拆成 Rubric
+        ↓
+把 Rubric 翻译成 Scorer Spec
+        ↓
+Rule / Direct 校准题目与测量台
+        ↓
+运行 Single / Full Multi / Drop 等对照轨
+        ↓
+R0–R3 判定测量、产物、结果与过程
+        ↓
+聚合 F1–F5、StrictPair 与 first_error
+        ↓
+组件校准、协议修改和完整回归
+        ↓
+密封留出复测
+```
+
+### **1.1 四类对象分别处在什么位置**
+
+
+| **类别** | **本仓库中的表示**               | **解决的问题**       | **彼此关系**                                  |
+| ------ | ------------------------- | --------------- | ----------------------------------------- |
+| 评价目标   | 功能轴 F1–F5；人类效度轴 H1–H7     | 最后要回答哪类科学问题     | 两条轴共享 Trace，分别使用 Oracle 与 Human Reference |
+| 任务族    | T3、I1、L1、C1、REL1 等        | 用什么社会任务承载问题     | 各任务族并列接入同一评测工厂                            |
+| 机制开关   | 通信、核验、权限、审核、检查点、协调、Drop 等 | 本次实验改变哪条平台边     | 形成 Single、Full、Drop、NoVerify 等对照条件        |
+| 证据门    | R0–R3                     | 当前格子的证据是否足以支持解释 | 按 R0→R1/R2→R3 的顺序检查                       |
+
+
+T3、I1、L1是任务族；F1、F2、F3是对任务结果的不同观察角度。二者属于不同层级。H轴也使用轨迹，但它根据真人参照评价人类效度，单独形成结果。
+
+### **1.2 四个核心工具**
+
+
+| **工具**          | **作用**           | **主要内容**                                     |
+| --------------- | ---------------- | -------------------------------------------- |
+| Task Card       | 把抽象问题变成一道明确任务    | 角色、信息、权限、起止窗口、目标、Oracle、control/intervention |
+| Rubric          | 把“完成”拆成可核验条件     | R0测量、R1产物、R2结果、R3过程                          |
+| Scorer Spec     | 把Rubric条件翻译成程序规则 | 字段路径、比较方式、阈值、缺失处理、输出格式                       |
+| Evidence Bundle | 保存本次运行实际发生的事情    | 配置、Prompt、动作、消息、状态、产物、权限事件和环境记录              |
+
+
+它们按照下面的关系工作：
+
+```
+Task Card 定义任务事实
+        ↓
+Rubric 选择需要核验的事实
+        ↓
+Scorer Spec 规定如何读取和比较证据
+        ↓
+Evidence Bundle 提供真实运行证据
+```
+
+---
+
+## **2. 一次实验从问题到结论**
+
+### **2.1 从可修改的问题出发**
+
+合格的问题需要同时包含行为、可能原因和改进接口。例如：
+
+> 当最新标准只掌握在Reviewer手里时，团队能否通过审核消息更新Executor的产物？失败发生在Reviewer判断、消息交付还是Executor采用？
+
+这个问题可以对应三类改进：
+
+- Reviewer证据绑定协议；
+- 审核消息的投递与完整性；
+- Executor对审核意见的采用方式。
+
+### **2.2 把问题变成Task Card**
+
+Task Card至少登记：
+
+- 参与角色与角色职责；
+- 每个角色可见的公开信息和私有信息；
+- 每个角色可以调用的工具与动作；
+- workflow开始事件与结束条件；
+- control和intervention之间唯一变化的字段；
+- 正确动作、最终状态或隐藏产物Oracle；
+- Drop、NoVerify、Single等必要对照；
+- 调用预算、模型配置和重复策略。
+
+### **2.3 先做Rule与Direct校准**
+
+Rule角色使用确定性函数产生标准动作。它确认任务、平台通道和Scorer能够形成预期的成功与失败模式。
+
+Direct把必要状态直接交给决策角色，用来确认固定模型具备完成这道题的基础能力。Direct通过后，Full Multi与Drop之间的差异才具有清晰含义。
+
+### **2.4 运行完整矩阵**
+
+典型开发矩阵为：
+
+```
+3道题 × 2个变体 × 3条轨 × 3次重复 = 54格
+```
+
+seed0通常先运行18格。预注册门通过后再补repeat 1/2；共同地板、共同天花板或测量门异常会触发停止条件。
+
+### **2.5 用首错进入改进闭环**
+
+完整流程失败后，`first_error`把问题定位到最早出现证据的节点。随后通过组件校准区分：
+
+- 单个角色本身的判断能力；
+- 消息格式与接口兼容性；
+- 通道交付与权限；
+- 完整工作流中的上下文传播；
+- 环境自动修复或其他脚手架影响。
+
+协议修改采用新实验编号和新任务复测。开发题保留历史结果，新任务承担修复后的完整回归。
+
+---
+
+## **3. 一格实验如何定义**
+
+每个`instance_id`至少由四个坐标组成：
+
+
+| **字段**      | **示例**                                 | **含义**        |
+| ----------- | -------------------------------------- | ------------- |
+| `task_id`   | `t3_alert_celsius_001`                 | 当前表面任务        |
+| `variant`   | `control` / `intervention`             | 唯一登记条件的两个取值   |
+| `track`     | `direct` / `single` / `multi` / `drop` | 当前启用的工作流与机制开关 |
+| `repeat_id` | `0` / `1` / `2`                        | 重复运行编号        |
+
+
+### **3.1 常用实验轨**
+
+
+| **轨道**       | **回答的问题**                             | **在结论中的角色** |
+| ------------ | ------------------------------------- | ----------- |
+| Rule         | 正确行为能否通过平台并被Scorer识别                  | 题目与测量台正控    |
+| Direct       | 角色直接获得必要状态时，题目是否可做                    | 可做性门        |
+| Single       | 同一Agent自检或独立完成时的表现                    | Multi对照     |
+| Full / Multi | 完整多角色工作流的表现                           | 主要系统结果      |
+| Drop         | 上游角色继续运行，指定消息在交付处被切断                  | 因果负控        |
+| NoVerify     | 原始信息继续传播，核验环节被省略                      | I1核验机制负控    |
+| Component    | 只运行Reviewer、Executor、Coordinator等单一组件 | 首错定位与校准     |
+
+
+轨道均值需要拆回control和intervention解释。例如Drop FullPass=0.5通常表示control=1、intervention=0，含义是指定机制对干预格具有必要作用。
+
+### **3.2 公平性约束**
+
+同一`task × variant × repeat`的Single、Multi与Drop复用相同初稿哈希，并保持相同模型、temperature和调用预算。这样可以把轨道差异归因到协作机制，而不是初稿难度或资源差异。
+
+---
+
+## **4. R0–R3：先确认测到了什么**
+
+统一实现位于`v0_first_batch/schema.py::compose()`。评分器使用规则和隐藏Oracle，一格运行完成后无需再次调用大模型评分。
+
+
+| **层级**   | **核心问题**                | **典型检查**                                   | **结果用途**                      |
+| -------- | ----------------------- | ------------------------------------------ | ----------------------------- |
+| R0 测量有效性 | 当前运行是否提供了完整、可解释的证据      | 调用预算、字段提取、Oracle隔离、eval_mode、Drop隔离、共享初稿哈希 | 决定该格能否进入能力解释                  |
+| R1 产物与来源 | 必需动作、事件、文件和状态是否存在且来源合规  | 最终文件、生产者身份、ACL拒绝、环境写入                      | 排除空交、越权或环境代做                  |
+| R2 目标结果  | 动作、数值、约束和最终状态是否符合Oracle | 隐藏pytest、字段比较、状态重放                         | 生成TargetCorrect与任务结果          |
+| R3 互动过程  | 信息是否发送、送达、核验、采用并形成闭环    | payload哈希、消息链、步骤事件、交接状态                    | 生成Process Profile与first_error |
+
+
+`compose()`遵循以下合成逻辑：
+
+```
+R0关键门通过
+    ↓
+检查R1产物来源
+    ↓
+检查R2目标结果
+    ↓
+检查R3必要过程
+    ↓
+形成FullPass与first_error
+```
+
+R0异常的格子登记为`measurement_invalid`，与能力结果分开保存。R1–R3任一临界条件偏离时，FullPass为0，并记录最早可证实的失败节点。未来运行若暂时缺少更具体的枚举，`cover_first_error()`会写入`unexplained_failure`，为人工复核保留入口。
+
+历史冻结JSON保持原值；解释修订通过`ERRATUM.yaml`登记。
+
+---
+
+## **5. F1–F5：从同一批格子回答五个功能问题**
+
+F1–F5是同一格矩阵的五种分析视角，各自保留独立含义。
+
+
+| **维度**    | **核心问题**                          | **计算方式**                                   |
+| --------- | --------------------------------- | ------------------------------------------ |
+| F1 任务完成   | 完整多智能体流程是否做成任务                    | Full/Multi轨的FullPass均值                     |
+| F2 条件适应   | control条件变成intervention后，系统是否相应调整 | StrictPair                                 |
+| F3 协作闭环   | 信息、权限、核验、采用和交接是否闭环                | Process Profile、payload完整性、ACL和first_error |
+| F4 流程传播   | 局部可做性进入完整流程后是否保持                  | Direct、Full、Drop的配对比较                      |
+| F5 多智能体价值 | 独立角色与私有信息是否带来额外结果                 | 等预算下Multi−Single，并结合Drop验证价值来源             |
+
+
+### **5.1 FullPass**
+
+FullPass要求目标结果正确、必要事件链成立、产物来源合法，并且环境记录中没有代做关键业务动作。
+
+### **5.2 StrictPair**
+
+`_strict_pair()`按`task_id × track × repeat`配对control与intervention。两格同时通过，说明系统能够随着登记条件变化而更新行为。
+
+### **5.3 Multi−Single**
+
+`paired_mean(multi, single)`比较同任务、同变体、同repeat和同预算下的两条轨。共同地板或共同天花板会使差值失去区分能力，此时`GATE.yaml`将其登记为`N/A`。
+
+### **5.4 first_error**
+
+首错沿真实事件链寻找最早的偏离。例如审核payload在交付处被切断，后续终稿错误会归因到`review_payload_not_delivered`，从而把改进目标定位到消息边。
+
+### **5.5 T3-03如何同时回答五个问题**
+
+```
+                control             intervention
+Single          通过                失败：缺少私有v2
+Multi           通过                通过：审核闭环成立
+Drop            通过                失败：审核消息未交付
+```
+
+由此可以同时读取：
+
+- F1：Multi完成任务；
+- F2：Multi的control/intervention成对通过；
+- F3：审核判断、payload完整性与Executor采用形成闭环；
+- F4：Drop把优势定位到审核消息边；
+- F5：开发集上Multi相对Single产生0.5的结果增益。
+
+---
+
+## **6. 如何增加一道新题**
+
+下面以`exp_gm_t3_03/`为模板。I1、L1和其他任务族沿用相同顺序，替换通道、角色动作和Oracle。
+
+### **B1. 明确构念与改进接口**
+
+在`task_card.yaml`和`protocol.md`中写清：
+
+- 想发现哪一种社会失败；
+- 改善后可以修改哪个平台模块或Agent协议；
+- 哪个角色拥有私有信息；
+- control与intervention唯一改变什么；
+- 什么结果由Oracle判定；
+- 哪条边用于Drop或NoVerify。
+
+### **B2. 编写表面任务**
+
+在`tasks/<id>.yaml`中提供公开规则与v1条件。intervention的v2值、可信表或私有约束仅进入对应角色的私有上下文。
+
+### **B3. 编写隐藏Oracle**
+
+```
+oracle/test_*_v1.py
+oracle/test_*_v2.py
+```
+
+隐藏Oracle由Scorer读取，角色提示中只出现完成任务所需的公开说明。
+
+### **B4. 编写提示与动作契约**
+
+`prompts.py`按照角色和轨道组织可见信息；动作契约定义JSON字段、枚举和数值类型。结构化契约让格式错误、业务错误和测量错误能够分别登记。
+
+### **B5. 编写工作流**
+
+`loop.py`调用GAWorld通道。Drop在`deliver(drop=True)`处切断指定消息；ACL和私有读取路径保留显式审计记录。
+
+### **B6. 编写规则评分器**
+
+`scorer.py`读取最终文件、通道痕迹、权限事件与隐藏Oracle，再调用`compose()`生成统一格子结果。
+
+### **B7. Rule正负控**
+
+```
+python -m exp_gm_t3_03.run_matrix --phase rule
+```
+
+Rule control/intervention应形成Task Card登记的正确结果；Drop、越权、错值和捷径形成预期失败。
+
+### **B8. 冻结版本**
+
+`freeze.py`对Task Card、任务、Oracle、协议、Scorer和Runner计算SHA-256，并写入：
+
+```
+output/<experiment>_<date>/FREEZE.yaml
+```
+
+冻结后，开发修订通过新实验编号和新任务实现。
+
+### **B9. Direct可做性**
+
+```
+python -m exp_gm_t3_03.run_matrix --phase direct
+```
+
+3题×2变体形成6格。Coverage和Direct门达到预注册条件后，进入多轨矩阵。
+
+### **B10. seed0矩阵**
+
+```
+python -m exp_gm_t3_03.run_matrix --phase seed0
+```
+
+典型规模为3题×2变体×3轨×repeat0，共18格。输出包括：
+
+```
+runs/<instance_id>/cell_result.json
+runs/<instance_id>/prompts/
+runs/<instance_id>/trace/
+REPORT.md
+GATE.yaml
+cell_table.json
+```
+
+### **B11. 读取预注册门**
+
+检查Coverage、调用预算、初稿公平、Drop隔离、共同地板与共同天花板。具备区分度后补repeat 1/2；稳定首错进入组件校准与修复流程。
+
+### **B12. 回归与留出**
+
+组件修复使用新实例校准；完整工作流回归使用另一组新任务；密封留出在冻结后一次性运行。三类数据分别承担诊断、修复验证和初步外推。
+
+### **6.1 新增T3题最少涉及的文件**
+
+```
+exp_gm_<family>/tasks/<new_id>.yaml
+exp_gm_<family>/oracle/test_*_v1.py
+exp_gm_<family>/oracle/test_*_v2.py
+exp_gm_<family>/loader.py
+registry.yaml
+```
+
+### **6.2 常用入口**
+
+```
+python -m exp_gm_t3_03.run_matrix --phase rule
+python -m exp_gm_t3_03.run_matrix --phase direct
+python -m exp_gm_t3_03.run_matrix --phase seed0
+
+python -m exp_i1.run_exp_i1
+python -m exp_gm_l1_01c.run_matrix
+```
+
+---
+
+## **7. 代码模块如何协作**
+
+### **7.1 总体调用图**
+
+```
+registry.yaml
+        │  登记实验身份、父实验、状态与证据等级
+        ▼
+run_matrix.py / run_exp_*.py
+        │  固定模型、开启eval_mode、展开task×variant×track×repeat
+        │
+        ├─ freeze.py
+        │     计算冻结哈希并生成FREEZE.yaml
+        │
+        ├─ loader.py
+        │     读取YAML任务并绑定Oracle路径
+        │
+        ├─ prompts.py / contract.py
+        │     组织角色可见信息与结构化动作
+        │
+        ├─ loop.py
+        │     运行一格真实工作流
+        │     │
+        │     ├─ GAWorld通道
+        │     │     ReviewChannel              T3审核
+        │     │     RelayChannel               I1核实
+        │     │     WorkflowCheckpointChannel  L1检查点与接替
+        │     │     JointAssignmentChannel     C1目标通道，评测迁移待完成
+        │     │
+        │     └─ LLMRouter
+        │           生成草稿、审核、动作和执行结果
+        │
+        ├─ Evidence Bundle
+        │     保存Prompt、Trace、消息、权限、产物、哈希与环境记录
+        │
+        ├─ scorer.py
+        │     读取证据与隐藏Oracle
+        │     └─ compose()
+        │           统一生成FullPass、first_error与Process Profile
+        │
+        └─ aggregate.py
+              汇总Coverage、StrictPair、轨道差值、GATE和REPORT
+                      ↓
+                 registry.yaml
+```
+
+### **7.2 三条职责边界**
+
+1. **LLM负责行为生成**：草稿、审核意见、业务动作和最终产物。
+2. **GAWorld负责机制执行**：消息保存与传递、权限、检查点、状态更新和版本盖章。
+3. **Scorer负责独立判定**：根据冻结Oracle读取真实证据并计算结果。
+
+### **7.3 仿真侧模块**
+
+
+| **模块**                      | **路径**                          | **评测用途**                             |
+| --------------------------- | ------------------------------- | ------------------------------------ |
+| `eval_mode`                 | `gaworld/eval_mode.py`          | 固定评测环境，关闭动态改写和日记兜底，记录运行配置            |
+| `CONFIG` + `LLMRouter`      | `config.py`、`llm_providers.py`  | 统一模型、temperature和供应商配置               |
+| `ReviewChannel`             | `gaworld/work/review.py`        | 保存Reviewer私有标准、审核写入权限与产物ACL          |
+| `IntegrityMailbox`          | `exp_gm_t3_02/integrity.py`     | 维护审核payload哈希链并实现T3 Drop             |
+| `RelayChannel`              | `gaworld/comm/relay.py`         | 区分原始报告与核实消息，保护私有可信表                  |
+| `WorkflowCheckpointChannel` | `gaworld/work/continuity.py`    | 记录步骤、生成检查点、传递接替与续做位置                 |
+| `JointAssignmentChannel`    | GAWorld联合分配通道                   | 保存联合方案、检查权限并连接平台版本管理；C1迁移待完成         |
+| `PlanRegistry`              | `gaworld/work/plan_registry.py` | 生成`plan_id`与`spec_version`，让模型聚焦业务分配 |
+
+
+`v0_first_batch/paths.py`把GAWorld与评测桥加入`sys.path`。入口通过`os.chdir(GAWORLD_ROOT)`切换到仿真仓库，使LLM配置与`.env`沿用GAWorld设置。
+
+标准城市`run`使用日常模拟配置；功能格显式开启`eval_mode`，实例化当前任务需要的通道并调用LLM，从而精确控制角色信息、干预字段和调用预算。
+
+---
+
+## **8. T3一格真实工作流示例**
+
+T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Executor并落实到真实文件。
+
+### **8.1 加载任务**
+
+`load_tasks()`读取YAML并挂载v1/v2 Oracle路径。control使用v1标准；intervention在Reviewer私有上下文中使用v2标准。
+
+### **8.2 生成共享初稿**
+
+`generate_shared_draft()`只使用公开v1简报生成`artifact_before.py`并计算SHA-256。同一任务和变体的三条轨复用该初稿。
+
+### **8.3 运行角色链**
+
+`run_track_from_draft()`依次完成：
+
+1. `ReviewChannel.put_private()`写入Reviewer本轮标准；
+2. Reviewer读取草稿和授权标准，提交结构化审核结果；
+3. `IntegrityMailbox.emit()`保存payload及哈希；
+4. `deliver()`向Executor交付消息，Drop轨在这里形成断边；
+5. Executor读取草稿和inbox，生成`artifact_after.py`；
+6. 评测桥使用非授权角色尝试写产物，记录ACL拒绝；
+7. Scorer检查文件、消息链、权限和Oracle。
+
+### **8.4 评分条件**
+
+`exp_gm_t3_03/scorer.py`检查：
+
+- control产物通过v1隐藏测试，intervention产物通过v2隐藏测试；
+- 登记符号与Oracle匹配；
+- 修改范围与审核意见一致；
+- Reviewer判断相对当前草稿具有真实证据；
+- Multi中Reviewer、Channel和Executor三段payload哈希一致；
+- Drop干预的inbox为空，并记录`review_payload_not_delivered`；
+- 文件来源与ACL符合Task Card；
+- 环境记录中没有业务答案写入。
+
+这些条件共同形成`oracle_conditioned_success`，随后由`compose()`生成FullPass与first_error。
+
+---
+
+## **9. 当前功能侧结果**
+
+冻结基准日：2026-08-25。
+
+
+| **任务族**    | **开发状态**       | **代表实验**      | **当前结论**                   | **留出状态** |
+| ---------- | -------------- | ------------- | -------------------------- | -------- |
+| T3 审核协作    | `pass`         | T3-03         | 独立Reviewer私有信息通过审核通道进入真实产物 | seed0同模式 |
+| I1 核实传播    | `pass`         | EXP-GM-I1     | 核实、送达、采用形成完整因果链            | seed0同模式 |
+| L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
+| C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
+| REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
+| N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
+
+
+当前开发状态可以概括为：
+
+```
 functional_development: largely_complete
 functional_holdout: seed0_pattern_replication
-formal_generalization: pending
-cross_task_generalization: false
-cross_model_robustness: false
 ranking_eligible: false
-formal_benchmark: not_started
+formal_benchmark: next_stage
 
-outcomes:
-  T3: pass          # 开发集 + 留出 seed0 同模式
-  I1: pass
-  L1: pass          # 以 L1-01c 为准；L1-01b StrictPair 仍为 2/3
-  REL1: fail        # 可解释失败
-  C1: partial_pass  # 不进第一版 H1，不做 C1-04，不建 C1 留出
-  N1: retired       # 不建 N1-02
-
-h1_construction_allowed: true
-H1_infrastructure: ready_to_start          # EXP-HF-H1-01
-H1_human_reference: not_collected          # 0/18
-H1_formal_score: N/A
-
-first_error_coverage: resolved_for_future_runs   # 不重算历史分
-platform_managed_versioning:
-  core_mechanism: implemented                    # JointAssignmentChannel + PlanRegistry
-  C1_channel_migrated: false
-  AP-C1-F-01: open
+h1_infrastructure: ready
+h1_agent_stimuli: 18/18
+h1_human_reference: 0/18
+h1_formal_score: N/A
 ```
 
----
-
-## 允许写 / 禁止写
-
-### 可以写
-
-- GAWorld 的底层通信、权限和状态传播机制可以工作。
-- 失败逐渐从「传状态」转移到 Agent 协作协议与社会推理。
-- 功能侧每个代表功能已落到**可解释状态**（pass / partial_pass / fail / retired）。
-- **三项密封留出在 seed0 上复现了开发集的同类正负控模式。**
-- 第一轮开发性功能诊断约 85% = **评测建设与机制覆盖**，不是能力满分。
-
-### 不可以写
-
-- 已经证明跨任务泛化。
-- 多智能体价值已经**正式估计**（T3 开发集 54 格可在开发集上报告方向；留出未补 54 格，不能当正式价值）。
-- 留出通过等于正式 Benchmark 完成。
-- 一个 seed 等于稳定复现。
-- 约 85% 是 GAWorld 或 GLM 的能力得分。
-- 把 HumanScore、效率、利润、「更合作」写成拟人化已经测过。
-- 回改 GM-01/02/05、L1-01b 的 2/3、I1/T3-03/C1/N1/04e 的历史分。
-- C1/REL1/N1 已经可以建留出或进入第一版 H1。
+这里的“约85%”表示评测工厂和代表机制覆盖进度：R0–R3、因果对照、权限审计、Trace、首错、组件校准、完整回归均已落地，T3/I1/L1也进入密封留出阶段。正式Benchmark还需要跨任务留出、更多重复、跨模型稳健性与H1真人对照。
 
 ---
 
-## 这套评测在测什么
-
-F 轴（功能/协议）与 H 轴（人类效度）**分开**。本仓库到 2026-08-25 主战场是 F 轴；H1 刚搭基础设施，正式分不存在。
-
-模型是**控制变量**，不是排名对象。同一模型、同一温度，用来暴露平台与协议，而不是比较哪个 LLM 更强。
-
-开发集允许改协议、改平台、补组件校准。密封留出先冻哈希、只跑一次、失败不得回头调同一批协议再跑。留出结果与开发集**分开报告**，不覆盖、不平均。
-
-环境不得替 Agent 改世界或改文件；Oracle 不得进入决策提示；权限隔离必须可测（越权读取率、Drop 轨）。
-
----
-
-## 核心科学结论（怎么读）
-
-> GAWorld 的底层通信、权限和状态传播机制可以正常工作；  
-> 随着任务从「传递明确状态」升级为「理解审核意见」和「按登记规则更新来源可靠性」，  
-> 失败逐渐转移到 Agent 协作协议与社会推理层。  
-> 功能侧做完不等于满分。每个代表功能只需落到可解释状态。
-
-**为什么可以这样说**
-
-- 04a/04b：队列与需求版本传播在静态微任务上过门。
-- I1：Full=1、Drop=0、NoVerify=0、越权=0 → 通道能送核实消息，且消息有因果价值。
-- T3-03：Multi=1.0 > Single=0.5，且优势在 Drop 上消失；首错分别是「自检没有私有标准」和「审核消息未送达」。
-- L1-01c：Full Multi 过；丢检查点或丢接替后中断格稳定失败，首错对得上被丢掉的那条边。
-- REL1：Rule 负控成立，真模型 Full=0 → 平台能传信任状态，Agent 不按 `latest_is_binding` 覆盖旧多数。
-- C1：冲突消解和私有约束能过，NACK 重试 0/3 → 部分机制过、重试协议不过。
-
-**为什么不能说「GAWorld 已经改好」或「可以对外排名」**
-
-- REL1、C1 的开放 AP 项仍在。
-- 留出只跑了 seed0，没有跨模型、没有 H1 真人对照、没有正式盲评。
-- 开发集改过协议；留出同模式 ≠ 泛化证明。
-
----
-
-## 完成标准：可解释状态，不是满分
-
-| 结局 | 含义 |
-|---|---|
-| **pass** | 测量有效，机制成功，正负控成立 |
-| **partial_pass** | 基本机制成功，明确某一阶段失败 |
-| **fail** | 题目可做、平台可运行，但 Agent/工作流稳定失败 |
-| **retired** | 共同地板/天花板、构念重复或任务污染 |
-| **N/A** | 测量无效，不能解释能力 |
-
-功能侧做完，不等于所有任务都要满分。只要测量有效、任务可做、失败能定位并产生改进项，**失败也算这一类功能评测完成**。
-
----
-
-## 约 85% 是什么、不是什么
-
-**是**：评测工厂（R0–R3、Drop、权限、Trace、首错）、代表功能都跑过开发集、T3/I1/L1 可建留出。
-
-**不是**：GAWorld 能力 85 分、GLM 排行榜、正式 Benchmark 进度条。
-
-正式 Benchmark 还缺：跨任务泛化（留出 seed0 不够）、跨模型稳健性、H1 真人对照与盲评。
-
----
-
-## 测量语法
-
-| 层 | 问什么 | 失败时 |
-|---|---|---|
-| R0 | 测量是否有效（Coverage、预算、字段可抽取、eval_mode） | 停止能力解释 |
-| R1 | 产物/权限是否合法 | 不把越权成功当成能力 |
-| R2 | 目标是否正确 | 可报对错，但未必「干净成功」 |
-| R3 | 是否绑定合法证据/契约 | 猜对但无核验证据不算干净成功 |
-
-常用设计：
-
-- **Direct**：题目可做性。过门才能解释 Multi。Direct 不是正式系统结果。
-- **Full**：完整工作流，正式对象。
-- **Drop**：人为丢掉检查点/接替/核验/审核消息。用来证明「那条边有没有因果价值」。
-- **StrictPair**：同一题 control 与 intervention 都过。
-- **first_error**：失败时的第一口定位。FullPass=0 时不得再记 `none`（新跑次）；历史冻结分不重算。
-
-**读分禁令（反复踩过）**
-
-- Drop 的 FullPass=0.5 几乎总是 **control=1 与 intervention=0 的变体平均**，不是「一半成功」。
-- 检查点 Created=1 不等于 Delivered=1。
-- focused 对外叫 `direct_verified_state`，不是能力上限。
-- 不得把两个 measurement_invalid 的格子平均成「好像过了」。
-
----
-
-## 时间线与阶段结论
-
-### A. 评测工厂与早期工作流（约 08-22 ~ 08-24）
-
-`v0_first_batch` 验证能接到 GAWorld：Gate 后才给分，H1–H7 全 N/A，无假排名分。
-
-- **GM-01 / GM-02 / GM-05**：历史题与分数冻结，不回头改。05 系列关闭，不建 05c 留出。
-- **04a**：静态微任务工作管线不丢产物。
-- **04b**：执行前能读并采用最新需求。
-- **04c**：审核通道与权限部分成功；Reviewer—Executor 协议不稳。
-- **04e**：Reviewer 组件校准过；Executor 的 `typed_patch` **退役**（AP-04e-E-01）。不为把 04e-E 修到满分继续投入。04e 分数不改。
-- **OA-01 / OA-02**：过度适应。OA-02 协议校准过门，泛化未测。
-
-### B. I1 核实信息传播 — pass
-
-路径：`output/exp_i1_20260824`。72 格 Coverage=1。
-
-| 轨 | FullPass | 含义 |
-|---|---|---|
-| direct_verified_state（原 focused） | 1.0 | 直接给核实状态也能做对；不是上限 |
-| Full | 1.0 | 观察→核验→送达→采用→动作 |
-| Drop-verified | 0.0 | 丢掉核验消息后不能干净成功 |
-| No-verification | 0.0 | 没有核验角色不能干净成功 |
-| 越权读取 | 0.0 | 调度员读不到私有可信表 |
-
-**结论**：核验消息有因果价值，Verifier 必要。CommunicationValue=1.0，VerificationValue=1.0。猜对但无合法核验证据不算干净成功。
-
-**解释**：这测的是「可信信息有没有被传过去并绑在动作上」，不是「模型更聪明」。平台通信闭环可以结案；不自动推出 REL1 也会过。
-
-### C. REL1 来源可靠性更新 — fail（可解释）
-
-路径：`output/exp_rel1_20260824`。72 格 Coverage=1。Rule Full=1、Drop=0。真模型 Full=0.0，Focused=0.3333。
-
-Oracle：`latest_is_binding=true`。形成看历史正确次数，更新时**最新一条必须覆盖旧多数**。
-
-**结论**：平台能隔离账本、送达信任状态、拒绝越权。Agent 不会稳定按登记规则让最新结果覆盖旧多数（AP-REL1-01）。control 常见 `majority_not_recency_update`。
-
-**解释**：这是功能失败，**不能**扩写成「模型没有人际信任」。H3 需要人类 dyad 数据。TrustDeliveryValue=0 是 Full 掉到地板后的算术，负控仍然挡住了干净成功。不做 REL1 留出。未做窄组件校准。
-
-### D. T3 审核协作 — 开发集 pass
-
-路线：T3-01 共同地板 → 组件 CHANGE-01 / APPLY-01 → T3-02 集成 → **T3-03 开发集 54 格**。
-
-T3-03（`output/exp_gm_t3_03_20260825`）：
-
-| 轨 | FullPass | 干预首错 |
-|---|---|---|
-| Multi | 1.0 | （通过） |
-| Single | 0.5 | 9 格 `review_decision_incorrect`（自检看不到私有 v2） |
-| Drop | 0.5 | 9 格 `review_payload_not_delivered` |
-
-Single 的 0.5 = control 全过、intervention 全不过。Drop 同理。
-
-**结论（仅开发集）**：独立 Reviewer 的私有信息有价值；消息丢失后优势消失。开发集上可报告该方向；`multi_agent_value_estimable=true` 仅限本开发集 54 格。不能当排名分，不能宣称泛化。不覆盖、不平均 T3-01/T3-02。
-
-### E. N1 — retired
-
-路径：`output/exp_gm_n1_20260825`。Direct/Full ≈ 0.333 共同地板，Drop=0.5。无法分开「消息没用」和「题本身不会做」。
-
-构念与 I1（核实传播）、REL1（最新状态更新）重叠。正式退役。分数冻结。不补 Seed，不建 N1-02，不在地板上算 Multi-Agent Benefit，不建 N1 留出。
-
-### F. C1 集体协调 — partial_pass
-
-收口：`output/c1_stage_20260825`。不做 C1-04，不建 C1 留出，不再围同一缺陷调提示。
-
-| 子能力 | 结局 |
-|---|---|
-| 基本冲突消解 | pass |
-| 私有约束整合 | pass |
-| 政策约束重规划 | partial |
-| LLM NACK 重试恢复 | fail：进入重试 3/3，正确终局 0/3 |
-
-C1-03：`retry_contract_failure` 2/3，`retry_not_adapted` 1/3。语义分配 0/3 正确（诊断，不改 FullPass）。
-
-开放：AP-C1-D-01（拒绝后不调整联合方案）、AP-C1-F-01（模型管 plan_version 不合理）。C1 评测通道**不是**后来的 `JointAssignmentChannel`，故平台盖章落地后 AP-C1-F-01 仍开。
-
-**解释**：能协调到「消冲突、守私有约束」，不能说「集体重规划 + 重试已经过关」。不进第一版 H1。
-
-### G. L1 中断恢复 — 开发集 pass（以 01c 为准）
-
-禁止回改 **L1-01b StrictPair = 2/3**。
-
-1. **L1-01**：停在 Direct 门（5/6），未进 Multi。标本题退役。
-2. **L1-01b**：测量有效。interruption 3/3 能接上；一格 control Coordinator 从第二步跳到第三步，StrictPair 2/3，**中断恢复未通过**。瓶颈：`coordinator_resume_point_selection`。离心转子 control 勘误：记录 `first_error=none`，诊断应为 `resume_from_wrong_step`，**不改分**。
-3. **CAL-GM-L1-RESUME-01**：组件 18/18。登记为后来在 01c 上 `resolved_on_development_regression`。仍 `ranking_eligible: false`。
-4. **L1-01c**（`output/exp_gm_l1_01c_20260825`）54 格：
-
-| 轨 | control | interruption | 中断首错 |
-|---|---|---|---|
-| Full Multi | 9/9 | 9/9 | —（StrictPair 9/9） |
-| Drop Checkpoint | 9/9 | 0/9 | `checkpoint_not_delivered` |
-| Drop Handoff | 9/9 | 0/9 | `handoff_not_delivered` |
-
-环境自动修复 = 0。检查点/接替因果在 54 格上 replicated。
-
-**结论**：开发集上中断接替闭环成立。不能写泛化，不能进排名，不能覆盖 01b 的 2/3。
-
----
-
-## 功能族分册
-
-开发集总表冻结于 `output/functional_devset_20260825/`（当时留出尚未跑；留出补记见 `ADDENDUM_20260825_HOLDOUT.yaml` 与下文）。**不要改总表里的开发集分数。**
-
-| 功能 | 开发集结局 | 代表实验 | 平台 | 留出 |
-|---|---|---|---|---|
-| T3 | pass | T3-03 | 主闭环 | HO-GM-T3-01 seed0 同模式 |
-| I1 | pass | EXP-GM-I1 | 已闭环 | HO-GM-I1-01 seed0 同模式 |
-| L1 | pass | L1-01c | 已闭环 | HO-GM-L1-01 seed0 同模式 |
-| REL1 | fail | EXP-GM-REL1 | 未改进闭环 | 不允许 |
-| C1 | partial_pass | C1-02 / 重试 C1-03 | 重试与版本未闭环 | 不允许 |
-| N1 | retired | EXP-GM-N1 | n/a | 不允许 |
-| 测量系统 | 缺口已落地（新跑次） | compose + PlanRegistry | C1 通道未迁 | — |
-| 留出泛化 | seed0 同模式 ≠ 泛化 | 三包 HO-GM-* | — | 只跑一次 |
-| H1 | 基础设施 | EXP-HF-H1-01 | — | 正式分 N/A |
-
----
-
-## 两个测量/平台缺口
-
-### 1. first_error 覆盖 — 对未来跑次已关闭
-
-```yaml
-first_error_coverage:
-  status: resolved_for_future_runs
-  historical_scores_recomputed: false
+## **10. 各任务族的证据与结论**
+
+### **10.1 早期工作流与评测工厂**
+
+
+| **实验**                | **作用**                             | **结论**                                   |
+| --------------------- | ---------------------------------- | ---------------------------------------- |
+| `v0_first_batch`      | 建立R0–R3、FullPass与统一Evidence Bundle | 测量门先于能力解释                                |
+| GM-01 / GM-02 / GM-05 | 早期任务与难度校准                          | 历史结果冻结，承担开发证据                            |
+| 04a                   | 基础工作队列正控                           | 静态微任务中管线能够保存产物                           |
+| 04b                   | 需求版本传播                             | 执行前能够读取并采用最新需求                           |
+| 04c                   | Reviewer–Executor闭环                | 通道与权限有效，角色协议出现可定位缺口                      |
+| 04e-R                 | Reviewer证据绑定                       | FalsePositiveRevisionRate降至0，Grounding=1 |
+| 04e-E                 | typed patch执行                      | 声明采用与真实采用分离，typed patch接口退役              |
+| OA-01 / OA-02         | 过度适应诊断                             | OA-02协议校准通过，泛化留待后续                       |
+
+
+### **10.2 T3：审核协作**
+
+T3经历了完整的诊断与修复链：
+
+```
+T3-01完整流程共同地板
+        ↓
+CHANGE-01：判断该不该改，通过
+APPLY-01：正确意见能否落实，通过
+        ↓
+T3-02：组件接口重新接通，Single/Multi均到天花板
+        ↓
+T3-03：Reviewer私有信息形成区分度
 ```
 
-`v0_first_batch/schema.py` 的 `cover_first_error()`：FullPass=0 且 first_error 为空/`none` 时改为 `unexplained_failure`，并标 `first_error_enumerator_gap`。不改 FullPass，不重算 L1-01b 等冻结 JSON。L1-01b 勘误仍在 `ERRATUM.yaml`。
+T3-03开发集54格：
 
-### 2. 平台管理 plan_id/spec_version — 接口已实现，C1 未迁
 
-```yaml
-platform_managed_versioning:
-  core_mechanism: implemented
-  T3_I1_L1_blocking: false
-  C1_channel_migrated: false
-  AP-C1-F-01: open
+| **轨道** | **FullPass** | **变体拆分**                 | **稳定首错**                       |
+| ------ | ------------ | ------------------------ | ------------------------------ |
+| Multi  | 1.0          | control=1，intervention=1 | none                           |
+| Single | 0.5          | control=1，intervention=0 | `review_decision_incorrect`    |
+| Drop   | 0.5          | control=1，intervention=0 | `review_payload_not_delivered` |
+
+
+开发集结论：独立Reviewer的私有信息产生可识别价值；消息交付被切断后，该优势随之消失。
+
+### **10.3 I1：核实信息传播**
+
+I1使用`Source → Relay → DecisionMaker`链检查：原始报告是否经过可信来源核验，并绑定到下游动作。
+
+开发集72格，Coverage=1：
+
+
+| **轨道**                  | **FullPass** | **含义**                 |
+| ----------------------- | ------------ | ---------------------- |
+| `direct_verified_state` | 1.0          | 直接获得核实状态时题目可做          |
+| Full                    | 1.0          | 观察、核验、送达、采用和动作全部成立     |
+| Drop-verified           | 0.0          | 核实消息在交付处被切断            |
+| No-verification         | 0.0          | 原始报告缺少核验依据             |
+| 越权读取                    | 0.0          | DecisionMaker无法访问私有可信表 |
+
+
+开发集结论：核验与交付分别具有因果作用，平台能够维护私有来源权限并把核实状态送达决策角色。
+
+### **10.4 L1：中断恢复**
+
+L1检查执行者甲完成第一步后，平台能否保存检查点、选择续做位置，并让接替者乙完成剩余步骤。
+
+发展过程：
+
+1. L1-01停在Direct门，原第三题退役；
+2. L1-01b发现Coordinator把续做位置从第二步跳到第三步，StrictPair=2/3；
+3. CAL-GM-L1-RESUME-01使用新任务完成18/18组件校准；
+4. L1-01c将修订契约接回完整多智能体流程。
+
+L1-01c开发集54格：
+
+
+| **轨道**          | **control** | **interruption** | **中断首错**                   |
+| --------------- | ----------- | ---------------- | -------------------------- |
+| Full Multi      | 9/9         | 9/9              | none                       |
+| Drop Checkpoint | 9/9         | 0/9              | `checkpoint_not_delivered` |
+| Drop Handoff    | 9/9         | 0/9              | `handoff_not_delivered`    |
+
+
+开发集结论：检查点创建、内容保存、续做位置选择和角色接替形成闭环；切断检查点或接替消息后，首错稳定落在对应断边。
+
+L1-01b的2/3继续作为历史证据保留，L1-01c承担修复后的开发回归结论。
+
+### **10.5 C1：登记规则下的集体协调**
+
+C1检查多个角色竞争资源时，系统能否发现冲突、整合私有约束、遵守优先级政策并交付联合方案。
+
+C1-02开发集：
+
+
+| **能力**              | **结果** |
+| ------------------- | ------ |
+| 最终无资源冲突             | 1.0    |
+| 双方私有约束满足            | 1.0    |
+| Full Multi FullPass | 0.8333 |
+| StrictPair          | 0.6667 |
+
+
+基础冲突消解和私有约束整合已经成立。稳定缺口集中在政策约束重规划：Coordinator有时移动了应该保留原时段的高优先级角色。
+
+C1-03让真模型进入优先级NACK重试：
+
+```
+nack_path_exercised: 3/3
+retry_evaluable: 3/3
+system_retry_recovered: 0/3
+retry_contract_failure: 2/3
+retry_not_adapted: 1/3
+semantic_retry_assignment_correct: 0/3
 ```
 
-GAWorld：`gaworld/work/plan_registry.py`，`JointAssignmentChannel` 拒绝模型提交 `plan_id`/`spec_version`，由平台盖章。C1-03 用评测桥自己的 channel，历史分不动。不阻塞用 T3/I1/L1 做 H1。
+当前结论：GAWorld已具备基本联合协调能力，优先级约束下的重试恢复与版本握手仍是明确的开放环节。
+
+### **10.6 REL1：来源可靠性更新**
+
+REL1登记`latest_is_binding=true`：形成初始可靠性时参考历史正确次数；更新时使用最新一条核实结果覆盖旧多数。
+
+开发集72格，Coverage=1：
+
+```
+Rule Full = 1
+Rule Drop = 0
+Agent Full = 0
+Focused = 0.3333
+```
+
+平台能够隔离可靠性账本、传递更新状态并执行权限控制。Agent在最新结果与旧多数冲突时，仍倾向沿用多数历史。该结果登记为功能规则失败，后续改进目标是最新状态覆盖协议。
+
+### **10.7 N1：退役任务族**
+
+N1出现Direct/Full共同地板，且构念与I1的核实传播、REL1的最新状态更新重合。历史结果保留，由I1和REL1分别承接更清晰的问题定义。
 
 ---
 
-## 密封留出 seed0
+## **11. 密封留出**
 
-预注册：只跑 Direct（L1/T3）+ seed0 **一次**，不补 repeat 1/2。失败不得调协议重跑同一批。`ranking_eligible: false`。
+密封留出在任务、协议、Scorer和抽样规则冻结后运行。当前三包各完成seed0一次，用于检查开发阶段的正负控模式能否在新任务表面上再次出现。
 
-汇总：`output/holdout_20260825/`。
+汇总目录：`output/holdout_20260825/`。
 
-| 实验 | 覆盖 | seed0 | 与开发集 | 正式价值 |
-|---|---|---|---|---|
-| HO-GM-T3-01 | 1.0 | Multi=1.0，Single=0.5，Drop=0.5 | 同方向、同首错 | 否（未补 54） |
-| HO-GM-I1-01 | 1.0（24 格） | Full=1，Drop=0，NoVerify=0，越权=0 | 同正负控 | 否 |
-| HO-GM-L1-01 | 1.0 | Full Multi 3/3+3/3+3/3；Drop 中断 0/3 | 同预注册门 | 否 |
 
-T3 留出首错：Single 干预 `review_decision_incorrect`；Drop 干预 `review_payload_not_delivered`。若 GATE 模板仍写「补 repeat」，以预注册「只跑一次」为准。
+| **实验**      | **Coverage** | **seed0结果**                   | **与开发集关系** |
+| ----------- | ------------ | ----------------------------- | ---------- |
+| HO-GM-T3-01 | 1.0          | Multi=1.0，Single=0.5，Drop=0.5 | 同方向、同首错    |
+| HO-GM-I1-01 | 1.0，24格      | Full=1，Drop=0，NoVerify=0，越权=0 | 同正负控模式     |
+| HO-GM-L1-01 | 1.0          | Full Multi通过；两种Drop的中断格为0/3   | 同预注册模式     |
 
-```yaml
-functional_role: sealed_holdout_result
-H1_role: development_stimulus
-```
 
-留出 Full 轨可作 H1 **开发刺激**，不能冒充未来 H1 密封留出。正式 H1 泛化要另备未参与 Rubric/网页修改的新刺激。
+T3留出首错继续表现为：
 
-**留出能说明**：全新任务表面上，开发集那类正负控还能出现。  
-**留出不能说明**：跨任务泛化已证明；一个 seed 等于稳健复现。
+- Single干预：`review_decision_incorrect`；
+- Drop干预：`review_payload_not_delivered`。
+
+当前留出证据支持“新任务表面上复现了同类机制模式”。更多repeat、更多任务族和更多模型将进一步确定稳定性与适用范围。
+
+留出Full轨同时被登记为H1开发刺激来源。未来H1正式留出将使用另一批未参与Rubric和网页调整的新刺激。
 
 ---
 
-## H1 拟人化（已启动基础设施）
+## **12. H1人类效度**
 
-实验：`EXP-HF-H1-01`。代码：`exp_hf_h1_01/`。产物：`output/exp_hf_h1_01_20260825/`。协议：`exp_hf_h1_01/protocol.md`。细则：`exp_hf_h1_01/human_protocols/`。
+功能轴回答“任务是否正确做成”；H1回答“团队互动过程是否呈现接近真人的行为组织”。两条轴共享匿名Trace，分别使用Oracle与Human Reference。
 
-H 轴与 F 轴分开。本实验不报功能 FullPass，不进入排名。`h1_formal_score: N/A`。
+### **12.1 第一版H1测什么**
 
-### 第一版问什么
+第一版使用机制已经稳定工作的完整流程：
 
-> 在机制**正常工作**的情况下，GAWorld 的团队互动过程是否像真人？
+- T3 Full Multi；
+- I1 Full；
+- L1 Full Multi。
 
-因此只用完整工作流：T3 Full Multi、I1 Full、L1 Full Multi。不用 Single / Drop / NoVerify。否则评委会把「通道被人为破坏」打成「不像人」。**C1 不进第一版。**
+Single、Drop和NoVerify继续承担功能侧因果诊断；C1与REL1保留在功能侧开放问题中。这样，H1评委观察的是正常机制下的团队过程。
 
-### 刺激怎么抽
+### **12.2 刺激构成**
 
-```text
-3 类任务 × 2 变体 × 3 条 Agent 轨迹 = 18（已完成）
-3 类任务 × 2 变体 × 3 条 Human 轨迹 = 18（0/18，尚未采集）
-合计规划 36
+```
+3类任务 × 3道题 × 2个变体 = 18条Agent Trace
+3类任务 × 3道题 × 2个变体 = 18条Human Trace
+合计36条匿名刺激
 ```
 
-Agent 来源：`HO-GM-T3-01` / `HO-GM-I1-01` / `HO-GM-L1-01` 的 seed0 Full 轨，按 **task × variant** 机械抽取 `repeat_index=0`。禁止挑满分、挑好看的、或按 FullPass 筛选。登记：`output/exp_hf_h1_01_20260825/STIMULUS_REGISTRY.yaml`。
+Agent轨迹来自HO-GM-T3-01、HO-GM-I1-01和HO-GM-L1-01的seed0 Full轨，并按task×variant机械抽取`repeat_index=0`。抽样登记保存在：
 
-```yaml
-functional_role: sealed_holdout_result
-H1_role: development_stimulus
-not_future_h1_holdout: true
-manual_best_case_selection: false
+```
+output/exp_hf_h1_01_20260825/STIMULUS_REGISTRY.yaml
 ```
 
-这些 Full 轨可作 H1 **开发刺激**，不能冒充未来 H1 密封留出。正式 H1 泛化要另备未参与 Rubric / 网页修改的新刺激。
+当前进度：Agent 18/18，Human 0/18。
 
-| 构念 | 轨道 | 来源 | Agent 条数 | Human |
-|---|---|---|---:|---|
-| T3 | Full Multi | HO-GM-T3-01 seed0 | 6 | 0/6 |
-| I1 | Full | HO-GM-I1-01 seed0 | 6 | 0/6 |
-| L1 | Full Multi | HO-GM-L1-01 seed0 | 6 | 0/6 |
+### **12.3 18个Human Trace槽位**
 
-18 个槽位（变体对外只标 A/B；评委看不到 FullPass）：
 
-| stimulus_id | 构念 | 任务 | 变体 |
-|---|---|---|---|
-| h1dev-t3-queue-control | T3 | t3_ho_queue_max_001 | A |
-| h1dev-t3-queue-intervention | T3 | t3_ho_queue_max_001 | B |
-| h1dev-t3-battery-control | T3 | t3_ho_battery_pct_001 | A |
-| h1dev-t3-battery-intervention | T3 | t3_ho_battery_pct_001 | B |
-| h1dev-t3-noise-control | T3 | t3_ho_noise_db_001 | A |
-| h1dev-t3-noise-intervention | T3 | t3_ho_noise_db_001 | B |
-| h1dev-i1-pier-control / -intervention | I1 | holdout I1 码头 | A / B |
-| h1dev-i1-pump-control / -intervention | I1 | holdout I1 泵 | A / B |
-| h1dev-i1-library-control / -intervention | I1 | holdout I1 馆藏 | A / B |
-| h1dev-l1-crane-control / -intervention | L1 | holdout L1 吊机 | A / B |
-| h1dev-l1-fridge-control / -intervention | L1 | holdout L1 冷柜 | A / B |
-| h1dev-l1-mail-control / -intervention | L1 | holdout L1 邮件 | A / B |
+| **构念** | **任务**     | **Human槽位**                                                 |
+| ------ | ---------- | ----------------------------------------------------------- |
+| T3     | 窗口排队上限     | `h1dev-t3-queue-control-human` / `...-intervention-human`   |
+| T3     | 电量下限告警     | `h1dev-t3-battery-control-human` / `...-intervention-human` |
+| T3     | 噪声分贝上限     | `h1dev-t3-noise-control-human` / `...-intervention-human`   |
+| I1     | 泊位占用报告     | `h1dev-i1-pier-control-human` / `...-intervention-human`    |
+| I1     | 泵站线路报告     | `h1dev-i1-pump-control-human` / `...-intervention-human`    |
+| I1     | 服务台开放报告    | `h1dev-i1-library-control-human` / `...-intervention-human` |
+| L1     | 三钩吊装吨位登记   | `h1dev-l1-crane-control-human` / `...-intervention-human`   |
+| L1     | 三段冷柜温度点检   | `h1dev-l1-fridge-control-human` / `...-intervention-human`  |
+| L1     | 邮包接收、核对与入格 | `h1dev-l1-mail-control-human` / `...-intervention-human`    |
 
-### 现在该采什么（不是盲评分）
 
-当前缺的是 **18 条 Human Trace**：真人按岗位提交与 Agent **同一动作空间**的结构化动作，槽位与上表一一对应。
+每条Human Trace与一条Agent Trace配对，使用相同岗位、公开信息、私有信息边界和可提交动作。任务对错作为协变量记录；过程有效性由角色顺序、信息隔离、字段契约和污染记录决定。
 
-- **是**：打开 `/human.html`，扮演该槽位要求的角色，提交 JSON / 代码动作，保存轨迹。
-- **不是**：给 12 项 Rubric 打分（那是后面盲评）。
-- **不是**：再跑一遍 GLM，或让模型「扮演人类」。
-- **不是**：把 Agent 的满分轨迹当人类答案交上去。
+### **12.4 真人团队如何组织**
 
-一人可以分饰三角色（起草人 / 审核员 / 执行人等），但必须按协议的信息隔离来：该角色看不到的私有标准、可信表、正确答案，被试也看不到。
+正式开发刺激建议由至少6个三人团队产生，共18名真人。每个团队完成3条轨迹，且同一团队不接触同一道题的A/B两个变体。
 
-### 绝对不能告诉被试的
 
-- Agent 轨迹、模型名、`GLM-4-Flash`、实验号（`HO-GM-*` / `EXP-HF-H1-01`）
-- FullPass、Oracle 正确答案、私有 v2 标准（除非该角色协议允许看见）
-- 这是「对照题」还是「干预题」、哪条是 control / intervention（只说变体 A/B 的公开说明）
-- 评分 Rubric 的期望答案；不要说「你要表现得像人」或「系统想测拟人化」
+| **阶段**          | **人数建议**   | **用途**         |
+| --------------- | ---------- | -------------- |
+| 页面试采            | 2–3人       | 检查说明、字段和页面交互   |
+| Human Trace开发采集 | 18人，6个三人团队 | 生成18条配对真人轨迹    |
+| 更稳妥的采集规模        | 27人，9个团队   | 每组只做2条，降低学习与疲劳 |
+| 独立盲评            | 约60人       | 评价36条匿名刺激      |
 
-### 三套岗位（完整工作流，无 Drop）
 
-**T3**（`human_protocols/t3.md`）：起草人按公开说明写草稿（看不到本轮私有核验标准）→ 审核员对照本轮可见标准 keep / update（不改文件）→ 执行人只按审核意见确认或改草稿。变体 A：公开标准与私有标准一致，通常 keep。变体 B：私有标准已更新，审核员看得到新值，起草人起草时看不到。
+单人按顺序分饰多个角色可用于页面试采；正式Human Reference采用真实角色分工，使信息隔离和团队交接更接近研究构念。轨迹执行者与正式盲评者使用不同人员。
 
-**I1**（`human_protocols/i1.md`）：观察员把两个来源报告原样发出（不判断谁可信）→ 核验员按私有可信表选出可信来源状态（不提交最终动作）→ 调度员只根据已核实消息按规则提交动作（不读可信表）。禁止调度员越权读表。
+### **12.5 三类真人工作流**
 
-**L1**（`human_protocols/l1.md`）：执行者甲完成第一步并提交检查点（不填版本号，平台盖章）→ 协调员指定接替者与恢复步骤（不能执行具体步骤，不能给出剩余步骤的正确答案）→ 变体 B 时甲离岗，执行者乙从检查点继续后两步（不重复第一步）。变体 A：甲完成第一步后仍在岗，自己继续。
+**T3：起草—审核—执行**
 
-### 12 项 Rubric（1–7，采集之后才用）
+1. 起草人只根据公开v1标准写短代码；
+2. Reviewer读取草稿与本轮授权标准，提交`keep/update`及证据；
+3. Executor读取草稿和审核JSON，完成确认或登记修改。
 
-锚点：1 = 完全不像真人团队互动，7 = 完全像真人团队互动。**四维分别取均值，不合成一个总分，不与 FullPass 混合。** 评委只看到角色、可见信息、结构化动作和时间顺序；不显示模型名、实验号、FullPass、Human/Agent 标签。
+**I1：观察—核验—调度**
 
-| ID | 维 | 问什么 |
-|---|---|---|
-| H1-01 | 自然性 | 节奏是否像真人一起干活，而不是机械复读或突然跳步？ |
-| H1-02 | 自然性 | 表达是否像在完成手头工作，而不是在表演对话？ |
-| H1-03 | 自然性 | 遇到差异或中断时，处理是否具体、克制？ |
-| H1-04 | Agency | 是否主动负起自己的职责，而不是空转等待？ |
-| H1-05 | Agency | 决定是否有可见依据，而不是无故改口？ |
-| H1-06 | Agency | 是否分得清自己能做的事和必须交给别人的事？ |
-| H1-07 | 社会回应性 | 后手是否读取并回应了上手交付的内容？ |
-| H1-08 | 社会回应性 | 反对或修改时是否针对具体差异，而不是空泛否定？ |
-| H1-09 | 社会回应性 | 中断或新信息时，回应是否对准当前状态？ |
-| H1-10 | 角色连续性 | 是否始终按自己的岗位行动，没有越权？ |
-| H1-11 | 角色连续性 | 接替或审核之后是否延续已完成工作，而不是推倒重来？ |
-| H1-12 | 角色连续性 | 整段过程中角色身份是否保持稳定？ |
+1. 观察员原样提交多个来源的现场报告；
+2. 核验员根据私有可信表生成核实状态；
+3. 调度员只根据核实对象和动作规则提交最终动作。
 
-差距：每维 3 项均值(Human) − 该维 3 项均值(Agent)。正值只表示真人该维更高，**不表示能力更好**。Human 未采集前全部 N/A。
+**L1：执行—检查点—接替**
 
-### 实验室
+1. 执行者甲完成第一步；
+2. 平台创建检查点；
+3. Coordinator指定successor、resume_step与remaining_steps；
+4. control由甲继续，intervention由乙接替；
+5. 接替者完成剩余步骤并保留已完成工作。
 
-```bash
+### **12.6 Human Trace保存格式**
+
+```
+stimulus_id
+construct
+task_label
+variant_code
+roles
+turns[]:
+  t
+  role
+  kind
+  visible_to_role
+  body
+```
+
+保存位置：
+
+```
+output/exp_hf_h1_01_20260825/stimuli/human/<stimulus_id>-human.json
+```
+
+### **12.7 12项H1 Rubric**
+
+评委使用1–7分量表：1表示与真人团队互动差异明显，7表示高度接近真人团队互动。四个分面分别报告，每个分面包含3个条目。
+
+
+| **ID** | **分面** | **评价内容**             |
+| ------ | ------ | -------------------- |
+| H1-01  | 自然性    | 工作节奏是否连贯，步骤转换是否自然    |
+| H1-02  | 自然性    | 表达是否服务于当前任务          |
+| H1-03  | 自然性    | 面对差异或中断时，处理是否具体、适度   |
+| H1-04  | 能动性    | 角色是否主动承担自己的职责        |
+| H1-05  | 能动性    | 决策是否具有可见依据           |
+| H1-06  | 能动性    | 角色是否识别自己的行动范围与交接边界   |
+| H1-07  | 社会回应性  | 后手是否读取并回应上手交付        |
+| H1-08  | 社会回应性  | 修改意见是否指向具体差异         |
+| H1-09  | 社会回应性  | 新信息或中断出现后，回应是否对准当前状态 |
+| H1-10  | 角色连续性  | 角色行为是否与岗位权限保持一致      |
+| H1-11  | 角色连续性  | 审核或接替后是否延续已有工作       |
+| H1-12  | 角色连续性  | 整段轨迹中的角色身份是否稳定       |
+
+
+每个分面计算3项均值，再比较Human与Agent。功能FullPass与H1四个分面保持分开报告。
+
+### **12.8 H1执行顺序**
+
+```
+Agent抽样登记                 已完成
+真人任务协议                  已完成
+Human Trace采集               当前步骤，0/18
+统一匿名渲染                  基础设施已完成
+5–8人认知访谈                 下一步
+15–20人内部Pilot              待开展
+冻结刺激、Rubric和分析方案     待开展
+约60名独立评委盲评            待开展
+四维Human–Agent差距分析       待开展
+```
+
+### **12.9 启动H1实验室**
+
+```
 export PYTHONPATH=/path/to/gaworld_eval_bridge:/path/to/GAWorld
 python -m exp_hf_h1_01.serve
-# http://127.0.0.1:8765
-# /human.html 采集真人 Trace
-# /viewer.html 匿名轨迹（评委用）
-# /rater.html 盲评（现在还不要用）
-```
 
-### 已完成 / 未开始
-
-已完成：抽样冻结、18 条匿名 Agent 轨迹、三套真人协议、统一渲染、12 项 Rubric、真人执行页、盲评页。
-
-未开始：真人采集、认知访谈 5–8 人、内部 Pilot 15–20、冻结排除规则、约 60 人独立盲评、四维差距。
-
-### 顺序（不要跳）
-
-```text
-冻结抽样规则          ← 已做
-→ 真人任务协议         ← 已做
-→ 真人执行网页保存 Human Trace   ← 当前步骤（0/18）
-→ 统一匿名展示
-→ 12 项 Rubric         ← 已写，尚未打分
-→ 5–8 人认知访谈
-→ 15–20 人内部 Pilot
-→ 冻结刺激、Rubric、排除规则和分析方案
-→ 约 60 名独立盲评
-→ 自然性 / Agency / 社会回应性 / 角色连续性差距
+# http://127.0.0.1:8765/human.html  采集Human Trace
+# http://127.0.0.1:8765/viewer.html 匿名轨迹查看
+# http://127.0.0.1:8765/rater.html  盲评页面
 ```
 
 ---
 
-## 仍开放的系统问题
+## **13. 开放问题与下一阶段**
 
-| ID | 状态 | 含义 |
-|---|---|---|
-| AP-C1-D-01 | open | NACK 后未形成正确终局；拒绝后不调整联合方案 |
-| AP-C1-F-01 | open | 模型不应管 plan_version；C1 通道未迁到平台盖章 |
-| AP-REL1-01 | open | `latest_is_binding=true` 仍按旧多数行动 |
-| typed_patch / AP-04e-E-01 | retired | 不作为正式接口 |
+### **13.1 当前开放问题**
 
-这些不阻碍报告「功能评测已落到可解释状态」，但阻碍说「产品已经改好」。
 
-C1 版本通道迁移 = 独立 Backlog，不阻塞 H1 第一版。
+| **ID**      | **状态**  | **问题**                          | **下一动作**                                        |
+| ----------- | ------- | ------------------------------- | ----------------------------------------------- |
+| AP-C1-D-01  | open    | NACK后联合方案未形成正确终局                | 建立重试语义组件与完整回归                                   |
+| AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
+| AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
+| AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
+
+
+### **13.2 两项测量与平台改进**
+
+**first_error覆盖**
+
+`cover_first_error()`已经用于未来运行：FullPass=0且现有枚举缺少具体节点时，记录`unexplained_failure`与`first_error_enumerator_gap`。历史结果通过勘误保持解释连续性。
+
+**平台管理版本号**
+
+`PlanRegistry`与`JointAssignmentChannel`已经实现平台生成`plan_id/spec_version`。下一步将C1评测通道迁移到该机制，使模型只提交业务分配。
+
+### **13.3 下一阶段里程碑**
+
+1. 采集18条Human Trace，完成H1认知访谈和内部Pilot；
+2. 为T3、I1、L1补充更多留出重复；
+3. 将C1迁移到平台版本管理并完成NACK重试回归；
+4. 校准REL1最新状态覆盖协议；
+5. 增加独立任务表面，检查跨任务迁移；
+6. 在冻结协议上更换模型，检查平台结论的模型依赖性；
+7. 冻结正式Benchmark版本、统计方案与排名资格门。
 
 ---
 
-## 两个仓库怎么对齐
+## **14. 证据等级与对外表述**
 
-评测战役跨两个 Git 仓库，不要打成一个大包。
+### **14.1 当前证据直接支持**
 
-| 仓库 | 远程 | 分支 | 这一阶段提交了什么 |
-|---|---|---|---|
-| 评测桥（本仓库） | `https://github.com/huohua51/gaworld_eval_bridge` | `main` | 实验定义、Oracle、Scorer、Registry、冻结 REPORT/GATE、开发集总表、三包留出、H1 实验室、本 README 总账 |
-| 仿真平台 | 上游 `https://github.com/wuchaozju/GAWorld` | 本地 `eval-harness` | `PlanRegistry`、`JointAssignmentChannel`、检查点/接替通道、`tests/test_joint_assignment.py` |
+- 在当前开发任务、固定模型与eval_mode条件下，GAWorld的通信、权限控制和状态传播可以支撑可验证工作流；
+- T3、I1、L1已经完成开发集闭环，并在各自seed0密封留出上复现同类正负控模式；
+- C1已经具备基本冲突消解与私有约束整合能力，优先级NACK重试是明确的后续改进点；
+- REL1已经把失败定位到最新可靠性状态的采用环节；
+- 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
+- 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
-**不要**把评测改动直接推到上游 `wuchaozju/GAWorld` 的 `main`。应 Fork 到 `huohua51/GAWorld` 再推 `eval-harness`。本机若还没有这个 Fork，先在 GitHub 上 Fork，然后：
+### **14.2 扩大结论所需的证据**
 
-```bash
+
+| **目标结论** | **需要补充的证据**                  |
+| -------- | ---------------------------- |
+| 跨任务泛化    | 更多独立任务与预注册留出                 |
+| 稳健复现     | 留出repeat 1/2或等价重复设计          |
+| 跨模型稳健性   | 固定协议下的多模型复测                  |
+| 正式多智能体价值 | 留出集上足量的Single–Multi配对与Drop验证 |
+| 人类效度     | Human Trace、匿名刺激、独立评委和预注册分析  |
+| 正式排行榜    | 冻结任务集、模型矩阵、统计口径和排名资格门        |
+
+
+这种证据分层让开发结论、留出结果和正式Benchmark拥有清晰边界，同时保留当前实验已经建立的科学价值。
+
+---
+
+## **15. 两个仓库如何协作**
+
+
+| **仓库**    | **远程**                                            | **分支**           | **主要内容**                                  |
+| --------- | ------------------------------------------------- | ---------------- | ----------------------------------------- |
+| 评测桥       | `https://github.com/huohua51/gaworld_eval_bridge` | `main`           | Task、Oracle、Scorer、Registry、冻结报告、留出与H1实验室 |
+| GAWorld平台 | 上游`https://github.com/wuchaozju/GAWorld`          | 本地`eval-harness` | eval_mode、PlanRegistry、联合分配、检查点与接替通道      |
+
+
+平台改动通过个人Fork维护：
+
+```
 cd /path/to/GAWorld
-git remote add fork https://github.com/huohua51/GAWorld.git   # 已有则跳过
+git remote add fork https://github.com/huohua51/GAWorld.git
 git push -u fork eval-harness
 ```
 
-平台盖章接口已经在 `eval-harness` 落地，但 **C1 评测通道尚未切换**，所以 AP-C1-F-01 仍开放。历史 C1 分数不因这次平台提交而重算。
+若`fork`远程已经存在，可以直接执行第二条命令。协作者同时检出两个仓库，并设置：
 
-协作者环境：
-
-```text
-PYTHONPATH=/path/to/gaworld_eval_bridge:/path/to/GAWorld
+```
+export PYTHONPATH=/path/to/gaworld_eval_bridge:/path/to/GAWorld
 ```
 
-仿真侧需要 `eval_mode`。Key 只放在 `GAWorld/.env`，不要入库。
+API Key保存在`GAWorld/.env`，仓库提交`.env.example`作为配置模板。
 
 ---
 
-## 环境与复现
+## **16. 环境与复现**
 
-### 不要上传
+### **16.1 创建环境**
 
-- `GAWorld/.env`（API Key）
-- `AgentSociety/`、`YuLan-OneSim/`
-- 根目录汇报 ppt/pdf（可选）
-
-请只提交 `.env.example`，本地复制为 `.env`。
-
-### 环境
-
-```bash
+```
 python3 -m venv .venv
 source .venv/bin/activate
+
 pip install -r ../GAWorld/requirements.txt
 pip install pytest pyyaml
 
-cp ../GAWorld/.env.example ../GAWorld/.env   # 填入自己的 LLM key
+cp ../GAWorld/.env.example ../GAWorld/.env
 export PYTHONPATH=/path/to/gaworld_eval_bridge:/path/to/GAWorld
 cd /path/to/gaworld_eval_bridge
 ```
 
-评测必须开 `eval_mode`。不要重跑已冻结实验来「刷分」。留出包禁止 `--phase repeats`。
+在`.env`中配置本地LLM Key。正式评测入口会开启`eval_mode`并固定模型参数。
 
-### 抽样/测量单测（不调用 LLM）
+### **16.2 提交与保密范围**
 
-```bash
-PYTHONPATH=.:../GAWorld python -m pytest v0_first_batch/tests/test_first_batch.py exp_hf_h1_01/test_sampling.py -q
-PYTHONPATH=../GAWorld python -m unittest tests.test_joint_assignment   # 在 GAWorld 目录
+提交到Git的内容：
+
+- 源代码、Task Card、Oracle、Scorer与协议；
+- `.env.example`；
+- 冻结报告、GATE和必要证据索引；
+- README与复现说明。
+
+本地保留：
+
+- `GAWorld/.env`及API Key；
+- 与本仓库无关的大型外部仓库副本；
+- 汇报PPT/PDF等临时材料。
+
+### **16.3 测量单测**
+
+以下命令不调用LLM：
+
+```
+PYTHONPATH=.:../GAWorld \
+python -m pytest \
+  v0_first_batch/tests/test_first_batch.py \
+  exp_hf_h1_01/test_sampling.py -q
+
+cd ../GAWorld
+PYTHONPATH=. python -m unittest tests.test_joint_assignment
 ```
 
 ---
 
-## 目录索引
+## **17. 目录索引**
 
-| 路径 | 作用 |
-|---|---|
-| `registry.yaml` | 正式实验登记 |
-| `backlog/agent_protocol.yaml` | Agent 协议问题，不是平台修 bug 清单 |
-| `output/functional_devset_20260825/` | 功能侧开发集总表（分数冻结） |
-| `output/holdout_20260825/` | 三包留出 seed0 汇总 |
-| `output/exp_hf_h1_01_20260825/` | H1 刺激登记与冻结 |
-| `exp_gm_04*` / `exp_i1` / `exp_rel1` | 早期冻结实验 |
-| `exp_gm_t3_0{1,2,3}` / `cal_gm_change_01` / `cal_gm_apply_01` | T3 族 |
-| `exp_gm_c1_0{1,2,3}` / `cal_gm_c1_*` | C1 族 |
-| `exp_gm_l1_01*` / `cal_gm_l1_resume_01` | L1 族 |
-| `exp_gm_n1` | 已退役 |
-| `holdout_t3` / `holdout_i1` / `holdout_l1` | 密封留出包 |
-| `exp_hf_h1_01` | H1 实验室（`human_protocols/`、`rubric.yaml`、`web/`） |
-| `v0_first_batch/` | 评分合成；`cover_first_error` |
-| `output/` | 报告与格子证据；改代码前先读对应 REPORT |
 
-改任何冻结实验的题目、Scorer 或提示前，先确认 `FREEZE.yaml` 的 `do_not_edit_after_freeze`。历史分数以当时 GATE 为准，用勘误补充诊断，不重算。
+| **路径**                               | **作用**                              |
+| ------------------------------------ | ----------------------------------- |
+| `registry.yaml`                      | 正式实验登记、状态与证据等级                      |
+| `backlog/agent_protocol.yaml`        | Agent协议层开放问题                        |
+| `v0_first_batch/`                    | R0–R3统一Schema、compose与first_error覆盖 |
+| `output/functional_devset_20260825/` | 功能侧开发集冻结总表                          |
+| `output/holdout_20260825/`           | T3、I1、L1的seed0留出汇总                  |
+| `output/exp_hf_h1_01_20260825/`      | H1刺激登记、Human Trace与Rubric输出         |
+| `exp_gm_04*`                         | 早期工作流与审核协议实验                        |
+| `exp_i1/`                            | I1核实信息传播                            |
+| `exp_rel1/`                          | REL1可靠性更新                           |
+| `exp_gm_t3_0{1,2,3}/`                | T3审核协作主线                            |
+| `cal_gm_change_01/`                  | Reviewer判断组件校准                      |
+| `cal_gm_apply_01/`                   | Executor采用组件校准                      |
+| `exp_gm_c1_0{1,2,3}/`                | C1集体协调主线                            |
+| `cal_gm_c1_*/`                       | C1冲突、优先级与重试组件校准                     |
+| `exp_gm_l1_01*/`                     | L1中断恢复主线                            |
+| `cal_gm_l1_resume_01/`               | Coordinator续做位置校准                   |
+| `exp_gm_n1/`                         | N1退役任务历史证据                          |
+| `holdout_t3/`                        | T3密封留出                              |
+| `holdout_i1/`                        | I1密封留出                              |
+| `holdout_l1/`                        | L1密封留出                              |
+| `exp_hf_h1_01/`                      | H1协议、抽样、网页与评分表                      |
+| `output/`                            | 报告、格子结果与证据包                         |
+
+
+---
+
+## **结论**
+
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。当前证据表明，GAWorld的底层通信、权限控制和状态传播能够支撑T3、I1与L1三类可验证工作流；C1和REL1进一步把问题推进到政策约束重规划、最新状态采用与Agent协作协议层。
+
+下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。
