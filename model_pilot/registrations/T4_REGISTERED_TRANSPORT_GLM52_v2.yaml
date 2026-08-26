@@ -1,0 +1,77 @@
+preregistration_id: T4-REGISTERED-TRANSPORT-GLM52-v2
+registered_on: '2026-08-26'
+base_commit: 899bb909c57143eed87b3b0c34c9485a2b80657c
+phase: prospective_live_model_pilot
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  Under an explicit registered-transport protocol, does GLM-5.2 carry both
+  normal-status and action-required updates across the complete available path,
+  accept them at the target, and preserve the registered bridge contrast?
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t4v2_reservoir_quality_001
+    - t4v2_substation_load_001
+    - t4v2_school_air_001
+  variants: [control, intervention]
+  tracks: [full, remove_bridge, drop_bridge]
+  seeds: [0]
+  cells: 18
+  max_calls: 60
+  execution_order: task_then_variant_then_track
+  prompt_protocol: gaworld-benchmark-t4-model-v2
+  scorer_version: model-pilot-t4-v2-scorer-v1
+
+frozen_inputs:
+  model_pilot/t4_v2.py: e1878279e539d2256372ec88dc9be3b9cc868c21ff69a0cba82a7e10f8611718
+  model_pilot/t4_v2_scorer.py: 82f1bcd265c1ef9136e52eda68386ab5102a7ada6017d81288dfb25b05152f76
+  model_pilot/t4_v2_run.py: efe0b81887a437300cabf6df92f0e32e218a9598441d322f61d4dd90a14b7866
+  exp_gm_t4_02/tasks.yaml: aa313c39b863c316931b0eb541a04c62cdf4c9c3b19ddf05d82df155c1c1d68c
+  exp_gm_t4_02/task_card.yaml: e9749a275004924197977e3cbbf97e4c5e1fae926bf23b1765f669dfbb5e43d3
+  exp_gm_t4_02/protocol.md: ac83b714c8b6cb8971d31283019c32c87102f7ea4e2d583309e9f719bbf3bd1c
+  exp_gm_t4_02/loader.py: c63d2586a27e5ac1b2ba59771c0902ab06153110e0cb09f6eada26b0dc10a761
+
+outcomes:
+  primary:
+    - full_track_complete_path_rate_by_variant
+    - full_track_target_acceptance_rate_by_variant
+    - full_track_full_pass_rate_by_variant
+  secondary:
+    - source_forward_rate_by_task_and_variant
+    - model_contract_rate
+    - first_error_counts
+    - communication_value_remove_bridge
+    - communication_value_drop_bridge
+
+analysis_rules:
+  registered_transport: >-
+    action_required affects only the target action. It does not change the
+    required source or intermediate forwarding decision.
+  complete_path: >-
+    Count only the ordered source-to-target path reconstructed from recorded
+    message_delivered events.
+  target_acceptance: >-
+    Count only a recorded message_accepted event at the registered target.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+  preserve_t4_v1: true
+
+stopping_rules:
+  - Stop after all 18 registered cells finish.
+  - Stop before any call that would exceed the shared 60-call budget.
+  - Do not retry a structurally valid model response.
+  - Do not replace an invalid or failed cell during the registered run.
+
+planned_entrypoint: python -m model_pilot.t4_v2_run
+credential_policy: PARATERA_API_KEY is read from the environment and never logged

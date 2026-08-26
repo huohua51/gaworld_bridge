@@ -523,7 +523,7 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
-| T4 多跳传播    | `live_pilot`   | T4 control consistency | 模型契约稳定，但control转发具有场景差异与重复不一致 | repeat 0/1/2完成 |
+| T4 多跳传播    | `v1_live_v2_offline` | T4-01 / T4-02 | v1定位隐式转发歧义；v2完成显式传输规则与离线校准 | v2真实Pilot待运行 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -879,7 +879,7 @@ python -m exp_hf_h1_01.serve
 | AP-C1-D-01  | open    | NACK后联合方案未形成正确终局                | 建立重试语义组件与完整回归                                   |
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
-| AP-T4-01    | open    | 同构control消息的源节点转发决策不稳定且依赖场景      | 保留v1基线；在新协议编号下预注册显式转发规则，不回改本轮Prompt            |
+| AP-T4-01    | v2_ready | v1同构control消息的源节点转发决策不稳定且依赖场景   | v1保持冻结；v2已校准并预注册，下一步运行真实Pilot                      |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -913,7 +913,7 @@ python -m exp_hf_h1_01.serve
 - T3、I1、L1已经完成开发集闭环，并在各自seed0密封留出上复现同类正负控模式；
 - C1已经具备基本冲突消解与私有约束整合能力，优先级NACK重试是明确的后续改进点；
 - REL1已经把失败定位到最新可靠性状态的采用环节；
-- T4预注册GLM-5.2 Pilot完成9格重复，模型JSON契约率为100%，control完整路径率为44.44%；
+- T4-v1预注册GLM-5.2 Pilot完成9格重复，模型JSON契约率为100%，control完整路径率为44.44%；T4-v2已完成显式传输规则和离线模型接线校准，尚无v2真实模型结论；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -1122,6 +1122,30 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 [`CONSISTENCY_MANIFEST.yaml`](output/model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7/CONSISTENCY_MANIFEST.yaml)，
 简要报告位于同目录的[`REPORT.md`](output/model_pilot_live_t4_control_consistency_glm52_a79353a8c7cf4720a3efb411a438ccd7/REPORT.md)。
 
+### **16.7 T4-v2显式注册传输协议**
+
+`EXP-GM-T4-02`是独立实验，不覆盖或重算T4-v1。它新增水库水质、变电站负载和学校空气质量三
+个任务表面，并规定有效的`registered_status_update`必须沿可用登记路径逐跳接受和转发；
+`action_required`只决定目标动作，不决定消息是否传输。full Track中的目标接受与完整路径均为
+临界Criterion。
+
+规则矩阵18/18格测量有效并通过校准；离线Oracle-shaped模型矩阵同样完成18格，JSON契约率
+100%，使用60/60个逻辑调用。`full`的control/intervention FullPass均为100%；
+`remove_bridge`和`drop_bridge`均为control 100%、intervention 0%。这些只证明规则、Scorer、
+Prompt接线和预算边界可用，不是GLM-5.2能力结果。
+
+未来真实运行已在`model_pilot/registrations/T4_REGISTERED_TRANSPORT_GLM52_v2.yaml`冻结18格设计、
+60次逻辑调用上限、输入哈希和停止规则，目前为`not_run`。离线复现命令：
+
+```powershell
+F:\proj\.venv_gaworld_eval\Scripts\python.exe `
+  -m exp_gm_t4_02.run_matrix --out $env:TEMP\gaworld_t4v2_rule
+
+F:\proj\.venv_gaworld_eval\Scripts\python.exe `
+  -m model_pilot.t4_v2_run --fixture-oracle --max-calls 60 `
+  --out $env:TEMP\gaworld_t4v2_fixture
+```
+
 ---
 
 ## **17. 目录索引**
@@ -1139,6 +1163,7 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
+| `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
 | `output/functional_devset_20260825/` | 功能侧开发集冻结总表                          |
@@ -1166,6 +1191,6 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。当前证据表明，GAWorld的底层通信、权限控制和状态传播能够支撑T3、I1与L1三类可验证工作流；C1和REL1进一步把问题推进到政策约束重规划、最新状态采用与Agent协作协议层。T4真实模型Pilot还表明，接口与JSON契约稳定并不自动保证多跳行为稳定，重复设计与R3路径判据必须保留。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。当前证据表明，GAWorld的底层通信、权限控制和状态传播能够支撑T3、I1与L1三类可验证工作流；C1和REL1进一步把问题推进到政策约束重规划、最新状态采用与Agent协作协议层。T4-v1真实模型Pilot还表明，接口与JSON契约稳定并不自动保证多跳行为稳定；T4-v2因此将注册消息传输与目标动作分离，并保留重复设计与R3路径硬判据。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。
