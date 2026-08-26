@@ -1,0 +1,5 @@
+{"seq": 1, "ts": 1787756374.252102, "event": "message_injected", "message_id": "substation-load-v1", "message": {"message_id": "substation-load-v1", "source_id": "grid_telemetry", "state_version": "v1", "payload": {"action_required": true, "target_action": "shed_noncritical_load", "fact": "substation_overload_detected"}}}
+{"seq": 2, "ts": 1787756382.369454, "event": "message_delivered", "message_id": "substation-load-v1", "sender_id": "grid_telemetry", "receiver_id": "operations_center", "depth": 1}
+{"seq": 3, "ts": 1787756385.216115, "event": "message_accepted", "message_id": "substation-load-v1", "node_id": "operations_center"}
+{"seq": 4, "ts": 1787756385.2168581, "event": "message_dropped", "message_id": "substation-load-v1", "sender_id": "operations_center", "receiver_id": "regional_gateway", "depth": 2}
+{"seq": 5, "ts": 1787756402.3976192, "event": "action_submitted", "node_id": "load_dispatch", "action": {"action_id": "network-action-load_dispatch-5", "node_id": "load_dispatch", "action": "keep_current", "evidence_message_id": null}}

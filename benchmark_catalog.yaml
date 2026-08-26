@@ -5,7 +5,7 @@ task_coverage:
   T1: partial
   T2: partial
   T3: strong_development
-  T4: registered_transport_v2_rule_and_offline_model_calibrated
+  T4: registered_transport_v2_glm52_seed0_pilot
   T5: policy_causal_chain_rule_calibrated
   T6: longitudinal_approximation_rule_calibrated
 
@@ -25,7 +25,8 @@ experiments:
     planned_task_family: T4
     mechanisms: [M3, M5, M8]
     source_dir: exp_gm_t4_02
-    evidence_status: rule_and_offline_model_wiring_calibrated_no_live_claim
+    result_dir: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
+    evidence_status: rule_offline_and_glm52_seed0_pilot
     supersedes: null
     preserves_baseline: EXP-GM-T4-01
 
@@ -97,6 +98,8 @@ experiments:
 planned_gaps: []
 
 remaining_evidence_gaps:
+  - task_family: T4
+    gap: registered_transport_v2_repeats_and_cross_model_replication
   - task_family: T5
     gap: model_runs_multi_seed_and_matched_human_policy_reference
   - task_family: T6

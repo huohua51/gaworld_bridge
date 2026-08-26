@@ -1,0 +1,5 @@
+{"seq": 1, "ts": 1787756260.608041, "event": "message_injected", "message_id": "reservoir-quality-v1", "message": {"message_id": "reservoir-quality-v1", "source_id": "water_quality_sensor", "state_version": "v1", "payload": {"action_required": true, "target_action": "switch_to_backup_supply", "fact": "reservoir_contamination_detected"}}}
+{"seq": 2, "ts": 1787756264.3466167, "event": "message_delivered", "message_id": "reservoir-quality-v1", "sender_id": "water_quality_sensor", "receiver_id": "treatment_control", "depth": 1}
+{"seq": 3, "ts": 1787756271.384597, "event": "message_accepted", "message_id": "reservoir-quality-v1", "node_id": "treatment_control"}
+{"seq": 4, "ts": 1787756271.3856454, "event": "message_dropped", "message_id": "reservoir-quality-v1", "sender_id": "treatment_control", "receiver_id": "municipal_gateway", "depth": 2}
+{"seq": 5, "ts": 1787756274.2103968, "event": "action_submitted", "node_id": "distribution_dispatch", "action": {"action_id": "network-action-distribution_dispatch-5", "node_id": "distribution_dispatch", "action": "keep_current", "evidence_message_id": null}}

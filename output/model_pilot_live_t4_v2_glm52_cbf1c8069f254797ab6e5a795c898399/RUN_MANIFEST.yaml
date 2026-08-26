@@ -1,0 +1,35 @@
+experiment_id: MODEL-PILOT-T4-v2
+preregistration_id: T4-REGISTERED-TRANSPORT-GLM52-v2
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T4_REGISTERED_TRANSPORT_GLM52_v2.yaml
+registration_sha256: d472a71a6b161232e4b8ecfa65223c2c0ea955af67cf5e8ca869bc3de4b41499
+registered_base_commit: 899bb909c57143eed87b3b0c34c9485a2b80657c
+base_release: benchmark-v1.1-rule
+phase: model_seed0_pilot
+gate: model_pilot_recorded
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+prompt_protocol: gaworld-benchmark-t4-model-v2
+ranking_eligible: false
+n_cells: 18
+coverage: 1.0
+model_contract_rate: 1.0
+FullPassByTrack:
+  full:
+    control: 1.0
+    intervention: 1.0
+  remove_bridge:
+    control: 1.0
+    intervention: 0.0
+  drop_bridge:
+    control: 1.0
+    intervention: 0.0
+budget:
+  max_calls: 60
+  calls_used: 60
+  calls_remaining: 0
+  prompt_chars: 73046
+  response_chars: 7260
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000

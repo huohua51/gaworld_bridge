@@ -1,0 +1,6 @@
+{"seq": 1, "ts": 1787756430.0708234, "event": "edge_removed", "left": "campus_operations", "right": "district_gateway", "intervention_id": "model-v2-remove-t4v2_school_air_001-bridge"}
+{"seq": 2, "ts": 1787756430.0718236, "event": "message_injected", "message_id": "school-air-quality-v1", "message": {"message_id": "school-air-quality-v1", "source_id": "air_quality_monitor", "state_version": "v1", "payload": {"action_required": false, "target_action": "keep_current", "fact": "outdoor_air_quality_safe"}}}
+{"seq": 3, "ts": 1787756442.4172938, "event": "message_delivered", "message_id": "school-air-quality-v1", "sender_id": "air_quality_monitor", "receiver_id": "campus_operations", "depth": 1}
+{"seq": 4, "ts": 1787756445.428693, "event": "message_accepted", "message_id": "school-air-quality-v1", "node_id": "campus_operations"}
+{"seq": 5, "ts": 1787756445.4330852, "event": "denied", "ok": false, "reason": "edge_unavailable", "message_id": "school-air-quality-v1", "sender_id": "campus_operations", "receiver_id": "district_gateway"}
+{"seq": 6, "ts": 1787756452.5751963, "event": "action_submitted", "node_id": "school_scheduler", "action": {"action_id": "network-action-school_scheduler-6", "node_id": "school_scheduler", "action": "keep_current", "evidence_message_id": null}}

@@ -1,0 +1,8 @@
+{"seq": 1, "ts": 1787756467.181968, "event": "message_injected", "message_id": "school-air-quality-v1", "message": {"message_id": "school-air-quality-v1", "source_id": "air_quality_monitor", "state_version": "v1", "payload": {"action_required": true, "target_action": "cancel_outdoor_activities", "fact": "hazardous_air_quality_detected"}}}
+{"seq": 2, "ts": 1787756469.983181, "event": "message_delivered", "message_id": "school-air-quality-v1", "sender_id": "air_quality_monitor", "receiver_id": "campus_operations", "depth": 1}
+{"seq": 3, "ts": 1787756474.0567558, "event": "message_accepted", "message_id": "school-air-quality-v1", "node_id": "campus_operations"}
+{"seq": 4, "ts": 1787756474.057825, "event": "message_delivered", "message_id": "school-air-quality-v1", "sender_id": "campus_operations", "receiver_id": "district_gateway", "depth": 2}
+{"seq": 5, "ts": 1787756479.2624722, "event": "message_accepted", "message_id": "school-air-quality-v1", "node_id": "district_gateway"}
+{"seq": 6, "ts": 1787756479.263013, "event": "message_delivered", "message_id": "school-air-quality-v1", "sender_id": "district_gateway", "receiver_id": "school_scheduler", "depth": 3}
+{"seq": 7, "ts": 1787756490.2309995, "event": "message_accepted", "message_id": "school-air-quality-v1", "node_id": "school_scheduler"}
+{"seq": 8, "ts": 1787756490.2315228, "event": "action_submitted", "node_id": "school_scheduler", "action": {"action_id": "network-action-school_scheduler-8", "node_id": "school_scheduler", "action": "cancel_outdoor_activities", "evidence_message_id": "school-air-quality-v1"}}

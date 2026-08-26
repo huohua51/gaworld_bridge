@@ -1,0 +1,194 @@
+{
+  "workflow_id": "model_pilot_t4_v2",
+  "instance_id": "model_v2_t4v2_reservoir_quality_001_intervention_full_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "network_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "bridge_intervention_effective",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "target_action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_action_correct",
+      "layer": "R2",
+      "scorer": "registered_action_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399\\runs\\model_v2_t4v2_reservoir_quality_001_intervention_full_s0\\network_trace.jsonl",
+        "output\\model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399\\runs\\model_v2_t4v2_reservoir_quality_001_intervention_full_s0\\model_trace.jsonl",
+        "model-call:model_v2_t4v2_reservoir_quality_001_intervention_full_s0:call-1",
+        "model-call:model_v2_t4v2_reservoir_quality_001_intervention_full_s0:call-2",
+        "model-call:model_v2_t4v2_reservoir_quality_001_intervention_full_s0:call-3",
+        "model-call:model_v2_t4v2_reservoir_quality_001_intervention_full_s0:call-4",
+        "network-action-distribution_dispatch-8"
+      ],
+      "detail": "got=switch_to_backup_supply expected=switch_to_backup_supply"
+    },
+    {
+      "criterion_id": "target_update_accepted",
+      "layer": "R3",
+      "scorer": "network_trace",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399\\runs\\model_v2_t4v2_reservoir_quality_001_intervention_full_s0\\network_trace.jsonl"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "complete_propagation_path",
+      "layer": "R3",
+      "scorer": "network_trace",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399\\runs\\model_v2_t4v2_reservoir_quality_001_intervention_full_s0\\network_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "message_injected",
+      "message_delivered",
+      "message_accepted",
+      "message_delivered",
+      "message_accepted",
+      "message_delivered",
+      "message_accepted",
+      "action_submitted"
+    ],
+    "path_to_target": [
+      "water_quality_sensor",
+      "treatment_control",
+      "municipal_gateway",
+      "distribution_dispatch"
+    ],
+    "target_received": true,
+    "target_accepted": true,
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "model_seed0_offline_calibration",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "expected_action": "switch_to_backup_supply",
+    "action": {
+      "action_id": "network-action-distribution_dispatch-8",
+      "node_id": "distribution_dispatch",
+      "action": "switch_to_backup_supply",
+      "evidence_message_id": "reservoir-quality-v1"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "message_class": "registered_status_update",
+    "transport_rule": "always_forward_registered_update",
+    "run_context": {
+      "run_id": "model_v2_t4v2_reservoir_quality_001_intervention_full_s0",
+      "task_id": "t4v2_reservoir_quality_001",
+      "task_family": "T4",
+      "mechanism_condition": "M3-M5-M8:full:registered_transport_v2",
+      "variant": "intervention",
+      "seed": 0,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-network-channel-v1",
+      "trace_version": "network-and-model-jsonl-v1",
+      "scorer_version": "model-pilot-t4-v2-scorer-v1",
+      "evidence_id": "bundle:model_v2_t4v2_reservoir_quality_001_intervention_full_s0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{"seq": 1, "ts": 1787756352.4333801, "event": "edge_removed", "left": "operations_center", "right": "regional_gateway", "intervention_id": "model-v2-remove-t4v2_substation_load_001-bridge"}
+{"seq": 2, "ts": 1787756352.4344459, "event": "message_injected", "message_id": "substation-load-v1", "message": {"message_id": "substation-load-v1", "source_id": "grid_telemetry", "state_version": "v1", "payload": {"action_required": true, "target_action": "shed_noncritical_load", "fact": "substation_overload_detected"}}}
+{"seq": 3, "ts": 1787756357.650846, "event": "message_delivered", "message_id": "substation-load-v1", "sender_id": "grid_telemetry", "receiver_id": "operations_center", "depth": 1}
+{"seq": 4, "ts": 1787756362.953018, "event": "message_accepted", "message_id": "substation-load-v1", "node_id": "operations_center"}
+{"seq": 5, "ts": 1787756362.9573169, "event": "denied", "ok": false, "reason": "edge_unavailable", "message_id": "substation-load-v1", "sender_id": "operations_center", "receiver_id": "regional_gateway"}
+{"seq": 6, "ts": 1787756374.2296169, "event": "action_submitted", "node_id": "load_dispatch", "action": {"action_id": "network-action-load_dispatch-6", "node_id": "load_dispatch", "action": "keep_current", "evidence_message_id": null}}

@@ -1,0 +1,6 @@
+{"seq": 1, "ts": 1787756171.1077578, "event": "edge_removed", "left": "treatment_control", "right": "municipal_gateway", "intervention_id": "model-v2-remove-t4v2_reservoir_quality_001-bridge"}
+{"seq": 2, "ts": 1787756171.1087856, "event": "message_injected", "message_id": "reservoir-quality-v1", "message": {"message_id": "reservoir-quality-v1", "source_id": "water_quality_sensor", "state_version": "v1", "payload": {"action_required": false, "target_action": "keep_current", "fact": "reservoir_water_safe"}}}
+{"seq": 3, "ts": 1787756175.185389, "event": "message_delivered", "message_id": "reservoir-quality-v1", "sender_id": "water_quality_sensor", "receiver_id": "treatment_control", "depth": 1}
+{"seq": 4, "ts": 1787756188.0032694, "event": "message_accepted", "message_id": "reservoir-quality-v1", "node_id": "treatment_control"}
+{"seq": 5, "ts": 1787756188.0075147, "event": "denied", "ok": false, "reason": "edge_unavailable", "message_id": "reservoir-quality-v1", "sender_id": "treatment_control", "receiver_id": "municipal_gateway"}
+{"seq": 6, "ts": 1787756199.4143772, "event": "action_submitted", "node_id": "distribution_dispatch", "action": {"action_id": "network-action-distribution_dispatch-6", "node_id": "distribution_dispatch", "action": "keep_current", "evidence_message_id": null}}
