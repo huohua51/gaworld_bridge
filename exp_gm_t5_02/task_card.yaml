@@ -1,0 +1,43 @@
+schema_version: 1
+task_id: TASK-T5-explicit-policy-semantics-v2
+task_family: T5
+target_axis: functional
+mechanism: [M1, M4, M8]
+control:
+  states: [absence, nonbinding]
+  absence: no active policy exists; notice_seen=false and every resident keeps current
+  nonbinding: notice exists but is not binding; notice_seen=true and every resident keeps current
+variant:
+  state: binding
+  expected_behavior: only eligible target residents adopt the required action
+oracle:
+  full: >-
+    Every model decision identifies notice presence and binding status correctly;
+    only eligible residents under binding policy change state.
+  disconnect_policy: >-
+    A registered policy stopped before activation is unavailable and treatment
+    cells are rejected at R0.
+required_events:
+  - population_registered
+  - policy_registered
+  - policy_activated
+  - policy_perceived
+  - resident_action_submitted
+primary_metric: explicit policy semantic discrimination
+diagnostic_metrics:
+  - notice-presence accuracy
+  - binding-status accuracy
+  - targeted behavior change rate
+  - nonbinding response rate
+  - untargeted spillover rate
+  - first_error
+human_reference: N/A
+status: rule_and_offline_model_calibration
+ranking_eligible: false
+policy_states: [absence, binding, nonbinding]
+tracks: [full, disconnect_policy]
+seeds: [0]
+note: >-
+  T5-v2 is independent of T5-v1. It separates notice_seen from binding and
+  forbids resident identity, current state or allowed actions from authorizing
+  a policy action. T5-v1 code and failed live evidence remain frozen.

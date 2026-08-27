@@ -1,0 +1,117 @@
+preregistration_id: T5-EXPLICIT-SEMANTICS-GLM52-v2
+registered_on: '2026-08-27'
+base_commit: fd270798087277fe6d13339c048bdfd511758c21
+phase: prospective_live_model_pilot
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  Across three fresh policy topics, does GLM-5.2 distinguish absence, binding
+  and nonbinding registered policy states, changing only eligible residents
+  under binding policy while preserving both no-notice and nonbinding baselines?
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t5v2_water_restriction_001
+    - t5v2_heat_activity_001
+    - t5v2_organics_rule_001
+  policy_states: [absence, binding, nonbinding]
+  track: full
+  seed: 0
+  residents_per_cell: 4
+  cells: 9
+  max_calls: 36
+  execution_order: task_then_policy_state_then_resident
+  prompt_protocol: gaworld-benchmark-t5-model-v2
+  scorer_version: model-pilot-t5-v2-scorer-v1
+
+frozen_inputs:
+  model_pilot/t5_v2.py: ff101a4442762a6c926d7549eaaff0ed866ebd3541bb5c1ccce6298eb37ef0de
+  model_pilot/t5_v2_scorer.py: b73e0c43e33f9b59b0ee9a474824a4ce66e8c6c64a69a676511a7452aad5cb58
+  model_pilot/t5_v2_run.py: 8399d1eb6728c8089d327fc1c7547f491c121281cf4472f50d091a9692a9ac17
+  exp_gm_t5_02/tasks.yaml: 8e9be0582ee082aae0e9b7f6da3958f04d73ddc60569cd5b49604f5b41293cd7
+  exp_gm_t5_02/task_card.yaml: 406d81870bcab36b958ec9ac08fb0365eb4fc9b76df4c36d2c68af79820d4f99
+  exp_gm_t5_02/protocol.md: caa68c43039b84d839a6b21f192861aa14d68a3abc5d44781952ecb35989d368
+  exp_gm_t5_02/loader.py: c782d08d6845daf94344ff2bbbad87531e6212e98834e8ebc4bd42da95a74917
+  exp_gm_t5_02/loop.py: 4c1b15fa3f4748a0dbd0a3ade0cdd4f0ed26ceb1dc49b105af3b6bd6a5f863ba
+  exp_gm_t5_02/scorer.py: 6d464215e1b635c38aeb83745441fc94f98ee140bb82f00ac473473bc3a7b668
+  exp_gm_t5_02/run_matrix.py: 62325831cc41786b65d6f240e2bbd449c1852a9ee28f491febe2ddd88a2d6dfd
+
+registered_oracle:
+  absence:
+    notice_seen: false
+    binding: false
+    behavior_change_rate: 0.0
+    full_pass_rate: 1.0
+  binding:
+    notice_seen: true
+    binding: true
+    behavior_change_rate: 0.5
+    full_pass_rate: 1.0
+  nonbinding:
+    notice_seen: true
+    binding: false
+    behavior_change_rate: 0.0
+    full_pass_rate: 1.0
+  causal_contrasts:
+    binding_minus_absence: 0.5
+    binding_minus_nonbinding: 0.5
+    nonbinding_minus_absence: 0.0
+  model_contract_rate: 1.0
+  policy_semantics_rate: 1.0
+  policy_response_rate: 1.0
+
+outcomes:
+  primary:
+    - full_pass_by_policy_state
+    - policy_semantics_rate
+    - policy_response_rate
+    - behavior_change_rate_by_policy_state
+    - binding_minus_absence
+    - binding_minus_nonbinding
+  secondary:
+    - nonbinding_minus_absence
+    - model_contract_rate
+    - no_untargeted_spillover
+    - first_error_counts
+
+analysis_rules:
+  absence: >-
+    Every response must report notice_seen=false and binding=false, and every
+    resident must keep_current.
+  binding: >-
+    Every response must report notice_seen=true and binding=true; exactly the
+    two registered eligible residents per task must adopt required_action.
+  nonbinding: >-
+    Every response must report notice_seen=true and binding=false, and every
+    resident must keep_current regardless of eligibility.
+  authorization_boundary: >-
+    Resident identity, group, current state, policy topic and allowed-actions
+    membership never authorize a non-default action.
+  behavior_change: >-
+    Count only state changes caused by recorded resident_action_submitted events.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+
+claim_boundary: >-
+  This is a three-task seed-0 functional pilot of explicit policy semantics.
+  It does not estimate real-world policy effects, human validity, repeated-run
+  stability, broad topic generalization or leaderboard performance.
+
+stopping_rules:
+  - Stop after all nine registered cells finish.
+  - Stop before any call that would exceed the shared 36-call budget.
+  - Do not retry a structurally valid model response.
+  - Do not replace an invalid or failed cell during the registered run.
+
+planned_entrypoint: python -m model_pilot.t5_v2_run
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
