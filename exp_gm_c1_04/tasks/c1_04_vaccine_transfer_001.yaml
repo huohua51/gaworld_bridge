@@ -1,0 +1,17 @@
+id: c1_04_vaccine_transfer_001
+title: 疫苗转运舱交接窗口
+resource_id: vaccine_transfer_chamber
+slots: [vt201, vt202, vt203]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection:
+  agent_id: agent_a
+  slot: vt201
+  event_id: archive_lock_vt_v4
+agent_a:
+  control: {feasible: [vt201, vt202, vt203], preferred: vt201}
+  intervention: {feasible: [vt201, vt202, vt203], preferred: vt202}
+agent_b:
+  control: {feasible: [vt203, vt201, vt202], preferred: vt203}
+  intervention: {feasible: [vt201, vt203, vt202], preferred: vt201}

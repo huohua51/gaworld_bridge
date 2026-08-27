@@ -1,0 +1,17 @@
+id: c1_04_acoustic_booth_001
+title: 声学隔离舱测试窗口
+resource_id: acoustic_booth
+slots: [ab301, ab302, ab303]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection:
+  agent_id: agent_a
+  slot: ab301
+  event_id: archive_lock_ab_v4
+agent_a:
+  control: {feasible: [ab301, ab303, ab302], preferred: ab301}
+  intervention: {feasible: [ab301, ab303, ab302], preferred: ab303}
+agent_b:
+  control: {feasible: [ab302, ab301, ab303], preferred: ab302}
+  intervention: {feasible: [ab301, ab303, ab302], preferred: ab301}

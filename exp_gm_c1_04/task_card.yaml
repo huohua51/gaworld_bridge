@@ -1,0 +1,36 @@
+experiment_id: EXP-GM-C1-04
+parent: EXP-GM-C1-03
+task_family: C1
+construct: joint_resource_coordination_retry_with_platform_owned_plan_registry
+status: preregistered_not_run
+ranking_eligible: false
+generalization_claim: false
+primary_track: full
+variants: [control, intervention]
+tasks:
+  - c1_04_telescope_mount_001
+  - c1_04_vaccine_transfer_001
+  - c1_04_acoustic_booth_001
+roles: [agent_a, agent_b, coordinator]
+model_calls_per_cell: 6
+matrix: 3x2x1x1
+registered_model: GLM-5.2
+registered_provider: paratera_glm
+registered_temperature: 0.0
+registered_thinking: disabled
+platform_invariants:
+  - model_never_issues_plan_id_or_spec_version
+  - rejected_proposal_never_receives_plan_id
+  - protection_revision_advances_spec_version
+  - pre_revision_plan_cannot_be_confirmed
+  - only_registry_confirmed_agent_claims_enter_world
+preregistered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  nack_path_intervention: 1.0
+  nack_path_control: 0.0
+  retry_recovery_intervention: 1.0
+  platform_identifier_ownership: 1.0
+  stale_plan_rejected: 1.0
+does_not_overwrite: [EXP-GM-C1-02, EXP-GM-C1-03]
+ap_items: [AP-C1-D-01, AP-C1-F-01]

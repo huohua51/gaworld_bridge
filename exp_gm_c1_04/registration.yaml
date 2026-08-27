@@ -1,0 +1,99 @@
+gate: preregistered_not_run
+preregistration_id: C1-PLATFORM-OWNED-PLAN-GLM52-v4
+registered_on: '2026-08-27'
+base_commit: 6d57a6c2ce95144f3da6c4c9d2020d7ee1756ccd
+required_gaworld_commit: ad93e9d8c2848158bdf78ad789cb3b7c6a9d4d49
+phase: prospective_fresh_surface_seed0_repair_regression
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  After assigning plan/spec identifiers exclusively to the platform, does
+  GLM-5.2 recover from all three registered protection NACKs on fresh C1
+  surfaces while preserving the no-NACK control path and binding both agents'
+  execution to the current-spec accepted plan?
+
+provider:
+  name: paratera_glm
+  gateway: paratera
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  api_protocol: openai_chat_completions
+  api_key_env: PARATERA_API_KEY
+  temperature: 0.0
+  temperature_parameter_sent: true
+  thinking: disabled
+  max_tokens_per_call: 384
+
+design:
+  task_ids:
+    - c1_04_telescope_mount_001
+    - c1_04_vaccine_transfer_001
+    - c1_04_acoustic_booth_001
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  calls_per_cell: 6
+  max_calls: 36
+  scorer_version: c1-platform-plan-v4.0
+  fresh_relative_to:
+    - EXP-GM-C1-02
+    - EXP-GM-C1-03
+
+registered_call_order:
+  - agent_a_private_report
+  - agent_b_private_report
+  - coordinator_phase1_proposal
+  - coordinator_post_revision_proposal
+  - agent_a_confirmation
+  - agent_b_confirmation
+
+platform_invariants:
+  - Models may output assignments and confirmations, never plan_id, plan_version, or spec_version.
+  - Only accepted proposals receive a platform plan_id.
+  - Registering the protection record advances spec-001 to spec-002.
+  - A plan stamped under spec-001 is stale and cannot be confirmed after the revision.
+  - The NACK names violated constraints but never the low-priority repair slot.
+  - Only registry-confirmed claims bound to the delivered current-spec plan enter world state.
+  - The platform and environment never rewrite model assignments.
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  nack_path_intervention: 1.0
+  nack_path_control: 0.0
+  retry_recovery_intervention: 1.0
+  platform_identifier_ownership: 1.0
+  spec_revision_advanced: 1.0
+  stale_plan_rejected: 1.0
+
+stopping_rule: >-
+  Run exactly the six seed-0 cells once. Stop after recording any result. Do
+  not edit prompts, tasks, oracle, scorer, platform channel, or core registry
+  based on live output. A failed registered gate remains evidence and requires
+  a new experiment number for further repair.
+
+scope_limits:
+  - A pass closes AP-C1-D-01 and AP-C1-F-01 as implementation regressions only.
+  - A pass does not overwrite the frozen scores of C1-02 or C1-03.
+  - One model and one seed do not support a broad model-generalization claim.
+  - Drop-delivery and rejected-proposal stamping are deterministic platform tests, not extra paid cells.
+
+frozen_inputs:
+  exp_gm_c1_04/task_card.yaml: 1e01af9dbd530e178539f3690f114a241a90cb806e3e9c87084addb9a1121954
+  exp_gm_c1_04/protocol.md: c03f301bb3fb690f877175c45198b30e7c0a7e6ff0532aebd9d79a15d7be3d3d
+  exp_gm_c1_04/channel.py: 411b1e54ee5ed72515683d329155d572deea1c985f4def78021e90e70a750c40
+  exp_gm_c1_04/loader.py: d7b6846a3ee2d765f6be3afc7682071d0e2494775b274f64a9a52e5e7c670957
+  exp_gm_c1_04/protocol.py: f1fe1b32af870111bb578ed71cf94bba16472ed00728d26479d50fc910703c65
+  exp_gm_c1_04/scorer.py: 1a1d7f78e3eb4df17a63978a22c2ac601519d17dd3f5ec9db56dbe2deb7844db
+  exp_gm_c1_04/fixture.py: 9aadcd2c27fb32ce77c7742105ef2456dec98daa04586bb1a7fb19ce25b94e05
+  exp_gm_c1_04/run_matrix.py: f4fc62d973fe1adc0ae0887d90329c26e2cd636abe6dc04cd46542a5bb2ceec4
+  exp_gm_c1_04/tasks/c1_04_telescope_mount_001.yaml: 9ea75d8947e3db94f6a2baf6aa113506402cd61fd030038aba0a782418a8975c
+  exp_gm_c1_04/tasks/c1_04_vaccine_transfer_001.yaml: 2ee2a444c602592bea739b0a4c62f24d772d9c02493ecf8ea209c2b123ef37d0
+  exp_gm_c1_04/tasks/c1_04_acoustic_booth_001.yaml: 59b7dbd0f998c394a30536069f7782029fb3c39fc72cddf4c12e1c94fe42740e
+  exp_gm_c1_04/oracle/c1_04_telescope_mount_001.json: 2dc5b6c681170be7327cb2bbc2f34fe2d5379b7918c20fa898507417f2ffbfb2
+  exp_gm_c1_04/oracle/c1_04_vaccine_transfer_001.json: 92b7d9012f67dd8b92fe8863e06480e2da809cbe5320928960616feb2611253f
+  exp_gm_c1_04/oracle/c1_04_acoustic_booth_001.json: 6294eeda63752ab1eee42394a7b06705c3e9f309f424d61d7b2f6151541261be
+  benchmark_core/model_runner.py: f99c67512056200bf33456a64e835cee2861193362282578b571940a1babb40d
+  ../GAWorld/gaworld/work/coordination.py: 84e8ac288caaaafd684abd006e72266f68320737a6a7053b8b17644040167575
+  ../GAWorld/gaworld/work/plan_registry.py: 59038be490a66fffb3fe92bb75c631bd67aeb836cd64ad8e3d419a593655c418

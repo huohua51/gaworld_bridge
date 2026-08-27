@@ -1,0 +1,4 @@
+{
+  "control": {"initial": {"agent_a": "vt201", "agent_b": "vt203"}, "final": {"agent_a": "vt201", "agent_b": "vt203"}, "nack_expected": false},
+  "intervention": {"initial": {"agent_a": "vt202", "agent_b": "vt201"}, "final": {"agent_a": "vt201", "agent_b": "vt203"}, "nack_expected": true}
+}

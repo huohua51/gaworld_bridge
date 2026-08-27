@@ -1,0 +1,17 @@
+id: c1_04_telescope_mount_001
+title: 望远镜支架标定窗口
+resource_id: telescope_mount
+slots: [tm101, tm102, tm103]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection:
+  agent_id: agent_a
+  slot: tm101
+  event_id: archive_lock_tm_v4
+agent_a:
+  control: {feasible: [tm101, tm102, tm103], preferred: tm101}
+  intervention: {feasible: [tm101, tm102, tm103], preferred: tm102}
+agent_b:
+  control: {feasible: [tm101, tm102, tm103], preferred: tm102}
+  intervention: {feasible: [tm101, tm102, tm103], preferred: tm101}
