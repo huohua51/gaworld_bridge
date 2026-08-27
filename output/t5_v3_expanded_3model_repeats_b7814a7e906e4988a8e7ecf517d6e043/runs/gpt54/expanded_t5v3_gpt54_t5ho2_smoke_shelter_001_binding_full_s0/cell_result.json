@@ -1,0 +1,335 @@
+{
+  "workflow_id": "model_pilot_t5_v3_scope",
+  "instance_id": "model_v3_t5ho2_smoke_shelter_001_binding_full_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-1",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-2",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-3",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"activate_clean_air_room\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"smoke-childcare-1\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-1\", \"expected\": {\"action\": \"activate_clean_air_room\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"activate_clean_air_room\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"smoke-childcare-2\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-2\", \"expected\": {\"action\": \"activate_clean_air_room\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"smoke-school-1\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"smoke-library-1\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-1",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-2",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-3",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\gpt54\\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0\\policy_trace.jsonl",
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\gpt54\\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0\\model_trace.jsonl",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-1",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-2",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-3",
+        "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-4",
+        "policy-action-smoke-childcare-1-6",
+        "policy-action-smoke-childcare-2-8",
+        "policy-action-smoke-school-1-10",
+        "policy-action-smoke-library-1-12"
+      ],
+      "detail": "expected={'smoke-childcare-1': 'activate_clean_air_room', 'smoke-childcare-2': 'activate_clean_air_room', 'smoke-school-1': 'keep_current', 'smoke-library-1': 'keep_current'} actual={'smoke-childcare-1': 'activate_clean_air_room', 'smoke-childcare-2': 'activate_clean_air_room', 'smoke-school-1': 'keep_current', 'smoke-library-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\gpt54\\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "smoke-childcare-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "activate_clean_air_room"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "activate_clean_air_room"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-1"
+      },
+      {
+        "agent_id": "smoke-childcare-2",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "activate_clean_air_room"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "activate_clean_air_room"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-2"
+      },
+      {
+        "agent_id": "smoke-school-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-3"
+      },
+      {
+        "agent_id": "smoke-library-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0:call-4"
+      }
+    ],
+    "expected_actions": {
+      "smoke-childcare-1": "activate_clean_air_room",
+      "smoke-childcare-2": "activate_clean_air_room",
+      "smoke-school-1": "keep_current",
+      "smoke-library-1": "keep_current"
+    },
+    "actual_actions": {
+      "smoke-childcare-1": "activate_clean_air_room",
+      "smoke-childcare-2": "activate_clean_air_room",
+      "smoke-school-1": "keep_current",
+      "smoke-library-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "eligibility_scope_repeat",
+    "provider": "qweapi_anthropic",
+    "model_calls": 4,
+    "policy_state": "binding",
+    "repeat_id": 0,
+    "behavior_change_rate": 0.5,
+    "changed_agent_ids": [
+      "smoke-childcare-1",
+      "smoke-childcare-2"
+    ],
+    "target_agent_ids": [
+      "smoke-childcare-1",
+      "smoke-childcare-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "smoke-childcare-1": "5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9",
+      "smoke-childcare-2": "a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649",
+      "smoke-school-1": "b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465",
+      "smoke-library-1": "6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v3_t5ho2_smoke_shelter_001_binding_full_r0",
+      "task_id": "t5ho2_smoke_shelter_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:binding:full:scope_v3",
+      "variant": "binding",
+      "seed": 0,
+      "track": "full",
+      "model_version": "gpt-5.4",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v3",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1",
+      "evidence_id": "bundle:model_v3_t5ho2_smoke_shelter_001_binding_full_r0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

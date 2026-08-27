@@ -1,0 +1,335 @@
+{
+  "workflow_id": "model_pilot_t5_v3_scope",
+  "instance_id": "model_v3_t5ho2_bridge_weight_001_binding_full_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-1",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-2",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-3",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"reroute_heavy_vehicle\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"bridge-heavy-1\", \"evidence_id\": \"model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-1\", \"expected\": {\"action\": \"reroute_heavy_vehicle\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"reroute_heavy_vehicle\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"bridge-heavy-2\", \"evidence_id\": \"model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-2\", \"expected\": {\"action\": \"reroute_heavy_vehicle\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"bridge-light-1\", \"evidence_id\": \"model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"bridge-bus-1\", \"evidence_id\": \"model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-1",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-2",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-3",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\glm52\\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0\\policy_trace.jsonl",
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\glm52\\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0\\model_trace.jsonl",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-1",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-2",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-3",
+        "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-4",
+        "policy-action-bridge-heavy-1-6",
+        "policy-action-bridge-heavy-2-8",
+        "policy-action-bridge-light-1-10",
+        "policy-action-bridge-bus-1-12"
+      ],
+      "detail": "expected={'bridge-heavy-1': 'reroute_heavy_vehicle', 'bridge-heavy-2': 'reroute_heavy_vehicle', 'bridge-light-1': 'keep_current', 'bridge-bus-1': 'keep_current'} actual={'bridge-heavy-1': 'reroute_heavy_vehicle', 'bridge-heavy-2': 'reroute_heavy_vehicle', 'bridge-light-1': 'keep_current', 'bridge-bus-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\glm52\\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "bridge-heavy-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "reroute_heavy_vehicle"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "reroute_heavy_vehicle"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191",
+        "evidence_id": "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-1"
+      },
+      {
+        "agent_id": "bridge-heavy-2",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "reroute_heavy_vehicle"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "reroute_heavy_vehicle"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d",
+        "evidence_id": "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-2"
+      },
+      {
+        "agent_id": "bridge-light-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f",
+        "evidence_id": "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-3"
+      },
+      {
+        "agent_id": "bridge-bus-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700",
+        "evidence_id": "model-call:expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0:call-4"
+      }
+    ],
+    "expected_actions": {
+      "bridge-heavy-1": "reroute_heavy_vehicle",
+      "bridge-heavy-2": "reroute_heavy_vehicle",
+      "bridge-light-1": "keep_current",
+      "bridge-bus-1": "keep_current"
+    },
+    "actual_actions": {
+      "bridge-heavy-1": "reroute_heavy_vehicle",
+      "bridge-heavy-2": "reroute_heavy_vehicle",
+      "bridge-light-1": "keep_current",
+      "bridge-bus-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "eligibility_scope_repeat",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "policy_state": "binding",
+    "repeat_id": 0,
+    "behavior_change_rate": 0.5,
+    "changed_agent_ids": [
+      "bridge-heavy-1",
+      "bridge-heavy-2"
+    ],
+    "target_agent_ids": [
+      "bridge-heavy-1",
+      "bridge-heavy-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "bridge-heavy-1": "da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191",
+      "bridge-heavy-2": "bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d",
+      "bridge-light-1": "a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f",
+      "bridge-bus-1": "c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v3_t5ho2_bridge_weight_001_binding_full_r0",
+      "task_id": "t5ho2_bridge_weight_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:binding:full:scope_v3",
+      "variant": "binding",
+      "seed": 0,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v3",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1",
+      "evidence_id": "bundle:model_v3_t5ho2_bridge_weight_001_binding_full_r0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "workflow_id": "model_pilot_t5_v3_scope",
+  "instance_id": "model_v3_t5ho2_smoke_shelter_001_nonbinding_full_r1",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "artifact_gate_failed",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 20260827052714744878007Oz1VxSrS)\"},\"type\":\"error\"}',provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 202608270527156861086994T9j5bnR)\"},\"type\":\"error\"}',provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 202608270527164555931558OugtCYR)\"},\"type\":\"error\"}',provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 20260827052716958925454WEITJsIi)\"},\"type\":\"error\"}'"
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-1",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-2",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-3",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-4"
+      ],
+      "detail": "[{\"action_correct\": false, \"actual\": {\"action\": null, \"authorized\": null, \"binding\": null, \"notice_seen\": null, \"target_match\": null}, \"agent_id\": \"smoke-childcare-1\", \"evidence_id\": \"model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-1\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a\", \"prompt_unambiguous\": true, \"semantic_correct\": false}, {\"action_correct\": false, \"actual\": {\"action\": null, \"authorized\": null, \"binding\": null, \"notice_seen\": null, \"target_match\": null}, \"agent_id\": \"smoke-childcare-2\", \"evidence_id\": \"model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-2\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e\", \"prompt_unambiguous\": true, \"semantic_correct\": false}, {\"action_correct\": false, \"actual\": {\"action\": null, \"authorized\": null, \"binding\": null, \"notice_seen\": null, \"target_match\": null}, \"agent_id\": \"smoke-school-1\", \"evidence_id\": \"model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7\", \"prompt_unambiguous\": true, \"semantic_correct\": false}, {\"action_correct\": false, \"actual\": {\"action\": null, \"authorized\": null, \"binding\": null, \"notice_seen\": null, \"target_match\": null}, \"agent_id\": \"smoke-library-1\", \"evidence_id\": \"model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2\", \"prompt_unambiguous\": true, \"semantic_correct\": false}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-1",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-2",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-3",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\qwen37plus\\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1\\policy_trace.jsonl",
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\qwen37plus\\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1\\model_trace.jsonl",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-1",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-2",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-3",
+        "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-4"
+      ],
+      "detail": "expected={'smoke-childcare-1': 'keep_current', 'smoke-childcare-2': 'keep_current', 'smoke-school-1': 'keep_current', 'smoke-library-1': 'keep_current'} actual={}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\qwen37plus\\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "model_response_contract_invalid",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "policy_perceived",
+      "policy_perceived",
+      "policy_perceived"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "smoke-childcare-1",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": true,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": null,
+          "binding": null,
+          "target_match": null,
+          "authorized": null,
+          "action": null
+        },
+        "semantic_correct": false,
+        "action_correct": false,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a",
+        "evidence_id": "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-1"
+      },
+      {
+        "agent_id": "smoke-childcare-2",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": true,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": null,
+          "binding": null,
+          "target_match": null,
+          "authorized": null,
+          "action": null
+        },
+        "semantic_correct": false,
+        "action_correct": false,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e",
+        "evidence_id": "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-2"
+      },
+      {
+        "agent_id": "smoke-school-1",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": null,
+          "binding": null,
+          "target_match": null,
+          "authorized": null,
+          "action": null
+        },
+        "semantic_correct": false,
+        "action_correct": false,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7",
+        "evidence_id": "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-3"
+      },
+      {
+        "agent_id": "smoke-library-1",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": null,
+          "binding": null,
+          "target_match": null,
+          "authorized": null,
+          "action": null
+        },
+        "semantic_correct": false,
+        "action_correct": false,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2",
+        "evidence_id": "model-call:expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1:call-4"
+      }
+    ],
+    "expected_actions": {
+      "smoke-childcare-1": "keep_current",
+      "smoke-childcare-2": "keep_current",
+      "smoke-school-1": "keep_current",
+      "smoke-library-1": "keep_current"
+    },
+    "actual_actions": {},
+    "model_errors": [
+      "provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 20260827052714744878007Oz1VxSrS)\"},\"type\":\"error\"}'",
+      "provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 202608270527156861086994T9j5bnR)\"},\"type\":\"error\"}'",
+      "provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 202608270527164555931558OugtCYR)\"},\"type\":\"error\"}'",
+      "provider_error:HTTPError:Anthropic provider request failed with HTTP 403. base_url='https://qweapi.com', model='qwen3.7-plus', api_key_present=True, api_key_envs=[ANTHROPIC_API_KEY], api_key_source='ANTHROPIC_API_KEY', attempts=[{'scheme': 'raw', 'status': 403, 'authorization_sent': True, 'x_api_key_sent': False}], response='{\"error\":{\"type\":\"new_api_error\",\"message\":\"用户额度不足, 剩余额度: ¥-0.015596 (request id: 20260827052716958925454WEITJsIi)\"},\"type\":\"error\"}'"
+    ]
+  },
+  "extra": {
+    "phase": "eligibility_scope_repeat",
+    "provider": "qweapi_anthropic",
+    "model_calls": 4,
+    "policy_state": "nonbinding",
+    "repeat_id": 1,
+    "behavior_change_rate": 0.0,
+    "changed_agent_ids": [],
+    "target_agent_ids": [
+      "smoke-childcare-1",
+      "smoke-childcare-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "smoke-childcare-1": "7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a",
+      "smoke-childcare-2": "8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e",
+      "smoke-school-1": "366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7",
+      "smoke-library-1": "894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v3_t5ho2_smoke_shelter_001_nonbinding_full_r1",
+      "task_id": "t5ho2_smoke_shelter_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:nonbinding:full:scope_v3",
+      "variant": "nonbinding",
+      "seed": 1,
+      "track": "full",
+      "model_version": "qwen3.7-plus",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v3",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1",
+      "evidence_id": "bundle:model_v3_t5ho2_smoke_shelter_001_nonbinding_full_r1"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    },
+    "first_error": "model_response_contract_invalid"
+  }
+}

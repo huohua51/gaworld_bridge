@@ -1,0 +1,4831 @@
+pilot_id: T5-V3-EXPANDED-3MODEL-REPEAT-v1
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T5_V3_EXPANDED_3MODEL_REPEAT_v1.yaml
+registration_sha256: 9b76496a3e39ff529ca5e0341d35b9a7a9d2015161914d0d2e7fed085d2aca01
+base_commit: 27fe41523ed651cb73fd6e7311f70007a3ecc9e6
+model_order:
+- glm52
+- gpt54
+- qwen37plus
+seed_order:
+- 0
+- 1
+models:
+  glm52:
+    provider_adapter: paratera_glm
+    gateway: paratera
+    model: GLM-5.2
+    observed_provider: paratera_glm
+    observed_model: GLM-5.2
+    live: true
+  gpt54:
+    provider_adapter: qweapi_anthropic
+    gateway: qweapi_anthropic
+    model: gpt-5.4
+    observed_provider: qweapi_anthropic
+    observed_model: gpt-5.4
+    live: true
+  qwen37plus:
+    provider_adapter: qweapi_anthropic
+    gateway: qweapi_anthropic
+    model: qwen3.7-plus
+    observed_provider: qweapi_anthropic
+    observed_model: qwen3.7-plus
+    live: true
+live_model_explicitly_allowed: true
+runner_temperature_label: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+prompt_protocol: gaworld-benchmark-t5-model-v3
+ranking_eligible: false
+registered_design_adherent: true
+all_registered_outcomes_pass: false
+n_cells: 72
+per_model:
+  glm52:
+    model_key: glm52
+    all_registered_outcomes_pass: true
+    n_cells: 24
+    FullPassByPolicyState:
+      absence: 1.0
+      binding: 1.0
+      nonbinding: 1.0
+    BehaviorChangeRateByPolicyState:
+      absence: 0.0
+      binding: 0.5
+      nonbinding: 0.0
+    causal_contrasts:
+      binding_minus_absence: 0.5
+      binding_minus_nonbinding: 0.5
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    policy_response_rate: 1.0
+    first_error_counts:
+      none: 24
+    budget:
+      max_calls: 96
+      calls_used: 96
+      calls_remaining: 0
+      prompt_chars: 140264
+      response_chars: 23834
+      max_prompt_chars_per_call: 50000
+      max_response_chars_per_call: 2000
+  gpt54:
+    model_key: gpt54
+    all_registered_outcomes_pass: true
+    n_cells: 24
+    FullPassByPolicyState:
+      absence: 1.0
+      binding: 1.0
+      nonbinding: 1.0
+    BehaviorChangeRateByPolicyState:
+      absence: 0.0
+      binding: 0.5
+      nonbinding: 0.0
+    causal_contrasts:
+      binding_minus_absence: 0.5
+      binding_minus_nonbinding: 0.5
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    policy_response_rate: 1.0
+    first_error_counts:
+      none: 24
+    budget:
+      max_calls: 96
+      calls_used: 96
+      calls_remaining: 0
+      prompt_chars: 140264
+      response_chars: 21507
+      max_prompt_chars_per_call: 50000
+      max_response_chars_per_call: 2000
+  qwen37plus:
+    model_key: qwen37plus
+    all_registered_outcomes_pass: false
+    n_cells: 24
+    FullPassByPolicyState:
+      absence: 0.625
+      binding: 0.625
+      nonbinding: 0.5
+    BehaviorChangeRateByPolicyState:
+      absence: 0.0
+      binding: 0.3125
+      nonbinding: 0.0
+    causal_contrasts:
+      binding_minus_absence: 0.3125
+      binding_minus_nonbinding: 0.3125
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 0.5833
+    scope_semantics_rate: 0.5833
+    resident_directive_rate: 0.5833
+    policy_response_rate: 0.5833
+    first_error_counts:
+      model_response_contract_invalid: 10
+      none: 14
+    budget:
+      max_calls: 96
+      calls_used: 96
+      calls_remaining: 0
+      prompt_chars: 140264
+      response_chars: 12053
+      max_prompt_chars_per_call: 50000
+      max_response_chars_per_call: 2000
+cross_model_exact_agreement_rate: 0.5833
+cross_model_prompt_identity_rate: 1.0
+repeat_exact_agreement_rate: 0.7222
+repeat_prompt_identity_rate: 1.0
+by_seed_task_policy_state:
+  s0:t5ho2_cold_chain_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_cold_chain_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.5
+  s0:t5ho2_cold_chain_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_smoke_shelter_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_smoke_shelter_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.5
+  s0:t5ho2_smoke_shelter_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_nursery_quarantine_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_nursery_quarantine_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.5
+  s0:t5ho2_nursery_quarantine_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_bridge_weight_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s0:t5ho2_bridge_weight_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.5
+  s0:t5ho2_bridge_weight_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_cold_chain_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_cold_chain_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.5
+  s1:t5ho2_cold_chain_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_smoke_shelter_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_smoke_shelter_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.0
+  s1:t5ho2_smoke_shelter_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_nursery_quarantine_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_nursery_quarantine_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.0
+  s1:t5ho2_nursery_quarantine_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_bridge_weight_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+  s1:t5ho2_bridge_weight_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+      qwen37plus: 0.0
+  s1:t5ho2_bridge_weight_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    - qwen37plus
+    prompt_identical_across_models: true
+    outcome_exact_agreement: false
+    full_pass:
+      glm52: 1
+      gpt54: 1
+      qwen37plus: 0
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+      qwen37plus: 0.0
+by_model_task_policy_state_repeats:
+  glm52:t5ho2_cold_chain_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_cold_chain_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  glm52:t5ho2_cold_chain_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_smoke_shelter_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_smoke_shelter_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  glm52:t5ho2_smoke_shelter_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_nursery_quarantine_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_nursery_quarantine_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  glm52:t5ho2_nursery_quarantine_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_bridge_weight_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  glm52:t5ho2_bridge_weight_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  glm52:t5ho2_bridge_weight_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_cold_chain_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_cold_chain_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  gpt54:t5ho2_cold_chain_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_smoke_shelter_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_smoke_shelter_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  gpt54:t5ho2_smoke_shelter_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_nursery_quarantine_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_nursery_quarantine_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  gpt54:t5ho2_nursery_quarantine_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_bridge_weight_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  gpt54:t5ho2_bridge_weight_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  gpt54:t5ho2_bridge_weight_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_cold_chain_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_cold_chain_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass:
+      '0': 1
+      '1': 1
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.5
+  qwen37plus:t5ho2_cold_chain_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_smoke_shelter_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_smoke_shelter_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.0
+  qwen37plus:t5ho2_smoke_shelter_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_nursery_quarantine_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_nursery_quarantine_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.0
+  qwen37plus:t5ho2_nursery_quarantine_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_bridge_weight_001:absence:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+  qwen37plus:t5ho2_bridge_weight_001:binding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.5
+      '1': 0.0
+  qwen37plus:t5ho2_bridge_weight_001:nonbinding:
+    seeds:
+    - 0
+    - 1
+    prompt_identical_across_repeats: true
+    outcome_exact_agreement: false
+    full_pass:
+      '0': 1
+      '1': 0
+    behavior_change_rate:
+      '0': 0.0
+      '1': 0.0
+total_calls: 288
+cells:
+- model_key: glm52
+  task_id: t5ho2_cold_chain_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: 18657db8289fcd332b003dbb7a934ca53a6e3a121d7dd8d5e4618659c769e51d
+    coldchain-distributor-2: b396de33dad8949ec940155f6e777d48107aa6481e0afa4ce62aa1a1c8759652
+    coldchain-wholesaler-1: 672cf5b2376cec583490f5ed571451b0dc523c515e5943bd6a19d5f8a7338815
+    coldchain-clinic-1: 16ef2ee417a4367ad62a20812e72b6d348c4979609acfc2a3780b1dd7c3e9f5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_cold_chain_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - coldchain-distributor-1
+  - coldchain-distributor-2
+  actual_actions:
+    coldchain-distributor-1: isolate_exposed_medicine
+    coldchain-distributor-2: isolate_exposed_medicine
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: cd34d7a63539c718e182b5995601842b2903506204ae273c727e3cb721f23f08
+    coldchain-distributor-2: 1e7ca78fb5702393bfe8bb98acbd1bf8c177555fdcb7a508ee32e53478c24ab2
+    coldchain-wholesaler-1: 6c8000e7796ff6c78d3fc30d575cf2be1a11f5cb0e049699a984ecac8d0fe1da
+    coldchain-clinic-1: 7ecfa6aba2091188605fd7edb6c81472ac494452b32e10a8610b5ba75f36a793
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_cold_chain_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: eda36c2aec7226f0ef9b9e2c67d2d85b4ffebe431e080683622e35642e99bc1a
+    coldchain-distributor-2: bb9cd1c654cdf14d38cc744f55dcc26843d6687aafde8613dbaaaa65c680d4a2
+    coldchain-wholesaler-1: 9b11480aee3f2ae601eb84ed64b34db36d7a0fbbca3c27217c96cdcddc5cfbf6
+    coldchain-clinic-1: 7b33523207bbad0c702a8243eb97ff5d496974282b0290182b2771cedcb67bbd
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 60091e4bec43e00c0050cb2ee29289890cff99385b1fdc5fb2c62afcd4eb2e93
+    smoke-childcare-2: 9cd1976fffe8d800613d42b3bf1cd44d1fb8b45408f00868620587e14ce0c959
+    smoke-school-1: 9e732c471bb0a3a2c599decf92f5e00956557b3310dbb6d2deb1e139b77aeb1e
+    smoke-library-1: afbb2ef7cbd63c6e225819d64b7668a47b88a3c20b920450679ce67379d1dca6
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - smoke-childcare-1
+  - smoke-childcare-2
+  actual_actions:
+    smoke-childcare-1: activate_clean_air_room
+    smoke-childcare-2: activate_clean_air_room
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-childcare-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-school-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9
+    smoke-childcare-2: a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649
+    smoke-school-1: b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465
+    smoke-library-1: 6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a
+    smoke-childcare-2: 8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e
+    smoke-school-1: 366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7
+    smoke-library-1: 894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6
+    nursery-regulated-2: a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356
+    nursery-seedbank-1: 738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db
+    nursery-garden-1: 58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - nursery-regulated-1
+  - nursery-regulated-2
+  actual_actions:
+    nursery-regulated-1: suspend_plant_shipments
+    nursery-regulated-2: suspend_plant_shipments
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-regulated-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: d9f16e08617bcaf593091240d084700000a0cfe68e20fc0d7427684f74ed0eab
+    nursery-regulated-2: cb3a9ae8db9bcef12d8d2b6eac21c55926906d5ecd6d22e84d2a8727dec03d4a
+    nursery-seedbank-1: 875644cec2c93896e15199705b10d7db24128d65ea5ca981cef7ea6ddbb3ecad
+    nursery-garden-1: 3014a41dacd631a311112e4de4c76a3dd9c0774d722dce85d68f71c9af8eac2b
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 166e2634763d6c56b53de9e3570bf7d2fd8f63979fc965189bc2da8db6809102
+    nursery-regulated-2: d242e71829d80bb0aadca90cc03ce51b39a6d6b1ea2741544a777d3beb89e13c
+    nursery-seedbank-1: 9e5e46d8ae50b54f7f3a9120ee7ec2139f836468f51f961af59ff0369fcf5b57
+    nursery-garden-1: 0e0369ac4f0a355e5e0868a53e00b790c233e185b2c3800c5bb08841cff3c772
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_bridge_weight_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 43fc3de6e5dfa438ed94c1d59e452c409fc2b3a99dd9e7468745379bea958964
+    bridge-heavy-2: 732bc8231537985200a73ae57f5f7568e30805a447c844544e0c331dd2a59e8b
+    bridge-light-1: 2534543de9a70fd7e4e9e2e2c7422d3f8ccb86b0f24a3ed17837e8e4554ab0e4
+    bridge-bus-1: 2870c91f87c8658c06acabb4680b52176b55866902d66473b617c6ce24918b5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_bridge_weight_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - bridge-heavy-1
+  - bridge-heavy-2
+  actual_actions:
+    bridge-heavy-1: reroute_heavy_vehicle
+    bridge-heavy-2: reroute_heavy_vehicle
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-heavy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-light-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191
+    bridge-heavy-2: bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d
+    bridge-light-1: a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f
+    bridge-bus-1: c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_bridge_weight_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 9d98780880aa417134f2bf1b46951df29fcacfc22f7af530759109b33acb72c8
+    bridge-heavy-2: 1c1ee84f8806f391588f739fb1d0dcbe90a8e3e40c788bbf585677e34a2e5d88
+    bridge-light-1: ce06caffe7926566254115ddf98f4517de88e7b4a06cfda9d8ac6ba6c6fb6b2a
+    bridge-bus-1: e0555a896a993f56577e9fb5767ddad0ec5d30bcf829a4fcafb6e7e193da7c33
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_cold_chain_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: 18657db8289fcd332b003dbb7a934ca53a6e3a121d7dd8d5e4618659c769e51d
+    coldchain-distributor-2: b396de33dad8949ec940155f6e777d48107aa6481e0afa4ce62aa1a1c8759652
+    coldchain-wholesaler-1: 672cf5b2376cec583490f5ed571451b0dc523c515e5943bd6a19d5f8a7338815
+    coldchain-clinic-1: 16ef2ee417a4367ad62a20812e72b6d348c4979609acfc2a3780b1dd7c3e9f5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_absence_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_cold_chain_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - coldchain-distributor-1
+  - coldchain-distributor-2
+  actual_actions:
+    coldchain-distributor-1: isolate_exposed_medicine
+    coldchain-distributor-2: isolate_exposed_medicine
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: cd34d7a63539c718e182b5995601842b2903506204ae273c727e3cb721f23f08
+    coldchain-distributor-2: 1e7ca78fb5702393bfe8bb98acbd1bf8c177555fdcb7a508ee32e53478c24ab2
+    coldchain-wholesaler-1: 6c8000e7796ff6c78d3fc30d575cf2be1a11f5cb0e049699a984ecac8d0fe1da
+    coldchain-clinic-1: 7ecfa6aba2091188605fd7edb6c81472ac494452b32e10a8610b5ba75f36a793
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_binding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_cold_chain_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: eda36c2aec7226f0ef9b9e2c67d2d85b4ffebe431e080683622e35642e99bc1a
+    coldchain-distributor-2: bb9cd1c654cdf14d38cc744f55dcc26843d6687aafde8613dbaaaa65c680d4a2
+    coldchain-wholesaler-1: 9b11480aee3f2ae601eb84ed64b34db36d7a0fbbca3c27217c96cdcddc5cfbf6
+    coldchain-clinic-1: 7b33523207bbad0c702a8243eb97ff5d496974282b0290182b2771cedcb67bbd
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_cold_chain_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 60091e4bec43e00c0050cb2ee29289890cff99385b1fdc5fb2c62afcd4eb2e93
+    smoke-childcare-2: 9cd1976fffe8d800613d42b3bf1cd44d1fb8b45408f00868620587e14ce0c959
+    smoke-school-1: 9e732c471bb0a3a2c599decf92f5e00956557b3310dbb6d2deb1e139b77aeb1e
+    smoke-library-1: afbb2ef7cbd63c6e225819d64b7668a47b88a3c20b920450679ce67379d1dca6
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_absence_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - smoke-childcare-1
+  - smoke-childcare-2
+  actual_actions:
+    smoke-childcare-1: activate_clean_air_room
+    smoke-childcare-2: activate_clean_air_room
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-childcare-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-school-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9
+    smoke-childcare-2: a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649
+    smoke-school-1: b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465
+    smoke-library-1: 6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_binding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a
+    smoke-childcare-2: 8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e
+    smoke-school-1: 366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7
+    smoke-library-1: 894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_smoke_shelter_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6
+    nursery-regulated-2: a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356
+    nursery-seedbank-1: 738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db
+    nursery-garden-1: 58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_absence_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - nursery-regulated-1
+  - nursery-regulated-2
+  actual_actions:
+    nursery-regulated-1: suspend_plant_shipments
+    nursery-regulated-2: suspend_plant_shipments
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-regulated-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: d9f16e08617bcaf593091240d084700000a0cfe68e20fc0d7427684f74ed0eab
+    nursery-regulated-2: cb3a9ae8db9bcef12d8d2b6eac21c55926906d5ecd6d22e84d2a8727dec03d4a
+    nursery-seedbank-1: 875644cec2c93896e15199705b10d7db24128d65ea5ca981cef7ea6ddbb3ecad
+    nursery-garden-1: 3014a41dacd631a311112e4de4c76a3dd9c0774d722dce85d68f71c9af8eac2b
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_binding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 166e2634763d6c56b53de9e3570bf7d2fd8f63979fc965189bc2da8db6809102
+    nursery-regulated-2: d242e71829d80bb0aadca90cc03ce51b39a6d6b1ea2741544a777d3beb89e13c
+    nursery-seedbank-1: 9e5e46d8ae50b54f7f3a9120ee7ec2139f836468f51f961af59ff0369fcf5b57
+    nursery-garden-1: 0e0369ac4f0a355e5e0868a53e00b790c233e185b2c3800c5bb08841cff3c772
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_nursery_quarantine_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_bridge_weight_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 43fc3de6e5dfa438ed94c1d59e452c409fc2b3a99dd9e7468745379bea958964
+    bridge-heavy-2: 732bc8231537985200a73ae57f5f7568e30805a447c844544e0c331dd2a59e8b
+    bridge-light-1: 2534543de9a70fd7e4e9e2e2c7422d3f8ccb86b0f24a3ed17837e8e4554ab0e4
+    bridge-bus-1: 2870c91f87c8658c06acabb4680b52176b55866902d66473b617c6ce24918b5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_absence_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_bridge_weight_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - bridge-heavy-1
+  - bridge-heavy-2
+  actual_actions:
+    bridge-heavy-1: reroute_heavy_vehicle
+    bridge-heavy-2: reroute_heavy_vehicle
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-heavy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-light-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191
+    bridge-heavy-2: bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d
+    bridge-light-1: a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f
+    bridge-bus-1: c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_binding_full_s1\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho2_bridge_weight_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 9d98780880aa417134f2bf1b46951df29fcacfc22f7af530759109b33acb72c8
+    bridge-heavy-2: 1c1ee84f8806f391588f739fb1d0dcbe90a8e3e40c788bbf585677e34a2e5d88
+    bridge-light-1: ce06caffe7926566254115ddf98f4517de88e7b4a06cfda9d8ac6ba6c6fb6b2a
+    bridge-bus-1: e0555a896a993f56577e9fb5767ddad0ec5d30bcf829a4fcafb6e7e193da7c33
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\glm52\expanded_t5v3_glm52_t5ho2_bridge_weight_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_cold_chain_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: 18657db8289fcd332b003dbb7a934ca53a6e3a121d7dd8d5e4618659c769e51d
+    coldchain-distributor-2: b396de33dad8949ec940155f6e777d48107aa6481e0afa4ce62aa1a1c8759652
+    coldchain-wholesaler-1: 672cf5b2376cec583490f5ed571451b0dc523c515e5943bd6a19d5f8a7338815
+    coldchain-clinic-1: 16ef2ee417a4367ad62a20812e72b6d348c4979609acfc2a3780b1dd7c3e9f5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_cold_chain_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - coldchain-distributor-1
+  - coldchain-distributor-2
+  actual_actions:
+    coldchain-distributor-1: isolate_exposed_medicine
+    coldchain-distributor-2: isolate_exposed_medicine
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: cd34d7a63539c718e182b5995601842b2903506204ae273c727e3cb721f23f08
+    coldchain-distributor-2: 1e7ca78fb5702393bfe8bb98acbd1bf8c177555fdcb7a508ee32e53478c24ab2
+    coldchain-wholesaler-1: 6c8000e7796ff6c78d3fc30d575cf2be1a11f5cb0e049699a984ecac8d0fe1da
+    coldchain-clinic-1: 7ecfa6aba2091188605fd7edb6c81472ac494452b32e10a8610b5ba75f36a793
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_cold_chain_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: eda36c2aec7226f0ef9b9e2c67d2d85b4ffebe431e080683622e35642e99bc1a
+    coldchain-distributor-2: bb9cd1c654cdf14d38cc744f55dcc26843d6687aafde8613dbaaaa65c680d4a2
+    coldchain-wholesaler-1: 9b11480aee3f2ae601eb84ed64b34db36d7a0fbbca3c27217c96cdcddc5cfbf6
+    coldchain-clinic-1: 7b33523207bbad0c702a8243eb97ff5d496974282b0290182b2771cedcb67bbd
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 60091e4bec43e00c0050cb2ee29289890cff99385b1fdc5fb2c62afcd4eb2e93
+    smoke-childcare-2: 9cd1976fffe8d800613d42b3bf1cd44d1fb8b45408f00868620587e14ce0c959
+    smoke-school-1: 9e732c471bb0a3a2c599decf92f5e00956557b3310dbb6d2deb1e139b77aeb1e
+    smoke-library-1: afbb2ef7cbd63c6e225819d64b7668a47b88a3c20b920450679ce67379d1dca6
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - smoke-childcare-1
+  - smoke-childcare-2
+  actual_actions:
+    smoke-childcare-1: activate_clean_air_room
+    smoke-childcare-2: activate_clean_air_room
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-childcare-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-school-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9
+    smoke-childcare-2: a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649
+    smoke-school-1: b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465
+    smoke-library-1: 6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a
+    smoke-childcare-2: 8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e
+    smoke-school-1: 366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7
+    smoke-library-1: 894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6
+    nursery-regulated-2: a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356
+    nursery-seedbank-1: 738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db
+    nursery-garden-1: 58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - nursery-regulated-1
+  - nursery-regulated-2
+  actual_actions:
+    nursery-regulated-1: suspend_plant_shipments
+    nursery-regulated-2: suspend_plant_shipments
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-regulated-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: d9f16e08617bcaf593091240d084700000a0cfe68e20fc0d7427684f74ed0eab
+    nursery-regulated-2: cb3a9ae8db9bcef12d8d2b6eac21c55926906d5ecd6d22e84d2a8727dec03d4a
+    nursery-seedbank-1: 875644cec2c93896e15199705b10d7db24128d65ea5ca981cef7ea6ddbb3ecad
+    nursery-garden-1: 3014a41dacd631a311112e4de4c76a3dd9c0774d722dce85d68f71c9af8eac2b
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 166e2634763d6c56b53de9e3570bf7d2fd8f63979fc965189bc2da8db6809102
+    nursery-regulated-2: d242e71829d80bb0aadca90cc03ce51b39a6d6b1ea2741544a777d3beb89e13c
+    nursery-seedbank-1: 9e5e46d8ae50b54f7f3a9120ee7ec2139f836468f51f961af59ff0369fcf5b57
+    nursery-garden-1: 0e0369ac4f0a355e5e0868a53e00b790c233e185b2c3800c5bb08841cff3c772
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_bridge_weight_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 43fc3de6e5dfa438ed94c1d59e452c409fc2b3a99dd9e7468745379bea958964
+    bridge-heavy-2: 732bc8231537985200a73ae57f5f7568e30805a447c844544e0c331dd2a59e8b
+    bridge-light-1: 2534543de9a70fd7e4e9e2e2c7422d3f8ccb86b0f24a3ed17837e8e4554ab0e4
+    bridge-bus-1: 2870c91f87c8658c06acabb4680b52176b55866902d66473b617c6ce24918b5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_bridge_weight_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - bridge-heavy-1
+  - bridge-heavy-2
+  actual_actions:
+    bridge-heavy-1: reroute_heavy_vehicle
+    bridge-heavy-2: reroute_heavy_vehicle
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-heavy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-light-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191
+    bridge-heavy-2: bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d
+    bridge-light-1: a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f
+    bridge-bus-1: c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_bridge_weight_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 9d98780880aa417134f2bf1b46951df29fcacfc22f7af530759109b33acb72c8
+    bridge-heavy-2: 1c1ee84f8806f391588f739fb1d0dcbe90a8e3e40c788bbf585677e34a2e5d88
+    bridge-light-1: ce06caffe7926566254115ddf98f4517de88e7b4a06cfda9d8ac6ba6c6fb6b2a
+    bridge-bus-1: e0555a896a993f56577e9fb5767ddad0ec5d30bcf829a4fcafb6e7e193da7c33
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_cold_chain_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: 18657db8289fcd332b003dbb7a934ca53a6e3a121d7dd8d5e4618659c769e51d
+    coldchain-distributor-2: b396de33dad8949ec940155f6e777d48107aa6481e0afa4ce62aa1a1c8759652
+    coldchain-wholesaler-1: 672cf5b2376cec583490f5ed571451b0dc523c515e5943bd6a19d5f8a7338815
+    coldchain-clinic-1: 16ef2ee417a4367ad62a20812e72b6d348c4979609acfc2a3780b1dd7c3e9f5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_absence_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_cold_chain_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - coldchain-distributor-1
+  - coldchain-distributor-2
+  actual_actions:
+    coldchain-distributor-1: isolate_exposed_medicine
+    coldchain-distributor-2: isolate_exposed_medicine
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: cd34d7a63539c718e182b5995601842b2903506204ae273c727e3cb721f23f08
+    coldchain-distributor-2: 1e7ca78fb5702393bfe8bb98acbd1bf8c177555fdcb7a508ee32e53478c24ab2
+    coldchain-wholesaler-1: 6c8000e7796ff6c78d3fc30d575cf2be1a11f5cb0e049699a984ecac8d0fe1da
+    coldchain-clinic-1: 7ecfa6aba2091188605fd7edb6c81472ac494452b32e10a8610b5ba75f36a793
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_binding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_cold_chain_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: eda36c2aec7226f0ef9b9e2c67d2d85b4ffebe431e080683622e35642e99bc1a
+    coldchain-distributor-2: bb9cd1c654cdf14d38cc744f55dcc26843d6687aafde8613dbaaaa65c680d4a2
+    coldchain-wholesaler-1: 9b11480aee3f2ae601eb84ed64b34db36d7a0fbbca3c27217c96cdcddc5cfbf6
+    coldchain-clinic-1: 7b33523207bbad0c702a8243eb97ff5d496974282b0290182b2771cedcb67bbd
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_cold_chain_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 60091e4bec43e00c0050cb2ee29289890cff99385b1fdc5fb2c62afcd4eb2e93
+    smoke-childcare-2: 9cd1976fffe8d800613d42b3bf1cd44d1fb8b45408f00868620587e14ce0c959
+    smoke-school-1: 9e732c471bb0a3a2c599decf92f5e00956557b3310dbb6d2deb1e139b77aeb1e
+    smoke-library-1: afbb2ef7cbd63c6e225819d64b7668a47b88a3c20b920450679ce67379d1dca6
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_absence_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - smoke-childcare-1
+  - smoke-childcare-2
+  actual_actions:
+    smoke-childcare-1: activate_clean_air_room
+    smoke-childcare-2: activate_clean_air_room
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-childcare-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-school-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9
+    smoke-childcare-2: a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649
+    smoke-school-1: b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465
+    smoke-library-1: 6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_binding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a
+    smoke-childcare-2: 8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e
+    smoke-school-1: 366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7
+    smoke-library-1: 894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_smoke_shelter_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6
+    nursery-regulated-2: a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356
+    nursery-seedbank-1: 738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db
+    nursery-garden-1: 58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - nursery-regulated-1
+  - nursery-regulated-2
+  actual_actions:
+    nursery-regulated-1: suspend_plant_shipments
+    nursery-regulated-2: suspend_plant_shipments
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-regulated-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: d9f16e08617bcaf593091240d084700000a0cfe68e20fc0d7427684f74ed0eab
+    nursery-regulated-2: cb3a9ae8db9bcef12d8d2b6eac21c55926906d5ecd6d22e84d2a8727dec03d4a
+    nursery-seedbank-1: 875644cec2c93896e15199705b10d7db24128d65ea5ca981cef7ea6ddbb3ecad
+    nursery-garden-1: 3014a41dacd631a311112e4de4c76a3dd9c0774d722dce85d68f71c9af8eac2b
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_binding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 166e2634763d6c56b53de9e3570bf7d2fd8f63979fc965189bc2da8db6809102
+    nursery-regulated-2: d242e71829d80bb0aadca90cc03ce51b39a6d6b1ea2741544a777d3beb89e13c
+    nursery-seedbank-1: 9e5e46d8ae50b54f7f3a9120ee7ec2139f836468f51f961af59ff0369fcf5b57
+    nursery-garden-1: 0e0369ac4f0a355e5e0868a53e00b790c233e185b2c3800c5bb08841cff3c772
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_bridge_weight_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 43fc3de6e5dfa438ed94c1d59e452c409fc2b3a99dd9e7468745379bea958964
+    bridge-heavy-2: 732bc8231537985200a73ae57f5f7568e30805a447c844544e0c331dd2a59e8b
+    bridge-light-1: 2534543de9a70fd7e4e9e2e2c7422d3f8ccb86b0f24a3ed17837e8e4554ab0e4
+    bridge-bus-1: 2870c91f87c8658c06acabb4680b52176b55866902d66473b617c6ce24918b5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_absence_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_bridge_weight_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - bridge-heavy-1
+  - bridge-heavy-2
+  actual_actions:
+    bridge-heavy-1: reroute_heavy_vehicle
+    bridge-heavy-2: reroute_heavy_vehicle
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-heavy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-light-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191
+    bridge-heavy-2: bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d
+    bridge-light-1: a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f
+    bridge-bus-1: c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_binding_full_s1\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho2_bridge_weight_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 9d98780880aa417134f2bf1b46951df29fcacfc22f7af530759109b33acb72c8
+    bridge-heavy-2: 1c1ee84f8806f391588f739fb1d0dcbe90a8e3e40c788bbf585677e34a2e5d88
+    bridge-light-1: ce06caffe7926566254115ddf98f4517de88e7b4a06cfda9d8ac6ba6c6fb6b2a
+    bridge-bus-1: e0555a896a993f56577e9fb5767ddad0ec5d30bcf829a4fcafb6e7e193da7c33
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\gpt54\expanded_t5v3_gpt54_t5ho2_bridge_weight_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_cold_chain_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: 18657db8289fcd332b003dbb7a934ca53a6e3a121d7dd8d5e4618659c769e51d
+    coldchain-distributor-2: b396de33dad8949ec940155f6e777d48107aa6481e0afa4ce62aa1a1c8759652
+    coldchain-wholesaler-1: 672cf5b2376cec583490f5ed571451b0dc523c515e5943bd6a19d5f8a7338815
+    coldchain-clinic-1: 16ef2ee417a4367ad62a20812e72b6d348c4979609acfc2a3780b1dd7c3e9f5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_absence_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_cold_chain_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - coldchain-distributor-1
+  - coldchain-distributor-2
+  actual_actions:
+    coldchain-distributor-1: isolate_exposed_medicine
+    coldchain-distributor-2: isolate_exposed_medicine
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: cd34d7a63539c718e182b5995601842b2903506204ae273c727e3cb721f23f08
+    coldchain-distributor-2: 1e7ca78fb5702393bfe8bb98acbd1bf8c177555fdcb7a508ee32e53478c24ab2
+    coldchain-wholesaler-1: 6c8000e7796ff6c78d3fc30d575cf2be1a11f5cb0e049699a984ecac8d0fe1da
+    coldchain-clinic-1: 7ecfa6aba2091188605fd7edb6c81472ac494452b32e10a8610b5ba75f36a793
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_binding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_cold_chain_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: eda36c2aec7226f0ef9b9e2c67d2d85b4ffebe431e080683622e35642e99bc1a
+    coldchain-distributor-2: bb9cd1c654cdf14d38cc744f55dcc26843d6687aafde8613dbaaaa65c680d4a2
+    coldchain-wholesaler-1: 9b11480aee3f2ae601eb84ed64b34db36d7a0fbbca3c27217c96cdcddc5cfbf6
+    coldchain-clinic-1: 7b33523207bbad0c702a8243eb97ff5d496974282b0290182b2771cedcb67bbd
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 60091e4bec43e00c0050cb2ee29289890cff99385b1fdc5fb2c62afcd4eb2e93
+    smoke-childcare-2: 9cd1976fffe8d800613d42b3bf1cd44d1fb8b45408f00868620587e14ce0c959
+    smoke-school-1: 9e732c471bb0a3a2c599decf92f5e00956557b3310dbb6d2deb1e139b77aeb1e
+    smoke-library-1: afbb2ef7cbd63c6e225819d64b7668a47b88a3c20b920450679ce67379d1dca6
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_absence_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - smoke-childcare-1
+  - smoke-childcare-2
+  actual_actions:
+    smoke-childcare-1: activate_clean_air_room
+    smoke-childcare-2: activate_clean_air_room
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-childcare-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: activate_clean_air_room
+    smoke-school-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9
+    smoke-childcare-2: a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649
+    smoke-school-1: b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465
+    smoke-library-1: 6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_binding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    smoke-childcare-1: keep_current
+    smoke-childcare-2: keep_current
+    smoke-school-1: keep_current
+    smoke-library-1: keep_current
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-childcare-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    smoke-school-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    smoke-library-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a
+    smoke-childcare-2: 8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e
+    smoke-school-1: 366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7
+    smoke-library-1: 894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6
+    nursery-regulated-2: a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356
+    nursery-seedbank-1: 738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db
+    nursery-garden-1: 58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_absence_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - nursery-regulated-1
+  - nursery-regulated-2
+  actual_actions:
+    nursery-regulated-1: suspend_plant_shipments
+    nursery-regulated-2: suspend_plant_shipments
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-regulated-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: suspend_plant_shipments
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: d9f16e08617bcaf593091240d084700000a0cfe68e20fc0d7427684f74ed0eab
+    nursery-regulated-2: cb3a9ae8db9bcef12d8d2b6eac21c55926906d5ecd6d22e84d2a8727dec03d4a
+    nursery-seedbank-1: 875644cec2c93896e15199705b10d7db24128d65ea5ca981cef7ea6ddbb3ecad
+    nursery-garden-1: 3014a41dacd631a311112e4de4c76a3dd9c0774d722dce85d68f71c9af8eac2b
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_binding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    nursery-regulated-1: keep_current
+    nursery-regulated-2: keep_current
+    nursery-seedbank-1: keep_current
+    nursery-garden-1: keep_current
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-regulated-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    nursery-seedbank-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    nursery-garden-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 166e2634763d6c56b53de9e3570bf7d2fd8f63979fc965189bc2da8db6809102
+    nursery-regulated-2: d242e71829d80bb0aadca90cc03ce51b39a6d6b1ea2741544a777d3beb89e13c
+    nursery-seedbank-1: 9e5e46d8ae50b54f7f3a9120ee7ec2139f836468f51f961af59ff0369fcf5b57
+    nursery-garden-1: 0e0369ac4f0a355e5e0868a53e00b790c233e185b2c3800c5bb08841cff3c772
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_bridge_weight_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 43fc3de6e5dfa438ed94c1d59e452c409fc2b3a99dd9e7468745379bea958964
+    bridge-heavy-2: 732bc8231537985200a73ae57f5f7568e30805a447c844544e0c331dd2a59e8b
+    bridge-light-1: 2534543de9a70fd7e4e9e2e2c7422d3f8ccb86b0f24a3ed17837e8e4554ab0e4
+    bridge-bus-1: 2870c91f87c8658c06acabb4680b52176b55866902d66473b617c6ce24918b5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_absence_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_bridge_weight_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - bridge-heavy-1
+  - bridge-heavy-2
+  actual_actions:
+    bridge-heavy-1: reroute_heavy_vehicle
+    bridge-heavy-2: reroute_heavy_vehicle
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-heavy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reroute_heavy_vehicle
+    bridge-light-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191
+    bridge-heavy-2: bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d
+    bridge-light-1: a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f
+    bridge-bus-1: c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_binding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_bridge_weight_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    bridge-heavy-1: keep_current
+    bridge-heavy-2: keep_current
+    bridge-light-1: keep_current
+    bridge-bus-1: keep_current
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-heavy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    bridge-light-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    bridge-bus-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 9d98780880aa417134f2bf1b46951df29fcacfc22f7af530759109b33acb72c8
+    bridge-heavy-2: 1c1ee84f8806f391588f739fb1d0dcbe90a8e3e40c788bbf585677e34a2e5d88
+    bridge-light-1: ce06caffe7926566254115ddf98f4517de88e7b4a06cfda9d8ac6ba6c6fb6b2a
+    bridge-bus-1: e0555a896a993f56577e9fb5767ddad0ec5d30bcf829a4fcafb6e7e193da7c33
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_cold_chain_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: 18657db8289fcd332b003dbb7a934ca53a6e3a121d7dd8d5e4618659c769e51d
+    coldchain-distributor-2: b396de33dad8949ec940155f6e777d48107aa6481e0afa4ce62aa1a1c8759652
+    coldchain-wholesaler-1: 672cf5b2376cec583490f5ed571451b0dc523c515e5943bd6a19d5f8a7338815
+    coldchain-clinic-1: 16ef2ee417a4367ad62a20812e72b6d348c4979609acfc2a3780b1dd7c3e9f5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_absence_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_cold_chain_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - coldchain-distributor-1
+  - coldchain-distributor-2
+  actual_actions:
+    coldchain-distributor-1: isolate_exposed_medicine
+    coldchain-distributor-2: isolate_exposed_medicine
+    coldchain-wholesaler-1: keep_current
+    coldchain-clinic-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: isolate_exposed_medicine
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: cd34d7a63539c718e182b5995601842b2903506204ae273c727e3cb721f23f08
+    coldchain-distributor-2: 1e7ca78fb5702393bfe8bb98acbd1bf8c177555fdcb7a508ee32e53478c24ab2
+    coldchain-wholesaler-1: 6c8000e7796ff6c78d3fc30d575cf2be1a11f5cb0e049699a984ecac8d0fe1da
+    coldchain-clinic-1: 7ecfa6aba2091188605fd7edb6c81472ac494452b32e10a8610b5ba75f36a793
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_binding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_cold_chain_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    coldchain-distributor-1: keep_current
+    coldchain-distributor-2: keep_current
+    coldchain-wholesaler-1: keep_current
+  scope_outputs:
+    coldchain-distributor-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-distributor-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    coldchain-wholesaler-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    coldchain-clinic-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    coldchain-distributor-1: eda36c2aec7226f0ef9b9e2c67d2d85b4ffebe431e080683622e35642e99bc1a
+    coldchain-distributor-2: bb9cd1c654cdf14d38cc744f55dcc26843d6687aafde8613dbaaaa65c680d4a2
+    coldchain-wholesaler-1: 9b11480aee3f2ae601eb84ed64b34db36d7a0fbbca3c27217c96cdcddc5cfbf6
+    coldchain-clinic-1: 7b33523207bbad0c702a8243eb97ff5d496974282b0290182b2771cedcb67bbd
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_cold_chain_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-childcare-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-school-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-library-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 60091e4bec43e00c0050cb2ee29289890cff99385b1fdc5fb2c62afcd4eb2e93
+    smoke-childcare-2: 9cd1976fffe8d800613d42b3bf1cd44d1fb8b45408f00868620587e14ce0c959
+    smoke-school-1: 9e732c471bb0a3a2c599decf92f5e00956557b3310dbb6d2deb1e139b77aeb1e
+    smoke-library-1: afbb2ef7cbd63c6e225819d64b7668a47b88a3c20b920450679ce67379d1dca6
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_absence_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-childcare-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-school-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-library-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 5c328e230d15509c01972123fa2ce3980a9758e83fba898c83228f2ec22157d9
+    smoke-childcare-2: a54f24c517158362d60c34755725ce93d4a766d7db983eef4403620214c11649
+    smoke-school-1: b47405ba8103595ba633f151f575b32f34266183eded59a893e87efe0b050465
+    smoke-library-1: 6025f6c7e3303e42f13a7e96836ae4b18449eaea7eea69dbcc77e3ef3510938a
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_binding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_smoke_shelter_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    smoke-childcare-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-childcare-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-school-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    smoke-library-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    smoke-childcare-1: 7380d7875d80853c56a09d20fd86d0a2d9103f5786809c2f4d0210ac3d72556a
+    smoke-childcare-2: 8a18fb89fa5c3242591de06551ce409ca44d80a1057635dcf7d558c32088c24e
+    smoke-school-1: 366883eb4eda2827f2bd82f0bf4b7183d32673b00acc518b7292f033cfa4aba7
+    smoke-library-1: 894da69381fab4a9e640936e92891a315bfd748b278296aa26c9c3098f4d60b2
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_smoke_shelter_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-regulated-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-seedbank-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-garden-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6
+    nursery-regulated-2: a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356
+    nursery-seedbank-1: 738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db
+    nursery-garden-1: 58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_absence_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-regulated-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-seedbank-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-garden-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    nursery-regulated-1: d9f16e08617bcaf593091240d084700000a0cfe68e20fc0d7427684f74ed0eab
+    nursery-regulated-2: cb3a9ae8db9bcef12d8d2b6eac21c55926906d5ecd6d22e84d2a8727dec03d4a
+    nursery-seedbank-1: 875644cec2c93896e15199705b10d7db24128d65ea5ca981cef7ea6ddbb3ecad
+    nursery-garden-1: 3014a41dacd631a311112e4de4c76a3dd9c0774d722dce85d68f71c9af8eac2b
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_binding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_nursery_quarantine_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    nursery-regulated-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-regulated-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-seedbank-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    nursery-garden-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    nursery-regulated-1: 166e2634763d6c56b53de9e3570bf7d2fd8f63979fc965189bc2da8db6809102
+    nursery-regulated-2: d242e71829d80bb0aadca90cc03ce51b39a6d6b1ea2741544a777d3beb89e13c
+    nursery-seedbank-1: 9e5e46d8ae50b54f7f3a9120ee7ec2139f836468f51f961af59ff0369fcf5b57
+    nursery-garden-1: 0e0369ac4f0a355e5e0868a53e00b790c233e185b2c3800c5bb08841cff3c772
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_nursery_quarantine_001_nonbinding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_bridge_weight_001
+  policy_state: absence
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-heavy-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-light-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-bus-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 43fc3de6e5dfa438ed94c1d59e452c409fc2b3a99dd9e7468745379bea958964
+    bridge-heavy-2: 732bc8231537985200a73ae57f5f7568e30805a447c844544e0c331dd2a59e8b
+    bridge-light-1: 2534543de9a70fd7e4e9e2e2c7422d3f8ccb86b0f24a3ed17837e8e4554ab0e4
+    bridge-bus-1: 2870c91f87c8658c06acabb4680b52176b55866902d66473b617c6ce24918b5f
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_absence_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_absence_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_absence_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_bridge_weight_001
+  policy_state: binding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-heavy-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-light-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-bus-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    bridge-heavy-1: da7da1c753d5e0565e5a581cf905a4fe77d70090c26e616b264db0781c770191
+    bridge-heavy-2: bf716eac239a3277807e1519a31d6ff9f778ceda3a586eb898d9be67ff9a523d
+    bridge-light-1: a33ea0d62a515a28a1631a9e2b24bfad8e46623b8a938b36aa5fb54d8ebed91f
+    bridge-bus-1: c4f05053b9158b2866dde36bf258ee0069ef32aeff730e17c90173ed672d5700
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_binding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_binding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_binding_full_s1\policy_trace.jsonl
+- model_key: qwen37plus
+  task_id: t5ho2_bridge_weight_001
+  policy_state: nonbinding
+  seed: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: false
+  scope_semantics_pass: false
+  resident_directive_pass: false
+  policy_response_pass: false
+  no_untargeted_spillover: true
+  full_pass: 0
+  first_error: model_response_contract_invalid
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions: {}
+  scope_outputs:
+    bridge-heavy-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-heavy-2:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-light-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+    bridge-bus-1:
+      notice_seen: null
+      binding: null
+      target_match: null
+      authorized: null
+      action: null
+  prompt_sha256_by_resident:
+    bridge-heavy-1: 9d98780880aa417134f2bf1b46951df29fcacfc22f7af530759109b33acb72c8
+    bridge-heavy-2: 1c1ee84f8806f391588f739fb1d0dcbe90a8e3e40c788bbf585677e34a2e5d88
+    bridge-light-1: ce06caffe7926566254115ddf98f4517de88e7b4a06cfda9d8ac6ba6c6fb6b2a
+    bridge-bus-1: e0555a896a993f56577e9fb5767ddad0ec5d30bcf829a4fcafb6e7e193da7c33
+  cell_result_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_nonbinding_full_s1\cell_result.json
+  model_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_nonbinding_full_s1\model_trace.jsonl
+  policy_trace_path: output\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\runs\qwen37plus\expanded_t5v3_qwen37plus_t5ho2_bridge_weight_001_nonbinding_full_s1\policy_trace.jsonl
+gate: registered_expanded_three_model_repeat_recorded

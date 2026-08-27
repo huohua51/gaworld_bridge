@@ -6,7 +6,7 @@ task_coverage:
   T2: partial
   T3: strong_development
   T4: registered_transport_v2_glm52_seed0_1_2_stable
-  T5: sealed_fresh_surface_glm52_gpt54_cross_model_pass
+  T5: expanded_4task_glm52_gpt54_repeat_pass_qwen37_partial_quota
   T6: longitudinal_approximation_rule_calibrated
 
 mechanism_coverage:
@@ -21,6 +21,18 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: HO-GM-T5-04
+    planned_task_family: T5
+    mechanisms: [M1, M4, M8]
+    source_dir: holdout_t5_v3_expanded
+    result_dir: output/t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043
+    evidence_status: registered_gate_fail_qwen_quota_glm52_gpt54_all_cells_pass
+    protocol_source: EXP-GM-T5-03
+    models: [GLM-5.2, gpt-5.4, qwen3.7-plus]
+    seeds: [0, 1]
+    registered_design_adherent: true
+    ranking_eligible: false
+
   - experiment_id: HO-GM-T5-03
     planned_task_family: T5
     mechanisms: [M1, M4, M8]
@@ -133,6 +145,6 @@ remaining_evidence_gaps:
   - task_family: T4
     gap: registered_transport_v2_cross_model_replication
   - task_family: T5
-    gap: broader_sealed_tasks_additional_models_repeats_and_human_reference
+    gap: preregistered_qwen_recovery_after_quota_additional_models_and_human_reference
   - task_family: T6
     gap: nonlinear_quantile_network_and_matched_longitudinal_human_reference

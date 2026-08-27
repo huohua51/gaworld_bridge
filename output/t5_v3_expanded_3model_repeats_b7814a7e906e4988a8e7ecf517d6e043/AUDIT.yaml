@@ -1,0 +1,54 @@
+audit_version: 1
+pilot_id: T5-V3-EXPANDED-3MODEL-REPEAT-v1
+registration_sha256: 9b76496a3e39ff529ca5e0341d35b9a7a9d2015161914d0d2e7fed085d2aca01
+registered_design_adherent: true
+all_registered_outcomes_pass: false
+trace_counts:
+  requests: 288
+  responses: 288
+  valid: 251
+  invalid: 37
+  blocked: 0
+models:
+  glm52:
+    valid: 96
+    invalid: 0
+    valid_semantic_exact: 96
+    full_pass_cells_by_seed: {0: 12, 1: 12}
+  gpt54:
+    valid: 96
+    invalid: 0
+    valid_semantic_exact: 96
+    full_pass_cells_by_seed: {0: 12, 1: 12}
+  qwen37plus:
+    valid: 59
+    invalid: 37
+    valid_semantic_exact: 59
+    full_pass_cells_by_seed: {0: 12, 1: 2}
+    invalid_cause:
+      category: provider_http_403_insufficient_quota
+      count: 37
+      first_failed_model_call_ordinal: 60
+      last_failed_model_call_ordinal: 96
+agreement:
+  cross_model:
+    prompt_identical: 24
+    comparison_units: 24
+    outcome_exact: 14
+    rate: 0.5833
+  within_model_repeat:
+    prompt_identical: 36
+    comparison_units: 36
+    outcome_exact: 26
+    rate: 0.7222
+contract_audit:
+  valid_response_semantic_exact: 251
+  valid_responses: 251
+  required_action_prompt_hits: 0
+credential_audit:
+  exact_user_key_hits: 0
+  generic_secret_pattern_hits: 0
+interpretation: >-
+  The registered joint Gate failed because quota-rejected responses remain in
+  the fixed denominator. Available-response semantic accuracy is diagnostic
+  only and must not replace the preregistered result.

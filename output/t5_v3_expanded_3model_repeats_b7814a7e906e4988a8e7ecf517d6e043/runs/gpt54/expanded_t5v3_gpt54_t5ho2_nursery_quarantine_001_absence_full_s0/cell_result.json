@@ -1,0 +1,326 @@
+{
+  "workflow_id": "model_pilot_t5_v3_scope",
+  "instance_id": "model_v3_t5ho2_nursery_quarantine_001_absence_full_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=False,activated=False,perceptions=0"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-1",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-2",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-3",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"nursery-regulated-1\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-1\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"nursery-regulated-2\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-2\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"nursery-seedbank-1\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"nursery-garden-1\", \"evidence_id\": \"model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-1",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-2",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-3",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\gpt54\\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0\\policy_trace.jsonl",
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\gpt54\\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0\\model_trace.jsonl",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-1",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-2",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-3",
+        "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-4",
+        "policy-action-nursery-regulated-1-3",
+        "policy-action-nursery-regulated-2-4",
+        "policy-action-nursery-seedbank-1-5",
+        "policy-action-nursery-garden-1-6"
+      ],
+      "detail": "expected={'nursery-regulated-1': 'keep_current', 'nursery-regulated-2': 'keep_current', 'nursery-seedbank-1': 'keep_current', 'nursery-garden-1': 'keep_current'} actual={'nursery-regulated-1': 'keep_current', 'nursery-regulated-2': 'keep_current', 'nursery-seedbank-1': 'keep_current', 'nursery-garden-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043\\runs\\gpt54\\expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "clock_advanced",
+      "resident_action_submitted",
+      "resident_action_submitted",
+      "resident_action_submitted",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "nursery-regulated-1",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-1"
+      },
+      {
+        "agent_id": "nursery-regulated-2",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-2"
+      },
+      {
+        "agent_id": "nursery-seedbank-1",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-3"
+      },
+      {
+        "agent_id": "nursery-garden-1",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99",
+        "evidence_id": "model-call:expanded_t5v3_gpt54_t5ho2_nursery_quarantine_001_absence_full_s0:call-4"
+      }
+    ],
+    "expected_actions": {
+      "nursery-regulated-1": "keep_current",
+      "nursery-regulated-2": "keep_current",
+      "nursery-seedbank-1": "keep_current",
+      "nursery-garden-1": "keep_current"
+    },
+    "actual_actions": {
+      "nursery-regulated-1": "keep_current",
+      "nursery-regulated-2": "keep_current",
+      "nursery-seedbank-1": "keep_current",
+      "nursery-garden-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "eligibility_scope_repeat",
+    "provider": "qweapi_anthropic",
+    "model_calls": 4,
+    "policy_state": "absence",
+    "repeat_id": 0,
+    "behavior_change_rate": 0.0,
+    "changed_agent_ids": [],
+    "target_agent_ids": [
+      "nursery-regulated-1",
+      "nursery-regulated-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "nursery-regulated-1": "775ec836e95e49159abf4faa4ddaabbe393d1c46fec130488fa6e2c52b47ebd6",
+      "nursery-regulated-2": "a1eef147f315506f3d743879952edcafac47414ce28b4f491190fb1ab8a11356",
+      "nursery-seedbank-1": "738e986b4531d4406209f580669426f03fa2cdd73c0d44e20528ad2c60eb72db",
+      "nursery-garden-1": "58ffb42cfc69815794f14a66a3aa411e322628e280be1aef64d4bf18df7baa99"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v3_t5ho2_nursery_quarantine_001_absence_full_r0",
+      "task_id": "t5ho2_nursery_quarantine_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:absence:full:scope_v3",
+      "variant": "absence",
+      "seed": 0,
+      "track": "full",
+      "model_version": "gpt-5.4",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v3",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1",
+      "evidence_id": "bundle:model_v3_t5ho2_nursery_quarantine_001_absence_full_r0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

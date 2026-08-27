@@ -524,7 +524,7 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
 | T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
-| T5 政策因果链   | `sealed_cross_model_pass` | T5-01 / T5-02 / T5-03 / HO-T5-03 | v3在全新任务表面保持scope语义，GLM-5.2与gpt-5.4注册结果完全一致 | seed0双模型密封留出完成 |
+| T5 政策因果链   | `expanded_partial_quota` | T5-01 / T5-02 / T5-03 / HO-T5-03 / HO-T5-04 | GLM-5.2与gpt-5.4在四个新增表面双重复全过；Qwen因额度不足仅完成部分 | 三模型联合Gate失败，证据保留 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -881,7 +881,7 @@ python -m exp_hf_h1_01.serve
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
 | AP-T4-01    | v2_repeat_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2下一步做跨模型复测                                    |
-| AP-T5-01    | sealed_cross_model_pass | v1语义混淆；v2字段碰撞；v3开发重复与双模型密封新任务均通过 | 保留v1/v2；下一步扩大任务、模型、重复种子与真人参照 |
+| AP-T5-01    | expanded_partial_quota | v3双模型密封通过；扩展轮GLM/GPT通过，Qwen后37次被额度拒绝 | 保留失败分母；充值后新编号预注册Qwen recovery |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -918,6 +918,7 @@ python -m exp_hf_h1_01.serve
 - T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在seed0/1/2上Prompt哈希稳定，转发、完整路径、目标接受和FullPass均为100%；
 - T5-v3在三任务、三状态、repeat 1/2上18/18格通过，72/72次scope语义与逐居民directive正确，且重复结果完全一致；
 - T5-v3密封新任务在GLM-5.2与gpt-5.4上各9/9格通过，72/72次调用满足严格JSON；9/9个任务×状态组合的Prompt与注册结果跨模型完全一致；
+- T5-v3扩展密封轮中GLM-5.2与gpt-5.4各24/24格通过；Qwen为14/24格，后37次因网关额度不足被拒绝，故三模型联合注册Gate失败且不补替；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -1225,6 +1226,25 @@ GLM-5.2与gpt-5.4、Prompt字节、严格JSON契约、评分器、分母、72次
 
 这是三任务、双模型、seed0的密封功能留出，不是广泛模型泛化、真人效度、现实政策效果或排行榜结论。
 
+### **16.12 T5-v3四任务、三模型与双重复扩展**
+
+`T5-V3-EXPANDED-3MODEL-REPEAT-v1`由提交`2eaa642`在任何新题调用前冻结四个新增任务、
+GLM-5.2 / gpt-5.4 / qwen3.7-plus、seed 0/1、Prompt、评分器、固定分母和288次调用上限。
+四个任务对全部既有T5任务的ID、政策ID、渠道、角色、群体、动作和状态字段均不相交；两个
+repeat是byte-identical输入的独立调用标签。
+
+288/288个逻辑调用均留下响应记录，注册设计遵循为true。GLM-5.2与gpt-5.4分别96/96次有效、
+24/24格FullPass，两个seed各12/12格通过，行为变化率均为`0 / 0.5 / 0`。qwen3.7-plus
+完成59个有效响应后，逻辑调用60–96全部被qweapi以HTTP 403额度不足拒绝；其seed0为12/12格、
+seed1为2/12格，总计14/24格。按预注册固定分母和禁止补替规则，联合Gate为失败。
+
+24/24个跨模型比较与36/36个模型内重复比较的Prompt完全一致；注册结果精确一致分别为
+14/24与26/36。三个模型实际返回的251个有效响应中，251/251与冻结scope/directive精确一致，
+但available-case诊断不能替代主结果。完整审计与恢复边界见
+[`REPORT.md`](output/t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043/REPORT.md)。
+
+充值后若要补全Qwen，必须使用新编号预注册独立recovery；本轮37个配额失败及联合失败Gate永久保留。
+
 ---
 
 ## **17. 目录索引**
@@ -1247,12 +1267,14 @@ GLM-5.2与gpt-5.4、Prompt字节、严格JSON契约、评分器、分母、72次
 | `output/model_pilot_live_t5_v2_glm52_*/` | T5-v2显式语义与binding目标资格诊断证据            |
 | `output/model_pilot_live_t5_v3_repeats_glm52_*/` | T5-v3 eligibility-scope repeat 1/2证据      |
 | `output/t5_v3_sealed_cross_model_*/` | T5-v3全新任务密封留出与GLM-5.2/gpt-5.4跨模型证据 |
+| `output/t5_v3_expanded_3model_repeats_*/` | T5-v3四任务、三模型、seed0/1扩展证据与配额失败审计 |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t5_02/`                      | T5-v2 absence/binding/nonbinding独立任务与评分       |
 | `exp_gm_t5_03/`                      | T5-v3全局政策与逐居民执行权分离协议                    |
 | `holdout_t5_v3/`                     | T5-v3三个密封新任务、Task Card与协议                  |
+| `holdout_t5_v3_expanded/`            | T5-v3四个新增密封任务与三模型双重复协议                 |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
 | `output/functional_devset_20260825/` | 功能侧开发集冻结总表                          |
 | `output/holdout_20260825/`           | T3、I1、L1的seed0留出汇总                  |
@@ -1279,6 +1301,6 @@ GLM-5.2与gpt-5.4、Prompt字节、严格JSON契约、评分器、分母、72次
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，不仅在repeat 1/2的18格中全部通过，也在三个全新任务表面的GLM-5.2/gpt-5.4密封复测中各9/9格通过且注册结果完全一致。两条修复链共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出和R3证据链仍不可省略。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过，qwen3.7-plus则因额度耗尽只形成部分证据，联合Gate按预注册判为失败。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。
