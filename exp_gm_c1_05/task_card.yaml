@@ -1,0 +1,15 @@
+experiment_id: EXP-GM-C1-05
+parent: EXP-GM-C1-04
+task_family: C1
+construct: authoritative_current_spec_retry
+status: preregistered_not_run
+ranking_eligible: false
+generalization_claim: false
+tasks: [c1_05_satellite_dish_001, c1_05_cleanroom_airlock_001, c1_05_lidar_tunnel_001]
+variants: [control, intervention]
+track: full
+calls_per_cell: 6
+matrix: 3x2x1x1
+registered_model: GLM-5.2
+ap_items: [AP-C1-D-01, AP-C1-F-01]
+does_not_overwrite: [EXP-GM-C1-02, EXP-GM-C1-03, EXP-GM-C1-04]

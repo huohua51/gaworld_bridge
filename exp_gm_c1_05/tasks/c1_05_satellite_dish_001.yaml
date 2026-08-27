@@ -1,0 +1,14 @@
+id: c1_05_satellite_dish_001
+title: 卫星天线校准窗口
+resource_id: satellite_dish
+slots: [sd401, sd402, sd403]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: sd401, event_id: current_lock_sd_v5}
+agent_a:
+  control: {feasible: [sd401, sd402, sd403], preferred: sd401}
+  intervention: {feasible: [sd401, sd402, sd403], preferred: sd402}
+agent_b:
+  control: {feasible: [sd401, sd402, sd403], preferred: sd402}
+  intervention: {feasible: [sd401, sd403, sd402], preferred: sd401}

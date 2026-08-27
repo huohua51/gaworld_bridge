@@ -1,0 +1,14 @@
+id: c1_05_cleanroom_airlock_001
+title: 洁净室气闸交接窗口
+resource_id: cleanroom_airlock
+slots: [ca501, ca502, ca503]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: ca501, event_id: current_lock_ca_v5}
+agent_a:
+  control: {feasible: [ca501, ca503, ca502], preferred: ca501}
+  intervention: {feasible: [ca501, ca503, ca502], preferred: ca503}
+agent_b:
+  control: {feasible: [ca501, ca502, ca503], preferred: ca502}
+  intervention: {feasible: [ca501, ca502, ca503], preferred: ca501}

@@ -1,0 +1,89 @@
+gate: preregistered_not_run
+preregistration_id: C1-AUTHORITATIVE-CURRENT-SPEC-GLM52-v5
+registered_on: '2026-08-27'
+base_commit: 0de12be8bb64e44d62c679d9607a138f61100324
+required_gaworld_commit: ad93e9d8c2848158bdf78ad789cb3b7c6a9d4d49
+phase: prospective_fresh_surface_seed0_semantic_repair
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  Does an explicit authoritative-current-spec transition let GLM-5.2 recover
+  all three fresh protection NACKs while preserving correct controls and
+  platform-owned current-spec plan binding?
+
+provider:
+  name: paratera_glm
+  gateway: paratera
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  api_protocol: openai_chat_completions
+  api_key_env: PARATERA_API_KEY
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 384
+
+design:
+  task_ids: [c1_05_satellite_dish_001, c1_05_cleanroom_airlock_001, c1_05_lidar_tunnel_001]
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  calls_per_cell: 6
+  max_calls: 36
+  scorer_version: c1-authoritative-current-spec-v5.0
+  fresh_relative_to: [EXP-GM-C1-02, EXP-GM-C1-03, EXP-GM-C1-04]
+
+registered_semantic_change_from_c1_04:
+  evidence: >-
+    Two C1-04 intervention retries moved Agent B but retained Agent A's
+    superseded phase-1 assignment.
+  changes:
+    - Label phase1_spec and previous_assignments as superseded historical evidence.
+    - Label authoritative_current_spec as the only valid current specification.
+    - Set the protected agent exactly to the registered protected slot before allocating any other agent.
+    - Scan the other agent's delivered feasible list from the beginning for the first unoccupied item.
+  unchanged:
+    - six-call full workflow
+    - platform PlanRegistry and spec revision
+    - assignment validator
+    - no answer-bearing repair slot in NACK
+    - exact JSON contracts
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  priority_nack_intervention: 1.0
+  priority_nack_control: 0.0
+  retry_recovery_intervention: 1.0
+  platform_identifier_ownership: 1.0
+  spec_revision_advanced: 1.0
+  stale_plan_rejected: 1.0
+
+stopping_rule: >-
+  Run the six seed-0 cells exactly once and stop. Do not change any frozen
+  input based on live responses. Preserve a failed result and use a new number
+  for any later intervention.
+
+scope_limits:
+  - A pass closes AP-C1-D-01 and AP-C1-F-01 as implementation regressions only.
+  - A pass does not overwrite C1-02, C1-03, or C1-04.
+  - A one-model one-seed pass is not a broad model-generalization claim.
+
+frozen_inputs:
+  exp_gm_c1_05/task_card.yaml: c0227f5109bc75388d20595f26d9d5ee3bf276d8a03dc326e1fbd1d20b880948
+  exp_gm_c1_05/protocol.md: c996b051c4d0b2c3d253a9fc727fcc1736abae5faaaceb83a181f24dacbc1d92
+  exp_gm_c1_05/loader.py: 2fd2b266d760c39786a271a24f55bbb52308dda97ab69000aefd745dbfe53146
+  exp_gm_c1_05/protocol.py: 95f4298fe89f74e64da050afe623ad8ee47889ea284e625b1b66c72a3e8a302c
+  exp_gm_c1_05/scorer.py: f8d3edbd0ba25b4134ac8b76a6a0f521c8c87df9dd510452ae1c6b03b0849427
+  exp_gm_c1_05/fixture.py: 17533daf2bda2e44454dae45b591acd48c29497e481de970204a6a4e056e236b
+  exp_gm_c1_05/run_matrix.py: 9e6f6a39d93a55d251d1357de18b0781f655dfef779fd3d95f1819d7a86b6aeb
+  exp_gm_c1_04/channel.py: 411b1e54ee5ed72515683d329155d572deea1c985f4def78021e90e70a750c40
+  exp_gm_c1_05/tasks/c1_05_satellite_dish_001.yaml: 870be7944299cab64c763a9a439aaab4a54395e3f5ff3d198c0ae95cba8ae2b9
+  exp_gm_c1_05/tasks/c1_05_cleanroom_airlock_001.yaml: ee00b4fc567aef4a20d4e79c8ef046bfca95166a114693d8fdd032bc018b8ab6
+  exp_gm_c1_05/tasks/c1_05_lidar_tunnel_001.yaml: b372db0e82a5c463f0bd97f283187178cff0b7e29e11a244748c0f4b18b8e59a
+  exp_gm_c1_05/oracle/c1_05_satellite_dish_001.json: 6cb2dc53c0a2d8cd928399f5a030552b2dd7727d5319bc16111e2ec2502d0e30
+  exp_gm_c1_05/oracle/c1_05_cleanroom_airlock_001.json: 1d0721d5b975353d2a18fc50332d89755ca2aae8cdb880cf57a2c22dbf695082
+  exp_gm_c1_05/oracle/c1_05_lidar_tunnel_001.json: 2f1ed795431e5dc5c1c54a54c19fc64a0473d02258286541b260e6aff1bc07a2
+  benchmark_core/model_runner.py: f99c67512056200bf33456a64e835cee2861193362282578b571940a1babb40d
+  ../GAWorld/gaworld/work/coordination.py: 84e8ac288caaaafd684abd006e72266f68320737a6a7053b8b17644040167575
+  ../GAWorld/gaworld/work/plan_registry.py: 59038be490a66fffb3fe92bb75c631bd67aeb836cd64ad8e3d419a593655c418

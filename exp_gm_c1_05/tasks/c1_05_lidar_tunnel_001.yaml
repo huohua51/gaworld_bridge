@@ -1,0 +1,14 @@
+id: c1_05_lidar_tunnel_001
+title: 激光雷达暗道测试窗口
+resource_id: lidar_tunnel
+slots: [lt601, lt602, lt603]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: lt601, event_id: current_lock_lt_v5}
+agent_a:
+  control: {feasible: [lt601, lt602, lt603], preferred: lt601}
+  intervention: {feasible: [lt601, lt603, lt602], preferred: lt603}
+agent_b:
+  control: {feasible: [lt603, lt601, lt602], preferred: lt603}
+  intervention: {feasible: [lt601, lt603, lt602], preferred: lt601}

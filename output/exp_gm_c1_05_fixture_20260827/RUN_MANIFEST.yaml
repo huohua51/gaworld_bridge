@@ -1,0 +1,35 @@
+experiment_id: EXP-GM-C1-05
+preregistration_id: C1-AUTHORITATIVE-CURRENT-SPEC-GLM52-v5
+registration_sha256: f65b18e9162b9e2f5b24ebad941ec002b662b506ac7c7540947b3f7d9477a077
+phase: offline_fixture_calibration
+gate: pass
+provider: offline-c1-v5-oracle-fixture
+model_version: offline-c1-v5-fixture
+live_model: false
+ranking_eligible: false
+n_cells: 6
+coverage: 1.0
+full_pass_rate: 1.0
+priority_nack_intervention: 1.0
+priority_nack_control: 0.0
+retry_recovery_intervention: 1.0
+platform_identifier_ownership: 1.0
+spec_revision_advanced: 1.0
+stale_plan_rejected: 1.0
+first_error:
+  none: 6
+budget:
+  max_calls: 36
+  calls_used: 36
+  calls_remaining: 0
+  prompt_chars: 29363
+  response_chars: 2856
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
+ap_c1_d_01_closable: false
+ap_c1_f_01_closable: false
+does_not_overwrite:
+- EXP-GM-C1-02
+- EXP-GM-C1-03
+- EXP-GM-C1-04
+gaworld_commit: ad93e9d8c2848158bdf78ad789cb3b7c6a9d4d49

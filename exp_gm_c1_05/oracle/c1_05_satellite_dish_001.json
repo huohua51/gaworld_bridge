@@ -1,0 +1,4 @@
+{
+  "control": {"initial": {"agent_a": "sd401", "agent_b": "sd402"}, "final": {"agent_a": "sd401", "agent_b": "sd402"}, "nack_expected": false},
+  "intervention": {"initial": {"agent_a": "sd402", "agent_b": "sd401"}, "final": {"agent_a": "sd401", "agent_b": "sd403"}, "nack_expected": true}
+}

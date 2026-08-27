@@ -1,0 +1,250 @@
+{
+  "workflow_id": "exp_gm_c1_05_authoritative_retry",
+  "instance_id": "c1_v5_c1_05_lidar_tunnel_001_control_full_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fixed_six_call_budget",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "private_reports_faithful",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "private_context_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "coordinator_did_not_execute",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_did_not_issue_identifiers",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "nack_did_not_leak_repair_slot",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "current_spec_plan_exists",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "two_confirmed_claims_exist",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "phase1_assignment_correct",
+      "layer": "R2",
+      "scorer": "oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "priority_nack_behavior_correct",
+      "layer": "R2",
+      "scorer": "trace",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "no_unregistered_nack",
+      "layer": "R2",
+      "scorer": "trace",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "spec_revision_advanced",
+      "layer": "R2",
+      "scorer": "registry",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "stale_plan_rejected",
+      "layer": "R2",
+      "scorer": "registry",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "authoritative_retry_correct",
+      "layer": "R2",
+      "scorer": "oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "retry_accepted",
+      "layer": "R2",
+      "scorer": "validator",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "platform_plan_stamped",
+      "layer": "R2",
+      "scorer": "registry",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "agents_bound_to_plan",
+      "layer": "R2",
+      "scorer": "registry",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "world_matches_current_plan",
+      "layer": "R2",
+      "scorer": "world",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "violations": []
+  },
+  "extra": {
+    "task_id": "c1_05_lidar_tunnel_001",
+    "variant": "control",
+    "track": "full",
+    "seed": 0,
+    "first_error": "none",
+    "priority_nack_path": false,
+    "retry_recovery_success": true,
+    "platform_identifier_ownership": true,
+    "spec_revision_advanced": true,
+    "stale_plan_rejected": true,
+    "got_initial": {
+      "agent_a": "lt601",
+      "agent_b": "lt603"
+    },
+    "got_retry": {
+      "agent_a": "lt601",
+      "agent_b": "lt603"
+    },
+    "got_world": {
+      "agent_a": "lt601",
+      "agent_b": "lt603"
+    },
+    "want_initial": {
+      "agent_a": "lt601",
+      "agent_b": "lt603"
+    },
+    "want_final": {
+      "agent_a": "lt601",
+      "agent_b": "lt603"
+    },
+    "model_evidence_ids": [
+      "model-call:c1_v5_c1_05_lidar_tunnel_001_control_full_s0:call-1",
+      "model-call:c1_v5_c1_05_lidar_tunnel_001_control_full_s0:call-2",
+      "model-call:c1_v5_c1_05_lidar_tunnel_001_control_full_s0:call-3",
+      "model-call:c1_v5_c1_05_lidar_tunnel_001_control_full_s0:call-4",
+      "model-call:c1_v5_c1_05_lidar_tunnel_001_control_full_s0:call-5",
+      "model-call:c1_v5_c1_05_lidar_tunnel_001_control_full_s0:call-6"
+    ]
+  }
+}
