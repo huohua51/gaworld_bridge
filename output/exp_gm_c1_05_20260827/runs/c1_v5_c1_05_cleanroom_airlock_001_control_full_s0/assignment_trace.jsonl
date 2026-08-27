@@ -1,0 +1,6 @@
+{"event": "initial_saved", "assignments": {"agent_a": "ca501", "agent_b": "ca502"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "ca501", "agent_b": "ca502"}, "violations": [], "plan_id": "plan-001", "spec_version": "spec-001"}
+{"event": "protection_registered", "agent": "agent_a", "slot": "ca501", "spec_version": "spec-002"}
+{"event": "registered_constraints_inspected", "violations": []}
+{"event": "confirm", "ok": false, "reason": "stale_plan_spec", "plan_id": "plan-001", "plan_spec_version": "spec-001", "current_spec_version": "spec-002", "agent_id": "agent_a", "slot": "ca501"}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": false, "assignments": {"agent_a": "ca501", "agent_b": "ca501"}, "violations": [{"type": "duplicate_resource_claim", "resource": "cleanroom_airlock", "slot": "ca501", "agents": ["agent_a", "agent_b"]}, {"type": "not_earliest_feasible_idle", "agent": "B"}], "plan_id": null, "spec_version": "spec-002"}

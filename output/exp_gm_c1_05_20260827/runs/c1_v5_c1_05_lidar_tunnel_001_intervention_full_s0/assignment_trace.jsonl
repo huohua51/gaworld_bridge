@@ -1,0 +1,7 @@
+{"event": "initial_saved", "assignments": {"agent_a": "lt602", "agent_b": "lt601"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "lt602", "agent_b": "lt601"}, "violations": [{"type": "not_earliest_feasible_idle", "agent": "A"}], "plan_id": null, "spec_version": "spec-001"}
+{"event": "protection_registered", "agent": "agent_a", "slot": "lt601", "spec_version": "spec-002"}
+{"event": "registered_constraints_inspected", "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": true, "assignments": {"agent_a": "lt601", "agent_b": "lt603"}, "violations": [], "plan_id": "plan-001", "spec_version": "spec-002"}
+{"event": "confirm", "ok": true, "plan_id": "plan-001", "spec_version": "spec-002", "agent_id": "agent_a", "slot": "lt601"}
+{"event": "confirm", "ok": true, "plan_id": "plan-001", "spec_version": "spec-002", "agent_id": "agent_b", "slot": "lt603"}
