@@ -21,6 +21,50 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: EXP-GM-REL1-03
+    planned_task_family: REL1
+    mechanisms: [M3, M4, M5]
+    source_dir: exp_rel1_03
+    result_dir: output/exp_gm_rel1_03_20260827
+    evidence_status: registered_gate_fail_coverage_5_of_6_all_valid_cells_pass
+    preserves_baseline: [EXP-GM-REL1, EXP-GM-REL1-02]
+    implementation_owner: gaworld_protocol_and_core_team
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
+    ranking_eligible: false
+
+  - experiment_id: EXP-GM-REL1-02
+    planned_task_family: REL1
+    mechanisms: [M3, M4, M5]
+    source_dir: exp_rel1_02
+    result_dir: output/exp_gm_rel1_02_20260827
+    evidence_status: registered_gate_fail_formation_and_observer_diagnosed
+    preserves_baseline: EXP-GM-REL1
+    implementation_owner: gaworld_protocol_and_core_team
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
+    ranking_eligible: false
+
+  - experiment_id: EXP-GM-C1-05
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5, M6]
+    source_dir: exp_gm_c1_05
+    result_dir: output/exp_gm_c1_05_20260827
+    evidence_status: intervention_retry_3_of_3_strict_gate_4_of_6_fail
+    preserves_baseline: [EXP-GM-C1-02, EXP-GM-C1-03, EXP-GM-C1-04]
+    implementation_owner: gaworld_core_team
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
+    ranking_eligible: false
+
+  - experiment_id: EXP-GM-C1-04
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5, M6]
+    source_dir: exp_gm_c1_04
+    result_dir: output/exp_gm_c1_04_20260827
+    evidence_status: registered_gate_fail_retry_assignment_and_control_nack
+    preserves_baseline: [EXP-GM-C1-02, EXP-GM-C1-03]
+    implementation_owner: gaworld_core_team
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
+    ranking_eligible: false
+
   - experiment_id: HO-GM-T5-04
     planned_task_family: T5
     mechanisms: [M1, M4, M8]

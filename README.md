@@ -521,8 +521,8 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | T3 审核协作    | `pass`         | T3-03         | 独立Reviewer私有信息通过审核通道进入真实产物 | seed0同模式 |
 | I1 核实传播    | `pass`         | EXP-GM-I1     | 核实、送达、采用形成完整因果链            | seed0同模式 |
 | L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
-| C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
-| REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
+| C1 集体协调    | `partial_pass_handoff` | C1-02 至 C1-05 | retry语义与平台ID所有权已定位，正式Gate仍未通过 | 待核心开发同学处理 |
+| REL1 可靠性更新 | `fail_diagnosed_handoff` | REL1 / REL1-02 / REL1-03 | 分阶段协议方向有效，coverage Gate仍失败 | 待Agent协议与核心开发同学处理 |
 | T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
 | T5 政策因果链   | `two_model_replicated_pass` | T5-01 / T5-02 / T5-03 / HO-T5-03 / HO-T5-04 | GLM-5.2与gpt-5.4在四个新增表面双重复全过；Qwen配额中断轮保留但停止续跑 | 双模型密封复现完成，T5功能侧封板 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
@@ -544,6 +544,10 @@ h1_infrastructure: ready
 h1_agent_stimuli: 18/18
 h1_human_reference: 0/18
 h1_formal_score: N/A
+
+c1_core_implementation: handoff_required
+rel1_protocol_and_core_implementation: handoff_required
+t4_cross_model: blocked_by_gpt54_provider_quota
 ```
 
 这里的“约85%”表示评测工厂和代表机制覆盖进度：R0–R3、因果对照、权限审计、Trace、首错、组件校准、完整回归均已落地，T3/I1/L1也进入密封留出阶段。正式Benchmark还需要跨任务留出、更多重复、跨模型稳健性与H1真人对照。
@@ -667,6 +671,13 @@ semantic_retry_assignment_correct: 0/3
 
 当前结论：GAWorld已具备基本联合协调能力，优先级约束下的重试恢复与版本握手仍是明确的开放环节。
 
+C1-04进一步把业务 assignments 与平台 ID 分开，36/36 响应满足严格 JSON，但 FullPass 仅
+3/6，intervention retry 只恢复 1/3。C1-05增加“当前规范是唯一权威”的显式语义后，三个
+intervention retry 全部恢复，严格 FullPass仍为4/6，说明目标模式得到缓解但整个 C1 链尚未
+通过。故障位置、建议核心接口和验收条件见
+[`C1 / REL1 核心实现交接`](docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md)。评测仓不再代替
+GAWorld 实现修复。
+
 ### **10.6 REL1：来源可靠性更新**
 
 REL1登记`latest_is_binding=true`：形成初始可靠性时参考历史正确次数；更新时使用最新一条核实结果覆盖旧多数。
@@ -681,6 +692,13 @@ Focused = 0.3333
 ```
 
 平台能够隔离可靠性账本、传递更新状态并执行权限控制。Agent在最新结果与旧多数冲突时，仍倾向沿用多数历史。该结果登记为功能规则失败，后续改进目标是最新状态覆盖协议。
+
+REL1-02把 latest-only update 和平台动作绑定接入新任务后，可测格中的更新与绑定均为4/4，
+但共享阶段 Prompt 使 formation 只有1/4，另有两个 Observer 空列表导致 coverage=4/6。
+REL1-03改为分阶段 Prompt和显式两来源计数，五个可测格全部 FullPass；第六格把 source ID
+输出成整数 `1`，coverage=5/6，预注册 Gate仍为`measurement_invalid`。因此修复方向有支持，
+但三个 REL1 action item 均未正式关闭。完整实现交接见
+[`C1 / REL1 核心实现交接`](docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md)。
 
 ### **10.7 N1：退役任务族**
 
@@ -877,10 +895,12 @@ python -m exp_hf_h1_01.serve
 
 | **ID**      | **状态**  | **问题**                          | **下一动作**                                        |
 | ----------- | ------- | ------------------------------- | ----------------------------------------------- |
-| AP-C1-D-01  | open    | NACK后联合方案未形成正确终局                | 建立重试语义组件与完整回归                                   |
-| AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
-| AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
-| AP-T4-01    | v2_repeat_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2下一步做跨模型复测                                    |
+| AP-C1-D-01  | handoff_to_core | NACK后联合方案可能移动受保护的高优先级Agent | 核心实现保护不变量；评测侧新编号回归 |
+| AP-C1-F-01  | handoff_to_core | 模型参与`plan_id/spec_version`握手 | 核心改为accepted-only平台发号与旧规范拒绝 |
+| AP-REL1-01  | handoff_to_protocol | `latest_is_binding=true`时仍可能沿用旧多数 | 分离formation/update协议；新表面验收 |
+| AP-REL1-02  | handoff_to_protocol | formation可能忽略完整历史或默认首个来源 | 强制两来源计数与全部证据行 |
+| AP-REL1-03  | handoff_to_core | Dispatcher可提交空、伪造或陈旧证据ID | 平台从已采用消息绑定action元数据 |
+| AP-T4-01    | provider_blocked | GLM-5.2 v2三次稳定，gpt-5.4跨模型尚未执行 | 等待可用gpt-5.4额度后按冻结协议复测 |
 | AP-T5-01    | two_model_replicated_pass | v3双模型密封通过；Qwen后37次被额度拒绝且联合Gate失败 | 保留失败分母；项目决定停止Qwen，不做recovery |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
@@ -891,16 +911,18 @@ python -m exp_hf_h1_01.serve
 
 `cover_first_error()`已经用于未来运行：FullPass=0且现有枚举缺少具体节点时，记录`unexplained_failure`与`first_error_enumerator_gap`。历史结果通过勘误保持解释连续性。
 
-**平台管理版本号**
+**核心实现交接**
 
-`PlanRegistry`与`JointAssignmentChannel`已经实现平台生成`plan_id/spec_version`。下一步将C1评测通道迁移到该机制，使模型只提交业务分配。
+C1与REL1的评测侧诊断、建议接口和验收矩阵已整理到
+[`docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md`](docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md)。
+GAWorld核心修复由其他开发同学负责；本评测仓不把本地原型视为已合并能力，也不会推送核心修复分支。
 
 ### **13.3 下一阶段里程碑**
 
 1. 采集18条Human Trace，完成H1认知访谈和内部Pilot；
 2. 为T3、I1、L1补充更多留出重复；
-3. 将C1迁移到平台版本管理并完成NACK重试回归；
-4. 校准REL1最新状态覆盖协议；
+3. 由核心开发同学实现C1平台版本/保护不变量，评测侧随后做新编号NACK重试回归；
+4. 由协议与核心开发同学处理REL1分阶段更新和动作证据绑定，评测侧随后验收；
 5. 增加独立任务表面，检查跨任务迁移；
 6. 在冻结协议上更换模型，检查平台结论的模型依赖性；
 7. 冻结正式Benchmark版本、统计方案与排名资格门。
@@ -913,8 +935,8 @@ python -m exp_hf_h1_01.serve
 
 - 在当前开发任务、固定模型与eval_mode条件下，GAWorld的通信、权限控制和状态传播可以支撑可验证工作流；
 - T3、I1、L1已经完成开发集闭环，并在各自seed0密封留出上复现同类正负控模式；
-- C1已经具备基本冲突消解与私有约束整合能力，优先级NACK重试是明确的后续改进点；
-- REL1已经把失败定位到最新可靠性状态的采用环节；
+- C1已经具备基本冲突消解与私有约束整合能力；C1-04/05进一步把失败拆成保护优先级重规划、平台ID所有权和其他初始决策错误，正式Gate仍未通过；
+- REL1已经把失败拆成formation历史计数、latest-binding更新和Dispatcher证据绑定；REL1-03五个有效格全过但coverage=5/6，正式Gate仍未通过；
 - T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在seed0/1/2上Prompt哈希稳定，转发、完整路径、目标接受和FullPass均为100%；
 - T5-v3在三任务、三状态、repeat 1/2上18/18格通过，72/72次scope语义与逐居民directive正确，且重复结果完全一致；
 - T5-v3密封新任务在GLM-5.2与gpt-5.4上各9/9格通过，72/72次调用满足严格JSON；9/9个任务×状态组合的Prompt与注册结果跨模型完全一致；
@@ -1258,6 +1280,7 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `v0_first_batch/`                    | R0–R3统一Schema、compose与first_error覆盖 |
 | `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
+| `docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md` | C1/REL1故障位置、建议改法、实验来源与验收条件交接 |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
@@ -1271,6 +1294,8 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `output/t5_v3_expanded_3model_repeats_*/` | T5-v3四任务、三模型、seed0/1扩展证据与配额失败审计 |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
+| `exp_gm_c1_0{4,5}/`                  | C1平台ID与权威当前规范的注册诊断回归                    |
+| `exp_rel1_0{2,3}/`                   | REL1平台绑定、阶段分离与严格coverage回归                |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t5_02/`                      | T5-v2 absence/binding/nonbinding独立任务与评分       |
 | `exp_gm_t5_03/`                      | T5-v3全局政策与逐居民执行权分离协议                    |
@@ -1304,4 +1329,4 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 
 GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过；qwen3.7-plus因额度耗尽只形成部分证据，联合Gate按预注册判为失败并永久保留，项目不再续跑Qwen。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
 
-下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。
+下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖；把C1/REL1实现问题交给GAWorld核心开发同学并在其合并后做独立回归；采集18条真人团队轨迹并启动H1盲评。

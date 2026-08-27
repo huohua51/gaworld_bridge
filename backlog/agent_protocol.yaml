@@ -56,6 +56,9 @@ items:
     source: EXP-GM-REL1
     name: majority_not_recency_update
     status: backlog
+    implementation_owner: gaworld_protocol_team
+    handoff_status: documented_waiting_for_implementation
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
     layer: agent_protocol
     ranking_eligible: false
     summary: >
@@ -74,6 +77,9 @@ items:
     source: EXP-GM-REL1
     name: history_ignored_person_a_default
     status: backlog
+    implementation_owner: gaworld_protocol_team
+    handoff_status: documented_waiting_for_implementation
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
     layer: agent_protocol
     ranking_eligible: false
     summary: >
@@ -92,6 +98,9 @@ items:
     source: EXP-GM-REL1
     name: dispatcher_evidence_null
     status: backlog
+    implementation_owner: gaworld_core_team
+    handoff_status: documented_waiting_for_implementation
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
     layer: agent_protocol
     ranking_eligible: false
     summary: >
@@ -413,6 +422,9 @@ items:
     source: EXP-GM-C1-02
     name: priority_preservation_violation
     status: mitigated_in_protocol_v2
+    implementation_owner: gaworld_core_team
+    handoff_status: documented_waiting_for_implementation
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
     protocol_change_implemented: true
     rule_retry_path: pass
     llm_first_proposal_calibration: pass
@@ -509,6 +521,9 @@ items:
     source: EXP-GM-C1-03
     name: retry_plan_version_contract_violation
     status: open
+    implementation_owner: gaworld_core_team
+    handoff_status: documented_waiting_for_implementation
+    handoff_doc: docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md
     layer: agent_protocol
     ranking_eligible: false
     construct_relation: workflow_interoperability
@@ -526,5 +541,4 @@ items:
       - 这两格就是 AP-C1-D-01
       - 忽略版本后方案已经算对（语义诊断 0/3）
     still_not_resolved: true
-
 
