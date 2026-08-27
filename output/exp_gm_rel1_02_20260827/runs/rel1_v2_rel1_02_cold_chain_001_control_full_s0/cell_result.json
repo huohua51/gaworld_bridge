@@ -1,0 +1,271 @@
+{
+  "workflow_id": "exp_rel1_02_registered_reliability",
+  "instance_id": "rel1_v2_rel1_02_cold_chain_001_control_full_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.5714,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fixed_five_call_budget",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_did_not_issue_binding_ids",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "history_isolated_from_dispatcher",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "trust_updater_cannot_submit",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "current_signals_delivered",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_trust_messages_adopted",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_actions_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "observer_relay_faithful",
+      "layer": "R2",
+      "scorer": "registered_signals",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_history_count_correct",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_evidence_rows_correct",
+      "layer": "R2",
+      "scorer": "row_ids",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_row_binding_update_correct",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "update_evidence_latest_only",
+      "layer": "R2",
+      "scorer": "row_ids",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "update_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "formation_reliability_incorrect",
+    "events": [
+      "agent_bound",
+      "history_put",
+      "private_put",
+      "current_sent",
+      "current_sent",
+      "current_delivered",
+      "current_delivered",
+      "current_inbox_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "outcome_appended",
+      "history_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "denied",
+      "denied"
+    ],
+    "relationships": {
+      "source_silver": {
+        "closeness": 0.56,
+        "trust": 0.54,
+        "obligation": 0.53,
+        "friction": 0.45999999999999996,
+        "last_interaction_day": 1,
+        "phase": 1
+      },
+      "source_jade": {
+        "closeness": 0.42000000000000004,
+        "trust": 0.43999999999999995,
+        "obligation": 0.52,
+        "friction": 0.6000000000000001,
+        "last_interaction_day": 1,
+        "phase": 1
+      }
+    }
+  },
+  "extra": {
+    "task_id": "rel1_02_cold_chain_001",
+    "variant": "control",
+    "track": "full",
+    "seed": 0,
+    "first_error": "formation_reliability_incorrect",
+    "formation_correct": false,
+    "update_correct": true,
+    "formation_action_bound": false,
+    "update_action_bound": true,
+    "latest_is_binding": true,
+    "model_evidence_ids": [
+      "model-call:rel1_v2_rel1_02_cold_chain_001_control_full_s0:call-1",
+      "model-call:rel1_v2_rel1_02_cold_chain_001_control_full_s0:call-2",
+      "model-call:rel1_v2_rel1_02_cold_chain_001_control_full_s0:call-3",
+      "model-call:rel1_v2_rel1_02_cold_chain_001_control_full_s0:call-4",
+      "model-call:rel1_v2_rel1_02_cold_chain_001_control_full_s0:call-5"
+    ],
+    "got_formation": {
+      "evidence_row_ids": [
+        "cc-c-02"
+      ],
+      "other_source_id": "source_jade",
+      "trusted_source_id": "source_silver",
+      "trusted_state": "north_blocked"
+    },
+    "got_update": {
+      "evidence_row_ids": [
+        "cc-c-03"
+      ],
+      "other_source_id": "source_jade",
+      "trusted_source_id": "source_silver",
+      "trusted_state": "north_blocked"
+    },
+    "got_formation_action": {
+      "action": "select_transfer_bay",
+      "value": "use_south_bay",
+      "adopted_trust_version": "v1",
+      "evidence_message_id": "trust-msg-rel1_02_cold_chain_001_control_s0-3",
+      "round": "formation",
+      "task_id": "rel1_02_cold_chain_001_control_s0",
+      "dispatcher_id": 3
+    },
+    "got_update_action": {
+      "action": "select_transfer_bay",
+      "value": "use_south_bay",
+      "adopted_trust_version": "v2",
+      "evidence_message_id": "trust-msg-rel1_02_cold_chain_001_control_s0-4",
+      "round": "update",
+      "task_id": "rel1_02_cold_chain_001_control_s0",
+      "dispatcher_id": 3
+    },
+    "want": {
+      "formation_source": "source_jade",
+      "formation_state": "north_ready",
+      "formation_rows": [
+        "cc-c-01",
+        "cc-c-02"
+      ],
+      "formation_value": "use_north_bay",
+      "update_source": "source_silver",
+      "update_state": "north_blocked",
+      "update_rows": [
+        "cc-c-03"
+      ],
+      "update_value": "use_south_bay"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{"ts": 1787826290.978928, "event": "agent_bound", "task_id": "rel1_02_ferry_service_001_intervention_s0", "agent": {"relationships": {}, "current_day": 1}}
+{"ts": 1787826290.979977, "event": "history_put", "task_id": "rel1_02_ferry_service_001_intervention_s0", "rounds": [{"row_id": "fs-i-01", "reports": {"source_violet": "ferry_suspended", "source_amber": "ferry_running"}, "outcome": "ferry_suspended"}, {"row_id": "fs-i-02", "reports": {"source_violet": "ferry_suspended", "source_amber": "ferry_running"}, "outcome": "ferry_suspended"}]}
+{"ts": 1787826290.9805038, "event": "private_put", "task_id": "rel1_02_ferry_service_001_intervention_s0", "role": "dispatcher", "payload": {"action": "select_ferry_plan", "legal_values": ["board_ferry", "take_land_shuttle"], "state_to_value": {"ferry_running": "board_ferry", "ferry_suspended": "take_land_shuttle"}}}
+{"ts": 1787826293.425952, "event": "denied", "ok": false, "reason": "current_signal_not_sent", "task_id": "rel1_02_ferry_service_001_intervention_s0"}
+{"ts": 1787826293.426483, "event": "current_inbox_read", "task_id": "rel1_02_ferry_service_001_intervention_s0", "n": 0}
+{"ts": 1787826296.5578127, "event": "denied", "ok": false, "reason": "trust_not_requested", "task_id": "rel1_02_ferry_service_001_intervention_s0"}
+{"ts": 1787826299.580664, "event": "outcome_appended", "task_id": "rel1_02_ferry_service_001_intervention_s0", "outcome": {"row_id": "fs-i-03", "reports": {"source_violet": "ferry_suspended", "source_amber": "ferry_running"}, "outcome": "ferry_running"}}
+{"ts": 1787826299.5811923, "event": "history_read", "task_id": "rel1_02_ferry_service_001_intervention_s0", "n": 3}
+{"ts": 1787826303.0349915, "event": "denied", "ok": false, "reason": "trust_not_requested", "task_id": "rel1_02_ferry_service_001_intervention_s0"}
+{"ts": 1787826305.3250742, "event": "denied", "ok": false, "reason": "unauthorized_history_read", "task_id": "rel1_02_ferry_service_001_intervention_s0", "role": "dispatcher"}
+{"ts": 1787826305.325601, "event": "denied", "ok": false, "reason": "unauthorized_action_submit", "task_id": "rel1_02_ferry_service_001_intervention_s0", "role": "trust_updater"}
