@@ -6,7 +6,7 @@ task_coverage:
   T2: partial
   T3: strong_development
   T4: registered_transport_v2_glm52_seed0_1_2_stable
-  T5: expanded_4task_glm52_gpt54_repeat_pass_qwen37_partial_quota
+  T5: glm52_gpt54_expanded_4task_seed0_1_pass_qwen_discontinued
   T6: longitudinal_approximation_rule_calibrated
 
 mechanism_coverage:
@@ -31,6 +31,7 @@ experiments:
     models: [GLM-5.2, gpt-5.4, qwen3.7-plus]
     seeds: [0, 1]
     registered_design_adherent: true
+    follow_up: qwen_discontinued_by_project_decision_no_recovery
     ranking_eligible: false
 
   - experiment_id: HO-GM-T5-03
@@ -145,6 +146,6 @@ remaining_evidence_gaps:
   - task_family: T4
     gap: registered_transport_v2_cross_model_replication
   - task_family: T5
-    gap: preregistered_qwen_recovery_after_quota_additional_models_and_human_reference
+    gap: human_reference_and_optional_non_qwen_model_replication
   - task_family: T6
     gap: nonlinear_quantile_network_and_matched_longitudinal_human_reference

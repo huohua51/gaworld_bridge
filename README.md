@@ -524,7 +524,7 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
 | T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
-| T5 政策因果链   | `expanded_partial_quota` | T5-01 / T5-02 / T5-03 / HO-T5-03 / HO-T5-04 | GLM-5.2与gpt-5.4在四个新增表面双重复全过；Qwen因额度不足仅完成部分 | 三模型联合Gate失败，证据保留 |
+| T5 政策因果链   | `two_model_replicated_pass` | T5-01 / T5-02 / T5-03 / HO-T5-03 / HO-T5-04 | GLM-5.2与gpt-5.4在四个新增表面双重复全过；Qwen配额中断轮保留但停止续跑 | 双模型密封复现完成，T5功能侧封板 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -881,7 +881,7 @@ python -m exp_hf_h1_01.serve
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
 | AP-T4-01    | v2_repeat_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2下一步做跨模型复测                                    |
-| AP-T5-01    | expanded_partial_quota | v3双模型密封通过；扩展轮GLM/GPT通过，Qwen后37次被额度拒绝 | 保留失败分母；充值后新编号预注册Qwen recovery |
+| AP-T5-01    | two_model_replicated_pass | v3双模型密封通过；Qwen后37次被额度拒绝且联合Gate失败 | 保留失败分母；项目决定停止Qwen，不做recovery |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -1243,7 +1243,8 @@ seed1为2/12格，总计14/24格。按预注册固定分母和禁止补替规则
 但available-case诊断不能替代主结果。完整审计与恢复边界见
 [`REPORT.md`](output/t5_v3_expanded_3model_repeats_b7814a7e906e4988a8e7ecf517d6e043/REPORT.md)。
 
-充值后若要补全Qwen，必须使用新编号预注册独立recovery；本轮37个配额失败及联合失败Gate永久保留。
+项目决定停止Qwen，不再充值或建立recovery。本轮37个配额失败及联合失败Gate永久保留；T5功能侧以
+GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1、REL1、T4跨模型与Human Reference。
 
 ---
 
@@ -1301,6 +1302,6 @@ seed1为2/12格，总计14/24格。按预注册固定分母和禁止补替规则
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过，qwen3.7-plus则因额度耗尽只形成部分证据，联合Gate按预注册判为失败。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过；qwen3.7-plus因额度耗尽只形成部分证据，联合Gate按预注册判为失败并永久保留，项目不再续跑Qwen。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。
