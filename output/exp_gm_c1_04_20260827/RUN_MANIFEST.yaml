@@ -1,0 +1,36 @@
+experiment_id: EXP-GM-C1-04
+preregistration_id: C1-PLATFORM-OWNED-PLAN-GLM52-v4
+registration_sha256: 69d7620246b54b9b399916bce87755f9e28604377a73a08c72a44d076fc87427
+phase: model_seed0_regression
+gate: control_spurious_nack
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+ranking_eligible: false
+n_cells: 6
+coverage: 1.0
+full_pass_rate: 0.5
+nack_path_intervention: 1.0
+nack_path_control: 0.3333
+retry_recovery_intervention: 0.3333
+platform_identifier_ownership: 0.6667
+spec_revision_advanced: 1.0
+stale_plan_rejected: 0.8333
+first_error:
+  none: 3
+  retry_assignment_incorrect: 2
+  initial_assignment_incorrect: 1
+budget:
+  max_calls: 36
+  calls_used: 36
+  calls_remaining: 0
+  prompt_chars: 31860
+  response_chars: 2784
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
+ap_c1_d_01_closable: false
+ap_c1_f_01_closable: false
+does_not_overwrite:
+- EXP-GM-C1-02
+- EXP-GM-C1-03
+gaworld_commit: ad93e9d8c2848158bdf78ad789cb3b7c6a9d4d49

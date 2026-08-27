@@ -1,0 +1,16 @@
+{"event": "private_put", "owner": "agent_a"}
+{"event": "private_read", "owner": "agent_a"}
+{"event": "private_put", "owner": "agent_b"}
+{"event": "private_read", "owner": "agent_b"}
+{"event": "report_emitted", "agent_id": "agent_a"}
+{"event": "report_delivered", "agent_id": "agent_a"}
+{"event": "report_emitted", "agent_id": "agent_b"}
+{"event": "report_delivered", "agent_id": "agent_b"}
+{"event": "reports_read", "reader": "coordinator"}
+{"event": "accepted_plan_delivered", "plan_id": "plan-002", "spec_version": "spec-002"}
+{"event": "accepted_plan_read", "reader": "agent_a"}
+{"event": "confirmed_claim", "agent_id": "agent_a", "slot": "ab301", "plan_id": "plan-002"}
+{"event": "accepted_plan_read", "reader": "agent_b"}
+{"event": "confirmed_claim", "agent_id": "agent_b", "slot": "ab303", "plan_id": "plan-002"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "reader": "coordinator", "owner": "agent_a"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "coordinator", "agent_id": "agent_a"}

@@ -1,0 +1,7 @@
+{"event": "initial_saved", "assignments": {"agent_a": "ab301", "agent_b": "ab303"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "ab301", "agent_b": "ab303"}, "violations": [{"type": "not_earliest_feasible_idle", "agent": "B"}], "plan_id": null, "spec_version": "spec-001"}
+{"event": "protection_registered", "agent": "agent_a", "slot": "ab301", "spec_version": "spec-002"}
+{"event": "registered_constraints_inspected", "violations": [{"type": "not_earliest_feasible_idle", "agent": "B"}]}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": true, "assignments": {"agent_a": "ab301", "agent_b": "ab302"}, "violations": [], "plan_id": "plan-001", "spec_version": "spec-002"}
+{"event": "confirm", "ok": true, "plan_id": "plan-001", "spec_version": "spec-002", "agent_id": "agent_a", "slot": "ab301"}
+{"event": "confirm", "ok": true, "plan_id": "plan-001", "spec_version": "spec-002", "agent_id": "agent_b", "slot": "ab302"}

@@ -1,0 +1,6 @@
+{"event": "initial_saved", "assignments": {"agent_a": "vt202", "agent_b": "vt201"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": true, "assignments": {"agent_a": "vt202", "agent_b": "vt201"}, "violations": [], "plan_id": "plan-001", "spec_version": "spec-001"}
+{"event": "protection_registered", "agent": "agent_a", "slot": "vt201", "spec_version": "spec-002"}
+{"event": "registered_constraints_inspected", "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]}
+{"event": "confirm", "ok": false, "reason": "stale_plan_spec", "plan_id": "plan-001", "plan_spec_version": "spec-001", "current_spec_version": "spec-002", "agent_id": "agent_a", "slot": "vt202"}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": false, "assignments": {"agent_a": "vt202", "agent_b": "vt203"}, "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}], "plan_id": null, "spec_version": "spec-002"}

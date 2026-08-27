@@ -1,0 +1,13 @@
+{"event": "private_put", "owner": "agent_a"}
+{"event": "private_read", "owner": "agent_a"}
+{"event": "private_put", "owner": "agent_b"}
+{"event": "private_read", "owner": "agent_b"}
+{"event": "report_emitted", "agent_id": "agent_a"}
+{"event": "report_delivered", "agent_id": "agent_a"}
+{"event": "report_emitted", "agent_id": "agent_b"}
+{"event": "report_delivered", "agent_id": "agent_b"}
+{"event": "reports_read", "reader": "coordinator"}
+{"event": "denied", "ok": false, "reason": "plan_not_delivered", "reader": "agent_a"}
+{"event": "denied", "ok": false, "reason": "plan_not_delivered", "reader": "agent_b"}
+{"event": "denied", "ok": false, "reason": "unauthorized_private_read", "reader": "coordinator", "owner": "agent_a"}
+{"event": "denied", "ok": false, "reason": "unauthorized_world_write", "role": "coordinator", "agent_id": "agent_a"}
