@@ -1,0 +1,206 @@
+gate: registered_expanded_three_model_repeat_recorded
+preregistration_id: T5-V3-EXPANDED-3MODEL-REPEAT-v1
+registered_on: '2026-08-27'
+base_commit: 27fe41523ed651cb73fd6e7311f70007a3ecc9e6
+phase: prospective_expanded_sealed_three_model_repeats
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  Does the frozen T5-v3 eligibility-scope protocol retain its registered
+  absence, binding and nonbinding behavior on four additional unseen policy
+  surfaces across GLM-5.2, gpt-5.4 and qwen3.7-plus, with exact within-model
+  agreement over two independently called repeat IDs?
+
+models:
+  glm52:
+    provider_adapter: paratera_glm
+    gateway: paratera
+    model: GLM-5.2
+    base_url: https://llmapi.paratera.com/v1
+    api_protocol: openai_chat_completions
+    api_key_env: PARATERA_API_KEY
+    temperature: 0.0
+    temperature_parameter_sent: true
+    thinking: disabled
+    max_tokens_per_call: 256
+  gpt54:
+    provider_adapter: qweapi_anthropic
+    gateway: qweapi_anthropic
+    model: gpt-5.4
+    base_url: https://qweapi.com
+    api_protocol: anthropic_messages
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    temperature_parameter_sent: true
+    max_tokens_per_call: 256
+  qwen37plus:
+    provider_adapter: qweapi_anthropic
+    gateway: qweapi_anthropic
+    model: qwen3.7-plus
+    base_url: https://qweapi.com
+    api_protocol: anthropic_messages
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    temperature_parameter_sent: true
+    max_tokens_per_call: 256
+
+engineering_preflight:
+  formal_holdout_content_used: false
+  prompt_source: previously released T5-v3 binding task
+  purpose: provider availability and strict JSON qualification only
+  candidates:
+    claude-sonnet-4-6:
+      calls: 1
+      strict_json_pass: false
+      result: json_parse_error
+    deepseek-v4-flash:
+      calls: 1
+      strict_json_pass: false
+      result: empty_response
+    qwen3.7-plus:
+      calls: 1
+      strict_json_pass: true
+      result: selected_as_registered_third_model
+
+design:
+  task_ids:
+    - t5ho2_cold_chain_001
+    - t5ho2_smoke_shelter_001
+    - t5ho2_nursery_quarantine_001
+    - t5ho2_bridge_weight_001
+  policy_states: [absence, binding, nonbinding]
+  model_keys: [glm52, gpt54, qwen37plus]
+  seeds: [0, 1]
+  repeat_definition: >-
+    Seed labels identify independent repeated calls with byte-identical inputs;
+    the adapters do not expose a separate provider random-seed parameter.
+  track: full
+  residents_per_cell: 4
+  cells_per_model: 24
+  total_cells: 72
+  max_calls_per_model: 96
+  max_calls_total: 288
+  execution_order: model_then_seed_then_task_then_policy_state_then_resident
+  prompt_protocol: gaworld-benchmark-t5-model-v3
+  scorer_version: model-pilot-t5-v3-scope-scorer-v1
+  same_prompt_bytes_across_models: true
+  same_prompt_bytes_across_repeats: true
+  nonadaptive_after_first_model: true
+
+frozen_inputs:
+  model_pilot/t5_v3.py: 89d70001630903d9e6d695216234108673904212ee08dfcb2d895fdd361401e1
+  model_pilot/t5_v3_scorer.py: b8546d71ee76ada849e2955d3920853e677aefdfc5a00c569192dcc4cb2671f5
+  model_pilot/t5_v3_expanded_repeats.py: 9a853119c36c3dced4a9ebc7ab15042450e25655f20ab501784db01f2dcdfe9b
+  model_pilot/t5_v3_expanded_fixture.py: 4928d5f5687b4237d369401d68f9ac9b3b56cb8209042f72ffb9bd0a0df25f4a
+  holdout_t5_v3_expanded/tasks.yaml: beeed23f2ed29a2504bccef945f9c7c15910255934802a459d3c792ec87e842b
+  holdout_t5_v3_expanded/task_card.yaml: 34c98b3f582ee39df2eb848964b1d1be9f4d53587da7ca88a99682a37bfbd927
+  holdout_t5_v3_expanded/protocol.md: d115a1f919f04dcbded59dcab9bb73fa37543c198effaf3dd442ea7ab32dacaa
+  holdout_t5_v3_expanded/loader.py: e4350a4b7c83de3ed39ef01fa4fb1d5d552e481b01b12c34889c7f7b6e90a6ff
+  exp_gm_t5_03/semantics.py: 400236ee2abd4e9b80b666bc0b5e373b9565e0e5607dfec5ee20eaa6f17d6403
+  exp_gm_t5_02/run_matrix.py: 62325831cc41786b65d6f240e2bbd449c1852a9ee28f491febe2ddd88a2d6dfd
+  benchmark_core/model_runner.py: f99c67512056200bf33456a64e835cee2861193362282578b571940a1babb40d
+  ../GAWorld/config.py: e1e231614424d5ed8f1ce856360149a63aa9ee96b5b5c7cb9a91d35f772883a5
+  ../GAWorld/llm_providers.py: 8519592811f1f94102c513f6cb8ef659b8cc7d25e9213bdb5e76e3bfd19fc0d9
+
+registered_oracle:
+  per_model:
+    absence:
+      notice_seen: false
+      binding: false
+      target_match_rate: 0.0
+      authorized_rate: 0.0
+      behavior_change_rate: 0.0
+      full_pass_rate: 1.0
+    binding:
+      notice_seen: true
+      binding: true
+      target_match_rate: 0.5
+      authorized_rate: 0.5
+      behavior_change_rate: 0.5
+      full_pass_rate: 1.0
+    nonbinding:
+      notice_seen: true
+      binding: false
+      target_match_rate: 0.5
+      authorized_rate: 0.0
+      behavior_change_rate: 0.0
+      full_pass_rate: 1.0
+    causal_contrasts:
+      binding_minus_absence: 0.5
+      binding_minus_nonbinding: 0.5
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    policy_response_rate: 1.0
+  cross_model:
+    comparison_units: 24
+    prompt_identity_rate: 1.0
+    semantic_action_fullpass_exact_agreement_rate: 1.0
+  within_model_repeats:
+    comparison_units: 36
+    prompt_identity_rate: 1.0
+    semantic_action_fullpass_exact_agreement_rate: 1.0
+
+outcomes:
+  primary:
+    - full_pass_by_policy_state_and_model
+    - behavior_change_rate_by_policy_state_and_model
+    - cross_model_exact_agreement_by_seed_task_policy_state
+    - within_model_repeat_exact_agreement_by_task_policy_state
+  secondary:
+    - causal_contrasts_by_model
+    - prompt_identity_across_models_and_repeats
+    - scope_semantics_rate_by_model
+    - resident_directive_rate_by_model
+    - no_untargeted_spillover
+    - first_error_counts_by_model
+
+analysis_rules:
+  sealed_surface: >-
+    Holdout task IDs, policy IDs, channels, actors, groups, actions and state
+    fields are disjoint from every prior T5 development and holdout task and
+    receive no live model calls before this registration is pushed.
+  identical_protocol: >-
+    All models and repeats receive byte-identical prompts for a given task,
+    policy state and resident and use the same frozen scorer and denominator.
+  per_model_success: >-
+    A model succeeds only if all twenty-four cells are measurement-valid and
+    FullPass, with behavior rates 0.0, 0.5 and 0.0 for absence, binding and
+    nonbinding.
+  cross_model_exact_agreement: >-
+    For each of twenty-four seed-task-policy-state units, all three models must
+    have identical scope booleans, actions and FullPass; free-text reason is excluded.
+  within_model_repeat_exact_agreement: >-
+    For each of thirty-six model-task-policy-state units, seed 0 and seed 1
+    must have identical scope booleans, actions and FullPass.
+  first_result_nonadaptive: >-
+    Earlier model or repeat results cannot change later tasks, prompts, oracle,
+    scorer, denominator, execution order or stopping rules.
+  strict_json_no_markdown_normalization: true
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+  transport_retry_policy: >-
+    A bounded retry is permitted only inside one reserved logical call for a
+    transient HTTP transport error; it does not replace a valid or invalid response.
+  preserve_all_prior_t5_evidence: true
+
+claim_boundary: >-
+  This is a two-repeat, four-task sealed functional holdout across three
+  models. It supports additional fresh-surface, cross-model and repeated-input
+  protocol evidence, but not human validity, real-world policy effects, broad
+  task or model generalization, provider-seed reproducibility or ranking.
+
+stopping_rules:
+  - Run models in the registered order GLM-5.2, gpt-5.4, qwen3.7-plus.
+  - Within each model run seed 0 then seed 1, preserving registered task and state order.
+  - Complete every registered matrix regardless of earlier outcomes unless credentials, provider availability or the fixed budget blocks calls.
+  - Stop before any model exceeds 96 logical calls or total calls exceed 288.
+  - Do not retry a structurally valid response.
+  - Do not replace an invalid or failed cell.
+
+planned_entrypoint: python -m model_pilot.t5_v3_expanded_repeats
+credential_policy: PARATERA_API_KEY and ANTHROPIC_API_KEY are environment-only and never logged

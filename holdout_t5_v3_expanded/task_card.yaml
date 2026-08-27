@@ -1,0 +1,39 @@
+schema_version: 1
+task_id: HOLDOUT-T5-v3-expanded-three-model-repeats
+task_family: T5
+target_axis: functional
+mechanism: [M1, M4, M8]
+control:
+  states: [absence, nonbinding]
+  absence: no notice and no authorized action
+  nonbinding: visible target scope without resident authorization
+variant:
+  state: binding
+  expected_behavior: only target-matched residents follow the policy action
+oracle:
+  full: >-
+    Each model distinguishes global policy context from resident authorization
+    and follows only resident_directive.action on every new task and repeat.
+required_events:
+  - population_registered
+  - policy_registered
+  - policy_activated
+  - policy_perceived
+  - resident_action_submitted
+primary_metric: expanded sealed eligibility-scope FullPass
+diagnostic_metrics:
+  - scope semantic accuracy
+  - resident directive accuracy
+  - behavior change rate
+  - untargeted spillover rate
+  - cross-model exact agreement
+  - within-model repeat exact agreement
+human_reference: N/A
+status: sealed_not_run
+ranking_eligible: false
+policy_states: [absence, binding, nonbinding]
+models: [GLM-5.2, gpt-5.4, qwen3.7-plus]
+seeds: [0, 1]
+note: >-
+  All surfaces are disjoint from T5 development and the first sealed holdout.
+  Models, repeats and analysis rules are registered before the first new-task call.

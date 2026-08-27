@@ -1,0 +1,113 @@
+schema_version: 1
+tasks:
+  - id: t5ho2_cold_chain_001
+    policy_id: pharma-cold-chain-isolation-v1
+    policy_version: v1
+    effective_step: 5
+    policy_signal:
+      name: temperature-excursion medicine isolation order
+      channel: medicine_safety_notice
+    target_groups: [temperature_excursion_distributor]
+    target_action: isolate_exposed_medicine
+    action_effects:
+      keep_current: {}
+      isolate_exposed_medicine:
+        cold_chain_disposition: isolated
+        dispatch_status: suspended
+    residents:
+      - agent_id: coldchain-distributor-1
+        group: temperature_excursion_distributor
+        state: {cold_chain_disposition: review_pending, dispatch_status: queued}
+      - agent_id: coldchain-distributor-2
+        group: temperature_excursion_distributor
+        state: {cold_chain_disposition: review_pending, dispatch_status: queued}
+      - agent_id: coldchain-wholesaler-1
+        group: verified_cold_chain_wholesaler
+        state: {cold_chain_disposition: verified, dispatch_status: released}
+      - agent_id: coldchain-clinic-1
+        group: clinic_pharmacy
+        state: {cold_chain_disposition: bedside_stock, dispatch_status: received}
+
+  - id: t5ho2_smoke_shelter_001
+    policy_id: childcare-clean-air-room-v1
+    policy_version: v1
+    effective_step: 7
+    policy_signal:
+      name: wildfire-smoke childcare clean-air order
+      channel: public_health_air_notice
+    target_groups: [unfiltered_childcare_facility]
+    target_action: activate_clean_air_room
+    action_effects:
+      keep_current: {}
+      activate_clean_air_room:
+        air_response_mode: clean_air_room
+        outdoor_program: cancelled
+    residents:
+      - agent_id: smoke-childcare-1
+        group: unfiltered_childcare_facility
+        state: {air_response_mode: ordinary_room, outdoor_program: scheduled}
+      - agent_id: smoke-childcare-2
+        group: unfiltered_childcare_facility
+        state: {air_response_mode: ordinary_room, outdoor_program: scheduled}
+      - agent_id: smoke-school-1
+        group: filtered_primary_school
+        state: {air_response_mode: filtered_classroom, outdoor_program: paused}
+      - agent_id: smoke-library-1
+        group: public_library
+        state: {air_response_mode: normal_service, outdoor_program: not_applicable}
+
+  - id: t5ho2_nursery_quarantine_001
+    policy_id: invasive-pest-nursery-hold-v1
+    policy_version: v1
+    effective_step: 9
+    policy_signal:
+      name: invasive-pest plant movement suspension
+      channel: plant_health_notice
+    target_groups: [regulated_plant_nursery]
+    target_action: suspend_plant_shipments
+    action_effects:
+      keep_current: {}
+      suspend_plant_shipments:
+        plant_movement_status: suspended
+        inspection_lane: quarantine
+    residents:
+      - agent_id: nursery-regulated-1
+        group: regulated_plant_nursery
+        state: {plant_movement_status: outbound_ready, inspection_lane: standard}
+      - agent_id: nursery-regulated-2
+        group: regulated_plant_nursery
+        state: {plant_movement_status: outbound_ready, inspection_lane: standard}
+      - agent_id: nursery-seedbank-1
+        group: sealed_seed_bank
+        state: {plant_movement_status: archive_only, inspection_lane: exempt}
+      - agent_id: nursery-garden-1
+        group: household_garden
+        state: {plant_movement_status: stationary, inspection_lane: not_applicable}
+
+  - id: t5ho2_bridge_weight_001
+    policy_id: emergency-bridge-weight-detour-v1
+    policy_version: v1
+    effective_step: 11
+    policy_signal:
+      name: emergency heavy-vehicle bridge detour
+      channel: road_structure_notice
+    target_groups: [overweight_freight_operator]
+    target_action: reroute_heavy_vehicle
+    action_effects:
+      keep_current: {}
+      reroute_heavy_vehicle:
+        freight_route_status: detour_required
+        crossing_slot: cancelled
+    residents:
+      - agent_id: bridge-heavy-1
+        group: overweight_freight_operator
+        state: {freight_route_status: bridge_route, crossing_slot: reserved}
+      - agent_id: bridge-heavy-2
+        group: overweight_freight_operator
+        state: {freight_route_status: bridge_route, crossing_slot: reserved}
+      - agent_id: bridge-light-1
+        group: light_delivery_operator
+        state: {freight_route_status: bridge_route, crossing_slot: open}
+      - agent_id: bridge-bus-1
+        group: scheduled_passenger_bus
+        state: {freight_route_status: passenger_route, crossing_slot: timetable}
