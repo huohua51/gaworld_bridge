@@ -1,0 +1,39 @@
+schema_version: 1
+task_id: TASK-T5-resident-eligibility-scope-v3
+task_family: T5
+target_axis: functional
+mechanism: [M1, M4, M8]
+control:
+  states: [absence, nonbinding]
+  absence: no notice exists; target_match=false, authorized=false, action=keep_current
+  nonbinding: notice scope may match, but authorized=false and action=keep_current
+variant:
+  state: binding
+  expected_behavior: only scope-matched residents are authorized to take the policy action
+oracle:
+  full: >-
+    The model separately reports notice presence, binding status, target-group
+    match and resident authorization, then copies the sole resident directive.
+required_events:
+  - population_registered
+  - policy_registered
+  - policy_activated
+  - policy_perceived
+  - resident_action_submitted
+primary_metric: resident eligibility-scope compliance
+diagnostic_metrics:
+  - notice-presence accuracy
+  - binding-status accuracy
+  - target-match accuracy
+  - authorization accuracy
+  - resident-directive action accuracy
+  - untargeted spillover rate
+  - repeat exact agreement
+human_reference: N/A
+status: offline_protocol_calibration
+ranking_eligible: false
+policy_states: [absence, binding, nonbinding]
+repeat_ids: [1, 2]
+note: >-
+  T5-v3 is a development regression for the field-name collision found after
+  T5-v2. T5-v1/v2 code, prompts and live evidence remain frozen.

@@ -1,0 +1,136 @@
+preregistration_id: T5-ELIGIBILITY-SCOPE-GLM52-REPEATS-v1
+registered_on: '2026-08-27'
+base_commit: 65a7df514df932b1f873a53a3ca4669f6d1c66a1
+phase: prospective_live_model_development_regression
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  After removing the T5-v2 duplicate required_action field, does GLM-5.2 obey
+  the sole resident-specific eligibility directive under absence, binding and
+  nonbinding policy states in two prompt-identical prospective repeats?
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t5v2_water_restriction_001
+    - t5v2_heat_activity_001
+    - t5v2_organics_rule_001
+  policy_states: [absence, binding, nonbinding]
+  repeat_ids: [1, 2]
+  track: full
+  residents_per_cell: 4
+  new_cells: 18
+  max_calls: 72
+  execution_order: task_then_policy_state_then_repeat_then_resident
+  prompt_protocol: gaworld-benchmark-t5-model-v3
+  scorer_version: model-pilot-t5-v3-scope-scorer-v1
+  v2_seed0_combined_with_repeats: false
+
+frozen_inputs:
+  model_pilot/t5_v3.py: 89d70001630903d9e6d695216234108673904212ee08dfcb2d895fdd361401e1
+  model_pilot/t5_v3_scorer.py: b8546d71ee76ada849e2955d3920853e677aefdfc5a00c569192dcc4cb2671f5
+  model_pilot/t5_v3_repeats.py: 7595ac9ff7a1be80dc9a2b50c4063619a89bdce67d9784cec2218d1910fa1e5e
+  exp_gm_t5_03/task_card.yaml: 8f0d7b8a3e37d28aec76711f9eb03148fc95028d069a142b4ad39c713e7332cb
+  exp_gm_t5_03/protocol.md: d81e7a64a835382d0dd352ca30e019685d643100cf6f8c6580b06180993ae81c
+  exp_gm_t5_03/loader.py: 4cf267de30702f5b99923792b257ae666d920d3821ef72f6ce41f0c723de5f77
+  exp_gm_t5_03/semantics.py: 400236ee2abd4e9b80b666bc0b5e373b9565e0e5607dfec5ee20eaa6f17d6403
+  exp_gm_t5_02/tasks.yaml: 8e9be0582ee082aae0e9b7f6da3958f04d73ddc60569cd5b49604f5b41293cd7
+  exp_gm_t5_02/loader.py: c782d08d6845daf94344ff2bbbad87531e6212e98834e8ebc4bd42da95a74917
+  exp_gm_t5_02/run_matrix.py: 62325831cc41786b65d6f240e2bbd449c1852a9ee28f491febe2ddd88a2d6dfd
+
+registered_oracle:
+  absence:
+    notice_seen: false
+    binding: false
+    target_match_rate: 0.0
+    authorized_rate: 0.0
+    behavior_change_rate: 0.0
+    full_pass_rate: 1.0
+  binding:
+    notice_seen: true
+    binding: true
+    target_match_rate: 0.5
+    authorized_rate: 0.5
+    behavior_change_rate: 0.5
+    full_pass_rate: 1.0
+  nonbinding:
+    notice_seen: true
+    binding: false
+    target_match_rate: 0.5
+    authorized_rate: 0.0
+    behavior_change_rate: 0.0
+    full_pass_rate: 1.0
+  causal_contrasts:
+    binding_minus_absence: 0.5
+    binding_minus_nonbinding: 0.5
+    nonbinding_minus_absence: 0.0
+  scope_prompt_rate: 1.0
+  model_contract_rate: 1.0
+  scope_semantics_rate: 1.0
+  resident_directive_rate: 1.0
+  policy_response_rate: 1.0
+  repeat_exact_agreement_rate: 1.0
+
+outcomes:
+  primary:
+    - full_pass_by_policy_state
+    - resident_scope_semantics_rate
+    - resident_directive_rate
+    - behavior_change_rate_by_policy_state
+    - binding_minus_absence
+    - binding_minus_nonbinding
+    - repeat_exact_agreement_by_task_policy_state
+  secondary:
+    - nonbinding_minus_absence
+    - prompt_hash_stability_by_task_policy_state_resident
+    - model_contract_rate
+    - no_untargeted_spillover
+    - first_error_counts
+
+analysis_rules:
+  prompt_scope_contract: >-
+    The prompt must contain no required_action key. Global notice data use
+    policy_action; resident_directive.action is the sole action authority.
+  absence: >-
+    Every response reports notice_seen=false, binding=false,
+    target_match=false and authorized=false, then keeps current.
+  binding: >-
+    Every response reports the registered target match. Only target-matched
+    residents report authorized=true and take policy_action; all others keep.
+  nonbinding: >-
+    Target match remains observable, but every resident reports
+    authorized=false and keeps current.
+  exact_repeat_agreement: >-
+    Repeat 1 and repeat 2 must have identical structured semantic outputs,
+    actions and FullPass for each task-policy-state pair.
+  prompt_stability: >-
+    Each resident prompt SHA-256 must be identical between repeat 1 and repeat 2.
+  protocol_change_boundary: >-
+    T5-v2 seed 0 used a different prompt protocol and is not combined with the
+    v3 repeats for stability estimates.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+  preserve_t5_v1_and_v2: true
+
+claim_boundary: >-
+  This is a post-diagnostic development regression on the three frozen T5-v2
+  task surfaces. It tests protocol repair repeatability, not fresh-task
+  generalization, human validity, real-world effects or leaderboard performance.
+
+stopping_rules:
+  - Stop after all 18 registered cells finish.
+  - Stop before any call that would exceed the shared 72-call budget.
+  - Do not retry a structurally valid model response.
+  - Do not replace an invalid or failed cell during the registered run.
+
+planned_entrypoint: python -m model_pilot.t5_v3_repeats
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
