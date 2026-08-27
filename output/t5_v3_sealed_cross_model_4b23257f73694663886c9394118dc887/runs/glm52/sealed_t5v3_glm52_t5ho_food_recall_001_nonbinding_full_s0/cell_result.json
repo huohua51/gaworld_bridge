@@ -1,0 +1,332 @@
+{
+  "workflow_id": "model_pilot_t5_v3_scope",
+  "instance_id": "model_v3_t5ho_food_recall_001_nonbinding_full_r0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-1",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-2",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-3",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"recall-market-1\", \"evidence_id\": \"model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-1\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"785d1f660a893037f3a38dbe78e802e969a530c4c0b95b13de520b62c081ee98\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"recall-market-2\", \"evidence_id\": \"model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-2\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"1898ed6c506c094e0512b7535562bbfef825cb5505133896427ffd20834c42b8\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"recall-cafe-1\", \"evidence_id\": \"model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"fb5a11a9302b44554396620bfee938f1e3439d31403840d7dd2aea675f998271\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"recall-home-1\", \"evidence_id\": \"model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"nonbinding\", \"prompt_sha256\": \"59bef5491aaa3439bb1616ae27ac90aed304b1f58f54c208b191106f548a56eb\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-1",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-2",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-3",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\\runs\\glm52\\sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0\\policy_trace.jsonl",
+        "output\\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\\runs\\glm52\\sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0\\model_trace.jsonl",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-1",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-2",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-3",
+        "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-4",
+        "policy-action-recall-market-1-6",
+        "policy-action-recall-market-2-8",
+        "policy-action-recall-cafe-1-10",
+        "policy-action-recall-home-1-12"
+      ],
+      "detail": "expected={'recall-market-1': 'keep_current', 'recall-market-2': 'keep_current', 'recall-cafe-1': 'keep_current', 'recall-home-1': 'keep_current'} actual={'recall-market-1': 'keep_current', 'recall-market-2': 'keep_current', 'recall-cafe-1': 'keep_current', 'recall-home-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\\runs\\glm52\\sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "recall-market-1",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": true,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": true,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "785d1f660a893037f3a38dbe78e802e969a530c4c0b95b13de520b62c081ee98",
+        "evidence_id": "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-1"
+      },
+      {
+        "agent_id": "recall-market-2",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": true,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": true,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "1898ed6c506c094e0512b7535562bbfef825cb5505133896427ffd20834c42b8",
+        "evidence_id": "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-2"
+      },
+      {
+        "agent_id": "recall-cafe-1",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "fb5a11a9302b44554396620bfee938f1e3439d31403840d7dd2aea675f998271",
+        "evidence_id": "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-3"
+      },
+      {
+        "agent_id": "recall-home-1",
+        "policy_state": "nonbinding",
+        "expected": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "59bef5491aaa3439bb1616ae27ac90aed304b1f58f54c208b191106f548a56eb",
+        "evidence_id": "model-call:sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0:call-4"
+      }
+    ],
+    "expected_actions": {
+      "recall-market-1": "keep_current",
+      "recall-market-2": "keep_current",
+      "recall-cafe-1": "keep_current",
+      "recall-home-1": "keep_current"
+    },
+    "actual_actions": {
+      "recall-market-1": "keep_current",
+      "recall-market-2": "keep_current",
+      "recall-cafe-1": "keep_current",
+      "recall-home-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "eligibility_scope_repeat",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "policy_state": "nonbinding",
+    "repeat_id": 0,
+    "behavior_change_rate": 0.0,
+    "changed_agent_ids": [],
+    "target_agent_ids": [
+      "recall-market-1",
+      "recall-market-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "recall-market-1": "785d1f660a893037f3a38dbe78e802e969a530c4c0b95b13de520b62c081ee98",
+      "recall-market-2": "1898ed6c506c094e0512b7535562bbfef825cb5505133896427ffd20834c42b8",
+      "recall-cafe-1": "fb5a11a9302b44554396620bfee938f1e3439d31403840d7dd2aea675f998271",
+      "recall-home-1": "59bef5491aaa3439bb1616ae27ac90aed304b1f58f54c208b191106f548a56eb"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v3_t5ho_food_recall_001_nonbinding_full_r0",
+      "task_id": "t5ho_food_recall_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:nonbinding:full:scope_v3",
+      "variant": "nonbinding",
+      "seed": 0,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v3",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1",
+      "evidence_id": "bundle:model_v3_t5ho_food_recall_001_nonbinding_full_r0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

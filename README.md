@@ -524,7 +524,7 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
 | T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
-| T5 政策因果链   | `v3_repeat_pass` | T5-01 / T5-02 / T5-03 | v3消除scope字段碰撞，三种状态在repeat 1/2全部通过 | 两次开发回归完成 |
+| T5 政策因果链   | `sealed_cross_model_pass` | T5-01 / T5-02 / T5-03 / HO-T5-03 | v3在全新任务表面保持scope语义，GLM-5.2与gpt-5.4注册结果完全一致 | seed0双模型密封留出完成 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -881,7 +881,7 @@ python -m exp_hf_h1_01.serve
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
 | AP-T4-01    | v2_repeat_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2下一步做跨模型复测                                    |
-| AP-T5-01    | v3_repeat_pass | v1语义混淆；v2的全局/居民`required_action`同名碰撞；v3拆分后18/18格通过 | 保留v1/v2；下一步做全新任务留出与跨模型复测 |
+| AP-T5-01    | sealed_cross_model_pass | v1语义混淆；v2字段碰撞；v3开发重复与双模型密封新任务均通过 | 保留v1/v2；下一步扩大任务、模型、重复种子与真人参照 |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -917,6 +917,7 @@ python -m exp_hf_h1_01.serve
 - REL1已经把失败定位到最新可靠性状态的采用环节；
 - T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在seed0/1/2上Prompt哈希稳定，转发、完整路径、目标接受和FullPass均为100%；
 - T5-v3在三任务、三状态、repeat 1/2上18/18格通过，72/72次scope语义与逐居民directive正确，且重复结果完全一致；
+- T5-v3密封新任务在GLM-5.2与gpt-5.4上各9/9格通过，72/72次调用满足严格JSON；9/9个任务×状态组合的Prompt与注册结果跨模型完全一致；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -1208,6 +1209,22 @@ FullPass，JSON契约、scope语义、directive服从、政策响应和无越界
 这证明该显式scope协议在现有三个任务表面上可重复工作；由于任务是在v2诊断后复用，它仍属于
 开发回归，不能与不同Prompt的v2 seed0合并，也不能替代全新任务留出、跨模型复测或Human Reference。
 
+### **16.11 T5-v3密封新任务与跨模型复测**
+
+`T5-V3-SEALED-CROSS-MODEL-v1`在任何正式留出调用前，以提交`50e7aeb`共同冻结三个全新任务、
+GLM-5.2与gpt-5.4、Prompt字节、严格JSON契约、评分器、分母、72次总预算和停止规则。新任务的
+任务ID、角色、群体、动作与状态字段均不复用T5开发集；先完整执行GLM-5.2，再在不能根据首个模型
+结果调整设计的前提下执行gpt-5.4。
+
+两个模型各自9/9格FullPass、36/36次调用通过严格JSON，行为变化率均严格为
+`absence=0 / binding=0.5 / nonbinding=0`，scope语义、directive服从与政策响应均为100%。
+9/9个任务×政策状态组合的Prompt SHA-256逐居民一致，scope布尔值、动作与FullPass跨模型
+精确一致。独立审计同时确认binding下12/12个非授权居民未越界，nonbinding下12/12个目标居民
+正确识别但未执行无约束建议，输出中未发现凭据。完整边界与证据见
+[`REPORT.md`](output/t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887/REPORT.md)。
+
+这是三任务、双模型、seed0的密封功能留出，不是广泛模型泛化、真人效度、现实政策效果或排行榜结论。
+
 ---
 
 ## **17. 目录索引**
@@ -1229,11 +1246,13 @@ FullPass，JSON契约、scope语义、directive服从、政策响应和无越界
 | `output/model_pilot_live_t5_minimal_glm52_*/` | T5最小真实政策因果链诊断证据                 |
 | `output/model_pilot_live_t5_v2_glm52_*/` | T5-v2显式语义与binding目标资格诊断证据            |
 | `output/model_pilot_live_t5_v3_repeats_glm52_*/` | T5-v3 eligibility-scope repeat 1/2证据      |
+| `output/t5_v3_sealed_cross_model_*/` | T5-v3全新任务密封留出与GLM-5.2/gpt-5.4跨模型证据 |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t5_02/`                      | T5-v2 absence/binding/nonbinding独立任务与评分       |
 | `exp_gm_t5_03/`                      | T5-v3全局政策与逐居民执行权分离协议                    |
+| `holdout_t5_v3/`                     | T5-v3三个密封新任务、Task Card与协议                  |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
 | `output/functional_devset_20260825/` | 功能侧开发集冻结总表                          |
 | `output/holdout_20260825/`           | T3、I1、L1的seed0留出汇总                  |
@@ -1260,6 +1279,6 @@ FullPass，JSON契约、scope语义、directive服从、政策响应和无越界
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后在repeat 1/2的18格中全部通过。两条修复链共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照和R3证据链仍不可省略。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，不仅在repeat 1/2的18格中全部通过，也在三个全新任务表面的GLM-5.2/gpt-5.4密封复测中各9/9格通过且注册结果完全一致。两条修复链共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出和R3证据链仍不可省略。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。

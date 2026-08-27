@@ -1,0 +1,1192 @@
+pilot_id: T5-V3-SEALED-CROSS-MODEL-v1
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T5_V3_SEALED_CROSS_MODEL_v1.yaml
+registration_sha256: ca781df55b712589a34de677e97ef363d99416d99fb678bebe85693bfff770ce
+base_commit: dede0a7d3bd6bbb6af6b9b066d56c4fed611a686
+model_order:
+- glm52
+- gpt54
+models:
+  glm52:
+    provider_adapter: paratera_glm
+    gateway: paratera
+    model: GLM-5.2
+    observed_provider: paratera_glm
+    observed_model: GLM-5.2
+    live: true
+  gpt54:
+    provider_adapter: minimax
+    gateway: qweapi_anthropic
+    model: gpt-5.4
+    observed_provider: minimax
+    observed_model: gpt-5.4
+    live: true
+live_model_explicitly_allowed: true
+temperature: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+prompt_protocol: gaworld-benchmark-t5-model-v3
+ranking_eligible: false
+registered_design_adherent: true
+all_registered_outcomes_pass: true
+n_cells: 18
+per_model:
+  glm52:
+    model_key: glm52
+    all_registered_outcomes_pass: true
+    n_cells: 9
+    FullPassByPolicyState:
+      absence: 1.0
+      binding: 1.0
+      nonbinding: 1.0
+    BehaviorChangeRateByPolicyState:
+      absence: 0.0
+      binding: 0.5
+      nonbinding: 0.0
+    causal_contrasts:
+      binding_minus_absence: 0.5
+      binding_minus_nonbinding: 0.5
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    policy_response_rate: 1.0
+    first_error_counts:
+      none: 9
+    budget:
+      max_calls: 36
+      calls_used: 36
+      calls_remaining: 0
+      prompt_chars: 52302
+      response_chars: 9157
+      max_prompt_chars_per_call: 50000
+      max_response_chars_per_call: 2000
+  gpt54:
+    model_key: gpt54
+    all_registered_outcomes_pass: true
+    n_cells: 9
+    FullPassByPolicyState:
+      absence: 1.0
+      binding: 1.0
+      nonbinding: 1.0
+    BehaviorChangeRateByPolicyState:
+      absence: 0.0
+      binding: 0.5
+      nonbinding: 0.0
+    causal_contrasts:
+      binding_minus_absence: 0.5
+      binding_minus_nonbinding: 0.5
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    policy_response_rate: 1.0
+    first_error_counts:
+      none: 9
+    budget:
+      max_calls: 36
+      calls_used: 36
+      calls_remaining: 0
+      prompt_chars: 52302
+      response_chars: 7905
+      max_prompt_chars_per_call: 50000
+      max_response_chars_per_call: 2000
+cross_model_exact_agreement_rate: 1.0
+cross_model_prompt_identity_rate: 1.0
+by_task_policy_state:
+  t5ho_elevator_inspection_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+  t5ho_elevator_inspection_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+  t5ho_elevator_inspection_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+  t5ho_food_recall_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+  t5ho_food_recall_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+  t5ho_food_recall_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+  t5ho_ballast_inspection_001:absence:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+  t5ho_ballast_inspection_001:binding:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.5
+      gpt54: 0.5
+  t5ho_ballast_inspection_001:nonbinding:
+    model_keys:
+    - glm52
+    - gpt54
+    prompt_identical_across_models: true
+    outcome_exact_agreement: true
+    full_pass:
+      glm52: 1
+      gpt54: 1
+    behavior_change_rate:
+      glm52: 0.0
+      gpt54: 0.0
+total_calls: 72
+cells:
+- model_key: glm52
+  task_id: t5ho_elevator_inspection_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    elevator-legacy-1: keep_current
+    elevator-legacy-2: keep_current
+    elevator-modern-1: keep_current
+    elevator-lowrise-1: keep_current
+  scope_outputs:
+    elevator-legacy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-legacy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-modern-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-lowrise-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    elevator-legacy-1: ccf134bb53734aef46ba498cbf7444c337baced70309af3dcf3ae3013c1b60f3
+    elevator-legacy-2: e39984191a0b89dd4a621bbbfa25de8cb075e43176f709cd78adda6d2d933963
+    elevator-modern-1: 4d203d5588c0c2933a578eadfd9c0635877e1e257bde68c3c7349fef1a8247f9
+    elevator-lowrise-1: 2972c8c9dcba82709770060c35eb8f7b08bbeb73548928bff6e5380953fc04de
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_elevator_inspection_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - elevator-legacy-1
+  - elevator-legacy-2
+  actual_actions:
+    elevator-legacy-1: schedule_safety_inspection
+    elevator-legacy-2: schedule_safety_inspection
+    elevator-modern-1: keep_current
+    elevator-lowrise-1: keep_current
+  scope_outputs:
+    elevator-legacy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: schedule_safety_inspection
+    elevator-legacy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: schedule_safety_inspection
+    elevator-modern-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-lowrise-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    elevator-legacy-1: 9bb7194c3045dd8545972c1072bc6dcd615b56bfaab6f491c78b52f0221da482
+    elevator-legacy-2: 073cfcf27b83576ef7c79fc8925f0ea944e1851a6b4e31b43fac78b7b4d96190
+    elevator-modern-1: c92fd06da72ba844997eaa503ed635a72c1ac26298125afd420435e4f13d8256
+    elevator-lowrise-1: 0914f3f051fe9ad476582f70820f522e2c307abbcbf7fa24351f44a09b1c6407
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_elevator_inspection_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    elevator-legacy-1: keep_current
+    elevator-legacy-2: keep_current
+    elevator-modern-1: keep_current
+    elevator-lowrise-1: keep_current
+  scope_outputs:
+    elevator-legacy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    elevator-legacy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    elevator-modern-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-lowrise-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    elevator-legacy-1: 5955719c7bcdacbdec78635e6a48794a484b935b7690e8390f4f54bfa056085f
+    elevator-legacy-2: 5c29158d06bd9eb0d5bec942ace8e2726786709a8b2aa79f3bd287ff86dafd4c
+    elevator-modern-1: 3c17844c66ee82780aa937a1388d2e8280f8bd53e441a272695bc45366036560
+    elevator-lowrise-1: 5d2d3ae82c752dc16bad4a76dff6c8d84002757fe40719b77e5a4c2ff84574fd
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_elevator_inspection_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_food_recall_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    recall-market-1: keep_current
+    recall-market-2: keep_current
+    recall-cafe-1: keep_current
+    recall-home-1: keep_current
+  scope_outputs:
+    recall-market-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-market-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-cafe-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-home-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    recall-market-1: eafbf60be6f1c4863a407660a488eee682a40ef7f8524089baa98e7442ea3a13
+    recall-market-2: f799834e8390eb0643fd22f8977ce4c08d8d845f563dce10285c7dcc6fe68aa5
+    recall-cafe-1: a8ef5477bb86845fb27510a24e16be021ec9408c9bbd30831b1a825f9a922e2b
+    recall-home-1: 8940d0659873d1b61ea976d59709b4931f80ced5050414f6ca9f23395e2e1778
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_food_recall_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - recall-market-1
+  - recall-market-2
+  actual_actions:
+    recall-market-1: quarantine_recalled_inventory
+    recall-market-2: quarantine_recalled_inventory
+    recall-cafe-1: keep_current
+    recall-home-1: keep_current
+  scope_outputs:
+    recall-market-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: quarantine_recalled_inventory
+    recall-market-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: quarantine_recalled_inventory
+    recall-cafe-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-home-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    recall-market-1: b6f0aaeae9048777470713cb3f25554b68aeae797fdcab6e531f224af7870a70
+    recall-market-2: 0c5d3b3afc8246aa27a1fbf61577b7c3466fe668c26e829087acc5cd91083709
+    recall-cafe-1: b3658c52f233df849e3bb22d2b72b69cea8d9c6aa0c380dc9bff91c08fbbc618
+    recall-home-1: 6ab82397f88c2d3c73edfc9238873bbaa7b2655294cc59bed0f45167f6e4b697
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_food_recall_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    recall-market-1: keep_current
+    recall-market-2: keep_current
+    recall-cafe-1: keep_current
+    recall-home-1: keep_current
+  scope_outputs:
+    recall-market-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    recall-market-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    recall-cafe-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-home-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    recall-market-1: 785d1f660a893037f3a38dbe78e802e969a530c4c0b95b13de520b62c081ee98
+    recall-market-2: 1898ed6c506c094e0512b7535562bbfef825cb5505133896427ffd20834c42b8
+    recall-cafe-1: fb5a11a9302b44554396620bfee938f1e3439d31403840d7dd2aea675f998271
+    recall-home-1: 59bef5491aaa3439bb1616ae27ac90aed304b1f58f54c208b191106f548a56eb
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_food_recall_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_ballast_inspection_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    ballast-cargo-1: keep_current
+    ballast-cargo-2: keep_current
+    ballast-ferry-1: keep_current
+    ballast-fishing-1: keep_current
+  scope_outputs:
+    ballast-cargo-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-cargo-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-ferry-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-fishing-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    ballast-cargo-1: 9c114e8a1238341717e8c4dd803b0a2f8f250ca0dc9e05c5735678f24706950b
+    ballast-cargo-2: 6c647d88275528ffeed51cf76866ee64e1788af7c711f1cfdb4bf84942e5a65d
+    ballast-ferry-1: a0afc19b5cb6addf4f3bc7d56aada2dc0adae452c8a8b62cc418b130784aae7d
+    ballast-fishing-1: b77687467d6703dd9a3e691ddcce16b64ce393190f868b11a2e680837fabf341
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_absence_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_ballast_inspection_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - ballast-cargo-1
+  - ballast-cargo-2
+  actual_actions:
+    ballast-cargo-1: hold_for_ballast_inspection
+    ballast-cargo-2: hold_for_ballast_inspection
+    ballast-ferry-1: keep_current
+    ballast-fishing-1: keep_current
+  scope_outputs:
+    ballast-cargo-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: hold_for_ballast_inspection
+    ballast-cargo-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: hold_for_ballast_inspection
+    ballast-ferry-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-fishing-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    ballast-cargo-1: cc6bc76bf7774a837d1d5fae2aa6c0898e14b7221ac21417989135470fb2e2ae
+    ballast-cargo-2: e9bb6e67f0669f2e67f85bc06f0f59ebe649da32c083e9b1525b12ac965e133f
+    ballast-ferry-1: d7950b6e164ef5bf687b0fe5eaf3ade0681ed357fc625fe0f549cbf632c7fd58
+    ballast-fishing-1: 598157e5a0e0d9de5ead7d4477bbde7275665da390a699d7d2d4e18230ed3a03
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_binding_full_s0\policy_trace.jsonl
+- model_key: glm52
+  task_id: t5ho_ballast_inspection_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    ballast-cargo-1: keep_current
+    ballast-cargo-2: keep_current
+    ballast-ferry-1: keep_current
+    ballast-fishing-1: keep_current
+  scope_outputs:
+    ballast-cargo-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    ballast-cargo-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    ballast-ferry-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-fishing-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    ballast-cargo-1: 88478ebe05a0f73b54e5e9c0e62dfe8b3d7a903427e982cf3ea6da4eda0300a6
+    ballast-cargo-2: c00a9689c979b52d1c91d18a5c5430d7c6c6d08441bc9eefebee62740adb76bd
+    ballast-ferry-1: 39c1aaad3fd15c209b9537cbfa36edf984456abb77cf50e8334e7e911fccecd8
+    ballast-fishing-1: 89bc6028dc41826abd4061e1d19b1b8d011db68523dbc79bc5d7669851223032
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\glm52\sealed_t5v3_glm52_t5ho_ballast_inspection_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_elevator_inspection_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    elevator-legacy-1: keep_current
+    elevator-legacy-2: keep_current
+    elevator-modern-1: keep_current
+    elevator-lowrise-1: keep_current
+  scope_outputs:
+    elevator-legacy-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-legacy-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-modern-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-lowrise-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    elevator-legacy-1: ccf134bb53734aef46ba498cbf7444c337baced70309af3dcf3ae3013c1b60f3
+    elevator-legacy-2: e39984191a0b89dd4a621bbbfa25de8cb075e43176f709cd78adda6d2d933963
+    elevator-modern-1: 4d203d5588c0c2933a578eadfd9c0635877e1e257bde68c3c7349fef1a8247f9
+    elevator-lowrise-1: 2972c8c9dcba82709770060c35eb8f7b08bbeb73548928bff6e5380953fc04de
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_elevator_inspection_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - elevator-legacy-1
+  - elevator-legacy-2
+  actual_actions:
+    elevator-legacy-1: schedule_safety_inspection
+    elevator-legacy-2: schedule_safety_inspection
+    elevator-modern-1: keep_current
+    elevator-lowrise-1: keep_current
+  scope_outputs:
+    elevator-legacy-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: schedule_safety_inspection
+    elevator-legacy-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: schedule_safety_inspection
+    elevator-modern-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-lowrise-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    elevator-legacy-1: 9bb7194c3045dd8545972c1072bc6dcd615b56bfaab6f491c78b52f0221da482
+    elevator-legacy-2: 073cfcf27b83576ef7c79fc8925f0ea944e1851a6b4e31b43fac78b7b4d96190
+    elevator-modern-1: c92fd06da72ba844997eaa503ed635a72c1ac26298125afd420435e4f13d8256
+    elevator-lowrise-1: 0914f3f051fe9ad476582f70820f522e2c307abbcbf7fa24351f44a09b1c6407
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_elevator_inspection_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    elevator-legacy-1: keep_current
+    elevator-legacy-2: keep_current
+    elevator-modern-1: keep_current
+    elevator-lowrise-1: keep_current
+  scope_outputs:
+    elevator-legacy-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    elevator-legacy-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    elevator-modern-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    elevator-lowrise-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    elevator-legacy-1: 5955719c7bcdacbdec78635e6a48794a484b935b7690e8390f4f54bfa056085f
+    elevator-legacy-2: 5c29158d06bd9eb0d5bec942ace8e2726786709a8b2aa79f3bd287ff86dafd4c
+    elevator-modern-1: 3c17844c66ee82780aa937a1388d2e8280f8bd53e441a272695bc45366036560
+    elevator-lowrise-1: 5d2d3ae82c752dc16bad4a76dff6c8d84002757fe40719b77e5a4c2ff84574fd
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_elevator_inspection_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_food_recall_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    recall-market-1: keep_current
+    recall-market-2: keep_current
+    recall-cafe-1: keep_current
+    recall-home-1: keep_current
+  scope_outputs:
+    recall-market-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-market-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-cafe-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-home-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    recall-market-1: eafbf60be6f1c4863a407660a488eee682a40ef7f8524089baa98e7442ea3a13
+    recall-market-2: f799834e8390eb0643fd22f8977ce4c08d8d845f563dce10285c7dcc6fe68aa5
+    recall-cafe-1: a8ef5477bb86845fb27510a24e16be021ec9408c9bbd30831b1a825f9a922e2b
+    recall-home-1: 8940d0659873d1b61ea976d59709b4931f80ced5050414f6ca9f23395e2e1778
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_food_recall_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - recall-market-1
+  - recall-market-2
+  actual_actions:
+    recall-market-1: quarantine_recalled_inventory
+    recall-market-2: quarantine_recalled_inventory
+    recall-cafe-1: keep_current
+    recall-home-1: keep_current
+  scope_outputs:
+    recall-market-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: quarantine_recalled_inventory
+    recall-market-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: quarantine_recalled_inventory
+    recall-cafe-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-home-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    recall-market-1: b6f0aaeae9048777470713cb3f25554b68aeae797fdcab6e531f224af7870a70
+    recall-market-2: 0c5d3b3afc8246aa27a1fbf61577b7c3466fe668c26e829087acc5cd91083709
+    recall-cafe-1: b3658c52f233df849e3bb22d2b72b69cea8d9c6aa0c380dc9bff91c08fbbc618
+    recall-home-1: 6ab82397f88c2d3c73edfc9238873bbaa7b2655294cc59bed0f45167f6e4b697
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_food_recall_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    recall-market-1: keep_current
+    recall-market-2: keep_current
+    recall-cafe-1: keep_current
+    recall-home-1: keep_current
+  scope_outputs:
+    recall-market-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    recall-market-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    recall-cafe-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    recall-home-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    recall-market-1: 785d1f660a893037f3a38dbe78e802e969a530c4c0b95b13de520b62c081ee98
+    recall-market-2: 1898ed6c506c094e0512b7535562bbfef825cb5505133896427ffd20834c42b8
+    recall-cafe-1: fb5a11a9302b44554396620bfee938f1e3439d31403840d7dd2aea675f998271
+    recall-home-1: 59bef5491aaa3439bb1616ae27ac90aed304b1f58f54c208b191106f548a56eb
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_food_recall_001_nonbinding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_ballast_inspection_001
+  policy_state: absence
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    ballast-cargo-1: keep_current
+    ballast-cargo-2: keep_current
+    ballast-ferry-1: keep_current
+    ballast-fishing-1: keep_current
+  scope_outputs:
+    ballast-cargo-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-cargo-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-ferry-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-fishing-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    ballast-cargo-1: 9c114e8a1238341717e8c4dd803b0a2f8f250ca0dc9e05c5735678f24706950b
+    ballast-cargo-2: 6c647d88275528ffeed51cf76866ee64e1788af7c711f1cfdb4bf84942e5a65d
+    ballast-ferry-1: a0afc19b5cb6addf4f3bc7d56aada2dc0adae452c8a8b62cc418b130784aae7d
+    ballast-fishing-1: b77687467d6703dd9a3e691ddcce16b64ce393190f868b11a2e680837fabf341
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_absence_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_absence_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_ballast_inspection_001
+  policy_state: binding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - ballast-cargo-1
+  - ballast-cargo-2
+  actual_actions:
+    ballast-cargo-1: hold_for_ballast_inspection
+    ballast-cargo-2: hold_for_ballast_inspection
+    ballast-ferry-1: keep_current
+    ballast-fishing-1: keep_current
+  scope_outputs:
+    ballast-cargo-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: hold_for_ballast_inspection
+    ballast-cargo-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: hold_for_ballast_inspection
+    ballast-ferry-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-fishing-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    ballast-cargo-1: cc6bc76bf7774a837d1d5fae2aa6c0898e14b7221ac21417989135470fb2e2ae
+    ballast-cargo-2: e9bb6e67f0669f2e67f85bc06f0f59ebe649da32c083e9b1525b12ac965e133f
+    ballast-ferry-1: d7950b6e164ef5bf687b0fe5eaf3ade0681ed357fc625fe0f549cbf632c7fd58
+    ballast-fishing-1: 598157e5a0e0d9de5ead7d4477bbde7275665da390a699d7d2d4e18230ed3a03
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_binding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_binding_full_s0\policy_trace.jsonl
+- model_key: gpt54
+  task_id: t5ho_ballast_inspection_001
+  policy_state: nonbinding
+  seed: 0
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    ballast-cargo-1: keep_current
+    ballast-cargo-2: keep_current
+    ballast-ferry-1: keep_current
+    ballast-fishing-1: keep_current
+  scope_outputs:
+    ballast-cargo-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    ballast-cargo-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    ballast-ferry-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    ballast-fishing-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    ballast-cargo-1: 88478ebe05a0f73b54e5e9c0e62dfe8b3d7a903427e982cf3ea6da4eda0300a6
+    ballast-cargo-2: c00a9689c979b52d1c91d18a5c5430d7c6c6d08441bc9eefebee62740adb76bd
+    ballast-ferry-1: 39c1aaad3fd15c209b9537cbfa36edf984456abb77cf50e8334e7e911fccecd8
+    ballast-fishing-1: 89bc6028dc41826abd4061e1d19b1b8d011db68523dbc79bc5d7669851223032
+  cell_result_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\t5_v3_sealed_cross_model_4b23257f73694663886c9394118dc887\runs\gpt54\sealed_t5v3_gpt54_t5ho_ballast_inspection_001_nonbinding_full_s0\policy_trace.jsonl
+gate: registered_sealed_cross_model_pilot_recorded
