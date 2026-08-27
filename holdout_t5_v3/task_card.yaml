@@ -1,0 +1,38 @@
+schema_version: 1
+task_id: HOLDOUT-T5-v3-fresh-surface-cross-model
+task_family: T5
+target_axis: functional
+mechanism: [M1, M4, M8]
+control:
+  states: [absence, nonbinding]
+  absence: no notice and no authorized action
+  nonbinding: visible target scope without resident authorization
+variant:
+  state: binding
+  expected_behavior: only target-matched residents follow the policy action
+oracle:
+  full: >-
+    Each model distinguishes global policy context from resident authorization
+    and follows only resident_directive.action on all fresh task surfaces.
+required_events:
+  - population_registered
+  - policy_registered
+  - policy_activated
+  - policy_perceived
+  - resident_action_submitted
+primary_metric: sealed fresh-surface eligibility-scope FullPass
+diagnostic_metrics:
+  - scope semantic accuracy
+  - resident directive accuracy
+  - behavior change rate
+  - untargeted spillover rate
+  - cross-model exact agreement
+human_reference: N/A
+status: sealed_not_run
+ranking_eligible: false
+policy_states: [absence, binding, nonbinding]
+models: [GLM-5.2, gpt-5.4]
+seeds: [0]
+note: >-
+  Tasks are disjoint from T5-v1/v2/v3 development surfaces. Both models and
+  every analysis rule are jointly registered before the first holdout call.

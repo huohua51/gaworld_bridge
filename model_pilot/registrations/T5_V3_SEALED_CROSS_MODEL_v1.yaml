@@ -1,0 +1,154 @@
+preregistration_id: T5-V3-SEALED-CROSS-MODEL-v1
+registered_on: '2026-08-27'
+base_commit: dede0a7d3bd6bbb6af6b9b066d56c4fed611a686
+phase: prospective_sealed_fresh_surface_cross_model
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  Does the frozen T5-v3 eligibility-scope protocol retain its registered
+  absence, binding and nonbinding behavior on three unseen policy surfaces,
+  first with GLM-5.2 and then with gpt-5.4 under identical prompts and scoring?
+
+models:
+  glm52:
+    provider_adapter: paratera_glm
+    gateway: paratera
+    model: GLM-5.2
+    base_url: https://llmapi.paratera.com/v1
+    api_protocol: openai_chat_completions
+    api_key_env: PARATERA_API_KEY
+    temperature: 0.0
+    thinking: disabled
+    max_tokens_per_call: 256
+  gpt54:
+    provider_adapter: minimax
+    gateway: qweapi_anthropic
+    model: gpt-5.4
+    base_url: https://qweapi.com
+    api_protocol: anthropic_messages
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.0
+    max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t5ho_elevator_inspection_001
+    - t5ho_food_recall_001
+    - t5ho_ballast_inspection_001
+  policy_states: [absence, binding, nonbinding]
+  model_keys: [glm52, gpt54]
+  track: full
+  seed: 0
+  residents_per_cell: 4
+  cells_per_model: 9
+  total_cells: 18
+  max_calls_per_model: 36
+  max_calls_total: 72
+  execution_order: model_then_task_then_policy_state_then_resident
+  prompt_protocol: gaworld-benchmark-t5-model-v3
+  scorer_version: model-pilot-t5-v3-scope-scorer-v1
+  same_prompt_bytes_across_models: true
+  glm_runs_before_gpt: true
+
+frozen_inputs:
+  model_pilot/t5_v3.py: 89d70001630903d9e6d695216234108673904212ee08dfcb2d895fdd361401e1
+  model_pilot/t5_v3_scorer.py: b8546d71ee76ada849e2955d3920853e677aefdfc5a00c569192dcc4cb2671f5
+  model_pilot/t5_v3_sealed_cross_model.py: 23845514fe18eb55b73d9c45ac3a3ef79d31e5d9cd825ec356063c835a062a97
+  holdout_t5_v3/tasks.yaml: 24d1637b12031f6609bd395308614c57803fb12ff92e1b00a209a7de3d983c91
+  holdout_t5_v3/task_card.yaml: c0337998e463be29b4b334e171b6c7bf7b2cfd99a84826de5cba6dc088073771
+  holdout_t5_v3/protocol.md: ee39d4cebbaa2a6e4e8862b29f97b93a9a16c5f5330e7f6a7ec653e73dd1109a
+  holdout_t5_v3/loader.py: 1d9d18f5de497736f384d091af51e416532fb436b5fa71af9ff8bfc68c538f20
+  exp_gm_t5_03/semantics.py: 400236ee2abd4e9b80b666bc0b5e373b9565e0e5607dfec5ee20eaa6f17d6403
+  exp_gm_t5_02/run_matrix.py: 62325831cc41786b65d6f240e2bbd449c1852a9ee28f491febe2ddd88a2d6dfd
+  benchmark_core/model_runner.py: f99c67512056200bf33456a64e835cee2861193362282578b571940a1babb40d
+  ../GAWorld/config.py: e1e231614424d5ed8f1ce856360149a63aa9ee96b5b5c7cb9a91d35f772883a5
+  ../GAWorld/llm_providers.py: 8519592811f1f94102c513f6cb8ef659b8cc7d25e9213bdb5e76e3bfd19fc0d9
+
+registered_oracle:
+  per_model:
+    absence:
+      notice_seen: false
+      binding: false
+      target_match_rate: 0.0
+      authorized_rate: 0.0
+      behavior_change_rate: 0.0
+      full_pass_rate: 1.0
+    binding:
+      notice_seen: true
+      binding: true
+      target_match_rate: 0.5
+      authorized_rate: 0.5
+      behavior_change_rate: 0.5
+      full_pass_rate: 1.0
+    nonbinding:
+      notice_seen: true
+      binding: false
+      target_match_rate: 0.5
+      authorized_rate: 0.0
+      behavior_change_rate: 0.0
+      full_pass_rate: 1.0
+    causal_contrasts:
+      binding_minus_absence: 0.5
+      binding_minus_nonbinding: 0.5
+      nonbinding_minus_absence: 0.0
+    scope_prompt_rate: 1.0
+    model_contract_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    policy_response_rate: 1.0
+  cross_model:
+    prompt_identity_rate: 1.0
+    semantic_action_fullpass_exact_agreement_rate: 1.0
+
+outcomes:
+  primary:
+    - full_pass_by_policy_state_and_model
+    - behavior_change_rate_by_policy_state_and_model
+    - scope_semantics_rate_by_model
+    - resident_directive_rate_by_model
+    - cross_model_exact_agreement_by_task_policy_state
+  secondary:
+    - causal_contrasts_by_model
+    - prompt_identity_across_models
+    - model_contract_rate_by_model
+    - no_untargeted_spillover
+    - first_error_counts_by_model
+
+analysis_rules:
+  sealed_surface: >-
+    Holdout task IDs, actors, groups, actions and state fields are disjoint from
+    all T5 development tasks and receive no live model calls before registration.
+  identical_protocol: >-
+    Both models receive byte-identical prompts and use the same frozen scorer,
+    strict JSON contract and response denominator.
+  per_model_success: >-
+    A model succeeds only if all nine cells are measurement-valid and FullPass,
+    with behavior rates 0.0, 0.5 and 0.0 for absence, binding and nonbinding.
+  cross_model_exact_agreement: >-
+    For each task-policy-state pair, both models must have identical scope
+    booleans, actions and FullPass. Free-text reason is excluded.
+  first_model_nonadaptive: >-
+    GLM-5.2 results cannot change gpt-5.4 tasks, prompts, oracle, scorer,
+    denominator or stopping rules.
+  strict_json_no_markdown_normalization: true
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+  preserve_all_t5_development_evidence: true
+
+claim_boundary: >-
+  This is a seed-0, three-task sealed functional holdout across two models. It
+  supports fresh-surface and cross-model protocol evidence, but not human
+  validity, real-world policy effects, broad model generalization or ranking.
+
+stopping_rules:
+  - Run GLM-5.2's nine cells before gpt-5.4's nine cells.
+  - Complete both registered model matrices regardless of the first result,
+    unless credentials, provider availability or the fixed budget blocks calls.
+  - Stop before any model exceeds its 36-call budget or total calls exceed 72.
+  - Do not retry a structurally valid response.
+  - Do not replace an invalid or failed cell.
+
+planned_entrypoint: python -m model_pilot.t5_v3_sealed_cross_model
+credential_policy: PARATERA_API_KEY and ANTHROPIC_API_KEY are environment-only and never logged

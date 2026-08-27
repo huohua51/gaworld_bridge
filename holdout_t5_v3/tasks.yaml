@@ -1,0 +1,85 @@
+schema_version: 1
+tasks:
+  - id: t5ho_elevator_inspection_001
+    policy_id: elevator-safety-inspection-v1
+    policy_version: v1
+    effective_step: 4
+    policy_signal:
+      name: legacy high-rise elevator inspection order
+      channel: building_safety_notice
+    target_groups: [legacy_highrise_operator]
+    target_action: schedule_safety_inspection
+    action_effects:
+      keep_current: {}
+      schedule_safety_inspection:
+        inspection_status: scheduled
+        elevator_service: limited
+    residents:
+      - agent_id: elevator-legacy-1
+        group: legacy_highrise_operator
+        state: {inspection_status: routine, elevator_service: normal}
+      - agent_id: elevator-legacy-2
+        group: legacy_highrise_operator
+        state: {inspection_status: routine, elevator_service: normal}
+      - agent_id: elevator-modern-1
+        group: modern_highrise_operator
+        state: {inspection_status: current, elevator_service: normal}
+      - agent_id: elevator-lowrise-1
+        group: lowrise_operator
+        state: {inspection_status: not_applicable, elevator_service: normal}
+
+  - id: t5ho_food_recall_001
+    policy_id: allergen-batch-recall-v1
+    policy_version: v1
+    effective_step: 6
+    policy_signal:
+      name: packaged-food allergen batch recall
+      channel: food_safety_notice
+    target_groups: [listed_batch_retailer]
+    target_action: quarantine_recalled_inventory
+    action_effects:
+      keep_current: {}
+      quarantine_recalled_inventory:
+        inventory_status: quarantined
+        shelf_units: 0
+    residents:
+      - agent_id: recall-market-1
+        group: listed_batch_retailer
+        state: {inventory_status: on_sale, shelf_units: 18}
+      - agent_id: recall-market-2
+        group: listed_batch_retailer
+        state: {inventory_status: on_sale, shelf_units: 12}
+      - agent_id: recall-cafe-1
+        group: prepared_food_vendor
+        state: {inventory_status: prepared_daily, shelf_units: 6}
+      - agent_id: recall-home-1
+        group: household_consumer
+        state: {inventory_status: household_use, shelf_units: 2}
+
+  - id: t5ho_ballast_inspection_001
+    policy_id: harbor-ballast-inspection-v1
+    policy_version: v1
+    effective_step: 8
+    policy_signal:
+      name: invasive-species ballast inspection order
+      channel: harbor_control_notice
+    target_groups: [international_cargo_vessel]
+    target_action: hold_for_ballast_inspection
+    action_effects:
+      keep_current: {}
+      hold_for_ballast_inspection:
+        clearance_status: inspection_hold
+        berth_assignment: quarantine_berth
+    residents:
+      - agent_id: ballast-cargo-1
+        group: international_cargo_vessel
+        state: {clearance_status: pending_entry, berth_assignment: cargo_berth}
+      - agent_id: ballast-cargo-2
+        group: international_cargo_vessel
+        state: {clearance_status: pending_entry, berth_assignment: cargo_berth}
+      - agent_id: ballast-ferry-1
+        group: domestic_passenger_ferry
+        state: {clearance_status: domestic_clear, berth_assignment: ferry_terminal}
+      - agent_id: ballast-fishing-1
+        group: local_fishing_vessel
+        state: {clearance_status: local_clear, berth_assignment: fishing_pier}
