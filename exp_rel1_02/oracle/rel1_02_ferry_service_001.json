@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_amber", "formation_state": "ferry_running", "formation_rows": ["fs-c-01", "fs-c-02"], "formation_value": "board_ferry", "update_source": "source_violet", "update_state": "ferry_suspended", "update_rows": ["fs-c-03"], "update_value": "take_land_shuttle"},
+  "intervention": {"formation_source": "source_violet", "formation_state": "ferry_suspended", "formation_rows": ["fs-i-01", "fs-i-02"], "formation_value": "take_land_shuttle", "update_source": "source_amber", "update_state": "ferry_running", "update_rows": ["fs-i-03"], "update_value": "board_ferry"}
+}

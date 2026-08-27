@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_ember", "formation_state": "gate_open", "formation_rows": ["fg-c-01", "fg-c-02"], "formation_value": "use_gate_route", "update_source": "source_cobalt", "update_state": "gate_closed", "update_rows": ["fg-c-03"], "update_value": "use_ridge_route"},
+  "intervention": {"formation_source": "source_cobalt", "formation_state": "gate_closed", "formation_rows": ["fg-i-01", "fg-i-02"], "formation_value": "use_ridge_route", "update_source": "source_ember", "update_state": "gate_open", "update_rows": ["fg-i-03"], "update_value": "use_gate_route"}
+}

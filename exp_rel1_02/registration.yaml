@@ -1,0 +1,90 @@
+gate: preregistered_not_run
+preregistration_id: REL1-REGISTERED-RELIABILITY-GLM52-v2
+registered_on: '2026-08-27'
+base_commit: 0c79172ee08412d29f3e6029f34c5bb753486e3c
+required_gaworld_commit: a14a748acc77b13c5742040c78304d17c67fe683
+phase: prospective_fresh_surface_seed0_repair_regression
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  On fresh reliability-update surfaces, does GLM-5.2 form trust from cited
+  correct-history rows, replace that choice using only the latest binding
+  outcome, and choose both business values while the platform binds the
+  Dispatcher actions to the actually adopted trust messages?
+
+provider:
+  name: paratera_glm
+  gateway: paratera
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  api_protocol: openai_chat_completions
+  api_key_env: PARATERA_API_KEY
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 384
+
+design:
+  task_ids: [rel1_02_flood_gate_001, rel1_02_cold_chain_001, rel1_02_ferry_service_001]
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  calls_per_cell: 5
+  max_calls: 30
+  scorer_version: rel1-registered-reliability-v2.0
+  fresh_relative_to: [EXP-GM-REL1]
+
+registered_call_order:
+  - observer_current_signal_relay
+  - trust_updater_formation
+  - dispatcher_formation_value
+  - trust_updater_latest_binding_update
+  - dispatcher_update_value
+
+repairs:
+  AP-REL1-01:
+    - update uses only the final ordered history row when latest_is_binding=true
+    - cited evidence_row_ids must contain only that latest row
+  AP-REL1-02:
+    - formation counts report==outcome rows for every neutral source ID
+    - source display order has no priority meaning
+    - formation cites all supporting history row IDs
+  AP-REL1-03:
+    - dispatcher model outputs selected_value only
+    - platform binds registered action name, delivered message ID, adopted trust version, and round
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  formation_correct: 1.0
+  update_correct: 1.0
+  formation_action_bound: 1.0
+  update_action_bound: 1.0
+
+stopping_rule: >-
+  Run the six seed-0 cells exactly once and stop. Preserve any failed result.
+  Do not change frozen prompts, tasks, oracle, scorer, or platform binding code
+  based on live output.
+
+scope_limits:
+  - A pass closes AP-REL1-01, AP-REL1-02, and AP-REL1-03 as implementation regressions.
+  - A pass does not rescore or overwrite EXP-GM-REL1.
+  - This is registered source-reliability behavior, not a claim about human interpersonal trust.
+  - One model and one seed do not establish broad model generalization.
+
+frozen_inputs:
+  exp_rel1_02/task_card.yaml: b798e754fd1cbe5c26a1412731d0b6652abb2c261f2ca53412e0203ca8f0eefe
+  exp_rel1_02/protocol.md: a27240ab2eb63e11559c75717863d5922ec7ffcc00fe6607f9e00f2946a9e61c
+  exp_rel1_02/loader.py: 2c6db5b6d038e3f4b2aa38759863e558dd5b9acf48e449379c9920a5af7440a0
+  exp_rel1_02/protocol.py: f4b26c4b4af7b14be7c5d13aa26bc2ef400c5c9a1250f3686f88b0c94325a916
+  exp_rel1_02/scorer.py: c1f041b1f3975b7af35bea79210858f37458f4693946d83af52bbb1ae9e69bb8
+  exp_rel1_02/fixture.py: 22e9f2114fddd01cc3acb54dbc42d8f01b93cd3396af048475a8e74c807e9d47
+  exp_rel1_02/run_matrix.py: c720cf3576e493a7c719ac344fdb39b7ab0f5b49b669d7e8ecf908628f83a590
+  exp_rel1_02/tasks/rel1_02_flood_gate_001.yaml: e1c1fa0abb1db3f6cf514bcc76466c23e0dbefaf8f3786d04dbbeda0381ebb9f
+  exp_rel1_02/tasks/rel1_02_cold_chain_001.yaml: 836624ac18de6169bd5ec245f84be4af177573db3d4269117147aeb62c08744f
+  exp_rel1_02/tasks/rel1_02_ferry_service_001.yaml: af4c081aa1e76ef74368a2bf1ff1214b356d0c2ea7d0ec260a0f0a7325159685
+  exp_rel1_02/oracle/rel1_02_flood_gate_001.json: 7bbd37b3048db7059694d0472b995f3febeac3024e74fbaa040392edf0fc839a
+  exp_rel1_02/oracle/rel1_02_cold_chain_001.json: e2442b2399e1a773582dd625a1c16fc3a5233ee63f16bbe661d80fd19850c8af
+  exp_rel1_02/oracle/rel1_02_ferry_service_001.json: 24389ed3979efdb5a6cb7e69262a81d3a4b0cfe862691fc1ba3958d92196cec8
+  benchmark_core/model_runner.py: f99c67512056200bf33456a64e835cee2861193362282578b571940a1babb40d
+  ../GAWorld/gaworld/comm/trust.py: f070994567c44cbe408e59873950c361f7c4ff7307f8e06f792d95f01bf08e85

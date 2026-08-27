@@ -1,0 +1,18 @@
+id: rel1_02_ferry_service_001
+title: 渡轮运行状态
+action: select_ferry_plan
+legal_values: [board_ferry, take_land_shuttle]
+state_to_value: {ferry_running: board_ferry, ferry_suspended: take_land_shuttle}
+current_signals:
+  - {person_id: source_violet, reported_state: ferry_suspended}
+  - {person_id: source_amber, reported_state: ferry_running}
+history:
+  control:
+    - {row_id: fs-c-01, reports: {source_violet: ferry_suspended, source_amber: ferry_running}, outcome: ferry_running}
+    - {row_id: fs-c-02, reports: {source_violet: ferry_suspended, source_amber: ferry_running}, outcome: ferry_running}
+  intervention:
+    - {row_id: fs-i-01, reports: {source_violet: ferry_suspended, source_amber: ferry_running}, outcome: ferry_suspended}
+    - {row_id: fs-i-02, reports: {source_violet: ferry_suspended, source_amber: ferry_running}, outcome: ferry_suspended}
+latest_outcome:
+  control: {row_id: fs-c-03, reports: {source_violet: ferry_suspended, source_amber: ferry_running}, outcome: ferry_suspended}
+  intervention: {row_id: fs-i-03, reports: {source_violet: ferry_suspended, source_amber: ferry_running}, outcome: ferry_running}

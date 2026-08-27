@@ -1,0 +1,18 @@
+id: rel1_02_cold_chain_001
+title: 冷链装卸湾状态
+action: select_transfer_bay
+legal_values: [use_north_bay, use_south_bay]
+state_to_value: {north_ready: use_north_bay, north_blocked: use_south_bay}
+current_signals:
+  - {person_id: source_jade, reported_state: north_ready}
+  - {person_id: source_silver, reported_state: north_blocked}
+history:
+  control:
+    - {row_id: cc-c-01, reports: {source_jade: north_ready, source_silver: north_blocked}, outcome: north_ready}
+    - {row_id: cc-c-02, reports: {source_jade: north_ready, source_silver: north_blocked}, outcome: north_ready}
+  intervention:
+    - {row_id: cc-i-01, reports: {source_jade: north_ready, source_silver: north_blocked}, outcome: north_blocked}
+    - {row_id: cc-i-02, reports: {source_jade: north_ready, source_silver: north_blocked}, outcome: north_blocked}
+latest_outcome:
+  control: {row_id: cc-c-03, reports: {source_jade: north_ready, source_silver: north_blocked}, outcome: north_blocked}
+  intervention: {row_id: cc-i-03, reports: {source_jade: north_ready, source_silver: north_blocked}, outcome: north_ready}

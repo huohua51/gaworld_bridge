@@ -1,0 +1,22 @@
+experiment_id: EXP-GM-REL1-02
+parent: EXP-GM-REL1
+task_family: REL1
+construct: registered_reliability_update
+status: preregistered_not_run
+ranking_eligible: false
+generalization_claim: false
+latest_is_binding: true
+tasks: [rel1_02_flood_gate_001, rel1_02_cold_chain_001, rel1_02_ferry_service_001]
+variants: [control, intervention]
+track: full
+roles: [observer, trust_updater, dispatcher]
+calls_per_cell: 5
+matrix: 3x2x1x1
+registered_model: GLM-5.2
+platform_invariants:
+  - dispatcher_cannot_read_history
+  - trust_updater_cannot_submit_action
+  - dispatcher_model_selects_value_only
+  - platform_binds_action_name_message_id_version_and_round
+ap_items: [AP-REL1-01, AP-REL1-02, AP-REL1-03]
+does_not_overwrite: [EXP-GM-REL1]

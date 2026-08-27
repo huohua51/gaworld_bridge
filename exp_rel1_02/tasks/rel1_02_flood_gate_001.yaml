@@ -1,0 +1,18 @@
+id: rel1_02_flood_gate_001
+title: 防洪闸通行状态
+action: select_flood_route
+legal_values: [use_gate_route, use_ridge_route]
+state_to_value: {gate_open: use_gate_route, gate_closed: use_ridge_route}
+current_signals:
+  - {person_id: source_cobalt, reported_state: gate_closed}
+  - {person_id: source_ember, reported_state: gate_open}
+history:
+  control:
+    - {row_id: fg-c-01, reports: {source_cobalt: gate_closed, source_ember: gate_open}, outcome: gate_open}
+    - {row_id: fg-c-02, reports: {source_cobalt: gate_closed, source_ember: gate_open}, outcome: gate_open}
+  intervention:
+    - {row_id: fg-i-01, reports: {source_cobalt: gate_closed, source_ember: gate_open}, outcome: gate_closed}
+    - {row_id: fg-i-02, reports: {source_cobalt: gate_closed, source_ember: gate_open}, outcome: gate_closed}
+latest_outcome:
+  control: {row_id: fg-c-03, reports: {source_cobalt: gate_closed, source_ember: gate_open}, outcome: gate_closed}
+  intervention: {row_id: fg-i-03, reports: {source_cobalt: gate_closed, source_ember: gate_open}, outcome: gate_open}

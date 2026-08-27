@@ -1,0 +1,32 @@
+experiment_id: EXP-GM-REL1-02
+preregistration_id: REL1-REGISTERED-RELIABILITY-GLM52-v2
+registration_sha256: 66a54aaa3c7f0b4859ff01ccc5bd85a0695385174c6b1a63eba92b5d63e642c3
+phase: offline_fixture_calibration
+gate: pass
+provider: offline-rel1-v2-oracle-fixture
+model_version: offline-rel1-v2-fixture
+live_model: false
+ranking_eligible: false
+n_cells: 6
+coverage: 1.0
+full_pass_rate: 1.0
+formation_correct: 1.0
+update_correct: 1.0
+formation_action_bound: 1.0
+update_action_bound: 1.0
+first_error:
+  none: 6
+budget:
+  max_calls: 30
+  calls_used: 30
+  calls_remaining: 0
+  prompt_chars: 30944
+  response_chars: 2872
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
+ap_rel1_01_closable: false
+ap_rel1_02_closable: false
+ap_rel1_03_closable: false
+does_not_overwrite:
+- EXP-GM-REL1
+gaworld_commit: a14a748acc77b13c5742040c78304d17c67fe683

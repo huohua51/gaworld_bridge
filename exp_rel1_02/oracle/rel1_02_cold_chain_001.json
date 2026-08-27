@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_jade", "formation_state": "north_ready", "formation_rows": ["cc-c-01", "cc-c-02"], "formation_value": "use_north_bay", "update_source": "source_silver", "update_state": "north_blocked", "update_rows": ["cc-c-03"], "update_value": "use_south_bay"},
+  "intervention": {"formation_source": "source_silver", "formation_state": "north_blocked", "formation_rows": ["cc-i-01", "cc-i-02"], "formation_value": "use_south_bay", "update_source": "source_jade", "update_state": "north_ready", "update_rows": ["cc-i-03"], "update_value": "use_north_bay"}
+}
