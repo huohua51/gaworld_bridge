@@ -1,0 +1,36 @@
+experiment_id: EXP-GM-REL1-03
+preregistration_id: REL1-PHASE-SEPARATED-GLM52-v3
+registration_sha256: f689a0787231be92aba84702a9fc97ad5a2147c1fa2be4a0adbbf174ab4617e2
+phase: model_seed0_regression
+gate: measurement_invalid
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+ranking_eligible: false
+n_cells: 6
+coverage: 0.8333
+full_pass_rate: 1.0
+observer_relay_faithful: 1.0
+formation_counts_correct: 1.0
+formation_source_correct: 1.0
+update_source_correct: 1.0
+formation_action_bound: 1.0
+update_action_bound: 1.0
+first_error:
+  none: 5
+  model_response_invalid: 1
+budget:
+  max_calls: 30
+  calls_used: 30
+  calls_remaining: 0
+  prompt_chars: 30790
+  response_chars: 3447
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
+ap_rel1_01_closable: false
+ap_rel1_02_closable: false
+ap_rel1_03_closable: false
+does_not_overwrite:
+- EXP-GM-REL1
+- EXP-GM-REL1-02
+gaworld_commit: a14a748acc77b13c5742040c78304d17c67fe683
