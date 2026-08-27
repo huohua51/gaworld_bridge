@@ -759,7 +759,7 @@ Agent轨迹来自HO-GM-T3-01、HO-GM-I1-01和HO-GM-L1-01的seed0 Full轨，并�
 output/exp_hf_h1_01_20260825/STIMULUS_REGISTRY.yaml
 ```
 
-当前进度：Agent 18/18，Human 0/18。
+当前进度（2026-08-27）：Agent 18/18；Human 正式采集 0/18。采集、槽位锁定、来源中立匿名化、盲评校验和隔离试采入口已完成自动测试，下一步是按[H1试采清单](docs/H1_PILOT_CHECKLIST_20260827.md)完成三个构念的认知试采；试采数据不计入正式分母。
 
 ### **12.3 18个Human Trace槽位**
 
@@ -830,6 +830,15 @@ turns[]:
   kind
   visible_to_role
   body
+collection:
+  collection_mode
+  team_code
+  session_code
+  role_assignments
+  started_at_client
+  duration_ms
+  protocol_deviations
+  consent_confirmed
 ```
 
 保存位置：
@@ -866,9 +875,10 @@ output/exp_hf_h1_01_20260825/stimuli/human/<stimulus_id>-human.json
 ```
 Agent抽样登记                 已完成
 真人任务协议                  已完成
-Human Trace采集               当前步骤，0/18
-统一匿名渲染                  基础设施已完成
-5–8人认知访谈                 下一步
+Human Trace采集               正式0/18；试采入口已就绪
+统一匿名渲染                  已完成来源中立ID与访问白名单
+2–3人最小认知试采             当前步骤
+5–8人认知访谈                 最小试采通过后扩展
 15–20人内部Pilot              待开展
 冻结刺激、Rubric和分析方案     待开展
 约60名独立评委盲评            待开展
@@ -877,14 +887,20 @@ Human Trace采集               当前步骤，0/18
 
 ### **12.9 启动H1实验室**
 
-```
-export PYTHONPATH=/path/to/gaworld_eval_bridge:/path/to/GAWorld
-python -m exp_hf_h1_01.serve
+```powershell
+$env:PYTHONPATH = 'F:\proj\gaworld_eval_bridge;F:\proj\GAWorld'
+
+F:\proj\.venv_gaworld_eval\Scripts\python.exe `
+  -m exp_hf_h1_01.serve `
+  --out output\exp_hf_h1_01_pilot_sandbox_20260827 `
+  --port 8765
 
 # http://127.0.0.1:8765/human.html  采集Human Trace
 # http://127.0.0.1:8765/viewer.html 匿名轨迹查看
 # http://127.0.0.1:8765/rater.html  盲评页面
 ```
+
+试采必须使用独立`--out`目录，避免覆盖冻结开发刺激或把页面调试数据误作正式Human Reference。完整现场步骤、最小三槽样本、认知访谈问题和正式放行门见[`docs/H1_PILOT_CHECKLIST_20260827.md`](docs/H1_PILOT_CHECKLIST_20260827.md)。
 
 ---
 
@@ -1281,6 +1297,7 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
 | `docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md` | C1/REL1故障位置、建议改法、实验来源与验收条件交接 |
+| `docs/H1_PILOT_CHECKLIST_20260827.md` | H1隔离试采、认知访谈、匿名复核与正式采集放行门 |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |

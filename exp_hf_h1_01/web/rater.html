@@ -2,25 +2,30 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>盲评 · H1</title>
+  <title>盲评 · H1 试采</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header>
     <nav><a href="/">返回</a></nav>
-    <h1>12 项盲评</h1>
-    <p>1 = 完全不像真人团队互动，7 = 完全像。不要根据任务对错打分。正式 H1 分尚未产生。</p>
+    <h1>12 项盲评（试采）</h1>
+    <p>1 = 完全不像真人团队互动，7 = 完全像。不要根据任务答案是否正确打分，也不要推测刺激来源。</p>
   </header>
   <main>
-    <label>刺激
+    <div class="banner">评分仅用于检查流程与量表可理解性，保存时标记为 pilot，不产生 H1 正式分。</div>
+    <p id="progress" class="status"></p>
+    <label>匿名刺激
       <select id="sid"></select>
     </label>
     <label>评委代号
-      <input id="rater" placeholder="内部代号，不要写真名" />
+      <input id="rater" maxlength="40" placeholder="内部代号，不要写姓名" />
     </label>
     <div id="trace"></div>
     <h2>量表</h2>
     <div id="items"></div>
+    <label>可选备注
+      <textarea id="comment" class="short" maxlength="2000" placeholder="记录难懂的量表项或页面问题；不要写姓名。"></textarea>
+    </label>
     <button id="save" type="button">提交评分</button>
     <p class="status" id="status"></p>
   </main>

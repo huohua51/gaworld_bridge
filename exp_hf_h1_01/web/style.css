@@ -57,6 +57,7 @@ button {
   cursor: pointer;
   margin-top: 12px;
 }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
 .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
 .row > * { flex: 1; min-width: 160px; }
 .turn {
@@ -78,3 +79,9 @@ pre {
 .scale label { display: flex; gap: 4px; align-items: center; margin: 0; width: auto; }
 .status { font-size: 13px; color: var(--warn); }
 nav a { color: var(--accent); margin-right: 16px; }
+.short { min-height: 80px; }
+.checkline { display: flex; gap: 8px; align-items: flex-start; margin-top: 18px; }
+.checkline input { width: auto; margin-top: 4px; }
+@media (max-width: 720px) {
+  .grid { grid-template-columns: 1fr; }
+}

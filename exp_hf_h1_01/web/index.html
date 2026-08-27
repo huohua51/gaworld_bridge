@@ -8,7 +8,7 @@
 <body>
   <header>
     <h1>EXP-HF-H1-01 团队互动拟人化</h1>
-    <p>第一版只评机制正常时的完整工作流。H1 正式分尚未产生。C1 不进入本版。</p>
+    <p>当前是开发试采实验室。H1 正式分尚未产生，C1 不进入本版。</p>
     <nav>
       <a href="/human.html">真人执行</a>
       <a href="/viewer.html">匿名轨迹</a>
@@ -17,26 +17,28 @@
   </header>
   <main>
     <div class="banner">
-      能写：三项密封留出在 seed0 上复现了开发集的同类正负控模式。<br />
-      不能写：跨任务泛化已证明；多智能体价值已正式估计；留出通过等于正式 Benchmark；一个 seed 等于稳定复现。
+      能写：三项密封功能留出在 seed0 上复现了开发集的同类正负控模式。<br />
+      不能写：跨任务泛化已证明；多智能体价值已正式估计；功能留出等于正式 Benchmark；试采评分等于 H1 正式分。
     </div>
     <div class="grid">
       <a class="card" href="/human.html">
         <strong>真人执行</strong>
-        按 T3 / I1 / L1 协议采集 18 条 Human Trace。目前 0/18。
+        按 T3 / I1 / L1 协议提供 18 个 Human Trace 槽位。当前 <span id="human-count">读取中</span>。
       </a>
       <a class="card" href="/viewer.html">
         <strong>统一展示</strong>
-        18 条 Agent 刺激已按抽样规则抽出。评委视图不显示来源。
+        当前匿名池含 <span id="stimulus-count">读取中</span> 条刺激；评委视图不显示来源。
       </a>
       <a class="card" href="/rater.html">
         <strong>12 项盲评</strong>
-        自然性、Agency、社会回应性、角色连续性。正式分 N/A。
+        自然性、Agency、社会回应性、角色连续性。当前评分均标记为 pilot，正式分 N/A。
       </a>
     </div>
     <h2>本版使用 / 暂不使用</h2>
     <p>T3 Full Multi；I1 Full；L1 Full Multi。不用 Single、Drop、NoVerify、检查点丢失或接替丢失。不用 C1。</p>
-    <p>Agent 刺激来自功能留出 seed0，角色是开发素材，不是未来 H1 密封留出。</p>
+    <p>Agent 刺激来自功能留出 seed0，只是 H1 开发素材，不是未来 H1 密封留出。</p>
+    <p class="status" id="status"></p>
   </main>
+  <script src="/index.js"></script>
 </body>
 </html>

@@ -2,16 +2,18 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>真人执行 · H1</title>
+  <title>真人执行 · H1 试采</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header>
     <nav><a href="/">返回</a></nav>
-    <h1>真人执行</h1>
-    <p>一人按角色顺序完成整条工作流。保存的轨迹与 Agent 刺激同一展示格式。内部采集，最小风险；数据只用于 H1 开发。</p>
+    <h1>真人执行（试采）</h1>
+    <p>正式采集应由三名参与者分别承担角色；单人模式只用于页面试用和认知访谈。本页只保存匿名代号，不要填写姓名或敏感信息。</p>
   </header>
   <main>
+    <div class="banner">当前数据属于 H1 开发试采，不进入正式 H1 分数。每个槽位只能保存一次；保存前请确认任务、变体和角色分配。</div>
+    <p id="progress" class="status">正在读取 18 个槽位……</p>
     <div class="row">
       <label>构念
         <select id="construct"><option>T3</option><option>I1</option><option>L1</option></select>
@@ -23,8 +25,38 @@
         <select id="variant"><option value="A">A</option><option value="B">B</option></select>
       </label>
     </div>
+    <p id="slot-status" class="status"></p>
+    <p><a id="protocol-link" target="_blank" rel="noopener">打开本构念的角色协议</a></p>
+
+    <h2>会话信息</h2>
+    <div class="row">
+      <label>采集模式
+        <select id="collection-mode">
+          <option value="three_person_team">三人团队（正式流程）</option>
+          <option value="solo_pilot">单人试采（仅认知访谈）</option>
+        </select>
+      </label>
+      <label>团队代号
+        <input id="team-code" maxlength="40" placeholder="例如 team-01" />
+      </label>
+      <label>会话代号
+        <input id="session-code" maxlength="40" placeholder="例如 session-01" />
+      </label>
+    </div>
+    <div id="role-assignments" class="row"></div>
+    <p class="kind">代号只能使用字母、数字、下划线或连字符，长度 2–40。三人模式下三个参与者代号必须不同；单人试采可重复。</p>
+
+    <h2>任务工作区</h2>
     <p id="brief"></p>
     <div id="workspace"></div>
+
+    <label>协议偏离记录（没有则留空）
+      <textarea id="deviations" class="short" maxlength="2000" placeholder="例如：参与者误看了另一个角色的说明；页面刷新后重新开始。"></textarea>
+    </label>
+    <label class="checkline">
+      <input id="consent" type="checkbox" />
+      我已确认参与者知情同意，并且未填写姓名或敏感信息。
+    </label>
     <button id="save" type="button">保存 Human Trace</button>
     <p class="status" id="status"></p>
   </main>
