@@ -1,0 +1,191 @@
+pilot_id: T5-EXPLICIT-SEMANTICS-GLM52-v2
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T5_EXPLICIT_SEMANTICS_GLM52_v2.yaml
+registration_sha256: 87dc79193f100f6fa1f6b9d672c22ff2c6f3c368ad306b12a04fd04ebdea2113
+base_commit: fd270798087277fe6d13339c048bdfd511758c21
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+temperature: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+prompt_protocol: gaworld-benchmark-t5-model-v2
+ranking_eligible: false
+registered_design_adherent: true
+all_registered_outcomes_pass: false
+n_cells: 9
+FullPassByPolicyState:
+  absence: 1.0
+  binding: 0.0
+  nonbinding: 1.0
+BehaviorChangeRateByPolicyState:
+  absence: 0.0
+  binding: 1.0
+  nonbinding: 0.0
+causal_contrasts:
+  binding_minus_absence: 1.0
+  binding_minus_nonbinding: 1.0
+  nonbinding_minus_absence: 0.0
+model_contract_rate: 1.0
+policy_semantics_rate: 1.0
+policy_response_rate: 0.6667
+first_error_counts:
+  none: 6
+  resident_policy_response_incorrect: 3
+budget:
+  max_calls: 36
+  calls_used: 36
+  calls_remaining: 0
+  prompt_chars: 40998
+  response_chars: 5314
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000
+cells:
+- task_id: t5v2_water_restriction_001
+  policy_state: absence
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_absence_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_absence_full_s0\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: binding
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: false
+  no_untargeted_spillover: false
+  full_pass: 0
+  first_error: resident_policy_response_incorrect
+  behavior_change_rate: 1.0
+  changed_agent_ids:
+  - water-apartment-1
+  - water-efficient-1
+  - water-high-1
+  - water-high-2
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_binding_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_binding_full_s0\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: nonbinding
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_water_restriction_001_nonbinding_full_s0\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: absence
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_absence_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_absence_full_s0\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: binding
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: false
+  no_untargeted_spillover: false
+  full_pass: 0
+  first_error: resident_policy_response_incorrect
+  behavior_change_rate: 1.0
+  changed_agent_ids:
+  - heat-class-1
+  - heat-remote-1
+  - heat-sports-1
+  - heat-sports-2
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_binding_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_binding_full_s0\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: nonbinding
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_heat_activity_001_nonbinding_full_s0\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: absence
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_absence_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_absence_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_absence_full_s0\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: binding
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: false
+  no_untargeted_spillover: false
+  full_pass: 0
+  first_error: resident_policy_response_incorrect
+  behavior_change_rate: 1.0
+  changed_agent_ids:
+  - waste-cafe-1
+  - waste-cafe-2
+  - waste-home-1
+  - waste-office-1
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_binding_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_binding_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_binding_full_s0\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: nonbinding
+  calls: 4
+  measurement_valid: true
+  model_contract_pass: true
+  policy_semantics_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  cell_result_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_nonbinding_full_s0\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_nonbinding_full_s0\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\runs\model_v2_t5v2_organics_rule_001_nonbinding_full_s0\policy_trace.jsonl
+gate: registered_t5_v2_pilot_recorded

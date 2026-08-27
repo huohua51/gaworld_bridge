@@ -1,0 +1,254 @@
+{
+  "workflow_id": "model_pilot_t5_v2",
+  "instance_id": "model_v2_t5v2_water_restriction_001_binding_full_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.3333,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "policy_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_policy_state_v2",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-1",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-2",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-3",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-4"
+      ],
+      "detail": "[{\"actual_binding\": true, \"actual_notice_seen\": true, \"agent_id\": \"water-high-1\", \"correct\": true, \"evidence_id\": \"model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-1\", \"expected_binding\": true, \"expected_notice_seen\": true, \"policy_state\": \"binding\"}, {\"actual_binding\": true, \"actual_notice_seen\": true, \"agent_id\": \"water-high-2\", \"correct\": true, \"evidence_id\": \"model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-2\", \"expected_binding\": true, \"expected_notice_seen\": true, \"policy_state\": \"binding\"}, {\"actual_binding\": true, \"actual_notice_seen\": true, \"agent_id\": \"water-efficient-1\", \"correct\": true, \"evidence_id\": \"model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-3\", \"expected_binding\": true, \"expected_notice_seen\": true, \"policy_state\": \"binding\"}, {\"actual_binding\": true, \"actual_notice_seen\": true, \"agent_id\": \"water-apartment-1\", \"correct\": true, \"evidence_id\": \"model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-4\", \"expected_binding\": true, \"expected_notice_seen\": true, \"policy_state\": \"binding\"}]"
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v2",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\\runs\\model_v2_t5v2_water_restriction_001_binding_full_s0\\policy_trace.jsonl",
+        "output\\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\\runs\\model_v2_t5v2_water_restriction_001_binding_full_s0\\model_trace.jsonl",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-1",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-2",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-3",
+        "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-4",
+        "policy-action-water-high-1-6",
+        "policy-action-water-high-2-8",
+        "policy-action-water-efficient-1-10",
+        "policy-action-water-apartment-1-12"
+      ],
+      "detail": "expected={'water-high-1': 'reduce_outdoor_watering', 'water-high-2': 'reduce_outdoor_watering', 'water-efficient-1': 'keep_current', 'water-apartment-1': 'keep_current'} actual={'water-high-1': 'reduce_outdoor_watering', 'water-high-2': 'reduce_outdoor_watering', 'water-efficient-1': 'reduce_outdoor_watering', 'water-apartment-1': 'reduce_outdoor_watering'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af\\runs\\model_v2_t5v2_water_restriction_001_binding_full_s0\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "resident_policy_response_incorrect",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted"
+    ],
+    "policy_semantic_decisions": [
+      {
+        "agent_id": "water-high-1",
+        "policy_state": "binding",
+        "expected_notice_seen": true,
+        "actual_notice_seen": true,
+        "expected_binding": true,
+        "actual_binding": true,
+        "correct": true,
+        "evidence_id": "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-1"
+      },
+      {
+        "agent_id": "water-high-2",
+        "policy_state": "binding",
+        "expected_notice_seen": true,
+        "actual_notice_seen": true,
+        "expected_binding": true,
+        "actual_binding": true,
+        "correct": true,
+        "evidence_id": "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-2"
+      },
+      {
+        "agent_id": "water-efficient-1",
+        "policy_state": "binding",
+        "expected_notice_seen": true,
+        "actual_notice_seen": true,
+        "expected_binding": true,
+        "actual_binding": true,
+        "correct": true,
+        "evidence_id": "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-3"
+      },
+      {
+        "agent_id": "water-apartment-1",
+        "policy_state": "binding",
+        "expected_notice_seen": true,
+        "actual_notice_seen": true,
+        "expected_binding": true,
+        "actual_binding": true,
+        "correct": true,
+        "evidence_id": "model-call:model_v2_t5v2_water_restriction_001_binding_full_s0:call-4"
+      }
+    ],
+    "expected_actions": {
+      "water-high-1": "reduce_outdoor_watering",
+      "water-high-2": "reduce_outdoor_watering",
+      "water-efficient-1": "keep_current",
+      "water-apartment-1": "keep_current"
+    },
+    "actual_actions": {
+      "water-high-1": "reduce_outdoor_watering",
+      "water-high-2": "reduce_outdoor_watering",
+      "water-efficient-1": "reduce_outdoor_watering",
+      "water-apartment-1": "reduce_outdoor_watering"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "model_seed0_pilot",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "policy_state": "binding",
+    "behavior_change_rate": 1.0,
+    "changed_agent_ids": [
+      "water-apartment-1",
+      "water-efficient-1",
+      "water-high-1",
+      "water-high-2"
+    ],
+    "target_agent_ids": [
+      "water-high-1",
+      "water-high-2"
+    ],
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v2_t5v2_water_restriction_001_binding_full_s0",
+      "task_id": "t5v2_water_restriction_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:binding:full:semantics_v2",
+      "variant": "binding",
+      "seed": 0,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v2",
+      "scorer_version": "model-pilot-t5-v2-scorer-v1",
+      "evidence_id": "bundle:model_v2_t5v2_water_restriction_001_binding_full_s0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    },
+    "first_error": "resident_policy_response_incorrect"
+  }
+}
