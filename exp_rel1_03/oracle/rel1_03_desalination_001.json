@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_bronze", "formation_state": "east_clean", "formation_counts": {"source_linen": 0, "source_bronze": 2}, "formation_support": {"source_linen": [], "source_bronze": ["di-c-01", "di-c-02"]}, "formation_value": "use_east_intake", "update_source": "source_linen", "update_state": "east_contaminated", "update_rows": ["di-c-03"], "update_value": "use_west_intake"},
+  "intervention": {"formation_source": "source_linen", "formation_state": "east_contaminated", "formation_counts": {"source_linen": 2, "source_bronze": 0}, "formation_support": {"source_linen": ["di-i-01", "di-i-02"], "source_bronze": []}, "formation_value": "use_west_intake", "update_source": "source_bronze", "update_state": "east_clean", "update_rows": ["di-i-03"], "update_value": "use_east_intake"}
+}

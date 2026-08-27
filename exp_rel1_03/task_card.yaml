@@ -1,0 +1,23 @@
+experiment_id: EXP-GM-REL1-03
+parent: EXP-GM-REL1
+predecessor: EXP-GM-REL1-02
+task_family: REL1
+construct: phase_separated_registered_reliability_update
+status: preregistered_not_run
+ranking_eligible: false
+generalization_claim: false
+latest_is_binding: true
+tasks: [rel1_03_power_feeder_001, rel1_03_alpine_road_001, rel1_03_desalination_001]
+variants: [control, intervention]
+track: full
+roles: [observer, trust_updater, dispatcher]
+calls_per_cell: 5
+matrix: 3x2x1x1
+registered_model: GLM-5.2
+platform_invariants:
+  - dispatcher_cannot_read_history
+  - trust_updater_cannot_submit_action
+  - dispatcher_model_selects_value_only
+  - platform_binds_action_name_message_id_version_and_round
+ap_items: [AP-REL1-01, AP-REL1-02, AP-REL1-03]
+does_not_overwrite: [EXP-GM-REL1, EXP-GM-REL1-02]

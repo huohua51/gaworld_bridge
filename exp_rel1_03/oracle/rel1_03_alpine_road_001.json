@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_maple", "formation_state": "pass_clear", "formation_counts": {"source_maple": 2, "source_quartz": 0}, "formation_support": {"source_maple": ["ar-c-01", "ar-c-02"], "source_quartz": []}, "formation_value": "use_pass_road", "update_source": "source_quartz", "update_state": "pass_blocked", "update_rows": ["ar-c-03"], "update_value": "use_valley_detour"},
+  "intervention": {"formation_source": "source_quartz", "formation_state": "pass_blocked", "formation_counts": {"source_maple": 0, "source_quartz": 2}, "formation_support": {"source_maple": [], "source_quartz": ["ar-i-01", "ar-i-02"]}, "formation_value": "use_valley_detour", "update_source": "source_maple", "update_state": "pass_clear", "update_rows": ["ar-i-03"], "update_value": "use_pass_road"}
+}

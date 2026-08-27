@@ -1,0 +1,300 @@
+{
+  "workflow_id": "exp_rel1_03_phase_separated_reliability",
+  "instance_id": "rel1_v3_rel1_03_alpine_road_001_intervention_full_s0",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fixed_five_call_budget",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_did_not_issue_binding_ids",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "history_isolated_from_dispatcher",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "trust_updater_cannot_submit",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "current_signals_delivered",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_trust_messages_adopted",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_actions_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "observer_relay_faithful",
+      "layer": "R2",
+      "scorer": "registered_signals",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_correct_counts",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_support_rows",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_source_selected",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_binding_source_selected",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_binding_evidence_latest_only",
+      "layer": "R2",
+      "scorer": "row_ids",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "update_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "agent_bound",
+      "history_put",
+      "private_put",
+      "current_sent",
+      "current_sent",
+      "current_delivered",
+      "current_delivered",
+      "current_inbox_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "outcome_appended",
+      "history_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "denied",
+      "denied"
+    ],
+    "relationships": {
+      "source_quartz": {
+        "closeness": 0.49000000000000005,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      },
+      "source_maple": {
+        "closeness": 0.49,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      }
+    }
+  },
+  "extra": {
+    "task_id": "rel1_03_alpine_road_001",
+    "variant": "intervention",
+    "track": "full",
+    "seed": 0,
+    "first_error": "none",
+    "observer_relay_faithful": true,
+    "formation_counts_correct": true,
+    "formation_source_correct": true,
+    "update_source_correct": true,
+    "formation_action_bound": true,
+    "update_action_bound": true,
+    "got_formation": {
+      "correct_counts": {
+        "source_maple": 0,
+        "source_quartz": 2
+      },
+      "supporting_row_ids": {
+        "source_maple": [],
+        "source_quartz": [
+          "ar-i-01",
+          "ar-i-02"
+        ]
+      },
+      "trusted_source_id": "source_quartz",
+      "trusted_state": "pass_blocked",
+      "other_source_id": "source_maple"
+    },
+    "got_update": {
+      "trusted_source_id": "source_maple",
+      "trusted_state": "pass_clear",
+      "other_source_id": "source_quartz",
+      "evidence_row_ids": [
+        "ar-i-03"
+      ]
+    },
+    "got_formation_action": {
+      "action": "select_mountain_route",
+      "value": "use_valley_detour",
+      "adopted_trust_version": "v1",
+      "evidence_message_id": "trust-msg-rel1_03_alpine_road_001_intervention_s0-3",
+      "round": "formation",
+      "task_id": "rel1_03_alpine_road_001_intervention_s0",
+      "dispatcher_id": 3
+    },
+    "got_update_action": {
+      "action": "select_mountain_route",
+      "value": "use_pass_road",
+      "adopted_trust_version": "v2",
+      "evidence_message_id": "trust-msg-rel1_03_alpine_road_001_intervention_s0-4",
+      "round": "update",
+      "task_id": "rel1_03_alpine_road_001_intervention_s0",
+      "dispatcher_id": 3
+    },
+    "want": {
+      "formation_source": "source_quartz",
+      "formation_state": "pass_blocked",
+      "formation_counts": {
+        "source_maple": 0,
+        "source_quartz": 2
+      },
+      "formation_support": {
+        "source_maple": [],
+        "source_quartz": [
+          "ar-i-01",
+          "ar-i-02"
+        ]
+      },
+      "formation_value": "use_valley_detour",
+      "update_source": "source_maple",
+      "update_state": "pass_clear",
+      "update_rows": [
+        "ar-i-03"
+      ],
+      "update_value": "use_pass_road"
+    },
+    "model_evidence_ids": [
+      "model-call:rel1_v3_rel1_03_alpine_road_001_intervention_full_s0:call-1",
+      "model-call:rel1_v3_rel1_03_alpine_road_001_intervention_full_s0:call-2",
+      "model-call:rel1_v3_rel1_03_alpine_road_001_intervention_full_s0:call-3",
+      "model-call:rel1_v3_rel1_03_alpine_road_001_intervention_full_s0:call-4",
+      "model-call:rel1_v3_rel1_03_alpine_road_001_intervention_full_s0:call-5"
+    ]
+  }
+}

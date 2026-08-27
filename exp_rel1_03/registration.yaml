@@ -1,0 +1,96 @@
+gate: preregistered_not_run
+preregistration_id: REL1-PHASE-SEPARATED-GLM52-v3
+registered_on: '2026-08-27'
+base_commit: f403238681021cf6103c788db8cfcec2fa8d6ff7
+required_gaworld_commit: a14a748acc77b13c5742040c78304d17c67fe683
+phase: prospective_fresh_surface_seed0_repair_regression
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  On fresh reliability-update surfaces, does phase-separated prompting let
+  GLM-5.2 exactly relay both current signals, form trust from complete
+  per-source history counts, replace that choice using only the latest binding
+  outcome, and choose business values while the platform binds both actions to
+  adopted trust messages?
+
+provider:
+  name: paratera_glm
+  gateway: paratera
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  api_protocol: openai_chat_completions
+  api_key_env: PARATERA_API_KEY
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 384
+
+design:
+  task_ids: [rel1_03_power_feeder_001, rel1_03_alpine_road_001, rel1_03_desalination_001]
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  calls_per_cell: 5
+  max_calls: 30
+  scorer_version: rel1-phase-separated-v3.0
+  fresh_relative_to: [EXP-GM-REL1, EXP-GM-REL1-02]
+
+registered_call_order:
+  - observer_exact_current_signal_relay
+  - trust_updater_formation_count
+  - dispatcher_formation_value
+  - trust_updater_latest_binding_update
+  - dispatcher_update_value
+
+repairs:
+  AP-REL1-01:
+    - update has a separate prompt and uses only the final ordered history row
+    - evidence_row_ids must contain only that latest row
+  AP-REL1-02:
+    - formation has no latest-binding rule in its prompt
+    - formation reports counts and every supporting row ID for both sources
+    - source display order has no priority meaning
+  AP-REL1-03:
+    - dispatcher model outputs selected_value only
+    - platform binds registered action name, delivered message ID, adopted trust version, and phase
+  measurement_relay:
+    - observer must copy both registered signals exactly
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  observer_relay_faithful: 1.0
+  formation_counts_correct: 1.0
+  formation_source_correct: 1.0
+  update_source_correct: 1.0
+  formation_action_bound: 1.0
+  update_action_bound: 1.0
+
+stopping_rule: >-
+  Run the six seed-0 cells exactly once and stop. Preserve any failed result.
+  Do not change frozen prompts, tasks, oracle, scorer, or platform binding code
+  based on live output. Proceed to T4 cross-model replication after recording
+  the outcome; do not create REL1-v4 in this run.
+
+scope_limits:
+  - A pass closes AP-REL1-01, AP-REL1-02, and AP-REL1-03 as implementation regressions.
+  - A pass does not rescore or overwrite EXP-GM-REL1 or EXP-GM-REL1-02.
+  - This is registered source-reliability behavior, not a claim about human interpersonal trust.
+  - One model and one seed do not establish broad model generalization.
+
+frozen_inputs:
+  exp_rel1_03/task_card.yaml: 5bcd461e3e981be211e3be07a9ee46bc00f790df5f46b4bce1e89f292adff3d9
+  exp_rel1_03/protocol.md: e2a6fe66b38dd1f82f22220ae9157577bd7c971e83c18fdf9ff310089118d609
+  exp_rel1_03/loader.py: 8a8603fbc63929328e1bacd2d94784d0c1a51118934865bbea60d1ef779bc084
+  exp_rel1_03/protocol.py: c1954103cf96264fd931491898a64bd2cf0b4eb1f8b72a872fc861c65e1f8758
+  exp_rel1_03/scorer.py: 553648417de234454ba7dbc39fcd58fe8de74f4ba9c67634b027c13e29280a50
+  exp_rel1_03/fixture.py: 596e2ee1b9669ab7ef13dda6d02860b4ba134b50b0444f81d1e0fff73888137e
+  exp_rel1_03/run_matrix.py: 2c64d6db7e9c1a70080635ed00257edf26165ecbf0d24a3eb5bd21eef6b6a575
+  exp_rel1_03/tasks/rel1_03_power_feeder_001.yaml: 92c7dccaeb6ecbcb4d6a16cc0c40590e6143e74ade23ef7eaf904de2a7e40619
+  exp_rel1_03/tasks/rel1_03_alpine_road_001.yaml: aa03a8cb51d45fc72ef91a36a771c711bc9895367f0be2a422b5f14e045f8bf3
+  exp_rel1_03/tasks/rel1_03_desalination_001.yaml: d1a29086304aa765a8f7e18614d5856ab96b4c52dae519daad703405c5677491
+  exp_rel1_03/oracle/rel1_03_power_feeder_001.json: 37441cc8e11af0af76a0abd3a44cbd4caab783c788694c7f32d7348cff4b2425
+  exp_rel1_03/oracle/rel1_03_alpine_road_001.json: d9577a2b9b88d626cb0c8685517a8c980d6a468a70ce77cc16027a7837feaf62
+  exp_rel1_03/oracle/rel1_03_desalination_001.json: b7f3997f8131f22c01c6805eb2ded94022621a3cb234ad25b476da36f7a96d0e
+  benchmark_core/model_runner.py: f99c67512056200bf33456a64e835cee2861193362282578b571940a1babb40d
+  ../GAWorld/gaworld/comm/trust.py: f070994567c44cbe408e59873950c361f7c4ff7307f8e06f792d95f01bf08e85

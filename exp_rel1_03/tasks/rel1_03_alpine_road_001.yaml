@@ -1,0 +1,18 @@
+id: rel1_03_alpine_road_001
+title: 高山道路状态
+action: select_mountain_route
+legal_values: [use_pass_road, use_valley_detour]
+state_to_value: {pass_clear: use_pass_road, pass_blocked: use_valley_detour}
+current_signals:
+  - {person_id: source_maple, reported_state: pass_clear}
+  - {person_id: source_quartz, reported_state: pass_blocked}
+history:
+  control:
+    - {row_id: ar-c-01, reports: {source_maple: pass_clear, source_quartz: pass_blocked}, outcome: pass_clear}
+    - {row_id: ar-c-02, reports: {source_maple: pass_clear, source_quartz: pass_blocked}, outcome: pass_clear}
+  intervention:
+    - {row_id: ar-i-01, reports: {source_maple: pass_clear, source_quartz: pass_blocked}, outcome: pass_blocked}
+    - {row_id: ar-i-02, reports: {source_maple: pass_clear, source_quartz: pass_blocked}, outcome: pass_blocked}
+latest_outcome:
+  control: {row_id: ar-c-03, reports: {source_maple: pass_clear, source_quartz: pass_blocked}, outcome: pass_blocked}
+  intervention: {row_id: ar-i-03, reports: {source_maple: pass_clear, source_quartz: pass_blocked}, outcome: pass_clear}

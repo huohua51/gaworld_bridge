@@ -1,0 +1,18 @@
+id: rel1_03_desalination_001
+title: 海水淡化取水口状态
+action: select_intake_plan
+legal_values: [use_east_intake, use_west_intake]
+state_to_value: {east_clean: use_east_intake, east_contaminated: use_west_intake}
+current_signals:
+  - {person_id: source_linen, reported_state: east_contaminated}
+  - {person_id: source_bronze, reported_state: east_clean}
+history:
+  control:
+    - {row_id: di-c-01, reports: {source_linen: east_contaminated, source_bronze: east_clean}, outcome: east_clean}
+    - {row_id: di-c-02, reports: {source_linen: east_contaminated, source_bronze: east_clean}, outcome: east_clean}
+  intervention:
+    - {row_id: di-i-01, reports: {source_linen: east_contaminated, source_bronze: east_clean}, outcome: east_contaminated}
+    - {row_id: di-i-02, reports: {source_linen: east_contaminated, source_bronze: east_clean}, outcome: east_contaminated}
+latest_outcome:
+  control: {row_id: di-c-03, reports: {source_linen: east_contaminated, source_bronze: east_clean}, outcome: east_contaminated}
+  intervention: {row_id: di-i-03, reports: {source_linen: east_contaminated, source_bronze: east_clean}, outcome: east_clean}

@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_cedar", "formation_state": "primary_stable", "formation_counts": {"source_orchid": 0, "source_cedar": 2}, "formation_support": {"source_orchid": [], "source_cedar": ["pf-c-01", "pf-c-02"]}, "formation_value": "use_primary_feed", "update_source": "source_orchid", "update_state": "primary_unstable", "update_rows": ["pf-c-03"], "update_value": "use_backup_feed"},
+  "intervention": {"formation_source": "source_orchid", "formation_state": "primary_unstable", "formation_counts": {"source_orchid": 2, "source_cedar": 0}, "formation_support": {"source_orchid": ["pf-i-01", "pf-i-02"], "source_cedar": []}, "formation_value": "use_backup_feed", "update_source": "source_cedar", "update_state": "primary_stable", "update_rows": ["pf-i-03"], "update_value": "use_primary_feed"}
+}

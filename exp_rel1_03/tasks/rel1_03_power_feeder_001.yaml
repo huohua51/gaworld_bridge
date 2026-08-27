@@ -1,0 +1,18 @@
+id: rel1_03_power_feeder_001
+title: 配电馈线状态
+action: select_power_feed
+legal_values: [use_primary_feed, use_backup_feed]
+state_to_value: {primary_stable: use_primary_feed, primary_unstable: use_backup_feed}
+current_signals:
+  - {person_id: source_orchid, reported_state: primary_unstable}
+  - {person_id: source_cedar, reported_state: primary_stable}
+history:
+  control:
+    - {row_id: pf-c-01, reports: {source_orchid: primary_unstable, source_cedar: primary_stable}, outcome: primary_stable}
+    - {row_id: pf-c-02, reports: {source_orchid: primary_unstable, source_cedar: primary_stable}, outcome: primary_stable}
+  intervention:
+    - {row_id: pf-i-01, reports: {source_orchid: primary_unstable, source_cedar: primary_stable}, outcome: primary_unstable}
+    - {row_id: pf-i-02, reports: {source_orchid: primary_unstable, source_cedar: primary_stable}, outcome: primary_unstable}
+latest_outcome:
+  control: {row_id: pf-c-03, reports: {source_orchid: primary_unstable, source_cedar: primary_stable}, outcome: primary_unstable}
+  intervention: {row_id: pf-i-03, reports: {source_orchid: primary_unstable, source_cedar: primary_stable}, outcome: primary_stable}
