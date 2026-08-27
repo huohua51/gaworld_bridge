@@ -1,0 +1,335 @@
+{
+  "workflow_id": "model_pilot_t5_v3_scope",
+  "instance_id": "model_v3_t5v2_heat_activity_001_binding_full_r1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-1",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-2",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-3",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"move_activity_indoors\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"heat-sports-1\", \"evidence_id\": \"model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-1\", \"expected\": {\"action\": \"move_activity_indoors\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"51c2c406e931908689ca4ec01d127f71c30e0593fc5e7a9fa16d8b9a8772b852\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"move_activity_indoors\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"heat-sports-2\", \"evidence_id\": \"model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-2\", \"expected\": {\"action\": \"move_activity_indoors\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"af3ce74f6a20364d4654f3cefc3dd683e47be2654c2b5196d8e8a06c47aa9cfd\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"heat-class-1\", \"evidence_id\": \"model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"59a3450f5b51c97e579490829c4ff2928607aa1a2f4ac57975cbc8fb158137f3\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"heat-remote-1\", \"evidence_id\": \"model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"e14a6344635394ee18d8e6f3fad43dfadd5f2d7b3f5b861fdf1e494bf014b1b8\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-1",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-2",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-3",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\\runs\\model_v3_t5v2_heat_activity_001_binding_full_r1\\policy_trace.jsonl",
+        "output\\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\\runs\\model_v3_t5v2_heat_activity_001_binding_full_r1\\model_trace.jsonl",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-1",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-2",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-3",
+        "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-4",
+        "policy-action-heat-sports-1-6",
+        "policy-action-heat-sports-2-8",
+        "policy-action-heat-class-1-10",
+        "policy-action-heat-remote-1-12"
+      ],
+      "detail": "expected={'heat-sports-1': 'move_activity_indoors', 'heat-sports-2': 'move_activity_indoors', 'heat-class-1': 'keep_current', 'heat-remote-1': 'keep_current'} actual={'heat-sports-1': 'move_activity_indoors', 'heat-sports-2': 'move_activity_indoors', 'heat-class-1': 'keep_current', 'heat-remote-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\\runs\\model_v3_t5v2_heat_activity_001_binding_full_r1\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "heat-sports-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "move_activity_indoors"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "move_activity_indoors"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "51c2c406e931908689ca4ec01d127f71c30e0593fc5e7a9fa16d8b9a8772b852",
+        "evidence_id": "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-1"
+      },
+      {
+        "agent_id": "heat-sports-2",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "move_activity_indoors"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "move_activity_indoors"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "af3ce74f6a20364d4654f3cefc3dd683e47be2654c2b5196d8e8a06c47aa9cfd",
+        "evidence_id": "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-2"
+      },
+      {
+        "agent_id": "heat-class-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "59a3450f5b51c97e579490829c4ff2928607aa1a2f4ac57975cbc8fb158137f3",
+        "evidence_id": "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-3"
+      },
+      {
+        "agent_id": "heat-remote-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "e14a6344635394ee18d8e6f3fad43dfadd5f2d7b3f5b861fdf1e494bf014b1b8",
+        "evidence_id": "model-call:model_v3_t5v2_heat_activity_001_binding_full_r1:call-4"
+      }
+    ],
+    "expected_actions": {
+      "heat-sports-1": "move_activity_indoors",
+      "heat-sports-2": "move_activity_indoors",
+      "heat-class-1": "keep_current",
+      "heat-remote-1": "keep_current"
+    },
+    "actual_actions": {
+      "heat-sports-1": "move_activity_indoors",
+      "heat-sports-2": "move_activity_indoors",
+      "heat-class-1": "keep_current",
+      "heat-remote-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "eligibility_scope_repeat",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "policy_state": "binding",
+    "repeat_id": 1,
+    "behavior_change_rate": 0.5,
+    "changed_agent_ids": [
+      "heat-sports-1",
+      "heat-sports-2"
+    ],
+    "target_agent_ids": [
+      "heat-sports-1",
+      "heat-sports-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "heat-sports-1": "51c2c406e931908689ca4ec01d127f71c30e0593fc5e7a9fa16d8b9a8772b852",
+      "heat-sports-2": "af3ce74f6a20364d4654f3cefc3dd683e47be2654c2b5196d8e8a06c47aa9cfd",
+      "heat-class-1": "59a3450f5b51c97e579490829c4ff2928607aa1a2f4ac57975cbc8fb158137f3",
+      "heat-remote-1": "e14a6344635394ee18d8e6f3fad43dfadd5f2d7b3f5b861fdf1e494bf014b1b8"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "model_v3_t5v2_heat_activity_001_binding_full_r1",
+      "task_id": "t5v2_heat_activity_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:binding:full:scope_v3",
+      "variant": "binding",
+      "seed": 1,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "gaworld-urban-policy-v1",
+      "trace_version": "urban-policy-and-model-jsonl-v3",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1",
+      "evidence_id": "bundle:model_v3_t5v2_heat_activity_001_binding_full_r1"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

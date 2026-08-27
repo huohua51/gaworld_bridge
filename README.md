@@ -524,7 +524,7 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | C1 集体协调    | `partial_pass` | C1-02 / C1-03 | 基础冲突消解成立，优先级NACK重试为开放问题    | 下一阶段     |
 | REL1 可靠性更新 | `fail`         | EXP-GM-REL1   | 平台状态传播成立，Agent最新状态采用失败     | 下一阶段     |
 | T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
-| T5 政策因果链   | `v2_partial_pass` | T5-01 / T5-02 | v2解决absence/nonbinding辨别；binding仍越界影响非目标居民 | 三任务seed0完成 |
+| T5 政策因果链   | `v3_repeat_pass` | T5-01 / T5-02 / T5-03 | v3消除scope字段碰撞，三种状态在repeat 1/2全部通过 | 两次开发回归完成 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
 
@@ -881,7 +881,7 @@ python -m exp_hf_h1_01.serve
 | AP-C1-F-01  | open    | C1仍让模型参与`plan_version`握手        | 将C1评测迁移到`JointAssignmentChannel + PlanRegistry` |
 | AP-REL1-01  | open    | `latest_is_binding=true`时仍沿用旧多数 | 校准最新状态覆盖协议                                      |
 | AP-T4-01    | v2_repeat_pass | v1同构control消息的源节点转发决策不稳定且依赖场景 | v1保持冻结；v2下一步做跨模型复测                                    |
-| AP-T5-01    | v2_partial_pass | v1混淆无政策与非约束通知；v2能区分三种语义但binding越界影响非目标居民 | v1保持冻结；下一版显式校准eligible与逐居民required_action后做预注册重复 |
+| AP-T5-01    | v3_repeat_pass | v1语义混淆；v2的全局/居民`required_action`同名碰撞；v3拆分后18/18格通过 | 保留v1/v2；下一步做全新任务留出与跨模型复测 |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
 
@@ -916,7 +916,7 @@ python -m exp_hf_h1_01.serve
 - C1已经具备基本冲突消解与私有约束整合能力，优先级NACK重试是明确的后续改进点；
 - REL1已经把失败定位到最新可靠性状态的采用环节；
 - T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在seed0/1/2上Prompt哈希稳定，转发、完整路径、目标接受和FullPass均为100%；
-- T5-v2三任务真实Pilot中absence与nonbinding全部通过，三种政策语义字段36/36正确；但binding对非目标居民发生6/6越界扩散；
+- T5-v3在三任务、三状态、repeat 1/2上18/18格通过，72/72次scope语义与逐居民directive正确，且重复结果完全一致；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -1183,13 +1183,30 @@ nonbinding`，并在真实调用前由提交`fe5cad4`冻结任务、Prompt、Sco
 
 真实运行的36个响应全部通过JSON契约，`notice_seen / binding`语义也36/36正确；absence与nonbinding
 六格全部FullPass。三个binding格中，模型让每个任务的4位居民全部采取政策动作，实际变化率为1.0，
-而预注册Oracle只允许2位eligible居民变化，期望变化率为0.5。6位非目标居民的Prompt均明确给出
-`eligible=false, required_action=keep_current`，模型仍6/6返回政策动作。因此当前首错已从v1的
-政策存在/约束语义辨别，收窄到binding条件下的目标资格与逐居民动作服从。完整结果和审计见
+而预注册Oracle只允许2位目标居民变化。后续逐字段复核发现，非目标居民的外层字段为
+`required_action=keep_current`，但嵌套notice里另有同名`required_action=政策动作`。因此原始评分与
+溢出事实保持有效，但v2应解释为协议字段碰撞，不能作为干净的eligibility服从失败。原始报告见
 [`REPORT.md`](output/model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af/REPORT.md)。
+事后勘误见
+[`POST_RUN_ADDENDUM.md`](output/model_pilot_live_t5_v2_glm52_9825ec9ec7c64b598dc80c1e59ce09af/POST_RUN_ADDENDUM.md)。
 
-该结果仍是三任务、seed0开发证据，`ranking_eligible=false`；下一步应以新编号预注册
-eligibility-scope协议并做repeat 1/2，不能在本轮结果后修改Prompt重跑。
+该结果仍是三任务、seed0开发诊断，`ranking_eligible=false`；修复必须使用新协议编号，不能修改
+本轮Prompt补跑。
+
+### **16.10 T5-v3 eligibility-scope repeat 1/2**
+
+T5-v3由提交`4fa5fd4`在真实调用前完成预注册。协议将全局字段改为`policy_action`，并将
+`resident_directive.action`设为唯一执行权；Prompt中不再存在`required_action`键。模型同时回报
+`notice_seen / binding / target_match / authorized / action`，评分器从原始请求、响应和状态变化独立重建结果。
+
+真实矩阵为三个冻结任务表面 × 三种政策状态 × repeat 1/2，共18格、72次GLM-5.2调用。18/18格
+FullPass，JSON契约、scope语义、directive服从、政策响应和无越界变化均为100%；变化率严格为
+`absence=0 / binding=0.5 / nonbinding=0`。九个任务×状态组合的逐居民Prompt SHA-256在两次repeat
+间一致，结构化scope输出、动作和FullPass也全部精确一致。完整审计见
+[`REPORT.md`](output/model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6/REPORT.md)。
+
+这证明该显式scope协议在现有三个任务表面上可重复工作；由于任务是在v2诊断后复用，它仍属于
+开发回归，不能与不同Prompt的v2 seed0合并，也不能替代全新任务留出、跨模型复测或Human Reference。
 
 ---
 
@@ -1211,10 +1228,12 @@ eligibility-scope协议并做repeat 1/2，不能在本轮结果后修改Prompt�
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
 | `output/model_pilot_live_t5_minimal_glm52_*/` | T5最小真实政策因果链诊断证据                 |
 | `output/model_pilot_live_t5_v2_glm52_*/` | T5-v2显式语义与binding目标资格诊断证据            |
+| `output/model_pilot_live_t5_v3_repeats_glm52_*/` | T5-v3 eligibility-scope repeat 1/2证据      |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t5_02/`                      | T5-v2 absence/binding/nonbinding独立任务与评分       |
+| `exp_gm_t5_03/`                      | T5-v3全局政策与逐居民执行权分离协议                    |
 | `exp_gm_t6_01/`                      | T6个体/cohort/fast-forward及恢复校准              |
 | `output/functional_devset_20260825/` | 功能侧开发集冻结总表                          |
 | `output/holdout_20260825/`           | T3、I1、L1的seed0留出汇总                  |
@@ -1241,6 +1260,6 @@ eligibility-scope协议并做repeat 1/2，不能在本轮结果后修改Prompt�
 
 ## **结论**
 
-GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策存在/约束语义混淆，T5-v2解决了absence与nonbinding辨别，但进一步定位出binding条件下忽略eligible与逐居民required_action、且在三个任务上一致出现的越界扩散。两类结果共同说明JSON契约通过只是起点，显式协议、因果对照和R3证据链仍不可省略。
+GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后在repeat 1/2的18格中全部通过。两条修复链共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照和R3证据链仍不可省略。
 
 下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖，完成C1/REL1开放问题的回归，以及采集18条真人团队轨迹并启动H1盲评。

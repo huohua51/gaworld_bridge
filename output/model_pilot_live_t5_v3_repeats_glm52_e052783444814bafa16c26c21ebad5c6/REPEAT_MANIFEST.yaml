@@ -1,0 +1,1121 @@
+pilot_id: T5-ELIGIBILITY-SCOPE-GLM52-REPEATS-v1
+registration_path: F:\proj\gaworld_eval_bridge\model_pilot\registrations\T5_ELIGIBILITY_SCOPE_GLM52_REPEATS_v1.yaml
+registration_sha256: 32e154494650709e05ac4e254f4444e7ed09c356dc285a087242802bc82810e4
+base_commit: 65a7df514df932b1f873a53a3ca4669f6d1c66a1
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+temperature: 0.0
+thinking: disabled
+max_tokens_per_call: 256
+prompt_protocol: gaworld-benchmark-t5-model-v3
+ranking_eligible: false
+registered_design_adherent: true
+all_registered_outcomes_pass: true
+new_cells: 18
+FullPassByPolicyState:
+  absence: 1.0
+  binding: 1.0
+  nonbinding: 1.0
+BehaviorChangeRateByPolicyState:
+  absence: 0.0
+  binding: 0.5
+  nonbinding: 0.0
+causal_contrasts:
+  binding_minus_absence: 0.5
+  binding_minus_nonbinding: 0.5
+  nonbinding_minus_absence: 0.0
+scope_prompt_rate: 1.0
+model_contract_rate: 1.0
+scope_semantics_rate: 1.0
+resident_directive_rate: 1.0
+policy_response_rate: 1.0
+repeat_exact_agreement_rate: 1.0
+first_error_counts:
+  none: 18
+by_task_policy_state:
+  t5v2_water_restriction_001:absence:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.0
+    - 0.0
+  t5v2_water_restriction_001:binding:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.5
+    - 0.5
+  t5v2_water_restriction_001:nonbinding:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.0
+    - 0.0
+  t5v2_heat_activity_001:absence:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.0
+    - 0.0
+  t5v2_heat_activity_001:binding:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.5
+    - 0.5
+  t5v2_heat_activity_001:nonbinding:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.0
+    - 0.0
+  t5v2_organics_rule_001:absence:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.0
+    - 0.0
+  t5v2_organics_rule_001:binding:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.5
+    - 0.5
+  t5v2_organics_rule_001:nonbinding:
+    repeat_ids:
+    - 1
+    - 2
+    prompt_stable_across_repeats: true
+    outcome_exact_agreement: true
+    full_pass_rate: 1.0
+    scope_semantics_rate: 1.0
+    resident_directive_rate: 1.0
+    behavior_change_rate:
+    - 0.0
+    - 0.0
+budget:
+  max_calls: 72
+  calls_used: 72
+  calls_remaining: 0
+  prompt_chars: 102384
+  response_chars: 17851
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000
+cells:
+- task_id: t5v2_water_restriction_001
+  policy_state: absence
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    water-high-1: keep_current
+    water-high-2: keep_current
+    water-efficient-1: keep_current
+    water-apartment-1: keep_current
+  scope_outputs:
+    water-high-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-high-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-efficient-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-apartment-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    water-high-1: 63e6976ee6f01b486d04c64a506b96e010a4168b0c0c326bd536c49229e0ffe7
+    water-high-2: 415cebaab876b4a9f0dc5e39ad77a31a2895371869a21a097e7dd3ec97bc4466
+    water-efficient-1: 28326e97fbddd14896984e69acd14ea5002123684d4844f39207690ff91fb8c5
+    water-apartment-1: 9bf4e11504c9d2fb71c5fc07bece93034997618c0be22b15b75c6c1133f4141c
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_absence_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_absence_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_absence_full_r1\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: absence
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    water-high-1: keep_current
+    water-high-2: keep_current
+    water-efficient-1: keep_current
+    water-apartment-1: keep_current
+  scope_outputs:
+    water-high-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-high-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-efficient-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-apartment-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    water-high-1: 63e6976ee6f01b486d04c64a506b96e010a4168b0c0c326bd536c49229e0ffe7
+    water-high-2: 415cebaab876b4a9f0dc5e39ad77a31a2895371869a21a097e7dd3ec97bc4466
+    water-efficient-1: 28326e97fbddd14896984e69acd14ea5002123684d4844f39207690ff91fb8c5
+    water-apartment-1: 9bf4e11504c9d2fb71c5fc07bece93034997618c0be22b15b75c6c1133f4141c
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_absence_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_absence_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_absence_full_r2\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: binding
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - water-high-1
+  - water-high-2
+  actual_actions:
+    water-high-1: reduce_outdoor_watering
+    water-high-2: reduce_outdoor_watering
+    water-efficient-1: keep_current
+    water-apartment-1: keep_current
+  scope_outputs:
+    water-high-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reduce_outdoor_watering
+    water-high-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reduce_outdoor_watering
+    water-efficient-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-apartment-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    water-high-1: 2b87c62498ecc7661e843bd7380cf61ad4c8b5b25096b6e1a5ab5180528e9d92
+    water-high-2: dab3e17f243dac409732ee0270c3ebdc3f9cb2acdfdd9e15975d9e61f443a362
+    water-efficient-1: 6bb9a3e5037e6b43f47625cd97531b2c45e8dc398a4d7032ce0a7be7d925f34c
+    water-apartment-1: 59540b070e8179ea14b299206d3e7c31f21786a5e8eeba2abf17feba51f0b862
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_binding_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_binding_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_binding_full_r1\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: binding
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - water-high-1
+  - water-high-2
+  actual_actions:
+    water-high-1: reduce_outdoor_watering
+    water-high-2: reduce_outdoor_watering
+    water-efficient-1: keep_current
+    water-apartment-1: keep_current
+  scope_outputs:
+    water-high-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reduce_outdoor_watering
+    water-high-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: reduce_outdoor_watering
+    water-efficient-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-apartment-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    water-high-1: 2b87c62498ecc7661e843bd7380cf61ad4c8b5b25096b6e1a5ab5180528e9d92
+    water-high-2: dab3e17f243dac409732ee0270c3ebdc3f9cb2acdfdd9e15975d9e61f443a362
+    water-efficient-1: 6bb9a3e5037e6b43f47625cd97531b2c45e8dc398a4d7032ce0a7be7d925f34c
+    water-apartment-1: 59540b070e8179ea14b299206d3e7c31f21786a5e8eeba2abf17feba51f0b862
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_binding_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_binding_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_binding_full_r2\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: nonbinding
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    water-high-1: keep_current
+    water-high-2: keep_current
+    water-efficient-1: keep_current
+    water-apartment-1: keep_current
+  scope_outputs:
+    water-high-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    water-high-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    water-efficient-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-apartment-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    water-high-1: 5f6dd6275774bd040460dcae08ea2502023cd99b50394bdee9c69a8ff4b83ca3
+    water-high-2: 62e2795a31aa4df828a3ef19f2d9e3785b11f7b50b9f432d1e0d0f2da2b1e256
+    water-efficient-1: f2f7525b0b011da6b9a0923824da6c739f511bb33663a8c7292d4472b0cb4160
+    water-apartment-1: 668d7fed7e48a6f6b7badd55af8d4ab97d9b65a5d66c53b75163d64b9f9640d0
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_nonbinding_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_nonbinding_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_nonbinding_full_r1\policy_trace.jsonl
+- task_id: t5v2_water_restriction_001
+  policy_state: nonbinding
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    water-high-1: keep_current
+    water-high-2: keep_current
+    water-efficient-1: keep_current
+    water-apartment-1: keep_current
+  scope_outputs:
+    water-high-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    water-high-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    water-efficient-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    water-apartment-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    water-high-1: 5f6dd6275774bd040460dcae08ea2502023cd99b50394bdee9c69a8ff4b83ca3
+    water-high-2: 62e2795a31aa4df828a3ef19f2d9e3785b11f7b50b9f432d1e0d0f2da2b1e256
+    water-efficient-1: f2f7525b0b011da6b9a0923824da6c739f511bb33663a8c7292d4472b0cb4160
+    water-apartment-1: 668d7fed7e48a6f6b7badd55af8d4ab97d9b65a5d66c53b75163d64b9f9640d0
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_nonbinding_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_nonbinding_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_water_restriction_001_nonbinding_full_r2\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: absence
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    heat-sports-1: keep_current
+    heat-sports-2: keep_current
+    heat-class-1: keep_current
+    heat-remote-1: keep_current
+  scope_outputs:
+    heat-sports-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-sports-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-class-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-remote-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    heat-sports-1: 21d457c1895c8cdb68a0fb96748502d0c3a8c547fd0daed21d42469c4e84232a
+    heat-sports-2: ef87c71e767ed1452f776180843517f9c5ce08b27c63d7782e0211f1221fa0b7
+    heat-class-1: e23f335c41b87c2de174c2f9b07c6de7e99351fde789b9d9d1f2f233b2692868
+    heat-remote-1: 641947e468b01b5890f79026c5bf41e0d0d77a4b7315f0b670dc868a9e56ae4f
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_absence_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_absence_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_absence_full_r1\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: absence
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    heat-sports-1: keep_current
+    heat-sports-2: keep_current
+    heat-class-1: keep_current
+    heat-remote-1: keep_current
+  scope_outputs:
+    heat-sports-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-sports-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-class-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-remote-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    heat-sports-1: 21d457c1895c8cdb68a0fb96748502d0c3a8c547fd0daed21d42469c4e84232a
+    heat-sports-2: ef87c71e767ed1452f776180843517f9c5ce08b27c63d7782e0211f1221fa0b7
+    heat-class-1: e23f335c41b87c2de174c2f9b07c6de7e99351fde789b9d9d1f2f233b2692868
+    heat-remote-1: 641947e468b01b5890f79026c5bf41e0d0d77a4b7315f0b670dc868a9e56ae4f
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_absence_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_absence_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_absence_full_r2\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: binding
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - heat-sports-1
+  - heat-sports-2
+  actual_actions:
+    heat-sports-1: move_activity_indoors
+    heat-sports-2: move_activity_indoors
+    heat-class-1: keep_current
+    heat-remote-1: keep_current
+  scope_outputs:
+    heat-sports-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: move_activity_indoors
+    heat-sports-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: move_activity_indoors
+    heat-class-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-remote-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    heat-sports-1: 51c2c406e931908689ca4ec01d127f71c30e0593fc5e7a9fa16d8b9a8772b852
+    heat-sports-2: af3ce74f6a20364d4654f3cefc3dd683e47be2654c2b5196d8e8a06c47aa9cfd
+    heat-class-1: 59a3450f5b51c97e579490829c4ff2928607aa1a2f4ac57975cbc8fb158137f3
+    heat-remote-1: e14a6344635394ee18d8e6f3fad43dfadd5f2d7b3f5b861fdf1e494bf014b1b8
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_binding_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_binding_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_binding_full_r1\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: binding
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - heat-sports-1
+  - heat-sports-2
+  actual_actions:
+    heat-sports-1: move_activity_indoors
+    heat-sports-2: move_activity_indoors
+    heat-class-1: keep_current
+    heat-remote-1: keep_current
+  scope_outputs:
+    heat-sports-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: move_activity_indoors
+    heat-sports-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: move_activity_indoors
+    heat-class-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-remote-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    heat-sports-1: 51c2c406e931908689ca4ec01d127f71c30e0593fc5e7a9fa16d8b9a8772b852
+    heat-sports-2: af3ce74f6a20364d4654f3cefc3dd683e47be2654c2b5196d8e8a06c47aa9cfd
+    heat-class-1: 59a3450f5b51c97e579490829c4ff2928607aa1a2f4ac57975cbc8fb158137f3
+    heat-remote-1: e14a6344635394ee18d8e6f3fad43dfadd5f2d7b3f5b861fdf1e494bf014b1b8
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_binding_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_binding_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_binding_full_r2\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: nonbinding
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    heat-sports-1: keep_current
+    heat-sports-2: keep_current
+    heat-class-1: keep_current
+    heat-remote-1: keep_current
+  scope_outputs:
+    heat-sports-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    heat-sports-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    heat-class-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-remote-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    heat-sports-1: 83fd51f2145636e33ab747c4e37885a23755289f4895565c4edb6970f5ff8440
+    heat-sports-2: be35d269d8c3b6a1c4e5df50570f15854b1497576a0c8ea730eec4fa123c5de6
+    heat-class-1: 2d4291d6ab9b041d4c4d2c026200641af202403b5e398d699edd59291b50a1d2
+    heat-remote-1: b2c4c3c38f1f209fbabc873bdc80e6b4e25eba5b3bc25e7667f4f14e73cf6d63
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_nonbinding_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_nonbinding_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_nonbinding_full_r1\policy_trace.jsonl
+- task_id: t5v2_heat_activity_001
+  policy_state: nonbinding
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    heat-sports-1: keep_current
+    heat-sports-2: keep_current
+    heat-class-1: keep_current
+    heat-remote-1: keep_current
+  scope_outputs:
+    heat-sports-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    heat-sports-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    heat-class-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    heat-remote-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    heat-sports-1: 83fd51f2145636e33ab747c4e37885a23755289f4895565c4edb6970f5ff8440
+    heat-sports-2: be35d269d8c3b6a1c4e5df50570f15854b1497576a0c8ea730eec4fa123c5de6
+    heat-class-1: 2d4291d6ab9b041d4c4d2c026200641af202403b5e398d699edd59291b50a1d2
+    heat-remote-1: b2c4c3c38f1f209fbabc873bdc80e6b4e25eba5b3bc25e7667f4f14e73cf6d63
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_nonbinding_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_nonbinding_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_heat_activity_001_nonbinding_full_r2\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: absence
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    waste-cafe-1: keep_current
+    waste-cafe-2: keep_current
+    waste-office-1: keep_current
+    waste-home-1: keep_current
+  scope_outputs:
+    waste-cafe-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-cafe-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-office-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-home-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    waste-cafe-1: c835e68ca52ac68711040d71cec640a8416926110636d59f7c99bd31b183f6be
+    waste-cafe-2: 188f5ceb297092b9f091885978bcb7d411c359df4d1685648c2edc26e257d09c
+    waste-office-1: 70fa9144fdd17502ee737511d3542eac81002b49b9700bc83dfc518fd62fdb22
+    waste-home-1: 21a0e14ff228e5e3bdba993290eb7f01cd43121b888d1944143f810f115e8aa2
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_absence_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_absence_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_absence_full_r1\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: absence
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    waste-cafe-1: keep_current
+    waste-cafe-2: keep_current
+    waste-office-1: keep_current
+    waste-home-1: keep_current
+  scope_outputs:
+    waste-cafe-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-cafe-2:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-office-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-home-1:
+      notice_seen: false
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    waste-cafe-1: c835e68ca52ac68711040d71cec640a8416926110636d59f7c99bd31b183f6be
+    waste-cafe-2: 188f5ceb297092b9f091885978bcb7d411c359df4d1685648c2edc26e257d09c
+    waste-office-1: 70fa9144fdd17502ee737511d3542eac81002b49b9700bc83dfc518fd62fdb22
+    waste-home-1: 21a0e14ff228e5e3bdba993290eb7f01cd43121b888d1944143f810f115e8aa2
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_absence_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_absence_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_absence_full_r2\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: binding
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - waste-cafe-1
+  - waste-cafe-2
+  actual_actions:
+    waste-cafe-1: separate_organic_waste
+    waste-cafe-2: separate_organic_waste
+    waste-office-1: keep_current
+    waste-home-1: keep_current
+  scope_outputs:
+    waste-cafe-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: separate_organic_waste
+    waste-cafe-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: separate_organic_waste
+    waste-office-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-home-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    waste-cafe-1: 5f55b09f98b594fd41344124be4ab8933e54095942359483b17e8788410e47e6
+    waste-cafe-2: 3f78c6d5ee0ae54118b51fb943909144462c101c730f6dba1a482db3fff3837c
+    waste-office-1: 3d7873cdc4d93b0b897496e7f0e8587313f28b4874913e3a7b79085233088ea9
+    waste-home-1: 75e47f8224fe98de71fe4d8cadfd5c804429753506c59cae2e7a3df44a0da71a
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_binding_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_binding_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_binding_full_r1\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: binding
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.5
+  changed_agent_ids:
+  - waste-cafe-1
+  - waste-cafe-2
+  actual_actions:
+    waste-cafe-1: separate_organic_waste
+    waste-cafe-2: separate_organic_waste
+    waste-office-1: keep_current
+    waste-home-1: keep_current
+  scope_outputs:
+    waste-cafe-1:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: separate_organic_waste
+    waste-cafe-2:
+      notice_seen: true
+      binding: true
+      target_match: true
+      authorized: true
+      action: separate_organic_waste
+    waste-office-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-home-1:
+      notice_seen: true
+      binding: true
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    waste-cafe-1: 5f55b09f98b594fd41344124be4ab8933e54095942359483b17e8788410e47e6
+    waste-cafe-2: 3f78c6d5ee0ae54118b51fb943909144462c101c730f6dba1a482db3fff3837c
+    waste-office-1: 3d7873cdc4d93b0b897496e7f0e8587313f28b4874913e3a7b79085233088ea9
+    waste-home-1: 75e47f8224fe98de71fe4d8cadfd5c804429753506c59cae2e7a3df44a0da71a
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_binding_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_binding_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_binding_full_r2\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: nonbinding
+  repeat_id: 1
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    waste-cafe-1: keep_current
+    waste-cafe-2: keep_current
+    waste-office-1: keep_current
+    waste-home-1: keep_current
+  scope_outputs:
+    waste-cafe-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    waste-cafe-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    waste-office-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-home-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    waste-cafe-1: d2d8db3d6fd5e04afbe378a0232593500758a449cfec17ee89e747cb2a362320
+    waste-cafe-2: 1c0226a822007179796708af483ab894784227192d86fa34ec90e4b5afe9100f
+    waste-office-1: 6953ebe06984206df4ac000c27a16d4abd0b349c5be22329a34c828af070a386
+    waste-home-1: 2aba882303c87936968d80b3b20f418667ab70845e37cbaf3be1809cfa82669e
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_nonbinding_full_r1\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_nonbinding_full_r1\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_nonbinding_full_r1\policy_trace.jsonl
+- task_id: t5v2_organics_rule_001
+  policy_state: nonbinding
+  repeat_id: 2
+  calls: 4
+  measurement_valid: true
+  scope_prompt_unambiguous: true
+  model_contract_pass: true
+  scope_semantics_pass: true
+  resident_directive_pass: true
+  policy_response_pass: true
+  no_untargeted_spillover: true
+  full_pass: 1
+  first_error: none
+  behavior_change_rate: 0.0
+  changed_agent_ids: []
+  actual_actions:
+    waste-cafe-1: keep_current
+    waste-cafe-2: keep_current
+    waste-office-1: keep_current
+    waste-home-1: keep_current
+  scope_outputs:
+    waste-cafe-1:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    waste-cafe-2:
+      notice_seen: true
+      binding: false
+      target_match: true
+      authorized: false
+      action: keep_current
+    waste-office-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+    waste-home-1:
+      notice_seen: true
+      binding: false
+      target_match: false
+      authorized: false
+      action: keep_current
+  prompt_sha256_by_resident:
+    waste-cafe-1: d2d8db3d6fd5e04afbe378a0232593500758a449cfec17ee89e747cb2a362320
+    waste-cafe-2: 1c0226a822007179796708af483ab894784227192d86fa34ec90e4b5afe9100f
+    waste-office-1: 6953ebe06984206df4ac000c27a16d4abd0b349c5be22329a34c828af070a386
+    waste-home-1: 2aba882303c87936968d80b3b20f418667ab70845e37cbaf3be1809cfa82669e
+  cell_result_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_nonbinding_full_r2\cell_result.json
+  model_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_nonbinding_full_r2\model_trace.jsonl
+  policy_trace_path: output\model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6\runs\model_v3_t5v2_organics_rule_001_nonbinding_full_r2\policy_trace.jsonl
+gate: registered_t5_v3_repeat_pilot_recorded
