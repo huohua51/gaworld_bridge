@@ -1,0 +1,214 @@
+schema_version: 1
+plan_id: GAWORLD-HUMAN-VALIDITY-MASTER-v1
+status: draft_pre_data
+date: '2026-08-28'
+purpose: >
+  将人类效度 H1-H7 分别操作化、分别登记证据状态；禁止用单一短程团队
+  任务或单一主观量表代替完整人类效度。
+
+source_plans:
+  - local_workspace_path: ../../GAWorld Future of Society Benchmark.pdf
+    relevant_pages: [4, 23, 27, 29]
+  - local_workspace_path: ../../GAworld 实验计划.pdf
+    relevant_pages: [15, 16, 18]
+
+global_rules:
+  separate_from_function_axis: true
+  no_cross_dimension_total_score: true
+  missing_matched_human_reference: N/A
+  matched_protocol_required: true
+  target_population_required: true
+  reference_version_required: true
+  independent_units_required: true
+  preregister_metric_and_missingness_before_formal_data: true
+  report_numerator_denominator_and_uncertainty: true
+  retain_invalid_and_excluded_counts: true
+  current_exp_hf_h1_01_is_pipeline_pilot_only: true
+
+human_reference_gates:
+  HR0_target:
+    requirement: >
+      登记目标人群、纳入排除条件、招募方式和结论可外推的边界。
+  HR1_protocol_parity:
+    requirement: >
+      Human 与 Agent 的任务事实、信息边界、时间预算、动作空间和停止条件一致；
+      不可避免的界面差异单独登记。
+  HR2_reference_version:
+    requirement: >
+      HumanProtocol、ReferenceVersion、任务、变量、时间粒度和数据字典均冻结并哈希。
+  HR3_independent_units:
+    requirement: >
+      区分参与者、团队、轨迹、刺激和评委；重复评分不能替代独立团队或 Agent 重复。
+  HR4_instrumentation:
+    requirement: >
+      原始选择、消息、动作、时间、交接、状态和退出原因可追溯，来源标签不进入盲评视图。
+  HR5_analysis:
+    requirement: >
+      在正式数据前登记主指标、距离公式、聚类单位、缺失处理、排除规则和不确定性方法。
+  HR6_ethics_and_governance:
+    requirement: >
+      知情同意、匿名代号、退出机制、保存期限、访问权限和身份映射表的仓库外存储均已确认。
+  HR7_calibration:
+    requirement: >
+      完成认知访谈、内部 Pilot、量表/编码员一致性与操纵检查；正式样本量由 Pilot 方差和功效分析决定。
+
+dimensions:
+  H1:
+    label: 外在自然度
+    question: 人类观察者是否认为 Agent 的语言、行动和连续心智自然？
+    task_families: [T1, T2, T3, T4, T5, T6]
+    human_reference: 独立评委对来源盲化的匹配 Human/Agent 刺激评分
+    primary_outputs:
+      - matched_naturalness_gap
+      - confidence_interval
+      - inter_rater_reliability
+      - source_guess_accuracy
+    current_status: partial_pipeline_only
+    current_evidence: >
+      EXP-HF-H1-01 已有短程结构化团队刺激、候选 12 项量表和盲评页面；
+      尚无正式 Human Trace、正式评委数据、量表信度或跨任务刺激。
+    missing:
+      - 目标人群与 ReferenceVersion
+      - 更自然且结构多样的刺激
+      - 多个独立 Human 团队和 Agent 重复
+      - 评委分配、来源猜测、信度与正式分析
+
+  H2:
+    label: 个体行为
+    question: 相同条件下 Agent 的选择和行为分布是否接近目标人群？
+    task_families: [T1]
+    human_reference: 同协议逐人选择、反应时间和必要的人群分层变量
+    primary_outputs:
+      - choice_probability_gap
+      - Jensen_Shannon_divergence
+      - Wasserstein_distance_when_ordered
+      - subgroup_gap
+    current_status: N/A
+    missing:
+      - 匹配个体决策协议
+      - 目标人群逐人行为数据
+      - 预注册分布距离和亚群
+
+  H3:
+    label: 人际关系
+    question: 伙伴身份和互动历史改变时，信任与互惠反应是否接近真人？
+    task_families: [T2]
+    human_reference: 重复配对互动、伙伴历史操纵、信任与互惠行为
+    primary_outputs:
+      - trust_history_effect_gap
+      - reciprocity_effect_gap
+      - partner_identity_interaction_gap
+    current_status: N/A
+    missing:
+      - T2 冻结任务
+      - 真人配对互动数据
+      - 关系历史与顺序效应控制
+
+  H4:
+    label: 团队过程
+    question: 分工、发言、异议、核验、纠错和交接是否接近真人团队？
+    task_families: [T3]
+    human_reference: 多人团队的消息、动作、时间、交接和纠错过程日志
+    primary_outputs:
+      - speaking_balance_gap
+      - clarification_rate_gap
+      - dissent_rate_gap
+      - verification_rate_gap
+      - correction_adoption_gap
+      - handoff_completeness_gap
+      - redundant_work_gap
+    current_status: partial_protocol_pipeline_only
+    current_evidence: >
+      EXP-HF-H1-01 可观察核验、采用、角色边界和交接终态；固定顺序和单表单
+      不足以观察真实发言、澄清、异议、自由分工或多人并发。
+    missing:
+      - 三角色独立客户端和中央会话状态机
+      - 开放消息与精确时间日志
+      - 自由分工/异议任务及 C1 依赖修复
+      - 多团队和多 Agent 重复
+
+  H5:
+    label: 长期轨迹
+    question: 作息、移动、记忆连续性、冲击偏离和恢复是否接近真人？
+    task_families: [T1, T2, T5, T6]
+    human_reference: 与 Agent 相同时间粒度的纵向日记、活动、移动或面板数据
+    primary_outputs:
+      - next_action_match
+      - sequence_distance
+      - schedule_distribution_gap
+      - shock_deviation_gap
+      - recovery_time_gap
+    current_status: N/A
+    missing:
+      - 匹配纵向真人数据
+      - 时间粒度和缺失机制
+      - 冲击前基线与恢复窗口
+
+  H6:
+    label: 人群与结构
+    question: 人群差异、亚群、网络和空间结构是否接近真实社会？
+    task_families: [T4, T6]
+    human_reference: 具有目标人口结构的代表性样本、网络和空间数据
+    primary_outputs:
+      - mean_variance_gap
+      - subgroup_distribution_gap
+      - network_density_gap
+      - homophily_gap
+      - spatial_distribution_gap
+    current_status: N/A
+    missing:
+      - 代表性抽样框
+      - 真实网络或空间参照
+      - 非线性、尾部与亚群校准
+
+  H7:
+    label: 干预反应
+    question: 相同政策、信息或环境干预下，Agent 与真人的反应是否一致？
+    task_families: [T4, T5, T6]
+    human_reference: 同干预、同基线定义的人类实验、准实验或社会数据
+    primary_outputs:
+      - treatment_direction_match
+      - ATE_gap
+      - HTE_gap
+      - response_delay_gap
+      - diffusion_peak_gap
+      - recovery_gap
+    current_status: N/A
+    missing:
+      - 匹配处理和安慰剂/无处理条件
+      - 人类处理效应数据
+      - 延迟、扩散和恢复窗口
+
+stages:
+  - stage: 0
+    name: preserve_current_pipeline_pilot
+    axes: [H1, H4]
+    action: >
+      EXP-HF-H1-01 最多完成三个认知试采槽；所有数据保持 pilot，禁止升级为正式 18 条参考集。
+  - stage: 1
+    name: h1_h4_v2
+    axes: [H1, H4]
+    action: >
+      冻结目标人群、开放团队任务、远程角色隔离、独立样本、盲评量表和过程编码方案后再采正式数据。
+  - stage: 2
+    name: individual_and_dyadic
+    axes: [H2, H3]
+    action: 分别建设个体选择实验和重复配对关系实验。
+  - stage: 3
+    name: longitudinal_and_intervention
+    axes: [H5, H7]
+    action: 在获得匹配纵向或干预数据后建设，不用短任务代理。
+  - stage: 4
+    name: population_structure
+    axes: [H6]
+    action: 在人口、网络与空间参照可用后建设代表性校准。
+
+claim_policy:
+  current_allowed: >
+    已建立短程结构化团队互动的 H1/H4 管线原型，正式人类效度尚未产生。
+  current_forbidden:
+    - H1-H7 已全面覆盖
+    - 18 个槽位等于 18 种社会行为
+    - 60 名评委可以替代独立团队和 Agent 重复
+    - A/B 功能条件可以直接报告为 H7
+    - 便利抽样同学可以代表一般社会人群

@@ -735,6 +735,8 @@ T3留出首错继续表现为：
 
 功能轴回答“任务是否正确做成”；H1回答“团队互动过程是否呈现接近真人的行为组织”。两条轴共享匿名Trace，分别使用Oracle与Human Reference。
 
+> **2026-08-28覆盖校正：** 当前`EXP-HF-H1-01`只是短程结构化团队互动的H1/H4管线Pilot，不是H1–H7完整Human Reference。18槽是3个协议模板、9个任务表面和2个条件，不是18种独立社会行为。正式18条采集暂停；当前网页最多用于三个认知试采槽。H2、H3、H5、H6、H7均保持`N/A`。总规划见[`docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md`](docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md)，下一版预注册草案见[`human_validity/h1_h4_v2/PREREGISTRATION.yaml`](human_validity/h1_h4_v2/PREREGISTRATION.yaml)。
+
 ### **12.1 第一版H1测什么**
 
 第一版使用机制已经稳定工作的完整流程：
@@ -901,6 +903,12 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 ```
 
 试采必须使用独立`--out`目录，避免覆盖冻结开发刺激或把页面调试数据误作正式Human Reference。完整现场步骤、最小三槽样本、认知访谈问题和正式放行门见[`docs/H1_PILOT_CHECKLIST_20260827.md`](docs/H1_PILOT_CHECKLIST_20260827.md)。
+
+### **12.10 H1–H7覆盖与下一版边界**
+
+原始规划中的H1–H7需要不同Human Reference，不能由同一套短任务和盲评量表代替。当前只有H1外在自然度管线和H4核验/交接终态的部分覆盖；H2个体行为、H3人际关系、H5长期轨迹、H6人群结构和H7干预反应没有匹配真人数据。
+
+`EXP-HF-H1H4-02`将作为独立新版本：候选任务改为非代码、可自然表达且结构不同的修订、证据核验、中断交接和共同排序；远程系统必须提供三角色独立令牌、中央状态机、不可变事件日志和HTTPS。H1报告匹配自然度差、置信区间、评委一致性和来源猜测；H4分别报告发言、澄清、异议、核验、纠错采用、交接、重复劳动和越界，不合成总分。正式样本量在认知访谈和内部Pilot后由方差、最低可检测差异和评委信度决定。
 
 ---
 
@@ -1298,6 +1306,9 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
 | `docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md` | C1/REL1故障位置、建议改法、实验来源与验收条件交接 |
 | `docs/H1_PILOT_CHECKLIST_20260827.md` | H1隔离试采、认知访谈、匿名复核与正式采集放行门 |
+| `docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md` | H1–H7定义、Human Reference证据门、当前覆盖和阶段路线 |
+| `human_validity/MASTER_PLAN.yaml` | H1–H7机器可读覆盖状态、指标、缺口与声明边界 |
+| `human_validity/h1_h4_v2/PREREGISTRATION.yaml` | H1/H4-v2目标人群、任务、远程采集、样本与分析草案 |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
@@ -1346,4 +1357,4 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 
 GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过；qwen3.7-plus因额度耗尽只形成部分证据，联合Gate按预注册判为失败并永久保留，项目不再续跑Qwen。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
 
-下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖；把C1/REL1实现问题交给GAWorld核心开发同学并在其合并后做独立回归；采集18条真人团队轨迹并启动H1盲评。
+下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖；把C1/REL1实现问题交给GAWorld核心开发同学并在其合并后做独立回归；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。

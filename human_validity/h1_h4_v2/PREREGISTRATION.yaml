@@ -1,0 +1,270 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+status: draft_pre_data
+date: '2026-08-28'
+ranking_eligible: false
+formal_data_collection_allowed: false
+preserves_history:
+  - EXP-HF-H1-01
+reason_for_new_id: >
+  当前实验只有三个固定结构模板、单一 Agent seed 和单表单 Human 输入；
+  v2 将 H1 主观自然度与 H4 客观团队过程分离，并支持真实多人远程协作。
+
+target_axes:
+  H1:
+    label: 外在自然度
+    primary_estimand: task_condition_matched_human_minus_agent_naturalness
+  H4:
+    label: 团队过程
+    primary_estimand: task_condition_matched_process_metric_gaps
+
+scope:
+  included_h4_facets:
+    - speaking_and_participation
+    - clarification
+    - dissent_or_challenge
+    - verification
+    - correction_and_adoption
+    - handoff_and_recovery
+    - role_boundary
+    - redundant_work
+  deferred_h4_facets:
+    - free_role_allocation_until_C1_dependency_is_stable
+    - long_horizon_team_learning
+  explicitly_not_measured: [H2, H3, H5, H6, H7]
+
+target_population:
+  status: decision_required_before_freeze
+  proposed_definition: >
+    年满 18 岁、能阅读中文、近期有小组项目经验的高校学生；结论只外推到该便利样本人群。
+  collect_as_covariates:
+    - age_band
+    - prior_team_project_experience
+    - programming_experience
+    - JSON_or_structured_form_experience
+  prohibited_identifiers:
+    - name
+    - student_number
+    - phone
+    - email
+  note: >
+    若希望外推到职业团队，必须另行招募匹配职业人群；不能把学生结果改名为一般社会结果。
+
+task_design:
+  principles:
+    - no_visible_code_or_raw_JSON_as_the_primary_rater_stimulus
+    - Human_and_Agent_receive_equivalent_facts_information_boundaries_and_budgets
+    - preserve_open_messages_questions_and_revisions
+    - each_family_has_structurally_distinct_surfaces_not_name_substitution
+    - functional_correctness_is_a_covariate_not_an_H_score
+    - source_style_normalization_is_frozen_before_source_comparison
+  candidate_families:
+    revision_under_hidden_constraint:
+      purpose: 观察澄清、具体异议、修改建议和采用
+      candidate_surfaces:
+        - 校园活动通知修订
+        - 志愿者排班说明修订
+      conditions: [standard_unchanged, authorized_standard_changed]
+    conflicting_evidence_verification:
+      purpose: 观察来源核验、证据说明和下游采用
+      candidate_surfaces:
+        - 场地开放状态核验
+        - 物资到货状态核验
+      conditions: [trusted_source_supports_option_A, trusted_source_supports_option_B]
+    interrupted_handoff:
+      purpose: 观察状态摘要、澄清、接替和避免重复劳动
+      candidate_surfaces:
+        - 活动物资清单交接
+        - 多阶段预约处理交接
+      conditions: [same_worker_continues, successor_takes_over]
+    joint_prioritization:
+      purpose: 观察发言平衡、异议、权衡和共同决策
+      candidate_surfaces:
+        - 有限时段的任务排优先级
+        - 有限预算的资源分配
+      conditions: [aligned_constraints, partially_conflicting_constraints]
+      dependency: C1_or_equivalent_coordination_path_must_pass_rule_calibration
+  freeze_gate: >
+    每个候选任务先完成 Rule 正负控、Human 可理解性访谈和信息泄漏检查；
+    只有结构不同且操纵有效的任务进入正式池。
+
+collection_system_requirements:
+  deployment:
+    - central_server_with_HTTPS
+    - participants_need_browser_only
+    - raw_human_data_outside_public_git
+  session:
+    - admin_creates_team_and_assignment
+    - three_role_specific_single_use_tokens
+    - server_side_turn_state_machine
+    - role_specific_information_views
+    - wait_and_resume_across_devices
+    - immutable_event_log
+    - server_timestamps
+    - explicit_withdrawal_and_completion_state
+  concurrency_and_integrity:
+    - database_transaction_per_transition
+    - unique_slot_and_token_constraints
+    - idempotent_submission
+    - no_silent_overwrite
+    - audit_log_for_admin_actions
+  blinding:
+    - source_neutral_stimulus_ids
+    - no_model_or_human_labels
+    - no_internal_participant_or_team_codes
+    - no_functional_score_in_rater_view
+    - deterministic_pre_frozen_display_normalization
+
+sampling_units:
+  Human_primary_unit: independent_team_trace
+  Agent_primary_unit: independent_agent_run
+  rating_unit: rater_by_stimulus
+  clustering:
+    - repeated_tasks_within_Human_team
+    - repeated_runs_within_model_configuration
+    - repeated_ratings_within_rater
+    - task_surface
+  pseudoreplication_rules:
+    - additional_raters_do_not_increase_the_number_of_team_traces
+    - repeated_tasks_from_one_team_are_not_independent_teams
+    - deterministic_render_variants_are_not_new_stimuli
+
+sample_plan:
+  cognitive_interviews:
+    status: first
+    target: 5_to_8_people
+    formal_data: false
+    purpose: 说明、角色边界、字段、远程交接和量表理解
+  internal_pilot:
+    status: after_cognitive_revision
+    formal_data: false
+    target: 12_to_18_people_in_real_three_person_teams
+    purpose:
+      - estimate_completion_and_parse_rates
+      - estimate_between_team_and_between_stimulus_variance
+      - estimate_rater_reliability
+      - test_source_blinding
+  formal:
+    status: blocked_until_power_analysis_and_freeze
+    Human_teams_per_cell: set_from_pilot_variance_and_minimum_detectable_gap
+    Agent_runs_per_cell: set_before_formal_collection_and_greater_than_one
+    raters_per_stimulus: set_from_reliability_pilot_and_balanced_across_sources
+    forbidden_shortcut: fixed_18_Human_traces_plus_60_raters_without_power_analysis
+
+h1_measurement:
+  current_12_items_status: candidate_item_pool_not_frozen_scale
+  cognitive_review_before_formal:
+    - item_comprehension
+    - observability_from_trace
+    - redundancy
+    - source_specific_wording
+  primary_dimension: naturalness
+  secondary_dimensions:
+    - perceived_agency
+    - perceived_social_responsiveness
+    - perceived_role_continuity
+  manipulation_checks:
+    - guessed_source_Human_or_Agent
+    - source_guess_confidence
+    - task_understanding_check
+  reliability:
+    - item_level_ordinal_agreement
+    - dimension_level_inter_rater_reliability
+  item_revision_rule: >
+    只能根据认知访谈、可观察性和内部 Pilot 信度在正式来源比较前修改；
+    禁止因为某题让 Agent 得分变差或变好而事后删题。
+
+h4_measurement:
+  outputs_are_a_profile_not_one_total_score: true
+  metrics:
+    speaking_share_dispersion:
+      unit: team_trace
+      direction: descriptive
+    clarification_request_rate:
+      unit: eligible_transition
+      direction: descriptive_not_monotonic
+    explicit_verification_rate:
+      unit: verification_opportunity
+      direction: task_dependent
+    dissent_or_challenge_rate:
+      unit: disagreement_opportunity
+      direction: descriptive_not_monotonic
+    correction_adoption_rate:
+      unit: valid_correction
+      direction: higher_is_better_when_correction_is_valid
+    handoff_completeness:
+      unit: required_handoff_field
+      direction: higher_is_better
+    redundant_work_rate:
+      unit: completed_step
+      direction: lower_is_better
+    role_boundary_violation_rate:
+      unit: action
+      direction: lower_is_better
+    recovery_time:
+      unit: interruption_event
+      direction: compare_with_matched_Human_not_universally_lower
+  coding:
+    deterministic_events_first: true
+    semantic_coding_requires_blinded_double_coding: true
+    adjudication_record_required: true
+    codebook_frozen_before_formal: true
+
+rater_assignment:
+  independent_from_trace_participants: true
+  randomized_balanced_subset: true
+  no_adjacent_Human_Agent_pair_from_same_cell: true
+  equal_planned_ratings_per_stimulus: true
+  rater_sees_source_label: false
+  attention_and_understanding_checks_frozen_before_formal: true
+
+analysis:
+  H1_primary_model: >
+    交叉分类混合效应模型：评分 ~ source + task_family + condition + functional_correctness
+    及预注册交互；评委、刺激/运行、任务表面和 Human 团队按设计设随机效应。
+  H1_primary_report:
+    - matched_Human_minus_Agent_estimate
+    - confidence_interval
+    - raw_source_means_with_denominators
+    - inter_rater_reliability
+    - source_guess_accuracy
+  H4_models:
+    proportions: binomial_or_beta_binomial_mixed_models
+    durations: preregistered_log_scale_or_survival_model
+    count_metrics: preregistered_count_model_with_exposure_offset
+  multiple_metrics: report_profile_with_familywise_or_FDR_rule_set_before_formal
+  missingness:
+    technical_failure: retain_count_and_exclude_from_capability_estimate_only_by_preregistered_R0_rule
+    participant_withdrawal: retain_minimal_audit_state_without_behavior_payload_when_required
+    malformed_required_action: record_as_process_failure_not_silently_impute
+  sensitivity:
+    - with_and_without_functionally_incorrect_stimuli
+    - by_programming_or_structured_form_experience
+    - source_guess_correct_vs_incorrect_as_secondary_only
+
+freeze_and_stop_gates:
+  before_any_formal_data:
+    - target_population_confirmed
+    - tasks_rule_calibrated
+    - Human_Agent_protocol_parity_audited
+    - remote_role_isolation_passed
+    - no_source_or_private_metadata_leak
+    - cognitive_interviews_completed
+    - internal_pilot_completed
+    - power_and_rater_reliability_plan_frozen
+    - task_rubric_codebook_analysis_hashes_recorded
+    - ethics_and_data_governance_confirmed
+  stop_and_revise_if:
+    - any_cross_role_private_information_leak
+    - any_source_label_or_internal_identifier_leak
+    - slot_or_event_log_silent_overwrite
+    - Human_and_Agent_task_facts_or_budgets_are_not_equivalent
+    - required_outputs_cannot_be_scored_reliably
+  no_posthoc_repair_of_formal_data: true
+
+claim_policy:
+  before_formal_gate: >
+    只能报告 H1/H4 采集与评分管线、认知访谈和内部 Pilot 的可用性；不能报告 GAWorld 人类效度。
+  after_formal_gate: >
+    只报告目标学生人群、冻结任务与所测 H1/H4 分面；H2、H3、H5、H6、H7 保持 N/A。
+
