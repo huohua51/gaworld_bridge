@@ -1,0 +1,96 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+status: draft_for_cognitive_interview_and_internal_pilot
+formal_data_collection_allowed: false
+unit_of_analysis: team_trace
+source_blinded_coding_required: true
+
+separation_rules:
+  functional_oracle: checks facts, hard constraints, provenance and permitted actions
+  H1: independently rated from the frozen source-neutral display
+  H4: computed from logged opportunities and events, never inferred only from the final answer
+  prohibited:
+    - combine_functional_H1_and_H4_into_one_score
+    - delete_functional_failures_from_primary_log
+    - treat_more_messages_or_faster_completion_as_universally_better
+
+event_requirements:
+  identity_fields: [event_id, session_id, task_id, surface_id, condition]
+  timing_fields: [server_timestamp]
+  actor_fields: [actor_role, event_type]
+  linkage_fields: [recipient_role, reply_to_event_id, artifact_version]
+  content_fields: [natural_language_body, structured_action]
+  immutable: true
+  edits_create_new_events: true
+
+deterministic_event_labels:
+  message_turn:
+    eligible: accepted participant message with non-empty natural_language_body
+    exclude: [system_message, duplicate_idempotent_retry, facilitator_message]
+  role_boundary_violation:
+    positive_if:
+      - actor accesses a binding listed as hidden for that role
+      - actor submits an action not listed as available for that role
+      - unavailable or unassigned worker submits business content
+    denominator: accepted_participant_actions
+  redundant_work:
+    positive_if: a stage already marked complete in the sealed checkpoint is performed or submitted again
+    denominator: stages_marked_complete_before_resume
+  recovery_time_seconds:
+    start: server availability event that requires continuation or reassignment
+    end: first valid task-progress event by the assigned worker after acknowledging the checkpoint
+    report_if_missing: censored_at_session_end_or_timeout
+
+semantic_event_labels:
+  clarification_request:
+    definition: a question that identifies a specific missing, ambiguous or conflicting fact needed for the actor's next permitted action
+    exclude:
+      - generic requests such as 请再说清楚 without identifying the uncertainty
+      - social acknowledgements
+      - questions whose answer is already visible to the actor
+  specific_challenge:
+    definition: a disagreement that identifies the disputed draft, report, constraint, plan or action and gives a task-grounded reason
+    exclude: [unsupported_rejection, preference_stated_without_relation_to_candidate]
+  explicit_verification:
+    definition: a message that names the adopted source or evidence, the verified state and every task-required provenance field
+    exclude: [bare_assertion, unverifiable_source_reference]
+  valid_correction:
+    definition: a proposed change supported by the actor's authorized evidence and consistent with the public task rule
+  correction_adopted:
+    definition: the final artifact or decision implements a delivered valid correction and its adoption note or reason is traceable to that correction
+  accurate_tradeoff_statement:
+    definition: a summary statement that correctly labels a raised item as a hard constraint, soft preference or unresolved objection
+  substantive_vote:
+    definition: an explicit accept or object choice with a reason linked to the candidate plan
+
+opportunity_rules:
+  zero_denominator: report_NA_not_zero
+  clarification: create only when information required for the next action is missing, ambiguous or internally conflicting
+  challenge: create when an actor sees a concrete artifact or candidate that conflicts with authorized evidence, a hard constraint or an expressed preference
+  verification: create when visible reports conflict and one role has an authorized means to resolve them
+  correction_adoption: create for each valid correction delivered before the final submission
+  handoff: create once per server-sealed checkpoint followed by an availability event
+
+double_coding:
+  required_for: [clarification_request, specific_challenge, valid_correction, correction_adopted, accurate_tradeoff_statement]
+  independent_coders: 2
+  coder_sees_source_kind: false
+  disagreement_process: preserve_both_initial_codes_then_adjudicate_with_reason
+  pilot_diagnostics:
+    - raw_agreement_by_label
+    - positive_and_negative_counts_by_coder
+    - cohens_kappa_when_both_classes_present
+  provisional_revision_trigger:
+    raw_agreement_below: 0.80
+    cohens_kappa_below_when_estimable: 0.60
+    action: revise_definition_and_recode_pilot_only
+
+reporting:
+  always_include:
+    - numerator
+    - denominator
+    - missing_or_censored_count
+    - protocol_deviation_count
+    - task_family_and_condition
+  profile_only: true
+  no_cross_metric_total: true

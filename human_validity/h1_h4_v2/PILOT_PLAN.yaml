@@ -1,0 +1,107 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+status: planned_not_run
+formal_data_collection_allowed: false
+raw_data_in_public_git_allowed: false
+participant_identities_in_repository_allowed: false
+
+prerequisites:
+  all_waves:
+    - cognitive_interview_gate_passed
+    - task_and_instruction_versions_recorded
+    - role_specific_views_and_single_use_tokens_passed
+    - immutable_event_log_and_server_timestamps_passed
+    - withdrawal_and_protocol_deviation_paths_tested
+    - functional_rule_positive_and_negative_controls_passed
+  wave_1:
+    - revision_verification_handoff_remote_state_machine_passed
+  wave_2:
+    - C1_or_equivalent_coordination_path_passed_rule_calibration
+    - prioritization_three_role_vote_and_no_consensus_paths_passed
+
+participant_plan:
+  preferred_population: adult_Chinese_reading_university_students_with_recent_team_project_experience
+  cognitive_interview_people: 5_to_8
+  live_internal_pilot_people_total_after_both_waves: 18
+  people_per_team: 3
+  teams_total_after_both_waves: 6
+  prefer_people_not_used_in_cognitive_interviews: true
+  overlap_if_unavoidable: record_and_do_not_treat_as_independent_new_population
+
+wave_1:
+  status: blocked_until_cognitive_and_remote_system_gates
+  purpose: test_three_ready_families_without_the_C1_dependent_prioritization_family
+  people: 12
+  teams: 4
+  planned_traces: 8
+  assignments:
+    - team_code: P01
+      order:
+        - {surface_id: rev_campus_notice_001, condition: A}
+        - {surface_id: verify_supply_arrival_001, condition: B}
+    - team_code: P02
+      order:
+        - {surface_id: handoff_event_materials_001, condition: A}
+        - {surface_id: rev_volunteer_shift_001, condition: B}
+    - team_code: P03
+      order:
+        - {surface_id: verify_room_access_001, condition: A}
+        - {surface_id: handoff_appointment_queue_001, condition: B}
+    - team_code: P04
+      order:
+        - {surface_id: handoff_appointment_queue_001, condition: A}
+        - {surface_id: rev_campus_notice_001, condition: B}
+  coverage_note: >
+    六个非排序表面均至少出现一次，三个任务族均覆盖A/B；两个较复杂表面增加跨团队反条件复查。
+    同一团队的两条轨迹不是独立团队，分析时必须按team_code聚类。
+
+wave_2:
+  status: blocked_by_coordination_dependency
+  purpose: add_joint_prioritization_only_after_dependency_passes
+  people: 6
+  teams: 2
+  planned_traces: 4
+  assignments:
+    - team_code: P05
+      order:
+        - {surface_id: priority_time_slots_001, condition: A}
+        - {surface_id: priority_activity_budget_001, condition: B}
+    - team_code: P06
+      order:
+        - {surface_id: priority_activity_budget_001, condition: A}
+        - {surface_id: priority_time_slots_001, condition: B}
+  coverage_note: both_prioritization_surfaces_and_conditions_once_with_order_reversal
+
+pilot_outputs:
+  pipeline:
+    - consent_and_withdrawal_counts
+    - token_role_isolation_result
+    - event_delivery_and_idempotency_result
+    - completion_timeout_and_parse_counts
+    - source_and_private_metadata_leak_audit
+  functional:
+    - each_metric_numerator_denominator_and_NA_count
+    - positive_and_negative_control_results
+  H4:
+    - deterministic_event_metrics
+    - double_coder_initial_labels_agreement_and_adjudication
+  H1:
+    - source_neutral_render_check
+    - candidate_item_missingness_and_response_distribution
+    - inter_rater_reliability_diagnostic
+    - source_guess_and_confidence_diagnostic
+  timing:
+    - reading_time
+    - task_completion_or_censor_time
+    - rating_time
+
+pilot_claim_limits:
+  allowed:
+    - instructions_and_pipeline_are_or_are_not_usable
+    - provisional_variance_reliability_and_failure_rates_for_design
+    - specific_rule_or_interface_failures
+  forbidden:
+    - formal_Human_Agent_validity_claim
+    - population_generalization
+    - H2_H3_H5_H6_or_H7_claim
+    - treating_8_or_12_traces_as_powered_formal_evidence

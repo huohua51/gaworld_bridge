@@ -53,7 +53,11 @@ target_population:
 task_design:
   task_card_index: tasks/INDEX.yaml
   task_card_contract: tasks/TASK_CARD_CONTRACT.md
-  task_cards_status: four_families_eight_surfaces_drafted_not_frozen
+  task_cards_status: four_families_eight_surfaces_and_pilot_materials_drafted_not_frozen
+  h4_codebook: H4_CODEBOOK.yaml
+  cognitive_interview_script: COGNITIVE_INTERVIEW.md
+  pilot_plan: PILOT_PLAN.yaml
+  internal_pilot_runbook: INTERNAL_PILOT_RUNBOOK.md
   principles:
     - no_visible_code_or_raw_JSON_as_the_primary_rater_stimulus
     - Human_and_Agent_receive_equivalent_facts_information_boundaries_and_budgets
@@ -134,12 +138,12 @@ sampling_units:
 
 sample_plan:
   cognitive_interviews:
-    status: first
+    status: scripted_not_run
     target: 5_to_8_people
     formal_data: false
     purpose: 说明、角色边界、字段、远程交接和量表理解
   internal_pilot:
-    status: after_cognitive_revision
+    status: planned_not_run_after_cognitive_revision
     formal_data: false
     target: 12_to_18_people_in_real_three_person_teams
     purpose:

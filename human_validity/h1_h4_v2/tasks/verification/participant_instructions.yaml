@@ -1,0 +1,118 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+task_id: h1h4_conflicting_evidence_verification_v2
+status: draft_for_cognitive_interview
+formal_data_collection_allowed: false
+language: zh-CN
+condition_label_visible: false
+source_label_visible: false
+file_is_server_side_only: true
+render_contract:
+  participant_visible_sections:
+    - common_intro
+    - assigned_role_card.screen_title
+    - assigned_role_card.participant_text
+    - assigned_role_card.available_actions
+    - assigned_role_card.completion_check
+    - server_rendered_visible_bindings
+    - pre_task_comprehension.items.prompt
+  never_send_to_client:
+    - other_role_cards
+    - hidden_bindings
+    - condition_code
+    - source_kind
+    - pre_task_comprehension.items.expected_concept
+
+common_intro:
+  title: 冲突信息核验任务
+  purpose_text: 你将和另外两名成员处理两条相互冲突的报告。团队需要保留来源、完成核验，并依据核验结果作出行动决定。
+  privacy_text: 所有名称和情境均为虚构；不要输入真实姓名、单位或联系方式。
+  interaction_rules:
+    - 区分“看到了什么报告”“哪个来源可信”和“最终采取什么行动”。
+    - 可以针对遗漏的来源、状态、时间或目录版本提出澄清。
+    - 不要寻找其他角色的私有页面，也不要由主持人代替你判断。
+    - 不确定时明确说明缺少什么证据。
+
+role_cards:
+  - role_id: reporter
+    screen_title: 你的角色：信息整理员
+    visible_bindings:
+      - public_situation_and_action_rule
+      - two_raw_reports_with_source_names_and_times
+      - messages_addressed_to_reporter
+    hidden_bindings:
+      - private_trusted_source_directory
+      - correct_action
+      - condition_code
+      - source_kind
+    participant_text:
+      - 用自己的话完整概述两条报告，同时保留每条报告的来源、时间和状态。
+      - 两条报告相互冲突也要同时报告，不要删除你认为不可靠的一条。
+      - 你不负责判断哪个来源可信，也不推荐最终行动。
+      - 如果核验员询问报告原文或时间，可以依据页面内容回答。
+    available_actions:
+      - submit_report_summary
+      - answer_report_clarification
+    completion_check:
+      - 两个来源、两个时间和两个相反状态均已保留
+      - 没有判断可信来源
+      - 没有提交最终行动
+
+  - role_id: verifier
+    screen_title: 你的角色：核验员
+    visible_bindings:
+      - public_situation_and_action_rule
+      - reporter_message
+      - private_trusted_source_directory
+      - messages_addressed_to_verifier
+    hidden_bindings:
+      - correct_action
+      - condition_code
+      - source_kind
+    participant_text:
+      - 先检查整理员是否保留了两个来源、状态和时间；有遗漏时提出具体澄清。
+      - 根据私有可信来源目录确定应采用哪条报告。
+      - 核验消息必须写出可信来源名称、该来源报告的状态和时间、目录版本。
+      - 你只提交核验结论，不代替协调员选择最终行动。
+    available_actions:
+      - ask_reporter_clarification
+      - submit_verification
+      - answer_coordinator_clarification
+    completion_check:
+      - 核验消息包含来源、状态、报告时间和目录版本
+      - 只采用目录登记的可信来源
+      - 没有提交最终行动
+
+  - role_id: coordinator
+    screen_title: 你的角色：决策协调员
+    visible_bindings:
+      - public_situation_and_action_rule
+      - reporter_and_verifier_thread
+    hidden_bindings:
+      - private_trusted_source_directory
+      - correct_action
+      - condition_code
+      - source_kind
+    participant_text:
+      - 检查共享消息中是否已有完整核验结论；缺少来源、状态、时间或目录版本时先请求补充。
+      - 只依据已核验状态和公开行动规则选择最终行动。
+      - 用一至两句话说明决定依据，使决定能追溯到核验消息。
+      - 不要直接打开私有可信来源目录，也不要采用未经核验的传闻。
+    available_actions:
+      - ask_verifier_clarification
+      - submit_final_decision_and_reason
+    completion_check:
+      - 最终行动符合公开规则和已核验状态
+      - 理由引用了共享核验结论
+      - 没有直接读取或声称读取私有目录
+
+pre_task_comprehension:
+  pass_rule: all_role_specific_items_correct_before_task_access
+  attempts_before_facilitator_review: 2
+  items:
+    - id: verification_roles
+      prompt: 信息整理员看到两条冲突报告后，是否应自行选出可信的一条？
+      expected_concept: 不应；整理员保留两条报告，可信性由核验员依据私有目录判断。
+    - id: verification_action
+      prompt: 协调员在核验消息缺少来源或版本时应怎么做？
+      expected_concept: 先请求补充，不能根据未经完整核验的信息行动。

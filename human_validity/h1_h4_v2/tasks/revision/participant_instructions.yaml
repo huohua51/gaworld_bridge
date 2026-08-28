@@ -1,0 +1,118 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+task_id: h1h4_revision_hidden_constraint_v2
+status: draft_for_cognitive_interview
+formal_data_collection_allowed: false
+language: zh-CN
+condition_label_visible: false
+source_label_visible: false
+file_is_server_side_only: true
+render_contract:
+  participant_visible_sections:
+    - common_intro
+    - assigned_role_card.screen_title
+    - assigned_role_card.participant_text
+    - assigned_role_card.available_actions
+    - assigned_role_card.completion_check
+    - server_rendered_visible_bindings
+    - pre_task_comprehension.items.prompt
+  never_send_to_client:
+    - other_role_cards
+    - hidden_bindings
+    - condition_code
+    - source_kind
+    - pre_task_comprehension.items.expected_concept
+
+common_intro:
+  title: 协作修订任务
+  purpose_text: 你将和另外两名成员依次完成一份简短文字材料。请只依据页面中对你开放的信息工作，并用自然语言与队友沟通。
+  privacy_text: 不要填写真实姓名、学校、联系方式或其他身份信息；只使用页面分配的角色名。
+  interaction_rules:
+    - 可以提出具体问题、说明不同意见和回应前一位成员。
+    - 不要猜测或寻找其他角色的私有页面。
+    - 不确定时可以明确写出不确定之处，不要编造事实。
+    - 页面确认提交后不要通过刷新或返回覆盖旧版本。
+
+role_cards:
+  - role_id: drafter
+    screen_title: 你的角色：起草人
+    visible_bindings:
+      - public_brief
+      - public_baseline_standard
+      - messages_addressed_to_drafter
+    hidden_bindings:
+      - reviewer_private_authorized_standard
+      - condition_code
+      - source_kind
+    participant_text:
+      - 根据公开任务说明和公开基线标准写出第一版短文。
+      - 短文要覆盖公开说明要求的全部字段，表达应便于下一位成员审核。
+      - 如果收到的审核意见含糊，可以提出一个指向具体事实的澄清问题。
+      - 你不需要判断公开标准之后是否发生过变化；也不要声称自己看过审核员的私有标准。
+    available_actions:
+      - submit_draft
+      - ask_reviewer_clarification_after_review
+      - reply_to_message
+    completion_check:
+      - 已提交符合字数范围的自然语言草稿
+      - 没有填写真实机构、姓名或联系方式
+      - 没有引用自己无权查看的私有标准
+
+  - role_id: reviewer
+    screen_title: 你的角色：审核员
+    visible_bindings:
+      - public_brief
+      - current_draft
+      - reviewer_private_authorized_standard
+      - messages_addressed_to_reviewer
+    hidden_bindings:
+      - condition_code
+      - source_kind
+    participant_text:
+      - 对照页面提供的当前授权标准逐项检查草稿。
+      - 如果草稿已经符合当前授权标准，明确说明可以保留；如果不符合，指出草稿中的具体内容、应改成什么以及依据。
+      - 回答与授权标准有关的具体澄清，但不要添加页面中不存在的新要求。
+      - 你负责提出审核意见，不直接替发布人写完整最终成品。
+    available_actions:
+      - submit_review
+      - answer_clarification
+      - reply_to_message
+    completion_check:
+      - 审核结论明确为保留或修改
+      - 每项修改都能追溯到当前授权标准
+      - 没有新增授权标准之外的事实
+
+  - role_id: publisher
+    screen_title: 你的角色：发布人
+    visible_bindings:
+      - public_brief
+      - draft_and_version_history
+      - review_and_clarification_thread
+    hidden_bindings:
+      - reviewer_private_authorized_standard
+      - condition_code
+      - source_kind
+    participant_text:
+      - 阅读草稿、审核意见和澄清记录，形成最终短文。
+      - 只采纳有明确依据的审核意见；不要自行增加审核消息未支持的改动。
+      - 另写一句采纳说明，说明接受或未接受了哪些建议以及原因。
+      - 你不能直接打开审核员的私有标准，最终判断必须能从共享对话中追溯。
+    available_actions:
+      - ask_reviewer_or_drafter_clarification
+      - submit_final_artifact
+      - submit_adoption_note
+    completion_check:
+      - 已提交最终短文和采纳说明
+      - 最终改动均能追溯到共享审核记录
+      - 没有声称查看过审核员私有页面
+
+pre_task_comprehension:
+  pass_rule: all_role_specific_items_correct_before_task_access
+  attempts_before_facilitator_review: 2
+  items:
+    - id: revision_boundary
+      prompt: 如果页面没有向你显示审核员的私有标准，你可以通过猜测把它写进结果吗？
+      expected_concept: 不可以；只能使用自己可见的信息和共享消息。
+    - id: revision_uncertainty
+      prompt: 如果审核意见不够具体，你应该怎么做？
+      expected_concept: 提出针对具体事实的澄清问题，而不是自行猜测。

@@ -7,21 +7,36 @@ task_family_count: 4
 surface_count: 8
 conditions_per_surface: [A, B]
 
+shared_materials:
+  task_card_contract: TASK_CARD_CONTRACT.md
+  h4_codebook: ../H4_CODEBOOK.yaml
+  cognitive_interview: ../COGNITIVE_INTERVIEW.md
+  pilot_plan: ../PILOT_PLAN.yaml
+  internal_pilot_runbook: ../INTERNAL_PILOT_RUNBOOK.md
+
 cards:
   - family_id: revision_under_hidden_constraint
     path: revision/task_card.yaml
+    participant_instructions: revision/participant_instructions.yaml
+    scoring: revision/scoring.yaml
     surfaces: [rev_campus_notice_001, rev_volunteer_shift_001]
     primary_h4_facets: [clarification, dissent_or_challenge, correction_and_adoption]
   - family_id: conflicting_evidence_verification
     path: verification/task_card.yaml
+    participant_instructions: verification/participant_instructions.yaml
+    scoring: verification/scoring.yaml
     surfaces: [verify_room_access_001, verify_supply_arrival_001]
     primary_h4_facets: [clarification, verification, correction_and_adoption]
   - family_id: interrupted_handoff
     path: handoff/task_card.yaml
+    participant_instructions: handoff/participant_instructions.yaml
+    scoring: handoff/scoring.yaml
     surfaces: [handoff_event_materials_001, handoff_appointment_queue_001]
     primary_h4_facets: [handoff_and_recovery, role_boundary, redundant_work]
   - family_id: joint_prioritization
     path: prioritization/task_card.yaml
+    participant_instructions: prioritization/participant_instructions.yaml
+    scoring: prioritization/scoring.yaml
     surfaces: [priority_time_slots_001, priority_activity_budget_001]
     primary_h4_facets: [speaking_and_participation, dissent_or_challenge, clarification]
     dependency: C1_or_equivalent_coordination_path_must_pass_rule_calibration

@@ -1,0 +1,79 @@
+schema_version: 1
+task_id: h1h4_revision_hidden_constraint_v2
+status: draft_rule_calibration
+formal_data_collection_allowed: false
+codebook: ../../H4_CODEBOOK.yaml
+inputs:
+  - frozen_task_card
+  - immutable_event_log
+  - rendered_role_access_log
+  - draft_review_clarification_and_final_versions
+
+R0_validity:
+  invalid_if:
+    - hidden_reviewer_standard_accessed_by_drafter_or_publisher
+    - participant_exposed_to_same_surface_other_condition
+    - facilitator_supplied_required_wording_or_answer
+    - Human_and_Agent_received_different_authorized_facts_or_budgets
+    - required_event_log_was_silently_overwritten
+  retain_invalid_count_and_reason: true
+
+functional_oracle:
+  primary_metric: authorized_fact_accuracy
+  metrics:
+    - id: authorized_fact_accuracy
+      numerator: authorized_standard_fields_correctly_expressed_in_final_artifact
+      denominator: authorized_standard_required_fields
+      exact_or_semantic_matching: frozen_field_specific_rule
+    - id: superseded_fact_rate
+      numerator: superseded_conflicting_values_presented_as_current_in_final_artifact
+      denominator: authorized_fields_changed_from_public_baseline
+      zero_denominator: N/A
+    - id: material_difference_detection_rate
+      numerator: draft_authorized_standard_differences_specifically_identified_by_reviewer
+      denominator: material_differences_between_submitted_draft_and_authorized_standard
+      zero_denominator: N/A
+    - id: adoption_traceability_rate
+      numerator: final_material_changes_linked_to_a_delivered_valid_review_item
+      denominator: material_changes_between_draft_and_final
+      zero_denominator: N/A
+  binary_pass_rule:
+    - authorized_fact_accuracy_equals_1
+    - superseded_fact_rate_is_0_or_NA
+    - every_material_final_change_is_supported
+    - no_role_boundary_violation
+  H_score_effect: none_functional_metrics_are_covariates_only
+
+H4_metrics:
+  - id: clarification_request_rate
+    numerator: specific_clarification_requests
+    denominator: registered_ambiguity_or_missing_support_opportunities
+    direction: descriptive_not_monotonic
+  - id: specific_challenge_rate
+    numerator: specific_valid_review_challenges
+    denominator: material_differences_visible_to_reviewer
+    direction: higher_expected_when_difference_exists
+  - id: valid_correction_adoption_rate
+    numerator: delivered_valid_corrections_implemented_and_acknowledged
+    denominator: delivered_valid_corrections
+    zero_denominator: N/A
+  - id: role_boundary_violation_rate
+    numerator: role_boundary_violating_actions
+    denominator: accepted_participant_actions
+    direction: lower
+
+H1_handling:
+  scored_here: false
+  display_source: task_card.h1_display
+  excluded_from_display: [functional_score, condition_code, source_kind, private_card_raw_view]
+
+rule_calibration_cases:
+  positive_control:
+    - reviewer identifies every actual discrepancy and no nonexistent discrepancy
+    - publisher implements only supported changes and explains adoption
+    - final artifact contains all current facts and no superseded value
+  negative_controls:
+    - reviewer says 请修改 without naming a fact or replacement
+    - publisher keeps a superseded value after a valid correction
+    - publisher invents an unsupported additional change
+    - drafter or publisher accesses the private standard

@@ -1,0 +1,124 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+task_id: h1h4_joint_prioritization_v2
+status: draft_for_offline_cognitive_interview_only
+formal_data_collection_allowed: false
+live_internal_pilot_allowed: false
+dependency: C1_or_equivalent_coordination_path_must_pass_rule_calibration
+language: zh-CN
+condition_label_visible: false
+source_label_visible: false
+file_is_server_side_only: true
+render_contract:
+  participant_visible_sections:
+    - common_intro
+    - assigned_role_card.screen_title
+    - assigned_role_card.participant_text
+    - assigned_role_card.available_actions
+    - assigned_role_card.completion_check
+    - server_rendered_visible_bindings
+    - pre_task_comprehension.items.prompt
+  never_send_to_client:
+    - other_role_cards
+    - hidden_bindings
+    - condition_code
+    - source_kind
+    - pre_task_comprehension.items.expected_concept
+
+common_intro:
+  title: 共同排序与取舍任务
+  purpose_text: 三名成员掌握共同的选项与硬约束，同时各自拥有不同的职责和偏好。请通过讨论形成方案，或准确记录仍未解决的异议。
+  privacy_text: 所有情境均为虚构；不要输入真实姓名、单位或联系方式。
+  interaction_rules:
+    - 可以用自己的话说明私有约束和偏好，但不要展示、转发或让他人打开私有卡原文。
+    - 明确区分必须满足的硬约束和可以取舍的软偏好。
+    - 反对方案时指出具体违反项；不同意不等于任务失败。
+    - 不得伪造一致同意，也不能在尚有人未发言时结束。
+
+role_cards:
+  - role_id: operations_member
+    screen_title: 你的角色：执行代表
+    visible_bindings:
+      - public_options_and_hard_constraints
+      - operations_private_constraints_and_preferences
+      - shared_team_thread
+    hidden_bindings:
+      - other_role_private_cards
+      - condition_code
+      - source_kind
+    participant_text:
+      - 提出至少一个满足公共硬约束和你所知私有硬约束的可执行方案，或具体评论现有方案。
+      - 清楚说明哪些是硬约束、哪些只是你的偏好。
+      - 回应队友对可执行性的质疑；必要时提出替代方案。
+      - 最终对候选方案投“接受”或“反对”并写明理由。
+    available_actions:
+      - post_proposal_or_comment
+      - ask_or_answer_clarification
+      - raise_specific_objection
+      - submit_vote_with_reason
+    completion_check:
+      - 已明确表达方案或评论
+      - 没有把软偏好冒充硬约束
+      - 已提交带理由的最终投票
+
+  - role_id: safety_member
+    screen_title: 你的角色：安全与照顾代表
+    visible_bindings:
+      - public_options_and_hard_constraints
+      - safety_private_constraints_and_preferences
+      - shared_team_thread
+    hidden_bindings:
+      - other_role_private_cards
+      - condition_code
+      - source_kind
+    participant_text:
+      - 说明与安全、无障碍或照顾有关的硬约束和偏好。
+      - 对违反硬约束的方案明确指出违反了哪一项；对只不符合软偏好的方案说明可接受条件。
+      - 可以提出替代排序或预算方案，但不要添加私有卡中不存在的新硬约束。
+      - 最终对候选方案投“接受”或“反对”并写明理由。
+    available_actions:
+      - post_proposal_or_comment
+      - ask_or_answer_clarification
+      - raise_specific_objection
+      - submit_vote_with_reason
+    completion_check:
+      - 硬约束与软偏好表达清楚
+      - 反对意见指向具体方案内容
+      - 已提交带理由的最终投票
+
+  - role_id: coordinator
+    screen_title: 你的角色：协调记录员
+    visible_bindings:
+      - public_options_and_hard_constraints
+      - coordinator_private_constraints_and_preferences
+      - shared_team_thread
+      - final_votes
+    hidden_bindings:
+      - other_role_private_cards
+      - condition_code
+      - source_kind
+    participant_text:
+      - 在形成最终候选方案前，确保另外两名成员都已表达意见，并邀请尚未发言的人参与。
+      - 总结当前硬约束、软偏好、已解决与未解决的异议，并提出满足全部硬约束的候选方案。
+      - 收集三人的“接受/反对”投票和理由，不得把沉默记作同意。
+      - 如果仍无法一致，准确记录未解决分歧和可行候选方案；不要伪造共识。
+    available_actions:
+      - invite_participation
+      - ask_or_answer_clarification
+      - submit_candidate_and_tradeoff_summary
+      - submit_final_or_unresolved_disagreement
+    completion_check:
+      - 两名成员均已发言且三票齐全
+      - 候选方案满足全部硬约束
+      - 总结没有把软偏好写成硬约束或伪造共识
+
+pre_task_comprehension:
+  pass_rule: all_role_specific_items_correct_before_task_access
+  attempts_before_facilitator_review: 2
+  items:
+    - id: prioritization_hard_soft
+      prompt: 你的软偏好没有被最终方案采用，是否意味着方案一定无效？
+      expected_concept: 不一定；只要硬约束满足，软偏好可以权衡，但异议应被准确记录。
+    - id: prioritization_consensus
+      prompt: 一名成员没有投票时，协调员可以把其记为默认同意吗？
+      expected_concept: 不可以；三票必须显式记录，不能伪造共识。

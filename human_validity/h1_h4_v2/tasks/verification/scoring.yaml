@@ -1,0 +1,79 @@
+schema_version: 1
+task_id: h1h4_conflicting_evidence_verification_v2
+status: draft_rule_calibration
+formal_data_collection_allowed: false
+codebook: ../../H4_CODEBOOK.yaml
+inputs:
+  - frozen_task_card
+  - immutable_event_log
+  - rendered_role_access_log
+  - raw_reports_summary_verification_and_final_decision
+
+R0_validity:
+  invalid_if:
+    - private_directory_accessed_by_reporter_or_coordinator
+    - participant_exposed_to_same_surface_other_condition
+    - facilitator_identified_trusted_source_or_correct_action
+    - Human_and_Agent_received_different_reports_directory_or_budgets
+    - required_event_log_was_silently_overwritten
+  retain_invalid_count_and_reason: true
+
+functional_oracle:
+  primary_metric: verified_decision_accuracy
+  metrics:
+    - id: report_preservation_rate
+      numerator: raw_report_fields_preserved_in_reporter_summary
+      denominator: 6
+      denominator_fields: [source_1, time_1, state_1, source_2, time_2, state_2]
+    - id: verification_completeness_rate
+      numerator: correct_required_fields_in_verification_message
+      denominator: 4
+      denominator_fields: [trusted_source, trusted_state, report_time, directory_version]
+    - id: verified_decision_accuracy
+      numerator: final_actions_matching_public_rule_applied_to_verified_state
+      denominator: final_decisions_submitted
+    - id: decision_traceability_rate
+      numerator: final_decisions_with_reason_linked_to_complete_verification
+      denominator: final_decisions_submitted
+  binary_pass_rule:
+    - report_preservation_rate_equals_1
+    - verification_completeness_rate_equals_1
+    - verified_decision_accuracy_equals_1
+    - decision_traceability_rate_equals_1
+    - no_role_boundary_violation
+  H_score_effect: none_functional_metrics_are_covariates_only
+
+H4_metrics:
+  - id: clarification_request_rate
+    numerator: specific_requests_for_missing_report_or_verification_fields
+    denominator: missing_required_field_opportunities_seen_before_next_action
+    zero_denominator: N/A
+    direction: descriptive_not_monotonic
+  - id: explicit_verification_rate
+    numerator: complete_explicit_verifications
+    denominator: conflicting_report_sets_delivered_to_verifier
+    direction: higher
+  - id: verified_information_adoption_rate
+    numerator: decisions_correctly_using_a_complete_verification
+    denominator: complete_verifications_delivered_before_decision
+    direction: higher
+  - id: unverified_action_rate
+    numerator: final_actions_submitted_before_complete_verification
+    denominator: final_actions_submitted
+    direction: lower
+
+H1_handling:
+  scored_here: false
+  display_source: task_card.h1_display
+  excluded_from_display: [functional_score, condition_code, source_kind, private_trusted_source_directory]
+
+rule_calibration_cases:
+  positive_control:
+    - reporter preserves both conflicting reports without recommendation
+    - verifier cites the registered source state time and directory version
+    - coordinator applies the public action rule to the verified state
+  negative_controls:
+    - reporter omits the less credible sounding report
+    - verifier gives a state without provenance or directory version
+    - coordinator follows an unverified rumor
+    - coordinator opens the private directory

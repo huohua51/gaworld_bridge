@@ -1,0 +1,86 @@
+schema_version: 1
+task_id: h1h4_interrupted_handoff_v2
+status: draft_rule_calibration
+formal_data_collection_allowed: false
+codebook: ../../H4_CODEBOOK.yaml
+inputs:
+  - frozen_task_card
+  - immutable_event_log
+  - rendered_role_access_log
+  - sealed_checkpoint_availability_handoff_and_stage_results
+
+R0_validity:
+  invalid_if:
+    - future_stage_material_accessed_before_assignment
+    - worker_A_submitted_business_content_after_B_unavailability
+    - participant_exposed_to_same_surface_other_condition
+    - facilitator_supplied_a_remaining_stage_answer
+    - Human_and_Agent_received_different_materials_availability_or_budgets
+    - checkpoint_or_event_log_was_silently_overwritten
+  retain_invalid_count_and_reason: true
+
+functional_oracle:
+  primary_metric: all_stages_completed_once_with_valid_provenance
+  metrics:
+    - id: stage_fact_accuracy
+      numerator: stage_required_facts_correctly_recorded
+      denominator: stage_required_facts_released_to_assigned_worker
+    - id: checkpoint_completeness
+      numerator: correct_required_checkpoint_fields
+      denominator: 4
+      denominator_fields: [completed_stage, observed_facts, unresolved_issue, do_not_repeat]
+    - id: assignment_accuracy
+      numerator: handoffs_assigning_the_condition_appropriate_worker_and_next_stage
+      denominator: availability_events
+    - id: exactly_once_stage_rate
+      numerator: stages_completed_once_by_an_authorized_worker
+      denominator: 3
+  binary_pass_rule:
+    - stage_fact_accuracy_equals_1
+    - checkpoint_completeness_equals_1
+    - assignment_accuracy_equals_1
+    - exactly_once_stage_rate_equals_1
+    - sealed_checkpoint_not_overwritten
+    - no_role_boundary_violation
+  H_score_effect: none_functional_metrics_are_covariates_only
+
+H4_metrics:
+  - id: handoff_completeness
+    numerator: correct_required_handoff_elements
+    denominator: 4
+    denominator_fields: [checkpoint_version, completed_stage, next_stage, unresolved_issue]
+    direction: higher
+  - id: redundant_work_rate
+    numerator: previously_completed_stages_reperformed_or_resubmitted
+    denominator: stages_marked_complete_before_resume
+    direction: lower
+  - id: role_boundary_violation_rate
+    numerator: unauthorized_access_or_submission_actions
+    denominator: accepted_participant_actions
+    direction: lower
+  - id: recovery_time_seconds
+    start: availability_event_server_timestamp
+    end: first_valid_progress_event_by_assigned_worker
+    censor: session_timeout_with_reason
+    direction: compare_to_matched_Human_not_universally_lower
+  - id: clarification_request_rate
+    numerator: specific_requests_for_missing_resume_information
+    denominator: incomplete_checkpoint_or_handoff_opportunities
+    zero_denominator: N/A
+    direction: descriptive_not_monotonic
+
+H1_handling:
+  scored_here: false
+  display_source: task_card.h1_display
+  excluded_from_display: [functional_score, condition_code, source_kind, internal_checkpoint_metadata]
+
+rule_calibration_cases:
+  positive_control:
+    - worker_A records stage_1 facts and a complete checkpoint
+    - coordinator assigns the available worker to stage_2 with the sealed version
+    - assigned worker resumes at stage_2 and completes stages_2_and_3_once
+  negative_controls:
+    - coordinator assigns worker_A after B unavailability
+    - successor repeats stage_1
+    - coordinator includes an unreleased stage answer in the handoff
+    - checkpoint is overwritten instead of versioned

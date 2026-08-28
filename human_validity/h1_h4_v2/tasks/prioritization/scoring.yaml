@@ -1,0 +1,90 @@
+schema_version: 1
+task_id: h1h4_joint_prioritization_v2
+status: draft_rule_calibration_blocked_for_live_pilot
+formal_data_collection_allowed: false
+live_internal_pilot_allowed: false
+dependency: C1_or_equivalent_coordination_path_must_pass_rule_calibration
+codebook: ../../H4_CODEBOOK.yaml
+inputs:
+  - frozen_task_card
+  - immutable_event_log
+  - rendered_role_access_log
+  - proposals_messages_candidate_plan_votes_and_final_record
+
+R0_validity:
+  invalid_if:
+    - any_role_accessed_another_role_private_card
+    - participant_exposed_to_same_surface_other_condition
+    - facilitator_recommended_a_plan_or_resolved_a_tradeoff
+    - Human_and_Agent_received_different_options_constraints_or_budgets
+    - coordination_dependency_not_passed_but_run_labeled_live_or_formal
+    - required_event_log_was_silently_overwritten
+  retain_invalid_count_and_reason: true
+
+functional_oracle:
+  primary_metric: hard_constraint_valid_plan_rate
+  metrics:
+    - id: public_hard_constraint_satisfaction
+      numerator: public_hard_constraints_satisfied_by_candidate_or_final_plan
+      denominator: registered_public_hard_constraints
+    - id: triggered_private_hard_constraint_satisfaction
+      numerator: triggered_private_hard_constraints_satisfied
+      denominator: triggered_private_hard_constraints_raised_before_finalization
+      zero_denominator: N/A
+    - id: explicit_vote_completeness
+      numerator: roles_with_one_explicit_substantive_vote
+      denominator: 3
+    - id: tradeoff_classification_accuracy
+      numerator: raised_items_correctly_labeled_as_hard_soft_or_unresolved
+      denominator: raised_constraints_preferences_and_objections_in_final_summary
+  valid_terminal_states:
+    consensus:
+      - hard_constraints_satisfied
+      - three_explicit_votes_recorded
+      - consensus_matches_votes
+    legitimate_no_consensus:
+      - at_least_one_hard_constraint_valid_candidate_recorded
+      - three_explicit_votes_recorded
+      - unresolved_objections_preserved_without_fabricated_consensus
+  H_score_effect: none_functional_metrics_are_covariates_only
+
+H4_metrics:
+  - id: speaking_share_dispersion
+    event_unit: accepted_nonempty_participant_message_turn
+    formula: max_role_turn_share_minus_min_role_turn_share
+    report_with: [turn_counts_by_role, unicode_character_share_by_role]
+    direction: descriptive_not_monotonic
+  - id: dissent_or_challenge_rate
+    numerator: specific_objections_to_incompatible_candidate_plans
+    denominator: candidate_plan_exposures_conflicting_with_actor_constraint_or_stated_preference
+    zero_denominator: N/A
+    direction: descriptive_not_monotonic
+  - id: clarification_request_rate
+    numerator: specific_questions_resolving_hard_soft_or_plan_ambiguity
+    denominator: registered_ambiguity_opportunities
+    zero_denominator: N/A
+    direction: descriptive_not_monotonic
+  - id: accurate_tradeoff_summary_rate
+    numerator: correctly_classified_raised_items_in_coordinator_summary
+    denominator: raised_items_that_require_summary
+    direction: higher
+  - id: fabricated_consensus_rate
+    numerator: terminal_records_claiming_agreement_inconsistent_with_explicit_votes
+    denominator: terminal_records
+    direction: lower
+
+H1_handling:
+  scored_here: false
+  display_source: task_card.h1_display
+  excluded_from_display: [functional_score, condition_code, source_kind, raw_private_cards]
+
+rule_calibration_cases:
+  positive_control:
+    - all_roles_contribute_and_distinguish_hard_constraints_from_preferences
+    - candidate_satisfies_every_registered_hard_constraint
+    - three_votes_and_any_unresolved_objection_are_preserved
+  negative_controls:
+    - soft_preference_is_reported_as_a_public_hard_constraint
+    - coordinator_ends_before_a_non_coordinator_role_speaks
+    - final_record_claims_unanimity_despite_an_object_vote
+    - candidate_violates_a_public_hard_constraint
