@@ -515,14 +515,17 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 
 冻结基准日：2026-08-25。
 
+从框架建立到当前功能测封板的完整问题链、改正措施、复测效果、证据边界与方法论反思，见
+[`docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md`](docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md)。该复盘区分“已在新任务上闭环”“核心单元修复已落地但端到端Gate仍开放”和“仅完成规则校准”三种状态。
+
 
 | **任务族**    | **开发状态**       | **代表实验**      | **当前结论**                   | **留出状态** |
 | ---------- | -------------- | ------------- | -------------------------- | -------- |
 | T3 审核协作    | `pass`         | T3-03         | 独立Reviewer私有信息通过审核通道进入真实产物 | seed0同模式 |
 | I1 核实传播    | `pass`         | EXP-GM-I1     | 核实、送达、采用形成完整因果链            | seed0同模式 |
 | L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
-| C1 集体协调    | `partial_pass_handoff` | C1-02 至 C1-05 | retry语义与平台ID所有权已定位，正式Gate仍未通过 | 待核心开发同学处理 |
-| REL1 可靠性更新 | `fail_diagnosed_handoff` | REL1 / REL1-02 / REL1-03 | 分阶段协议方向有效，coverage Gate仍失败 | 待Agent协议与核心开发同学处理 |
+| C1 集体协调    | `core_unit_fix_pending_e2e` | C1-02 至 C1-05 | retry语义与平台ID所有权已定位，核心单元修复已落地，正式Gate仍未通过 | 待新编号端到端回归 |
+| REL1 可靠性更新 | `core_unit_fix_pending_e2e` | REL1 / REL1-02 / REL1-03 | 分阶段协议方向有效，动作证据绑定单元修复已落地，coverage Gate仍未关闭 | 待新编号端到端回归 |
 | T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
 | T5 政策因果链   | `two_model_replicated_pass` | T5-01 / T5-02 / T5-03 / HO-T5-03 / HO-T5-04 | GLM-5.2与gpt-5.4在四个新增表面双重复全过；Qwen配额中断轮保留但停止续跑 | 双模型密封复现完成，T5功能侧封板 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
@@ -678,6 +681,10 @@ intervention retry 全部恢复，严格 FullPass仍为4/6，说明目标模式�
 [`C1 / REL1 核心实现交接`](docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md)。评测仓不再代替
 GAWorld 实现修复。
 
+2026-08-28核心状态更新：GAWorld提交`ad93e9d`已经落实当前规范推进、陈旧计划拒绝和合法
+proposal的平台ID分配。该提交回答了核心不变量问题，但尚未运行新编号C1端到端预注册回归，
+所以本节历史Gate不变，C1仍不能标记为整体通过。
+
 ### **10.6 REL1：来源可靠性更新**
 
 REL1登记`latest_is_binding=true`：形成初始可靠性时参考历史正确次数；更新时使用最新一条核实结果覆盖旧多数。
@@ -699,6 +706,10 @@ REL1-03改为分阶段 Prompt和显式两来源计数，五个可测格全部 Fu
 输出成整数 `1`，coverage=5/6，预注册 Gate仍为`measurement_invalid`。因此修复方向有支持，
 但三个 REL1 action item 均未正式关闭。完整实现交接见
 [`C1 / REL1 核心实现交接`](docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md)。
+
+2026-08-28核心状态更新：GAWorld提交`a14a748`已经落实信任动作与真实已采用消息的绑定。
+本文档更新时，C1/REL1两组相关核心测试合计25项通过；但REL1尚无新任务端到端验收，
+原有coverage Gate继续保持开放。
 
 ### **10.7 N1：退役任务族**
 
@@ -1306,6 +1317,7 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `v0_first_batch/`                    | R0–R3统一Schema、compose与first_error覆盖 |
 | `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
+| `docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md` | 功能评测阶段的问题发现方法、改正措施、复测效果、成果边界与方法论反思 |
 | `docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md` | C1/REL1故障位置、建议改法、实验来源与验收条件交接 |
 | `docs/H1_PILOT_CHECKLIST_20260827.md` | H1隔离试采、认知访谈、匿名复核与正式采集放行门 |
 | `docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md` | H1–H7定义、Human Reference证据门、当前覆盖和阶段路线 |
@@ -1361,4 +1373,4 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 
 GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过；qwen3.7-plus因额度耗尽只形成部分证据，联合Gate按预注册判为失败并永久保留，项目不再续跑Qwen。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
 
-下一阶段将围绕三条主线推进：扩大功能留出与模型覆盖；把C1/REL1实现问题交给GAWorld核心开发同学并在其合并后做独立回归；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。
+下一阶段将围绕三条主线推进：在已经合并的核心修复上为C1/REL1做新编号、新表面的独立端到端回归；固定T4-v2协议补第二模型复测；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。
