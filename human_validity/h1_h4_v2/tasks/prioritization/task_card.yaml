@@ -1,0 +1,254 @@
+schema_version: 1
+task_id: h1h4_joint_prioritization_v2
+experiment_id: EXP-HF-H1H4-02
+task_family: T3
+target_axis: both
+mechanism: [M3, M4, M5, M6]
+status: draft_blocked_by_coordination_dependency
+formal_data_collection_allowed: false
+family_id: joint_prioritization
+title: 部分分布约束下的共同排序
+question: >
+  当三名成员掌握不同硬约束和偏好时，团队能否通过自然发言、澄清、异议和权衡形成满足硬约束的共同方案；
+  偏好一致与部分冲突时，Human与Agent的团队过程有何差异？
+
+dependency:
+  requirement: C1_or_equivalent_coordination_path_must_pass_rule_calibration
+  reason: >
+    当前GAWorld协调路径仍有平台权威与重试问题。在依赖修复前，本卡只能做离线Human认知访谈和Rule设计，
+    不能生成正式Human–Agent比较。
+
+control:
+  code: A
+  condition: aligned_private_preferences
+  description: 三名角色的软偏好与同一个可行方案相容。
+variant:
+  code: B
+  condition: partially_conflicting_private_preferences
+  description: 三名角色的软偏好不能全部同时满足，但公共硬约束和可行解集合与A相同。
+only_change: role_private_soft_preferences
+
+non_code_task: true
+primary_visible_outputs:
+  - natural_language_proposals
+  - natural_language_questions_and_objections
+  - natural_language_tradeoff_rationale
+  - human_readable_ranked_plan_or_budget
+  - individual_accept_or_object_vote
+forbidden_primary_outputs: [source_code, raw_JSON]
+
+roles:
+  - role_id: operations_member
+    display_name: 执行代表
+    sees:
+      - public_options_and_hard_constraints
+      - operations_private_constraints_and_preferences
+      - shared_team_thread
+    responsibilities:
+      - 提出满足执行约束的方案
+      - 说明偏好与硬约束的区别
+      - 回应其他成员针对可执行性的质疑
+    prohibited:
+      - 宣称自己的软偏好是公共硬约束
+      - 读取其他角色私有卡
+  - role_id: safety_member
+    display_name: 安全与照顾代表
+    sees:
+      - public_options_and_hard_constraints
+      - safety_private_constraints_and_preferences
+      - shared_team_thread
+    responsibilities:
+      - 指出安全、无障碍或照顾要求
+      - 对违反硬约束的方案明确提出异议
+      - 对仅违反软偏好的方案说明可接受条件
+    prohibited:
+      - 增加私有卡中不存在的硬约束
+      - 读取其他角色私有卡
+  - role_id: coordinator
+    display_name: 协调记录员
+    sees:
+      - public_options_and_hard_constraints
+      - coordinator_private_constraints_and_preferences
+      - shared_team_thread
+      - final_votes
+    responsibilities:
+      - 邀请尚未表达的角色发言
+      - 区分硬约束、软偏好和可协商项
+      - 总结异议与取舍并提交共同方案
+    prohibited:
+      - 在其他两名成员未发言前直接结束
+      - 伪造一致同意
+      - 读取其他角色私有卡
+
+workflow:
+  time_budget_minutes: 22
+  open_message_budget_per_role: 6
+  ordered_stages:
+    - each_role_reads_public_and_private_card
+    - each_non_coordinator_role_makes_or_comments_on_a_proposal
+    - open_clarification_and_objection_round
+    - coordinator_posts_candidate_plan_and_tradeoff_summary
+    - each_role_votes_accept_or_object_with_reason
+    - coordinator_submits_final_or_records_unresolved_disagreement
+  termination:
+    success: valid_final_plan_and_all_three_votes_recorded
+    legitimate_no_consensus: unresolved_disagreement_recorded_after_valid_discussion
+    timeout: time_budget_elapsed
+    withdrawal: any_participant_withdraws
+
+surfaces:
+  - surface_id: priority_time_slots_001
+    label: 有限时段任务排序
+    public_options_and_hard_constraints:
+      available_slots:
+        - '09:00-09:30'
+        - '09:30-10:00'
+        - '10:00-10:30'
+        - '10:30-11:00'
+      tasks:
+        - {id: safety_check, duration_slots: 1}
+        - {id: visitor_briefing, duration_slots: 1}
+        - {id: equipment_pickup, duration_slots: 1}
+        - {id: room_setup, duration_slots: 1}
+      hard_constraints:
+        - safety_check必须在room_setup之前
+        - equipment_pickup必须在10:30之前开始
+        - 四项任务各执行一次且不能重叠
+      feasible_plan_example_for_rule_calibration_only:
+        - '09:00 safety_check'
+        - '09:30 equipment_pickup'
+        - '10:00 room_setup'
+        - '10:30 visitor_briefing'
+    conditions:
+      A:
+        operations_private_constraints_and_preferences:
+          hard: equipment_pickup需要执行代表到场
+          soft: 希望equipment_pickup尽量早
+        safety_private_constraints_and_preferences:
+          hard: safety_check需要安全代表到场
+          soft: 希望safety_check排第一
+        coordinator_private_constraints_and_preferences:
+          hard: visitor_briefing由协调员主持
+          soft: 希望visitor_briefing排最后
+      B:
+        operations_private_constraints_and_preferences:
+          hard: equipment_pickup需要执行代表到场
+          soft: 希望room_setup尽量早
+        safety_private_constraints_and_preferences:
+          hard: safety_check需要安全代表到场
+          soft: 希望visitor_briefing尽量早
+        coordinator_private_constraints_and_preferences:
+          hard: visitor_briefing由协调员主持
+          soft: 希望equipment_pickup排在visitor_briefing之后
+  - surface_id: priority_activity_budget_001
+    label: 有限预算项目分配
+    public_options_and_hard_constraints:
+      total_tokens: 12
+      options:
+        - {id: safety_signage, cost: 3}
+        - {id: accessible_route, cost: 4}
+        - {id: volunteer_training, cost: 3}
+        - {id: information_materials, cost: 2}
+        - {id: refreshments, cost: 2}
+      hard_constraints:
+        - safety_signage必须选择
+        - accessible_route必须选择
+        - 总成本不得超过12
+        - 至少再选择一项非强制项目
+      feasible_plan_example_for_rule_calibration_only:
+        selected: [safety_signage, accessible_route, volunteer_training, information_materials]
+        total: 12
+    conditions:
+      A:
+        operations_private_constraints_and_preferences:
+          hard: volunteer_training若选择则由执行代表负责
+          soft: 优先volunteer_training
+        safety_private_constraints_and_preferences:
+          hard: accessible_route不得缩减
+          soft: 优先information_materials
+        coordinator_private_constraints_and_preferences:
+          hard: 最终方案必须列出总成本
+          soft: 优先volunteer_training和information_materials组合
+      B:
+        operations_private_constraints_and_preferences:
+          hard: volunteer_training若选择则由执行代表负责
+          soft: 优先refreshments
+        safety_private_constraints_and_preferences:
+          hard: accessible_route不得缩减
+          soft: 优先volunteer_training
+        coordinator_private_constraints_and_preferences:
+          hard: 最终方案必须列出总成本
+          soft: 优先information_materials
+
+oracle:
+  functional_only: true
+  checks:
+    - final_plan_satisfies_all_public_hard_constraints
+    - final_plan_satisfies_all_role_private_hard_constraints_that_are_triggered
+    - final_plan_contains_no_duplicate_or_unavailable_option
+    - tradeoff_summary_distinguishes_hard_constraints_from_soft_preferences
+    - all_three_votes_are_recorded_without_fabricated_consensus
+    - no_role_reads_another_private_card
+  legitimate_outcome: >
+    无法一致时，只要团队提交满足硬约束的候选方案、准确记录未解决异议并完成三票，
+    可以作为有效过程终态；不能因没有表面一致而自动判为功能失败。
+  scoring_note: 软偏好满足数不是H1/H4总分，只用于操纵检查和过程解释。
+
+required_events:
+  - operations_message_submitted
+  - safety_message_submitted
+  - coordinator_candidate_submitted
+  - each_role_vote_submitted
+  - final_plan_or_unresolved_disagreement_submitted
+  - session_completed_or_explicitly_terminated
+
+primary_metric:
+  functional: hard_constraint_valid_plan_rate
+  H1: task_condition_matched_naturalness_gap
+  H4:
+    - speaking_share_dispersion_gap
+    - dissent_or_challenge_rate_gap
+    - clarification_request_rate_gap
+    - accurate_tradeoff_summary_gap
+diagnostic_metrics:
+  - hard_soft_constraint_confusion_rate
+  - fabricated_consensus_rate
+  - unacknowledged_objection_rate
+  - role_boundary_violation_rate
+  - completion_or_legitimate_no_consensus_rate
+  - protocol_deviation_rate
+
+human_reference: H1H4-PRIORITIZATION-HUMAN-v2-draft
+human_reference_design:
+  population: pending_target_population_freeze
+  unit: independent_three_person_team_trace
+  protocol_version: H1H4-PRIORITIZATION-HUMAN-v2-draft
+  minimum_formal_sample: set_by_internal_pilot_power_analysis
+  current_status: not_collected
+
+h1_display:
+  include:
+    - public_options_and_hard_constraints
+    - chronological_role_messages
+    - candidate_plan_and_tradeoff_summary
+    - votes_and_reasons
+    - final_plan_or_unresolved_disagreement
+  exclude:
+    - source_kind
+    - model
+    - team_or_participant_codes
+    - raw_private_cards
+    - functional_score
+    - raw_server_timestamps
+
+h4_opportunities:
+  speaking_and_participation: all_three_roles_have_distinct_information_and_a_required_vote
+  clarification: a_message_blurs_hard_constraint_and_soft_preference
+  dissent_or_challenge: B_condition_private_preferences_cannot_all_be_maximized
+
+contamination_rules:
+  - any_role_opens_another_role_private_card
+  - participant_sees_same_surface_other_condition
+  - facilitator_recommends_a_plan_or_resolves_the_tradeoff
+  - Human_and_Agent_receive_different_options_constraints_or_message_budgets
+  - coordination_dependency_has_not_passed_but_run_is_labeled_formal

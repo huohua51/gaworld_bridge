@@ -1,0 +1,205 @@
+schema_version: 1
+task_id: h1h4_conflicting_evidence_verification_v2
+experiment_id: EXP-HF-H1H4-02
+task_family: T3
+target_axis: both
+mechanism: [M3, M4, M5]
+status: draft_pre_data
+formal_data_collection_allowed: false
+family_id: conflicting_evidence_verification
+title: 冲突信息下的核验与采用
+question: >
+  当两个来源给出相反报告且只有核验角色知道可信来源时，团队能否自然地说明来源、请求澄清、
+  形成可追溯核验并据此行动；Human与Agent的核验过程有何差异？
+
+control:
+  code: A
+  condition: trusted_report_supports_option_A
+  description: 可信来源报告支持行动A，非可信来源报告支持行动B。
+variant:
+  code: B
+  condition: trusted_report_supports_option_B
+  description: 可信来源报告支持行动B，非可信来源报告支持行动A。
+only_change: state_reported_by_each_source
+
+non_code_task: true
+primary_visible_outputs:
+  - natural_language_source_report
+  - natural_language_verification_message
+  - natural_language_clarification_thread
+  - natural_language_final_decision_and_reason
+forbidden_primary_outputs: [source_code, raw_JSON]
+
+roles:
+  - role_id: reporter
+    display_name: 信息整理员
+    sees:
+      - public_situation_and_action_rule
+      - two_raw_reports_with_source_names_and_times
+      - messages_addressed_to_reporter
+    responsibilities:
+      - 不增删地概述两个报告及来源
+      - 回答报告文本或时间方面的澄清
+    prohibited:
+      - 判断哪个来源可信
+      - 推荐最终行动
+  - role_id: verifier
+    display_name: 核验员
+    sees:
+      - public_situation_and_action_rule
+      - reporter_message
+      - private_trusted_source_directory
+      - messages_addressed_to_verifier
+    responsibilities:
+      - 说明采用哪个来源及其报告状态
+      - 给出来源名称、报告时间和核验目录版本
+      - 对含糊或遗漏的报告提出具体澄清
+    prohibited:
+      - 提交最终行动
+      - 采用目录中未登记的来源
+  - role_id: coordinator
+    display_name: 决策协调员
+    sees:
+      - public_situation_and_action_rule
+      - reporter_and_verifier_thread
+    responsibilities:
+      - 只根据已核验消息选择行动
+      - 如核验缺少来源或版本，可请求补充后再决定
+      - 用自然语言说明决定依据
+    prohibited:
+      - 直接读取私有可信来源目录
+      - 根据未经核验的报告行动
+
+workflow:
+  time_budget_minutes: 16
+  open_message_budget_per_role: 3
+  ordered_stages:
+    - reporter_summarizes_both_reports
+    - verifier_checks_private_directory
+    - optional_clarification_exchange
+    - verifier_emits_verified_message
+    - coordinator_submits_decision_and_reason
+  termination:
+    success: final_decision_and_reason_submitted
+    timeout: time_budget_elapsed
+    withdrawal: any_participant_withdraws
+
+surfaces:
+  - surface_id: verify_room_access_001
+    label: 活动室开放状态核验
+    public_situation_and_action_rule: >
+      团队需要决定下午材料送到东楼还是西楼。若活动室开放，送东楼；若活动室关闭，送西楼。
+    private_trusted_source_directory:
+      version: directory-rooms-v1
+      trusted_source: 场地值班台
+    conditions:
+      A:
+        reports:
+          - source: 场地值班台
+            report_time: '13:05'
+            text: 活动室今天下午开放。
+          - source: 社群转发
+            report_time: '13:08'
+            text: 听说活动室今天下午关闭。
+        correct_action: 送往东楼
+      B:
+        reports:
+          - source: 场地值班台
+            report_time: '13:05'
+            text: 活动室今天下午临时关闭。
+          - source: 社群转发
+            report_time: '13:08'
+            text: 听说活动室今天下午照常开放。
+        correct_action: 送往西楼
+  - surface_id: verify_supply_arrival_001
+    label: 活动物资到货状态核验
+    public_situation_and_action_rule: >
+      团队需要决定是否启动备用采购。若物资已到服务点，不启动；若物资仍在途中，立即启动备用采购。
+    private_trusted_source_directory:
+      version: directory-supplies-v1
+      trusted_source: 配送调度台
+    conditions:
+      A:
+        reports:
+          - source: 配送调度台
+            report_time: '15:20'
+            text: 物资已经送达服务点并完成签收。
+          - source: 临时群消息
+            report_time: '15:22'
+            text: 有人说物资还在途中。
+        correct_action: 不启动备用采购
+      B:
+        reports:
+          - source: 配送调度台
+            report_time: '15:20'
+            text: 车辆仍在途中，尚未到达服务点。
+          - source: 临时群消息
+            report_time: '15:22'
+            text: 有人说物资已经签收。
+        correct_action: 启动备用采购
+
+oracle:
+  functional_only: true
+  checks:
+    - reporter_preserves_both_source_names_states_and_times
+    - verifier_uses_only_registered_trusted_source
+    - verified_message_contains_source_state_time_and_directory_version
+    - final_decision_matches_public_rule_and_verified_state
+    - coordinator_reason_is_traceable_to_verified_message
+    - no_private_directory_access_by_reporter_or_coordinator
+  scoring_note: 任务正确性作为协变量，不进入H1或H4总分。
+
+required_events:
+  - raw_reports_presented_to_reporter
+  - report_summary_submitted
+  - verification_submitted
+  - verification_delivered
+  - final_decision_submitted
+  - session_completed_or_explicitly_terminated
+
+primary_metric:
+  functional: verified_decision_accuracy
+  H1: task_condition_matched_naturalness_gap
+  H4:
+    - clarification_request_rate
+    - explicit_verification_rate
+    - verified_information_adoption_rate
+diagnostic_metrics:
+  - source_omission_rate
+  - unverified_action_rate
+  - private_directory_leak_rate
+  - message_delivery_rate
+  - completion_time
+  - protocol_deviation_rate
+
+human_reference: H1H4-VERIFICATION-HUMAN-v2-draft
+human_reference_design:
+  population: pending_target_population_freeze
+  unit: independent_three_person_team_trace
+  protocol_version: H1H4-VERIFICATION-HUMAN-v2-draft
+  minimum_formal_sample: set_by_internal_pilot_power_analysis
+  current_status: not_collected
+
+h1_display:
+  include:
+    - public_situation_and_action_rule
+    - chronological_role_messages
+    - final_decision_and_reason
+  exclude:
+    - source_kind
+    - model
+    - team_or_participant_codes
+    - private_trusted_source_directory
+    - functional_score
+    - raw_server_timestamps
+
+h4_opportunities:
+  clarification: report_summary_or_verification_omits_a_required_fact
+  verification: two_visible_reports_conflict
+  correction_adoption: verifier_correctly_resolves_the_conflict
+
+contamination_rules:
+  - reporter_or_coordinator_opens_private_directory
+  - participant_sees_same_surface_other_condition
+  - facilitator_identifies_the_trusted_source_or_correct_action
+  - Human_and_Agent_receive_different_reports_or_directory

@@ -1,0 +1,209 @@
+schema_version: 1
+task_id: h1h4_revision_hidden_constraint_v2
+experiment_id: EXP-HF-H1H4-02
+task_family: T3
+target_axis: both
+mechanism: [M3, M4, M5, M6]
+status: draft_pre_data
+formal_data_collection_allowed: false
+family_id: revision_under_hidden_constraint
+title: 授权标准变化下的协作修订
+question: >
+  当最终发布标准只对审核角色可见时，团队能否通过自然的澄清、具体审核和有依据的采用完成修订；
+  Human与Agent在这些过程和外在自然度上有何差异？
+
+control:
+  code: A
+  condition: authorized_standard_unchanged
+  description: 审核员看到的当前授权标准与公开草稿标准一致。
+variant:
+  code: B
+  condition: authorized_standard_changed
+  description: 审核员看到更新后的授权标准，起草人起草时看不到该更新。
+only_change: reviewer_private_authorized_standard
+
+non_code_task: true
+primary_visible_outputs:
+  - natural_language_draft
+  - natural_language_review_message
+  - natural_language_clarification_thread
+  - natural_language_final_artifact
+  - natural_language_adoption_note
+forbidden_primary_outputs: [source_code, raw_JSON]
+
+roles:
+  - role_id: drafter
+    display_name: 起草人
+    sees:
+      - public_brief
+      - public_baseline_standard
+      - messages_addressed_to_drafter
+    responsibilities:
+      - 写出第一版短文
+      - 如审核意见含糊，可提出一次具体澄清问题
+    prohibited:
+      - 读取审核员私有授权标准
+      - 宣称自己已核验私有标准
+  - role_id: reviewer
+    display_name: 审核员
+    sees:
+      - public_brief
+      - current_draft
+      - reviewer_private_authorized_standard
+      - messages_addressed_to_reviewer
+    responsibilities:
+      - 明确指出保留或修改
+      - 引用草稿中的具体事实并说明与授权标准的差异
+      - 回答与授权标准有关的澄清
+    prohibited:
+      - 直接改写最终成品
+      - 增加授权标准中不存在的新要求
+  - role_id: publisher
+    display_name: 发布人
+    sees:
+      - public_brief
+      - draft_and_version_history
+      - review_and_clarification_thread
+    responsibilities:
+      - 根据有依据的审核形成最终短文
+      - 用一句话说明采纳或不采纳哪些建议及原因
+    prohibited:
+      - 直接读取审核员私有卡片
+      - 实施审核消息没有支持的额外修改
+
+workflow:
+  time_budget_minutes: 18
+  open_message_budget_per_role: 3
+  ordered_stages:
+    - drafter_submits_draft
+    - reviewer_submits_review_or_question
+    - optional_clarification_exchange
+    - publisher_submits_final_and_adoption_note
+  termination:
+    success: final_artifact_and_adoption_note_submitted
+    timeout: time_budget_elapsed
+    withdrawal: any_participant_withdraws
+
+surfaces:
+  - surface_id: rev_campus_notice_001
+    label: 校园活动通知修订
+    public_brief: >
+      为一次虚构的校园分享会写80至140字通知，必须包含日期、开始时间、地点、人数上限和报名截止时间。
+      不需要宣传口号，不使用真实学校、姓名或联系方式。
+    public_baseline_standard:
+      event_date: 9月18日
+      start_time: '18:30'
+      venue: 北区活动室
+      capacity: 80
+      registration_deadline: 9月16日20:00
+    conditions:
+      A:
+        reviewer_private_authorized_standard:
+          version: notice-v1
+          event_date: 9月18日
+          start_time: '18:30'
+          venue: 北区活动室
+          capacity: 80
+          registration_deadline: 9月16日20:00
+      B:
+        reviewer_private_authorized_standard:
+          version: notice-v2
+          event_date: 9月18日
+          start_time: '19:00'
+          venue: 学生活动中心204室
+          capacity: 45
+          registration_deadline: 9月16日20:00
+  - surface_id: rev_volunteer_shift_001
+    label: 志愿者轮班说明修订
+    public_brief: >
+      为一次虚构的图书整理活动写80至140字轮班说明，必须包含集合时间、集合点、每班人数、班次长度和负责人到场时间。
+      不使用真实机构、姓名或联系方式。
+    public_baseline_standard:
+      meeting_time: '08:40'
+      meeting_place: 西门服务台
+      people_per_shift: 6
+      shift_minutes: 90
+      lead_arrival_time: '08:25'
+    conditions:
+      A:
+        reviewer_private_authorized_standard:
+          version: shift-v1
+          meeting_time: '08:40'
+          meeting_place: 西门服务台
+          people_per_shift: 6
+          shift_minutes: 90
+          lead_arrival_time: '08:25'
+      B:
+        reviewer_private_authorized_standard:
+          version: shift-v2
+          meeting_time: '09:10'
+          meeting_place: 南门值班台
+          people_per_shift: 4
+          shift_minutes: 60
+          lead_arrival_time: '08:55'
+
+oracle:
+  functional_only: true
+  checks:
+    - final_artifact_contains_every_authorized_fact
+    - final_artifact_omits_superseded_conflicting_facts
+    - review_identifies_each_material_difference
+    - publisher_adoption_note_is_traceable_to_review
+    - no_role_reads_unauthorized_private_card
+  scoring_note: 功能结果与H1/H4分别报告；功能失败不自动删除刺激。
+
+required_events:
+  - draft_submitted
+  - review_submitted
+  - review_delivered
+  - final_artifact_submitted
+  - adoption_note_submitted
+  - session_completed_or_explicitly_terminated
+
+primary_metric:
+  functional: authorized_fact_accuracy
+  H1: task_condition_matched_naturalness_gap
+  H4:
+    - clarification_request_rate
+    - specific_challenge_rate
+    - valid_correction_adoption_rate
+diagnostic_metrics:
+  - unsupported_change_rate
+  - vague_review_rate
+  - role_boundary_violation_rate
+  - message_delivery_rate
+  - completion_time
+  - protocol_deviation_rate
+
+human_reference: H1H4-REVISION-HUMAN-v2-draft
+human_reference_design:
+  population: pending_target_population_freeze
+  unit: independent_three_person_team_trace
+  protocol_version: H1H4-REVISION-HUMAN-v2-draft
+  minimum_formal_sample: set_by_internal_pilot_power_analysis
+  current_status: not_collected
+
+h1_display:
+  include:
+    - public_task_summary
+    - chronological_role_messages
+    - draft_and_final_artifact
+    - review_and_adoption_note
+  exclude:
+    - source_kind
+    - model
+    - team_or_participant_codes
+    - private_card_raw_view
+    - functional_score
+    - raw_server_timestamps
+
+h4_opportunities:
+  clarification: review_or_adoption_message_is_ambiguous_or_missing_support
+  dissent_or_challenge: draft_conflicts_with_authorized_standard
+  correction_adoption: reviewer_proposes_a_valid_specific_change
+
+contamination_rules:
+  - drafter_or_publisher_opens_reviewer_private_card
+  - participant_sees_same_surface_other_condition
+  - facilitator_supplies_required_final_wording
+  - Human_and_Agent_receive_different_authorized_facts

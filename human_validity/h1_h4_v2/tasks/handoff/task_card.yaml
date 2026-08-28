@@ -1,0 +1,242 @@
+schema_version: 1
+task_id: h1h4_interrupted_handoff_v2
+experiment_id: EXP-HF-H1H4-02
+task_family: T3
+target_axis: both
+mechanism: [M3, M4, M6, M7]
+status: draft_pre_data
+formal_data_collection_allowed: false
+family_id: interrupted_handoff
+title: 中断后的状态交接与恢复
+question: >
+  当执行者在里程碑后继续或退出时，团队能否用自然、完整且不过度代做的方式保存状态、澄清问题、
+  指定下一步并避免重复劳动；Human与Agent的恢复过程有何差异？
+
+control:
+  code: A
+  condition: same_worker_continues
+  description: 第一执行者在检查点后仍可用，由其继续剩余阶段。
+variant:
+  code: B
+  condition: successor_takes_over
+  description: 第一执行者在检查点后不可用，由第二执行者接替剩余阶段。
+only_change: worker_A_availability_after_checkpoint
+
+non_code_task: true
+primary_visible_outputs:
+  - natural_language_step_result
+  - natural_language_checkpoint_summary
+  - natural_language_handoff_message
+  - natural_language_clarification_thread
+  - natural_language_completion_record
+forbidden_primary_outputs: [source_code, raw_JSON]
+
+roles:
+  - role_id: worker_A
+    display_name: 第一执行者
+    sees:
+      - public_goal_and_stage_order
+      - stage_1_material
+      - messages_addressed_to_worker_A
+      - checkpoint_after_server_seal
+    responsibilities:
+      - 完成第一阶段并提交事实性结果
+      - 写明已完成内容、未解决问题和不得重复的工作
+      - A条件继续；B条件在中断事件后停止操作
+    prohibited:
+      - 提前读取剩余阶段私有材料
+      - B条件中断后继续提交业务结果
+      - 自行填写服务器检查点版本
+  - role_id: coordinator
+    display_name: 交接协调员
+    sees:
+      - public_goal_and_stage_order
+      - sealed_checkpoint
+      - availability_event
+      - messages_addressed_to_coordinator
+    responsibilities:
+      - 指定合法接替者和准确下一阶段
+      - 摘要检查点但不代做剩余阶段
+      - 回答接替者关于状态和职责的澄清
+    prohibited:
+      - 读取剩余阶段私有材料
+      - 提供剩余阶段的正确业务答案
+      - 改写已封存检查点
+  - role_id: worker_B
+    display_name: 第二执行者
+    sees:
+      - public_goal_and_stage_order
+      - coordinator_handoff
+      - sealed_checkpoint
+      - remaining_stage_material_only_when_assigned
+      - messages_addressed_to_worker_B
+    responsibilities:
+      - B条件确认接替范围并从正确阶段继续
+      - 如状态不完整，先提出具体澄清
+      - A条件确认待命，不执行未分配工作
+    prohibited:
+      - 重做第一阶段
+      - 覆盖已封存结果
+      - A条件执行未分配的剩余阶段
+
+workflow:
+  time_budget_minutes: 20
+  open_message_budget_per_role: 4
+  ordered_stages:
+    - worker_A_completes_stage_1
+    - worker_A_submits_checkpoint_summary
+    - server_seals_checkpoint
+    - server_emits_availability_event
+    - coordinator_submits_handoff
+    - assigned_worker_may_request_clarification
+    - assigned_worker_completes_remaining_stages
+    - completion_record_submitted
+  termination:
+    success: all_stages_completed_once_and_completion_record_submitted
+    timeout: time_budget_elapsed
+    withdrawal: any_participant_withdraws
+
+surfaces:
+  - surface_id: handoff_event_materials_001
+    label: 活动物资准备交接
+    public_goal_and_stage_order:
+      - 第一阶段：核对桌牌
+      - 第二阶段：核对签到包
+      - 第三阶段：确认摆放区
+    materials:
+      stage_1:
+        facts:
+          expected_table_cards: 12
+          present_table_cards: 12
+          damaged_table_cards: 1
+        expected_result: 记录12张到位、其中1张破损，不能写成全部完好。
+      stage_2:
+        facts:
+          expected_registration_packs: 36
+          present_registration_packs: 34
+          spare_blank_packs: 4
+        expected_result: 记录缺2份成品包，可用空白备用包补齐但尚未完成补写。
+      stage_3:
+        facts:
+          available_zones: [东侧桌, 西侧桌]
+          reserved_zone: 西侧桌
+        expected_result: 将物资摆放区确认为东侧桌，不占用已预留的西侧桌。
+    checkpoint_required_fields:
+      - completed_stage
+      - observed_facts
+      - unresolved_issue
+      - do_not_repeat
+  - surface_id: handoff_appointment_queue_001
+    label: 预约队列处理交接
+    public_goal_and_stage_order:
+      - 第一阶段：核对前三条预约
+      - 第二阶段：处理材料待补项
+      - 第三阶段：形成回访清单
+    materials:
+      stage_1:
+        facts:
+          records:
+            - {code: Q21, time: '10:00', status: 完整}
+            - {code: Q22, time: '10:20', status: 缺确认页}
+            - {code: Q23, time: '10:40', status: 完整}
+        expected_result: 标记Q21和Q23完整、Q22缺确认页，不得记录真实姓名。
+      stage_2:
+        facts:
+          missing_item_owner: Q22
+          accepted_follow_up_channel: 站内回访
+          deadline: 当日16:00
+        expected_result: 为Q22登记站内回访并写明当日16:00截止。
+      stage_3:
+        facts:
+          callback_required: [Q22]
+          callback_not_required: [Q21, Q23]
+        expected_result: 回访清单只能包含Q22。
+    checkpoint_required_fields:
+      - completed_stage
+      - processed_record_codes
+      - unresolved_issue
+      - do_not_repeat
+    privacy_note: 所有记录只使用虚构代码，不收集姓名或联系方式。
+
+conditions:
+  A:
+    availability_event: 第一执行者仍可用，应由第一执行者继续第二、三阶段；第二执行者保持待命。
+    assigned_successor: worker_A
+  B:
+    availability_event: 第一执行者在检查点封存后不可用，不再接收业务材料；第二执行者接替第二、三阶段。
+    assigned_successor: worker_B
+
+oracle:
+  functional_only: true
+  checks:
+    - checkpoint_contains_required_fields_and_matches_stage_1_evidence
+    - server_not_participant_owns_checkpoint_version
+    - coordinator_assigns_condition_appropriate_worker_and_stage_2
+    - assigned_worker_acknowledges_checkpoint_version_and_resume_stage
+    - stage_1_is_not_repeated_or_overwritten
+    - stages_2_and_3_match_their_private_materials
+    - unassigned_worker_does_not_submit_business_results
+  scoring_note: 完成速度不等于拟人化；恢复时间只与匹配Human分布比较。
+
+required_events:
+  - stage_1_submitted
+  - checkpoint_summary_submitted
+  - checkpoint_sealed_by_server
+  - availability_event_emitted
+  - handoff_submitted
+  - handoff_delivered
+  - resume_acknowledged
+  - remaining_stages_completed
+  - session_completed_or_explicitly_terminated
+
+primary_metric:
+  functional: all_stages_completed_once_with_valid_provenance
+  H1: task_condition_matched_naturalness_gap
+  H4:
+    - handoff_completeness_gap
+    - redundant_work_gap
+    - role_boundary_violation_gap
+    - recovery_time_gap
+diagnostic_metrics:
+  - clarification_request_rate
+  - checkpoint_fact_omission_rate
+  - wrong_resume_stage_rate
+  - duplicate_stage_rate
+  - message_delivery_rate
+  - protocol_deviation_rate
+
+human_reference: H1H4-HANDOFF-HUMAN-v2-draft
+human_reference_design:
+  population: pending_target_population_freeze
+  unit: independent_three_person_team_trace
+  protocol_version: H1H4-HANDOFF-HUMAN-v2-draft
+  minimum_formal_sample: set_by_internal_pilot_power_analysis
+  current_status: not_collected
+
+h1_display:
+  include:
+    - public_goal_and_stage_order
+    - chronological_role_messages
+    - checkpoint_summary_without_internal_version_metadata
+    - handoff_and_clarification_thread
+    - completion_record
+  exclude:
+    - source_kind
+    - model
+    - team_or_participant_codes
+    - private_future_stage_material_before_release
+    - functional_score
+    - raw_server_timestamps
+
+h4_opportunities:
+  clarification: checkpoint_or_handoff_omits_state_needed_for_resume
+  handoff_and_recovery: availability_event_occurs_after_sealed_checkpoint
+  redundant_work: a_completed_stage_is_visible_in_the_checkpoint
+  role_boundary: assignment_and_material_release_are_explicit
+
+contamination_rules:
+  - any_role_reads_unreleased_future_stage_material
+  - worker_A_continues_after_B_condition_unavailability
+  - participant_sees_same_surface_other_condition
+  - facilitator_supplies_remaining_stage_answer
+  - Human_and_Agent_receive_different_materials_or_availability_event

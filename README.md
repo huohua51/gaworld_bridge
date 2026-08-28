@@ -910,6 +910,8 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 `EXP-HF-H1H4-02`将作为独立新版本：候选任务改为非代码、可自然表达且结构不同的修订、证据核验、中断交接和共同排序；远程系统必须提供三角色独立令牌、中央状态机、不可变事件日志和HTTPS。H1报告匹配自然度差、置信区间、评委一致性和来源猜测；H4分别报告发言、澄清、异议、核验、纠错采用、交接、重复劳动和越界，不合成总分。正式样本量在认知访谈和内部Pilot后由方差、最低可检测差异和评委信度决定。
 
+四类候选Task Card及八个非代码任务表面已经形成草案，统一索引见[`human_validity/h1_h4_v2/tasks/INDEX.yaml`](human_validity/h1_h4_v2/tasks/INDEX.yaml)。共同排序卡依赖C1或等价协调路径先通过Rule校准；所有卡仍为`formal_data_collection_allowed=false`。
+
 ---
 
 ## **13. 开放问题与下一阶段**
@@ -1309,6 +1311,7 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md` | H1–H7定义、Human Reference证据门、当前覆盖和阶段路线 |
 | `human_validity/MASTER_PLAN.yaml` | H1–H7机器可读覆盖状态、指标、缺口与声明边界 |
 | `human_validity/h1_h4_v2/PREREGISTRATION.yaml` | H1/H4-v2目标人群、任务、远程采集、样本与分析草案 |
+| `human_validity/h1_h4_v2/tasks/` | 四类非代码Task Card、八个任务表面及共同事件契约 |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |

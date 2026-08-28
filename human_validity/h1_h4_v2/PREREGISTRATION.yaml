@@ -51,6 +51,9 @@ target_population:
     若希望外推到职业团队，必须另行招募匹配职业人群；不能把学生结果改名为一般社会结果。
 
 task_design:
+  task_card_index: tasks/INDEX.yaml
+  task_card_contract: tasks/TASK_CARD_CONTRACT.md
+  task_cards_status: four_families_eight_surfaces_drafted_not_frozen
   principles:
     - no_visible_code_or_raw_JSON_as_the_primary_rater_stimulus
     - Human_and_Agent_receive_equivalent_facts_information_boundaries_and_budgets
@@ -267,4 +270,3 @@ claim_policy:
     只能报告 H1/H4 采集与评分管线、认知访谈和内部 Pilot 的可用性；不能报告 GAWorld 人类效度。
   after_formal_gate: >
     只报告目标学生人群、冻结任务与所测 H1/H4 分面；H2、H3、H5、H6、H7 保持 N/A。
-
