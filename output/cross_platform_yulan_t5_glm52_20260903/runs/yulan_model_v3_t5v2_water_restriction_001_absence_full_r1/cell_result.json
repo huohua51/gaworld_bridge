@@ -1,0 +1,337 @@
+{
+  "workflow_id": "cross_platform_yulan_t5_v3_scope",
+  "instance_id": "yulan_model_v3_t5v2_water_restriction_001_absence_full_r1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=False,activated=False,perceptions=0"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-1",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-2",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-3",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"water-high-1\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-1\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"63e6976ee6f01b486d04c64a506b96e010a4168b0c0c326bd536c49229e0ffe7\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"water-high-2\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-2\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"415cebaab876b4a9f0dc5e39ad77a31a2895371869a21a097e7dd3ec97bc4466\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"water-efficient-1\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"28326e97fbddd14896984e69acd14ea5002123684d4844f39207690ff91fb8c5\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"agent_id\": \"water-apartment-1\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": false, \"notice_seen\": false, \"target_match\": false}, \"policy_state\": \"absence\", \"prompt_sha256\": \"9bf4e11504c9d2fb71c5fc07bece93034997618c0be22b15b75c6c1133f4141c\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-1",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-2",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-3",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_water_restriction_001_absence_full_r1\\policy_trace.jsonl",
+        "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_water_restriction_001_absence_full_r1\\model_trace.jsonl",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-1",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-2",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-3",
+        "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-4",
+        "yulan-policy-action-water-high-1-3",
+        "yulan-policy-action-water-high-2-4",
+        "yulan-policy-action-water-efficient-1-5",
+        "yulan-policy-action-water-apartment-1-6"
+      ],
+      "detail": "expected={'water-high-1': 'keep_current', 'water-high-2': 'keep_current', 'water-efficient-1': 'keep_current', 'water-apartment-1': 'keep_current'} actual={'water-high-1': 'keep_current', 'water-high-2': 'keep_current', 'water-efficient-1': 'keep_current', 'water-apartment-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_water_restriction_001_absence_full_r1\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "clock_advanced",
+      "resident_action_submitted",
+      "resident_action_submitted",
+      "resident_action_submitted",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "water-high-1",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "63e6976ee6f01b486d04c64a506b96e010a4168b0c0c326bd536c49229e0ffe7",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-1"
+      },
+      {
+        "agent_id": "water-high-2",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "415cebaab876b4a9f0dc5e39ad77a31a2895371869a21a097e7dd3ec97bc4466",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-2"
+      },
+      {
+        "agent_id": "water-efficient-1",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "28326e97fbddd14896984e69acd14ea5002123684d4844f39207690ff91fb8c5",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-3"
+      },
+      {
+        "agent_id": "water-apartment-1",
+        "policy_state": "absence",
+        "expected": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": false,
+          "binding": false,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "9bf4e11504c9d2fb71c5fc07bece93034997618c0be22b15b75c6c1133f4141c",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1:call-4"
+      }
+    ],
+    "expected_actions": {
+      "water-high-1": "keep_current",
+      "water-high-2": "keep_current",
+      "water-efficient-1": "keep_current",
+      "water-apartment-1": "keep_current"
+    },
+    "actual_actions": {
+      "water-high-1": "keep_current",
+      "water-high-2": "keep_current",
+      "water-efficient-1": "keep_current",
+      "water-apartment-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "cross_platform_protocol_parity",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "policy_state": "absence",
+    "repeat_id": 1,
+    "behavior_change_rate": 0.0,
+    "changed_agent_ids": [],
+    "target_agent_ids": [
+      "water-high-1",
+      "water-high-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "water-high-1": "63e6976ee6f01b486d04c64a506b96e010a4168b0c0c326bd536c49229e0ffe7",
+      "water-high-2": "415cebaab876b4a9f0dc5e39ad77a31a2895371869a21a097e7dd3ec97bc4466",
+      "water-efficient-1": "28326e97fbddd14896984e69acd14ea5002123684d4844f39207690ff91fb8c5",
+      "water-apartment-1": "9bf4e11504c9d2fb71c5fc07bece93034997618c0be22b15b75c6c1133f4141c"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "yulan_model_v3_t5v2_water_restriction_001_absence_full_r1",
+      "task_id": "t5v2_water_restriction_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:absence:full:scope_v3",
+      "variant": "absence",
+      "seed": 1,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "yulan-onesim-eventbus-9829d722",
+      "trace_version": "recipient-verified-policy-and-model-jsonl-v1",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1+yulan-evidence-v1",
+      "evidence_id": "bundle:yulan_model_v3_t5v2_water_restriction_001_absence_full_r1"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    },
+    "platform": "YuLan-OneSim",
+    "platform_evidence": {
+      "recipient_receipts": "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_water_restriction_001_absence_full_r1\\onesim_receipts.jsonl",
+      "native_event_flow": "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_water_restriction_001_absence_full_r1\\onesim_event_flow.json",
+      "native_event_attempts": 5,
+      "verified_receipts": 5,
+      "verified_policy_receipts": 0,
+      "verified_decision_receipts": 4,
+      "native_flow_count": 1,
+      "resident_errors": {}
+    }
+  }
+}

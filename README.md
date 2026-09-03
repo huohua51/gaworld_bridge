@@ -980,6 +980,7 @@ GAWorld核心修复由其他开发同学负责；本评测仓不把本地原型�
 - T5-v3在三任务、三状态、repeat 1/2上18/18格通过，72/72次scope语义与逐居民directive正确，且重复结果完全一致；
 - T5-v3密封新任务在GLM-5.2与gpt-5.4上各9/9格通过，72/72次调用满足严格JSON；9/9个任务×状态组合的Prompt与注册结果跨模型完全一致；
 - T5-v3扩展密封轮中GLM-5.2与gpt-5.4各24/24格通过；Qwen为14/24格，后37次因网关额度不足被拒绝，故三模型联合注册Gate失败且不补替；
+- YuLan-OneSim横向先导中，T4完整匹配格与GAWorld一致17/17；T5-v3为9/9格通过，36/36个逐居民提示哈希与结构化scope输出均与GAWorld repeat 1一致；
 - 所有代表任务已经进入`pass / partial_pass / fail / retired`之一，形成可执行的开发结论；
 - 第一轮开发性功能诊断约85%，该比例描述评测建设与机制覆盖进度。
 
@@ -1307,6 +1308,26 @@ seed1为2/12格，总计14/24格。按预注册固定分母和禁止补替规则
 项目决定停止Qwen，不再充值或建立recovery。本轮37个配额失败及联合失败Gate永久保留；T5功能侧以
 GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1、REL1、T4跨模型与Human Reference。
 
+### **16.13 YuLan-OneSim T4/T5协议同面横向先导**
+
+YuLan-OneSim官方仓库锁定在提交`9829d722`，源代码未修改。T4先导以接收者回执补足原生
+flow对未知目标失败和全局终止可观测性不足的问题；17个完整格与GAWorld逐格一致17/17，
+另1格因外部进程中断按固定分母记失败且未补跑。
+
+T5-v3进一步冻结三个任务、absence/binding/nonbinding、GLM-5.2与原评分数学，取GAWorld
+repeat 1做9格、36次调用的配对比较。付费前的第一次离线校准发现YuLan基础`Event`不会自动
+保存任意政策载荷；该失败被保留，并在真实调用前改为显式事件子类、重新冻结v2。修正后的规则
+校准与真实运行均为9/9格FullPass。真实证据中36/36个request/response成对有效，24个政策通知
+和12个absence触发均有接收端回执；与GAWorld相比，36/36个提示哈希和scope输出、9/9格动作与
+FullPass精确一致。
+
+冻结评分未评价自由文本理由。事后诊断发现YuLan运行的12/12个absence理由误用`nonbinding`
+措辞，GAWorld参考中也有10/12次，因此应归为GLM-5.2的稳定解释混淆，而不是平台差异；本轮分数
+不作事后修改。T4报告见
+[`REPORT.md`](output/cross_platform_yulan_t4_combined_20260903/REPORT.md)，T5报告见
+[`REPORT.md`](output/cross_platform_yulan_t5_glm52_20260903/REPORT.md)。两轮均是协议适配先导，
+不构成平台总体等效证明、原生场景排名或H1–H7人类效度证据。
+
 ---
 
 ## **17. 目录索引**
@@ -1331,8 +1352,9 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
-| `cross_platform/yulan_onesim/`        | YuLan-OneSim锁定版本、事件证据校准、T4同面适配与续跑注册       |
+| `cross_platform/yulan_onesim/`        | YuLan-OneSim锁定版本、事件证据校准、T4/T5同面适配与注册       |
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
+| `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
@@ -1379,5 +1401,10 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因果对照、规则评分到首错定位和修复回归的完整开发流程。T4-v1暴露隐式转发歧义后，T4-v2通过显式注册传输协议在GLM-5.2 seed0/1/2上稳定命中完整路径；T5-v1暴露政策语义混淆，T5-v2进一步暴露全局动作与居民动作的同名字段碰撞，T5-v3分离`policy_action`与唯一`resident_directive.action`后，在开发重复和第一批双模型密封留出中均完整通过。第二批四任务双重复中GLM-5.2与gpt-5.4继续完整通过；qwen3.7-plus因额度耗尽只形成部分证据，联合Gate按预注册判为失败并永久保留，项目不再续跑Qwen。两条修复链和这次运营失败共同说明JSON契约通过只是起点，字段命名、单一权威来源、因果对照、密封留出、固定失败分母和R3证据链仍不可省略。
 
 2026-09-03新增YuLan-OneSim横向先导试验：锁定官方提交后，先用零费用R0发现原生flow导出不能独立证明未知目标失败与全局终止，再以接收者回执完成T4-v2同面适配。17个完整匹配格与GAWorld逐格一致17/17，full链路6/6；另有1格因外部进程中断按固定分母记为失败且未补跑。因此当前证据支持“YuLan EventBus可以承载T4注册传递协议”，不支持两个平台总体等效或H1–H7排名。详细结果见`output/cross_platform_yulan_t4_combined_20260903/REPORT.md`。
+
+同日完成T5-v3同面先导：离线校准先发现并修正YuLan基础事件不保留任意载荷的问题，随后9格
+GLM-5.2真实运行全部通过。36/36个逐居民提示与scope输出、9/9格动作和FullPass均与GAWorld
+repeat 1一致；但absence自由文本理由稳定混用nonbinding措辞，说明结构化正确不等于解释正确。
+这一结果支持当前适配协议的可承载性，不证明平台总体等效或YuLan原生政策能力。
 
 下一阶段将围绕三条主线推进：在已经合并的核心修复上为C1/REL1做新编号、新表面的独立端到端回归；固定T4-v2协议补第二模型复测；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。

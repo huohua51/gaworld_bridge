@@ -1,0 +1,100 @@
+{
+  "schema_version": "cross-platform-yulan-t5-result-v1",
+  "experiment_id": "CROSS-PLATFORM-YULAN-T5-v3",
+  "preregistration_id": "CROSS-PLATFORM-YULAN-T5-GLM52-v2",
+  "preregistration_commit": "0ffd5542f48e49a1d10bc5162745417a50339996",
+  "registration_sha256": "0e8fba03594bcd4546efd5413e3c80df437da50072dd5af8b47d1cc309698035",
+  "platform": {
+    "name": "YuLan-OneSim",
+    "commit": "9829d722b528b733f8c8317315637071fa23b206",
+    "source_tree_modified": false,
+    "execution_surface": "native EventBus with benchmark-owned policy semantics"
+  },
+  "model": {
+    "provider": "paratera_glm",
+    "model_version": "GLM-5.2",
+    "temperature": 0.0,
+    "thinking": "disabled",
+    "max_tokens_per_call": 256
+  },
+  "design": {
+    "tasks": 3,
+    "policy_states": ["absence", "binding", "nonbinding"],
+    "repeat_id": 1,
+    "cells": 9,
+    "residents_per_cell": 4,
+    "registered_calls": 36,
+    "completed_calls": 36
+  },
+  "primary_results": {
+    "measurement_valid_cells": 9,
+    "full_pass_cells": 9,
+    "full_pass_rate": 1.0,
+    "model_contract_valid_responses": 36,
+    "model_contract_rate": 1.0,
+    "scope_semantics_correct_responses": 36,
+    "resident_directive_correct_responses": 36,
+    "full_pass_by_policy_state": {
+      "absence": 1.0,
+      "binding": 1.0,
+      "nonbinding": 1.0
+    },
+    "behavior_change_rate_by_policy_state": {
+      "absence": 0.0,
+      "binding": 0.5,
+      "nonbinding": 0.0
+    },
+    "causal_contrasts": {
+      "binding_minus_absence": 0.5,
+      "binding_minus_nonbinding": 0.5,
+      "nonbinding_minus_absence": 0.0
+    }
+  },
+  "paired_gaworld_comparison": {
+    "reference_repeat": 1,
+    "prompt_sha256_exact": "36/36",
+    "structured_scope_outputs_exact": "36/36",
+    "actual_actions_exact_by_cell": "9/9",
+    "full_pass_exact_by_cell": "9/9",
+    "observed_discordant_cells": 0
+  },
+  "delivery_audit": {
+    "receiver_receipts": 45,
+    "start_receipts": 9,
+    "policy_notice_receipts": 24,
+    "absence_decision_tick_receipts": 12,
+    "cells_with_exact_receiver_parent_lineage": "9/9",
+    "cells_with_native_five_step_flow": "9/9",
+    "submitted_actions": 36,
+    "state_changing_actions": 6
+  },
+  "offline_calibration": {
+    "v1": {
+      "passed": false,
+      "paid_calls": 0,
+      "finding": "YuLan base Event silently discarded arbitrary policy payload kwargs"
+    },
+    "v2": {
+      "passed": true,
+      "cells": 9,
+      "fixture_calls": 36,
+      "full_pass_cells": 9,
+      "prompt_hash_exact_cells": 9
+    }
+  },
+  "qualitative_diagnostic": {
+    "scored": false,
+    "finding": "Free-text reasons often label absence as nonbinding despite correct structured fields",
+    "yulan_absence_reason_mentions_nonbinding": "12/12",
+    "gaworld_reference_absence_reason_mentions_nonbinding": "10/12",
+    "interpretation": "Stable GLM-5.2 rationale wording confusion, not an observed platform effect"
+  },
+  "claim": "Under the frozen nine-cell protocol-parity pilot, YuLan EventBus delivered all registered triggers and produced no observed decision or score discordance from the paired GAWorld repeat-1 reference.",
+  "claim_limits": [
+    "This is not a statistical equivalence test or an overall platform ranking.",
+    "Policy semantics and state effects are benchmark-owned, not native YuLan policy features.",
+    "Tasks are reused development surfaces with one model and one repeat.",
+    "Human-validity dimensions H1-H7 are not measured.",
+    "Free-text rationale correctness is not part of the frozen score."
+  ]
+}

@@ -1,0 +1,129 @@
+experiment_id: CROSS-PLATFORM-YULAN-T5-v3
+preregistration_id: CROSS-PLATFORM-YULAN-T5-GLM52-v2
+registration_path: F:\proj\gaworld_eval_bridge\cross_platform\yulan_onesim\registration_t5_glm52.yaml
+registration_sha256: 0e8fba03594bcd4546efd5413e3c80df437da50072dd5af8b47d1cc309698035
+yulan_repository: https://github.com/RUC-GSAI/YuLan-OneSim
+yulan_commit: 9829d722b528b733f8c8317315637071fa23b206
+comparison_reference:
+  result_dir: output/model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6
+  repeat_id: 1
+  manifest_sha256: 8bd31241ddeaa93f57db002ae4e9a9518637f228812e10f06e19f9a60a784869
+  cells: 9
+  calls: 36
+  full_pass_by_policy_state:
+    absence: 1.0
+    binding: 1.0
+    nonbinding: 1.0
+phase: live_protocol_parity
+gate: model_pilot_recorded
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+prompt_protocol: gaworld-benchmark-t5-model-v3
+scorer_version: model-pilot-t5-v3-scope-scorer-v1+yulan-evidence-v1
+ranking_eligible: false
+n_cells: 9
+FullPassByPolicyState:
+  absence: 1.0
+  binding: 1.0
+  nonbinding: 1.0
+model_contract_rate: 1.0
+scope_semantics_rate: 1.0
+resident_directive_rate: 1.0
+exact_matches_with_gaworld:
+  prompt_hashes_exact: 9
+  scope_outputs_exact: 9
+  actual_actions_exact: 9
+  full_pass_exact: 9
+  denominator: 9
+comparisons:
+- task_id: t5v2_water_restriction_001
+  policy_state: absence
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_water_restriction_001_absence_full_r1\cell_result.json
+- task_id: t5v2_water_restriction_001
+  policy_state: binding
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_water_restriction_001_binding_full_r1\cell_result.json
+- task_id: t5v2_water_restriction_001
+  policy_state: nonbinding
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_water_restriction_001_nonbinding_full_r1\cell_result.json
+- task_id: t5v2_heat_activity_001
+  policy_state: absence
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_heat_activity_001_absence_full_r1\cell_result.json
+- task_id: t5v2_heat_activity_001
+  policy_state: binding
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_heat_activity_001_binding_full_r1\cell_result.json
+- task_id: t5v2_heat_activity_001
+  policy_state: nonbinding
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_heat_activity_001_nonbinding_full_r1\cell_result.json
+- task_id: t5v2_organics_rule_001
+  policy_state: absence
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_organics_rule_001_absence_full_r1\cell_result.json
+- task_id: t5v2_organics_rule_001
+  policy_state: binding
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_organics_rule_001_binding_full_r1\cell_result.json
+- task_id: t5v2_organics_rule_001
+  policy_state: nonbinding
+  prompt_hashes_exact: true
+  scope_outputs_exact: true
+  actual_actions_exact: true
+  full_pass_exact: true
+  yulan_full_pass: 1
+  gaworld_full_pass: 1
+  cell_result_path: output\cross_platform_yulan_t5_glm52_20260903\runs\yulan_model_v3_t5v2_organics_rule_001_nonbinding_full_r1\cell_result.json
+budget:
+  max_calls: 36
+  calls_used: 36
+  calls_remaining: 0
+  prompt_chars: 51192
+  response_chars: 8739
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000

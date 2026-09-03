@@ -1,0 +1,346 @@
+{
+  "workflow_id": "cross_platform_yulan_t5_v3_scope",
+  "instance_id": "yulan_model_v3_t5v2_organics_rule_001_binding_full_r1",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "policy_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "policy_mechanism_activated",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "registered=True,activated=True,perceptions=4"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "scope_prompt_unambiguous",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "no required_action key; one sole resident directive"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "resident_actions_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "resident_scope_semantics_correct",
+      "layer": "R2",
+      "scorer": "registered_scope_directive_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-1",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-2",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-3",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-4"
+      ],
+      "detail": "[{\"action_correct\": true, \"actual\": {\"action\": \"separate_organic_waste\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"waste-cafe-1\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-1\", \"expected\": {\"action\": \"separate_organic_waste\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"5f55b09f98b594fd41344124be4ab8933e54095942359483b17e8788410e47e6\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"separate_organic_waste\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"agent_id\": \"waste-cafe-2\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-2\", \"expected\": {\"action\": \"separate_organic_waste\", \"authorized\": true, \"binding\": true, \"notice_seen\": true, \"target_match\": true}, \"policy_state\": \"binding\", \"prompt_sha256\": \"3f78c6d5ee0ae54118b51fb943909144462c101c730f6dba1a482db3fff3837c\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"waste-office-1\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-3\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"3d7873cdc4d93b0b897496e7f0e8587313f28b4874913e3a7b79085233088ea9\", \"prompt_unambiguous\": true, \"semantic_correct\": true}, {\"action_correct\": true, \"actual\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"agent_id\": \"waste-home-1\", \"evidence_id\": \"model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-4\", \"expected\": {\"action\": \"keep_current\", \"authorized\": false, \"binding\": true, \"notice_seen\": true, \"target_match\": false}, \"policy_state\": \"binding\", \"prompt_sha256\": \"75e47f8224fe98de71fe4d8cadfd5c804429753506c59cae2e7a3df44a0da71a\", \"prompt_unambiguous\": true, \"semantic_correct\": true}]"
+    },
+    {
+      "criterion_id": "resident_directive_followed",
+      "layer": "R2",
+      "scorer": "sole_action_authority_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-1",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-2",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-3",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-4"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "policy_response_correct",
+      "layer": "R2",
+      "scorer": "registered_population_oracle_v3",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_organics_rule_001_binding_full_r1\\policy_trace.jsonl",
+        "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_organics_rule_001_binding_full_r1\\model_trace.jsonl",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-1",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-2",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-3",
+        "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-4",
+        "yulan-policy-action-waste-cafe-1-6",
+        "yulan-policy-action-waste-cafe-2-8",
+        "yulan-policy-action-waste-office-1-10",
+        "yulan-policy-action-waste-home-1-12"
+      ],
+      "detail": "expected={'waste-cafe-1': 'separate_organic_waste', 'waste-cafe-2': 'separate_organic_waste', 'waste-office-1': 'keep_current', 'waste-home-1': 'keep_current'} actual={'waste-cafe-1': 'separate_organic_waste', 'waste-cafe-2': 'separate_organic_waste', 'waste-office-1': 'keep_current', 'waste-home-1': 'keep_current'}"
+    },
+    {
+      "criterion_id": "no_untargeted_spillover",
+      "layer": "R3",
+      "scorer": "state_delta",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_organics_rule_001_binding_full_r1\\policy_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "none",
+    "events": [
+      "population_registered",
+      "policy_registered",
+      "clock_advanced",
+      "policy_activated",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted",
+      "policy_perceived",
+      "resident_action_submitted"
+    ],
+    "scope_decisions": [
+      {
+        "agent_id": "waste-cafe-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "separate_organic_waste"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "separate_organic_waste"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "5f55b09f98b594fd41344124be4ab8933e54095942359483b17e8788410e47e6",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-1"
+      },
+      {
+        "agent_id": "waste-cafe-2",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "separate_organic_waste"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": true,
+          "authorized": true,
+          "action": "separate_organic_waste"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "3f78c6d5ee0ae54118b51fb943909144462c101c730f6dba1a482db3fff3837c",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-2"
+      },
+      {
+        "agent_id": "waste-office-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "3d7873cdc4d93b0b897496e7f0e8587313f28b4874913e3a7b79085233088ea9",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-3"
+      },
+      {
+        "agent_id": "waste-home-1",
+        "policy_state": "binding",
+        "expected": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "actual": {
+          "notice_seen": true,
+          "binding": true,
+          "target_match": false,
+          "authorized": false,
+          "action": "keep_current"
+        },
+        "semantic_correct": true,
+        "action_correct": true,
+        "prompt_unambiguous": true,
+        "prompt_sha256": "75e47f8224fe98de71fe4d8cadfd5c804429753506c59cae2e7a3df44a0da71a",
+        "evidence_id": "model-call:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1:call-4"
+      }
+    ],
+    "expected_actions": {
+      "waste-cafe-1": "separate_organic_waste",
+      "waste-cafe-2": "separate_organic_waste",
+      "waste-office-1": "keep_current",
+      "waste-home-1": "keep_current"
+    },
+    "actual_actions": {
+      "waste-cafe-1": "separate_organic_waste",
+      "waste-cafe-2": "separate_organic_waste",
+      "waste-office-1": "keep_current",
+      "waste-home-1": "keep_current"
+    },
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "cross_platform_protocol_parity",
+    "provider": "paratera_glm",
+    "model_calls": 4,
+    "policy_state": "binding",
+    "repeat_id": 1,
+    "behavior_change_rate": 0.5,
+    "changed_agent_ids": [
+      "waste-cafe-1",
+      "waste-cafe-2"
+    ],
+    "target_agent_ids": [
+      "waste-cafe-1",
+      "waste-cafe-2"
+    ],
+    "prompt_sha256_by_resident": {
+      "waste-cafe-1": "5f55b09f98b594fd41344124be4ab8933e54095942359483b17e8788410e47e6",
+      "waste-cafe-2": "3f78c6d5ee0ae54118b51fb943909144462c101c730f6dba1a482db3fff3837c",
+      "waste-office-1": "3d7873cdc4d93b0b897496e7f0e8587313f28b4874913e3a7b79085233088ea9",
+      "waste-home-1": "75e47f8224fe98de71fe4d8cadfd5c804429753506c59cae2e7a3df44a0da71a"
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "run_context": {
+      "run_id": "yulan_model_v3_t5v2_organics_rule_001_binding_full_r1",
+      "task_id": "t5v2_organics_rule_001",
+      "task_family": "T5",
+      "mechanism_condition": "M1-M4-M8:binding:full:scope_v3",
+      "variant": "binding",
+      "seed": 1,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 4
+      },
+      "environment_version": "yulan-onesim-eventbus-9829d722",
+      "trace_version": "recipient-verified-policy-and-model-jsonl-v1",
+      "scorer_version": "model-pilot-t5-v3-scope-scorer-v1+yulan-evidence-v1",
+      "evidence_id": "bundle:yulan_model_v3_t5v2_organics_rule_001_binding_full_r1"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    },
+    "platform": "YuLan-OneSim",
+    "platform_evidence": {
+      "recipient_receipts": "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_organics_rule_001_binding_full_r1\\onesim_receipts.jsonl",
+      "native_event_flow": "output\\cross_platform_yulan_t5_glm52_20260903\\runs\\yulan_model_v3_t5v2_organics_rule_001_binding_full_r1\\onesim_event_flow.json",
+      "native_event_attempts": 5,
+      "verified_receipts": 5,
+      "verified_policy_receipts": 4,
+      "verified_decision_receipts": 0,
+      "native_flow_count": 1,
+      "resident_errors": {}
+    }
+  }
+}

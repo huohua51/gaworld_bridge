@@ -1,0 +1,55 @@
+{
+  "flows": [
+    {
+      "id": "flow_e78ec0b0-d98b-4465-9306-d926e62b8e08",
+      "steps": [
+        {
+          "timestamp": 1788441766.8889668,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "policy-authority",
+          "to_agent_type": "PolicyAuthority",
+          "event_id": "e78ec0b0-d98b-4465-9306-d926e62b8e08"
+        },
+        {
+          "timestamp": 1788441766.8889668,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "heat-sports-1",
+          "to_agent_type": "Resident",
+          "event_id": "c7bb62ca-c3a1-4287-bae1-9cdf8aea859a"
+        },
+        {
+          "timestamp": 1788441766.8889668,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "heat-sports-2",
+          "to_agent_type": "Resident",
+          "event_id": "e934d8de-ae1c-452f-906f-52edc8376aab"
+        },
+        {
+          "timestamp": 1788441766.8889668,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "heat-class-1",
+          "to_agent_type": "Resident",
+          "event_id": "f134baca-5b48-4a56-b1e9-58d150a7f3ca"
+        },
+        {
+          "timestamp": 1788441766.8889668,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "heat-remote-1",
+          "to_agent_type": "Resident",
+          "event_id": "bc4ae3d7-73cb-434a-bfeb-b1537878165d"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788441817.6367888
+}

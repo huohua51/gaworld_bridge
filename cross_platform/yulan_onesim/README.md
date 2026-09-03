@@ -42,6 +42,18 @@ F:\proj\.venv_yulan_onesim_eval\Scripts\python.exe `
 - 1 个格因外部进程中断按注册规则记为失败且未补跑；
 - 完整格 FullPass 向量与 GAWorld 一致 17/17；固定 18 格口径为 GAWorld 12/18、YuLan 11/18。
 
+T5-v3 eligibility-scope 同面先导也已完成：
+
+- 第一轮零费用校准发现基础 `Event` 不会保留任意政策载荷，失败证据保留；
+- 显式事件子类修正后的 v2 离线校准为 9/9 格、36/36 次规则调用通过；
+- GLM-5.2 真实运行 9/9 格 FullPass，36/36 个结构化响应有效；
+- 24 个政策通知和 12 个 absence 决策触发均有居民接收端回执；
+- 与 GAWorld repeat 1 相比，36/36 个提示哈希、36/36 个 scope 输出、9/9 格动作与 FullPass 精确一致；
+- 自由文本理由仍混淆 absence 与 nonbinding，该项不在冻结分数内，且 GAWorld 参考也出现。
+
 详细论证见
 `output/cross_platform_yulan_t4_combined_20260903/REPORT.md`，原生场景的构念对应边界见
 `NATIVE_SCENARIO_COVERAGE.md`。
+
+T5 的完整结果与声明边界见
+`output/cross_platform_yulan_t5_glm52_20260903/REPORT.md`。
