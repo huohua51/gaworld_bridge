@@ -1,0 +1,42 @@
+{
+  "platform": "YuLan-OneSim",
+  "environment_version": "yulan-onesim-eventbus-9829d722",
+  "trace_version": "shared-review-replay-v2",
+  "trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\yulan_replay_trace.jsonl",
+  "onesim_receipt_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\onesim_receipts.jsonl",
+  "onesim_event_flow_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\onesim_event_flow.json",
+  "final_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\final_state.json",
+  "ingress_review": null,
+  "ingress_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+  "delivered_review": null,
+  "delivered_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+  "executor_output": {
+    "adopted": false,
+    "final_state": {
+      "closing_hour": 20,
+      "reservable_rooms": 4,
+      "supervisors_on_duty": 1
+    },
+    "disposition": "kept_without_review",
+    "review_id": null,
+    "reason_code": "no_delivered_review"
+  },
+  "proposal_delivered": true,
+  "review_delivery_verified": false,
+  "review_adoption_verified": false,
+  "final_submission_verified": true,
+  "payload_exact": true,
+  "private_evidence_readers": [
+    "reviewer"
+  ],
+  "state_writers": [
+    "executor"
+  ],
+  "verified_receipts": 2,
+  "native_event_attempts": 2,
+  "native_flow_count": 1,
+  "events": [
+    "review_unavailable"
+  ],
+  "denials": []
+}

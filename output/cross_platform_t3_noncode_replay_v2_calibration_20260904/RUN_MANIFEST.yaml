@@ -1,0 +1,101 @@
+experiment_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-v2
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-GLM52-v2
+registration_sha256: 932706c306dc99d43ec2345f1cdb13543f1dddea3e9e7849d9db6f23ffc58c9b
+phase: live_interface_calibration_non_scoring
+gate: live_calibration_pass
+ranking_eligible: false
+provider: paratera_glm
+model_version: GLM-5.2
+settings:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  reasoning_effort: null
+  max_tokens_per_call: 256
+  response_format:
+    type: json_object
+  retry_attempts: 1
+  json_normalization: strict
+strict_valid_responses: 2
+semantic_oracle_correct_recorded_not_gated: 2
+samples:
+- task_id: t3nc_clinic_cooling_shift_001
+  variant: verified_support
+  response_ok: true
+  response_error: ''
+  evidence_id: model-call:t3nc_replay_v2_live_calibration:call-1
+  call_id: t3nc_replay_v2_live_calibration:call-1
+  model_trace_path: F:\proj\gaworld_eval_bridge\output\cross_platform_t3_noncode_replay_v2_calibration_20260904\model_trace.jsonl
+  prompt_sha256: af1ae6be01d54b1bea3e8a09658dd8be25d55440817ac7fc780f311b349b5618
+  raw_response_sha256: 5c6ee1b246fa1e061c43b829d0f5035bad64b6c03637e25d1e0a5959e66475d5
+  normalization_applied: false
+  normalization_rule: none
+  shared_review:
+    decision: approve
+    evidence_ids:
+    - clinic-alert-check
+    - clinic-staff-roster
+    - clinic-room-certificate
+    failing_criteria: []
+    proposal_id: clinic-cooling-plan-v2
+    reason_code: all_constraints_satisfied
+    review_id: t3nc_clinic_cooling_shift_001_r1
+  shared_review_sha256: a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc
+  oracle_shared_review:
+    proposal_id: clinic-cooling-plan-v2
+    decision: approve
+    evidence_ids:
+    - clinic-alert-check
+    - clinic-staff-roster
+    - clinic-room-certificate
+    failing_criteria: []
+    reason_code: all_constraints_satisfied
+    review_id: t3nc_clinic_cooling_shift_001_r1
+  reviewer_oracle_correct: true
+- task_id: t3nc_clinic_cooling_shift_001
+  variant: verified_conflict
+  response_ok: true
+  response_error: ''
+  evidence_id: model-call:t3nc_replay_v2_live_calibration:call-2
+  call_id: t3nc_replay_v2_live_calibration:call-2
+  model_trace_path: F:\proj\gaworld_eval_bridge\output\cross_platform_t3_noncode_replay_v2_calibration_20260904\model_trace.jsonl
+  prompt_sha256: d7c221714db667c8789a37f7a09f69a0ba5ecf83eeee44b8fcf5eba3b28d2167
+  raw_response_sha256: a6011847eeee25de1be5f318feb5cc66e9fac68927f69c663393ba342f429af6
+  normalization_applied: false
+  normalization_rule: none
+  shared_review:
+    decision: reject
+    evidence_ids:
+    - clinic-alert-check
+    - clinic-staff-roster
+    - clinic-room-certificate
+    failing_criteria:
+    - room-capacity
+    proposal_id: clinic-cooling-plan-v2
+    reason_code: hard_constraint_conflict
+    review_id: t3nc_clinic_cooling_shift_001_r1
+  shared_review_sha256: 13a9a41fe2ced76213f9a24d516c710a3e34d82e2cf810360e1dbd0761c5c93c
+  oracle_shared_review:
+    proposal_id: clinic-cooling-plan-v2
+    decision: reject
+    evidence_ids:
+    - clinic-alert-check
+    - clinic-staff-roster
+    - clinic-room-certificate
+    failing_criteria:
+    - room-capacity
+    reason_code: hard_constraint_conflict
+    review_id: t3nc_clinic_cooling_shift_001_r1
+  reviewer_oracle_correct: true
+budget:
+  max_calls: 2
+  calls_used: 2
+  calls_remaining: 0
+  prompt_chars: 3004
+  response_chars: 474
+  transport_attempts_observed: 2
+  transport_retries_observed: 0
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000

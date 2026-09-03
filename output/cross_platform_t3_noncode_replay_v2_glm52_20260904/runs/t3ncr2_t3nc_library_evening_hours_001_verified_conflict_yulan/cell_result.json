@@ -1,0 +1,123 @@
+{
+  "workflow_id": "cross_platform_t3_noncode_shared_replay_v2",
+  "run_id": "t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan",
+  "task_id": "t3nc_library_evening_hours_001",
+  "variant": "verified_conflict",
+  "platform": "YuLan-OneSim",
+  "measurement_valid": true,
+  "reviewer_sample_valid": false,
+  "reviewer_oracle_correct": false,
+  "transport_evaluable": false,
+  "platform_transport_pass": null,
+  "joint_full_pass": 0,
+  "full_pass": 0,
+  "ranking_eligible": false,
+  "first_error": "reviewer_sample_invalid",
+  "criteria": {
+    "platform_trace_parseable": true,
+    "shared_payload_exact": false,
+    "shared_payload_hash_exact": false,
+    "deterministic_transition_exact": true,
+    "oracle_final_state_exact": false,
+    "role_boundaries_enforced": true
+  },
+  "sample": {
+    "task_id": "t3nc_library_evening_hours_001",
+    "variant": "verified_conflict",
+    "response_ok": false,
+    "response_error": "provider_error:SSLError",
+    "evidence_id": "model-call:t3nc_shared_replay_v2:call-4",
+    "call_id": "t3nc_shared_replay_v2:call-4",
+    "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+    "prompt_sha256": "15e7e8f0def12e78a9754be64dc0d6cf5e84703dd7374aea8f47ebbe108e3c10",
+    "raw_response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "normalization_applied": false,
+    "normalization_rule": "none",
+    "shared_review": null,
+    "shared_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "oracle_shared_review": {
+      "proposal_id": "library-evening-plan-v2",
+      "decision": "reject",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [
+        "security-coverage"
+      ],
+      "reason_code": "hard_constraint_conflict",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "reviewer_oracle_correct": false
+  },
+  "process_profile": {
+    "expected_shared_review": {
+      "proposal_id": "library-evening-plan-v2",
+      "decision": "reject",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [
+        "security-coverage"
+      ],
+      "reason_code": "hard_constraint_conflict",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "ingress_review": null,
+    "delivered_review": null,
+    "executor_output": {
+      "adopted": false,
+      "final_state": {
+        "closing_hour": 20,
+        "reservable_rooms": 4,
+        "supervisors_on_duty": 1
+      },
+      "disposition": "kept_without_review",
+      "review_id": null,
+      "reason_code": "no_delivered_review"
+    },
+    "expected_executor_from_sample": {
+      "adopted": false,
+      "final_state": {
+        "closing_hour": 20,
+        "reservable_rooms": 4,
+        "supervisors_on_duty": 1
+      },
+      "disposition": "kept_without_review",
+      "review_id": null,
+      "reason_code": "no_delivered_review"
+    },
+    "expected_executor_from_oracle": {
+      "adopted": false,
+      "final_state": {
+        "closing_hour": 20,
+        "reservable_rooms": 4,
+        "supervisors_on_duty": 1
+      },
+      "disposition": "kept_after_reject",
+      "review_id": "t3nc_library_evening_hours_001_r1",
+      "reason_code": "rejected_review_preserved_baseline"
+    }
+  },
+  "evidence": {
+    "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-4",
+    "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+    "platform_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\yulan_replay_trace.jsonl",
+    "ingress_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "delivered_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "platform_evidence": {
+    "onesim_receipt_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\onesim_receipts.jsonl",
+    "onesim_event_flow_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_conflict_yulan\\onesim_event_flow.json",
+    "verified_receipts": 2,
+    "native_event_attempts": 2,
+    "native_flow_count": 1,
+    "events": [
+      "review_unavailable"
+    ],
+    "denials": []
+  }
+}

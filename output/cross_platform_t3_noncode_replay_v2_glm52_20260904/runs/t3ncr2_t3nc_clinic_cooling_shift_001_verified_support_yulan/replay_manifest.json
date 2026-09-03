@@ -1,0 +1,64 @@
+{
+  "platform": "YuLan-OneSim",
+  "environment_version": "yulan-onesim-eventbus-9829d722",
+  "trace_version": "shared-review-replay-v2",
+  "trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_clinic_cooling_shift_001_verified_support_yulan\\yulan_replay_trace.jsonl",
+  "onesim_receipt_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_clinic_cooling_shift_001_verified_support_yulan\\onesim_receipts.jsonl",
+  "onesim_event_flow_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_clinic_cooling_shift_001_verified_support_yulan\\onesim_event_flow.json",
+  "final_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_clinic_cooling_shift_001_verified_support_yulan\\final_state.json",
+  "ingress_review": {
+    "decision": "approve",
+    "evidence_ids": [
+      "clinic-alert-check",
+      "clinic-staff-roster",
+      "clinic-room-certificate"
+    ],
+    "failing_criteria": [],
+    "proposal_id": "clinic-cooling-plan-v2",
+    "reason_code": "all_constraints_satisfied",
+    "review_id": "t3nc_clinic_cooling_shift_001_r1"
+  },
+  "ingress_review_sha256": "a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc",
+  "delivered_review": {
+    "decision": "approve",
+    "evidence_ids": [
+      "clinic-alert-check",
+      "clinic-staff-roster",
+      "clinic-room-certificate"
+    ],
+    "failing_criteria": [],
+    "proposal_id": "clinic-cooling-plan-v2",
+    "reason_code": "all_constraints_satisfied",
+    "review_id": "t3nc_clinic_cooling_shift_001_r1"
+  },
+  "delivered_review_sha256": "a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc",
+  "executor_output": {
+    "adopted": true,
+    "final_state": {
+      "opening_hour": 12,
+      "closing_hour": 18,
+      "service_capacity": 55
+    },
+    "disposition": "adopted",
+    "review_id": "t3nc_clinic_cooling_shift_001_r1",
+    "reason_code": "approved_review_applied"
+  },
+  "proposal_delivered": true,
+  "review_delivery_verified": true,
+  "review_adoption_verified": true,
+  "final_submission_verified": true,
+  "payload_exact": true,
+  "private_evidence_readers": [
+    "reviewer"
+  ],
+  "state_writers": [
+    "executor"
+  ],
+  "verified_receipts": 2,
+  "native_event_attempts": 2,
+  "native_flow_count": 1,
+  "events": [
+    "review_received"
+  ],
+  "denials": []
+}

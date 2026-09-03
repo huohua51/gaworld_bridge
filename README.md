@@ -1361,6 +1361,19 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 同一review payload双平台重放。完整实施与边界见
 [`STRUCTURED_OUTPUT_RETRY_AUDIT_V2_20260903.md`](docs/STRUCTURED_OUTPUT_RETRY_AUDIT_V2_20260903.md)。
 
+### **16.16 T3共享审核载荷双平台重放 v2**
+
+2026-09-04以提交`eb0cb2c`预注册后执行。新设计把reviewer采样移到平台之前：每个任务条件只调用
+一次GLM-5.2，再把同一evidence ID、同一审核对象和同一SHA-256分别送入GAWorld
+`ReviewChannel`与YuLan-OneSim `EventBus`；平台内不再调用模型，executor使用统一确定性转移。
+
+两次不计分接口校准均通过：严格JSON 2/2、物理尝试2、重试0、规范化0。正式固定6次调用中，
+5次严格响应有效且5/5 reviewer命中Oracle；图书馆conflict格的唯一物理请求发生TLS EOF，按注册规则
+未重试、未替换。两个平台在5个可评价共享载荷上均为transport 5/5，入口哈希、送达对象和executor
+结果逐对一致，观察到平台差异0；固定分母joint FullPass两边均为5/6。该结果支持当前适配运输路径
+在五个有效对象上同样保真，不证明平台总体等效。详见
+[`INDEPENDENT_AUDIT.md`](output/cross_platform_t3_noncode_replay_v2_glm52_20260904/INDEPENDENT_AUDIT.md)。
+
 ---
 
 ## **17. 目录索引**
@@ -1391,6 +1404,7 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
 | `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
 | `output/cross_platform_t3_noncode_glm52_20260903/` | GAWorld/YuLan T3非代码真实结果、围栏JSON诊断与修复交接 |
+| `output/cross_platform_t3_noncode_replay_v2_glm52_20260904/` | 单次reviewer采样、同载荷双平台重放、条件transport与固定分母结果 |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
@@ -1446,6 +1460,7 @@ repeat 1一致；但absence自由文本理由稳定混用nonbinding措辞，说�
 同日完成T3非代码同面先导：离线确定性矩阵12/12通过，但GLM-5.2真实响应中14/36带Markdown
 JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显示三类硬约束的核心审核判断为
 12/12正确，问题位于结构化输出与严格解析的接口缝隙。由于独立抽样又造成下游提示分叉，本轮
-不能排名平台；结构化响应和重试审计v2已经完成，下一版将以同一payload双平台重放隔离平台效应。
+不能排名平台；结构化响应和重试审计v2及同一payload双平台重放均已完成。重放中两个平台在5个
+有效共享审核对象上均为transport 5/5、观察差异0；唯一固定分母失败发生在平台之前的TLS请求。
 
 下一阶段将围绕三条主线推进：在已经合并的核心修复上为C1/REL1做新编号、新表面的独立端到端回归；固定T4-v2协议补第二模型复测；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。

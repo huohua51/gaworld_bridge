@@ -1,0 +1,115 @@
+experiment_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-v2
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-GLM52-v2
+registration_sha256: 932706c306dc99d43ec2345f1cdb13543f1dddea3e9e7849d9db6f23ffc58c9b
+phase: live_shared_review_replay
+gate: live_replay_recorded
+ranking_eligible: false
+provider: paratera_glm
+model_version: GLM-5.2
+settings:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  reasoning_effort: null
+  max_tokens_per_call: 256
+  response_format:
+    type: json_object
+  retry_attempts: 1
+  json_normalization: strict
+eval_mode_evidence:
+  enabled: true
+  applied: true
+  changes:
+  - dynamic_behavior.enabled=False
+  - routine_change.enabled=False
+  dynamic_behavior_enabled: false
+  routine_change_enabled: false
+  strict_interview_json: true
+  diary_fallback_disabled: true
+calibration_manifest: F:\proj\gaworld_eval_bridge\output\cross_platform_t3_noncode_replay_v2_calibration_20260904\RUN_MANIFEST.yaml
+calibration_manifest_sha256: b8b6f4cd6794b9e1238ebfeadbec9ff20156106ced9ea144720321b64ebdc749
+review_samples:
+  requested: 6
+  valid: 5
+  oracle_correct: 5
+platform_summary:
+  GAWorld:
+    cells: 6
+    transport_evaluable: 5
+    transport_pass: 5
+    joint_full_pass: 5
+  YuLan-OneSim:
+    cells: 6
+    transport_evaluable: 5
+    transport_pass: 5
+    joint_full_pass: 5
+platform_effect:
+  evaluable_pairs: 5
+  difference_pairs: 0
+  comparisons:
+  - task_id: t3nc_clinic_cooling_shift_001
+    variant: verified_support
+    transport_evaluable: true
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    executor_output_exact: true
+    platform_transport_pass_exact: true
+    platform_difference: false
+  - task_id: t3nc_clinic_cooling_shift_001
+    variant: verified_conflict
+    transport_evaluable: true
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    executor_output_exact: true
+    platform_transport_pass_exact: true
+    platform_difference: false
+  - task_id: t3nc_library_evening_hours_001
+    variant: verified_support
+    transport_evaluable: true
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    executor_output_exact: true
+    platform_transport_pass_exact: true
+    platform_difference: false
+  - task_id: t3nc_library_evening_hours_001
+    variant: verified_conflict
+    transport_evaluable: false
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    executor_output_exact: true
+    platform_transport_pass_exact: true
+    platform_difference: false
+  - task_id: t3nc_foodbank_delivery_001
+    variant: verified_support
+    transport_evaluable: true
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    executor_output_exact: true
+    platform_transport_pass_exact: true
+    platform_difference: false
+  - task_id: t3nc_foodbank_delivery_001
+    variant: verified_conflict
+    transport_evaluable: true
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    executor_output_exact: true
+    platform_transport_pass_exact: true
+    platform_difference: false
+budget:
+  max_calls: 6
+  calls_used: 6
+  calls_remaining: 0
+  prompt_chars: 9060
+  response_chars: 1260
+  transport_attempts_observed: 6
+  transport_retries_observed: 0
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000

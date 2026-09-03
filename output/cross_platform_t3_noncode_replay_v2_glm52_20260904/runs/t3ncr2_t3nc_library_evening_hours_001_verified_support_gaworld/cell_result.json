@@ -1,0 +1,172 @@
+{
+  "workflow_id": "cross_platform_t3_noncode_shared_replay_v2",
+  "run_id": "t3ncr2_t3nc_library_evening_hours_001_verified_support_gaworld",
+  "task_id": "t3nc_library_evening_hours_001",
+  "variant": "verified_support",
+  "platform": "GAWorld",
+  "measurement_valid": true,
+  "reviewer_sample_valid": true,
+  "reviewer_oracle_correct": true,
+  "transport_evaluable": true,
+  "platform_transport_pass": true,
+  "joint_full_pass": 1,
+  "full_pass": 1,
+  "ranking_eligible": false,
+  "first_error": "none",
+  "criteria": {
+    "platform_trace_parseable": true,
+    "shared_payload_exact": true,
+    "shared_payload_hash_exact": true,
+    "deterministic_transition_exact": true,
+    "oracle_final_state_exact": true,
+    "role_boundaries_enforced": true
+  },
+  "sample": {
+    "task_id": "t3nc_library_evening_hours_001",
+    "variant": "verified_support",
+    "response_ok": true,
+    "response_error": "",
+    "evidence_id": "model-call:t3nc_shared_replay_v2:call-3",
+    "call_id": "t3nc_shared_replay_v2:call-3",
+    "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+    "prompt_sha256": "07fbc6749fd34dca403dd78cb04f3a1ee0bb5a085d82ffe8fe1c919e58695a69",
+    "raw_response_sha256": "5ffab8d8cc07f66989478f411972c9a7df0c4122e7926de572a8cbcdc1af97a6",
+    "normalization_applied": false,
+    "normalization_rule": "none",
+    "shared_review": {
+      "decision": "approve",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [],
+      "proposal_id": "library-evening-plan-v2",
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "shared_review_sha256": "161a6014a480e348e88f3df8264c3b0402695186592f7b7a956a9357a73a7c20",
+    "oracle_shared_review": {
+      "proposal_id": "library-evening-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "reviewer_oracle_correct": true
+  },
+  "process_profile": {
+    "expected_shared_review": {
+      "proposal_id": "library-evening-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "ingress_review": {
+      "decision": "approve",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [],
+      "proposal_id": "library-evening-plan-v2",
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "delivered_review": {
+      "decision": "approve",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [],
+      "proposal_id": "library-evening-plan-v2",
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_library_evening_hours_001_r1"
+    },
+    "executor_output": {
+      "adopted": true,
+      "final_state": {
+        "closing_hour": 22,
+        "reservable_rooms": 6,
+        "supervisors_on_duty": 2
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_library_evening_hours_001_r1",
+      "reason_code": "approved_review_applied"
+    },
+    "expected_executor_from_sample": {
+      "adopted": true,
+      "final_state": {
+        "closing_hour": 22,
+        "reservable_rooms": 6,
+        "supervisors_on_duty": 2
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_library_evening_hours_001_r1",
+      "reason_code": "approved_review_applied"
+    },
+    "expected_executor_from_oracle": {
+      "adopted": true,
+      "final_state": {
+        "closing_hour": 22,
+        "reservable_rooms": 6,
+        "supervisors_on_duty": 2
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_library_evening_hours_001_r1",
+      "reason_code": "approved_review_applied"
+    }
+  },
+  "evidence": {
+    "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-3",
+    "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+    "platform_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_support_gaworld\\gaworld_review_trace.jsonl",
+    "ingress_review_sha256": "161a6014a480e348e88f3df8264c3b0402695186592f7b7a956a9357a73a7c20",
+    "delivered_review_sha256": "161a6014a480e348e88f3df8264c3b0402695186592f7b7a956a9357a73a7c20"
+  },
+  "platform_evidence": {
+    "events": [
+      "private_put",
+      "artifact_write",
+      "draft_submitted",
+      "review_requested",
+      "review_emitted",
+      "review_delivered",
+      "inbox_read",
+      "review_adopted",
+      "artifact_write",
+      "denied",
+      "denied"
+    ],
+    "denials": [
+      {
+        "ok": false,
+        "reason": "unauthorized_artifact_write",
+        "task_id": "t3nc_library_evening_hours_001",
+        "role": "reviewer",
+        "kind": "final",
+        "path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\runs\\t3ncr2_t3nc_library_evening_hours_001_verified_support_gaworld\\unauthorized_reviewer_state.json"
+      },
+      {
+        "ok": false,
+        "reason": "unauthorized_private_read",
+        "task_id": "t3nc_library_evening_hours_001",
+        "role": "executor"
+      }
+    ]
+  }
+}
