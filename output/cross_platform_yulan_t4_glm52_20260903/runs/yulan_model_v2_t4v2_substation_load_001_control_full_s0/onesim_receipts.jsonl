@@ -1,0 +1,4 @@
+{"event_id": "9f22f4df-24c9-4525-9e7f-b08a9432f90e", "event_kind": "StartEvent", "parent_event_id": null, "sender_id": "ENV", "receiver_id": "grid_telemetry", "message_id": "substation-load-v1"}
+{"event_id": "40cee801-f5f0-4a94-96af-e3fbff258bfc", "event_kind": "RegisteredStatusUpdate", "parent_event_id": "9f22f4df-24c9-4525-9e7f-b08a9432f90e", "sender_id": "grid_telemetry", "receiver_id": "operations_center", "message_id": "substation-load-v1"}
+{"event_id": "083ceb60-6cca-49cf-ae86-45ea11504f8e", "event_kind": "RegisteredStatusUpdate", "parent_event_id": "40cee801-f5f0-4a94-96af-e3fbff258bfc", "sender_id": "operations_center", "receiver_id": "regional_gateway", "message_id": "substation-load-v1"}
+{"event_id": "42874acb-4819-4d0f-a1ee-9fb39aea0b7c", "event_kind": "RegisteredStatusUpdate", "parent_event_id": "083ceb60-6cca-49cf-ae86-45ea11504f8e", "sender_id": "regional_gateway", "receiver_id": "load_dispatch", "message_id": "substation-load-v1"}

@@ -1,0 +1,29 @@
+{
+  "flows": [
+    {
+      "id": "flow_1a7662c2-b92d-4e76-b562-4b5465065eaf",
+      "steps": [
+        {
+          "timestamp": 1788420995.6935546,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "grid_telemetry",
+          "to_agent_type": "Source",
+          "event_id": "1a7662c2-b92d-4e76-b562-4b5465065eaf"
+        },
+        {
+          "timestamp": 1788420995.6955707,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "grid_telemetry",
+          "from_agent_type": "Source",
+          "to_agent_id": "operations_center",
+          "to_agent_type": "Bridge",
+          "event_id": "6c054b8f-7e3f-4e21-be14-69856292c5be",
+          "parent_event_id": "1a7662c2-b92d-4e76-b562-4b5465065eaf"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788420995.6995895
+}

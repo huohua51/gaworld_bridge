@@ -1,0 +1,2 @@
+{"event_id": "c7fbd402-8f82-4aca-a9a7-d46b562589f2", "event_kind": "StartEvent", "parent_event_id": null, "sender_id": "ENV", "receiver_id": "grid_telemetry", "message_id": "substation-load-v1"}
+{"event_id": "7a0a547e-2767-4fa8-8fe5-dd915d45110c", "event_kind": "RegisteredStatusUpdate", "parent_event_id": "c7fbd402-8f82-4aca-a9a7-d46b562589f2", "sender_id": "grid_telemetry", "receiver_id": "operations_center", "message_id": "substation-load-v1"}

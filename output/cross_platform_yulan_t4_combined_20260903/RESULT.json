@@ -1,0 +1,90 @@
+{
+  "schema_version": "cross-platform-yulan-t4-combined-v1",
+  "status": "complete_with_one_preserved_external_abort",
+  "ranking_eligible": false,
+  "systems": {
+    "gaworld": {
+      "reference_dir": "output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399",
+      "registered_cells": 18,
+      "completed_cells": 18,
+      "full_passes": 12,
+      "fixed_denominator_full_pass_rate": 0.6667
+    },
+    "yulan_onesim": {
+      "repository": "https://github.com/RUC-GSAI/YuLan-OneSim",
+      "commit": "9829d722b528b733f8c8317315637071fa23b206",
+      "execution_surface": "native EventBus with protocol-parity adapter and receiver receipts",
+      "registered_cells": 18,
+      "completed_cells": 17,
+      "externally_aborted_cells": 1,
+      "full_passes": 11,
+      "fixed_denominator_full_pass_rate": 0.6111,
+      "complete_request_response_pairs": 57,
+      "valid_structured_responses": 57,
+      "provider_errors_in_complete_pairs": 0
+    }
+  },
+  "frozen_conditions": {
+    "model": "GLM-5.2",
+    "provider": "paratera_glm",
+    "temperature": 0.0,
+    "thinking": "disabled",
+    "max_tokens_per_call": 256,
+    "prompt_protocol": "gaworld-benchmark-t4-model-v2",
+    "prompt_hash_multiset_equal_for_57_complete_pairs": true,
+    "scoring_logic": "model-pilot-t4-v2-scorer-v1"
+  },
+  "full_pass_by_track_variant": {
+    "gaworld": {
+      "full": {"control": 1.0, "intervention": 1.0},
+      "remove_bridge": {"control": 1.0, "intervention": 0.0},
+      "drop_bridge": {"control": 1.0, "intervention": 0.0}
+    },
+    "yulan_fixed_denominator": {
+      "full": {"control": 1.0, "intervention": 1.0},
+      "remove_bridge": {"control": 1.0, "intervention": 0.0},
+      "drop_bridge": {"control": 0.6667, "intervention": 0.0}
+    }
+  },
+  "mechanism_checks": {
+    "yulan_full_track_cells": 6,
+    "recipient_verified_complete_paths": 6,
+    "recipient_verified_target_receipts": 6,
+    "target_acceptances": 6,
+    "full_track_full_passes": 6,
+    "completed_cell_full_pass_vector_agreement_with_gaworld": "17/17",
+    "registered_cell_intention_to_test_vector_agreement_with_gaworld": "17/18"
+  },
+  "r0_observability": {
+    "deterministic_positive_control": true,
+    "bridge_drop_negative_control": true,
+    "unknown_target_not_delivered": true,
+    "native_export_preserves_tested_multihop_lineage": true,
+    "native_export_exposes_unknown_target_attempt": false,
+    "native_export_exposes_global_termination": false,
+    "native_export_sufficient_without_adapter_receipts": false
+  },
+  "interrupted_cell": {
+    "task_id": "t4v2_substation_load_001",
+    "variant": "control",
+    "track": "drop_bridge",
+    "cause": "external_execution_process_abort",
+    "replayed": false,
+    "fixed_denominator_score": 0,
+    "interpretation": "infrastructure attrition, not evidence of a YuLan mechanism failure"
+  },
+  "conclusion": {
+    "completed_cells": "No T4 functional difference was observed on the 17 completed matched cells.",
+    "strict_fixed_denominator": "YuLan is lower by one pass because the interrupted cell was retained as failure.",
+    "claim_limit": "This single-model single-seed protocol-parity pilot does not establish statistical equivalence or an overall platform ranking."
+  },
+  "evidence": {
+    "r0_result_sha256": "9737140d4180f42b7c7b780398765a7c3f73bc1a3d24c00774646477ab789de4",
+    "fixture_manifest_sha256": "27585ae40b533a87ec2d397fdd35597f0849321de751877268ddea9f61b9ce4d",
+    "initial_registration_sha256": "9aa43ab59c3fe4dbe05b80384a1949fada6d36a5f1b1acd258d6f1f704e2321e",
+    "resume_registration_sha256": "9a8a876625070364789e27ac574cec7355f9dd49559c6624fe6e068893cc43fe",
+    "resume_manifest_sha256": "4db08245b232ac3eaa65f9bdc5a409913988a9b69fefcdbc53c51349366a29d6",
+    "gaworld_reference_manifest_sha256": "6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80"
+  }
+}
+

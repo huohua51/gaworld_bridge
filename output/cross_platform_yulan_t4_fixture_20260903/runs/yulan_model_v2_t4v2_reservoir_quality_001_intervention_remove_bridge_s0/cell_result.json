@@ -1,0 +1,197 @@
+{
+  "workflow_id": "cross_platform_yulan_t4_v2",
+  "instance_id": "model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "network_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "execution_valid",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "bridge_intervention_effective",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "target_action_present",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "target_action_correct",
+      "layer": "R2",
+      "scorer": "registered_action_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t4_fixture_20260903\\runs\\yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0\\network_trace.jsonl",
+        "output\\cross_platform_yulan_t4_fixture_20260903\\runs\\yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0\\model_trace.jsonl",
+        "model-call:yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0:call-1",
+        "model-call:yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0:call-2",
+        "model-call:yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0:call-3",
+        "yulan-action-t4v2_reservoir_quality_001-intervention-remove_bridge"
+      ],
+      "detail": "got=keep_current expected=switch_to_backup_supply"
+    },
+    {
+      "criterion_id": "target_update_accepted",
+      "layer": "R3",
+      "scorer": "network_trace",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t4_fixture_20260903\\runs\\yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0\\network_trace.jsonl"
+      ],
+      "detail": ""
+    },
+    {
+      "criterion_id": "complete_propagation_path",
+      "layer": "R3",
+      "scorer": "network_trace",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": false,
+      "weight": 1.0,
+      "evidence_ids": [
+        "output\\cross_platform_yulan_t4_fixture_20260903\\runs\\yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0\\network_trace.jsonl"
+      ],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "bridge_message_not_delivered",
+    "events": [
+      "message_injected",
+      "edge_removed",
+      "message_delivered",
+      "message_accepted",
+      "action_submitted",
+      "platform_termination_requested"
+    ],
+    "path_to_target": [
+      "water_quality_sensor",
+      "treatment_control"
+    ],
+    "target_received": false,
+    "target_accepted": false,
+    "model_errors": []
+  },
+  "extra": {
+    "phase": "cross_platform_protocol_parity",
+    "provider": "offline-oracle-fixture",
+    "model_calls": 3,
+    "expected_action": "switch_to_backup_supply",
+    "action": {
+      "action_id": "yulan-action-t4v2_reservoir_quality_001-intervention-remove_bridge",
+      "node_id": "distribution_dispatch",
+      "action": "keep_current",
+      "evidence_message_id": null
+    },
+    "base_release": "benchmark-v1.1-rule",
+    "message_class": "registered_status_update",
+    "transport_rule": "always_forward_registered_update",
+    "run_context": {
+      "run_id": "model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0",
+      "task_id": "t4v2_reservoir_quality_001",
+      "task_family": "T4",
+      "mechanism_condition": "M3-M5-M8:remove_bridge:registered_transport_v2",
+      "variant": "intervention",
+      "seed": 0,
+      "track": "remove_bridge",
+      "model_version": "offline-oracle-fixture-v1",
+      "temperature": 0.0,
+      "budget": {
+        "model_calls": 3
+      },
+      "environment_version": "yulan-onesim-eventbus-9829d722",
+      "trace_version": "recipient-verified-network-and-model-jsonl-v1",
+      "scorer_version": "model-pilot-t4-v2-scorer-v1+yulan-evidence-v1",
+      "evidence_id": "bundle:model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    },
+    "first_error": "bridge_message_not_delivered",
+    "platform": "YuLan-OneSim",
+    "platform_evidence": {
+      "recipient_receipts": "output\\cross_platform_yulan_t4_fixture_20260903\\runs\\yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0\\onesim_receipts.jsonl",
+      "native_event_flow": "output\\cross_platform_yulan_t4_fixture_20260903\\runs\\yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0\\onesim_event_flow.json",
+      "native_event_attempts": 2,
+      "verified_receipts": 2
+    }
+  }
+}

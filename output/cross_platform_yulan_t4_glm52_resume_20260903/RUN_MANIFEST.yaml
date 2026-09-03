@@ -1,0 +1,31 @@
+experiment_id: CROSS-PLATFORM-YULAN-T4-v2-CONTINUATION
+preregistration_id: CROSS-PLATFORM-YULAN-T4-GLM52-RESUME-v1
+registration_sha256: 9a8a876625070364789e27ac574cec7355f9dd49559c6624fe6e068893cc43fe
+prior_partial_run:
+  result_dir: output/cross_platform_yulan_t4_glm52_20260903
+  completed_cells: 8
+  interrupted_cell:
+    task_id: t4v2_substation_load_001
+    variant: control
+    track: drop_bridge
+    disposition: failed_external_process_abort_no_retry
+  completed_model_calls: 27
+  interrupted_call_evidence: The corrupted tail prevents an exact response count.
+    Receiver evidence shows source forwarding completed and the intermediate stage
+    had begun. No call is replaced; the combined report treats the entire cell as
+    failed.
+yulan_commit: 9829d722b528b733f8c8317315637071fa23b206
+provider: paratera_glm
+model_version: GLM-5.2
+scorer_version: model-pilot-t4-v2-scorer-v1+yulan-evidence-v1
+live_model: true
+ranking_eligible: false
+completed_cells: 9
+budget:
+  max_calls: 30
+  calls_used: 30
+  calls_remaining: 0
+  prompt_chars: 36596
+  response_chars: 3669
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000

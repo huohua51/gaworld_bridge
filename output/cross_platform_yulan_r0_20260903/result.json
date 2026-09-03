@@ -1,0 +1,221 @@
+{
+  "schema_version": "yulan-onesim-r0-v1",
+  "model_calls": 0,
+  "cases": [
+    {
+      "case": "full_registered_path",
+      "event_bus_attempt_sequence": [
+        {
+          "timestamp": 1.0,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "to_agent_id": "sensor",
+          "event_id": "r0-start",
+          "from_agent_type": "ENV",
+          "to_agent_type": "Source"
+        },
+        {
+          "timestamp": 2.0,
+          "event_kind": "RegisteredUpdate",
+          "from_agent_id": "sensor",
+          "to_agent_id": "bridge",
+          "event_id": "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043",
+          "from_agent_type": "Source",
+          "to_agent_type": "Bridge"
+        },
+        {
+          "timestamp": 3.0,
+          "event_kind": "TargetAction",
+          "from_agent_id": "bridge",
+          "to_agent_id": "target",
+          "event_id": "dc1203e1-1268-46bc-8277-3441877207bc",
+          "from_agent_type": "Bridge",
+          "to_agent_type": "Target"
+        }
+      ],
+      "recipient_receipt_sequence": [
+        {
+          "agent_id": "sensor",
+          "event_id": "r0-start",
+          "event_kind": "StartEvent"
+        },
+        {
+          "agent_id": "bridge",
+          "event_id": "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043",
+          "event_kind": "RegisteredUpdate"
+        },
+        {
+          "agent_id": "target",
+          "event_id": "dc1203e1-1268-46bc-8277-3441877207bc",
+          "event_kind": "TargetAction"
+        }
+      ],
+      "recipient_verified_complete_path": true,
+      "recipient_verified_target_receipt": true,
+      "raw_parent_by_event_id": {
+        "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043": "r0-start",
+        "dc1203e1-1268-46bc-8277-3441877207bc": "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043"
+      },
+      "exported_parent_by_event_id": {
+        "r0-start": null,
+        "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043": "r0-start",
+        "dc1203e1-1268-46bc-8277-3441877207bc": "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043"
+      },
+      "exported_exact_parent_lineage": true,
+      "exported_global_termination_detectability": false,
+      "exported_flow_data": {
+        "flows": [
+          {
+            "id": "flow_r0-start",
+            "steps": [
+              {
+                "timestamp": 1.0,
+                "event_kind": "StartEvent",
+                "from_agent_id": "ENV",
+                "from_agent_type": "ENV",
+                "to_agent_id": "sensor",
+                "to_agent_type": "Source",
+                "event_id": "r0-start"
+              },
+              {
+                "timestamp": 2.0,
+                "event_kind": "RegisteredUpdate",
+                "from_agent_id": "sensor",
+                "from_agent_type": "Source",
+                "to_agent_id": "bridge",
+                "to_agent_type": "Bridge",
+                "event_id": "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043",
+                "parent_event_id": "r0-start"
+              },
+              {
+                "timestamp": 3.0,
+                "event_kind": "TargetAction",
+                "from_agent_id": "bridge",
+                "from_agent_type": "Bridge",
+                "to_agent_id": "target",
+                "to_agent_type": "Target",
+                "event_id": "dc1203e1-1268-46bc-8277-3441877207bc",
+                "parent_event_id": "5d815bdc-6ec0-4e70-aa30-3db6c2e8d043"
+              }
+            ]
+          }
+        ],
+        "timestamp": 1788420605.609199
+      }
+    },
+    {
+      "case": "adapter_drop_at_bridge",
+      "event_bus_attempt_sequence": [
+        {
+          "timestamp": 1.0,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "to_agent_id": "sensor",
+          "event_id": "r0-start",
+          "from_agent_type": "ENV",
+          "to_agent_type": "Source"
+        },
+        {
+          "timestamp": 2.0,
+          "event_kind": "RegisteredUpdate",
+          "from_agent_id": "sensor",
+          "to_agent_id": "bridge",
+          "event_id": "8fd9ef1b-955e-482c-8143-344aacae735e",
+          "from_agent_type": "Source",
+          "to_agent_type": "Bridge"
+        }
+      ],
+      "recipient_receipt_sequence": [
+        {
+          "agent_id": "sensor",
+          "event_id": "r0-start",
+          "event_kind": "StartEvent"
+        },
+        {
+          "agent_id": "bridge",
+          "event_id": "8fd9ef1b-955e-482c-8143-344aacae735e",
+          "event_kind": "RegisteredUpdate"
+        }
+      ],
+      "recipient_verified_complete_path": false,
+      "recipient_verified_target_receipt": false,
+      "raw_parent_by_event_id": {
+        "8fd9ef1b-955e-482c-8143-344aacae735e": "r0-start"
+      },
+      "exported_parent_by_event_id": {
+        "r0-start": null,
+        "8fd9ef1b-955e-482c-8143-344aacae735e": "r0-start"
+      },
+      "exported_exact_parent_lineage": true,
+      "exported_global_termination_detectability": false,
+      "exported_flow_data": {
+        "flows": [
+          {
+            "id": "flow_r0-start",
+            "steps": [
+              {
+                "timestamp": 1.0,
+                "event_kind": "StartEvent",
+                "from_agent_id": "ENV",
+                "from_agent_type": "ENV",
+                "to_agent_id": "sensor",
+                "to_agent_type": "Source",
+                "event_id": "r0-start"
+              },
+              {
+                "timestamp": 2.0,
+                "event_kind": "RegisteredUpdate",
+                "from_agent_id": "sensor",
+                "from_agent_type": "Source",
+                "to_agent_id": "bridge",
+                "to_agent_type": "Bridge",
+                "event_id": "8fd9ef1b-955e-482c-8143-344aacae735e",
+                "parent_event_id": "r0-start"
+              }
+            ]
+          }
+        ],
+        "timestamp": 1788420605.6106067
+      }
+    },
+    {
+      "case": "unknown_target",
+      "event_bus_attempt_sequence": [
+        {
+          "timestamp": 1.0,
+          "event_kind": "RegisteredUpdate",
+          "from_agent_id": "sensor",
+          "to_agent_id": "missing_target",
+          "event_id": "r0-unknown-target",
+          "from_agent_type": "Unknown",
+          "to_agent_type": "Unknown"
+        }
+      ],
+      "recipient_receipt_sequence": [],
+      "recipient_verified_target_receipt": false,
+      "attempt_present_in_internal_sequence": true,
+      "exported_unknown_target_detectability": false,
+      "omitted_single_event_flows": true,
+      "exported_global_termination_detectability": false,
+      "exported_flow_data": {
+        "flows": [],
+        "timestamp": 1788420605.6106067
+      }
+    }
+  ],
+  "checks": {
+    "positive_control_complete_path": true,
+    "negative_control_bridge_drop_blocks_target": true,
+    "negative_control_unknown_target_not_delivered": true,
+    "export_preserves_exact_multihop_lineage": true,
+    "export_exposes_unknown_target_attempt": false,
+    "export_exposes_global_termination": false
+  },
+  "calibration_pass": true,
+  "native_export_sufficient_for_gaworld_scoring": false,
+  "evidence": {
+    "registration": "F:\\proj\\gaworld_eval_bridge\\cross_platform\\yulan_onesim\\registration_r0.yaml",
+    "registration_sha256": "8f3f555390b0e651a381f33388aa963a47856919eb949b98e4179b1495efe812",
+    "runner_sha256": "b75eb757a83c70e207359bac3c2d62bc981b996f05e0a8c7165f3c80abd883cd"
+  }
+}

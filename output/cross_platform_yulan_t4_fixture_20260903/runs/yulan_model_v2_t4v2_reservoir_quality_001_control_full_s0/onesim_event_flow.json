@@ -1,0 +1,49 @@
+{
+  "flows": [
+    {
+      "id": "flow_491f98d1-a3bb-46db-8570-d575f8bd1009",
+      "steps": [
+        {
+          "timestamp": 1788420995.3541408,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "water_quality_sensor",
+          "to_agent_type": "Source",
+          "event_id": "491f98d1-a3bb-46db-8570-d575f8bd1009"
+        },
+        {
+          "timestamp": 1788420995.3556445,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "water_quality_sensor",
+          "from_agent_type": "Source",
+          "to_agent_id": "treatment_control",
+          "to_agent_type": "Bridge",
+          "event_id": "99f874fd-fae4-44e1-96c9-23e331b40c9a",
+          "parent_event_id": "491f98d1-a3bb-46db-8570-d575f8bd1009"
+        },
+        {
+          "timestamp": 1788420995.3586538,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "treatment_control",
+          "from_agent_type": "Bridge",
+          "to_agent_id": "municipal_gateway",
+          "to_agent_type": "Bridge",
+          "event_id": "3932d1e1-c4e3-4ee1-acae-5ee0ab35f2f6",
+          "parent_event_id": "99f874fd-fae4-44e1-96c9-23e331b40c9a"
+        },
+        {
+          "timestamp": 1788420995.3606527,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "municipal_gateway",
+          "from_agent_type": "Bridge",
+          "to_agent_id": "distribution_dispatch",
+          "to_agent_type": "Target",
+          "event_id": "1a97a9ee-4578-4b43-ad88-ddb9c948e6e3",
+          "parent_event_id": "3932d1e1-c4e3-4ee1-acae-5ee0ab35f2f6"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788420995.363669
+}

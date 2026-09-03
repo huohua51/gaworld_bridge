@@ -1,0 +1,29 @@
+{
+  "flows": [
+    {
+      "id": "flow_122e904c-0319-417e-9ec4-d6c88adc01eb",
+      "steps": [
+        {
+          "timestamp": 1788421619.3234038,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "water_quality_sensor",
+          "to_agent_type": "Source",
+          "event_id": "122e904c-0319-417e-9ec4-d6c88adc01eb"
+        },
+        {
+          "timestamp": 1788421651.7156043,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "water_quality_sensor",
+          "from_agent_type": "Source",
+          "to_agent_id": "treatment_control",
+          "to_agent_type": "Bridge",
+          "event_id": "e4489774-bbbf-4282-b607-b212d0af0a78",
+          "parent_event_id": "122e904c-0319-417e-9ec4-d6c88adc01eb"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788421668.483961
+}

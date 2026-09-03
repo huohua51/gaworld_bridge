@@ -1,0 +1,2 @@
+{"event_id": "fd6c3214-1cec-438d-8b62-7d897efe23fa", "event_kind": "StartEvent", "parent_event_id": null, "sender_id": "ENV", "receiver_id": "water_quality_sensor", "message_id": "reservoir-quality-v1"}
+{"event_id": "f4c75a2b-eac4-40de-af25-d2641449c380", "event_kind": "RegisteredStatusUpdate", "parent_event_id": "fd6c3214-1cec-438d-8b62-7d897efe23fa", "sender_id": "water_quality_sensor", "receiver_id": "treatment_control", "message_id": "reservoir-quality-v1"}

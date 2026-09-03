@@ -1,0 +1,49 @@
+experiment_id: CROSS-PLATFORM-YULAN-T4-v2
+preregistration_id: CROSS-PLATFORM-YULAN-T4-GLM52-v1
+registration_path: F:\proj\gaworld_eval_bridge\cross_platform\yulan_onesim\registration_t4_glm52.yaml
+registration_sha256: 9aa43ab59c3fe4dbe05b80384a1949fada6d36a5f1b1acd258d6f1f704e2321e
+yulan_repository: https://github.com/RUC-GSAI/YuLan-OneSim
+yulan_commit: 9829d722b528b733f8c8317315637071fa23b206
+comparison_reference:
+  result_dir: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
+  manifest_sha256: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+  full_pass_by_track:
+    full:
+      control: 1.0
+      intervention: 1.0
+    remove_bridge:
+      control: 1.0
+      intervention: 0.0
+    drop_bridge:
+      control: 1.0
+      intervention: 0.0
+phase: offline_fixture_calibration
+gate: offline_runner_calibration_pass
+provider: offline-oracle-fixture
+model_version: offline-oracle-fixture-v1
+live_model: false
+live_model_explicitly_allowed: false
+prompt_protocol: gaworld-benchmark-t4-model-v2
+scorer_version: model-pilot-t4-v2-scorer-v1+yulan-evidence-v1
+ranking_eligible: false
+n_cells: 18
+coverage: 1.0
+model_contract_rate: 1.0
+FullPassByTrack:
+  full:
+    control: 1.0
+    intervention: 1.0
+  remove_bridge:
+    control: 1.0
+    intervention: 0.0
+  drop_bridge:
+    control: 1.0
+    intervention: 0.0
+budget:
+  max_calls: 60
+  calls_used: 60
+  calls_remaining: 0
+  prompt_chars: 73046
+  response_chars: 3615
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000

@@ -1,0 +1,29 @@
+{
+  "flows": [
+    {
+      "id": "flow_3488e1c6-aac9-4d9d-9274-2288904bf6c8",
+      "steps": [
+        {
+          "timestamp": 1788420995.778901,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "air_quality_monitor",
+          "to_agent_type": "Source",
+          "event_id": "3488e1c6-aac9-4d9d-9274-2288904bf6c8"
+        },
+        {
+          "timestamp": 1788420995.7809043,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "air_quality_monitor",
+          "from_agent_type": "Source",
+          "to_agent_id": "campus_operations",
+          "to_agent_type": "Bridge",
+          "event_id": "5d837cf2-1a53-4f2f-9d42-2f716899a92a",
+          "parent_event_id": "3488e1c6-aac9-4d9d-9274-2288904bf6c8"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788420995.7866838
+}

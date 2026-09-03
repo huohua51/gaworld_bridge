@@ -1,0 +1,49 @@
+{
+  "flows": [
+    {
+      "id": "flow_e63020a3-dc54-4012-8aa3-0aa670134b3b",
+      "steps": [
+        {
+          "timestamp": 1788420995.7207007,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "air_quality_monitor",
+          "to_agent_type": "Source",
+          "event_id": "e63020a3-dc54-4012-8aa3-0aa670134b3b"
+        },
+        {
+          "timestamp": 1788420995.7217002,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "air_quality_monitor",
+          "from_agent_type": "Source",
+          "to_agent_id": "campus_operations",
+          "to_agent_type": "Bridge",
+          "event_id": "649dacc9-ba11-4698-ade4-b79562e2e16f",
+          "parent_event_id": "e63020a3-dc54-4012-8aa3-0aa670134b3b"
+        },
+        {
+          "timestamp": 1788420995.7240996,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "campus_operations",
+          "from_agent_type": "Bridge",
+          "to_agent_id": "district_gateway",
+          "to_agent_type": "Bridge",
+          "event_id": "9eb1acd1-8075-45e2-958d-10be5c5d1ded",
+          "parent_event_id": "649dacc9-ba11-4698-ade4-b79562e2e16f"
+        },
+        {
+          "timestamp": 1788420995.72672,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "district_gateway",
+          "from_agent_type": "Bridge",
+          "to_agent_id": "school_scheduler",
+          "to_agent_type": "Target",
+          "event_id": "65dcee2c-ff0b-4981-b22a-64626f0bdfe0",
+          "parent_event_id": "9eb1acd1-8075-45e2-958d-10be5c5d1ded"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788420995.7297158
+}

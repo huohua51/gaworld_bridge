@@ -1,0 +1,2 @@
+{"event_id": "e7950dc0-c9b7-4748-8430-ef566a9715b6", "event_kind": "StartEvent", "parent_event_id": null, "sender_id": "ENV", "receiver_id": "air_quality_monitor", "message_id": "school-air-quality-v1"}
+{"event_id": "40d21014-d2d0-433b-bdc4-8ca830e521e0", "event_kind": "RegisteredStatusUpdate", "parent_event_id": "e7950dc0-c9b7-4748-8430-ef566a9715b6", "sender_id": "air_quality_monitor", "receiver_id": "campus_operations", "message_id": "school-air-quality-v1"}

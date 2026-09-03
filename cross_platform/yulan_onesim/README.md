@@ -32,3 +32,16 @@ F:\proj\.venv_yulan_onesim_eval\Scripts\python.exe `
 必须从 `F:\proj\gaworld_eval_bridge` 运行。R0 通过只说明确定性正负对照正常，
 不代表真实模型已完成横评。只有确认原生导出足够，或适配器明确补充了接收回执，
 才进入冻结后的 GLM-5.2 小规模 T4 同面实验。
+
+## 当前进度（2026-09-03）
+
+- 官方仓库已锁定到 `9829d722b528b733f8c8317315637071fa23b206`；
+- R0 三个确定性用例完成，发现原生 flow 不足以独立证明未知目标失败和全局终止；
+- 18 格规则校准完成，60 个提示与 GAWorld 参考哈希一致；
+- GLM-5.2 横评完成 17 个完整格，57/57 响应结构有效；
+- 1 个格因外部进程中断按注册规则记为失败且未补跑；
+- 完整格 FullPass 向量与 GAWorld 一致 17/17；固定 18 格口径为 GAWorld 12/18、YuLan 11/18。
+
+详细论证见
+`output/cross_platform_yulan_t4_combined_20260903/REPORT.md`，原生场景的构念对应边界见
+`NATIVE_SCENARIO_COVERAGE.md`。

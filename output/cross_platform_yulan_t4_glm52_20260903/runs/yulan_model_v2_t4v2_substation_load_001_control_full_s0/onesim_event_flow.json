@@ -1,0 +1,49 @@
+{
+  "flows": [
+    {
+      "id": "flow_9f22f4df-24c9-4525-9e7f-b08a9432f90e",
+      "steps": [
+        {
+          "timestamp": 1788421715.7762785,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "grid_telemetry",
+          "to_agent_type": "Source",
+          "event_id": "9f22f4df-24c9-4525-9e7f-b08a9432f90e"
+        },
+        {
+          "timestamp": 1788421742.9608932,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "grid_telemetry",
+          "from_agent_type": "Source",
+          "to_agent_id": "operations_center",
+          "to_agent_type": "Bridge",
+          "event_id": "40cee801-f5f0-4a94-96af-e3fbff258bfc",
+          "parent_event_id": "9f22f4df-24c9-4525-9e7f-b08a9432f90e"
+        },
+        {
+          "timestamp": 1788421776.0846639,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "operations_center",
+          "from_agent_type": "Bridge",
+          "to_agent_id": "regional_gateway",
+          "to_agent_type": "Bridge",
+          "event_id": "083ceb60-6cca-49cf-ae86-45ea11504f8e",
+          "parent_event_id": "40cee801-f5f0-4a94-96af-e3fbff258bfc"
+        },
+        {
+          "timestamp": 1788421780.50687,
+          "event_kind": "RegisteredStatusUpdate",
+          "from_agent_id": "regional_gateway",
+          "from_agent_type": "Bridge",
+          "to_agent_id": "load_dispatch",
+          "to_agent_type": "Target",
+          "event_id": "42874acb-4819-4d0f-a1ee-9fb39aea0b7c",
+          "parent_event_id": "083ceb60-6cca-49cf-ae86-45ea11504f8e"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788421791.5343578
+}

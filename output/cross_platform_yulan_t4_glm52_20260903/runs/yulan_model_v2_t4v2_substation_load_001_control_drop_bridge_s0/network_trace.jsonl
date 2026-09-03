@@ -1,0 +1,2 @@
+{"seq": 1, "event": "message_injected", "message_id": "substation-load-v1", "source_id": "grid_telemetry", "state_version": "v1", "payload": {"action_required": false, "target_action": "keep_current", "fact": "substation_load_stable"}, "platform": "yulan_onesim_adapter"}
+{"seq": 2, "event": "message_delivered", "message_id": "substation-load-v1", "sender_id": "grid_telemetry", "receiver_id": "operations_center", "event_id": "2b055a55-d34b-4120-ba11-53eb525dfe8a", "parent_event_id": "6ae4ae05-d5ba-4e01-83dd-7c4935e509a5", "platform": "yulan_onesim", "receipt_verified": true}
