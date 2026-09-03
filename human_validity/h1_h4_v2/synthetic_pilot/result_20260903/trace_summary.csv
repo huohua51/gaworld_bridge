@@ -1,0 +1,17 @@
+﻿trace_id,source_kind,unit_id,surface_id,condition,family,r0_valid,completed,functional_pass,completion_seconds,role_1_turns,role_2_turns,role_3_turns,accepted_actions,role_boundary_violations,idempotent_retries,note
+SYN-H-P01-01,synthetic_human,SYN-P01,rev_campus_notice_001,A,revision,1,1,1,574,2,2,1,7,0,0,标准未变化；审核员明确保留，没有为制造互动而提出假修改。
+SYN-H-P01-02,synthetic_human,SYN-P01,verify_supply_arrival_001,B,verification,1,1,1,706,3,3,2,10,0,0,整理员第一次漏写报告时间，核验员提出具体问题后补齐。
+SYN-H-P02-01,synthetic_human,SYN-P02,handoff_event_materials_001,A,handoff,1,1,1,681,3,2,1,9,0,0,原执行者继续；协调员仍明确登记下一阶段，未重复第一阶段。
+SYN-H-P02-02,synthetic_human,SYN-P02,rev_volunteer_shift_001,B,revision,1,1,0,815,3,3,2,10,0,0,审核和采纳过程可追溯，但审核员漏掉负责人到场时间，最终保留一个旧值。
+SYN-H-P03-01,synthetic_human,SYN-P03,verify_room_access_001,A,verification,1,1,1,748,2,4,3,11,0,0,核验消息起初缺目录版本，协调员等待并请求补充后再行动。
+SYN-H-P03-02,synthetic_human,SYN-P03,handoff_appointment_queue_001,B,handoff,1,1,0,1034,3,3,4,12,0,0,接替者看到了检查点，却重新提交第一阶段；后续事实正确但全过程不通过。
+SYN-H-P04-01,synthetic_human,SYN-P04,handoff_appointment_queue_001,A,handoff,1,1,1,729,3,2,1,9,0,1,一次断线重试被幂等去重，业务事件没有重复计数。
+SYN-H-P04-02,synthetic_human,SYN-P04,rev_campus_notice_001,B,revision,1,1,1,762,3,3,2,10,0,0,发布人追问含糊的地点修改，审核员补充具体新地点后完整采纳。
+SYN-A-01,synthetic_agent,SYN-AGENT-RUN-01,rev_campus_notice_001,A,revision,1,1,1,104,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-02,synthetic_agent,SYN-AGENT-RUN-02,verify_supply_arrival_001,B,verification,1,1,1,126,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-03,synthetic_agent,SYN-AGENT-RUN-03,handoff_event_materials_001,A,handoff,1,1,1,91,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-04,synthetic_agent,SYN-AGENT-RUN-04,rev_volunteer_shift_001,B,revision,1,1,1,132,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-05,synthetic_agent,SYN-AGENT-RUN-05,verify_room_access_001,A,verification,1,1,1,119,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-06,synthetic_agent,SYN-AGENT-RUN-06,handoff_appointment_queue_001,B,handoff,1,1,0,108,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-07,synthetic_agent,SYN-AGENT-RUN-07,handoff_appointment_queue_001,A,handoff,1,1,1,88,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。
+SYN-A-08,synthetic_agent,SYN-AGENT-RUN-08,rev_campus_notice_001,B,revision,1,1,1,125,1,1,1,6,0,0,合成Agent占位轨迹；没有发生真实模型调用。

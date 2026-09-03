@@ -923,6 +923,8 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 四类候选Task Card及八个非代码任务表面已经形成草案，统一索引见[`human_validity/h1_h4_v2/tasks/INDEX.yaml`](human_validity/h1_h4_v2/tasks/INDEX.yaml)。每类任务已补充角色专属说明和功能/H4评分草案；统一H4编码见[`human_validity/h1_h4_v2/H4_CODEBOOK.yaml`](human_validity/h1_h4_v2/H4_CODEBOOK.yaml)，认知访谈与内部试采分别见[`COGNITIVE_INTERVIEW.md`](human_validity/h1_h4_v2/COGNITIVE_INTERVIEW.md)和[`INTERNAL_PILOT_RUNBOOK.md`](human_validity/h1_h4_v2/INTERNAL_PILOT_RUNBOOK.md)。这些材料均为尚未实际运行的草案；共同排序依赖C1或等价协调路径先通过Rule校准，所有卡仍为`formal_data_collection_allowed=false`。
 
+2026-09-03新增Wave 1合成试采演练：按4队、12个合成角色、8条Synthetic Human轨迹、8条匹配Synthetic Agent占位轨迹和96份合成盲评记录走通分母与报告逻辑。该演练没有真人、没有模型调用、没有API费用，也没有解除任何采集门；结果与复现脚本见[`human_validity/h1_h4_v2/synthetic_pilot/`](human_validity/h1_h4_v2/synthetic_pilot/)。
+
 ---
 
 ## **13. 开放问题与下一阶段**
@@ -1325,6 +1327,7 @@ GLM-5.2与gpt-5.4的两批密封复现作为当前结论，后续资源转向C1�
 | `human_validity/h1_h4_v2/PREREGISTRATION.yaml` | H1/H4-v2目标人群、任务、远程采集、样本与分析草案 |
 | `human_validity/h1_h4_v2/tasks/` | 四类非代码Task Card、八个任务表面及共同事件契约 |
 | `human_validity/h1_h4_v2/{COGNITIVE_INTERVIEW.md,INTERNAL_PILOT_RUNBOOK.md,PILOT_PLAN.yaml,H4_CODEBOOK.yaml}` | 认知访谈、内部试采、固定分配与H4事件编码草案 |
+| `human_validity/h1_h4_v2/synthetic_pilot/` | Wave 1合成试采生成器、机器可读结果与声明边界；不是真人或模型证据 |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |

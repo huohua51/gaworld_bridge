@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-HF-H1H4-02-SYNTHETIC-DRY-RUN",
+  "generated_for": "EXP-HF-H1H4-02",
+  "generated_date": "2026-09-03",
+  "synthetic": true,
+  "real_participants": 0,
+  "real_model_calls": 0,
+  "api_cost": 0,
+  "may_be_used_as_human_reference": false,
+  "may_be_used_for_model_comparison": false,
+  "formal_data_collection_allowed": false,
+  "seed": 20260903,
+  "wave_1": {
+    "synthetic_people": 12,
+    "synthetic_teams": 4,
+    "synthetic_human_traces": 8,
+    "synthetic_agent_placeholders": 8,
+    "synthetic_raters": 6,
+    "synthetic_rating_records": 96
+  },
+  "wave_2": {
+    "status": "not_simulated_dependency_blocked"
+  },
+  "generator": "../simulate.py",
+  "inputs": [
+    "../../PILOT_PLAN.yaml",
+    "../../PREREGISTRATION.yaml",
+    "../../H4_CODEBOOK.yaml",
+    "../../tasks/*/task_card.yaml",
+    "../../tasks/*/scoring.yaml"
+  ]
+}

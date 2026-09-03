@@ -1,0 +1,828 @@
+[
+  {
+    "trace_id": "SYN-H-P01-01",
+    "unit_id": "SYN-P01",
+    "surface_id": "rev_campus_notice_001",
+    "condition": "A",
+    "family": "revision",
+    "functional_pass": true,
+    "completion_seconds": 574,
+    "turns": [
+      2,
+      2,
+      1
+    ],
+    "accepted_actions": 7,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "authorized_fact_accuracy": [
+        5,
+        5
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "specific_challenge_rate": [
+        0,
+        0
+      ],
+      "valid_correction_adoption_rate": [
+        0,
+        0
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        7
+      ]
+    },
+    "note": "标准未变化；审核员明确保留，没有为制造互动而提出假修改。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P01-02",
+    "unit_id": "SYN-P01",
+    "surface_id": "verify_supply_arrival_001",
+    "condition": "B",
+    "family": "verification",
+    "functional_pass": true,
+    "completion_seconds": 706,
+    "turns": [
+      3,
+      3,
+      2
+    ],
+    "accepted_actions": 10,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "report_preservation": [
+        6,
+        6
+      ],
+      "verification_completeness": [
+        4,
+        4
+      ],
+      "verified_decision_accuracy": [
+        1,
+        1
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        1,
+        1
+      ],
+      "explicit_verification_rate": [
+        1,
+        1
+      ],
+      "verified_information_adoption_rate": [
+        1,
+        1
+      ],
+      "unverified_action_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        10
+      ]
+    },
+    "note": "整理员第一次漏写报告时间，核验员提出具体问题后补齐。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P02-01",
+    "unit_id": "SYN-P02",
+    "surface_id": "handoff_event_materials_001",
+    "condition": "A",
+    "family": "handoff",
+    "functional_pass": true,
+    "completion_seconds": 681,
+    "turns": [
+      3,
+      2,
+      1
+    ],
+    "accepted_actions": 9,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "stage_fact_accuracy": [
+        9,
+        9
+      ],
+      "checkpoint_completeness": [
+        4,
+        4
+      ],
+      "authorized_stage_completion": [
+        3,
+        3
+      ]
+    },
+    "h4": {
+      "handoff_completeness": [
+        4,
+        4
+      ],
+      "redundant_work_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        9
+      ],
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "recovery_time_seconds": 42
+    },
+    "note": "原执行者继续；协调员仍明确登记下一阶段，未重复第一阶段。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P02-02",
+    "unit_id": "SYN-P02",
+    "surface_id": "rev_volunteer_shift_001",
+    "condition": "B",
+    "family": "revision",
+    "functional_pass": false,
+    "completion_seconds": 815,
+    "turns": [
+      3,
+      3,
+      2
+    ],
+    "accepted_actions": 10,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "authorized_fact_accuracy": [
+        4,
+        5
+      ],
+      "material_difference_detection_rate": [
+        4,
+        5
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "specific_challenge_rate": [
+        4,
+        5
+      ],
+      "valid_correction_adoption_rate": [
+        4,
+        4
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        10
+      ]
+    },
+    "note": "审核和采纳过程可追溯，但审核员漏掉负责人到场时间，最终保留一个旧值。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P03-01",
+    "unit_id": "SYN-P03",
+    "surface_id": "verify_room_access_001",
+    "condition": "A",
+    "family": "verification",
+    "functional_pass": true,
+    "completion_seconds": 748,
+    "turns": [
+      2,
+      4,
+      3
+    ],
+    "accepted_actions": 11,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "report_preservation": [
+        6,
+        6
+      ],
+      "verification_completeness": [
+        4,
+        4
+      ],
+      "verified_decision_accuracy": [
+        1,
+        1
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        1,
+        1
+      ],
+      "explicit_verification_rate": [
+        1,
+        1
+      ],
+      "verified_information_adoption_rate": [
+        1,
+        1
+      ],
+      "unverified_action_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        11
+      ]
+    },
+    "note": "核验消息起初缺目录版本，协调员等待并请求补充后再行动。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P03-02",
+    "unit_id": "SYN-P03",
+    "surface_id": "handoff_appointment_queue_001",
+    "condition": "B",
+    "family": "handoff",
+    "functional_pass": false,
+    "completion_seconds": 1034,
+    "turns": [
+      3,
+      3,
+      4
+    ],
+    "accepted_actions": 12,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "stage_fact_accuracy": [
+        9,
+        9
+      ],
+      "checkpoint_completeness": [
+        4,
+        4
+      ],
+      "authorized_stage_completion": [
+        2,
+        3
+      ]
+    },
+    "h4": {
+      "handoff_completeness": [
+        4,
+        4
+      ],
+      "redundant_work_rate": [
+        1,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        12
+      ],
+      "clarification_request_rate": [
+        1,
+        1
+      ],
+      "recovery_time_seconds": 130
+    },
+    "note": "接替者看到了检查点，却重新提交第一阶段；后续事实正确但全过程不通过。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P04-01",
+    "unit_id": "SYN-P04",
+    "surface_id": "handoff_appointment_queue_001",
+    "condition": "A",
+    "family": "handoff",
+    "functional_pass": true,
+    "completion_seconds": 729,
+    "turns": [
+      3,
+      2,
+      1
+    ],
+    "accepted_actions": 9,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 1,
+    "functional": {
+      "stage_fact_accuracy": [
+        9,
+        9
+      ],
+      "checkpoint_completeness": [
+        4,
+        4
+      ],
+      "authorized_stage_completion": [
+        3,
+        3
+      ]
+    },
+    "h4": {
+      "handoff_completeness": [
+        4,
+        4
+      ],
+      "redundant_work_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        9
+      ],
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "recovery_time_seconds": 55
+    },
+    "note": "一次断线重试被幂等去重，业务事件没有重复计数。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-H-P04-02",
+    "unit_id": "SYN-P04",
+    "surface_id": "rev_campus_notice_001",
+    "condition": "B",
+    "family": "revision",
+    "functional_pass": true,
+    "completion_seconds": 762,
+    "turns": [
+      3,
+      3,
+      2
+    ],
+    "accepted_actions": 10,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "authorized_fact_accuracy": [
+        5,
+        5
+      ],
+      "material_difference_detection_rate": [
+        3,
+        3
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        1,
+        1
+      ],
+      "specific_challenge_rate": [
+        3,
+        3
+      ],
+      "valid_correction_adoption_rate": [
+        3,
+        3
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        10
+      ]
+    },
+    "note": "发布人追问含糊的地点修改，审核员补充具体新地点后完整采纳。",
+    "source_kind": "synthetic_human",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-01",
+    "unit_id": "SYN-AGENT-RUN-01",
+    "surface_id": "rev_campus_notice_001",
+    "condition": "A",
+    "family": "revision",
+    "functional_pass": true,
+    "completion_seconds": 104,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "authorized_fact_accuracy": [
+        5,
+        5
+      ],
+      "material_difference_detection_rate": [
+        0,
+        0
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "specific_challenge_rate": [
+        0,
+        0
+      ],
+      "valid_correction_adoption_rate": [
+        0,
+        0
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ]
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-02",
+    "unit_id": "SYN-AGENT-RUN-02",
+    "surface_id": "verify_supply_arrival_001",
+    "condition": "B",
+    "family": "verification",
+    "functional_pass": true,
+    "completion_seconds": 126,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "report_preservation": [
+        6,
+        6
+      ],
+      "verification_completeness": [
+        4,
+        4
+      ],
+      "verified_decision_accuracy": [
+        1,
+        1
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "explicit_verification_rate": [
+        1,
+        1
+      ],
+      "verified_information_adoption_rate": [
+        1,
+        1
+      ],
+      "unverified_action_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ]
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-03",
+    "unit_id": "SYN-AGENT-RUN-03",
+    "surface_id": "handoff_event_materials_001",
+    "condition": "A",
+    "family": "handoff",
+    "functional_pass": true,
+    "completion_seconds": 91,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "stage_fact_accuracy": [
+        9,
+        9
+      ],
+      "checkpoint_completeness": [
+        4,
+        4
+      ],
+      "authorized_stage_completion": [
+        3,
+        3
+      ]
+    },
+    "h4": {
+      "handoff_completeness": [
+        4,
+        4
+      ],
+      "redundant_work_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ],
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "recovery_time_seconds": 8
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-04",
+    "unit_id": "SYN-AGENT-RUN-04",
+    "surface_id": "rev_volunteer_shift_001",
+    "condition": "B",
+    "family": "revision",
+    "functional_pass": true,
+    "completion_seconds": 132,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "authorized_fact_accuracy": [
+        5,
+        5
+      ],
+      "material_difference_detection_rate": [
+        5,
+        5
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "specific_challenge_rate": [
+        5,
+        5
+      ],
+      "valid_correction_adoption_rate": [
+        5,
+        5
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ]
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-05",
+    "unit_id": "SYN-AGENT-RUN-05",
+    "surface_id": "verify_room_access_001",
+    "condition": "A",
+    "family": "verification",
+    "functional_pass": true,
+    "completion_seconds": 119,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "report_preservation": [
+        6,
+        6
+      ],
+      "verification_completeness": [
+        4,
+        4
+      ],
+      "verified_decision_accuracy": [
+        1,
+        1
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "explicit_verification_rate": [
+        1,
+        1
+      ],
+      "verified_information_adoption_rate": [
+        1,
+        1
+      ],
+      "unverified_action_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ]
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-06",
+    "unit_id": "SYN-AGENT-RUN-06",
+    "surface_id": "handoff_appointment_queue_001",
+    "condition": "B",
+    "family": "handoff",
+    "functional_pass": false,
+    "completion_seconds": 108,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "stage_fact_accuracy": [
+        9,
+        9
+      ],
+      "checkpoint_completeness": [
+        3,
+        4
+      ],
+      "authorized_stage_completion": [
+        2,
+        3
+      ]
+    },
+    "h4": {
+      "handoff_completeness": [
+        3,
+        4
+      ],
+      "redundant_work_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ],
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "recovery_time_seconds": 9
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-07",
+    "unit_id": "SYN-AGENT-RUN-07",
+    "surface_id": "handoff_appointment_queue_001",
+    "condition": "A",
+    "family": "handoff",
+    "functional_pass": true,
+    "completion_seconds": 88,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "stage_fact_accuracy": [
+        9,
+        9
+      ],
+      "checkpoint_completeness": [
+        4,
+        4
+      ],
+      "authorized_stage_completion": [
+        3,
+        3
+      ]
+    },
+    "h4": {
+      "handoff_completeness": [
+        4,
+        4
+      ],
+      "redundant_work_rate": [
+        0,
+        1
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ],
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "recovery_time_seconds": 7
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  },
+  {
+    "trace_id": "SYN-A-08",
+    "unit_id": "SYN-AGENT-RUN-08",
+    "surface_id": "rev_campus_notice_001",
+    "condition": "B",
+    "family": "revision",
+    "functional_pass": true,
+    "completion_seconds": 125,
+    "turns": [
+      1,
+      1,
+      1
+    ],
+    "accepted_actions": 6,
+    "role_boundary_violations": 0,
+    "idempotent_retries": 0,
+    "functional": {
+      "authorized_fact_accuracy": [
+        5,
+        5
+      ],
+      "material_difference_detection_rate": [
+        3,
+        3
+      ]
+    },
+    "h4": {
+      "clarification_request_rate": [
+        0,
+        0
+      ],
+      "specific_challenge_rate": [
+        3,
+        3
+      ],
+      "valid_correction_adoption_rate": [
+        3,
+        3
+      ],
+      "role_boundary_violation_rate": [
+        0,
+        6
+      ]
+    },
+    "note": "合成Agent占位轨迹；没有发生真实模型调用。",
+    "source_kind": "synthetic_agent",
+    "r0_valid": true
+  }
+]
