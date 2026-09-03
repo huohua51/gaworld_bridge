@@ -1,0 +1,55 @@
+{
+  "flows": [
+    {
+      "id": "flow_ef73fa9a-6f5d-4b40-af42-2ee33a02e6a3",
+      "steps": [
+        {
+          "timestamp": 1788441412.635211,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "policy-authority",
+          "to_agent_type": "PolicyAuthority",
+          "event_id": "ef73fa9a-6f5d-4b40-af42-2ee33a02e6a3"
+        },
+        {
+          "timestamp": 1788441412.635211,
+          "event_kind": "DecisionTick",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-cafe-1",
+          "to_agent_type": "Resident",
+          "event_id": "596a3b20-5c7c-4fdc-80d6-db67ed47ec47"
+        },
+        {
+          "timestamp": 1788441412.635211,
+          "event_kind": "DecisionTick",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-cafe-2",
+          "to_agent_type": "Resident",
+          "event_id": "04164025-cbbc-470f-87d2-3af053b81a0e"
+        },
+        {
+          "timestamp": 1788441412.635211,
+          "event_kind": "DecisionTick",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-office-1",
+          "to_agent_type": "Resident",
+          "event_id": "01e6d19b-4fc2-499f-b2f8-4ab1c6764ea1"
+        },
+        {
+          "timestamp": 1788441412.635211,
+          "event_kind": "DecisionTick",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-home-1",
+          "to_agent_type": "Resident",
+          "event_id": "decfbc5b-a7c5-4f05-9a96-0ae44619d862"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788441412.6424758
+}

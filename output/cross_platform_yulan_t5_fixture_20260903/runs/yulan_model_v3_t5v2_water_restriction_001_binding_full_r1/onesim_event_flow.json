@@ -1,0 +1,55 @@
+{
+  "flows": [
+    {
+      "id": "flow_974fcac4-db7f-4ae6-8b80-65acfe7eb1fe",
+      "steps": [
+        {
+          "timestamp": 1788441333.0467103,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "policy-authority",
+          "to_agent_type": "PolicyAuthority",
+          "event_id": "974fcac4-db7f-4ae6-8b80-65acfe7eb1fe"
+        },
+        {
+          "timestamp": 1788441333.0467103,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "water-high-1",
+          "to_agent_type": "Resident",
+          "event_id": "10b08d72-94de-4df4-827b-6316dab1fee2"
+        },
+        {
+          "timestamp": 1788441333.0467103,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "water-high-2",
+          "to_agent_type": "Resident",
+          "event_id": "394d0aba-fda1-4512-ad2d-d9eb615f8194"
+        },
+        {
+          "timestamp": 1788441333.0467103,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "water-efficient-1",
+          "to_agent_type": "Resident",
+          "event_id": "f2913e1d-70b8-42f3-960a-b6b88591f9d9"
+        },
+        {
+          "timestamp": 1788441333.0467103,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "water-apartment-1",
+          "to_agent_type": "Resident",
+          "event_id": "d654f919-2ba9-42e5-b3cf-96b46af19882"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788441333.048991
+}

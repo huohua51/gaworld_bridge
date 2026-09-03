@@ -1,0 +1,123 @@
+preregistration_id: CROSS-PLATFORM-YULAN-T5-GLM52-v2
+registered_on: '2026-09-03'
+phase: prospective_cross_platform_live_pilot
+live_execution_status: not_run
+ranking_eligible: false
+revision_history:
+  - revision: v1
+    live_calls: 0
+    outcome: offline_calibration_failed
+    evidence_dir: output/cross_platform_yulan_t5_fixture_20260903
+    finding: >-
+      YuLan's base Event constructor does not persist arbitrary payload kwargs;
+      binding and nonbinding PolicyNotice payloads were therefore absent.
+  - revision: v2
+    change_before_live_calls: >-
+      Added explicit PolicyNotice and DecisionTick Event subclasses and made
+      aggregate reporting robust to failed calibration cells.
+
+question: >-
+  With T5-v3 tasks, policy states, prompts, GLM-5.2 settings and frozen scoring
+  math held constant, does resident-specific eligibility-scope behavior observed
+  on GAWorld reproduce when policy notices are delivered by YuLan-OneSim's
+  single-process EventBus and verified at each receiver?
+
+systems:
+  yulan_onesim:
+    repository: https://github.com/RUC-GSAI/YuLan-OneSim
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+    execution_surface: native EventBus with benchmark policy-semantics adapter
+    source_tree_modified: false
+  gaworld_reference:
+    result_dir: output/model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6
+    repeat_id: 1
+    manifest_sha256: 8bd31241ddeaa93f57db002ae4e9a9518637f228812e10f06e19f9a60a784869
+    cells: 9
+    calls: 36
+    full_pass_by_policy_state: {absence: 1.0, binding: 1.0, nonbinding: 1.0}
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t5v2_water_restriction_001
+    - t5v2_heat_activity_001
+    - t5v2_organics_rule_001
+  policy_states: [absence, binding, nonbinding]
+  repeat_ids: [1]
+  track: full
+  residents_per_cell: 4
+  cells: 9
+  max_calls: 36
+  execution_order: task_then_policy_state_then_resident
+  prompt_protocol: gaworld-benchmark-t5-model-v3
+  scorer_version: model-pilot-t5-v3-scope-scorer-v1+yulan-evidence-v1
+
+frozen_inputs:
+  cross_platform/yulan_onesim/t5_adapter.py: 5ea0696f37cf8d5a950d673f3101035b4332db1d28e712d08a178a55f4e59904
+  cross_platform/yulan_onesim/t5_scorer.py: f4e961b1e68118f8b1ec0d8ee1139a871401a8ef88d7ed8eb55d3f9792553701
+  cross_platform/yulan_onesim/t5_run.py: aa80d81c49ac907c536d3f6dcfd09a8fc3f78db7547c5826e3174713fcbde9cd
+  model_pilot/t5_v3.py: 89d70001630903d9e6d695216234108673904212ee08dfcb2d895fdd361401e1
+  model_pilot/t5_v3_scorer.py: b8546d71ee76ada849e2955d3920853e677aefdfc5a00c569192dcc4cb2671f5
+  model_pilot/t5_v3_fixture.py: 7442467ac09b2cec3c250a8643e41deef15a3559953ffcf21f79d3db8897c393
+  exp_gm_t5_03/task_card.yaml: 8f0d7b8a3e37d28aec76711f9eb03148fc95028d069a142b4ad39c713e7332cb
+  exp_gm_t5_03/protocol.md: d81e7a64a835382d0dd352ca30e019685d643100cf6f8c6580b06180993ae81c
+  exp_gm_t5_03/loader.py: 4cf267de30702f5b99923792b257ae666d920d3821ef72f6ce41f0c723de5f77
+  exp_gm_t5_03/semantics.py: 400236ee2abd4e9b80b666bc0b5e373b9565e0e5607dfec5ee20eaa6f17d6403
+  exp_gm_t5_02/tasks.yaml: 8e9be0582ee082aae0e9b7f6da3958f04d73ddc60569cd5b49604f5b41293cd7
+  exp_gm_t5_02/loader.py: c782d08d6845daf94344ff2bbbad87531e6212e98834e8ebc4bd42da95a74917
+  output/model_pilot_live_t5_v3_repeats_glm52_e052783444814bafa16c26c21ebad5c6/REPEAT_MANIFEST.yaml: 8bd31241ddeaa93f57db002ae4e9a9518637f228812e10f06e19f9a60a784869
+
+registered_oracle:
+  full_pass_by_policy_state: {absence: 1.0, binding: 1.0, nonbinding: 1.0}
+  behavior_change_rate_by_policy_state: {absence: 0.0, binding: 0.5, nonbinding: 0.0}
+  binding_minus_absence: 0.5
+  binding_minus_nonbinding: 0.5
+  prompt_hash_exact_match_with_gaworld: 9/9
+  model_contract_rate: 1.0
+  scope_semantics_rate: 1.0
+  resident_directive_rate: 1.0
+
+analysis_rules:
+  platform_variable: >-
+    YuLan EventBus routes StartEvent plus four child PolicyNotice events for a
+    present policy, or four DecisionTick events for absence. Prompts are built
+    only inside each resident's add_event receiver method.
+  benchmark_owned_semantics: >-
+    Policy registration, activation, eligibility, candidate actions and state
+    effects are frozen benchmark rules, not claimed as native YuLan policy
+    features. GAWorld UrbanPolicyChannel is not imported or executed by the
+    YuLan adapter.
+  delivery: >-
+    A notice counts as perceived only inside the addressed resident's add_event
+    method. Internal EventBus attempts and native flow exports are retained but
+    are not sufficient delivery evidence.
+  paired_comparison: >-
+    Pair each YuLan cell with GAWorld repeat 1 by task and policy state. Require
+    exact per-resident prompt hashes before interpreting output differences.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+
+interpretation_limits:
+  - This 9-cell run is a repeat-1 protocol-parity pilot, not the original 18-cell repeatability study.
+  - It tests EventBus delivery plus benchmark-owned policy semantics, not all native YuLan scenarios.
+  - One model, one repeat and three reused development surfaces cannot establish a platform ranking.
+  - H1-H7 human validity dimensions are outside this functional experiment.
+  - Wall-clock latency is not compared because platforms were not randomized concurrently.
+
+stopping_rules:
+  - Run and pass all 9 deterministic fixture cells before live execution.
+  - Stop after all 9 live cells finish or before a call exceeding the 36-call budget.
+  - Do not retry or replace structurally valid, invalid, provider-failed or interrupted cells.
+
+planned_entrypoint: >-
+  python -m cross_platform.yulan_onesim.t5_run --provider paratera_glm
+  --allow-live-model --out output/cross_platform_yulan_t5_glm52_<run_id>
+credential_policy: PARATERA_API_KEY is read from the environment and never logged

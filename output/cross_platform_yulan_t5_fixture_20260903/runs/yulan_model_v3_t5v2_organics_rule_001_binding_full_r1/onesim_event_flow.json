@@ -1,0 +1,59 @@
+{
+  "flows": [
+    {
+      "id": "flow_81aad476-9495-4980-b7ae-d50a2a6eaa2d",
+      "steps": [
+        {
+          "timestamp": 1788441333.2173467,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "policy-authority",
+          "to_agent_type": "PolicyAuthority",
+          "event_id": "81aad476-9495-4980-b7ae-d50a2a6eaa2d"
+        },
+        {
+          "timestamp": 1788441333.2191439,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-cafe-1",
+          "to_agent_type": "Resident",
+          "event_id": "664daf6c-d1a1-4920-b9d4-f2490c870b27",
+          "parent_event_id": "81aad476-9495-4980-b7ae-d50a2a6eaa2d"
+        },
+        {
+          "timestamp": 1788441333.2191439,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-cafe-2",
+          "to_agent_type": "Resident",
+          "event_id": "3c6cd64e-6048-4f9f-a15c-c6bdbc712339",
+          "parent_event_id": "81aad476-9495-4980-b7ae-d50a2a6eaa2d"
+        },
+        {
+          "timestamp": 1788441333.2191439,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-office-1",
+          "to_agent_type": "Resident",
+          "event_id": "7730d462-46e2-4495-bd36-80410e815573",
+          "parent_event_id": "81aad476-9495-4980-b7ae-d50a2a6eaa2d"
+        },
+        {
+          "timestamp": 1788441333.2191439,
+          "event_kind": "PolicyNotice",
+          "from_agent_id": "policy-authority",
+          "from_agent_type": "PolicyAuthority",
+          "to_agent_id": "waste-home-1",
+          "to_agent_type": "Resident",
+          "event_id": "1dbfc51a-8165-40a8-95df-14c8aa413d76",
+          "parent_event_id": "81aad476-9495-4980-b7ae-d50a2a6eaa2d"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788441333.2191439
+}
