@@ -1,0 +1,19 @@
+experiment_id: CROSS-PLATFORM-T3-NONCODE-REVIEW-v1
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-GLM52-v1
+status: complete
+completed_on: '2026-09-03'
+registration_commit: 62ad57ab46ebee65279a6469302bc9510fceb4e1
+registration_sha256: 2ac3ab56ac51e7d15ea809b72222816c173878660b2875b557f3764ab4f11446
+logical_calls: 36
+cells: 12
+measurement_valid: 12
+strict_responses: 22
+full_pass: {GAWorld: '0/6', YuLan-OneSim: '1/6'}
+manual_retries_or_replacements: 0
+observed_provider_transport_reconnects: 2
+transport_reconnect_note: >-
+  Two TLS EOF warnings triggered GAWorld provider-internal retry. They did not
+  create additional RecordedModelRunner logical call IDs, and the current
+  output bundle cannot independently reconstruct physical HTTP attempt count.
+primary_scores_changed_by_posthoc_diagnostic: false
+ranking_eligible: false

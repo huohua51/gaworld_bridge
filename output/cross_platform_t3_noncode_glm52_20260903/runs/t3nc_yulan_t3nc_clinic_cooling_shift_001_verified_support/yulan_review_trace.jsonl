@@ -1,0 +1,5 @@
+{"seq": 1, "event": "proposal_submitted", "event_id": "f11c669f-073c-4212-999a-4a8e776bf436", "proposal": {}, "sender_id": "proposer", "receiver_id": "reviewer"}
+{"seq": 2, "event": "private_evidence_read_by_reviewer", "reader_id": "reviewer", "evidence_ids": ["clinic-alert-check", "clinic-staff-roster", "clinic-room-certificate"]}
+{"seq": 3, "event": "review_unavailable", "event_id": "56de7082-ebb1-4aa6-bc5b-14b5c43531bc", "review": null, "sender_id": "reviewer", "receiver_id": "executor"}
+{"seq": 4, "event": "review_missing", "review_id": null, "reader_id": "executor"}
+{"seq": 5, "event": "final_state_submitted", "event_id": "ada741f5-4aea-4542-8efa-e81f08d444c4", "writer_id": "executor", "executor_output": {"adopted": false, "disposition": "kept_without_review", "final_state": {"closing_hour": 18, "opening_hour": 14, "service_capacity": 40}, "reason_code": "no_delivered_review", "review_id": null}}

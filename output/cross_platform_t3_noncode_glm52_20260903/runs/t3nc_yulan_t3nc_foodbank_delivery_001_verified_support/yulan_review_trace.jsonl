@@ -1,0 +1,5 @@
+{"seq": 1, "event": "proposal_submitted", "event_id": "bb50bfd5-e761-4a27-8908-41fb46db2392", "proposal": {"proposal_id": "foodbank-delivery-plan-v2", "proposed_state": {"cold_boxes_loaded": 30, "delivery_vans": 2, "households_served": 90}, "reason_code": "registered_candidate_submitted"}, "sender_id": "proposer", "receiver_id": "reviewer"}
+{"seq": 2, "event": "private_evidence_read_by_reviewer", "reader_id": "reviewer", "evidence_ids": ["foodbank-driver-check", "foodbank-route-check", "foodbank-coldbox-count"]}
+{"seq": 3, "event": "review_unavailable", "event_id": "6f650c7f-5bce-4234-ae30-9bfb6cdc36c0", "review": null, "sender_id": "reviewer", "receiver_id": "executor"}
+{"seq": 4, "event": "review_missing", "review_id": null, "reader_id": "executor"}
+{"seq": 5, "event": "final_state_submitted", "event_id": "1e7221df-f5d5-4740-a7c2-cff41f50d38d", "writer_id": "executor", "executor_output": {"adopted": false, "disposition": "kept_without_review", "final_state": {"cold_boxes_loaded": 20, "delivery_vans": 1, "households_served": 60}, "reason_code": "no_delivered_review", "review_id": null}}

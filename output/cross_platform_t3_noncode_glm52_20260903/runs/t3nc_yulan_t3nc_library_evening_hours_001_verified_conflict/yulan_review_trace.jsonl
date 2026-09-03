@@ -1,0 +1,5 @@
+{"seq": 1, "event": "proposal_submitted", "event_id": "5dcc4b8f-d03e-46ac-980c-7fed922ddead", "proposal": {"proposal_id": "library-evening-plan-v2", "proposed_state": {"closing_hour": 22, "reservable_rooms": 6, "supervisors_on_duty": 2}, "reason_code": "registered_candidate_submitted"}, "sender_id": "proposer", "receiver_id": "reviewer"}
+{"seq": 2, "event": "private_evidence_read_by_reviewer", "reader_id": "reviewer", "evidence_ids": ["library-security-check", "library-supervisor-roster", "library-room-approval"]}
+{"seq": 3, "event": "review_unavailable", "event_id": "25de284b-c9db-491c-a1ee-390569c81547", "review": null, "sender_id": "reviewer", "receiver_id": "executor"}
+{"seq": 4, "event": "review_missing", "review_id": null, "reader_id": "executor"}
+{"seq": 5, "event": "final_state_submitted", "event_id": "9530830c-450b-41f3-a17d-21fc8be49232", "writer_id": "executor", "executor_output": {"adopted": false, "disposition": "kept_without_review", "final_state": {"closing_hour": 20, "reservable_rooms": 4, "supervisors_on_duty": 1}, "reason_code": "no_delivered_review", "review_id": null}}

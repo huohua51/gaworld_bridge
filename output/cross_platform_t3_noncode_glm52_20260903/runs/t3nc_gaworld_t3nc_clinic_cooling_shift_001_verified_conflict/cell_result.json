@@ -1,0 +1,306 @@
+{
+  "workflow_id": "cross_platform_t3_noncode_review_v1",
+  "instance_id": "t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "artifact_gate_failed",
+  "gates": [
+    {
+      "gate_id": "platform_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "rows=8;ok"
+    },
+    {
+      "gate_id": "model_trace_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "json_parse_error:Expecting value"
+    },
+    {
+      "gate_id": "proposal_and_review_delivered",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "proposal=True;review=False;payload_exact=False"
+    },
+    {
+      "gate_id": "review_adopted_and_final_submitted",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "adopted=False;submitted=True"
+    },
+    {
+      "gate_id": "private_evidence_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "reviewer-only prompt field and value visibility"
+    },
+    {
+      "gate_id": "role_boundaries_enforced",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "private_readers=['reviewer'];state_writers=['executor']"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "proposal_fidelity",
+      "layer": "R2",
+      "scorer": "exact_registered_candidate_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'}"
+    },
+    {
+      "criterion_id": "independent_review_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_review_match",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'reject', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': ['room-capacity'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+    },
+    {
+      "criterion_id": "executor_review_compliance",
+      "layer": "R2",
+      "scorer": "exact_delivered_review_transition",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+    },
+    {
+      "criterion_id": "adoption_effect_correct",
+      "layer": "R2",
+      "scorer": "registered_support_conflict_effect",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+    },
+    {
+      "criterion_id": "final_state_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_final_state_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40};actual={'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}"
+    }
+  ],
+  "process_profile": {
+    "proposal": {
+      "proposal_id": "clinic-cooling-plan-v2",
+      "proposed_state": {
+        "closing_hour": 18,
+        "opening_hour": 12,
+        "service_capacity": 55
+      },
+      "reason_code": "registered_candidate_submitted"
+    },
+    "review": {},
+    "delivered_review": null,
+    "executor_output": {
+      "adopted": false,
+      "disposition": "kept_without_review",
+      "final_state": {
+        "closing_hour": 18,
+        "opening_hour": 14,
+        "service_capacity": 40
+      },
+      "reason_code": "no_delivered_review",
+      "review_id": null
+    },
+    "expected_review": {
+      "proposal_id": "clinic-cooling-plan-v2",
+      "decision": "reject",
+      "evidence_ids": [
+        "clinic-alert-check",
+        "clinic-staff-roster",
+        "clinic-room-certificate"
+      ],
+      "failing_criteria": [
+        "room-capacity"
+      ],
+      "reason_code": "hard_constraint_conflict"
+    },
+    "expected_executor": {
+      "adopted": false,
+      "final_state": {
+        "opening_hour": 14,
+        "closing_hour": 18,
+        "service_capacity": 40
+      },
+      "disposition": "kept_after_reject",
+      "review_id": "t3nc_clinic_cooling_shift_001_r1",
+      "reason_code": "rejected_review_preserved_baseline"
+    },
+    "first_error": "model_response_invalid"
+  },
+  "extra": {
+    "platform": "GAWorld",
+    "variant": "verified_conflict",
+    "task_title": "社区降温点延长开放方案",
+    "prompt_sha256_by_role": {
+      "proposer": "f694f4586220443e40dc786fa359b7ab641108108eb74d9455a043e003af3b11",
+      "reviewer": "234ed61a65edc35a7fde8576e340d7ed8874098bc33b9bd152e5363fd38da33e",
+      "executor": "007f03dc27748894262c23d64a75be4709a4fcdbef8dde2479219f7c5a748f6b"
+    },
+    "role_outputs": {
+      "proposer": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "proposed_state": {
+          "closing_hour": 18,
+          "opening_hour": 12,
+          "service_capacity": 55
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "reviewer": {},
+      "executor": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 18,
+          "opening_hour": 14,
+          "service_capacity": 40
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      }
+    },
+    "model_evidence_ids": [
+      "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+      "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+      "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+    ],
+    "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict\\gaworld_review_trace.jsonl",
+    "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict\\model_trace.jsonl",
+    "platform_evidence": {
+      "denials": [
+        {
+          "ok": false,
+          "reason": "unauthorized_artifact_write",
+          "task_id": "t3nc_clinic_cooling_shift_001",
+          "role": "reviewer",
+          "kind": "final",
+          "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict\\unauthorized_reviewer_state.json"
+        },
+        {
+          "ok": false,
+          "reason": "unauthorized_private_read",
+          "task_id": "t3nc_clinic_cooling_shift_001",
+          "role": "executor"
+        }
+      ]
+    },
+    "first_error": "model_response_invalid",
+    "run_context": {
+      "run_id": "t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict",
+      "task_id": "t3nc_clinic_cooling_shift_001",
+      "task_family": "T3",
+      "mechanism_condition": "GAWorld",
+      "variant": "verified_conflict",
+      "seed": 0,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "calls_per_cell": 3
+      },
+      "environment_version": "gaworld-review-channel-v2",
+      "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+      "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+      "evidence_id": "bundle:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

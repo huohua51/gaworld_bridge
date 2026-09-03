@@ -1,0 +1,5 @@
+{"seq": 1, "event": "proposal_submitted", "event_id": "04cac5ac-b2c8-40d2-b449-29cec1ba704b", "proposal": {}, "sender_id": "proposer", "receiver_id": "reviewer"}
+{"seq": 2, "event": "private_evidence_read_by_reviewer", "reader_id": "reviewer", "evidence_ids": ["library-security-check", "library-supervisor-roster", "library-room-approval"]}
+{"seq": 3, "event": "review_unavailable", "event_id": "9747b5dc-109a-44c8-bafb-5a09775dfc24", "review": null, "sender_id": "reviewer", "receiver_id": "executor"}
+{"seq": 4, "event": "review_missing", "review_id": null, "reader_id": "executor"}
+{"seq": 5, "event": "final_state_submitted", "event_id": "790c55d9-4ae6-47af-945c-f71f3ea2b86e", "writer_id": "executor", "executor_output": {}}

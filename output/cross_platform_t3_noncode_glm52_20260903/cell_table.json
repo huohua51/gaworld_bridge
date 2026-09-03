@@ -1,0 +1,3587 @@
+[
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=8;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'approve', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': True, 'final_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'disposition': 'adopted', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55};actual={'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "proposed_state": {
+          "closing_hour": 18,
+          "opening_hour": 12,
+          "service_capacity": 55
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 18,
+          "opening_hour": 14,
+          "service_capacity": 40
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "expected_executor": {
+        "adopted": true,
+        "final_state": {
+          "opening_hour": 12,
+          "closing_hour": 18,
+          "service_capacity": 55
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "GAWorld",
+      "variant": "verified_support",
+      "task_title": "社区降温点延长开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "f694f4586220443e40dc786fa359b7ab641108108eb74d9455a043e003af3b11",
+        "reviewer": "f4d0762a89728ee0b875c198a00dcee476e59eae660cd9a0f576789a3ada12b2",
+        "executor": "007f03dc27748894262c23d64a75be4709a4fcdbef8dde2479219f7c5a748f6b"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "clinic-cooling-plan-v2",
+          "proposed_state": {
+            "closing_hour": 18,
+            "opening_hour": 12,
+            "service_capacity": 55
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 18,
+            "opening_hour": 14,
+            "service_capacity": 40
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support\\gaworld_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support\\model_trace.jsonl",
+      "platform_evidence": {
+        "denials": [
+          {
+            "ok": false,
+            "reason": "unauthorized_artifact_write",
+            "task_id": "t3nc_clinic_cooling_shift_001",
+            "role": "reviewer",
+            "kind": "final",
+            "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support\\unauthorized_reviewer_state.json"
+          },
+          {
+            "ok": false,
+            "reason": "unauthorized_private_read",
+            "task_id": "t3nc_clinic_cooling_shift_001",
+            "role": "executor"
+          }
+        ]
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support",
+        "task_id": "t3nc_clinic_cooling_shift_001",
+        "task_family": "T3",
+        "mechanism_condition": "GAWorld",
+        "variant": "verified_support",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "gaworld-review-channel-v2",
+        "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_support"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=5;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value;json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'};actual={}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'approve', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': True, 'final_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'disposition': 'adopted', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+        ],
+        "detail": "expected={'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55};actual={'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {},
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 18,
+          "opening_hour": 14,
+          "service_capacity": 40
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "expected_executor": {
+        "adopted": true,
+        "final_state": {
+          "opening_hour": 12,
+          "closing_hour": 18,
+          "service_capacity": 55
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "YuLan-OneSim",
+      "variant": "verified_support",
+      "task_title": "社区降温点延长开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "f694f4586220443e40dc786fa359b7ab641108108eb74d9455a043e003af3b11",
+        "reviewer": "64196b5b824183fd788b55af386d9728c83f49c766f0182ef2d73af24a7022e0",
+        "executor": "40e622c5b0b300df5ff9a9ce2fdcd4c251d2cee5f614f364e1d5c47fe0328ecc"
+      },
+      "role_outputs": {
+        "proposer": {},
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 18,
+            "opening_hour": 14,
+            "service_capacity": 40
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\yulan_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\model_trace.jsonl",
+      "platform_evidence": {
+        "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\onesim_receipts.jsonl",
+        "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\onesim_event_flow.json",
+        "denials": [],
+        "verified_receipts": 4,
+        "native_event_attempts": 4,
+        "native_flow_count": 1
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support",
+        "task_id": "t3nc_clinic_cooling_shift_001",
+        "task_family": "T3",
+        "mechanism_condition": "YuLan-OneSim",
+        "variant": "verified_support",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "yulan-onesim-eventbus-9829d722",
+        "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=8;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'reject', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': ['room-capacity'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40};actual={'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "proposed_state": {
+          "closing_hour": 18,
+          "opening_hour": 12,
+          "service_capacity": 55
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 18,
+          "opening_hour": 14,
+          "service_capacity": 40
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [
+          "room-capacity"
+        ],
+        "reason_code": "hard_constraint_conflict"
+      },
+      "expected_executor": {
+        "adopted": false,
+        "final_state": {
+          "opening_hour": 14,
+          "closing_hour": 18,
+          "service_capacity": 40
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "GAWorld",
+      "variant": "verified_conflict",
+      "task_title": "社区降温点延长开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "f694f4586220443e40dc786fa359b7ab641108108eb74d9455a043e003af3b11",
+        "reviewer": "234ed61a65edc35a7fde8576e340d7ed8874098bc33b9bd152e5363fd38da33e",
+        "executor": "007f03dc27748894262c23d64a75be4709a4fcdbef8dde2479219f7c5a748f6b"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "clinic-cooling-plan-v2",
+          "proposed_state": {
+            "closing_hour": 18,
+            "opening_hour": 12,
+            "service_capacity": 55
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 18,
+            "opening_hour": 14,
+            "service_capacity": 40
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict\\gaworld_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict\\model_trace.jsonl",
+      "platform_evidence": {
+        "denials": [
+          {
+            "ok": false,
+            "reason": "unauthorized_artifact_write",
+            "task_id": "t3nc_clinic_cooling_shift_001",
+            "role": "reviewer",
+            "kind": "final",
+            "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict\\unauthorized_reviewer_state.json"
+          },
+          {
+            "ok": false,
+            "reason": "unauthorized_private_read",
+            "task_id": "t3nc_clinic_cooling_shift_001",
+            "role": "executor"
+          }
+        ]
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict",
+        "task_id": "t3nc_clinic_cooling_shift_001",
+        "task_family": "T3",
+        "mechanism_condition": "GAWorld",
+        "variant": "verified_conflict",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "gaworld-review-channel-v2",
+        "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_gaworld_t3nc_clinic_cooling_shift_001_verified_conflict"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=5;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'reject', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': ['room-capacity'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'opening_hour': 14, 'closing_hour': 18, 'service_capacity': 40};actual={'closing_hour': 18, 'opening_hour': 14, 'service_capacity': 40}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "proposed_state": {
+          "closing_hour": 18,
+          "opening_hour": 12,
+          "service_capacity": 55
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 18,
+          "opening_hour": 14,
+          "service_capacity": 40
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [
+          "room-capacity"
+        ],
+        "reason_code": "hard_constraint_conflict"
+      },
+      "expected_executor": {
+        "adopted": false,
+        "final_state": {
+          "opening_hour": 14,
+          "closing_hour": 18,
+          "service_capacity": 40
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "YuLan-OneSim",
+      "variant": "verified_conflict",
+      "task_title": "社区降温点延长开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "f694f4586220443e40dc786fa359b7ab641108108eb74d9455a043e003af3b11",
+        "reviewer": "234ed61a65edc35a7fde8576e340d7ed8874098bc33b9bd152e5363fd38da33e",
+        "executor": "007f03dc27748894262c23d64a75be4709a4fcdbef8dde2479219f7c5a748f6b"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "clinic-cooling-plan-v2",
+          "proposed_state": {
+            "closing_hour": 18,
+            "opening_hour": 12,
+            "service_capacity": 55
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 18,
+            "opening_hour": 14,
+            "service_capacity": 40
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict\\yulan_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict\\model_trace.jsonl",
+      "platform_evidence": {
+        "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict\\onesim_receipts.jsonl",
+        "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict\\onesim_event_flow.json",
+        "denials": [],
+        "verified_receipts": 4,
+        "native_event_attempts": 4,
+        "native_flow_count": 1
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict",
+        "task_id": "t3nc_clinic_cooling_shift_001",
+        "task_family": "T3",
+        "mechanism_condition": "YuLan-OneSim",
+        "variant": "verified_conflict",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "yulan-onesim-eventbus-9829d722",
+        "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_conflict"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_gaworld_t3nc_library_evening_hours_001_verified_support",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=8;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'decision': 'approve', 'evidence_ids': ['library-security-check', 'library-supervisor-roster', 'library-room-approval'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': True, 'final_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'disposition': 'adopted', 'review_id': 't3nc_library_evening_hours_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2};actual={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "library-evening-plan-v2",
+        "proposed_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "library-evening-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "expected_executor": {
+        "adopted": true,
+        "final_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "GAWorld",
+      "variant": "verified_support",
+      "task_title": "图书馆延时开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "84b48fa75ca58160fa74775f9e20d53b4fd93d767334b2be6a129357495d7561",
+        "reviewer": "b606445e3100d489d5fd925ff950a2590a2c8bb9d060174a19375d8b3128088f",
+        "executor": "db35b8b7c47e880a43ac58e6a2901fd55bbb93e5426414537875f0afc81f7e69"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "library-evening-plan-v2",
+          "proposed_state": {
+            "closing_hour": 22,
+            "reservable_rooms": 6,
+            "supervisors_on_duty": 2
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 20,
+            "reservable_rooms": 4,
+            "supervisors_on_duty": 1
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_library_evening_hours_001_verified_support\\gaworld_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_library_evening_hours_001_verified_support\\model_trace.jsonl",
+      "platform_evidence": {
+        "denials": [
+          {
+            "ok": false,
+            "reason": "unauthorized_artifact_write",
+            "task_id": "t3nc_library_evening_hours_001",
+            "role": "reviewer",
+            "kind": "final",
+            "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_library_evening_hours_001_verified_support\\unauthorized_reviewer_state.json"
+          },
+          {
+            "ok": false,
+            "reason": "unauthorized_private_read",
+            "task_id": "t3nc_library_evening_hours_001",
+            "role": "executor"
+          }
+        ]
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_gaworld_t3nc_library_evening_hours_001_verified_support",
+        "task_id": "t3nc_library_evening_hours_001",
+        "task_family": "T3",
+        "mechanism_condition": "GAWorld",
+        "variant": "verified_support",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "gaworld-review-channel-v2",
+        "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_gaworld_t3nc_library_evening_hours_001_verified_support"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_yulan_t3nc_library_evening_hours_001_verified_support",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=5;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value;json_parse_error:Expecting value;json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'};actual={}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'decision': 'approve', 'evidence_ids': ['library-security-check', 'library-supervisor-roster', 'library-room-approval'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': True, 'final_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'disposition': 'adopted', 'review_id': 't3nc_library_evening_hours_001_r1', 'reason_code': 'approved_review_applied'};actual={}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-3"
+        ],
+        "detail": "expected={'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2};actual={}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {},
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {},
+      "expected_review": {
+        "proposal_id": "library-evening-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "expected_executor": {
+        "adopted": true,
+        "final_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "YuLan-OneSim",
+      "variant": "verified_support",
+      "task_title": "图书馆延时开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "84b48fa75ca58160fa74775f9e20d53b4fd93d767334b2be6a129357495d7561",
+        "reviewer": "66e9c5cf5ef8ed1efd5f2b7d1d5abe2f8fc7eefc8a5f8e59966b1c52a0cefe98",
+        "executor": "a46e7b752030f005c916f1378ddfabfc75230b1bf49a2ad5254d4a5853ccb972"
+      },
+      "role_outputs": {
+        "proposer": {},
+        "reviewer": {},
+        "executor": {}
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_support:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_support\\yulan_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_support\\model_trace.jsonl",
+      "platform_evidence": {
+        "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_support\\onesim_receipts.jsonl",
+        "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_support\\onesim_event_flow.json",
+        "denials": [],
+        "verified_receipts": 4,
+        "native_event_attempts": 4,
+        "native_flow_count": 1
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_yulan_t3nc_library_evening_hours_001_verified_support",
+        "task_id": "t3nc_library_evening_hours_001",
+        "task_family": "T3",
+        "mechanism_condition": "YuLan-OneSim",
+        "variant": "verified_support",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "yulan-onesim-eventbus-9829d722",
+        "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_yulan_t3nc_library_evening_hours_001_verified_support"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=8;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'decision': 'reject', 'evidence_ids': ['library-security-check', 'library-supervisor-roster', 'library-room-approval'], 'failing_criteria': ['security-coverage'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_library_evening_hours_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1};actual={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "library-evening-plan-v2",
+        "proposed_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "library-evening-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [
+          "security-coverage"
+        ],
+        "reason_code": "hard_constraint_conflict"
+      },
+      "expected_executor": {
+        "adopted": false,
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "GAWorld",
+      "variant": "verified_conflict",
+      "task_title": "图书馆延时开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "84b48fa75ca58160fa74775f9e20d53b4fd93d767334b2be6a129357495d7561",
+        "reviewer": "70e33b0a04b2a886bd81a1e8eaa43ba99283643d42a739cbac6e03303d0c69ea",
+        "executor": "db35b8b7c47e880a43ac58e6a2901fd55bbb93e5426414537875f0afc81f7e69"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "library-evening-plan-v2",
+          "proposed_state": {
+            "closing_hour": 22,
+            "reservable_rooms": 6,
+            "supervisors_on_duty": 2
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 20,
+            "reservable_rooms": 4,
+            "supervisors_on_duty": 1
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict\\gaworld_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict\\model_trace.jsonl",
+      "platform_evidence": {
+        "denials": [
+          {
+            "ok": false,
+            "reason": "unauthorized_artifact_write",
+            "task_id": "t3nc_library_evening_hours_001",
+            "role": "reviewer",
+            "kind": "final",
+            "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict\\unauthorized_reviewer_state.json"
+          },
+          {
+            "ok": false,
+            "reason": "unauthorized_private_read",
+            "task_id": "t3nc_library_evening_hours_001",
+            "role": "executor"
+          }
+        ]
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict",
+        "task_id": "t3nc_library_evening_hours_001",
+        "task_family": "T3",
+        "mechanism_condition": "GAWorld",
+        "variant": "verified_conflict",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "gaworld-review-channel-v2",
+        "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_gaworld_t3nc_library_evening_hours_001_verified_conflict"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=5;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'decision': 'reject', 'evidence_ids': ['library-security-check', 'library-supervisor-roster', 'library-room-approval'], 'failing_criteria': ['security-coverage'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_library_evening_hours_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1};actual={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "library-evening-plan-v2",
+        "proposed_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "library-evening-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [
+          "security-coverage"
+        ],
+        "reason_code": "hard_constraint_conflict"
+      },
+      "expected_executor": {
+        "adopted": false,
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "YuLan-OneSim",
+      "variant": "verified_conflict",
+      "task_title": "图书馆延时开放方案",
+      "prompt_sha256_by_role": {
+        "proposer": "84b48fa75ca58160fa74775f9e20d53b4fd93d767334b2be6a129357495d7561",
+        "reviewer": "70e33b0a04b2a886bd81a1e8eaa43ba99283643d42a739cbac6e03303d0c69ea",
+        "executor": "db35b8b7c47e880a43ac58e6a2901fd55bbb93e5426414537875f0afc81f7e69"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "library-evening-plan-v2",
+          "proposed_state": {
+            "closing_hour": 22,
+            "reservable_rooms": 6,
+            "supervisors_on_duty": 2
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "closing_hour": 20,
+            "reservable_rooms": 4,
+            "supervisors_on_duty": 1
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\yulan_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\model_trace.jsonl",
+      "platform_evidence": {
+        "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\onesim_receipts.jsonl",
+        "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\onesim_event_flow.json",
+        "denials": [],
+        "verified_receipts": 4,
+        "native_event_attempts": 4,
+        "native_flow_count": 1
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict",
+        "task_id": "t3nc_library_evening_hours_001",
+        "task_family": "T3",
+        "mechanism_condition": "YuLan-OneSim",
+        "variant": "verified_conflict",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "yulan-onesim-eventbus-9829d722",
+        "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=8;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'decision': 'approve', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': True, 'final_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'disposition': 'adopted', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30};actual={'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "proposed_state": {
+          "cold_boxes_loaded": 30,
+          "delivery_vans": 2,
+          "households_served": 90
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "cold_boxes_loaded": 20,
+          "delivery_vans": 1,
+          "households_served": 60
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "expected_executor": {
+        "adopted": true,
+        "final_state": {
+          "delivery_vans": 2,
+          "households_served": 90,
+          "cold_boxes_loaded": 30
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "GAWorld",
+      "variant": "verified_support",
+      "task_title": "食物银行扩大配送方案",
+      "prompt_sha256_by_role": {
+        "proposer": "315b61a240e3741645a52d3e5f51294814c1161fb6e04c4df2d3750289730f81",
+        "reviewer": "7b22c9fd39c9f59f5c17ab87558d40411067908e5d522340f9da5054e3ca2e65",
+        "executor": "f1ab59e21a59f8b432e4565ce2039337258101d93749bb81df033046c07a4441"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "foodbank-delivery-plan-v2",
+          "proposed_state": {
+            "cold_boxes_loaded": 30,
+            "delivery_vans": 2,
+            "households_served": 90
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "cold_boxes_loaded": 20,
+            "delivery_vans": 1,
+            "households_served": 60
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support\\gaworld_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support\\model_trace.jsonl",
+      "platform_evidence": {
+        "denials": [
+          {
+            "ok": false,
+            "reason": "unauthorized_artifact_write",
+            "task_id": "t3nc_foodbank_delivery_001",
+            "role": "reviewer",
+            "kind": "final",
+            "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support\\unauthorized_reviewer_state.json"
+          },
+          {
+            "ok": false,
+            "reason": "unauthorized_private_read",
+            "task_id": "t3nc_foodbank_delivery_001",
+            "role": "executor"
+          }
+        ]
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support",
+        "task_id": "t3nc_foodbank_delivery_001",
+        "task_family": "T3",
+        "mechanism_condition": "GAWorld",
+        "variant": "verified_support",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "gaworld-review-channel-v2",
+        "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_yulan_t3nc_foodbank_delivery_001_verified_support",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=5;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'decision': 'approve', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'adopted': True, 'final_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'disposition': 'adopted', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-3"
+        ],
+        "detail": "expected={'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30};actual={'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "proposed_state": {
+          "cold_boxes_loaded": 30,
+          "delivery_vans": 2,
+          "households_served": 90
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "cold_boxes_loaded": 20,
+          "delivery_vans": 1,
+          "households_served": 60
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "expected_executor": {
+        "adopted": true,
+        "final_state": {
+          "delivery_vans": 2,
+          "households_served": 90,
+          "cold_boxes_loaded": 30
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "YuLan-OneSim",
+      "variant": "verified_support",
+      "task_title": "食物银行扩大配送方案",
+      "prompt_sha256_by_role": {
+        "proposer": "315b61a240e3741645a52d3e5f51294814c1161fb6e04c4df2d3750289730f81",
+        "reviewer": "7b22c9fd39c9f59f5c17ab87558d40411067908e5d522340f9da5054e3ca2e65",
+        "executor": "f1ab59e21a59f8b432e4565ce2039337258101d93749bb81df033046c07a4441"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "foodbank-delivery-plan-v2",
+          "proposed_state": {
+            "cold_boxes_loaded": 30,
+            "delivery_vans": 2,
+            "households_served": 90
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "cold_boxes_loaded": 20,
+            "delivery_vans": 1,
+            "households_served": 60
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_support\\yulan_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_support\\model_trace.jsonl",
+      "platform_evidence": {
+        "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_support\\onesim_receipts.jsonl",
+        "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_support\\onesim_event_flow.json",
+        "denials": [],
+        "verified_receipts": 4,
+        "native_event_attempts": 4,
+        "native_flow_count": 1
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_yulan_t3nc_foodbank_delivery_001_verified_support",
+        "task_id": "t3nc_foodbank_delivery_001",
+        "task_family": "T3",
+        "mechanism_condition": "YuLan-OneSim",
+        "variant": "verified_support",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "yulan-onesim-eventbus-9829d722",
+        "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_yulan_t3nc_foodbank_delivery_001_verified_support"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict",
+    "measurement_valid": true,
+    "full_pass": 0,
+    "task_score": 0.0,
+    "ranking_eligible": false,
+    "status": "artifact_gate_failed",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=8;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "json_parse_error:Expecting value"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=False;payload_exact=False"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": false,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=False;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'decision': 'reject', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': ['drivers'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 0.0,
+        "max_score": 1.0,
+        "passed": false,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20};actual={'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "proposed_state": {
+          "cold_boxes_loaded": 30,
+          "delivery_vans": 2,
+          "households_served": 90
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {},
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "cold_boxes_loaded": 20,
+          "delivery_vans": 1,
+          "households_served": 60
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      },
+      "expected_review": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "reason_code": "hard_constraint_conflict"
+      },
+      "expected_executor": {
+        "adopted": false,
+        "final_state": {
+          "delivery_vans": 1,
+          "households_served": 60,
+          "cold_boxes_loaded": 20
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "first_error": "model_response_invalid"
+    },
+    "extra": {
+      "platform": "GAWorld",
+      "variant": "verified_conflict",
+      "task_title": "食物银行扩大配送方案",
+      "prompt_sha256_by_role": {
+        "proposer": "315b61a240e3741645a52d3e5f51294814c1161fb6e04c4df2d3750289730f81",
+        "reviewer": "f184e84342c179c9b9ba6aedb581f614a339fb13d53bc8509c272b8573ec894e",
+        "executor": "f1ab59e21a59f8b432e4565ce2039337258101d93749bb81df033046c07a4441"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "foodbank-delivery-plan-v2",
+          "proposed_state": {
+            "cold_boxes_loaded": 30,
+            "delivery_vans": 2,
+            "households_served": 90
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {},
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_without_review",
+          "final_state": {
+            "cold_boxes_loaded": 20,
+            "delivery_vans": 1,
+            "households_served": 60
+          },
+          "reason_code": "no_delivered_review",
+          "review_id": null
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict\\gaworld_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict\\model_trace.jsonl",
+      "platform_evidence": {
+        "denials": [
+          {
+            "ok": false,
+            "reason": "unauthorized_artifact_write",
+            "task_id": "t3nc_foodbank_delivery_001",
+            "role": "reviewer",
+            "kind": "final",
+            "path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict\\unauthorized_reviewer_state.json"
+          },
+          {
+            "ok": false,
+            "reason": "unauthorized_private_read",
+            "task_id": "t3nc_foodbank_delivery_001",
+            "role": "executor"
+          }
+        ]
+      },
+      "first_error": "model_response_invalid",
+      "run_context": {
+        "run_id": "t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict",
+        "task_id": "t3nc_foodbank_delivery_001",
+        "task_family": "T3",
+        "mechanism_condition": "GAWorld",
+        "variant": "verified_conflict",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "gaworld-review-channel-v2",
+        "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_conflict"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_review_v1",
+    "instance_id": "t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict",
+    "measurement_valid": true,
+    "full_pass": 1,
+    "task_score": 1.0,
+    "ranking_eligible": false,
+    "status": "scored",
+    "gates": [
+      {
+        "gate_id": "platform_trace_parseable",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "rows=5;ok"
+      },
+      {
+        "gate_id": "model_trace_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+      },
+      {
+        "gate_id": "eval_mode_on",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "run_context_complete",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "critical_evidence_bound",
+        "passed": true,
+        "critical": true,
+        "layer": "R0",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "model_responses_structured",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "ok"
+      },
+      {
+        "gate_id": "proposal_and_review_delivered",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "proposal=True;review=True;payload_exact=True"
+      },
+      {
+        "gate_id": "review_adopted_and_final_submitted",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "adopted=True;submitted=True"
+      },
+      {
+        "gate_id": "private_evidence_isolated",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "reviewer-only prompt field and value visibility"
+      },
+      {
+        "gate_id": "role_boundaries_enforced",
+        "passed": true,
+        "critical": true,
+        "layer": "R1",
+        "detail": "private_readers=['reviewer'];state_writers=['executor']"
+      }
+    ],
+    "criteria": [
+      {
+        "criterion_id": "proposal_fidelity",
+        "layer": "R2",
+        "scorer": "exact_registered_candidate_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'reason_code': 'registered_candidate_submitted'}"
+      },
+      {
+        "criterion_id": "independent_review_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_review_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'decision': 'reject', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': ['drivers'], 'reason_code': 'hard_constraint_conflict'};actual={'decision': 'reject', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': ['drivers'], 'proposal_id': 'foodbank-delivery-plan-v2', 'reason_code': 'hard_constraint_conflict'}"
+      },
+      {
+        "criterion_id": "executor_review_compliance",
+        "layer": "R2",
+        "scorer": "exact_delivered_review_transition",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_after_reject', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'rejected_review_preserved_baseline', 'review_id': 't3nc_foodbank_delivery_001_r1'}"
+      },
+      {
+        "criterion_id": "adoption_effect_correct",
+        "layer": "R2",
+        "scorer": "registered_support_conflict_effect",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'adopted': False, 'final_state': {'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_after_reject', 'final_state': {'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}, 'reason_code': 'rejected_review_preserved_baseline', 'review_id': 't3nc_foodbank_delivery_001_r1'}"
+      },
+      {
+        "criterion_id": "final_state_correct",
+        "layer": "R2",
+        "scorer": "exact_oracle_final_state_match",
+        "evaluable": true,
+        "score": 1.0,
+        "max_score": 1.0,
+        "passed": true,
+        "critical": true,
+        "weight": 1.0,
+        "evidence_ids": [
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+          "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+        ],
+        "detail": "expected={'delivery_vans': 1, 'households_served': 60, 'cold_boxes_loaded': 20};actual={'cold_boxes_loaded': 20, 'delivery_vans': 1, 'households_served': 60}"
+      }
+    ],
+    "process_profile": {
+      "proposal": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "proposed_state": {
+          "cold_boxes_loaded": 30,
+          "delivery_vans": 2,
+          "households_served": 90
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "review": {
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "reason_code": "hard_constraint_conflict"
+      },
+      "delivered_review": {
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "executor_output": {
+        "adopted": false,
+        "disposition": "kept_after_reject",
+        "final_state": {
+          "cold_boxes_loaded": 20,
+          "delivery_vans": 1,
+          "households_served": 60
+        },
+        "reason_code": "rejected_review_preserved_baseline",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "expected_review": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "reason_code": "hard_constraint_conflict"
+      },
+      "expected_executor": {
+        "adopted": false,
+        "final_state": {
+          "delivery_vans": 1,
+          "households_served": 60,
+          "cold_boxes_loaded": 20
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "first_error": "none"
+    },
+    "extra": {
+      "platform": "YuLan-OneSim",
+      "variant": "verified_conflict",
+      "task_title": "食物银行扩大配送方案",
+      "prompt_sha256_by_role": {
+        "proposer": "315b61a240e3741645a52d3e5f51294814c1161fb6e04c4df2d3750289730f81",
+        "reviewer": "f184e84342c179c9b9ba6aedb581f614a339fb13d53bc8509c272b8573ec894e",
+        "executor": "bb6ac97fc85f8504b66d4e8a34ea77295a9a649221f86d1af0c9a02a1d13fdcb"
+      },
+      "role_outputs": {
+        "proposer": {
+          "proposal_id": "foodbank-delivery-plan-v2",
+          "proposed_state": {
+            "cold_boxes_loaded": 30,
+            "delivery_vans": 2,
+            "households_served": 90
+          },
+          "reason_code": "registered_candidate_submitted"
+        },
+        "reviewer": {
+          "decision": "reject",
+          "evidence_ids": [
+            "foodbank-driver-check",
+            "foodbank-route-check",
+            "foodbank-coldbox-count"
+          ],
+          "failing_criteria": [
+            "drivers"
+          ],
+          "proposal_id": "foodbank-delivery-plan-v2",
+          "reason_code": "hard_constraint_conflict"
+        },
+        "executor": {
+          "adopted": false,
+          "disposition": "kept_after_reject",
+          "final_state": {
+            "cold_boxes_loaded": 20,
+            "delivery_vans": 1,
+            "households_served": 60
+          },
+          "reason_code": "rejected_review_preserved_baseline",
+          "review_id": "t3nc_foodbank_delivery_001_r1"
+        }
+      },
+      "model_evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict:call-3"
+      ],
+      "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict\\yulan_review_trace.jsonl",
+      "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict\\model_trace.jsonl",
+      "platform_evidence": {
+        "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict\\onesim_receipts.jsonl",
+        "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict\\onesim_event_flow.json",
+        "denials": [],
+        "verified_receipts": 4,
+        "native_event_attempts": 4,
+        "native_flow_count": 1
+      },
+      "first_error": "none",
+      "run_context": {
+        "run_id": "t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict",
+        "task_id": "t3nc_foodbank_delivery_001",
+        "task_family": "T3",
+        "mechanism_condition": "YuLan-OneSim",
+        "variant": "verified_conflict",
+        "seed": 0,
+        "track": "full",
+        "model_version": "GLM-5.2",
+        "temperature": 0.0,
+        "budget": {
+          "calls_per_cell": 3
+        },
+        "environment_version": "yulan-onesim-eventbus-9829d722",
+        "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+        "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+        "evidence_id": "bundle:t3nc_yulan_t3nc_foodbank_delivery_001_verified_conflict"
+      },
+      "eval_mode_evidence": {
+        "enabled": true,
+        "applied": true,
+        "changes": [
+          "dynamic_behavior.enabled=False",
+          "routine_change.enabled=False"
+        ],
+        "dynamic_behavior_enabled": false,
+        "routine_change_enabled": false,
+        "strict_interview_json": true,
+        "diary_fallback_disabled": true
+      }
+    }
+  }
+]

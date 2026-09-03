@@ -1328,6 +1328,25 @@ FullPass精确一致。
 [`REPORT.md`](output/cross_platform_yulan_t5_glm52_20260903/REPORT.md)。两轮均是协议适配先导，
 不构成平台总体等效证明、原生场景排名或H1–H7人类效度证据。
 
+### **16.14 T3非代码独立审核同面实验**
+
+为避免T3长期只由代码阈值题代表，本轮新增社区诊所、图书馆和食物银行三类非代码任务，分别设置
+核验证据支持/冲突条件，并在GAWorld `ReviewChannel`和YuLan-OneSim `EventBus`上运行相同的
+proposer—reviewer—executor因果链。预注册提交为`62ad57a`；付费前12/12格确定性校准通过，
+6/6个平台配对的提示哈希、角色输出与最终状态完全一致。
+
+GLM-5.2真实运行完成12格、36次逻辑调用，12/12格可测量。冻结主结果为GAWorld 0/6、YuLan
+1/6 FullPass，但不构成平台排名：36个响应中14个是内容正确但带Markdown JSON代码围栏的对象，严格
+解析器将其全部拒绝；事后仅剥除完整围栏后，14/14通过字段契约，12/12个reviewer的决定、证据和
+失败条件均命中Oracle。因为两个平台独立调用模型，上游格式差异继续造成reviewer提示仅4/6一致、
+executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的一次围栏JSON和一次裸JSON，不能
+归因为ReviewChannel或EventBus能力。
+
+本轮同时观察到两次provider内部TLS自动重连，但模型证据只记录逻辑调用，暴露了物理请求次数和
+成本审计不可重建的问题。后续不补跑本轮；建议实现provider-native结构化输出或保守围栏规范化、
+记录每次HTTP尝试，并用“单次模型采样、双平台同payload重放”隔离平台效应。完整论证与交接建议见
+[`REPORT.md`](output/cross_platform_t3_noncode_glm52_20260903/REPORT.md)。
+
 ---
 
 ## **17. 目录索引**
@@ -1353,8 +1372,10 @@ FullPass精确一致。
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
 | `cross_platform/yulan_onesim/`        | YuLan-OneSim锁定版本、事件证据校准、T4/T5同面适配与注册       |
+| `cross_platform/t3_noncode_review/`   | 三类非代码T3任务、双平台审核链、冻结评分与GLM-5.2预注册       |
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
 | `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
+| `output/cross_platform_t3_noncode_glm52_20260903/` | GAWorld/YuLan T3非代码真实结果、围栏JSON诊断与修复交接 |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
@@ -1406,5 +1427,10 @@ GAWorld Evaluation Bridge已经形成一套从任务设计、测量校准、因�
 GLM-5.2真实运行全部通过。36/36个逐居民提示与scope输出、9/9格动作和FullPass均与GAWorld
 repeat 1一致；但absence自由文本理由稳定混用nonbinding措辞，说明结构化正确不等于解释正确。
 这一结果支持当前适配协议的可承载性，不证明平台总体等效或YuLan原生政策能力。
+
+同日完成T3非代码同面先导：离线确定性矩阵12/12通过，但GLM-5.2真实响应中14/36带Markdown
+JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显示三类硬约束的核心审核判断为
+12/12正确，问题位于结构化输出与严格解析的接口缝隙。由于独立抽样又造成下游提示分叉，本轮
+不能排名平台；下一版先修结构化响应和重试审计，再以同一payload双平台重放隔离平台效应。
 
 下一阶段将围绕三条主线推进：在已经合并的核心修复上为C1/REL1做新编号、新表面的独立端到端回归；固定T4-v2协议补第二模型复测；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。

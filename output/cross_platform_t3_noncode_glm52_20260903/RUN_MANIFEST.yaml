@@ -1,0 +1,113 @@
+experiment_id: CROSS-PLATFORM-T3-NONCODE-REVIEW-v1
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-GLM52-v1
+registration_path: F:\proj\gaworld_eval_bridge\cross_platform\t3_noncode_review\registration_t3_noncode_glm52.yaml
+registration_sha256: 2ac3ab56ac51e7d15ea809b72222816c173878660b2875b557f3764ab4f11446
+phase: live_protocol_parity
+gate: model_pilot_recorded
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+live_model_explicitly_allowed: true
+prompt_protocol: gaworld-benchmark-t3-noncode-review-v1
+scorer_version: cross-platform-t3-noncode-review-scorer-v1
+ranking_eligible: false
+n_cells: 12
+platform_summary:
+  GAWorld:
+    cells: 6
+    measurement_valid: 6
+    full_pass: 0
+    full_pass_rate: 0.0
+    support_adoption_rate: 0.0
+    conflict_rejection_rate: 0.0
+  YuLan-OneSim:
+    cells: 6
+    measurement_valid: 6
+    full_pass: 1
+    full_pass_rate: 0.1667
+    support_adoption_rate: 0.0
+    conflict_rejection_rate: 0.3333
+exact_matches:
+  prompt_hashes_exact: 3
+  role_outputs_exact: 3
+  proposal_exact: 4
+  review_exact: 5
+  executor_exact: 4
+  final_state_exact: 5
+  full_pass_exact: 5
+  denominator: 6
+comparisons:
+- task_id: t3nc_clinic_cooling_shift_001
+  variant: verified_support
+  prompt_hashes_exact: false
+  role_outputs_exact: false
+  proposal_exact: false
+  review_exact: true
+  executor_exact: true
+  final_state_exact: true
+  full_pass_exact: true
+  gaworld_full_pass: 0
+  yulan_full_pass: 0
+- task_id: t3nc_clinic_cooling_shift_001
+  variant: verified_conflict
+  prompt_hashes_exact: true
+  role_outputs_exact: true
+  proposal_exact: true
+  review_exact: true
+  executor_exact: true
+  final_state_exact: true
+  full_pass_exact: true
+  gaworld_full_pass: 0
+  yulan_full_pass: 0
+- task_id: t3nc_library_evening_hours_001
+  variant: verified_support
+  prompt_hashes_exact: false
+  role_outputs_exact: false
+  proposal_exact: false
+  review_exact: true
+  executor_exact: false
+  final_state_exact: false
+  full_pass_exact: true
+  gaworld_full_pass: 0
+  yulan_full_pass: 0
+- task_id: t3nc_library_evening_hours_001
+  variant: verified_conflict
+  prompt_hashes_exact: true
+  role_outputs_exact: true
+  proposal_exact: true
+  review_exact: true
+  executor_exact: true
+  final_state_exact: true
+  full_pass_exact: true
+  gaworld_full_pass: 0
+  yulan_full_pass: 0
+- task_id: t3nc_foodbank_delivery_001
+  variant: verified_support
+  prompt_hashes_exact: true
+  role_outputs_exact: true
+  proposal_exact: true
+  review_exact: true
+  executor_exact: true
+  final_state_exact: true
+  full_pass_exact: true
+  gaworld_full_pass: 0
+  yulan_full_pass: 0
+- task_id: t3nc_foodbank_delivery_001
+  variant: verified_conflict
+  prompt_hashes_exact: false
+  role_outputs_exact: false
+  proposal_exact: true
+  review_exact: false
+  executor_exact: false
+  final_state_exact: true
+  full_pass_exact: false
+  gaworld_full_pass: 0
+  yulan_full_pass: 1
+budget:
+  max_calls: 36
+  calls_used: 36
+  calls_remaining: 0
+  prompt_chars: 37380
+  response_chars: 8261
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000

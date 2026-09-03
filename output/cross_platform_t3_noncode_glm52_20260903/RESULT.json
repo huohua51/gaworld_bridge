@@ -1,0 +1,51 @@
+{
+  "experiment_id": "CROSS-PLATFORM-T3-NONCODE-REVIEW-v1",
+  "preregistration_id": "CROSS-PLATFORM-T3-NONCODE-GLM52-v1",
+  "registration_commit": "62ad57ab46ebee65279a6469302bc9510fceb4e1",
+  "registration_sha256": "2ac3ab56ac51e7d15ea809b72222816c173878660b2875b557f3764ab4f11446",
+  "provider": "paratera_glm",
+  "model": "GLM-5.2",
+  "ranking_eligible": false,
+  "strict_primary": {
+    "cells": 12,
+    "logical_calls": 36,
+    "measurement_valid": 12,
+    "strict_responses": 22,
+    "gaworld_full_pass": 0,
+    "gaworld_denominator": 6,
+    "yulan_full_pass": 1,
+    "yulan_denominator": 6,
+    "paired_full_chain_prompt_hash_exact": 3,
+    "paired_denominator": 6
+  },
+  "role_contract": {
+    "gaworld": {"proposer": "6/6", "reviewer": "0/6", "executor": "6/6"},
+    "yulan_onesim": {"proposer": "4/6", "reviewer": "1/6", "executor": "5/6"}
+  },
+  "stage_prompt_parity": {
+    "proposer": "6/6",
+    "reviewer": "4/6",
+    "executor": "3/6"
+  },
+  "posthoc_fenced_json_diagnostic": {
+    "changes_primary_score": false,
+    "fenced_responses": 14,
+    "recoverable_as_single_schema_valid_object": "14/14",
+    "proposer_oracle_exact": "12/12",
+    "reviewer_core_oracle_exact": "12/12",
+    "reviewer_full_object_exact": "10/12",
+    "executor_observed_path_exact": "12/12",
+    "final_state_oracle_exact": "6/12"
+  },
+  "platform_evidence": {
+    "private_evidence_isolated": "12/12",
+    "role_boundaries_enforced": "12/12",
+    "platform_trace_parseable": "12/12",
+    "model_trace_complete": "12/12"
+  },
+  "observed_transport_retries": {
+    "console_tls_eof_reconnects": 2,
+    "independently_reconstructable_from_output_bundle": false
+  },
+  "conclusion": "Strict failures were dominated by fenced JSON formatting, and independent model samples caused downstream prompt divergence; no platform ranking is identified."
+}

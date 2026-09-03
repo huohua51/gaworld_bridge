@@ -1,0 +1,5 @@
+{"seq": 1, "event": "proposal_submitted", "event_id": "8477f1d2-6739-4255-916c-bfb2f05adab0", "proposal": {"proposal_id": "clinic-cooling-plan-v2", "proposed_state": {"closing_hour": 18, "opening_hour": 12, "service_capacity": 55}, "reason_code": "registered_candidate_submitted"}, "sender_id": "proposer", "receiver_id": "reviewer"}
+{"seq": 2, "event": "private_evidence_read_by_reviewer", "reader_id": "reviewer", "evidence_ids": ["clinic-alert-check", "clinic-staff-roster", "clinic-room-certificate"]}
+{"seq": 3, "event": "review_unavailable", "event_id": "e53bb53d-23a8-4c75-9a97-69b9e4b98731", "review": null, "sender_id": "reviewer", "receiver_id": "executor"}
+{"seq": 4, "event": "review_missing", "review_id": null, "reader_id": "executor"}
+{"seq": 5, "event": "final_state_submitted", "event_id": "fe0b695b-0782-4dc8-903e-5d8874bb47e5", "writer_id": "executor", "executor_output": {"adopted": false, "disposition": "kept_without_review", "final_state": {"closing_hour": 18, "opening_hour": 14, "service_capacity": 40}, "reason_code": "no_delivered_review", "review_id": null}}

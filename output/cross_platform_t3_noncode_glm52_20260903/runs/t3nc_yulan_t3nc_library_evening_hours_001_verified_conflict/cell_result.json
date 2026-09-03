@@ -1,0 +1,296 @@
+{
+  "workflow_id": "cross_platform_t3_noncode_review_v1",
+  "instance_id": "t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.0,
+  "ranking_eligible": false,
+  "status": "artifact_gate_failed",
+  "gates": [
+    {
+      "gate_id": "platform_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "rows=5;ok"
+    },
+    {
+      "gate_id": "model_trace_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "json_parse_error:Expecting value"
+    },
+    {
+      "gate_id": "proposal_and_review_delivered",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "proposal=True;review=False;payload_exact=False"
+    },
+    {
+      "gate_id": "review_adopted_and_final_submitted",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": "adopted=False;submitted=True"
+    },
+    {
+      "gate_id": "private_evidence_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "reviewer-only prompt field and value visibility"
+    },
+    {
+      "gate_id": "role_boundaries_enforced",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "private_readers=['reviewer'];state_writers=['executor']"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "proposal_fidelity",
+      "layer": "R2",
+      "scorer": "exact_registered_candidate_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'library-evening-plan-v2', 'proposed_state': {'closing_hour': 22, 'reservable_rooms': 6, 'supervisors_on_duty': 2}, 'reason_code': 'registered_candidate_submitted'}"
+    },
+    {
+      "criterion_id": "independent_review_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_review_match",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'library-evening-plan-v2', 'decision': 'reject', 'evidence_ids': ['library-security-check', 'library-supervisor-roster', 'library-room-approval'], 'failing_criteria': ['security-coverage'], 'reason_code': 'hard_constraint_conflict'};actual={}"
+    },
+    {
+      "criterion_id": "executor_review_compliance",
+      "layer": "R2",
+      "scorer": "exact_delivered_review_transition",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_without_review', 'review_id': None, 'reason_code': 'no_delivered_review'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+    },
+    {
+      "criterion_id": "adoption_effect_correct",
+      "layer": "R2",
+      "scorer": "registered_support_conflict_effect",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'adopted': False, 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'disposition': 'kept_after_reject', 'review_id': 't3nc_library_evening_hours_001_r1', 'reason_code': 'rejected_review_preserved_baseline'};actual={'adopted': False, 'disposition': 'kept_without_review', 'final_state': {'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}, 'reason_code': 'no_delivered_review', 'review_id': None}"
+    },
+    {
+      "criterion_id": "final_state_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_final_state_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+        "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+      ],
+      "detail": "expected={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1};actual={'closing_hour': 20, 'reservable_rooms': 4, 'supervisors_on_duty': 1}"
+    }
+  ],
+  "process_profile": {
+    "proposal": {
+      "proposal_id": "library-evening-plan-v2",
+      "proposed_state": {
+        "closing_hour": 22,
+        "reservable_rooms": 6,
+        "supervisors_on_duty": 2
+      },
+      "reason_code": "registered_candidate_submitted"
+    },
+    "review": {},
+    "delivered_review": null,
+    "executor_output": {
+      "adopted": false,
+      "disposition": "kept_without_review",
+      "final_state": {
+        "closing_hour": 20,
+        "reservable_rooms": 4,
+        "supervisors_on_duty": 1
+      },
+      "reason_code": "no_delivered_review",
+      "review_id": null
+    },
+    "expected_review": {
+      "proposal_id": "library-evening-plan-v2",
+      "decision": "reject",
+      "evidence_ids": [
+        "library-security-check",
+        "library-supervisor-roster",
+        "library-room-approval"
+      ],
+      "failing_criteria": [
+        "security-coverage"
+      ],
+      "reason_code": "hard_constraint_conflict"
+    },
+    "expected_executor": {
+      "adopted": false,
+      "final_state": {
+        "closing_hour": 20,
+        "reservable_rooms": 4,
+        "supervisors_on_duty": 1
+      },
+      "disposition": "kept_after_reject",
+      "review_id": "t3nc_library_evening_hours_001_r1",
+      "reason_code": "rejected_review_preserved_baseline"
+    },
+    "first_error": "model_response_invalid"
+  },
+  "extra": {
+    "platform": "YuLan-OneSim",
+    "variant": "verified_conflict",
+    "task_title": "图书馆延时开放方案",
+    "prompt_sha256_by_role": {
+      "proposer": "84b48fa75ca58160fa74775f9e20d53b4fd93d767334b2be6a129357495d7561",
+      "reviewer": "70e33b0a04b2a886bd81a1e8eaa43ba99283643d42a739cbac6e03303d0c69ea",
+      "executor": "db35b8b7c47e880a43ac58e6a2901fd55bbb93e5426414537875f0afc81f7e69"
+    },
+    "role_outputs": {
+      "proposer": {
+        "proposal_id": "library-evening-plan-v2",
+        "proposed_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "reviewer": {},
+      "executor": {
+        "adopted": false,
+        "disposition": "kept_without_review",
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "reason_code": "no_delivered_review",
+        "review_id": null
+      }
+    },
+    "model_evidence_ids": [
+      "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-1",
+      "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-2",
+      "model-call:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict:call-3"
+    ],
+    "platform_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\yulan_review_trace.jsonl",
+    "model_trace_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\model_trace.jsonl",
+    "platform_evidence": {
+      "onesim_receipt_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\onesim_receipts.jsonl",
+      "onesim_event_flow_path": "output\\cross_platform_t3_noncode_glm52_20260903\\runs\\t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict\\onesim_event_flow.json",
+      "denials": [],
+      "verified_receipts": 4,
+      "native_event_attempts": 4,
+      "native_flow_count": 1
+    },
+    "first_error": "model_response_invalid",
+    "run_context": {
+      "run_id": "t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict",
+      "task_id": "t3nc_library_evening_hours_001",
+      "task_family": "T3",
+      "mechanism_condition": "YuLan-OneSim",
+      "variant": "verified_conflict",
+      "seed": 0,
+      "track": "full",
+      "model_version": "GLM-5.2",
+      "temperature": 0.0,
+      "budget": {
+        "calls_per_cell": 3
+      },
+      "environment_version": "yulan-onesim-eventbus-9829d722",
+      "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+      "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+      "evidence_id": "bundle:t3nc_yulan_t3nc_library_evening_hours_001_verified_conflict"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}
