@@ -1,0 +1,134 @@
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-GLM52-v2
+registered_on: '2026-09-04'
+phase: prospective_shared_payload_replay
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  When one GLM-5.2 reviewer sample, its evidence ID and its canonical payload
+  hash are held identical across platforms, do GAWorld ReviewChannel and
+  YuLan-OneSim EventBus differ in delivery, adoption or deterministic state
+  transition?
+
+systems:
+  bridge:
+    model_runner: benchmark_core/model_runner_v2.py
+    model_runner_v2_sha256: dc7df4e49d37fbce30c6e51041b0d222ba302cd3390c315fc15058a7e3c33c07
+  gaworld:
+    source_root: F:/proj/GAWorld
+    commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+    execution_surface: native ReviewChannel with common reject/revise carrier
+    review_channel_sha256: 2a7c0953e416359ac505a2ab0f2424852d5e396aa7f1a87d916f5c78ccdc1544
+    audited_provider_sha256: 665c2468e2d809316ccfae31d499fafa26249407919793e3dcf60ca0b2718c2a
+  yulan_onesim:
+    repository: https://github.com/RUC-GSAI/YuLan-OneSim
+    source_root: F:/proj/YuLan-OneSim-official
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+    execution_surface: native EventBus with explicit payload Event subclass
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  reasoning_effort: null
+  max_tokens_per_call: 256
+  response_format: {type: json_object}
+  retry_attempts: 1
+  json_normalization: strict
+
+design:
+  task_ids:
+    - t3nc_clinic_cooling_shift_001
+    - t3nc_library_evening_hours_001
+    - t3nc_foodbank_delivery_001
+  variants: [verified_support, verified_conflict]
+  platforms: [GAWorld, YuLan-OneSim]
+  sampled_role: reviewer
+  deterministic_roles: [registered_proposal, executor_transition]
+  paired_units: 6
+  platform_cells: 12
+  calibration_calls: 2
+  scored_reviewer_calls: 6
+  model_calls_inside_platforms: 0
+  execution_order: task_then_variant_then_one_review_sample_then_gaworld_then_yulan
+  prompt_protocol: gaworld-benchmark-t3-noncode-shared-review-replay-v2
+  scorer_version: cross-platform-t3-noncode-shared-replay-scorer-v2
+
+calibration:
+  scoring_status: non_scoring
+  cases:
+    - [t3nc_clinic_cooling_shift_001, verified_support]
+    - [t3nc_clinic_cooling_shift_001, verified_conflict]
+  gate:
+    strict_valid_responses: 2/2
+    physical_attempts_observed: 2
+    transport_retries_observed: 0
+    normalization_applied: 0
+  semantic_oracle_correctness: recorded_but_not_used_for_go_no_go
+  replacement_calls: forbidden
+
+registered_oracle:
+  verified_support:
+    review_decision: approve
+    executor_adopted: true
+    final_state: proposed_state
+  verified_conflict:
+    review_decision: reject
+    executor_adopted: false
+    final_state: baseline_state
+  platform_transport:
+    shared_sample_evidence_id_exact: true
+    ingress_review_hash_exact: true
+    delivered_review_exact: true
+    deterministic_executor_output_exact: true
+
+frozen_inputs:
+  cross_platform/t3_noncode_review/tasks.yaml: b70e4b2a938387352b3ff7854bc60cd11def1eee1c985564dd68f58d568d0e94
+  cross_platform/t3_noncode_review/protocol.py: 15507eeba82383b1e8a7ac6e1e13a705d6d26bc882daf3f7e8289a49d4085162
+  cross_platform/t3_noncode_review/fixture.py: 0da8c8881b62e2715141c4d307909a4413559f157e0c3839fd2d369d33cec837
+  cross_platform/t3_noncode_replay_v2/__init__.py: cbf40092da42afaa40647dc2980a2790b67c2ae644e14cdb53bef45ee0f477ce
+  cross_platform/t3_noncode_replay_v2/protocol.py: 7f46ab4b0f994acd0b21271f8ecc0b376800e9f13d3b106503ad000485a10089
+  cross_platform/t3_noncode_replay_v2/gaworld_replay.py: 2ba71e876d80c06a6a894406b218e05e9802834f35fb937dea64df0b00880664
+  cross_platform/t3_noncode_replay_v2/yulan_replay.py: a2e3d01ceedb9577f5486803885b0b0d3d33114a0ac766a0e036622d4957bbf5
+  cross_platform/t3_noncode_replay_v2/scorer.py: 47c95385bdf7737f17740cd73334badd22ba0c96cd3229a562800bea021ce362
+  cross_platform/t3_noncode_replay_v2/run.py: 0b8f5f7f0d3ac4d7d0b4ff8be12acf7d8f6f33fdf405cc21af099dfe83f6a9f1
+  cross_platform/t3_noncode_replay_v2/README.md: d89b8ac37fb673599d13e22bcda8d4ebba2cf2e4470bec5103059a3b3cfccbb8
+  cross_platform/t3_noncode_replay_v2/protocol.md: 1d39dc285bb69dbcc3d43ce01e659616a70c5a4023e7db5c15610336470cc581
+
+analysis_rules:
+  paired_unit: same task, evidence variant, reviewer output object and evidence ID
+  model_analysis: >-
+    Strict response validity and reviewer Oracle correctness are reported on
+    the fixed six-sample denominator.
+  platform_analysis: >-
+    Platform transport is evaluated only when the shared reviewer object is
+    structurally valid. Invalid reviewer samples remain failures in joint
+    FullPass but are not attributed to either platform.
+  platform_difference: >-
+    A platform difference requires unequal transport pass within an evaluable
+    pair. Text latency and model quality are not platform outcomes here.
+  payload_identity: >-
+    Both platforms must reference the same model evidence ID and canonical
+    review SHA-256 before any platform difference is interpreted.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_joint_denominator: true
+
+interpretation_limits:
+  - This reuses the three v1 tasks to isolate a diagnosed sampling confound; it is not a new-task holdout.
+  - Deterministic executor transitions test transport fidelity, not free-form executor ability.
+  - Conditional transport parity does not establish overall platform equivalence.
+  - The experiment is not eligible for an overall platform ranking.
+  - H1-H7 human validity dimensions are outside this functional experiment.
+
+stopping_rules:
+  - Require the six-pair deterministic fixture to pass before any paid call.
+  - Commit and push this registration and every frozen input before live calibration.
+  - Run exactly two non-scoring live calibration calls; do not replace failures.
+  - Start scored sampling only if the registered calibration gate passes.
+  - Run at most six scored reviewer calls, each with one physical attempt.
+  - Preserve structurally invalid, provider-failed and interrupted samples in the fixed joint denominator.
+
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
