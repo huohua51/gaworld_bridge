@@ -1347,6 +1347,20 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 记录每次HTTP尝试，并用“单次模型采样、双平台同payload重放”隔离平台效应。完整论证与交接建议见
 [`REPORT.md`](output/cross_platform_t3_noncode_glm52_20260903/REPORT.md)。
 
+### **16.15 结构化输出与重试审计 v2**
+
+2026-09-03完成add-only版本修复。旧实验继续使用已密封的`model_runner.py`和GAWorld Provider；
+新实验显式使用`benchmark_core/model_runner_v2.py`与GAWorld提交`bfcd2a6`中的
+`llm_providers_audited.py`。v2支持provider-native `response_format`、事前选择的严格/完整单围栏
+解析模式，以及逐物理请求的重试事件；逻辑调用预算与物理尝试分别计数，原始/规范化响应哈希均保留，
+第三方异常正文和未知敏感字段不落盘。
+
+离线回归通过，旧T5-v3密封校验保持有效。小额工程探测确认GLM-5.2的TLS失败与后续物理重试
+可被逐次记录；同时发现未显式覆盖时本机Provider曾解析为GLM-4-Flash，因此以后运行必须锁定并
+登记最终模型名。该探测不计入Benchmark分数；正式下一轮仍需关闭Thinking、给足token上限并以
+同一review payload双平台重放。完整实施与边界见
+[`STRUCTURED_OUTPUT_RETRY_AUDIT_V2_20260903.md`](docs/STRUCTURED_OUTPUT_RETRY_AUDIT_V2_20260903.md)。
+
 ---
 
 ## **17. 目录索引**
@@ -1357,10 +1371,11 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 | `registry.yaml`                      | 正式实验登记、状态与证据等级                      |
 | `backlog/agent_protocol.yaml`        | Agent协议层开放问题                        |
 | `v0_first_batch/`                    | R0–R3统一Schema、compose与first_error覆盖 |
-| `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门和只读审计器   |
+| `benchmark_core/`                    | 后续实验使用的版本化RunContext、R0证据门、模型调用v2和只读审计器   |
 | `benchmark_catalog.yaml`             | 当前构念到原T1–T6/M1–M9的映射与覆盖缺口             |
 | `docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md` | 功能评测阶段的问题发现方法、改正措施、复测效果、成果边界与方法论反思 |
 | `docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md` | C1/REL1故障位置、建议改法、实验来源与验收条件交接 |
+| `docs/STRUCTURED_OUTPUT_RETRY_AUDIT_V2_20260903.md` | 结构化输出、物理重试审计、版本隔离、工程探测与下一轮启用边界 |
 | `docs/H1_PILOT_CHECKLIST_20260827.md` | H1隔离试采、认知访谈、匿名复核与正式采集放行门 |
 | `docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md` | H1–H7定义、Human Reference证据门、当前覆盖和阶段路线 |
 | `human_validity/MASTER_PLAN.yaml` | H1–H7机器可读覆盖状态、指标、缺口与声明边界 |
@@ -1431,6 +1446,6 @@ repeat 1一致；但absence自由文本理由稳定混用nonbinding措辞，说�
 同日完成T3非代码同面先导：离线确定性矩阵12/12通过，但GLM-5.2真实响应中14/36带Markdown
 JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显示三类硬约束的核心审核判断为
 12/12正确，问题位于结构化输出与严格解析的接口缝隙。由于独立抽样又造成下游提示分叉，本轮
-不能排名平台；下一版先修结构化响应和重试审计，再以同一payload双平台重放隔离平台效应。
+不能排名平台；结构化响应和重试审计v2已经完成，下一版将以同一payload双平台重放隔离平台效应。
 
 下一阶段将围绕三条主线推进：在已经合并的核心修复上为C1/REL1做新编号、新表面的独立端到端回归；固定T4-v2协议补第二模型复测；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。
