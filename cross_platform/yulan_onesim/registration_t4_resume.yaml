@@ -1,0 +1,94 @@
+preregistration_id: CROSS-PLATFORM-YULAN-T4-GLM52-RESUME-v1
+registered_on: '2026-09-03'
+phase: prospective_continuation_after_external_abort
+live_execution_status: not_run
+ranking_eligible: false
+
+reason: >-
+  The original registered process was externally terminated after eight cells
+  completed and while the ninth cell was in progress. Existing evidence is
+  preserved. The interrupted cell is not retried and will count as a failed
+  registered slot in the combined fixed-denominator analysis.
+
+prior_partial_run:
+  result_dir: output/cross_platform_yulan_t4_glm52_20260903
+  completed_cells: 8
+  interrupted_cell:
+    task_id: t4v2_substation_load_001
+    variant: control
+    track: drop_bridge
+    disposition: failed_external_process_abort_no_retry
+  completed_model_calls: 27
+  interrupted_call_evidence: >-
+    The corrupted tail prevents an exact response count. Receiver evidence shows
+    source forwarding completed and the intermediate stage had begun. No call is
+    replaced; the combined report treats the entire cell as failed.
+
+systems:
+  yulan_onesim:
+    repository: https://github.com/RUC-GSAI/YuLan-OneSim
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+  gaworld_reference:
+    result_dir: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
+    manifest_sha256: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  remaining_cells:
+    - {task_id: t4v2_substation_load_001, variant: intervention, track: full}
+    - {task_id: t4v2_substation_load_001, variant: intervention, track: remove_bridge}
+    - {task_id: t4v2_substation_load_001, variant: intervention, track: drop_bridge}
+    - {task_id: t4v2_school_air_001, variant: control, track: full}
+    - {task_id: t4v2_school_air_001, variant: control, track: remove_bridge}
+    - {task_id: t4v2_school_air_001, variant: control, track: drop_bridge}
+    - {task_id: t4v2_school_air_001, variant: intervention, track: full}
+    - {task_id: t4v2_school_air_001, variant: intervention, track: remove_bridge}
+    - {task_id: t4v2_school_air_001, variant: intervention, track: drop_bridge}
+  cells: 9
+  max_calls: 30
+  execution_order: listed_order
+  scorer_version: model-pilot-t4-v2-scorer-v1+yulan-evidence-v1
+
+frozen_inputs:
+  cross_platform/yulan_onesim/t4_adapter.py: 7b82dc9ea69794e514c120557604c480f7d7021f05e54e03e7103c409ffd5ab4
+  cross_platform/yulan_onesim/t4_scorer.py: ec0c456008a2fa3d6cb4f5be7626352770e456b2ef0fc5cdc84ea7204461342b
+  cross_platform/yulan_onesim/t4_continue.py: fa139d782de478094638f7b45af44b37094fa3445b18dbf6ad5f90cdee8e06a5
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_reservoir_quality_001_control_full_s0/cell_result.json: bc3dd53f1ed1f26c54e6017c5a0b79e60c1752116c44ae2ffc1c0aad7a20fc15
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_reservoir_quality_001_control_remove_bridge_s0/cell_result.json: 13121e12bfc6f8778b45c199f8eca8cbd12bdd6715f378e0a95c3deb7da38052
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_reservoir_quality_001_control_drop_bridge_s0/cell_result.json: f1a3e67a890b803b988ec16ac44479c572c9f544ebe0785cedbc0ab328253b97
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_reservoir_quality_001_intervention_full_s0/cell_result.json: d2ca5f64f537623c49811c12b9697bf015360ff4151b785cd986b00554786d22
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_reservoir_quality_001_intervention_remove_bridge_s0/cell_result.json: 0b3884272d1aa60809d1928e5fe2d521153c9ac1201b6576a2c4d250e983dce6
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_reservoir_quality_001_intervention_drop_bridge_s0/cell_result.json: 48c327ab801d373a1de34fcd37dba332d3fae56443c51d788cbc11f9842e641f
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_substation_load_001_control_full_s0/cell_result.json: c5051b2dafd26b4848ab17b17f43f6a720d9dabded22f0ae9e11ba2f710b9059
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_substation_load_001_control_remove_bridge_s0/cell_result.json: c92d45ffa5fd029d7815c4c8ad0701ac2cb989c34ca0d25fe6eb4d80cfd3a9d7
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_substation_load_001_control_drop_bridge_s0/model_trace.jsonl: a04a5f8716c74fe93fc5878370e7161fd024e20651ce930b9967c4668fbaa378
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_substation_load_001_control_drop_bridge_s0/network_trace.jsonl: e6102dfa681d37bec58b60d5cf88818da9ee7f2717a6682bcf55d73c98cff29e
+  output/cross_platform_yulan_t4_glm52_20260903/runs/yulan_model_v2_t4v2_substation_load_001_control_drop_bridge_s0/onesim_receipts.jsonl: de7203546fc0b7703df7a0ea57b838386dfe8ec8215721845de7cda757b793e4
+
+analysis_rules:
+  preserve_prior_evidence: true
+  retry_interrupted_cell: false
+  remaining_cells_only: true
+  combined_denominator: 18
+  interrupted_cell_score: 0
+  invalid_responses_remain_in_denominator: true
+  no_post_hoc_prompt_change: true
+
+stopping_rules:
+  - Stop after the nine listed never-started cells finish.
+  - Stop before any continuation call exceeds the shared 30-call budget.
+  - Do not execute any of the eight completed cells or the interrupted ninth cell.
+  - Do not retry or replace invalid or provider-failed responses.
+
+planned_entrypoint: >-
+  python -m cross_platform.yulan_onesim.t4_continue --provider paratera_glm
+  --allow-live-model --out output/cross_platform_yulan_t4_glm52_resume_20260903
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
+
