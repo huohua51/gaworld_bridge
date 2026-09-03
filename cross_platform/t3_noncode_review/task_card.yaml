@@ -1,0 +1,37 @@
+schema_version: 1
+task_id: TASK-T3-cross-platform-noncode-review-v1
+task_family: T3
+target_axis: functional
+mechanism: [M2, M3, M5]
+control:
+  state: verified_support
+  expected_behavior: independent reviewer approves and executor adopts the proposal
+variant:
+  state: verified_conflict
+  expected_behavior: independent reviewer rejects and executor preserves the baseline
+oracle:
+  full: >-
+    The proposer copies the registered candidate, the reviewer evaluates every
+    hard constraint against private verified evidence, and the executor changes
+    state only after an approving delivered review.
+required_events:
+  - proposal_submitted
+  - review_requested
+  - private_evidence_read_by_reviewer
+  - review_delivered
+  - review_adopted
+  - final_state_submitted
+primary_metric: correct reviewed proposal adoption rate
+diagnostic_metrics:
+  - proposal fidelity
+  - review decision accuracy
+  - failing-criterion accuracy
+  - private-evidence isolation
+  - executor review compliance
+  - final-state accuracy
+  - cross-platform prompt-hash agreement
+human_reference: N/A
+ranking_eligible: false
+note: >-
+  New non-code task surfaces for protocol-parity comparison. This does not
+  replace or combine with the code-threshold T3-01/T3-03 evidence.

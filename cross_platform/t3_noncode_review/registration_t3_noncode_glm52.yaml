@@ -1,0 +1,113 @@
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-GLM52-v1
+registered_on: '2026-09-03'
+phase: prospective_cross_platform_live_pilot
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  With new non-code tasks, private evidence, prompts, GLM-5.2 settings and
+  evidence-first scoring held constant, does the proposal to independent review
+  to approve/reject to state-update chain behave differently when routed through
+  GAWorld ReviewChannel versus YuLan-OneSim EventBus?
+
+systems:
+  gaworld:
+    source_root: F:/proj/GAWorld
+    execution_surface: native ReviewChannel with common reject/revise transport adapter
+    source_tree_modified: false
+    review_channel_sha256: 2a7c0953e416359ac505a2ab0f2424852d5e396aa7f1a87d916f5c78ccdc1544
+  yulan_onesim:
+    repository: https://github.com/RUC-GSAI/YuLan-OneSim
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+    execution_surface: native EventBus with explicit benchmark payload Event subclass
+    source_tree_modified: false
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t3nc_clinic_cooling_shift_001
+    - t3nc_library_evening_hours_001
+    - t3nc_foodbank_delivery_001
+  variants: [verified_support, verified_conflict]
+  platforms: [GAWorld, YuLan-OneSim]
+  roles: [proposer, reviewer, executor]
+  cells: 12
+  calls_per_cell: 3
+  max_calls: 36
+  execution_order: task_then_variant_then_platform_then_role
+  prompt_protocol: gaworld-benchmark-t3-noncode-review-v1
+  scorer_version: cross-platform-t3-noncode-review-scorer-v1
+
+registered_oracle:
+  verified_support:
+    review_decision: approve
+    executor_adopted: true
+    final_state: proposed_state
+  verified_conflict:
+    review_decision: reject
+    executor_adopted: false
+    final_state: baseline_state
+  platform_pair_requirements:
+    prompt_hashes_exact: 6/6
+    deterministic_fixture_role_outputs_exact: 6/6
+
+frozen_inputs:
+  cross_platform/t3_noncode_review/tasks.yaml: b70e4b2a938387352b3ff7854bc60cd11def1eee1c985564dd68f58d568d0e94
+  cross_platform/t3_noncode_review/task_card.yaml: 47cb60fc292d38fd61402684b5a9f7883e9e9d0bfd5c4425d933932052d08d55
+  cross_platform/t3_noncode_review/protocol.md: 5e45a28e7271d4a474c0ccc4702e84f27263aa0fb729faa3534920ecf6e23142
+  cross_platform/t3_noncode_review/protocol.py: 15507eeba82383b1e8a7ac6e1e13a705d6d26bc882daf3f7e8289a49d4085162
+  cross_platform/t3_noncode_review/fixture.py: 0da8c8881b62e2715141c4d307909a4413559f157e0c3839fd2d369d33cec837
+  cross_platform/t3_noncode_review/gaworld_adapter.py: bf38265c52923fb996476c92e2edbeeff417726c700961abd8704f674d15cb2f
+  cross_platform/t3_noncode_review/yulan_adapter.py: cea76a5a8d6161b8d7c32fb4e2dca6bfa325e7061dcba01085396eb69b77951b
+  cross_platform/t3_noncode_review/scorer.py: 641a7f70d6b9182a787ccbe6bf7e098a55fa9d60fbe43bd268b15bc2cbbd26b2
+  cross_platform/t3_noncode_review/run.py: 841c92ad87fa4a2830b7948e4ffac7c88f87f04c9c8f8072acacd215be8b8e2c
+  cross_platform/t3_noncode_review/README.md: 602375831aa3b7362add63b73ed1710d39be182996bff766cd7085e1666ff197
+
+analysis_rules:
+  paired_unit: same task and evidence variant across the two platforms
+  platform_variable: >-
+    GAWorld routes proposal, private reviewer context, structured review and
+    adoption through ReviewChannel. YuLan routes explicitly payload-bearing
+    child events through EventBus and records receiver-side receipts.
+  prompt_parity: >-
+    The proposer, reviewer and executor prompt SHA-256 hashes must match within
+    every platform pair before output differences are interpreted.
+  private_information: >-
+    The complete verified evidence values must appear in the reviewer request
+    and must not appear in proposer or executor requests. Evidence IDs may be
+    present in the delivered review.
+  reject_transport: >-
+    GAWorld ReviewChannel's revise value is a carrier for the common reject
+    decision. The common review JSON is restored before the executor prompt.
+  measurement: >-
+    Receiver-side evidence, not native dispatch attempts alone, establishes
+    delivery. Exactly three requests and three responses are required per cell.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+
+interpretation_limits:
+  - This is a 12-cell, one-model, one-seed protocol-parity pilot.
+  - Three task surfaces do not represent all T3 work-review behavior.
+  - Benchmark-owned tasks and transition rules are not native product scenarios.
+  - The experiment is not eligible for an overall platform ranking.
+  - H1-H7 human validity dimensions are outside this functional experiment.
+  - Wall-clock latency is not compared because platform order is paired but not concurrent.
+
+stopping_rules:
+  - Run all 12 deterministic fixture cells and require 36/36 valid fixture responses before live execution.
+  - Commit the registration and frozen inputs before the first live request.
+  - Stop after all 12 live cells finish or before a call exceeding the 36-call budget.
+  - Do not retry or replace structurally invalid, provider-failed or interrupted cells.
+
+planned_entrypoint: >-
+  python -m cross_platform.t3_noncode_review.run --provider paratera_glm
+  --allow-live-model --out output/cross_platform_t3_noncode_glm52_<run_id>
+credential_policy: PARATERA_API_KEY is read from the environment and never logged

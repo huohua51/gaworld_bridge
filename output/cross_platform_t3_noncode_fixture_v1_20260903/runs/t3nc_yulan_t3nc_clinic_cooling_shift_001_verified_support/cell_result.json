@@ -1,0 +1,325 @@
+{
+  "workflow_id": "cross_platform_t3_noncode_review_v1",
+  "instance_id": "t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "platform_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "rows=5;ok"
+    },
+    {
+      "gate_id": "model_trace_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "proposal_and_review_delivered",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "proposal=True;review=True;payload_exact=True"
+    },
+    {
+      "gate_id": "review_adopted_and_final_submitted",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "adopted=True;submitted=True"
+    },
+    {
+      "gate_id": "private_evidence_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "reviewer-only prompt field and value visibility"
+    },
+    {
+      "gate_id": "role_boundaries_enforced",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "private_readers=['reviewer'];state_writers=['executor']"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "proposal_fidelity",
+      "layer": "R2",
+      "scorer": "exact_registered_candidate_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'clinic-cooling-plan-v2', 'proposed_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'reason_code': 'registered_candidate_submitted'}"
+    },
+    {
+      "criterion_id": "independent_review_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_review_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'approve', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={'proposal_id': 'clinic-cooling-plan-v2', 'decision': 'approve', 'evidence_ids': ['clinic-alert-check', 'clinic-staff-roster', 'clinic-room-certificate'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'}"
+    },
+    {
+      "criterion_id": "executor_review_compliance",
+      "layer": "R2",
+      "scorer": "exact_delivered_review_transition",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "detail": "expected={'adopted': True, 'final_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'disposition': 'adopted', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': True, 'final_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'disposition': 'adopted', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'approved_review_applied'}"
+    },
+    {
+      "criterion_id": "adoption_effect_correct",
+      "layer": "R2",
+      "scorer": "registered_support_conflict_effect",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "detail": "expected={'adopted': True, 'final_state': {'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55}, 'disposition': 'adopted', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': True, 'final_state': {'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}, 'disposition': 'adopted', 'review_id': 't3nc_clinic_cooling_shift_001_r1', 'reason_code': 'approved_review_applied'}"
+    },
+    {
+      "criterion_id": "final_state_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_final_state_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+        "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+      ],
+      "detail": "expected={'opening_hour': 12, 'closing_hour': 18, 'service_capacity': 55};actual={'closing_hour': 18, 'opening_hour': 12, 'service_capacity': 55}"
+    }
+  ],
+  "process_profile": {
+    "proposal": {
+      "proposal_id": "clinic-cooling-plan-v2",
+      "proposed_state": {
+        "closing_hour": 18,
+        "opening_hour": 12,
+        "service_capacity": 55
+      },
+      "reason_code": "registered_candidate_submitted"
+    },
+    "review": {
+      "proposal_id": "clinic-cooling-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "clinic-alert-check",
+        "clinic-staff-roster",
+        "clinic-room-certificate"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied"
+    },
+    "delivered_review": {
+      "proposal_id": "clinic-cooling-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "clinic-alert-check",
+        "clinic-staff-roster",
+        "clinic-room-certificate"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_clinic_cooling_shift_001_r1"
+    },
+    "executor_output": {
+      "adopted": true,
+      "final_state": {
+        "closing_hour": 18,
+        "opening_hour": 12,
+        "service_capacity": 55
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_clinic_cooling_shift_001_r1",
+      "reason_code": "approved_review_applied"
+    },
+    "expected_review": {
+      "proposal_id": "clinic-cooling-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "clinic-alert-check",
+        "clinic-staff-roster",
+        "clinic-room-certificate"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied"
+    },
+    "expected_executor": {
+      "adopted": true,
+      "final_state": {
+        "opening_hour": 12,
+        "closing_hour": 18,
+        "service_capacity": 55
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_clinic_cooling_shift_001_r1",
+      "reason_code": "approved_review_applied"
+    },
+    "first_error": "none"
+  },
+  "extra": {
+    "platform": "YuLan-OneSim",
+    "variant": "verified_support",
+    "task_title": "社区降温点延长开放方案",
+    "prompt_sha256_by_role": {
+      "proposer": "f694f4586220443e40dc786fa359b7ab641108108eb74d9455a043e003af3b11",
+      "reviewer": "f4d0762a89728ee0b875c198a00dcee476e59eae660cd9a0f576789a3ada12b2",
+      "executor": "03f41771ec0dc90282e411fe754bdda4d68356928d5a7488c6b4c74dbd2ee80a"
+    },
+    "role_outputs": {
+      "proposer": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "proposed_state": {
+          "closing_hour": 18,
+          "opening_hour": 12,
+          "service_capacity": 55
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "reviewer": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "executor": {
+        "adopted": true,
+        "final_state": {
+          "closing_hour": 18,
+          "opening_hour": 12,
+          "service_capacity": 55
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "approved_review_applied"
+      }
+    },
+    "model_evidence_ids": [
+      "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-1",
+      "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-2",
+      "model-call:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support:call-3"
+    ],
+    "platform_trace_path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\yulan_review_trace.jsonl",
+    "model_trace_path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\model_trace.jsonl",
+    "platform_evidence": {
+      "onesim_receipt_path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\onesim_receipts.jsonl",
+      "onesim_event_flow_path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support\\onesim_event_flow.json",
+      "denials": [],
+      "verified_receipts": 4,
+      "native_event_attempts": 4,
+      "native_flow_count": 1
+    },
+    "first_error": "none",
+    "run_context": {
+      "run_id": "t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support",
+      "task_id": "t3nc_clinic_cooling_shift_001",
+      "task_family": "T3",
+      "mechanism_condition": "YuLan-OneSim",
+      "variant": "verified_support",
+      "seed": 0,
+      "track": "full",
+      "model_version": "offline-t3-noncode-oracle-fixture-v1",
+      "temperature": 0.0,
+      "budget": {
+        "calls_per_cell": 3
+      },
+      "environment_version": "yulan-onesim-eventbus-9829d722",
+      "trace_version": "recipient-verified-review-and-model-jsonl-t3-noncode-v1",
+      "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+      "evidence_id": "bundle:t3nc_yulan_t3nc_clinic_cooling_shift_001_verified_support"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

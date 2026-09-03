@@ -1,0 +1,49 @@
+{
+  "flows": [
+    {
+      "id": "flow_25bb277e-ecd3-4b13-b2b5-e372cb391fc8",
+      "steps": [
+        {
+          "timestamp": 1788443260.6456676,
+          "event_kind": "StartEvent",
+          "from_agent_id": "ENV",
+          "from_agent_type": "ENV",
+          "to_agent_id": "proposer",
+          "to_agent_type": "Proposer",
+          "event_id": "25bb277e-ecd3-4b13-b2b5-e372cb391fc8"
+        },
+        {
+          "timestamp": 1788443260.6476674,
+          "event_kind": "ProposalSubmitted",
+          "from_agent_id": "proposer",
+          "from_agent_type": "Proposer",
+          "to_agent_id": "reviewer",
+          "to_agent_type": "Reviewer",
+          "event_id": "aba18157-edf6-47fe-96c7-912a825e3393",
+          "parent_event_id": "25bb277e-ecd3-4b13-b2b5-e372cb391fc8"
+        },
+        {
+          "timestamp": 1788443260.649669,
+          "event_kind": "ReviewDelivered",
+          "from_agent_id": "reviewer",
+          "from_agent_type": "Reviewer",
+          "to_agent_id": "executor",
+          "to_agent_type": "Executor",
+          "event_id": "8146d759-901f-4fcf-9a0b-f4afd0463998",
+          "parent_event_id": "aba18157-edf6-47fe-96c7-912a825e3393"
+        },
+        {
+          "timestamp": 1788443260.6521194,
+          "event_kind": "FinalStateSubmitted",
+          "from_agent_id": "executor",
+          "from_agent_type": "Executor",
+          "to_agent_id": "result-sink",
+          "to_agent_type": "ResultSink",
+          "event_id": "a0637272-4658-4f1a-96d5-998310505bbd",
+          "parent_event_id": "8146d759-901f-4fcf-9a0b-f4afd0463998"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788443260.6541946
+}

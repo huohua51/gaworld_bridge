@@ -1,0 +1,11 @@
+{
+  "adopted": false,
+  "final_state": {
+    "cold_boxes_loaded": 20,
+    "delivery_vans": 1,
+    "households_served": 60
+  },
+  "disposition": "kept_after_reject",
+  "review_id": "t3nc_foodbank_delivery_001_r1",
+  "reason_code": "rejected_review_preserved_baseline"
+}

@@ -1,0 +1,335 @@
+{
+  "workflow_id": "cross_platform_t3_noncode_review_v1",
+  "instance_id": "t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support",
+  "measurement_valid": true,
+  "full_pass": 1,
+  "task_score": 1.0,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "platform_trace_parseable",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "rows=12;ok"
+    },
+    {
+      "gate_id": "model_trace_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "requests=3;responses=3;roles=['proposer', 'reviewer', 'executor'];evidence_ids=3"
+    },
+    {
+      "gate_id": "eval_mode_on",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "run_context_complete",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "critical_evidence_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "ok"
+    },
+    {
+      "gate_id": "proposal_and_review_delivered",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "proposal=True;review=True;payload_exact=True"
+    },
+    {
+      "gate_id": "review_adopted_and_final_submitted",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "adopted=True;submitted=True"
+    },
+    {
+      "gate_id": "private_evidence_isolated",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "reviewer-only prompt field and value visibility"
+    },
+    {
+      "gate_id": "role_boundaries_enforced",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": "private_readers=['reviewer'];state_writers=['executor']"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "proposal_fidelity",
+      "layer": "R2",
+      "scorer": "exact_registered_candidate_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'reason_code': 'registered_candidate_submitted'};actual={'proposal_id': 'foodbank-delivery-plan-v2', 'proposed_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'reason_code': 'registered_candidate_submitted'}"
+    },
+    {
+      "criterion_id": "independent_review_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_review_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "detail": "expected={'proposal_id': 'foodbank-delivery-plan-v2', 'decision': 'approve', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'};actual={'proposal_id': 'foodbank-delivery-plan-v2', 'decision': 'approve', 'evidence_ids': ['foodbank-driver-check', 'foodbank-route-check', 'foodbank-coldbox-count'], 'failing_criteria': [], 'reason_code': 'all_constraints_satisfied'}"
+    },
+    {
+      "criterion_id": "executor_review_compliance",
+      "layer": "R2",
+      "scorer": "exact_delivered_review_transition",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "detail": "expected={'adopted': True, 'final_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'disposition': 'adopted', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': True, 'final_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'disposition': 'adopted', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'approved_review_applied'}"
+    },
+    {
+      "criterion_id": "adoption_effect_correct",
+      "layer": "R2",
+      "scorer": "registered_support_conflict_effect",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "detail": "expected={'adopted': True, 'final_state': {'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30}, 'disposition': 'adopted', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'approved_review_applied'};actual={'adopted': True, 'final_state': {'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}, 'disposition': 'adopted', 'review_id': 't3nc_foodbank_delivery_001_r1', 'reason_code': 'approved_review_applied'}"
+    },
+    {
+      "criterion_id": "final_state_correct",
+      "layer": "R2",
+      "scorer": "exact_oracle_final_state_match",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+        "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+      ],
+      "detail": "expected={'delivery_vans': 2, 'households_served': 90, 'cold_boxes_loaded': 30};actual={'cold_boxes_loaded': 30, 'delivery_vans': 2, 'households_served': 90}"
+    }
+  ],
+  "process_profile": {
+    "proposal": {
+      "proposal_id": "foodbank-delivery-plan-v2",
+      "proposed_state": {
+        "cold_boxes_loaded": 30,
+        "delivery_vans": 2,
+        "households_served": 90
+      },
+      "reason_code": "registered_candidate_submitted"
+    },
+    "review": {
+      "proposal_id": "foodbank-delivery-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "foodbank-driver-check",
+        "foodbank-route-check",
+        "foodbank-coldbox-count"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied"
+    },
+    "delivered_review": {
+      "decision": "approve",
+      "evidence_ids": [
+        "foodbank-driver-check",
+        "foodbank-route-check",
+        "foodbank-coldbox-count"
+      ],
+      "failing_criteria": [],
+      "proposal_id": "foodbank-delivery-plan-v2",
+      "reason_code": "all_constraints_satisfied",
+      "review_id": "t3nc_foodbank_delivery_001_r1"
+    },
+    "executor_output": {
+      "adopted": true,
+      "final_state": {
+        "cold_boxes_loaded": 30,
+        "delivery_vans": 2,
+        "households_served": 90
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_foodbank_delivery_001_r1",
+      "reason_code": "approved_review_applied"
+    },
+    "expected_review": {
+      "proposal_id": "foodbank-delivery-plan-v2",
+      "decision": "approve",
+      "evidence_ids": [
+        "foodbank-driver-check",
+        "foodbank-route-check",
+        "foodbank-coldbox-count"
+      ],
+      "failing_criteria": [],
+      "reason_code": "all_constraints_satisfied"
+    },
+    "expected_executor": {
+      "adopted": true,
+      "final_state": {
+        "delivery_vans": 2,
+        "households_served": 90,
+        "cold_boxes_loaded": 30
+      },
+      "disposition": "adopted",
+      "review_id": "t3nc_foodbank_delivery_001_r1",
+      "reason_code": "approved_review_applied"
+    },
+    "first_error": "none"
+  },
+  "extra": {
+    "platform": "GAWorld",
+    "variant": "verified_support",
+    "task_title": "食物银行扩大配送方案",
+    "prompt_sha256_by_role": {
+      "proposer": "315b61a240e3741645a52d3e5f51294814c1161fb6e04c4df2d3750289730f81",
+      "reviewer": "7b22c9fd39c9f59f5c17ab87558d40411067908e5d522340f9da5054e3ca2e65",
+      "executor": "4380b981adedc2c51f3ce5a2bbcb27258a9f7aef3fa55ba8c7be6f0d0ae341ab"
+    },
+    "role_outputs": {
+      "proposer": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "proposed_state": {
+          "cold_boxes_loaded": 30,
+          "delivery_vans": 2,
+          "households_served": 90
+        },
+        "reason_code": "registered_candidate_submitted"
+      },
+      "reviewer": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied"
+      },
+      "executor": {
+        "adopted": true,
+        "final_state": {
+          "cold_boxes_loaded": 30,
+          "delivery_vans": 2,
+          "households_served": 90
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "approved_review_applied"
+      }
+    },
+    "model_evidence_ids": [
+      "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-1",
+      "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-2",
+      "model-call:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support:call-3"
+    ],
+    "platform_trace_path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support\\gaworld_review_trace.jsonl",
+    "model_trace_path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support\\model_trace.jsonl",
+    "platform_evidence": {
+      "denials": [
+        {
+          "ok": false,
+          "reason": "unauthorized_artifact_write",
+          "task_id": "t3nc_foodbank_delivery_001",
+          "role": "reviewer",
+          "kind": "final",
+          "path": "output\\cross_platform_t3_noncode_fixture_v1_20260903\\runs\\t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support\\unauthorized_reviewer_state.json"
+        },
+        {
+          "ok": false,
+          "reason": "unauthorized_private_read",
+          "task_id": "t3nc_foodbank_delivery_001",
+          "role": "executor"
+        }
+      ]
+    },
+    "first_error": "none",
+    "run_context": {
+      "run_id": "t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support",
+      "task_id": "t3nc_foodbank_delivery_001",
+      "task_family": "T3",
+      "mechanism_condition": "GAWorld",
+      "variant": "verified_support",
+      "seed": 0,
+      "track": "full",
+      "model_version": "offline-t3-noncode-oracle-fixture-v1",
+      "temperature": 0.0,
+      "budget": {
+        "calls_per_cell": 3
+      },
+      "environment_version": "gaworld-review-channel-v2",
+      "trace_version": "gaworld-review-and-model-jsonl-t3-noncode-v1",
+      "scorer_version": "cross-platform-t3-noncode-review-scorer-v1",
+      "evidence_id": "bundle:t3nc_gaworld_t3nc_foodbank_delivery_001_verified_support"
+    },
+    "eval_mode_evidence": {
+      "enabled": true,
+      "applied": true,
+      "changes": [
+        "dynamic_behavior.enabled=False",
+        "routine_change.enabled=False"
+      ],
+      "dynamic_behavior_enabled": false,
+      "routine_change_enabled": false,
+      "strict_interview_json": true,
+      "diary_fallback_disabled": true
+    }
+  }
+}

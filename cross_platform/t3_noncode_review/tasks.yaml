@@ -1,0 +1,79 @@
+schema_version: 1
+tasks:
+  - id: t3nc_clinic_cooling_shift_001
+    title: 社区降温点延长开放方案
+    public_brief: >-
+      社区诊所拟在红色高温预警期间提前开放降温点。提案必须经过独立核验；
+      只有值班人数、场地核定容量和预警等级同时满足硬约束时才可采纳。
+    proposal_id: clinic-cooling-plan-v2
+    baseline_state:
+      opening_hour: 14
+      closing_hour: 18
+      service_capacity: 40
+    proposed_state:
+      opening_hour: 12
+      closing_hour: 18
+      service_capacity: 55
+    criteria:
+      - {criterion_id: heat-alert, evidence_field: heat_alert_level, operator: eq, required: red}
+      - {criterion_id: staffing, evidence_field: verified_staff_on_duty, operator: gte, required: 4}
+      - {criterion_id: room-capacity, evidence_field: certified_room_capacity, operator: gte, required: 55}
+    private_evidence:
+      verified_support:
+        evidence_ids: [clinic-alert-check, clinic-staff-roster, clinic-room-certificate]
+        values: {heat_alert_level: red, verified_staff_on_duty: 5, certified_room_capacity: 60}
+      verified_conflict:
+        evidence_ids: [clinic-alert-check, clinic-staff-roster, clinic-room-certificate]
+        values: {heat_alert_level: red, verified_staff_on_duty: 5, certified_room_capacity: 48}
+
+  - id: t3nc_library_evening_hours_001
+    title: 图书馆延时开放方案
+    public_brief: >-
+      社区图书馆拟延长晚间开放并增加可预约自习室。提案必须经过独立核验；
+      安保覆盖、确认值班主管和获批房间数必须同时满足硬约束。
+    proposal_id: library-evening-plan-v2
+    baseline_state:
+      closing_hour: 20
+      reservable_rooms: 4
+      supervisors_on_duty: 1
+    proposed_state:
+      closing_hour: 22
+      reservable_rooms: 6
+      supervisors_on_duty: 2
+    criteria:
+      - {criterion_id: security-coverage, evidence_field: verified_security_until_hour, operator: gte, required: 22}
+      - {criterion_id: supervisors, evidence_field: confirmed_supervisors, operator: gte, required: 2}
+      - {criterion_id: rooms, evidence_field: approved_rooms, operator: gte, required: 6}
+    private_evidence:
+      verified_support:
+        evidence_ids: [library-security-check, library-supervisor-roster, library-room-approval]
+        values: {verified_security_until_hour: 23, confirmed_supervisors: 2, approved_rooms: 6}
+      verified_conflict:
+        evidence_ids: [library-security-check, library-supervisor-roster, library-room-approval]
+        values: {verified_security_until_hour: 21, confirmed_supervisors: 2, approved_rooms: 6}
+
+  - id: t3nc_foodbank_delivery_001
+    title: 食物银行扩大配送方案
+    public_brief: >-
+      食物银行拟扩大当日生鲜配送范围。提案必须经过独立核验；持证司机、
+      已核实配送容量和冷藏箱数量必须同时满足硬约束。
+    proposal_id: foodbank-delivery-plan-v2
+    baseline_state:
+      delivery_vans: 1
+      households_served: 60
+      cold_boxes_loaded: 20
+    proposed_state:
+      delivery_vans: 2
+      households_served: 90
+      cold_boxes_loaded: 30
+    criteria:
+      - {criterion_id: drivers, evidence_field: licensed_drivers, operator: gte, required: 2}
+      - {criterion_id: route-capacity, evidence_field: verified_household_capacity, operator: gte, required: 90}
+      - {criterion_id: cold-chain, evidence_field: available_cold_boxes, operator: gte, required: 30}
+    private_evidence:
+      verified_support:
+        evidence_ids: [foodbank-driver-check, foodbank-route-check, foodbank-coldbox-count]
+        values: {licensed_drivers: 2, verified_household_capacity: 96, available_cold_boxes: 34}
+      verified_conflict:
+        evidence_ids: [foodbank-driver-check, foodbank-route-check, foodbank-coldbox-count]
+        values: {licensed_drivers: 1, verified_household_capacity: 96, available_cold_boxes: 34}
