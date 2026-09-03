@@ -1,0 +1,64 @@
+preregistration_id: YULAN-ONESIM-R0-EVENT-OBSERVABILITY-v1
+registered_on: '2026-09-03'
+phase: deterministic_platform_calibration
+paid_model_calls: 0
+ranking_eligible: false
+
+systems:
+  yulan_onesim:
+    repository: https://github.com/RUC-GSAI/YuLan-OneSim
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+    local_checkout: F:/proj/YuLan-OneSim-official
+    python: '3.10'
+  gaworld_benchmark:
+    repository: https://github.com/huohua51/gaworld_bridge
+    task_family: T4-v2 registered transport
+
+question: >-
+  Before any paid cross-platform model run, can YuLan-OneSim's native EventBus
+  evidence distinguish attempted routing from actual receipt, preserve exact
+  multi-hop parentage, and expose global termination?
+
+design:
+  cases:
+    - full_registered_path
+    - adapter_drop_at_bridge
+    - unknown_target
+  repeats: 1
+  model: deterministic_rule_fixture
+  api_calls: 0
+  execution_mode: single_process_native_event_bus
+  optional_visualization_import: stubbed_for_headless_calibration
+
+frozen_outcomes:
+  primary:
+    - recipient_verified_complete_path
+    - recipient_verified_target_receipt
+    - exported_exact_parent_lineage
+    - exported_unknown_target_detectability
+    - exported_global_termination_detectability
+  diagnostic:
+    - event_bus_attempt_sequence
+    - recipient_receipt_sequence
+    - omitted_single_event_flows
+
+analysis_rules:
+  delivery: >-
+    A delivery counts only if the registered receiver's add_event method records
+    the same event_id. Presence in EventBus._event_sequence alone is an attempt,
+    not proof of receipt.
+  complete_path: >-
+    The full case requires ordered receipts at source, bridge and target.
+  lineage: >-
+    Every exported child parent_event_id must equal the parent_event_id on the
+    corresponding raw Event object. An inferred earlier event is not sufficient.
+  negative_controls: >-
+    The bridge-drop case must not reach the target. The unknown-target case must
+    not be counted as delivered.
+  no_source_changes: true
+  no_post_hoc_metric_changes: true
+
+stopping_rules:
+  - Stop after all three deterministic cases finish.
+  - Make no API or model call.
+  - Do not modify the YuLan-OneSim checkout.

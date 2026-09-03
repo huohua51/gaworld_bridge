@@ -1,0 +1,105 @@
+preregistration_id: CROSS-PLATFORM-YULAN-T4-GLM52-v1
+registered_on: '2026-09-03'
+phase: prospective_cross_platform_live_pilot
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  With task content, prompt protocol, GLM-5.2 inference settings, call budget and
+  T4-v2 scoring logic held constant, does the registered transport pattern
+  observed on GAWorld reproduce when delivery is mediated by YuLan-OneSim's
+  single-process EventBus and verified with receiver-side receipts?
+
+systems:
+  yulan_onesim:
+    repository: https://github.com/RUC-GSAI/YuLan-OneSim
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+    execution_surface: native EventBus with benchmark protocol adapter
+    source_tree_modified: false
+  gaworld_reference:
+    result_dir: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399
+    manifest_sha256: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+    full_pass_by_track:
+      full: {control: 1.0, intervention: 1.0}
+      remove_bridge: {control: 1.0, intervention: 0.0}
+      drop_bridge: {control: 1.0, intervention: 0.0}
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+
+design:
+  task_ids:
+    - t4v2_reservoir_quality_001
+    - t4v2_substation_load_001
+    - t4v2_school_air_001
+  variants: [control, intervention]
+  tracks: [full, remove_bridge, drop_bridge]
+  seeds: [0]
+  cells: 18
+  max_calls: 60
+  execution_order: task_then_variant_then_track
+  prompt_protocol: gaworld-benchmark-t4-model-v2
+  scorer_version: model-pilot-t4-v2-scorer-v1+yulan-evidence-v1
+
+frozen_inputs:
+  cross_platform/yulan_onesim/t4_adapter.py: 7b82dc9ea69794e514c120557604c480f7d7021f05e54e03e7103c409ffd5ab4
+  cross_platform/yulan_onesim/t4_scorer.py: ec0c456008a2fa3d6cb4f5be7626352770e456b2ef0fc5cdc84ea7204461342b
+  cross_platform/yulan_onesim/t4_run.py: 4783a48857b5cdcdf5ce5f3d48b7a45aec05a13463f32eda2e3c00a011ae2536
+  model_pilot/t4_v2.py: e1878279e539d2256372ec88dc9be3b9cc868c21ff69a0cba82a7e10f8611718
+  model_pilot/t4_v2_scorer.py: 82f1bcd265c1ef9136e52eda68386ab5102a7ada6017d81288dfb25b05152f76
+  exp_gm_t4_02/tasks.yaml: aa313c39b863c316931b0eb541a04c62cdf4c9c3b19ddf05d82df155c1c1d68c
+  exp_gm_t4_02/loader.py: c63d2586a27e5ac1b2ba59771c0902ab06153110e0cb09f6eada26b0dc10a761
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/RUN_MANIFEST.yaml: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+
+outcomes:
+  primary:
+    - full_track_complete_path_rate_by_variant
+    - full_track_target_acceptance_rate_by_variant
+    - full_track_full_pass_rate_by_variant
+    - full_pass_pattern_exact_agreement_with_gaworld
+  secondary:
+    - receiver_verified_delivery_rate
+    - model_contract_rate
+    - first_error_counts
+    - communication_value_remove_bridge
+    - communication_value_drop_bridge
+
+analysis_rules:
+  same_prompt: >-
+    Reuse model_pilot.t4_v2._call so each role sees the frozen GAWorld prompt.
+  delivery: >-
+    Count message_delivered only inside the registered receiver's add_event call;
+    an EventBus internal attempt or native flow step alone is insufficient.
+  comparison: >-
+    Compare the 18-cell FullPass vector and aggregate track/variant rates to the
+    locked GAWorld seed-0 reference. Do not compare wall-clock latency because
+    execution and prior network conditions were not randomized concurrently.
+  negative_controls: >-
+    remove_bridge and drop_bridge must prevent target receipt. A control cell may
+    still pass by keeping the current action; an intervention cell must fail when
+    its required update cannot reach the target.
+  no_post_hoc_prompt_change: true
+  no_replacement_calls: true
+  invalid_responses_remain_in_denominator: true
+
+interpretation_limits:
+  - This is a protocol-parity adapter test, not a score for all native YuLan scenarios.
+  - One model and one seed establish a pilot comparison, not a general platform ranking.
+  - H1-H7 human validity dimensions are outside this functional experiment.
+  - The adapter supplies receiver receipts because R0 found native flow export insufficient.
+
+stopping_rules:
+  - Run and pass the 18-cell deterministic oracle fixture before live execution.
+  - Stop after all 18 live cells finish.
+  - Stop before any call that would exceed the shared 60-call budget.
+  - Do not retry or replace structurally valid, invalid, or provider-failed cells.
+
+planned_entrypoint: >-
+  python -m cross_platform.yulan_onesim.t4_run --provider paratera_glm
+  --allow-live-model --out output/cross_platform_yulan_t4_glm52_<run_id>
+credential_policy: PARATERA_API_KEY is read from the environment and never logged
