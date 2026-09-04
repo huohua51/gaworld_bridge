@@ -1,0 +1,41 @@
+experiment_id: EXP-GM-C1-07
+preregistration_id: C1-POSTMERGE-FRESH-SURFACE-GLM52-v7
+registration_sha256: 66d8587409112b0d3eeefb25aba24d6005f8a4048552eda3e6b6765cea96c8c6
+phase: postmerge_operational_replacement_seed0
+gate: measurement_invalid
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+ranking_eligible: false
+n_cells: 6
+coverage: 0.1667
+full_pass_rate: 1.0
+priority_nack_intervention: 1.0
+priority_nack_control: 0.0
+retry_recovery_intervention: 1.0
+platform_identifier_ownership: 1.0
+spec_revision_advanced: 1.0
+stale_plan_rejected: 1.0
+first_error:
+  model_response_invalid: 5
+  none: 1
+budget:
+  max_calls: 36
+  calls_used: 36
+  calls_remaining: 0
+  prompt_chars: 27532
+  response_chars: 2207
+  transport_attempts_observed: 36
+  transport_retries_observed: 0
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
+core_fix_commits_in_history:
+- ad93e9d8c2848158bdf78ad789cb3b7c6a9d4d49
+gaworld_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+does_not_overwrite:
+- EXP-GM-C1-02
+- EXP-GM-C1-03
+- EXP-GM-C1-04
+- EXP-GM-C1-05
+- EXP-GM-C1-06
+operational_replacement_for: EXP-GM-C1-06

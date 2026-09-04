@@ -1,0 +1,39 @@
+experiment_id: EXP-GM-REL1-04
+preregistration_id: REL1-POSTMERGE-FRESH-SURFACE-GLM52-v4
+registration_sha256: a1e6080f87c8d9896385494f469eabc78e2a273ffcea7c00043ea17b8946cd31
+phase: postmerge_model_seed0_regression
+gate: measurement_invalid
+provider: paratera_glm
+model_version: GLM-5.2
+live_model: true
+ranking_eligible: false
+n_cells: 6
+coverage: 0.8333
+full_pass_rate: 0.6
+observer_relay_faithful: 1.0
+formation_counts_correct: 1.0
+formation_source_correct: 1.0
+update_source_correct: 0.6
+formation_action_bound: 1.0
+update_action_bound: 0.6
+first_error:
+  none: 3
+  latest_binding_source_incorrect: 2
+  model_response_invalid: 1
+budget:
+  max_calls: 30
+  calls_used: 30
+  calls_remaining: 0
+  prompt_chars: 30882
+  response_chars: 3402
+  transport_attempts_observed: 30
+  transport_retries_observed: 0
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
+core_fix_commits_in_history:
+- a14a748acc77b13c5742040c78304d17c67fe683
+gaworld_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+does_not_overwrite:
+- EXP-GM-REL1
+- EXP-GM-REL1-02
+- EXP-GM-REL1-03

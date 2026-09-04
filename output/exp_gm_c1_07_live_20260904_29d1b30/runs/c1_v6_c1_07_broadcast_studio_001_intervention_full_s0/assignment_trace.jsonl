@@ -1,0 +1,5 @@
+{"event": "initial_saved", "assignments": {"agent_a": "bs962", "agent_b": "bs961"}}
+{"event": "proposal", "role": "coordinator", "attempt": 1, "accepted": false, "assignments": {"agent_a": "bs962", "agent_b": "bs961"}, "violations": [{"type": "private_infeasible", "agent": "A"}], "plan_id": null, "spec_version": "spec-001"}
+{"event": "protection_registered", "agent": "agent_a", "slot": "bs961", "spec_version": "spec-002"}
+{"event": "registered_constraints_inspected", "violations": [{"violation": "priority_preservation_violation", "type": "priority_preservation_violation", "agent": "A", "keep_protected_assignment": true, "forbid_duplicate_claim": true}]}
+{"event": "proposal", "role": "coordinator", "attempt": 2, "accepted": false, "assignments": {"agent_a": "bs961", "agent_b": "bs963"}, "violations": [{"type": "private_infeasible", "agent": "A"}], "plan_id": null, "spec_version": "spec-002"}

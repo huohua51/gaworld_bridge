@@ -5,7 +5,7 @@ task_coverage:
   T1: partial
   T2: partial
   T3: strong_development
-  T4: registered_transport_v2_glm52_seed0_1_2_stable
+  T4: registered_transport_v2_glm52_seed0_1_2_stable_gpt54_http403_blocked
   T5: glm52_gpt54_expanded_4task_seed0_1_pass_qwen_discontinued
   T6: longitudinal_approximation_rule_calibrated
 
@@ -21,6 +21,46 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: EXP-GM-C1-07
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5, M6]
+    source_dir: exp_gm_c1_07
+    result_dir: output/exp_gm_c1_07_live_20260904_29d1b30
+    evidence_status: postmerge_fixed_denominator_measurement_invalid_1_of_6_evaluable
+    operational_replacement_for: EXP-GM-C1-06
+    core_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+    follow_up: stopped_by_preregistered_rule_no_more_c1_pass_chasing
+    ranking_eligible: false
+
+  - experiment_id: EXP-GM-C1-06
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5, M6]
+    source_dir: exp_gm_c1_06
+    result_dir: output/exp_gm_c1_06_live_20260904_35bea2f
+    evidence_status: operator_session_interrupted_3_of_6_cells_preserved
+    core_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+    ranking_eligible: false
+
+  - experiment_id: EXP-GM-REL1-04
+    planned_task_family: REL1
+    mechanisms: [M3, M4, M5]
+    source_dir: exp_rel1_04
+    result_dir: output/exp_rel1_04_live_20260904_35bea2f
+    evidence_status: postmerge_measurement_invalid_5_of_6_evaluable_3_fullpass
+    core_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+    finding: core_message_binding_supported_latest_only_model_semantics_open
+    ranking_eligible: false
+
+  - experiment_id: MODEL-PILOT-T4-v2-GPT54
+    planned_task_family: T4
+    mechanisms: [M3, M5, M8]
+    source_dir: exp_gm_t4_02
+    result_dir: output/t4_v2_gpt54_calibration_20260904_35bea2f
+    evidence_status: non_scoring_calibration_0_of_2_http403_formal_matrix_not_started
+    protocol_source: EXP-GM-T4-02
+    model: gpt-5.4
+    ranking_eligible: false
+
   - experiment_id: EXP-GM-REL1-03
     planned_task_family: REL1
     mechanisms: [M3, M4, M5]
@@ -188,7 +228,7 @@ planned_gaps: []
 
 remaining_evidence_gaps:
   - task_family: T4
-    gap: registered_transport_v2_cross_model_replication
+    gap: registered_transport_v2_cross_model_replication_blocked_by_gpt54_http403
   - task_family: T5
     gap: human_reference_and_optional_non_qwen_model_replication
   - task_family: T6

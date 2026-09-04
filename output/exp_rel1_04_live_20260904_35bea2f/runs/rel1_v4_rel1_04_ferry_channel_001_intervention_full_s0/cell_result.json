@@ -1,0 +1,302 @@
+{
+  "workflow_id": "exp_rel1_04_postmerge_fresh_surface",
+  "instance_id": "rel1_v4_rel1_04_ferry_channel_001_intervention_full_s0",
+  "measurement_valid": true,
+  "full_pass": 0,
+  "task_score": 0.75,
+  "ranking_eligible": false,
+  "status": "scored",
+  "gates": [
+    {
+      "gate_id": "model_responses_structured",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fixed_five_call_budget",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_did_not_issue_binding_ids",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "history_isolated_from_dispatcher",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "trust_updater_cannot_submit",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "current_signals_delivered",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_trust_messages_adopted",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_actions_bound",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "observer_relay_faithful",
+      "layer": "R2",
+      "scorer": "registered_signals",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_correct_counts",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_support_rows",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_source_selected",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_binding_source_selected",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_binding_evidence_latest_only",
+      "layer": "R2",
+      "scorer": "row_ids",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "update_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "latest_binding_source_incorrect",
+    "events": [
+      "agent_bound",
+      "history_put",
+      "private_put",
+      "current_sent",
+      "current_sent",
+      "current_delivered",
+      "current_delivered",
+      "current_inbox_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "outcome_appended",
+      "history_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "denied",
+      "denied"
+    ],
+    "relationships": {
+      "source_pine": {
+        "closeness": 0.56,
+        "trust": 0.54,
+        "obligation": 0.53,
+        "friction": 0.45999999999999996,
+        "last_interaction_day": 1,
+        "phase": 1
+      },
+      "source_amber": {
+        "closeness": 0.42000000000000004,
+        "trust": 0.43999999999999995,
+        "obligation": 0.52,
+        "friction": 0.6000000000000001,
+        "last_interaction_day": 1,
+        "phase": 1
+      }
+    }
+  },
+  "extra": {
+    "task_id": "rel1_04_ferry_channel_001",
+    "variant": "intervention",
+    "track": "full",
+    "seed": 0,
+    "first_error": "latest_binding_source_incorrect",
+    "observer_relay_faithful": true,
+    "formation_counts_correct": true,
+    "formation_source_correct": true,
+    "update_source_correct": false,
+    "formation_action_bound": true,
+    "update_action_bound": false,
+    "got_formation": {
+      "correct_counts": {
+        "source_amber": 0,
+        "source_pine": 2
+      },
+      "other_source_id": "source_amber",
+      "supporting_row_ids": {
+        "source_amber": [],
+        "source_pine": [
+          "fc-i-11",
+          "fc-i-12"
+        ]
+      },
+      "trusted_source_id": "source_pine",
+      "trusted_state": "main_closed"
+    },
+    "got_update": {
+      "evidence_row_ids": [
+        "fc-i-13"
+      ],
+      "other_source_id": "source_amber",
+      "trusted_source_id": "source_pine",
+      "trusted_state": "main_closed"
+    },
+    "got_formation_action": {
+      "action": "select_ferry_route",
+      "value": "use_sheltered_channel",
+      "adopted_trust_version": "v1",
+      "evidence_message_id": "trust-msg-rel1_04_ferry_channel_001_intervention_s0-3",
+      "round": "formation",
+      "task_id": "rel1_04_ferry_channel_001_intervention_s0",
+      "dispatcher_id": 3
+    },
+    "got_update_action": {
+      "action": "select_ferry_route",
+      "value": "use_sheltered_channel",
+      "adopted_trust_version": "v2",
+      "evidence_message_id": "trust-msg-rel1_04_ferry_channel_001_intervention_s0-4",
+      "round": "update",
+      "task_id": "rel1_04_ferry_channel_001_intervention_s0",
+      "dispatcher_id": 3
+    },
+    "want": {
+      "formation_source": "source_pine",
+      "formation_state": "main_closed",
+      "formation_counts": {
+        "source_amber": 0,
+        "source_pine": 2
+      },
+      "formation_support": {
+        "source_amber": [],
+        "source_pine": [
+          "fc-i-11",
+          "fc-i-12"
+        ]
+      },
+      "formation_value": "use_sheltered_channel",
+      "update_source": "source_amber",
+      "update_state": "main_open",
+      "update_rows": [
+        "fc-i-13"
+      ],
+      "update_value": "use_main_channel"
+    },
+    "model_evidence_ids": [
+      "model-call:rel1_v4_rel1_04_ferry_channel_001_intervention_full_s0:call-1",
+      "model-call:rel1_v4_rel1_04_ferry_channel_001_intervention_full_s0:call-2",
+      "model-call:rel1_v4_rel1_04_ferry_channel_001_intervention_full_s0:call-3",
+      "model-call:rel1_v4_rel1_04_ferry_channel_001_intervention_full_s0:call-4",
+      "model-call:rel1_v4_rel1_04_ferry_channel_001_intervention_full_s0:call-5"
+    ],
+    "experiment_id": "EXP-GM-REL1-04",
+    "protocol_reused_from": "EXP-GM-REL1-03"
+  }
+}

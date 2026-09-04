@@ -517,6 +517,8 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 
 从框架建立到当前功能测封板的完整问题链、改正措施、复测效果、证据边界与方法论反思，见
 [`docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md`](docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md)。该复盘区分“已在新任务上闭环”“核心单元修复已落地但端到端Gate仍开放”和“仅完成规则校准”三种状态。
+2026-09-04合并后回归与T4第二模型复测见
+[`docs/POSTMERGE_REGRESSION_20260904.md`](docs/POSTMERGE_REGRESSION_20260904.md)。
 
 
 | **任务族**    | **开发状态**       | **代表实验**      | **当前结论**                   | **留出状态** |
@@ -524,9 +526,9 @@ T3测试：新标准只掌握在Reviewer手里时，审核信息能否到达Exec
 | T3 审核协作    | `pass`         | T3-03         | 独立Reviewer私有信息通过审核通道进入真实产物 | seed0同模式 |
 | I1 核实传播    | `pass`         | EXP-GM-I1     | 核实、送达、采用形成完整因果链            | seed0同模式 |
 | L1 中断恢复    | `pass`         | L1-01c        | 检查点、续做位置和角色接替形成闭环          | seed0同模式 |
-| C1 集体协调    | `core_unit_fix_pending_e2e` | C1-02 至 C1-05 | retry语义与平台ID所有权已定位，核心单元修复已落地，正式Gate仍未通过 | 待新编号端到端回归 |
-| REL1 可靠性更新 | `core_unit_fix_pending_e2e` | REL1 / REL1-02 / REL1-03 | 分阶段协议方向有效，动作证据绑定单元修复已落地，coverage Gate仍未关闭 | 待新编号端到端回归 |
-| T4 多跳传播    | `v2_repeat_pass` | T4-01 / T4-02 | v2 full Track在seed0/1/2的六个任务变体组合均稳定通过 | 三次完成 |
+| C1 集体协调    | `postmerge_e2e_measurement_invalid` | C1-02 至 C1-07 | 核心拒绝路径有直接支持；C1-07仅1/6格可测，端到端Gate未通过且停止追跑 | 新表面回归已执行 |
+| REL1 可靠性更新 | `postmerge_e2e_measurement_invalid` | REL1 / REL1-02 / REL1-03 / REL1-04 | 核心证据绑定生效；REL1-04为5/6可测、3/5 FullPass，latest-only语义仍不稳 | 新表面回归已执行 |
+| T4 多跳传播    | `v2_repeat_pass_cross_model_blocked` | T4-01 / T4-02 | GLM-5.2 seed0/1/2稳定；gpt-5.4校准2/2遭HTTP 403，正式18格未启动 | 第二模型Provider阻断 |
 | T5 政策因果链   | `two_model_replicated_pass` | T5-01 / T5-02 / T5-03 / HO-T5-03 / HO-T5-04 | GLM-5.2与gpt-5.4在四个新增表面双重复全过；Qwen配额中断轮保留但停止续跑 | 双模型密封复现完成，T5功能侧封板 |
 | N1 一般信息更新  | `retired`      | EXP-GM-N1     | 构念由I1与REL1分别承接             | 历史结果冻结   |
 
@@ -548,9 +550,11 @@ h1_agent_stimuli: 18/18
 h1_human_reference: 0/18
 h1_formal_score: N/A
 
-c1_core_implementation: handoff_required
-rel1_protocol_and_core_implementation: handoff_required
-t4_cross_model: blocked_by_gpt54_provider_quota
+c1_core_implementation: merged_unit_pass
+c1_postmerge_e2e: measurement_invalid_1_of_6_evaluable
+rel1_core_binding: merged_unit_pass
+rel1_postmerge_e2e: measurement_invalid_5_of_6_evaluable_3_pass
+t4_cross_model: calibration_failed_gpt54_http_403
 ```
 
 这里的“约85%”表示评测工厂和代表机制覆盖进度：R0–R3、因果对照、权限审计、Trace、首错、组件校准、完整回归均已落地，T3/I1/L1也进入密封留出阶段。正式Benchmark还需要跨任务留出、更多重复、跨模型稳健性与H1真人对照。
@@ -685,6 +689,12 @@ GAWorld 实现修复。
 proposal的平台ID分配。该提交回答了核心不变量问题，但尚未运行新编号C1端到端预注册回归，
 所以本节历史Gate不变，C1仍不能标记为整体通过。
 
+2026-09-04已执行新编号回归。C1-06在3/6格后被外部会话终止，永久保留且不续写；其中一条
+有效intervention显示平台正确推进spec、拒绝旧plan并拒绝模型的错误重提案。随后事前注册的
+C1-07完成36/36调用，但8次SSL失败和1次非法slot使coverage仅1/6；唯一可测的intervention
+完整通过。故核心不变量获得直接路径支持，C1端到端Gate仍为`measurement_invalid`，并按注册
+停止新增C1轮。详见[`合并后回归报告`](docs/POSTMERGE_REGRESSION_20260904.md)。
+
 ### **10.6 REL1：来源可靠性更新**
 
 REL1登记`latest_is_binding=true`：形成初始可靠性时参考历史正确次数；更新时使用最新一条核实结果覆盖旧多数。
@@ -710,6 +720,11 @@ REL1-03改为分阶段 Prompt和显式两来源计数，五个可测格全部 Fu
 2026-08-28核心状态更新：GAWorld提交`a14a748`已经落实信任动作与真实已采用消息的绑定。
 本文档更新时，C1/REL1两组相关核心测试合计25项通过；但REL1尚无新任务端到端验收，
 原有coverage Gate继续保持开放。
+
+2026-09-04的REL1-04完成30/30调用：5/6格可测、3/5可测格FullPass。五个可测格的Observer、
+完整formation计数与formation动作均正确；两个失败格虽然把证据行限制为最新一行，却继续采用
+旧多数来源。平台在这些失败格中仍把动作绑定到真实已采用的v2消息，说明核心绑定修复与模型
+latest-only业务判断是两层问题。整体Gate因一格TLS无效和两格语义失败保持开放。
 
 ### **10.7 N1：退役任务族**
 
@@ -936,12 +951,12 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 | **ID**      | **状态**  | **问题**                          | **下一动作**                                        |
 | ----------- | ------- | ------------------------------- | ----------------------------------------------- |
-| AP-C1-D-01  | handoff_to_core | NACK后联合方案可能移动受保护的高优先级Agent | 核心实现保护不变量；评测侧新编号回归 |
-| AP-C1-F-01  | handoff_to_core | 模型参与`plan_id/spec_version`握手 | 核心改为accepted-only平台发号与旧规范拒绝 |
-| AP-REL1-01  | handoff_to_protocol | `latest_is_binding=true`时仍可能沿用旧多数 | 分离formation/update协议；新表面验收 |
-| AP-REL1-02  | handoff_to_protocol | formation可能忽略完整历史或默认首个来源 | 强制两来源计数与全部证据行 |
-| AP-REL1-03  | handoff_to_core | Dispatcher可提交空、伪造或陈旧证据ID | 平台从已采用消息绑定action元数据 |
-| AP-T4-01    | provider_blocked | GLM-5.2 v2三次稳定，gpt-5.4跨模型尚未执行 | 等待可用gpt-5.4额度后按冻结协议复测 |
+| AP-C1-D-01  | core_supported_e2e_open | 核心能拒绝违反保护约束的重提案；端到端受模型错误与Provider故障影响 | 不再追跑；未来另立模型稳健性研究 |
+| AP-C1-F-01  | core_supported_e2e_open | spec推进、旧plan拒绝和平台发号路径已出现 | 保留C1-06/07固定失败分母 |
+| AP-REL1-01  | open_model_semantics | `latest_is_binding=true`时仍可能沿用旧多数 | 把最新来源重选作为独立模型指标 |
+| AP-REL1-02  | supported_on_new_surface | REL1-04五个可测格formation计数与来源均正确 | 扩大结论前需独立重复 |
+| AP-REL1-03  | core_supported | 失败业务选择仍绑定真实已采用v2消息 | 后续拆分平台绑定与业务正确性指标 |
+| AP-T4-01    | provider_blocked | gpt-5.4校准2/2返回HTTP 403，正式18格按Gate未启动 | 有可用gpt-5.4额度后新预注册并复用T4-v2哈希 |
 | AP-T5-01    | two_model_replicated_pass | v3双模型密封通过；Qwen后37次被额度拒绝且联合Gate失败 | 保留失败分母；项目决定停止Qwen，不做recovery |
 | AP-04e-E-01 | retired | typed patch声明与真实执行脱节            | 旧接口保留历史证据，正式流程采用已验证契约                           |
 
@@ -956,17 +971,16 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 C1与REL1的评测侧诊断、建议接口和验收矩阵已整理到
 [`docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md`](docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md)。
-GAWorld核心修复由其他开发同学负责；本评测仓不把本地原型视为已合并能力，也不会推送核心修复分支。
+GAWorld核心修复已由其他开发同学合并；本轮评测固定该提交，只记录问题位置、模型错误与验收证据，不再修改GAWorld。
 
 ### **13.3 下一阶段里程碑**
 
-1. 采集18条Human Trace，完成H1认知访谈和内部Pilot；
-2. 为T3、I1、L1补充更多留出重复；
-3. 由核心开发同学实现C1平台版本/保护不变量，评测侧随后做新编号NACK重试回归；
-4. 由协议与核心开发同学处理REL1分阶段更新和动作证据绑定，评测侧随后验收；
-5. 增加独立任务表面，检查跨任务迁移；
-6. 在冻结协议上更换模型，检查平台结论的模型依赖性；
-7. 冻结正式Benchmark版本、统计方案与排名资格门。
+1. 先用现有材料完成约6名同学的H1/H4认知访谈，正式Human Trace仍不解锁；
+2. 将REL1的“平台证据绑定完整性”和“latest-only业务正确性”拆成两个新版本指标；
+3. C1停止新增任务追逐通过，待Provider稳定后再决定是否另立模型稳健性研究；
+4. gpt-5.4具备可用额度后，新预注册并原样复用T4-v2任务、Prompt和评分器哈希；
+5. 为T3、I1、L1补充更多独立留出重复；
+6. 冻结正式Benchmark版本、统计方案与排名资格门。
 
 ---
 
@@ -976,9 +990,9 @@ GAWorld核心修复由其他开发同学负责；本评测仓不把本地原型�
 
 - 在当前开发任务、固定模型与eval_mode条件下，GAWorld的通信、权限控制和状态传播可以支撑可验证工作流；
 - T3、I1、L1已经完成开发集闭环，并在各自seed0密封留出上复现同类正负控模式；
-- C1已经具备基本冲突消解与私有约束整合能力；C1-04/05进一步把失败拆成保护优先级重规划、平台ID所有权和其他初始决策错误，正式Gate仍未通过；
-- REL1已经把失败拆成formation历史计数、latest-binding更新和Dispatcher证据绑定；REL1-03五个有效格全过但coverage=5/6，正式Gate仍未通过；
-- T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在seed0/1/2上Prompt哈希稳定，转发、完整路径、目标接受和FullPass均为100%；
+- C1核心修复能推进spec、拒绝陈旧plan和违规重提案；C1-07仅1/6格可测，正式端到端Gate仍未通过；
+- REL1核心能把动作绑定到真实已采用消息；REL1-04五个可测格中formation全对，但两个latest-only更新仍沿用旧来源；
+- T4-v1暴露control转发歧义；T4-v2的六个full任务变体组合在GLM-5.2 seed0/1/2上均为100%，gpt-5.4复测停在2/2 HTTP 403校准失败，未形成跨模型结果；
 - T5-v3在三任务、三状态、repeat 1/2上18/18格通过，72/72次scope语义与逐居民directive正确，且重复结果完全一致；
 - T5-v3密封新任务在GLM-5.2与gpt-5.4上各9/9格通过，72/72次调用满足严格JSON；9/9个任务×状态组合的Prompt与注册结果跨模型完全一致；
 - T5-v3扩展密封轮中GLM-5.2与gpt-5.4各24/24格通过；Qwen为14/24格，后37次因网关额度不足被拒绝，故三模型联合注册Gate失败且不补替；
@@ -1418,8 +1432,8 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 | `output/t5_v3_expanded_3model_repeats_*/` | T5-v3四任务、三模型、seed0/1扩展证据与配额失败审计 |
 | `exp_gm_t4_01/`                      | T4多跳传播、断桥与丢弃负控的规则校准                   |
 | `exp_gm_t4_02/`                      | T4-v2显式注册传输协议、独立任务与规则校准               |
-| `exp_gm_c1_0{4,5}/`                  | C1平台ID与权威当前规范的注册诊断回归                    |
-| `exp_rel1_0{2,3}/`                   | REL1平台绑定、阶段分离与严格coverage回归                |
+| `exp_gm_c1_0{4,5,6,7}/`              | C1平台ID、权威当前规范与合并后新表面回归                 |
+| `exp_rel1_0{2,3,4}/`                 | REL1平台绑定、阶段分离与合并后新表面回归                 |
 | `exp_gm_t5_01/`                      | T5无政策/真实政策/安慰剂政策因果链校准                 |
 | `exp_gm_t5_02/`                      | T5-v2 absence/binding/nonbinding独立任务与评分       |
 | `exp_gm_t5_03/`                      | T5-v3全局政策与逐居民执行权分离协议                    |
@@ -1466,4 +1480,4 @@ JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显�
 不能排名平台；结构化响应和重试审计v2及同一payload双平台重放均已完成。重放中两个平台在5个
 有效共享审核对象上均为transport 5/5、观察差异0；唯一固定分母失败发生在平台之前的TLS请求。
 
-下一阶段将围绕三条主线推进：在已经合并的核心修复上为C1/REL1做新编号、新表面的独立端到端回归；固定T4-v2协议补第二模型复测；保留当前三槽认知试采，并在H1/H4-v2目标人群、远程角色隔离、独立样本和分析方案冻结后才启动正式Human Reference。H2、H3、H5、H6、H7继续标记为`N/A`。
+2026-09-04已经完成C1/REL1新编号回归，并按固定分母保留Provider失败与模型语义失败；T4第二模型已执行gpt-5.4预注册校准，但2/2为HTTP 403，正式18格没有启动。下一阶段优先完成约6名同学的H1/H4认知访谈、拆分REL1复合指标，并在gpt-5.4额度可用后新预注册T4复测。正式Human Reference仍需目标人群、远程角色隔离、独立样本和分析方案冻结后才可启动；H2、H3、H5、H6、H7继续标记为`N/A`。

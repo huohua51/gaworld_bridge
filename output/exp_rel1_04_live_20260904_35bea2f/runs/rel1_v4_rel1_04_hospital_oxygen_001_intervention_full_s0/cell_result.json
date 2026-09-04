@@ -1,0 +1,293 @@
+{
+  "workflow_id": "exp_rel1_04_postmerge_fresh_surface",
+  "instance_id": "rel1_v4_rel1_04_hospital_oxygen_001_intervention_full_s0",
+  "measurement_valid": false,
+  "full_pass": null,
+  "task_score": null,
+  "ranking_eligible": false,
+  "status": "measurement_invalid",
+  "gates": [
+    {
+      "gate_id": "model_responses_structured",
+      "passed": false,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "fixed_five_call_budget",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "model_did_not_issue_binding_ids",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "history_isolated_from_dispatcher",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "trust_updater_cannot_submit",
+      "passed": true,
+      "critical": true,
+      "layer": "R0",
+      "detail": ""
+    },
+    {
+      "gate_id": "current_signals_delivered",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_trust_messages_adopted",
+      "passed": true,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    },
+    {
+      "gate_id": "both_actions_bound",
+      "passed": false,
+      "critical": true,
+      "layer": "R1",
+      "detail": ""
+    }
+  ],
+  "criteria": [
+    {
+      "criterion_id": "observer_relay_faithful",
+      "layer": "R2",
+      "scorer": "registered_signals",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_correct_counts",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_support_rows",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_source_selected",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_binding_source_selected",
+      "layer": "R2",
+      "scorer": "frozen_oracle",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "latest_binding_evidence_latest_only",
+      "layer": "R2",
+      "scorer": "row_ids",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "formation_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 0.0,
+      "max_score": 1.0,
+      "passed": false,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    },
+    {
+      "criterion_id": "update_action_platform_bound",
+      "layer": "R2",
+      "scorer": "trust_ledger",
+      "evaluable": true,
+      "score": 1.0,
+      "max_score": 1.0,
+      "passed": true,
+      "critical": true,
+      "weight": 1.0,
+      "evidence_ids": [],
+      "detail": ""
+    }
+  ],
+  "process_profile": {
+    "first_error": "model_response_invalid",
+    "events": [
+      "agent_bound",
+      "history_put",
+      "private_put",
+      "current_sent",
+      "current_sent",
+      "current_delivered",
+      "current_delivered",
+      "current_inbox_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "outcome_appended",
+      "history_read",
+      "trust_emitted",
+      "trust_delivered",
+      "trust_adopted",
+      "action_submitted",
+      "denied",
+      "denied"
+    ],
+    "relationships": {
+      "source_cobalt": {
+        "closeness": 0.49000000000000005,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      },
+      "source_iris": {
+        "closeness": 0.49,
+        "trust": 0.49,
+        "obligation": 0.525,
+        "friction": 0.53,
+        "last_interaction_day": 1,
+        "phase": 1
+      }
+    }
+  },
+  "extra": {
+    "task_id": "rel1_04_hospital_oxygen_001",
+    "variant": "intervention",
+    "track": "full",
+    "seed": 0,
+    "first_error": "model_response_invalid",
+    "observer_relay_faithful": true,
+    "formation_counts_correct": true,
+    "formation_source_correct": true,
+    "update_source_correct": true,
+    "formation_action_bound": false,
+    "update_action_bound": true,
+    "got_formation": {
+      "correct_counts": {
+        "source_cobalt": 2,
+        "source_iris": 0
+      },
+      "other_source_id": "source_iris",
+      "supporting_row_ids": {
+        "source_cobalt": [
+          "ho-i-21",
+          "ho-i-22"
+        ],
+        "source_iris": []
+      },
+      "trusted_source_id": "source_cobalt",
+      "trusted_state": "north_ready"
+    },
+    "got_update": {
+      "evidence_row_ids": [
+        "ho-i-23"
+      ],
+      "other_source_id": "source_cobalt",
+      "trusted_source_id": "source_iris",
+      "trusted_state": "north_offline"
+    },
+    "got_formation_action": {},
+    "got_update_action": {
+      "action": "select_oxygen_bank",
+      "value": "use_south_bank",
+      "adopted_trust_version": "v2",
+      "evidence_message_id": "trust-msg-rel1_04_hospital_oxygen_001_intervention_s0-4",
+      "round": "update",
+      "task_id": "rel1_04_hospital_oxygen_001_intervention_s0",
+      "dispatcher_id": 3
+    },
+    "want": {
+      "formation_source": "source_cobalt",
+      "formation_state": "north_ready",
+      "formation_counts": {
+        "source_cobalt": 2,
+        "source_iris": 0
+      },
+      "formation_support": {
+        "source_cobalt": [
+          "ho-i-21",
+          "ho-i-22"
+        ],
+        "source_iris": []
+      },
+      "formation_value": "use_north_bank",
+      "update_source": "source_iris",
+      "update_state": "north_offline",
+      "update_rows": [
+        "ho-i-23"
+      ],
+      "update_value": "use_south_bank"
+    },
+    "model_evidence_ids": [
+      "model-call:rel1_v4_rel1_04_hospital_oxygen_001_intervention_full_s0:call-1",
+      "model-call:rel1_v4_rel1_04_hospital_oxygen_001_intervention_full_s0:call-2",
+      "model-call:rel1_v4_rel1_04_hospital_oxygen_001_intervention_full_s0:call-3",
+      "model-call:rel1_v4_rel1_04_hospital_oxygen_001_intervention_full_s0:call-4",
+      "model-call:rel1_v4_rel1_04_hospital_oxygen_001_intervention_full_s0:call-5"
+    ],
+    "experiment_id": "EXP-GM-REL1-04",
+    "protocol_reused_from": "EXP-GM-REL1-03"
+  }
+}

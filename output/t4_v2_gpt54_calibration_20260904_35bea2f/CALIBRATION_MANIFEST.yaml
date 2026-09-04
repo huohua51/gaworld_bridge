@@ -1,0 +1,29 @@
+experiment_id: MODEL-PILOT-T4-v2-GPT54
+phase: non_scoring_live_calibration
+gate: calibration_failed
+preregistration_id: T4-REGISTERED-TRANSPORT-GPT54-v1
+registration_sha256: fa74f3714adc729e7d578974d3d6402728c25e2a7c7061e9e3d17bb8473ed045
+provider: paratera_glm
+model_version: gpt-5.4
+ranking_eligible: false
+responses:
+- case: 1
+  role: source
+  ok: false
+  normalization_applied: false
+  evidence_id: model-call:t4v2_gpt54_calibration_1:call-1
+- case: 2
+  role: target
+  ok: false
+  normalization_applied: false
+  evidence_id: model-call:t4v2_gpt54_calibration_2:call-1
+budget:
+  max_calls: 2
+  calls_used: 2
+  calls_remaining: 0
+  prompt_chars: 2293
+  response_chars: 0
+  transport_attempts_observed: 2
+  transport_retries_observed: 0
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 20000
