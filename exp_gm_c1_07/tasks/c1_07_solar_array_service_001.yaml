@@ -1,0 +1,14 @@
+id: c1_07_solar_array_service_001
+title: 光伏阵列检修窗口
+resource_id: solar_array_service
+slots: [sa741, sa742, sa743]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: sa742, event_id: current_lock_sa_v7}
+agent_a:
+  control: {feasible: [sa742, sa741, sa743], preferred: sa742}
+  intervention: {feasible: [sa742, sa743, sa741], preferred: sa743}
+agent_b:
+  control: {feasible: [sa741, sa743, sa742], preferred: sa741}
+  intervention: {feasible: [sa742, sa741, sa743], preferred: sa742}

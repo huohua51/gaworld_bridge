@@ -1,0 +1,85 @@
+gate: preregistered_not_run
+preregistration_id: C1-POSTMERGE-FRESH-SURFACE-GLM52-v7
+registered_on: '2026-09-04'
+base_commit: 35bea2f
+required_gaworld_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+phase: prospective_operational_replacement_after_external_interruption
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  在C1-06被外部会话中断后，使用再次全新的三个任务表面和完全相同的v5协议，
+  已合并current-spec核心修复能否完成一次固定分母端到端回归？
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 384
+  response_format: {type: json_object}
+  retry_attempts: 1
+  json_normalization: strict
+
+design:
+  task_ids:
+    - c1_07_solar_array_service_001
+    - c1_07_harbor_crane_check_001
+    - c1_07_broadcast_studio_001
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  cells: 6
+  calls_per_cell: 6
+  max_calls: 36
+  execution_order: task_then_variant
+  prompt_protocol: gaworld-benchmark-c1-authoritative-current-spec-v5
+  scorer_version: c1-postmerge-fresh-surface-v7.0
+  protocol_reused_from: EXP-GM-C1-05
+  operational_replacement_for: EXP-GM-C1-06
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  priority_nack_intervention: 1.0
+  priority_nack_control: 0.0
+  retry_recovery_intervention: 1.0
+  platform_identifier_ownership: 1.0
+  spec_revision_advanced: 1.0
+  stale_plan_rejected: 1.0
+  logical_calls: 36
+  physical_attempts: 36
+  transport_retries: 0
+
+stopping_rules:
+  - 六个注册格各运行一次后停止，无论结果如何不再新增C1轮。
+  - 无效响应与失败格保留在固定分母中，不替换、不补跑。
+  - 不依据正式响应修改任务、提示协议、Oracle、评分器或Gate。
+  - 单个逻辑调用只允许一次物理传输尝试。
+  - C1-06证据不进入本轮分母，也不得覆盖或续写。
+
+claim_boundary: >-
+  本轮是外部中断后的唯一操作性替代回归，不是对C1-06失败格的补样，
+  不是密封模型留出，不覆盖人类效度或其他模型。
+
+frozen_inputs:
+  exp_gm_c1_07/task_card.yaml: d97b1f3e232ec017ce51c114c68c5ed45b1f75dddc970f976cbcb96c16eee8b7
+  exp_gm_c1_07/protocol.md: 71d82ff53c40c5870a778c1cf449605c0a8d26057cda06e3f30abdde42cd5dfc
+  exp_gm_c1_07/loader.py: 1fea003d955f4cfa6033fe6e5614623f5502d524a2eda83ed856b5b6c578c9e7
+  exp_gm_c1_07/scorer.py: 16f395ab89e8df86585c3e6cca9e872a5ba5ab8258df1c6f6bb704d8f5bfe90a
+  exp_gm_c1_07/run_matrix.py: d7616bfaaa992042510c1aa0f3ec02a300d75154a3e346de4be6a460558ff234
+  exp_gm_c1_07/tasks/c1_07_solar_array_service_001.yaml: e96f55ec8f17443e4d14eee23738b04e0caa8238e76982ec28edaad1fb21a203
+  exp_gm_c1_07/tasks/c1_07_harbor_crane_check_001.yaml: 87a55d26b1780d33c81865bac6d4d5486bfe12a11dd11817f521e47c248244b9
+  exp_gm_c1_07/tasks/c1_07_broadcast_studio_001.yaml: e7205b6d34f8b8a3ce7e44c7786b0403408c578d9115631c3dbcd07cb12fc14c
+  exp_gm_c1_07/oracle/c1_07_solar_array_service_001.json: 43a282ce2bd219f3771f4a59461f1039c2a20b9c458518ede486f11e88518ff4
+  exp_gm_c1_07/oracle/c1_07_harbor_crane_check_001.json: 112efa48c2ae41ab8318349fdb880fbca7965a2630069b1ea407daf0b2353e76
+  exp_gm_c1_07/oracle/c1_07_broadcast_studio_001.json: bd1b06ef386c4544c0ed2ddb584dfe5e08828b1b5fe1f2d109194938e2962728
+  exp_gm_c1_06/run_matrix.py: 691fd2aa469e4b04c3e9b4bca3cb96cd68fd0f6f08f85919425db21fb3ad5173
+  exp_gm_c1_05/protocol.py: 95f4298fe89f74e64da050afe623ad8ee47889ea284e625b1b66c72a3e8a302c
+  exp_gm_c1_05/scorer.py: f8d3edbd0ba25b4134ac8b76a6a0f521c8c87df9dd510452ae1c6b03b0849427
+  benchmark_core/model_runner_v2.py: dc7df4e49d37fbce30c6e51041b0d222ba302cd3390c315fc15058a7e3c33c07
+  output/exp_gm_c1_06_live_20260904_35bea2f/INTERRUPTION_MANIFEST.yaml: fad3d5169ed754506f171af255345f14ee7f4222ff6b52c95681a60c7851df82
+  ../GAWorld/gaworld/work/coordination.py: 84e8ac288caaaafd684abd006e72266f68320737a6a7053b8b17644040167575
+  ../GAWorld/gaworld/work/plan_registry.py: 59038be490a66fffb3fe92bb75c631bd67aeb836cd64ad8e3d419a593655c418
+  ../GAWorld/llm_providers_audited.py: 665c2468e2d809316ccfae31d499fafa26249407919793e3dcf60ca0b2718c2a

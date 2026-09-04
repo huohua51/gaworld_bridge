@@ -1,0 +1,14 @@
+id: c1_07_broadcast_studio_001
+title: 广播录音棚使用窗口
+resource_id: broadcast_studio
+slots: [bs961, bs962, bs963]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: bs961, event_id: current_lock_bs_v7}
+agent_a:
+  control: {feasible: [bs961, bs963, bs962], preferred: bs961}
+  intervention: {feasible: [bs961, bs962, bs963], preferred: bs962}
+agent_b:
+  control: {feasible: [bs963, bs962, bs961], preferred: bs963}
+  intervention: {feasible: [bs961, bs963, bs962], preferred: bs961}

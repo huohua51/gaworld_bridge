@@ -1,0 +1,10 @@
+experiment_id: EXP-GM-C1-07
+task_family: C1
+title: C1-06外部中断后的新表面一次性独立回归
+purpose: >-
+  C1-06因托管会话终止未达到固定分母。本轮不续写、不补跑C1-06，而用三个
+  再次全新的任务表面执行一次完整的核心修复验收。
+protocol_reused_from: EXP-GM-C1-05
+operational_replacement_for: EXP-GM-C1-06
+historical_results_immutable: [EXP-GM-C1-02, EXP-GM-C1-03, EXP-GM-C1-04, EXP-GM-C1-05, EXP-GM-C1-06]
+claim_boundary: 这是一次性实现回归；无论成败均停止，不再新增C1轮追逐通过。

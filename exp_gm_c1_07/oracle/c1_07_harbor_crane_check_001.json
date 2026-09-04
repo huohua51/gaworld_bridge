@@ -1,0 +1,4 @@
+{
+  "control": {"initial": {"agent_a": "hc853", "agent_b": "hc851"}, "final": {"agent_a": "hc853", "agent_b": "hc851"}, "nack_expected": false},
+  "intervention": {"initial": {"agent_a": "hc852", "agent_b": "hc853"}, "final": {"agent_a": "hc853", "agent_b": "hc852"}, "nack_expected": true}
+}

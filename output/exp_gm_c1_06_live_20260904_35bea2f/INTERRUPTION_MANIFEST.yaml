@@ -1,0 +1,33 @@
+experiment_id: EXP-GM-C1-06
+preregistration_id: C1-POSTMERGE-FRESH-SURFACE-GLM52-v6
+registration_sha256: 5816a576aa3eeefc9bacd0e3c52141d2c3f451383566925280d1286ae3bffa72
+phase: postmerge_model_seed0_regression
+gate: operator_session_interrupted
+ranking_eligible: false
+live_model: true
+provider: paratera_glm
+model_version: GLM-5.2
+requested_cells: 6
+completed_cells: 3
+completed_measurement_valid_cells: 2
+completed_full_pass_cells: 1
+logical_requests_written: 21
+logical_responses_written: 20
+physical_attempts_audited: 20
+invalid_responses: 1
+interruption_point: c1_v6_c1_06_vaccine_coldroom_001_intervention_full_s0_call_3
+completed_first_errors:
+  none: 1
+  retry_assignment_incorrect: 1
+  model_response_invalid: 1
+transport_failure:
+  type: SSLEOFError
+  cell: c1_v6_c1_06_vaccine_coldroom_001_control_full_s0
+  replacement_call_made: false
+interpretation: >-
+  本轮在前台托管会话被外部终止前未达到固定分母，不能作为完整C1回归结果。
+  已完成格仍永久保留：其中一个intervention存在retry_assignment_incorrect，另一个
+  control因TLS EOF导致模型响应无效。不得续写或覆盖本目录。
+next_action: >-
+  使用新编号C1-07、全新任务表面和新的事前注册执行一次且仅一次独立回归；
+  C1-06不补跑、不纳入C1-07分母。

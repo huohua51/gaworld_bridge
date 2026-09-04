@@ -1,0 +1,14 @@
+id: c1_07_harbor_crane_check_001
+title: 港口岸桥安全检查窗口
+resource_id: harbor_crane_check
+slots: [hc851, hc852, hc853]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: hc853, event_id: current_lock_hc_v7}
+agent_a:
+  control: {feasible: [hc853, hc851, hc852], preferred: hc853}
+  intervention: {feasible: [hc853, hc852, hc851], preferred: hc852}
+agent_b:
+  control: {feasible: [hc851, hc852, hc853], preferred: hc851}
+  intervention: {feasible: [hc853, hc852, hc851], preferred: hc853}
