@@ -1,0 +1,18 @@
+id: rel1_04_museum_humidity_001
+title: 博物馆藏品库湿度状态
+action: select_archive_climate_mode
+legal_values: [keep_standard_climate, enable_dry_protection]
+state_to_value: {humidity_safe: keep_standard_climate, humidity_high: enable_dry_protection}
+current_signals:
+  - {person_id: source_ember, reported_state: humidity_safe}
+  - {person_id: source_slate, reported_state: humidity_high}
+history:
+  control:
+    - {row_id: mh-c-31, reports: {source_ember: humidity_safe, source_slate: humidity_high}, outcome: humidity_safe}
+    - {row_id: mh-c-32, reports: {source_ember: humidity_safe, source_slate: humidity_high}, outcome: humidity_safe}
+  intervention:
+    - {row_id: mh-i-31, reports: {source_ember: humidity_safe, source_slate: humidity_high}, outcome: humidity_high}
+    - {row_id: mh-i-32, reports: {source_ember: humidity_safe, source_slate: humidity_high}, outcome: humidity_high}
+latest_outcome:
+  control: {row_id: mh-c-33, reports: {source_ember: humidity_safe, source_slate: humidity_high}, outcome: humidity_high}
+  intervention: {row_id: mh-i-33, reports: {source_ember: humidity_safe, source_slate: humidity_high}, outcome: humidity_safe}

@@ -1,0 +1,91 @@
+gate: preregistered_not_run
+preregistration_id: T4-REGISTERED-TRANSPORT-GPT54-v1
+registered_on: '2026-09-04'
+base_commit: c05c87d
+required_gaworld_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+phase: prospective_second_model_replication
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  在任务、control/intervention、三种网络轨道、Prompt协议、评分器和seed全部固定为
+  T4-v2的条件下，gpt-5.4能否复现GLM-5.2的注册传输正负控模式？
+
+provider:
+  name: paratera_glm
+  gateway: paratera
+  model: gpt-5.4
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 256
+  response_format: {type: json_object}
+  retry_attempts: 1
+  json_normalization: strict
+
+design:
+  task_ids:
+    - t4v2_reservoir_quality_001
+    - t4v2_substation_load_001
+    - t4v2_school_air_001
+  variants: [control, intervention]
+  tracks: [full, remove_bridge, drop_bridge]
+  seeds: [0]
+  cells: 18
+  max_calls: 60
+  calibration_calls: 2
+  execution_order: task_then_variant_then_track
+  prompt_protocol: gaworld-benchmark-t4-model-v2
+  scorer_version: model-pilot-t4-v2-scorer-v1
+  protocol_reused_from: T4-REGISTERED-TRANSPORT-GLM52-v2
+
+calibration:
+  scoring_status: non_scoring
+  strict_valid_responses: 2/2
+  physical_attempts: 2
+  transport_retries: 0
+  semantic_outputs: recorded_but_not_used_for_go_no_go
+  replacement_calls: forbidden
+
+registered_gate:
+  cells: 18
+  coverage: 1.0
+  model_contract_rate: 1.0
+  full_track: {control: 1.0, intervention: 1.0}
+  remove_bridge: {control: 1.0, intervention: 0.0}
+  drop_bridge: {control: 1.0, intervention: 0.0}
+  logical_calls: 60
+  physical_attempts: 60
+  transport_retries: 0
+
+reference_glm52:
+  manifest: output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/RUN_MANIFEST.yaml
+  sha256: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+  registered_pattern:
+    full: {control: 1.0, intervention: 1.0}
+    remove_bridge: {control: 1.0, intervention: 0.0}
+    drop_bridge: {control: 1.0, intervention: 0.0}
+
+stopping_rules:
+  - 先完成两次不计分严格JSON校准；校准失败则不启动正式矩阵。
+  - 校准通过后完整运行18个注册格并停止。
+  - 无效响应与失败格保留在固定分母中，不替换、不补跑。
+  - 不依据gpt-5.4响应修改任何T4-v2冻结输入。
+  - 单个逻辑调用只允许一次物理传输尝试。
+
+claim_boundary: >-
+  本轮只检验T4-v2在第二模型gpt-5.4上的seed0协议复现。它不扩大任务域，
+  不代表所有模型，也不把先前GLM-5.2结果重算或覆盖。
+
+frozen_inputs:
+  model_pilot/t4_v2_gpt54_run.py: cca63c8e387d000acf14d5ee00ec2bbccf1b694410a25a5130687e267d491a17
+  model_pilot/t4_v2.py: e1878279e539d2256372ec88dc9be3b9cc868c21ff69a0cba82a7e10f8611718
+  model_pilot/t4_v2_scorer.py: 82f1bcd265c1ef9136e52eda68386ab5102a7ada6017d81288dfb25b05152f76
+  exp_gm_t4_02/tasks.yaml: aa313c39b863c316931b0eb541a04c62cdf4c9c3b19ddf05d82df155c1c1d68c
+  exp_gm_t4_02/task_card.yaml: e9749a275004924197977e3cbbf97e4c5e1fae926bf23b1765f669dfbb5e43d3
+  exp_gm_t4_02/protocol.md: ac83b714c8b6cb8971d31283019c32c87102f7ea4e2d583309e9f719bbf3bd1c
+  exp_gm_t4_02/loader.py: c63d2586a27e5ac1b2ba59771c0902ab06153110e0cb09f6eada26b0dc10a761
+  benchmark_core/model_runner_v2.py: dc7df4e49d37fbce30c6e51041b0d222ba302cd3390c315fc15058a7e3c33c07
+  output/model_pilot_live_t4_v2_glm52_cbf1c8069f254797ab6e5a795c898399/RUN_MANIFEST.yaml: 6778e6bc8422c6b39e9eacc12d64c20d96e32956ac9ca1bbb7073fa4af8d2b80
+  ../GAWorld/gaworld/comm/network.py: 2481d844578410b94a91a8ee580a29944abf75c392ab13d49404e4f2d5ec4473
+  ../GAWorld/llm_providers_audited.py: 665c2468e2d809316ccfae31d499fafa26249407919793e3dcf60ca0b2718c2a

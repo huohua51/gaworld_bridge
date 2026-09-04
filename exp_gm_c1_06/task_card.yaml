@@ -1,0 +1,9 @@
+experiment_id: EXP-GM-C1-06
+task_family: C1
+title: 已合并current-spec修复的新表面端到端回归
+purpose: >-
+  在GAWorld核心修复已合并后，以三个未在C1-02至C1-05出现过的任务表面，
+  复测私有报告、初始分配、保护约束、NACK、spec升级、重提案、确认和世界写入全链。
+protocol_reused_from: EXP-GM-C1-05
+historical_results_immutable: [EXP-GM-C1-02, EXP-GM-C1-03, EXP-GM-C1-04, EXP-GM-C1-05]
+claim_boundary: 这是实现验收回归，不是密封模型留出，也不证明跨模型泛化。

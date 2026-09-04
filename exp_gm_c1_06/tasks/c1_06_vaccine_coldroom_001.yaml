@@ -1,0 +1,14 @@
+id: c1_06_vaccine_coldroom_001
+title: 疫苗冷库盘点窗口
+resource_id: vaccine_coldroom
+slots: [vc821, vc822, vc823]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: vc822, event_id: current_lock_vc_v6}
+agent_a:
+  control: {feasible: [vc822, vc821, vc823], preferred: vc822}
+  intervention: {feasible: [vc822, vc823, vc821], preferred: vc823}
+agent_b:
+  control: {feasible: [vc821, vc823, vc822], preferred: vc821}
+  intervention: {feasible: [vc822, vc821, vc823], preferred: vc822}

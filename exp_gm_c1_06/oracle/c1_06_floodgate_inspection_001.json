@@ -1,0 +1,4 @@
+{
+  "control": {"initial": {"agent_a": "fg711", "agent_b": "fg712"}, "final": {"agent_a": "fg711", "agent_b": "fg712"}, "nack_expected": false},
+  "intervention": {"initial": {"agent_a": "fg712", "agent_b": "fg711"}, "final": {"agent_a": "fg711", "agent_b": "fg713"}, "nack_expected": true}
+}

@@ -1,0 +1,9 @@
+experiment_id: EXP-GM-REL1-04
+task_family: REL1
+title: 已合并trust-action绑定修复的新表面端到端回归
+purpose: >-
+  在GAWorld核心修复已合并后，以三个未在REL1至REL1-03出现过的任务表面，
+  复测观察转发、完整历史形成、latest-only更新、消息采用以及平台证据绑定动作全链。
+protocol_reused_from: EXP-GM-REL1-03
+historical_results_immutable: [EXP-GM-REL1, EXP-GM-REL1-02, EXP-GM-REL1-03]
+claim_boundary: 这是实现验收回归，不是密封模型留出，也不证明长期关系效度。

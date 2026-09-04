@@ -1,0 +1,14 @@
+id: c1_06_theater_rehearsal_001
+title: 剧院联排场次窗口
+resource_id: theater_rehearsal
+slots: [tr931, tr932, tr933]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: tr933, event_id: current_lock_tr_v6}
+agent_a:
+  control: {feasible: [tr933, tr931, tr932], preferred: tr933}
+  intervention: {feasible: [tr933, tr932, tr931], preferred: tr932}
+agent_b:
+  control: {feasible: [tr931, tr932, tr933], preferred: tr931}
+  intervention: {feasible: [tr933, tr932, tr931], preferred: tr933}

@@ -1,0 +1,18 @@
+id: rel1_04_ferry_channel_001
+title: 渡轮航道开放状态
+action: select_ferry_route
+legal_values: [use_main_channel, use_sheltered_channel]
+state_to_value: {main_open: use_main_channel, main_closed: use_sheltered_channel}
+current_signals:
+  - {person_id: source_amber, reported_state: main_open}
+  - {person_id: source_pine, reported_state: main_closed}
+history:
+  control:
+    - {row_id: fc-c-11, reports: {source_amber: main_open, source_pine: main_closed}, outcome: main_open}
+    - {row_id: fc-c-12, reports: {source_amber: main_open, source_pine: main_closed}, outcome: main_open}
+  intervention:
+    - {row_id: fc-i-11, reports: {source_amber: main_open, source_pine: main_closed}, outcome: main_closed}
+    - {row_id: fc-i-12, reports: {source_amber: main_open, source_pine: main_closed}, outcome: main_closed}
+latest_outcome:
+  control: {row_id: fc-c-13, reports: {source_amber: main_open, source_pine: main_closed}, outcome: main_closed}
+  intervention: {row_id: fc-i-13, reports: {source_amber: main_open, source_pine: main_closed}, outcome: main_open}

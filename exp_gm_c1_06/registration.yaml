@@ -1,0 +1,84 @@
+gate: preregistered_not_run
+preregistration_id: C1-POSTMERGE-FRESH-SURFACE-GLM52-v6
+registered_on: '2026-09-04'
+base_commit: c05c87d
+required_gaworld_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+phase: prospective_postmerge_fresh_surface_seed0_regression
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  在包含current-spec核心修复的已合并GAWorld提交上，GLM-5.2能否在三个新任务
+  表面完整通过control与intervention端到端链，并保持平台标识所有权？
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 384
+  response_format: {type: json_object}
+  retry_attempts: 1
+  json_normalization: strict
+
+design:
+  task_ids:
+    - c1_06_floodgate_inspection_001
+    - c1_06_vaccine_coldroom_001
+    - c1_06_theater_rehearsal_001
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  cells: 6
+  calls_per_cell: 6
+  max_calls: 36
+  execution_order: task_then_variant
+  prompt_protocol: gaworld-benchmark-c1-authoritative-current-spec-v5
+  scorer_version: c1-postmerge-fresh-surface-v6.0
+  protocol_reused_from: EXP-GM-C1-05
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  priority_nack_intervention: 1.0
+  priority_nack_control: 0.0
+  retry_recovery_intervention: 1.0
+  platform_identifier_ownership: 1.0
+  spec_revision_advanced: 1.0
+  stale_plan_rejected: 1.0
+  logical_calls: 36
+  physical_attempts: 36
+  transport_retries: 0
+
+stopping_rules:
+  - 六个注册格各运行一次后停止。
+  - 无效响应与失败格保留在固定分母中，不替换、不补跑。
+  - 不依据正式响应修改任务、提示协议、Oracle、评分器或Gate。
+  - 单个逻辑调用只允许一次物理传输尝试。
+
+claim_boundary: >-
+  本轮是核心实现合并后的新表面验收回归，不是密封模型留出，不覆盖人类效度，
+  也不覆盖其他模型。所有C1-02至C1-05历史失败和成功证据保持不变。
+
+frozen_inputs:
+  exp_gm_c1_06/task_card.yaml: b5cd9206c12cfa5b2f51eb4180fa087d6472a1ed25fd6cba1ef996fb145ff2cf
+  exp_gm_c1_06/protocol.md: 73805241f547440ea5a8fc7175c32daa611ec0bad33ac00d07703d019600f332
+  exp_gm_c1_06/loader.py: bda40b03c21aca8bd6b28872046597d336e2fdea55957eb1dc063f7815cd70b0
+  exp_gm_c1_06/protocol.py: e8d9c900f55d11f4b45e8173d80184c3bf23bd3c2a2e2960624257cbc81ac3a6
+  exp_gm_c1_06/scorer.py: 05ad679dda742cdba0824af8bdd25456a959994d149cf6ebf2b06c3256af0597
+  exp_gm_c1_06/fixture.py: 6a31f97f5e1377389a48da0440fecda51f5e16cf090d60da6403be2d61269def
+  exp_gm_c1_06/run_matrix.py: 691fd2aa469e4b04c3e9b4bca3cb96cd68fd0f6f08f85919425db21fb3ad5173
+  exp_gm_c1_06/tasks/c1_06_floodgate_inspection_001.yaml: 3853580b2eebe10bb16a5db2751b4ff6bc281fce46a6c0c1686534d2ad8bf931
+  exp_gm_c1_06/tasks/c1_06_vaccine_coldroom_001.yaml: f7d7dd861b8a0af0248bfb89e17f2b6531287a98874be2020356e0d5512328d6
+  exp_gm_c1_06/tasks/c1_06_theater_rehearsal_001.yaml: f4912819ad061a742758e7120c3844da5706f0fa2a9471eeb513a1756a5c50eb
+  exp_gm_c1_06/oracle/c1_06_floodgate_inspection_001.json: 0fd07cb80324c8201282299bf3d25911a634de45f47dc675c35635eb6d7db8c0
+  exp_gm_c1_06/oracle/c1_06_vaccine_coldroom_001.json: 838478a7a687c70ffcc0c6bcf78a2e8a7656225c8045686a7f5cd3d65f366387
+  exp_gm_c1_06/oracle/c1_06_theater_rehearsal_001.json: cd1b54f99c33d7cb4434db497a18c9b7f31c4159f2f945af6fa9e1e3152d6eab
+  exp_gm_c1_05/protocol.py: 95f4298fe89f74e64da050afe623ad8ee47889ea284e625b1b66c72a3e8a302c
+  exp_gm_c1_05/scorer.py: f8d3edbd0ba25b4134ac8b76a6a0f521c8c87df9dd510452ae1c6b03b0849427
+  exp_gm_c1_04/channel.py: 411b1e54ee5ed72515683d329155d572deea1c985f4def78021e90e70a750c40
+  benchmark_core/model_runner_v2.py: dc7df4e49d37fbce30c6e51041b0d222ba302cd3390c315fc15058a7e3c33c07
+  ../GAWorld/gaworld/work/coordination.py: 84e8ac288caaaafd684abd006e72266f68320737a6a7053b8b17644040167575
+  ../GAWorld/gaworld/work/plan_registry.py: 59038be490a66fffb3fe92bb75c631bd67aeb836cd64ad8e3d419a593655c418
+  ../GAWorld/llm_providers_audited.py: 665c2468e2d809316ccfae31d499fafa26249407919793e3dcf60ca0b2718c2a

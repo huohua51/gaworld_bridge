@@ -1,0 +1,82 @@
+gate: preregistered_not_run
+preregistration_id: REL1-POSTMERGE-FRESH-SURFACE-GLM52-v4
+registered_on: '2026-09-04'
+base_commit: c05c87d
+required_gaworld_commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+phase: prospective_postmerge_fresh_surface_seed0_regression
+live_execution_status: not_run
+ranking_eligible: false
+
+question: >-
+  在包含trust-action证据绑定核心修复的已合并GAWorld提交上，GLM-5.2能否在三个
+  新任务表面完整通过观察、形成、更新、采用和平台绑定动作端到端链？
+
+provider:
+  name: paratera_glm
+  model: GLM-5.2
+  base_url: https://llmapi.paratera.com/v1
+  temperature: 0.0
+  thinking: disabled
+  max_tokens_per_call: 384
+  response_format: {type: json_object}
+  retry_attempts: 1
+  json_normalization: strict
+
+design:
+  task_ids:
+    - rel1_04_ferry_channel_001
+    - rel1_04_hospital_oxygen_001
+    - rel1_04_museum_humidity_001
+  variants: [control, intervention]
+  track: full
+  seeds: [0]
+  cells: 6
+  calls_per_cell: 5
+  max_calls: 30
+  execution_order: task_then_variant
+  prompt_protocol: gaworld-benchmark-rel1-phase-separated-v3
+  scorer_version: rel1-postmerge-fresh-surface-v4.0
+  protocol_reused_from: EXP-GM-REL1-03
+
+registered_gate:
+  coverage: 1.0
+  full_pass_rate: 1.0
+  observer_relay_faithful: 1.0
+  formation_counts_correct: 1.0
+  formation_source_correct: 1.0
+  update_source_correct: 1.0
+  formation_action_bound: 1.0
+  update_action_bound: 1.0
+  logical_calls: 30
+  physical_attempts: 30
+  transport_retries: 0
+
+stopping_rules:
+  - 六个注册格各运行一次后停止。
+  - 无效响应与失败格保留在固定分母中，不替换、不补跑。
+  - 不依据正式响应修改任务、提示协议、Oracle、评分器或Gate。
+  - 单个逻辑调用只允许一次物理传输尝试。
+
+claim_boundary: >-
+  本轮是核心实现合并后的新表面验收回归，不是密封模型留出，不证明长期人际
+  关系效度，也不覆盖其他模型。REL1至REL1-03历史证据保持不变。
+
+frozen_inputs:
+  exp_rel1_04/task_card.yaml: 60b4f2abfe856ce36105cf4e5e9a1b2808979970ec90ff52bad8c5eb0544f837
+  exp_rel1_04/protocol.md: 290c6732b5ff961517dc7c40e8e26413842d6bf2febefd46bc503d64209e5f6f
+  exp_rel1_04/loader.py: b1e1c2b2e95c8ba30226ff9c972fca031f530665ecc67518b53b80928647da91
+  exp_rel1_04/protocol.py: 3dc52faaf026c376ece3db591866767635606b2bc716d391c01ffabe5d6dda2a
+  exp_rel1_04/scorer.py: 1dfb586f7a6c205f24a2cc3d5ee085298842c2a685aa7b6b24f355d9e53f93a4
+  exp_rel1_04/fixture.py: 3ad1b31f520e8618b00d6bff79704534988cd8e2ace20a671343f6f86863d93b
+  exp_rel1_04/run_matrix.py: b2b22c0a96531e3fe57fb0c30969d484a0a05014865edeb534fd1a105805a63c
+  exp_rel1_04/tasks/rel1_04_ferry_channel_001.yaml: e1664e816c7778e326a6ff167d176648648cadc8f71afad81cddc5c8899e900f
+  exp_rel1_04/tasks/rel1_04_hospital_oxygen_001.yaml: 49895b0a5ce6c7d7a266086bd5526761d61d1d15a9db8582223436bb173e86f3
+  exp_rel1_04/tasks/rel1_04_museum_humidity_001.yaml: 9a1b324e8c862a4f19b98cbad1f289c7ce6528ed52f5934945ceb3fb240c97e8
+  exp_rel1_04/oracle/rel1_04_ferry_channel_001.json: 8f82c52e812238438dc72d61549a16b00779f8a04f8c3b4e0783fe3bc105d9c0
+  exp_rel1_04/oracle/rel1_04_hospital_oxygen_001.json: e461df7790886820b54cdf07bc52c0c2a67331931ef18e2b63fca7eb401092b9
+  exp_rel1_04/oracle/rel1_04_museum_humidity_001.json: 41c3c92157ceb87a5cfbe96cbba03f46bcea8d5b0989f9ac97dc39f4815cd7a4
+  exp_rel1_03/protocol.py: c1954103cf96264fd931491898a64bd2cf0b4eb1f8b72a872fc861c65e1f8758
+  exp_rel1_03/scorer.py: 553648417de234454ba7dbc39fcd58fe8de74f4ba9c67634b027c13e29280a50
+  benchmark_core/model_runner_v2.py: dc7df4e49d37fbce30c6e51041b0d222ba302cd3390c315fc15058a7e3c33c07
+  ../GAWorld/gaworld/comm/trust.py: f070994567c44cbe408e59873950c361f7c4ff7307f8e06f792d95f01bf08e85
+  ../GAWorld/llm_providers_audited.py: 665c2468e2d809316ccfae31d499fafa26249407919793e3dcf60ca0b2718c2a

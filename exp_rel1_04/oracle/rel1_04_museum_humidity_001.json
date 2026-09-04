@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_ember", "formation_state": "humidity_safe", "formation_counts": {"source_ember": 2, "source_slate": 0}, "formation_support": {"source_ember": ["mh-c-31", "mh-c-32"], "source_slate": []}, "formation_value": "keep_standard_climate", "update_source": "source_slate", "update_state": "humidity_high", "update_rows": ["mh-c-33"], "update_value": "enable_dry_protection"},
+  "intervention": {"formation_source": "source_slate", "formation_state": "humidity_high", "formation_counts": {"source_ember": 0, "source_slate": 2}, "formation_support": {"source_ember": [], "source_slate": ["mh-i-31", "mh-i-32"]}, "formation_value": "enable_dry_protection", "update_source": "source_ember", "update_state": "humidity_safe", "update_rows": ["mh-i-33"], "update_value": "keep_standard_climate"}
+}

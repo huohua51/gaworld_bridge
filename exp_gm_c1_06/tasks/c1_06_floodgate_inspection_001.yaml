@@ -1,0 +1,14 @@
+id: c1_06_floodgate_inspection_001
+title: 防洪闸门巡检窗口
+resource_id: floodgate_inspection
+slots: [fg711, fg712, fg713]
+phase1_priority:
+  control: [agent_a, agent_b]
+  intervention: [agent_b, agent_a]
+protection: {agent_id: agent_a, slot: fg711, event_id: current_lock_fg_v6}
+agent_a:
+  control: {feasible: [fg711, fg713, fg712], preferred: fg711}
+  intervention: {feasible: [fg711, fg712, fg713], preferred: fg712}
+agent_b:
+  control: {feasible: [fg712, fg711, fg713], preferred: fg712}
+  intervention: {feasible: [fg711, fg713, fg712], preferred: fg711}

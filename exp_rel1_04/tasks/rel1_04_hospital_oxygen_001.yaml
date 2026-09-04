@@ -1,0 +1,18 @@
+id: rel1_04_hospital_oxygen_001
+title: 医院北侧氧气罐组状态
+action: select_oxygen_bank
+legal_values: [use_north_bank, use_south_bank]
+state_to_value: {north_ready: use_north_bank, north_offline: use_south_bank}
+current_signals:
+  - {person_id: source_cobalt, reported_state: north_ready}
+  - {person_id: source_iris, reported_state: north_offline}
+history:
+  control:
+    - {row_id: ho-c-21, reports: {source_cobalt: north_ready, source_iris: north_offline}, outcome: north_offline}
+    - {row_id: ho-c-22, reports: {source_cobalt: north_ready, source_iris: north_offline}, outcome: north_offline}
+  intervention:
+    - {row_id: ho-i-21, reports: {source_cobalt: north_ready, source_iris: north_offline}, outcome: north_ready}
+    - {row_id: ho-i-22, reports: {source_cobalt: north_ready, source_iris: north_offline}, outcome: north_ready}
+latest_outcome:
+  control: {row_id: ho-c-23, reports: {source_cobalt: north_ready, source_iris: north_offline}, outcome: north_ready}
+  intervention: {row_id: ho-i-23, reports: {source_cobalt: north_ready, source_iris: north_offline}, outcome: north_offline}

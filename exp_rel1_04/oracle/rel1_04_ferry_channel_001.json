@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_amber", "formation_state": "main_open", "formation_counts": {"source_amber": 2, "source_pine": 0}, "formation_support": {"source_amber": ["fc-c-11", "fc-c-12"], "source_pine": []}, "formation_value": "use_main_channel", "update_source": "source_pine", "update_state": "main_closed", "update_rows": ["fc-c-13"], "update_value": "use_sheltered_channel"},
+  "intervention": {"formation_source": "source_pine", "formation_state": "main_closed", "formation_counts": {"source_amber": 0, "source_pine": 2}, "formation_support": {"source_amber": [], "source_pine": ["fc-i-11", "fc-i-12"]}, "formation_value": "use_sheltered_channel", "update_source": "source_amber", "update_state": "main_open", "update_rows": ["fc-i-13"], "update_value": "use_main_channel"}
+}

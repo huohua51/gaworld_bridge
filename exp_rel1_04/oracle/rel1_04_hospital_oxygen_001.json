@@ -1,0 +1,4 @@
+{
+  "control": {"formation_source": "source_iris", "formation_state": "north_offline", "formation_counts": {"source_cobalt": 0, "source_iris": 2}, "formation_support": {"source_cobalt": [], "source_iris": ["ho-c-21", "ho-c-22"]}, "formation_value": "use_south_bank", "update_source": "source_cobalt", "update_state": "north_ready", "update_rows": ["ho-c-23"], "update_value": "use_north_bank"},
+  "intervention": {"formation_source": "source_cobalt", "formation_state": "north_ready", "formation_counts": {"source_cobalt": 2, "source_iris": 0}, "formation_support": {"source_cobalt": ["ho-i-21", "ho-i-22"], "source_iris": []}, "formation_value": "use_north_bank", "update_source": "source_iris", "update_state": "north_offline", "update_rows": ["ho-i-23"], "update_value": "use_south_bank"}
+}
