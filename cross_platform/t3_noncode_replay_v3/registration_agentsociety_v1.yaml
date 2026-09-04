@@ -1,0 +1,152 @@
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-AGENTSOCIETY-EXTENSION-v3
+registered_on: '2026-09-05'
+phase: prospective_historical_shared_payload_replay
+formal_replay_status: not_run
+ranking_eligible: false
+
+question: >-
+  When the exact six reviewer samples and evidence IDs already used by the
+  frozen GAWorld/YuLan T3 v2 experiment are replayed through AgentSociety 2,
+  does its native SimpleSocialSpace preserve the valid payloads and the frozen
+  deterministic transition, and what identity/audit properties are observable
+  at that specific public tool boundary?
+
+source_experiment:
+  output_root: output/cross_platform_t3_noncode_replay_v2_glm52_20260904
+  experiment_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-GLM52-v2
+  reviewer_samples: 6
+  structurally_valid_samples: 5
+  unique_model_evidence_ids: 6
+  reuse_policy: exact historical objects; no resampling or replacement
+
+agentsociety2:
+  repository: https://github.com/tsinghua-fib-lab/AgentSociety
+  source_root: F:/proj/AgentSociety
+  commit: 13e28b5e67a2a8f2f43d640ebf27859126da622e
+  distribution_version: 2.8.4
+  package_dunder_version: 2.8.3
+  version_note: >-
+    Distribution metadata and agentsociety2.__version__ disagree at the frozen
+    commit, so both values are recorded rather than silently selecting one.
+  execution_surface: SimpleSocialSpace.send_message/receive_messages
+  source_tree_modified: false
+  source_sha256:
+    packages/agentsociety2/agentsociety2/contrib/env/simple_social_space.py: 636f1ec136fdcd2a7e8daf0b8733e5b11abbec378180e12aba20950f4a6e39f0
+    packages/agentsociety2/agentsociety2/env/base.py: b5df925efce89948283a261d6434b027e8a257005575bb247e41087035d88ad3
+    packages/agentsociety2/agentsociety2/config/config.py: 22714d8aedaf52bd3861fdedc5789bdd9215a929beb1f9420a24144a92b1e4f7
+    packages/agentsociety2/agentsociety2/__init__.py: 91667036147a5ebbb6adde37ef364a3a320d90a70f492d400b15048b1db4c007
+    packages/agentsociety2/pyproject.toml: 01d2dbbe0104adb06140be456e5befbcdd9c56e587eabd94ec289e87e7c8eb29
+
+offline_runtime:
+  reason: >-
+    AgentSociety 2 validates an LLM key and base URL at top-level import even
+    when only the local mailbox is used.
+  credential_mode: benchmark sentinel, never the user's real key
+  api_base: http://127.0.0.1:9
+  new_model_calls: 0
+  external_model_network_allowed: false
+  telemetry:
+    MEM0_TELEMETRY: false
+    ANONYMIZED_TELEMETRY: false
+
+design:
+  task_ids:
+    - t3nc_clinic_cooling_shift_001
+    - t3nc_library_evening_hours_001
+    - t3nc_foodbank_delivery_001
+  variants: [verified_support, verified_conflict]
+  source_review_samples: 6
+  agentsociety_platform_cells: 6
+  new_model_calls: 0
+  sampled_roles: []
+  deterministic_roles: [registered_proposal, executor_transition]
+  execution_order: task_then_variant
+  scorer_version: cross-platform-t3-noncode-agentsociety-extension-scorer-v1
+
+non_scoring_calibration:
+  kind: offline_oracle_fixture
+  cells: 6
+  payload_transport_pass: 6/6
+  functional_full_pass: 6/6
+  native_acl_enforced_at_tested_boundary: 0/6
+  automated_tests: 2/2
+  ranking_eligible: false
+
+registered_expectations:
+  sample_identity:
+    exact_source_evidence_ids: 6/6
+    exact_source_review_objects: 6/6
+    new_model_calls: 0
+  platform_transport:
+    denominator: five structurally valid historical reviewer samples
+    payload_transport_pass: 5/5
+    canonical_payload_sha256_exact: 5/5
+    native_sender_receiver_observation: 5/5
+    deterministic_transition_exact: 5/5
+  functional_full_pass:
+    denominator: all six frozen historical reviewer samples
+    expected: 5/6
+    invalid_source_sample_policy: retained as failure; not attributed to platform
+  tested_identity_boundary:
+    predicted_from_source_and_offline_fixture: true
+    surface: SimpleSocialSpace.receive_messages(agent_id)
+    caller_identity_argument_present: false
+    cross_actor_claimed_id_read_accepted: 6/6
+    native_acl_enforced: 0/6
+  audit_observability:
+    native_tool_history_expected: true
+    receive_result_exposes_internal_message_id: 0/6
+
+frozen_inputs:
+  cross_platform/t3_noncode_replay_v3/__init__.py: d1cf1c08549e7a1f277b93e93b89826de519fc20e99ff9a7fdffca5488307d12
+  cross_platform/t3_noncode_replay_v3/agentsociety_replay.py: 20dcd9a1e76ad633376a89a76879a2e8d68881055583de37dc8cdb2d853d6945
+  cross_platform/t3_noncode_replay_v3/scorer.py: 6d8968cb5217f96811396ded328669ffbd5f15b79761931ac977820e7d627447
+  cross_platform/t3_noncode_replay_v3/run.py: 307fc85a03380d2d12131b025b34b933eef990078486e72ea3329878cbf85dec
+  cross_platform/t3_noncode_replay_v3/protocol.md: 21d3871b3b1ac4aabcdf560c4ae5bf2b517d198a5b35c6cee5585e41a3a58315
+  cross_platform/t3_noncode_replay_v3/README.md: 81549c749e480ec3da533f478e106041d47cc8dc7ec8b5ac466bb008f618c39c
+  tests/test_t3_noncode_agentsociety_replay_v3.py: 604041a52cdb6228222f529722cd8ceaa9f3b9ba512737d1650d88f5c2ccad77
+  cross_platform/t3_noncode_replay_v2/protocol.py: 7f46ab4b0f994acd0b21271f8ecc0b376800e9f13d3b106503ad000485a10089
+  cross_platform/t3_noncode_review/tasks.yaml: b70e4b2a938387352b3ff7854bc60cd11def1eee1c985564dd68f58d568d0e94
+  output/cross_platform_t3_noncode_replay_v2_glm52_20260904/review_samples.json: fb1cb5afcb31fdf144e57b7ae2ae91d0b8b9c17b80202f002890ad8e563dc3d7
+  output/cross_platform_t3_noncode_replay_v2_glm52_20260904/cell_table.json: 023f9ced26178d36b976075654301af98d5549adbed3130555bde86eab46ec07
+  output/cross_platform_t3_noncode_replay_v2_glm52_20260904/RUN_MANIFEST.yaml: c2f7d0ba8f500adc8f3f63c60114413765381a4f7cebe889253d599f44428f60
+
+analysis_rules:
+  platform_variable: >-
+    Only the path through AgentSociety 2 SimpleSocialSpace is new. The reviewer
+    object, evidence ID, proposal and executor transition are held fixed.
+  payload_transport: >-
+    Score only structurally valid source reviewer samples. Require exact object
+    equality, exact canonical SHA-256, native sender/receiver observations,
+    final submission and the registered deterministic transition.
+  functional_full_pass: >-
+    Retain the source-invalid reviewer sample in the six-unit denominator. It
+    remains an upstream failure and is not relabelled as an AgentSociety failure.
+  identity_boundary: >-
+    Report the native claimed-agent-id probe separately. Do not insert an ACL in
+    the adapter because that would measure benchmark code rather than the native
+    public tool surface.
+  yulan_acl_status: not_tested; do not infer pass or fail from the v2 replay
+  no_post_hoc_task_change: true
+  no_sample_replacement: true
+  no_new_model_sampling: true
+
+interpretation_limits:
+  - This tests one AgentSociety 2 mailbox surface, not the full platform.
+  - It does not exercise city, economy, mobility, memory quality or large-population scaling.
+  - Deterministic execution tests transport fidelity, not free-form agent ability.
+  - The identity result applies only to the tested public tool boundary; an authenticated deployment layer may add controls.
+  - The three task surfaces and six historical samples do not support an overall platform ranking.
+  - H1-H7 human validity dimensions are outside this functional experiment.
+
+stopping_rules:
+  - Require 6/6 offline oracle transport and functional passes before registration.
+  - Commit this registration and all new frozen code before the formal historical replay.
+  - Execute exactly six AgentSociety cells in the frozen task/variant order.
+  - Make zero model calls and do not replace the invalid source sample.
+  - Abort before replay if any frozen input hash or AgentSociety commit/hash differs.
+  - Preserve every formal cell, including failures, after execution begins.
+
+planned_entrypoint: >-
+  python -m cross_platform.t3_noncode_replay_v3.run --historical-replay
+  --out output/cross_platform_t3_noncode_replay_v3_agentsociety_20260905
