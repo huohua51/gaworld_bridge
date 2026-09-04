@@ -1390,6 +1390,21 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 在五个有效对象上同样保真，不证明平台总体等效。详见
 [`INDEPENDENT_AUDIT.md`](output/cross_platform_t3_noncode_replay_v2_glm52_20260904/INDEPENDENT_AUDIT.md)。
 
+### **16.17 AgentSociety 2 同一审核载荷横向扩展**
+
+2026-09-05以提交`4374b23`预注册后，把T3 v2冻结的六个reviewer样本按原顺序重放到
+AgentSociety 2提交`13e28b5`的原生`SimpleSocialSpace`邮箱；没有重新采样模型，也没有读取真实
+API key。源样本与新逐格结果的六个evidence ID逐项相等，其中五个结构化有效样本在GAWorld、
+YuLan-OneSim和AgentSociety上均为transport 5/5；六项固定功能分母均为5/6，唯一失败仍是平台
+之前发生的原始TLS错误。
+
+AgentSociety新增的对抗探针发现，被测`receive_messages(agent_id)`公开边界没有认证调用者参数，
+声明reviewer ID即可读取其邮箱，6/6被接受，因此本轮严格角色隔离为0/6；接收结果也不暴露内部
+`message_id`。GAWorld历史v2的两类越权操作6/6被拒绝，YuLan v2没有同等探针，必须记为
+`not_tested`。这些证据支持“AgentSociety邮箱能承载本轮共享审核载荷”，不支持三平台总体排名，
+也不能外推到AgentSociety其他模块或带认证的部署层。完整审计见
+[`INDEPENDENT_AUDIT.md`](output/cross_platform_t3_noncode_replay_v3_agentsociety_20260905/INDEPENDENT_AUDIT.md)。
+
 ---
 
 ## **17. 目录索引**
@@ -1418,10 +1433,12 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 | `model_pilot/registrations/`          | T4真实模型重复实验的预注册设计与冻结输入哈希                  |
 | `cross_platform/yulan_onesim/`        | YuLan-OneSim锁定版本、事件证据校准、T4/T5同面适配与注册       |
 | `cross_platform/t3_noncode_review/`   | 三类非代码T3任务、双平台审核链、冻结评分与GLM-5.2预注册       |
+| `cross_platform/t3_noncode_replay_v3/` | AgentSociety 2同载荷离线适配、身份边界探针、评分与预注册       |
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
 | `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
 | `output/cross_platform_t3_noncode_glm52_20260903/` | GAWorld/YuLan T3非代码真实结果、围栏JSON诊断与修复交接 |
 | `output/cross_platform_t3_noncode_replay_v2_glm52_20260904/` | 单次reviewer采样、同载荷双平台重放、条件transport与固定分母结果 |
+| `output/cross_platform_t3_noncode_replay_v3_agentsociety_20260905/` | AgentSociety同载荷重放、原生工具证据、身份探针与独立审计 |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
@@ -1480,4 +1497,9 @@ JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显�
 不能排名平台；结构化响应和重试审计v2及同一payload双平台重放均已完成。重放中两个平台在5个
 有效共享审核对象上均为transport 5/5、观察差异0；唯一固定分母失败发生在平台之前的TLS请求。
 
-2026-09-04已经完成C1/REL1新编号回归，并按固定分母保留Provider失败与模型语义失败；T4第二模型已执行gpt-5.4预注册校准，但2/2为HTTP 403，正式18格没有启动。下一阶段优先完成约6名同学的H1/H4认知访谈、拆分REL1复合指标，并在gpt-5.4额度可用后新预注册T4复测。正式Human Reference仍需目标人群、远程角色隔离、独立样本和分析方案冻结后才可启动；H2、H3、H5、H6、H7继续标记为`N/A`。
+2026-09-05进一步把完全相同的六个历史审核样本重放到AgentSociety 2。五个有效对象在三平台
+均为transport 5/5，固定功能分母均为5/6；AgentSociety被测邮箱接口的声明ID跨角色读取6/6
+被接受、接收回执不暴露内部message ID。该结果把“载荷承载能力”和“原生身份隔离能力”分开：
+前者在当前T3表面一致，后者仍需三平台同构探针，不能据此给平台排总体名次。
+
+2026-09-04已经完成C1/REL1新编号回归，并按固定分母保留Provider失败与模型语义失败；T4第二模型已执行gpt-5.4预注册校准，但2/2为HTTP 403，正式18格没有启动。项目现决定暂缓模型差异扩展，不再把补跑gpt-5.4列为近期优先事项。下一阶段优先完成约6名同学的H1/H4认知访谈、拆分REL1复合指标，并为GAWorld、YuLan和AgentSociety建立同构身份/越权探针。正式Human Reference仍需目标人群、远程角色隔离、独立样本和分析方案冻结后才可启动；H2、H3、H5、H6、H7继续标记为`N/A`。

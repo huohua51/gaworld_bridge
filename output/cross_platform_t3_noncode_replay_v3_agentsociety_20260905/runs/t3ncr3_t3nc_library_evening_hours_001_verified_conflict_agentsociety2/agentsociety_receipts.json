@@ -1,0 +1,20 @@
+{
+  "executor": [
+    {
+      "type": "personal",
+      "sender_id": 1,
+      "sender_name": "reviewer",
+      "content": "{\"event_kind\":\"ReviewUnavailable\",\"proposal\":{\"proposal_id\":\"library-evening-plan-v2\",\"proposed_state\":{\"closing_hour\":22,\"reservable_rooms\":6,\"supervisors_on_duty\":2},\"reason_code\":\"registered_candidate_submitted\"},\"review\":null,\"task_id\":\"t3nc_library_evening_hours_001\",\"variant\":\"verified_conflict\"}",
+      "timestamp": "2026-09-04T00:00:00+00:00"
+    }
+  ],
+  "result_sink": [
+    {
+      "type": "personal",
+      "sender_id": 2,
+      "sender_name": "executor",
+      "content": "{\"event_kind\":\"FinalStateSubmitted\",\"executor_output\":{\"adopted\":false,\"disposition\":\"kept_without_review\",\"final_state\":{\"closing_hour\":20,\"reservable_rooms\":4,\"supervisors_on_duty\":1},\"reason_code\":\"no_delivered_review\",\"review_id\":null},\"task_id\":\"t3nc_library_evening_hours_001\"}",
+      "timestamp": "2026-09-04T00:00:00+00:00"
+    }
+  ]
+}

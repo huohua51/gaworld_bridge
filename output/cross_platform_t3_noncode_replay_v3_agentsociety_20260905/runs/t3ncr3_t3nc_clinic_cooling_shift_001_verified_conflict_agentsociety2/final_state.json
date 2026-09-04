@@ -1,0 +1,11 @@
+{
+  "adopted": false,
+  "final_state": {
+    "opening_hour": 14,
+    "closing_hour": 18,
+    "service_capacity": 40
+  },
+  "disposition": "kept_after_reject",
+  "review_id": "t3nc_clinic_cooling_shift_001_r1",
+  "reason_code": "rejected_review_preserved_baseline"
+}

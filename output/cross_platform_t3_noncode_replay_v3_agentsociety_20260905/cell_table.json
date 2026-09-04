@@ -1,0 +1,894 @@
+[
+  {
+    "workflow_id": "cross_platform_t3_noncode_shared_replay_v3_agentsociety",
+    "run_id": "t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2",
+    "task_id": "t3nc_clinic_cooling_shift_001",
+    "variant": "verified_support",
+    "platform": "AgentSociety2",
+    "measurement_valid": true,
+    "reviewer_sample_valid": true,
+    "reviewer_oracle_correct": true,
+    "transport_evaluable": true,
+    "payload_transport_pass": true,
+    "functional_full_pass": 1,
+    "strict_role_isolated_full_pass": 0,
+    "ranking_eligible": false,
+    "first_error": "none",
+    "criteria": {
+      "platform_trace_parseable": true,
+      "shared_payload_exact": true,
+      "shared_payload_hash_exact": true,
+      "native_sender_receiver_verified": true,
+      "deterministic_transition_exact": true,
+      "oracle_final_state_exact": true,
+      "native_acl_enforced_at_tested_boundary": false,
+      "native_message_id_observable_at_receive_boundary": false
+    },
+    "process_profile": {
+      "expected_shared_review": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1"
+      },
+      "ingress_review": {
+        "decision": "approve",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [],
+        "proposal_id": "clinic-cooling-plan-v2",
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1"
+      },
+      "delivered_review": {
+        "decision": "approve",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [],
+        "proposal_id": "clinic-cooling-plan-v2",
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1"
+      },
+      "executor_output": {
+        "adopted": true,
+        "final_state": {
+          "opening_hour": 12,
+          "closing_hour": 18,
+          "service_capacity": 55
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "expected_executor_from_sample": {
+        "adopted": true,
+        "final_state": {
+          "opening_hour": 12,
+          "closing_hour": 18,
+          "service_capacity": 55
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "expected_executor_from_oracle": {
+        "adopted": true,
+        "final_state": {
+          "opening_hour": 12,
+          "closing_hour": 18,
+          "service_capacity": 55
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "approved_review_applied"
+      }
+    },
+    "evidence": {
+      "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-1",
+      "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+      "platform_trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2\\agentsociety_replay_trace.jsonl",
+      "platform_tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2\\agentsociety_tool_history.jsonl",
+      "ingress_review_sha256": "a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc",
+      "delivered_review_sha256": "a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc"
+    },
+    "capability_evidence": {
+      "runtime": {
+        "environment_version": "agentsociety2-2.8.4",
+        "package_dunder_version": "2.8.3",
+        "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+        "offline_runtime": {
+          "credential_mode": "benchmark_sentinel_not_user_secret",
+          "api_base": "http://127.0.0.1:9",
+          "new_model_calls": 0
+        }
+      },
+      "identity_binding_probe": {
+        "surface": "SimpleSocialSpace.receive_messages",
+        "caller_identity_argument_present": false,
+        "claimed_agent_id": 1,
+        "cross_actor_read_accepted": true,
+        "native_acl_enforced_at_tested_boundary": false,
+        "tool_call_history": [
+          {
+            "function_name": "send_message",
+            "kwargs": {
+              "sender_id": 1,
+              "receiver_id": 1,
+              "content": "benchmark-private-marker"
+            },
+            "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.464184+00:00"
+          },
+          {
+            "function_name": "receive_messages",
+            "kwargs": {
+              "agent_id": 1
+            },
+            "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.464184+00:00"
+          }
+        ]
+      },
+      "native_tool_calls": 4,
+      "verified_receipts": 2
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_shared_replay_v3_agentsociety",
+    "run_id": "t3ncr3_t3nc_clinic_cooling_shift_001_verified_conflict_agentsociety2",
+    "task_id": "t3nc_clinic_cooling_shift_001",
+    "variant": "verified_conflict",
+    "platform": "AgentSociety2",
+    "measurement_valid": true,
+    "reviewer_sample_valid": true,
+    "reviewer_oracle_correct": true,
+    "transport_evaluable": true,
+    "payload_transport_pass": true,
+    "functional_full_pass": 1,
+    "strict_role_isolated_full_pass": 0,
+    "ranking_eligible": false,
+    "first_error": "none",
+    "criteria": {
+      "platform_trace_parseable": true,
+      "shared_payload_exact": true,
+      "shared_payload_hash_exact": true,
+      "native_sender_receiver_verified": true,
+      "deterministic_transition_exact": true,
+      "oracle_final_state_exact": true,
+      "native_acl_enforced_at_tested_boundary": false,
+      "native_message_id_observable_at_receive_boundary": false
+    },
+    "process_profile": {
+      "expected_shared_review": {
+        "proposal_id": "clinic-cooling-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [
+          "room-capacity"
+        ],
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1"
+      },
+      "ingress_review": {
+        "decision": "reject",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [
+          "room-capacity"
+        ],
+        "proposal_id": "clinic-cooling-plan-v2",
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1"
+      },
+      "delivered_review": {
+        "decision": "reject",
+        "evidence_ids": [
+          "clinic-alert-check",
+          "clinic-staff-roster",
+          "clinic-room-certificate"
+        ],
+        "failing_criteria": [
+          "room-capacity"
+        ],
+        "proposal_id": "clinic-cooling-plan-v2",
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1"
+      },
+      "executor_output": {
+        "adopted": false,
+        "final_state": {
+          "opening_hour": 14,
+          "closing_hour": 18,
+          "service_capacity": 40
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "expected_executor_from_sample": {
+        "adopted": false,
+        "final_state": {
+          "opening_hour": 14,
+          "closing_hour": 18,
+          "service_capacity": 40
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "expected_executor_from_oracle": {
+        "adopted": false,
+        "final_state": {
+          "opening_hour": 14,
+          "closing_hour": 18,
+          "service_capacity": 40
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_clinic_cooling_shift_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      }
+    },
+    "evidence": {
+      "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-2",
+      "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+      "platform_trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_conflict_agentsociety2\\agentsociety_replay_trace.jsonl",
+      "platform_tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_conflict_agentsociety2\\agentsociety_tool_history.jsonl",
+      "ingress_review_sha256": "13a9a41fe2ced76213f9a24d516c710a3e34d82e2cf810360e1dbd0761c5c93c",
+      "delivered_review_sha256": "13a9a41fe2ced76213f9a24d516c710a3e34d82e2cf810360e1dbd0761c5c93c"
+    },
+    "capability_evidence": {
+      "runtime": {
+        "environment_version": "agentsociety2-2.8.4",
+        "package_dunder_version": "2.8.3",
+        "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+        "offline_runtime": {
+          "credential_mode": "benchmark_sentinel_not_user_secret",
+          "api_base": "http://127.0.0.1:9",
+          "new_model_calls": 0
+        }
+      },
+      "identity_binding_probe": {
+        "surface": "SimpleSocialSpace.receive_messages",
+        "caller_identity_argument_present": false,
+        "claimed_agent_id": 1,
+        "cross_actor_read_accepted": true,
+        "native_acl_enforced_at_tested_boundary": false,
+        "tool_call_history": [
+          {
+            "function_name": "send_message",
+            "kwargs": {
+              "sender_id": 1,
+              "receiver_id": 1,
+              "content": "benchmark-private-marker"
+            },
+            "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.482192+00:00"
+          },
+          {
+            "function_name": "receive_messages",
+            "kwargs": {
+              "agent_id": 1
+            },
+            "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.482192+00:00"
+          }
+        ]
+      },
+      "native_tool_calls": 4,
+      "verified_receipts": 2
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_shared_replay_v3_agentsociety",
+    "run_id": "t3ncr3_t3nc_library_evening_hours_001_verified_support_agentsociety2",
+    "task_id": "t3nc_library_evening_hours_001",
+    "variant": "verified_support",
+    "platform": "AgentSociety2",
+    "measurement_valid": true,
+    "reviewer_sample_valid": true,
+    "reviewer_oracle_correct": true,
+    "transport_evaluable": true,
+    "payload_transport_pass": true,
+    "functional_full_pass": 1,
+    "strict_role_isolated_full_pass": 0,
+    "ranking_eligible": false,
+    "first_error": "none",
+    "criteria": {
+      "platform_trace_parseable": true,
+      "shared_payload_exact": true,
+      "shared_payload_hash_exact": true,
+      "native_sender_receiver_verified": true,
+      "deterministic_transition_exact": true,
+      "oracle_final_state_exact": true,
+      "native_acl_enforced_at_tested_boundary": false,
+      "native_message_id_observable_at_receive_boundary": false
+    },
+    "process_profile": {
+      "expected_shared_review": {
+        "proposal_id": "library-evening-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_library_evening_hours_001_r1"
+      },
+      "ingress_review": {
+        "decision": "approve",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [],
+        "proposal_id": "library-evening-plan-v2",
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_library_evening_hours_001_r1"
+      },
+      "delivered_review": {
+        "decision": "approve",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [],
+        "proposal_id": "library-evening-plan-v2",
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_library_evening_hours_001_r1"
+      },
+      "executor_output": {
+        "adopted": true,
+        "final_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "expected_executor_from_sample": {
+        "adopted": true,
+        "final_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "expected_executor_from_oracle": {
+        "adopted": true,
+        "final_state": {
+          "closing_hour": 22,
+          "reservable_rooms": 6,
+          "supervisors_on_duty": 2
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "approved_review_applied"
+      }
+    },
+    "evidence": {
+      "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-3",
+      "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+      "platform_trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_library_evening_hours_001_verified_support_agentsociety2\\agentsociety_replay_trace.jsonl",
+      "platform_tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_library_evening_hours_001_verified_support_agentsociety2\\agentsociety_tool_history.jsonl",
+      "ingress_review_sha256": "161a6014a480e348e88f3df8264c3b0402695186592f7b7a956a9357a73a7c20",
+      "delivered_review_sha256": "161a6014a480e348e88f3df8264c3b0402695186592f7b7a956a9357a73a7c20"
+    },
+    "capability_evidence": {
+      "runtime": {
+        "environment_version": "agentsociety2-2.8.4",
+        "package_dunder_version": "2.8.3",
+        "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+        "offline_runtime": {
+          "credential_mode": "benchmark_sentinel_not_user_secret",
+          "api_base": "http://127.0.0.1:9",
+          "new_model_calls": 0
+        }
+      },
+      "identity_binding_probe": {
+        "surface": "SimpleSocialSpace.receive_messages",
+        "caller_identity_argument_present": false,
+        "claimed_agent_id": 1,
+        "cross_actor_read_accepted": true,
+        "native_acl_enforced_at_tested_boundary": false,
+        "tool_call_history": [
+          {
+            "function_name": "send_message",
+            "kwargs": {
+              "sender_id": 1,
+              "receiver_id": 1,
+              "content": "benchmark-private-marker"
+            },
+            "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.497331+00:00"
+          },
+          {
+            "function_name": "receive_messages",
+            "kwargs": {
+              "agent_id": 1
+            },
+            "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.497331+00:00"
+          }
+        ]
+      },
+      "native_tool_calls": 4,
+      "verified_receipts": 2
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_shared_replay_v3_agentsociety",
+    "run_id": "t3ncr3_t3nc_library_evening_hours_001_verified_conflict_agentsociety2",
+    "task_id": "t3nc_library_evening_hours_001",
+    "variant": "verified_conflict",
+    "platform": "AgentSociety2",
+    "measurement_valid": true,
+    "reviewer_sample_valid": false,
+    "reviewer_oracle_correct": false,
+    "transport_evaluable": false,
+    "payload_transport_pass": null,
+    "functional_full_pass": 0,
+    "strict_role_isolated_full_pass": 0,
+    "ranking_eligible": false,
+    "first_error": "reviewer_sample_invalid",
+    "criteria": {
+      "platform_trace_parseable": true,
+      "shared_payload_exact": false,
+      "shared_payload_hash_exact": false,
+      "native_sender_receiver_verified": true,
+      "deterministic_transition_exact": true,
+      "oracle_final_state_exact": false,
+      "native_acl_enforced_at_tested_boundary": false,
+      "native_message_id_observable_at_receive_boundary": false
+    },
+    "process_profile": {
+      "expected_shared_review": {
+        "proposal_id": "library-evening-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "library-security-check",
+          "library-supervisor-roster",
+          "library-room-approval"
+        ],
+        "failing_criteria": [
+          "security-coverage"
+        ],
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_library_evening_hours_001_r1"
+      },
+      "ingress_review": null,
+      "delivered_review": null,
+      "executor_output": {
+        "adopted": false,
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "disposition": "kept_without_review",
+        "review_id": null,
+        "reason_code": "no_delivered_review"
+      },
+      "expected_executor_from_sample": {
+        "adopted": false,
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "disposition": "kept_without_review",
+        "review_id": null,
+        "reason_code": "no_delivered_review"
+      },
+      "expected_executor_from_oracle": {
+        "adopted": false,
+        "final_state": {
+          "closing_hour": 20,
+          "reservable_rooms": 4,
+          "supervisors_on_duty": 1
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_library_evening_hours_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      }
+    },
+    "evidence": {
+      "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-4",
+      "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+      "platform_trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_library_evening_hours_001_verified_conflict_agentsociety2\\agentsociety_replay_trace.jsonl",
+      "platform_tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_library_evening_hours_001_verified_conflict_agentsociety2\\agentsociety_tool_history.jsonl",
+      "ingress_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "delivered_review_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    "capability_evidence": {
+      "runtime": {
+        "environment_version": "agentsociety2-2.8.4",
+        "package_dunder_version": "2.8.3",
+        "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+        "offline_runtime": {
+          "credential_mode": "benchmark_sentinel_not_user_secret",
+          "api_base": "http://127.0.0.1:9",
+          "new_model_calls": 0
+        }
+      },
+      "identity_binding_probe": {
+        "surface": "SimpleSocialSpace.receive_messages",
+        "caller_identity_argument_present": false,
+        "claimed_agent_id": 1,
+        "cross_actor_read_accepted": true,
+        "native_acl_enforced_at_tested_boundary": false,
+        "tool_call_history": [
+          {
+            "function_name": "send_message",
+            "kwargs": {
+              "sender_id": 1,
+              "receiver_id": 1,
+              "content": "benchmark-private-marker"
+            },
+            "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.513404+00:00"
+          },
+          {
+            "function_name": "receive_messages",
+            "kwargs": {
+              "agent_id": 1
+            },
+            "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.513404+00:00"
+          }
+        ]
+      },
+      "native_tool_calls": 4,
+      "verified_receipts": 2
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_shared_replay_v3_agentsociety",
+    "run_id": "t3ncr3_t3nc_foodbank_delivery_001_verified_support_agentsociety2",
+    "task_id": "t3nc_foodbank_delivery_001",
+    "variant": "verified_support",
+    "platform": "AgentSociety2",
+    "measurement_valid": true,
+    "reviewer_sample_valid": true,
+    "reviewer_oracle_correct": true,
+    "transport_evaluable": true,
+    "payload_transport_pass": true,
+    "functional_full_pass": 1,
+    "strict_role_isolated_full_pass": 0,
+    "ranking_eligible": false,
+    "first_error": "none",
+    "criteria": {
+      "platform_trace_parseable": true,
+      "shared_payload_exact": true,
+      "shared_payload_hash_exact": true,
+      "native_sender_receiver_verified": true,
+      "deterministic_transition_exact": true,
+      "oracle_final_state_exact": true,
+      "native_acl_enforced_at_tested_boundary": false,
+      "native_message_id_observable_at_receive_boundary": false
+    },
+    "process_profile": {
+      "expected_shared_review": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "approve",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [],
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "ingress_review": {
+        "decision": "approve",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [],
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "delivered_review": {
+        "decision": "approve",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [],
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "reason_code": "all_constraints_satisfied",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "executor_output": {
+        "adopted": true,
+        "final_state": {
+          "delivery_vans": 2,
+          "households_served": 90,
+          "cold_boxes_loaded": 30
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "expected_executor_from_sample": {
+        "adopted": true,
+        "final_state": {
+          "delivery_vans": 2,
+          "households_served": 90,
+          "cold_boxes_loaded": 30
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "approved_review_applied"
+      },
+      "expected_executor_from_oracle": {
+        "adopted": true,
+        "final_state": {
+          "delivery_vans": 2,
+          "households_served": 90,
+          "cold_boxes_loaded": 30
+        },
+        "disposition": "adopted",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "approved_review_applied"
+      }
+    },
+    "evidence": {
+      "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-5",
+      "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+      "platform_trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_foodbank_delivery_001_verified_support_agentsociety2\\agentsociety_replay_trace.jsonl",
+      "platform_tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_foodbank_delivery_001_verified_support_agentsociety2\\agentsociety_tool_history.jsonl",
+      "ingress_review_sha256": "636843015fec0176a220342c77805534636af1e34bc0f9bc1914f41389f61122",
+      "delivered_review_sha256": "636843015fec0176a220342c77805534636af1e34bc0f9bc1914f41389f61122"
+    },
+    "capability_evidence": {
+      "runtime": {
+        "environment_version": "agentsociety2-2.8.4",
+        "package_dunder_version": "2.8.3",
+        "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+        "offline_runtime": {
+          "credential_mode": "benchmark_sentinel_not_user_secret",
+          "api_base": "http://127.0.0.1:9",
+          "new_model_calls": 0
+        }
+      },
+      "identity_binding_probe": {
+        "surface": "SimpleSocialSpace.receive_messages",
+        "caller_identity_argument_present": false,
+        "claimed_agent_id": 1,
+        "cross_actor_read_accepted": true,
+        "native_acl_enforced_at_tested_boundary": false,
+        "tool_call_history": [
+          {
+            "function_name": "send_message",
+            "kwargs": {
+              "sender_id": 1,
+              "receiver_id": 1,
+              "content": "benchmark-private-marker"
+            },
+            "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.529098+00:00"
+          },
+          {
+            "function_name": "receive_messages",
+            "kwargs": {
+              "agent_id": 1
+            },
+            "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.529098+00:00"
+          }
+        ]
+      },
+      "native_tool_calls": 4,
+      "verified_receipts": 2
+    }
+  },
+  {
+    "workflow_id": "cross_platform_t3_noncode_shared_replay_v3_agentsociety",
+    "run_id": "t3ncr3_t3nc_foodbank_delivery_001_verified_conflict_agentsociety2",
+    "task_id": "t3nc_foodbank_delivery_001",
+    "variant": "verified_conflict",
+    "platform": "AgentSociety2",
+    "measurement_valid": true,
+    "reviewer_sample_valid": true,
+    "reviewer_oracle_correct": true,
+    "transport_evaluable": true,
+    "payload_transport_pass": true,
+    "functional_full_pass": 1,
+    "strict_role_isolated_full_pass": 0,
+    "ranking_eligible": false,
+    "first_error": "none",
+    "criteria": {
+      "platform_trace_parseable": true,
+      "shared_payload_exact": true,
+      "shared_payload_hash_exact": true,
+      "native_sender_receiver_verified": true,
+      "deterministic_transition_exact": true,
+      "oracle_final_state_exact": true,
+      "native_acl_enforced_at_tested_boundary": false,
+      "native_message_id_observable_at_receive_boundary": false
+    },
+    "process_profile": {
+      "expected_shared_review": {
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "ingress_review": {
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "delivered_review": {
+        "decision": "reject",
+        "evidence_ids": [
+          "foodbank-driver-check",
+          "foodbank-route-check",
+          "foodbank-coldbox-count"
+        ],
+        "failing_criteria": [
+          "drivers"
+        ],
+        "proposal_id": "foodbank-delivery-plan-v2",
+        "reason_code": "hard_constraint_conflict",
+        "review_id": "t3nc_foodbank_delivery_001_r1"
+      },
+      "executor_output": {
+        "adopted": false,
+        "final_state": {
+          "delivery_vans": 1,
+          "households_served": 60,
+          "cold_boxes_loaded": 20
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "expected_executor_from_sample": {
+        "adopted": false,
+        "final_state": {
+          "delivery_vans": 1,
+          "households_served": 60,
+          "cold_boxes_loaded": 20
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      },
+      "expected_executor_from_oracle": {
+        "adopted": false,
+        "final_state": {
+          "delivery_vans": 1,
+          "households_served": 60,
+          "cold_boxes_loaded": 20
+        },
+        "disposition": "kept_after_reject",
+        "review_id": "t3nc_foodbank_delivery_001_r1",
+        "reason_code": "rejected_review_preserved_baseline"
+      }
+    },
+    "evidence": {
+      "model_evidence_id": "model-call:t3nc_shared_replay_v2:call-6",
+      "model_trace_path": "F:\\proj\\gaworld_eval_bridge\\output\\cross_platform_t3_noncode_replay_v2_glm52_20260904\\model_trace.jsonl",
+      "platform_trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_foodbank_delivery_001_verified_conflict_agentsociety2\\agentsociety_replay_trace.jsonl",
+      "platform_tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_foodbank_delivery_001_verified_conflict_agentsociety2\\agentsociety_tool_history.jsonl",
+      "ingress_review_sha256": "7bcbc985c695293538ca89e366b898401083ae02b858d8a97346cacd703d6349",
+      "delivered_review_sha256": "7bcbc985c695293538ca89e366b898401083ae02b858d8a97346cacd703d6349"
+    },
+    "capability_evidence": {
+      "runtime": {
+        "environment_version": "agentsociety2-2.8.4",
+        "package_dunder_version": "2.8.3",
+        "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+        "offline_runtime": {
+          "credential_mode": "benchmark_sentinel_not_user_secret",
+          "api_base": "http://127.0.0.1:9",
+          "new_model_calls": 0
+        }
+      },
+      "identity_binding_probe": {
+        "surface": "SimpleSocialSpace.receive_messages",
+        "caller_identity_argument_present": false,
+        "claimed_agent_id": 1,
+        "cross_actor_read_accepted": true,
+        "native_acl_enforced_at_tested_boundary": false,
+        "tool_call_history": [
+          {
+            "function_name": "send_message",
+            "kwargs": {
+              "sender_id": 1,
+              "receiver_id": 1,
+              "content": "benchmark-private-marker"
+            },
+            "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.544327+00:00"
+          },
+          {
+            "function_name": "receive_messages",
+            "kwargs": {
+              "agent_id": 1
+            },
+            "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+            "exception_occurred": false,
+            "exception_info": null,
+            "timestamp": "2026-09-04T16:16:42.544327+00:00"
+          }
+        ]
+      },
+      "native_tool_calls": 4,
+      "verified_receipts": 2
+    }
+  }
+]

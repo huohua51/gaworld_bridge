@@ -5,7 +5,7 @@ task_coverage:
   T1: partial
   T2: partial
   T3: strong_development
-  T4: registered_transport_v2_glm52_seed0_1_2_stable_gpt54_http403_blocked
+  T4: registered_transport_v2_glm52_seed0_1_2_stable_cross_model_deprioritized
   T5: glm52_gpt54_expanded_4task_seed0_1_pass_qwen_discontinued
   T6: longitudinal_approximation_rule_calibrated
 
@@ -21,6 +21,19 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: CROSS-PLATFORM-T3-NONCODE-AGENTSOCIETY-EXTENSION-v3
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5]
+    source_dir: cross_platform/t3_noncode_replay_v3
+    result_dir: output/cross_platform_t3_noncode_replay_v3_agentsociety_20260905
+    evidence_status: historical_shared_payload_transport_5_of_5_functional_5_of_6
+    platforms: [GAWorld, YuLan-OneSim, AgentSociety2]
+    agentsociety_commit: 13e28b5e67a2a8f2f43d640ebf27859126da622e
+    new_model_calls: 0
+    finding: agentsociety_transport_passes_claimed_id_receive_boundary_not_identity_bound
+    acl_comparability: gaworld_verified_yulan_not_tested_agentsociety_claimed_id_probe_failed
+    ranking_eligible: false
+
   - experiment_id: EXP-GM-C1-07
     planned_task_family: T3
     mechanisms: [M3, M4, M5, M6]
@@ -228,7 +241,7 @@ planned_gaps: []
 
 remaining_evidence_gaps:
   - task_family: T4
-    gap: registered_transport_v2_cross_model_replication_blocked_by_gpt54_http403
+    gap: cross_model_replication_deprioritized_by_project_decision
   - task_family: T5
     gap: human_reference_and_optional_non_qwen_model_replication
   - task_family: T6

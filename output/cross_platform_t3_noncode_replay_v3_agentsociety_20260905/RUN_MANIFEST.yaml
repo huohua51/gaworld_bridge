@@ -1,0 +1,65 @@
+experiment_id: CROSS-PLATFORM-T3-NONCODE-AGENTSOCIETY-EXTENSION-v3
+preregistration_id: CROSS-PLATFORM-T3-NONCODE-AGENTSOCIETY-EXTENSION-v3
+registration_sha256: ef15d7c2824c82949309747f0d7381147561c7dd234a4c65b29967202d673742
+phase: historical_shared_payload_agentsociety_extension
+gate: extension_recorded
+ranking_eligible: false
+source_experiment_id: CROSS-PLATFORM-T3-NONCODE-SHARED-REPLAY-v2
+source_artifacts:
+  run_manifest: F:\proj\gaworld_eval_bridge\output\cross_platform_t3_noncode_replay_v2_glm52_20260904\RUN_MANIFEST.yaml
+  run_manifest_sha256: c2f7d0ba8f500adc8f3f63c60114413765381a4f7cebe889253d599f44428f60
+  review_samples: F:\proj\gaworld_eval_bridge\output\cross_platform_t3_noncode_replay_v2_glm52_20260904\review_samples.json
+  review_samples_sha256: fb1cb5afcb31fdf144e57b7ae2ae91d0b8b9c17b80202f002890ad8e563dc3d7
+  cell_table: F:\proj\gaworld_eval_bridge\output\cross_platform_t3_noncode_replay_v2_glm52_20260904\cell_table.json
+  cell_table_sha256: 023f9ced26178d36b976075654301af98d5549adbed3130555bde86eab46ec07
+sample_identity:
+  requested: 6
+  valid: 5
+  model_evidence_ids_reused_exactly: true
+  new_model_calls: 0
+agentsociety_runtime:
+  repository_root: F:\proj\AgentSociety
+  commit: 13e28b5e67a2a8f2f43d640ebf27859126da622e
+  environment_version: agentsociety2-2.8.4
+  package_dunder_version: 2.8.3
+  execution_surface: SimpleSocialSpace.send_message/receive_messages
+  offline_runtime:
+    credential_mode: benchmark_sentinel_not_user_secret
+    api_base: http://127.0.0.1:9
+    new_model_calls: 0
+platform_summary:
+  GAWorld:
+    cells: 6
+    transport_evaluable: 5
+    transport_pass: 5
+    joint_full_pass: 5
+  YuLan-OneSim:
+    cells: 6
+    transport_evaluable: 5
+    transport_pass: 5
+    joint_full_pass: 5
+  AgentSociety2:
+    cells: 6
+    transport_evaluable: 5
+    payload_transport_pass: 5
+    functional_full_pass: 5
+    strict_role_isolated_full_pass: 0
+agentsociety_capabilities:
+  native_acl_enforced_cells: 0
+  cross_actor_read_accepted_cells: 6
+  native_message_id_observable_cells: 0
+cross_platform_acl_evidence:
+  GAWorld:
+    probe_scope: reviewer final-write plus executor private-read
+    cells_tested: 6
+    cells_denied_both: 6
+    native_acl_evidence: verified
+  YuLan-OneSim:
+    probe_scope: no adversarial identity/ACL probe in frozen v2
+    native_acl_evidence: not_tested
+  AgentSociety2:
+    probe_scope: SimpleSocialSpace.receive_messages claimed-agent-id boundary
+    native_acl_evidence: reported_per_new_cell
+claim_boundary: This extension tests one AgentSociety2 SimpleSocialSpace surface with
+  the six already-frozen reviewer samples. It is not an overall platform ranking or
+  an H1-H7 human-validity result.

@@ -1,0 +1,20 @@
+{
+  "executor": [
+    {
+      "type": "personal",
+      "sender_id": 1,
+      "sender_name": "reviewer",
+      "content": "{\"event_kind\":\"ReviewDelivered\",\"proposal\":{\"proposal_id\":\"foodbank-delivery-plan-v2\",\"proposed_state\":{\"cold_boxes_loaded\":30,\"delivery_vans\":2,\"households_served\":90},\"reason_code\":\"registered_candidate_submitted\"},\"review\":{\"decision\":\"reject\",\"evidence_ids\":[\"foodbank-driver-check\",\"foodbank-route-check\",\"foodbank-coldbox-count\"],\"failing_criteria\":[\"drivers\"],\"proposal_id\":\"foodbank-delivery-plan-v2\",\"reason_code\":\"hard_constraint_conflict\",\"review_id\":\"t3nc_foodbank_delivery_001_r1\"},\"task_id\":\"t3nc_foodbank_delivery_001\",\"variant\":\"verified_conflict\"}",
+      "timestamp": "2026-09-04T00:00:00+00:00"
+    }
+  ],
+  "result_sink": [
+    {
+      "type": "personal",
+      "sender_id": 2,
+      "sender_name": "executor",
+      "content": "{\"event_kind\":\"FinalStateSubmitted\",\"executor_output\":{\"adopted\":false,\"disposition\":\"kept_after_reject\",\"final_state\":{\"cold_boxes_loaded\":20,\"delivery_vans\":1,\"households_served\":60},\"reason_code\":\"rejected_review_preserved_baseline\",\"review_id\":\"t3nc_foodbank_delivery_001_r1\"},\"task_id\":\"t3nc_foodbank_delivery_001\"}",
+      "timestamp": "2026-09-04T00:00:00+00:00"
+    }
+  ]
+}

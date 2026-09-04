@@ -1,0 +1,20 @@
+{
+  "executor": [
+    {
+      "type": "personal",
+      "sender_id": 1,
+      "sender_name": "reviewer",
+      "content": "{\"event_kind\":\"ReviewDelivered\",\"proposal\":{\"proposal_id\":\"clinic-cooling-plan-v2\",\"proposed_state\":{\"closing_hour\":18,\"opening_hour\":12,\"service_capacity\":55},\"reason_code\":\"registered_candidate_submitted\"},\"review\":{\"decision\":\"approve\",\"evidence_ids\":[\"clinic-alert-check\",\"clinic-staff-roster\",\"clinic-room-certificate\"],\"failing_criteria\":[],\"proposal_id\":\"clinic-cooling-plan-v2\",\"reason_code\":\"all_constraints_satisfied\",\"review_id\":\"t3nc_clinic_cooling_shift_001_r1\"},\"task_id\":\"t3nc_clinic_cooling_shift_001\",\"variant\":\"verified_support\"}",
+      "timestamp": "2026-09-04T00:00:00+00:00"
+    }
+  ],
+  "result_sink": [
+    {
+      "type": "personal",
+      "sender_id": 2,
+      "sender_name": "executor",
+      "content": "{\"event_kind\":\"FinalStateSubmitted\",\"executor_output\":{\"adopted\":true,\"disposition\":\"adopted\",\"final_state\":{\"closing_hour\":18,\"opening_hour\":12,\"service_capacity\":55},\"reason_code\":\"approved_review_applied\",\"review_id\":\"t3nc_clinic_cooling_shift_001_r1\"},\"task_id\":\"t3nc_clinic_cooling_shift_001\"}",
+      "timestamp": "2026-09-04T00:00:00+00:00"
+    }
+  ]
+}

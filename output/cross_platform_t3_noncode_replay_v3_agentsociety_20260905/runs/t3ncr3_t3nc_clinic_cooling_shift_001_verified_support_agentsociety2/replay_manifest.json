@@ -1,0 +1,98 @@
+{
+  "run_id": "t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2",
+  "platform": "AgentSociety2",
+  "environment_version": "agentsociety2-2.8.4",
+  "package_dunder_version": "2.8.3",
+  "execution_surface": "SimpleSocialSpace.send_message/receive_messages",
+  "offline_runtime": {
+    "credential_mode": "benchmark_sentinel_not_user_secret",
+    "api_base": "http://127.0.0.1:9",
+    "new_model_calls": 0
+  },
+  "trace_version": "shared-review-replay-v3-agentsociety-extension",
+  "trace_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2\\agentsociety_replay_trace.jsonl",
+  "tool_history_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2\\agentsociety_tool_history.jsonl",
+  "receipt_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2\\agentsociety_receipts.json",
+  "final_path": "output\\cross_platform_t3_noncode_replay_v3_agentsociety_20260905\\runs\\t3ncr3_t3nc_clinic_cooling_shift_001_verified_support_agentsociety2\\final_state.json",
+  "ingress_review": {
+    "decision": "approve",
+    "evidence_ids": [
+      "clinic-alert-check",
+      "clinic-staff-roster",
+      "clinic-room-certificate"
+    ],
+    "failing_criteria": [],
+    "proposal_id": "clinic-cooling-plan-v2",
+    "reason_code": "all_constraints_satisfied",
+    "review_id": "t3nc_clinic_cooling_shift_001_r1"
+  },
+  "ingress_review_sha256": "a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc",
+  "delivered_review": {
+    "decision": "approve",
+    "evidence_ids": [
+      "clinic-alert-check",
+      "clinic-staff-roster",
+      "clinic-room-certificate"
+    ],
+    "failing_criteria": [],
+    "proposal_id": "clinic-cooling-plan-v2",
+    "reason_code": "all_constraints_satisfied",
+    "review_id": "t3nc_clinic_cooling_shift_001_r1"
+  },
+  "delivered_review_sha256": "a7a4770e6a1a3c1c13a6e55e448cfa22ecf25a45638abbdc291f5bcd90ca3acc",
+  "executor_output": {
+    "adopted": true,
+    "final_state": {
+      "opening_hour": 12,
+      "closing_hour": 18,
+      "service_capacity": 55
+    },
+    "disposition": "adopted",
+    "review_id": "t3nc_clinic_cooling_shift_001_r1",
+    "reason_code": "approved_review_applied"
+  },
+  "proposal_delivered": true,
+  "review_delivery_verified": true,
+  "review_adoption_verified": true,
+  "final_submission_verified": true,
+  "payload_exact": true,
+  "native_sender_receiver_verified": true,
+  "native_message_id_observable_at_receive_boundary": false,
+  "native_tool_calls": 4,
+  "verified_receipts": 2,
+  "events": [
+    "review_received",
+    "final_state_submitted"
+  ],
+  "identity_binding_probe": {
+    "surface": "SimpleSocialSpace.receive_messages",
+    "caller_identity_argument_present": false,
+    "claimed_agent_id": 1,
+    "cross_actor_read_accepted": true,
+    "native_acl_enforced_at_tested_boundary": false,
+    "tool_call_history": [
+      {
+        "function_name": "send_message",
+        "kwargs": {
+          "sender_id": 1,
+          "receiver_id": 1,
+          "content": "benchmark-private-marker"
+        },
+        "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='benchmark-private-marker')",
+        "exception_occurred": false,
+        "exception_info": null,
+        "timestamp": "2026-09-04T16:16:42.464184+00:00"
+      },
+      {
+        "function_name": "receive_messages",
+        "kwargs": {
+          "agent_id": 1
+        },
+        "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'benchmark-private-marker', 'timestamp': '2026-09-04T00:00:00+00:00'}])",
+        "exception_occurred": false,
+        "exception_info": null,
+        "timestamp": "2026-09-04T16:16:42.464184+00:00"
+      }
+    ]
+  }
+}
