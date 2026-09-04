@@ -1,0 +1,50 @@
+schema_version: 1
+experiment_id: EXP-HF-H1H4-02
+status: cognitive_interview_only
+formal_data_collection_allowed: false
+participant_packet_count: 6
+cards_per_participant: 2
+assignment_rule: each_of_the_12_family_role_cards_exactly_once
+distribution_warning: send_only_the_named_HTML_file_never_the_admin_folder_or_repository_link
+
+assignments:
+  - interview_id: CI01
+    cards:
+      - {family: revision, role_id: drafter, surface_id: rev_campus_notice_001, condition: A}
+      - {family: verification, role_id: verifier, surface_id: verify_supply_arrival_001, condition: B}
+  - interview_id: CI02
+    cards:
+      - {family: revision, role_id: reviewer, surface_id: rev_volunteer_shift_001, condition: B}
+      - {family: handoff, role_id: worker_B, surface_id: handoff_appointment_queue_001, condition: B}
+  - interview_id: CI03
+    cards:
+      - {family: revision, role_id: publisher, surface_id: rev_campus_notice_001, condition: B}
+      - {family: prioritization, role_id: safety_member, surface_id: priority_time_slots_001, condition: A}
+  - interview_id: CI04
+    cards:
+      - {family: verification, role_id: reporter, surface_id: verify_room_access_001, condition: A}
+      - {family: handoff, role_id: coordinator, surface_id: handoff_event_materials_001, condition: A}
+  - interview_id: CI05
+    cards:
+      - {family: verification, role_id: coordinator, surface_id: verify_supply_arrival_001, condition: A}
+      - {family: prioritization, role_id: operations_member, surface_id: priority_activity_budget_001, condition: B}
+  - interview_id: CI06
+    cards:
+      - {family: handoff, role_id: worker_A, surface_id: handoff_appointment_queue_001, condition: A}
+      - {family: prioritization, role_id: coordinator, surface_id: priority_time_slots_001, condition: B}
+
+blind_trace_example:
+  title: 匿名协作片段（只用于检查量表措辞）
+  public_task: 团队要根据两份相互冲突的开放状态报告决定材料送达地点。
+  events:
+    - role: 信息整理员
+      message: 场地值班台13:05报告活动室开放；社群转发13:08称活动室关闭。两条消息相互冲突。
+    - role: 核验员
+      message: 我核对了可信来源目录。请先确认第一条报告的时间是否确为13:05，我再提交完整核验结论。
+    - role: 信息整理员
+      message: 确认，场地值班台报告时间为13:05，原文为“活动室今天下午开放”。
+    - role: 核验员
+      message: 目录v1登记场地值班台为可信来源；其13:05报告的状态是开放。
+    - role: 决策协调员
+      message: 依据目录v1核验的开放状态和公开行动规则，材料送往东楼。
+  disclosure: 该片段为中性编写的量表认知样例，不是真人或模型实验数据，来源不参与判断。

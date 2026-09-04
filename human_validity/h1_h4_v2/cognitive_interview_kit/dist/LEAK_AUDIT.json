@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-HF-H1H4-02",
+  "material_version": "CIKIT-c0516d1fbc12c1e2",
+  "passed": true,
+  "scope": "participant_packets_only",
+  "checks": [
+    "six_assignments_and_twelve_unique_family_role_cards",
+    "administrative_conditions_balanced_six_and_six",
+    "public_model_field_allowlist",
+    "private_literal_absence",
+    "hidden_backend_token_absence",
+    "no_participant_scripts_or_input_collection",
+    "no_external_resources_or_network_access"
+  ],
+  "packets": [
+    {
+      "interview_id": "CI01",
+      "packet": "participant_packets/CI01.html",
+      "sha256": "36747ee889a5a6aa71fd3b2cf5f078e86c0e5fb32593cdb48bc81a8c392ae30c",
+      "public_model_allowlist": "passed",
+      "private_literal_scan": "passed",
+      "rendered_hidden_token_scan": "passed",
+      "script_or_input_scan": "passed",
+      "external_resource_scan": "passed"
+    },
+    {
+      "interview_id": "CI02",
+      "packet": "participant_packets/CI02.html",
+      "sha256": "54e1b9da9b5ccb300f0bcebf893c937599c2fe01e9cf8839c6d1039e959b685e",
+      "public_model_allowlist": "passed",
+      "private_literal_scan": "passed",
+      "rendered_hidden_token_scan": "passed",
+      "script_or_input_scan": "passed",
+      "external_resource_scan": "passed"
+    },
+    {
+      "interview_id": "CI03",
+      "packet": "participant_packets/CI03.html",
+      "sha256": "219da3c77182af295fbf3ca238fdc30fd1ccbc1618796c135b53ec84d7d13c25",
+      "public_model_allowlist": "passed",
+      "private_literal_scan": "passed",
+      "rendered_hidden_token_scan": "passed",
+      "script_or_input_scan": "passed",
+      "external_resource_scan": "passed"
+    },
+    {
+      "interview_id": "CI04",
+      "packet": "participant_packets/CI04.html",
+      "sha256": "ea53183cb43fc65e32ffa1682f2eb2508ffa5f77e2f5bedf4d7fad03900fb358",
+      "public_model_allowlist": "passed",
+      "private_literal_scan": "passed",
+      "rendered_hidden_token_scan": "passed",
+      "script_or_input_scan": "passed",
+      "external_resource_scan": "passed"
+    },
+    {
+      "interview_id": "CI05",
+      "packet": "participant_packets/CI05.html",
+      "sha256": "8e669d930eda18409dbf3e302b4622ddc4aef40fc4060177717493964dd2650b",
+      "public_model_allowlist": "passed",
+      "private_literal_scan": "passed",
+      "rendered_hidden_token_scan": "passed",
+      "script_or_input_scan": "passed",
+      "external_resource_scan": "passed"
+    },
+    {
+      "interview_id": "CI06",
+      "packet": "participant_packets/CI06.html",
+      "sha256": "dfeb4e7cad213ef87788f74ab20f1fb7b5361a468731c94ffb988fee42e73f38",
+      "public_model_allowlist": "passed",
+      "private_literal_scan": "passed",
+      "rendered_hidden_token_scan": "passed",
+      "script_or_input_scan": "passed",
+      "external_resource_scan": "passed"
+    }
+  ],
+  "limitations": [
+    "static_files_cannot_prevent_a_recipient_from_forwarding_their_own_packet",
+    "send_only_one_named_HTML_not_the_dist_directory_or_repository_link",
+    "automated_record_PII_scan_requires_manual_review_for_names_and_contextual_identifiers"
+  ]
+}

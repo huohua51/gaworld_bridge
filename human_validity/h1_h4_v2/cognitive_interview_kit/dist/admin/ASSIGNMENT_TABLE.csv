@@ -1,0 +1,13 @@
+﻿interview_id,card_number,family,role_id,surface_id,condition,material_version
+CI01,1,revision,drafter,rev_campus_notice_001,A,CIKIT-c0516d1fbc12c1e2
+CI01,2,verification,verifier,verify_supply_arrival_001,B,CIKIT-c0516d1fbc12c1e2
+CI02,1,revision,reviewer,rev_volunteer_shift_001,B,CIKIT-c0516d1fbc12c1e2
+CI02,2,handoff,worker_B,handoff_appointment_queue_001,B,CIKIT-c0516d1fbc12c1e2
+CI03,1,revision,publisher,rev_campus_notice_001,B,CIKIT-c0516d1fbc12c1e2
+CI03,2,prioritization,safety_member,priority_time_slots_001,A,CIKIT-c0516d1fbc12c1e2
+CI04,1,verification,reporter,verify_room_access_001,A,CIKIT-c0516d1fbc12c1e2
+CI04,2,handoff,coordinator,handoff_event_materials_001,A,CIKIT-c0516d1fbc12c1e2
+CI05,1,verification,coordinator,verify_supply_arrival_001,A,CIKIT-c0516d1fbc12c1e2
+CI05,2,prioritization,operations_member,priority_activity_budget_001,B,CIKIT-c0516d1fbc12c1e2
+CI06,1,handoff,worker_A,handoff_appointment_queue_001,A,CIKIT-c0516d1fbc12c1e2
+CI06,2,prioritization,coordinator,priority_time_slots_001,B,CIKIT-c0516d1fbc12c1e2

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-HF-H1H4-02",
+  "interview_id": "CIxx",
+  "material_version": "CIKIT-c0516d1fbc12c1e2",
+  "consent": true,
+  "started_at": "",
+  "ended_at": "",
+  "card_records": [
+    {
+      "card_key": "assigned_card_key",
+      "task_id": "",
+      "surface_id": "",
+      "role_id": "",
+      "condition": "admin_only",
+      "read_seconds": null,
+      "paraphrase_correct_without_prompt": null,
+      "information_boundary_correct_without_prompt": null,
+      "termination_rule_correct_without_prompt": null,
+      "knowledge_check_result": null,
+      "micro_scenario_understanding": "",
+      "ambiguous_phrases": [],
+      "expected_action_misunderstandings": [],
+      "boundary_misunderstandings": [],
+      "facilitator_prompts": [],
+      "participant_suggested_changes": []
+    }
+  ],
+  "h1_cognitive_review": {
+    "dimension_meanings": "",
+    "unobservable_items": [],
+    "redundant_items": [],
+    "possible_source_cues": [],
+    "correctness_conflation": "",
+    "scale_anchor_interpretation": ""
+  },
+  "closing_feedback": [],
+  "protocol_deviations": []
+}

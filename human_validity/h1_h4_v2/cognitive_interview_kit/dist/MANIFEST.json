@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-HF-H1H4-02",
+  "status": "cognitive_interview_only_not_formal_data",
+  "formal_data_collection_allowed": false,
+  "material_version": "CIKIT-c0516d1fbc12c1e2",
+  "material_sha256": "c0516d1fbc12c1e25ea79b35d0e1110e0a743af0155c09d3e83b545045939a5e",
+  "deterministic_generation": true,
+  "participant_packet_count": 6,
+  "cards_total": 12,
+  "source_sha256": {
+    "human_validity/h1_h4_v2/cognitive_interview_kit/assignments.yaml": "25cc2e6b68597ea3f26bc453175f1fe93cad02714a800ab8e5380c95b43ac2ba",
+    "human_validity/h1_h4_v2/cognitive_interview_kit/generate.py": "58c931dee4059a5ccc6ecd3ba604bfe31c4ccc2f6d0937630bdc1d9df3194778",
+    "human_validity/h1_h4_v2/cognitive_interview_kit/audit.py": "366061d46e78c2064e7ae7218993bb779e53f0017d4a65101b3a9b5324328d41",
+    "human_validity/h1_h4_v2/COGNITIVE_INTERVIEW.md": "e64fae4f8c1acb1654fbc7589457e8a9035fcaf33c2dd66bfdb210f62e48aafc",
+    "exp_hf_h1_01/rubric.yaml": "e2e78ae049d400dabff8fb4f8ded66ad5c39dee2a9d6e1d1a67fb925e5bd7981",
+    "human_validity/h1_h4_v2/tasks/revision/task_card.yaml": "a8cd6f970cfa3c863231021a8cdda828a7d5b39e5bcecbdbdea5936af703093e",
+    "human_validity/h1_h4_v2/tasks/revision/participant_instructions.yaml": "ac466aaa94860aca48953a311131bced9011460fd9462ae9302828d5ec671d39",
+    "human_validity/h1_h4_v2/tasks/verification/task_card.yaml": "e3276237996d305f5ab8f5fb3b7f98b784105c52032680ee70bdacee019935ab",
+    "human_validity/h1_h4_v2/tasks/verification/participant_instructions.yaml": "6e7949eb25e33bd0d3a593cccfec4c7f9e9c69e744b9c68da5b9228fa2e3da24",
+    "human_validity/h1_h4_v2/tasks/handoff/task_card.yaml": "b42caac58974486a7efadcb8dec98de46780acbb2fd5142ce1cf70102bf4d364",
+    "human_validity/h1_h4_v2/tasks/handoff/participant_instructions.yaml": "98cffe3c8acc14d2e2bf68224360670000ff56b026398d6b1b07d9355fd31376",
+    "human_validity/h1_h4_v2/tasks/prioritization/task_card.yaml": "c7b713c574aff70bdd886bd99f30ff419aa7d6ccc600d37cbec5b8dc0cd21dcc",
+    "human_validity/h1_h4_v2/tasks/prioritization/participant_instructions.yaml": "455507531c37649fb3216252f49167ad2b0d7dac8a8945d18bc56490affa3e8b"
+  },
+  "output_sha256": {
+    ".cognitive_interview_kit_output": "02f9a54a61cdf9a69e20629b1a1edca7d7bfd2d8ac8b8bccfb34054e9c24bdab",
+    "admin/ASSIGNMENT_TABLE.csv": "721a0df0b0439f1287270c915bfad833caff50234c7ca6dde006011ab6750192",
+    "admin/facilitator_record.html": "ef0caf89bc09ed7ac4c0522b85f803bf570cc72f16b1ad2c619b2b60642df98c",
+    "admin/INTERVIEW_RECORD_TEMPLATE.json": "91e674b7a08a6cc1232e1d73d153291d1d5cc8d66b5b5159248e99e7eae48a58",
+    "LEAK_AUDIT.json": "77ac40eeeedf9631a6d6fd79a5cecec18e4dcac1955c93f7250ed2b5a7692add",
+    "participant_packets/CI01.html": "36747ee889a5a6aa71fd3b2cf5f078e86c0e5fb32593cdb48bc81a8c392ae30c",
+    "participant_packets/CI02.html": "54e1b9da9b5ccb300f0bcebf893c937599c2fe01e9cf8839c6d1039e959b685e",
+    "participant_packets/CI03.html": "219da3c77182af295fbf3ca238fdc30fd1ccbc1618796c135b53ec84d7d13c25",
+    "participant_packets/CI04.html": "ea53183cb43fc65e32ffa1682f2eb2508ffa5f77e2f5bedf4d7fad03900fb358",
+    "participant_packets/CI05.html": "8e669d930eda18409dbf3e302b4622ddc4aef40fc4060177717493964dd2650b",
+    "participant_packets/CI06.html": "dfeb4e7cad213ef87788f74ab20f1fb7b5361a468731c94ffb988fee42e73f38",
+    "README.md": "a55ee547898cead517a7bc7b905ab7c9e40b181b9868873b7ff226af9cd55420"
+  },
+  "raw_records_in_public_repository_allowed": false
+}

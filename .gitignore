@@ -14,4 +14,5 @@ ENV/
 .coverage
 htmlcov/
 .DS_Store
+human_validity/h1_h4_v2/cognitive_interview_kit/private_records/
 *.log

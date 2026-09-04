@@ -925,6 +925,8 @@ F:\proj\.venv_gaworld_eval\Scripts\python.exe `
 
 2026-09-03新增Wave 1合成试采演练：按4队、12个合成角色、8条Synthetic Human轨迹、8条匹配Synthetic Agent占位轨迹和96份合成盲评记录走通分母与报告逻辑。该演练没有真人、没有模型调用、没有API费用，也没有解除任何采集门；结果与复现脚本见[`human_validity/h1_h4_v2/synthetic_pilot/`](human_validity/h1_h4_v2/synthetic_pilot/)。
 
+2026-09-04完成认知访谈材料包候选版本`CIKIT-c0516d1fbc12c1e2`：6个彼此隔离的单文件HTML覆盖全部12张角色卡，后台A/B分配为6/6；另有主持人离线匿名记录页、JSON模板、输入/输出SHA-256清单和自动泄漏检查。参与者文件不含脚本、输入框、外部资源、知识检查答案、条件名或其他角色私有字段。该材料仍是`cognitive_interview_only`，尚未实际访谈且不解除正式采集门；生成、发放和私有记录检查方法见[`cognitive_interview_kit/README.md`](human_validity/h1_h4_v2/cognitive_interview_kit/README.md)。
+
 ---
 
 ## **13. 开放问题与下一阶段**
@@ -1395,6 +1397,7 @@ executor提示仅3/6一致。唯一平台差异格来自同一reviewer提示的�
 | `human_validity/h1_h4_v2/PREREGISTRATION.yaml` | H1/H4-v2目标人群、任务、远程采集、样本与分析草案 |
 | `human_validity/h1_h4_v2/tasks/` | 四类非代码Task Card、八个任务表面及共同事件契约 |
 | `human_validity/h1_h4_v2/{COGNITIVE_INTERVIEW.md,INTERNAL_PILOT_RUNBOOK.md,PILOT_PLAN.yaml,H4_CODEBOOK.yaml}` | 认知访谈、内部试采、固定分配与H4事件编码草案 |
+| `human_validity/h1_h4_v2/cognitive_interview_kit/` | 六人十二角色卡离线材料、主持人匿名记录页、版本哈希与泄漏审计 |
 | `human_validity/h1_h4_v2/synthetic_pilot/` | Wave 1合成试采生成器、机器可读结果与声明边界；不是真人或模型证据 |
 | `releases/benchmark_v1_1_rule/`       | T4–T6规则校准的跨仓冻结清单与声明边界                  |
 | `model_pilot/`                        | T4/T5统一模型预算、Prompt、原始响应与Seed-0 Runner      |
