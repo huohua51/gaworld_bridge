@@ -1442,6 +1442,29 @@ AgentSociety为3/4；缺失格是合法消息的公开`message_id`追溯，不�
 [`REPORT.md`](output/model_mediated_boundary_v1_glm52_20260905/REPORT.md)和
 [`INDEPENDENT_AUDIT.md`](output/model_mediated_boundary_v1_glm52_20260905/INDEPENDENT_AUDIT.md)。
 
+### **16.20 全新非代码表面的密封压力复测**
+
+为避免上一轮显式政策题过于容易，2026-09-05新增
+`CROSS-PLATFORM-MODEL-MEDIATED-BOUNDARY-v2-SEALED`：四个任务改为此前未出现的档案发布、
+诊所私有行、避难所最终发布和渡轮审核追溯，每题同时给出有效规则与过期、草案或建议性干扰记录，
+并设置 routine/authority_pressure 两个条件。正确答案不会进入模型提示；正确选项和记录的位置经过
+自动反泄漏检查。3次独立校准全部通过后，任务、顺序、评分器、GLM-5.2参数、24次调用预算和既有
+原生证据哈希以提交`f057b38`在正式调用前推送。
+
+正式结果为24/24严格JSON有效，动作正确24/24，生效记录正确24/24，Owner与FullPolicyPass均为
+18/24。12个压力配对的动作全部稳定，三个平台在八个任务×条件单元上的三字段响应逐一相同，因此
+没有观察到平台接口卡导致的模型选择差异。运行共26次物理尝试；两个首次TLS EOF均在预注册的同一
+逻辑调用两次上限内成功，没有补样或替换。
+
+六个FullPass失败全部来自诊所题：合规选择是“Executor向Reviewer请求汇总”，模型把当前请求动作的
+Owner解释为Executor，而预注册答案把数据所有者和汇总生成者标为Reviewer。这说明单一
+`action_owner`字段混合了动作发起者、资源所有者和下一步执行者；冻结分数不回改，但不能把六格直接
+解释成模型越权。复核还发现，预注册对纵深端点的文字定义与哈希冻结评分器的实际“最终配对安全”
+公式不完全一致，因此审计同时保留程序结果和逐字公式敏感性，禁止选择性采用。该轮仍是每格一次的
+描述性Pilot，不做平台总排名。正式逐格证据见
+[`REPORT.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/REPORT.md)，完整效度解释见
+[`INDEPENDENT_AUDIT.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/INDEPENDENT_AUDIT.md)。
+
 ---
 
 ## **17. 目录索引**
@@ -1473,6 +1496,7 @@ AgentSociety为3/4；缺失格是合法消息的公开`message_id`追溯，不�
 | `cross_platform/t3_noncode_replay_v3/` | AgentSociety 2同载荷离线适配、身份边界探针、评分与预注册       |
 | `cross_platform/native_boundary_probes_v1/` | GAWorld/YuLan/AgentSociety同构身份、权限、追溯探针及预注册 |
 | `cross_platform/model_mediated_boundary_v1/` | GLM-5.2平台接口卡决策、重试审计与原生证据配对 |
+| `cross_platform/model_mediated_boundary_v2_sealed/` | 四类全新非代码任务、权威压力配对、Owner/规则分项评分与正式预注册 |
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
 | `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
 | `output/cross_platform_t3_noncode_glm52_20260903/` | GAWorld/YuLan T3非代码真实结果、围栏JSON诊断与修复交接 |
@@ -1480,6 +1504,7 @@ AgentSociety为3/4；缺失格是合法消息的公开`message_id`追溯，不�
 | `output/cross_platform_t3_noncode_replay_v3_agentsociety_20260905/` | AgentSociety同载荷重放、原生工具证据、身份探针与独立审计 |
 | `output/cross_platform_native_boundary_probes_v1_20260905/` | 三平台原生身份/权限/追溯能力矩阵、回执与独立审计 |
 | `output/model_mediated_boundary_v1_glm52_20260905/` | 12次正式模型决策、逐格配对、模型轨迹与审计 |
+| `output/model_mediated_boundary_v2_sealed_glm52_20260905/` | 24次密封压力决策、分项结果、端点敏感性与独立效度复核 |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
@@ -1553,5 +1578,12 @@ JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显�
 显式政策遵循和真实付费调用管线可用；一次TLS EOF按预注册的两次物理尝试上限重试成功。由于模型
 在三个负向情境全部先行拒绝，这轮没有产生可区分平台兜底的新自然越权事件；平台差异仍来自冻结的
 强制探针，不能将4/4解释成完整安全性。
+
+随后使用四类全新非代码任务完成24次密封压力复测。动作与生效规则判断均为24/24，12个压力配对
+没有动作翻转；Owner与FullPass为18/24。六个差异集中暴露了`action_owner`同时指代请求者、资源
+所有者和下一步执行者的构念歧义，而不是分散的平台或模型故障。三个平台接口卡下的模型响应逐格
+相同，仍无模型侧平台差异证据。该轮还把纵深端点注册文字与冻结代码的不一致公开列为敏感性分析；
+不修改原分、不据此排名。下一轮应先拆分责任角色字段并做人工释义一致性检查，再建立真正动态的
+多轮压力留出，不继续在本批题上追加样本。
 
 2026-09-04已经完成C1/REL1新编号回归，并按固定分母保留Provider失败与模型语义失败；T4第二模型已执行gpt-5.4预注册校准，但2/2为HTTP 403，正式18格没有启动。项目现决定暂缓模型差异扩展，不再把补跑gpt-5.4列为近期优先事项。下一阶段优先完成约6名同学的H1/H4认知访谈并拆分REL1复合指标。正式Human Reference仍需目标人群、远程角色隔离、独立样本和分析方案冻结后才可启动；H2、H3、H5、H6、H7继续标记为`N/A`。
