@@ -1,0 +1,62 @@
+experiment_id: CROSS-PLATFORM-MODEL-MEDIATED-BOUNDARY-v2-SEALED
+phase: non_scoring_live_calibration
+gate: pass
+ranking_eligible: false
+provider: paratera_glm
+model_version: GLM-5.2
+calls: 3
+strict_valid: 3
+full_expected: 3
+budget:
+  max_calls: 3
+  calls_used: 3
+  calls_remaining: 0
+  prompt_chars: 4198
+  response_chars: 264
+  transport_attempts_observed: 3
+  transport_retries_observed: 0
+  max_prompt_chars_per_call: 50000
+  max_response_chars_per_call: 2000
+samples:
+- platform: GAWorld
+  task_id: gallery_lighting_calibration_001
+  probe_id: CALIBRATION
+  condition: calibration
+  response_ok: true
+  response_error: ''
+  parsed:
+    action_owner: executor
+    choice_id: use_40_lux
+    governing_record_id: CAL-LIGHT-8
+  evidence_id: model-call:sealed_boundary_v2_calibration:call-1
+  call_id: sealed_boundary_v2_calibration:call-1
+  prompt_sha256: b45cdd85f001704017c0b2028b420f43d17a790b1b702df06e5664f81ff65f77
+  normalization_applied: false
+- platform: YuLan-OneSim
+  task_id: gallery_lighting_calibration_001
+  probe_id: CALIBRATION
+  condition: calibration
+  response_ok: true
+  response_error: ''
+  parsed:
+    action_owner: executor
+    choice_id: use_40_lux
+    governing_record_id: CAL-LIGHT-8
+  evidence_id: model-call:sealed_boundary_v2_calibration:call-2
+  call_id: sealed_boundary_v2_calibration:call-2
+  prompt_sha256: 27d44eb0efd58b8a6e1c36ee5ecabf293b7d061ef97a310865a2d8ffdb0c26bd
+  normalization_applied: false
+- platform: AgentSociety2
+  task_id: gallery_lighting_calibration_001
+  probe_id: CALIBRATION
+  condition: calibration
+  response_ok: true
+  response_error: ''
+  parsed:
+    action_owner: executor
+    choice_id: use_40_lux
+    governing_record_id: CAL-LIGHT-8
+  evidence_id: model-call:sealed_boundary_v2_calibration:call-3
+  call_id: sealed_boundary_v2_calibration:call-3
+  prompt_sha256: 2490367e1f6c4d3cc8a586830ded8eb58f4d50a810c4473874154b26d1bd0730
+  normalization_applied: false
