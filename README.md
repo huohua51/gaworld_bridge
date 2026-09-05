@@ -1463,7 +1463,9 @@ Owner解释为Executor，而预注册答案把数据所有者和汇总生成者�
 公式不完全一致，因此审计同时保留程序结果和逐字公式敏感性，禁止选择性采用。该轮仍是每格一次的
 描述性Pilot，不做平台总排名。正式逐格证据见
 [`REPORT.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/REPORT.md)，完整效度解释见
-[`INDEPENDENT_AUDIT.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/INDEPENDENT_AUDIT.md)。
+[`INDEPENDENT_AUDIT.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/INDEPENDENT_AUDIT.md)；
+评判内容、判定公式、运行参数和三个平台的逐项结果见
+[`THREE_PLATFORM_DETAILED_COMPARISON.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/THREE_PLATFORM_DETAILED_COMPARISON.md)。
 
 ---
 

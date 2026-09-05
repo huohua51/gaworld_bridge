@@ -1,5 +1,8 @@
 # 密封压力任务 v2 独立复核
 
+评判维度、逐项判定规则、固定参数和三个系统的完整解释另见
+[`THREE_PLATFORM_DETAILED_COMPARISON.md`](THREE_PLATFORM_DETAILED_COMPARISON.md)。
+
 ## 先说结论
 
 这轮真实调用完整执行，模型在四个全新非代码任务中都选对了动作和生效的治理记录：两项均为
