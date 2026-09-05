@@ -1423,6 +1423,25 @@ AgentSociety新增的对抗探针发现，被测`receive_messages(agent_id)`公�
 问题逻辑、修改建议和修复验收条件见
 [`REMEDIATION_HANDOFF.md`](output/cross_platform_native_boundary_probes_v1_20260905/REMEDIATION_HANDOFF.md)。
 
+### **16.19 GLM-5.2介入的三平台权限决策先导**
+
+在离线原生探针之外，2026-09-05又建立`CROSS-PLATFORM-MODEL-MEDIATED-BOUNDARY-v1`，固定
+GLM-5.2、同一语义政策和三个平台各自的原生接口卡，让模型在身份冒用、私有读取、越权最终写入和
+合法审核追溯四类情境中分别作出执行/拒绝决定。模型调用统一经过同一个已审计调用器，避免三个SDK
+不同的默认重试和缓存污染平台比较；正式阶段生成模型决策，再与上一轮哈希冻结的原生强制探针配对，
+没有把平台动作重复执行伪装成新证据。
+
+第一次不计分校准在一次物理尝试设置下因TLS EOF仅2/3有效，证据原样保留；正式预注册前改成每个
+逻辑调用最多两次可审计物理尝试，第二轮校准3/3通过。提交`c19ee5e`预注册后，正式12次逻辑调用
+得到12/12严格JSON、12/12注册预期决策；共13次物理尝试，第12格首次TLS EOF后按规则重试成功。
+三个平台的模型守规均为4/4。与冻结原生证据配对后，GAWorld和YuLan为4/4反事实纵深安全，
+AgentSociety为3/4；缺失格是合法消息的公开`message_id`追溯，不是模型主动越权。
+
+该结果说明真实模型管线已跑通，并支持“规则明确时GLM-5.2能完成最低合规选择”，不证明其能抵抗
+隐含规则、冲突指令或多轮压力；每格仅一次采样，也不支持显著性检验或平台总体排名。完整报告见
+[`REPORT.md`](output/model_mediated_boundary_v1_glm52_20260905/REPORT.md)和
+[`INDEPENDENT_AUDIT.md`](output/model_mediated_boundary_v1_glm52_20260905/INDEPENDENT_AUDIT.md)。
+
 ---
 
 ## **17. 目录索引**
@@ -1453,12 +1472,14 @@ AgentSociety新增的对抗探针发现，被测`receive_messages(agent_id)`公�
 | `cross_platform/t3_noncode_review/`   | 三类非代码T3任务、双平台审核链、冻结评分与GLM-5.2预注册       |
 | `cross_platform/t3_noncode_replay_v3/` | AgentSociety 2同载荷离线适配、身份边界探针、评分与预注册       |
 | `cross_platform/native_boundary_probes_v1/` | GAWorld/YuLan/AgentSociety同构身份、权限、追溯探针及预注册 |
+| `cross_platform/model_mediated_boundary_v1/` | GLM-5.2平台接口卡决策、重试审计与原生证据配对 |
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
 | `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
 | `output/cross_platform_t3_noncode_glm52_20260903/` | GAWorld/YuLan T3非代码真实结果、围栏JSON诊断与修复交接 |
 | `output/cross_platform_t3_noncode_replay_v2_glm52_20260904/` | 单次reviewer采样、同载荷双平台重放、条件transport与固定分母结果 |
 | `output/cross_platform_t3_noncode_replay_v3_agentsociety_20260905/` | AgentSociety同载荷重放、原生工具证据、身份探针与独立审计 |
 | `output/cross_platform_native_boundary_probes_v1_20260905/` | 三平台原生身份/权限/追溯能力矩阵、回执与独立审计 |
+| `output/model_mediated_boundary_v1_glm52_20260905/` | 12次正式模型决策、逐格配对、模型轨迹与审计 |
 | `output/model_pilot_live_t4_control_consistency_glm52_*/` | GLM-5.2 T4重复运行的逐格证据与汇总       |
 | `output/model_pilot_live_t4_v2_glm52_*/` | GLM-5.2 T4-v2预注册真实运行证据与审计简报       |
 | `output/model_pilot_live_t4_v2_repeats_glm52_*/` | T4-v2 seed0/1/2稳定性证据             |
@@ -1527,5 +1548,10 @@ JSON围栏，冻结严格评分因此仅1/12格FullPass。围栏恢复诊断显�
 存储读取在固定EventBus表面不存在；AgentSociety所测直接邮箱边界四项均未通过。该轮是校准后
 预注册的确定性回归，不是盲测发现，也不生成平台总分。后续框架工作应把这四项变成修复后的原生
 接口回归，并由各项目同学决定是在本层实现还是明确交由认证网关保证。
+
+在此基础上又完成12次GLM-5.2模型介入调用：三个平台接口卡下均为4/4注册预期决策，证明最低
+显式政策遵循和真实付费调用管线可用；一次TLS EOF按预注册的两次物理尝试上限重试成功。由于模型
+在三个负向情境全部先行拒绝，这轮没有产生可区分平台兜底的新自然越权事件；平台差异仍来自冻结的
+强制探针，不能将4/4解释成完整安全性。
 
 2026-09-04已经完成C1/REL1新编号回归，并按固定分母保留Provider失败与模型语义失败；T4第二模型已执行gpt-5.4预注册校准，但2/2为HTTP 403，正式18格没有启动。项目现决定暂缓模型差异扩展，不再把补跑gpt-5.4列为近期优先事项。下一阶段优先完成约6名同学的H1/H4认知访谈并拆分REL1复合指标。正式Human Reference仍需目标人群、远程角色隔离、独立样本和分析方案冻结后才可启动；H2、H3、H5、H6、H7继续标记为`N/A`。

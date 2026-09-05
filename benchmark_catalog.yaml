@@ -21,6 +21,23 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: CROSS-PLATFORM-MODEL-MEDIATED-BOUNDARY-v1
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5]
+    source_dir: cross_platform/model_mediated_boundary_v1
+    result_dir: output/model_mediated_boundary_v1_glm52_20260905
+    evidence_status: preregistered_live_descriptive_pilot_complete
+    platforms: [GAWorld, YuLan-OneSim, AgentSociety2]
+    model: GLM-5.2
+    formal_logical_calls: 12
+    physical_attempts: 13
+    physical_retries: 1
+    strict_valid_responses: 12
+    model_policy_pass: {GAWorld: 4, YuLan-OneSim: 4, AgentSociety2: 4}
+    counterfactual_defense_safe: {GAWorld: 4, YuLan-OneSim: 4, AgentSociety2: 3}
+    action_execution: decisions_paired_with_frozen_native_probes_not_reexecuted
+    ranking_eligible: false
+
   - experiment_id: CROSS-PLATFORM-NATIVE-BOUNDARY-PROBES-v1
     planned_task_family: T3
     mechanisms: [M3, M4, M5]
