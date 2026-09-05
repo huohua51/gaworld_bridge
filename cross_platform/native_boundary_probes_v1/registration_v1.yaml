@@ -1,0 +1,62 @@
+preregistration_id: PREREG-CROSS-PLATFORM-NATIVE-BOUNDARY-v1-20260905
+experiment_id: CROSS-PLATFORM-NATIVE-BOUNDARY-PROBES-v1
+registered_at: '2026-09-05T12:01:52+08:00'
+status: calibration_informed_protocol_frozen_before_formal_run
+
+scope:
+  question: >-
+    Which identity-binding, owner-aware read, role-aware final-write, and public
+    traceability properties are enforced by the selected direct native interface?
+  unit: one deterministic offline execution per platform/probe cell
+  inference_boundary: selected interface and fixed commit only
+  calibration_disclosure: >-
+    Implementation and unit calibration were completed before this registration.
+    The formal run is therefore a locked regression record, not a blinded discovery.
+
+design:
+  platform_order: [GAWorld, YuLan-OneSim, AgentSociety2]
+  probe_order:
+    - P1_identity_impersonation
+    - P2_private_data_read
+    - P3_unauthorized_final_write
+    - P4_message_traceability
+  new_model_calls: 0
+  ranking_eligible: false
+  scorer_version: native-boundary-capability-matrix-v1
+  absent_capability_rule: not_applicable_not_pass_or_fail
+  composite_score: disabled
+
+expected_calibration_informed_outcomes:
+  GAWorld: [fail, pass, pass, pass]
+  YuLan-OneSim: [fail, not_applicable, fail, pass]
+  AgentSociety2: [fail, fail, fail, fail]
+
+frozen_code_sha256:
+  cross_platform/native_boundary_probes_v1/common.py: 4d8073cb05fcab7faf4e086f185f316bd6f08a46f45ea0fc990806ed3ecfe943
+  cross_platform/native_boundary_probes_v1/gaworld_probe.py: f80451bf4ac97e262704aa859b797af0a28f1f39fd011197e87e8cab5bb207ba
+  cross_platform/native_boundary_probes_v1/yulan_probe.py: 0fe00d65ebdd86e146f1c9208cae1e1f0c22c7595344cc62adc6accf40736971
+  cross_platform/native_boundary_probes_v1/agentsociety_probe.py: 89eb6787116aa0ad2eb77c54206bad375ee23788961118908eae4e459666fe42
+  cross_platform/native_boundary_probes_v1/scorer.py: 938dc8125c3e15028ac4a6b053b1969156327c5445c867c6bf1065a2d8c015c0
+  cross_platform/native_boundary_probes_v1/worker.py: ff0d5d93cd5bfe9121b6c324db5c508394765194f1599ff6ded4f2811ecdcff8
+  cross_platform/native_boundary_probes_v1/run.py: 0dd3c0ac32f97821ee6565008b2a4aacee37b2d4b4bdab4b10c1e8f3584d73ad
+  cross_platform/native_boundary_probes_v1/protocol.md: c6d3620db3f3f1f1a001dee498eb8458c1d2f1de6b5017b84638b57fe384ccd0
+  tests/test_native_boundary_probes_v1.py: 05738897a43dccb902d9a5c3c2046164ab1552443acccd0c5fda83637878bd37
+
+upstreams:
+  GAWorld:
+    commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+    selected_surface: gaworld.work.review.ReviewChannel
+    source_sha256:
+      gaworld/work/review.py: 2a7c0953e416359ac505a2ab0f2424852d5e396aa7f1a87d916f5c78ccdc1544
+  YuLan-OneSim:
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+    selected_surface: onesim.events.Event/EventBus
+    source_sha256:
+      src/onesim/events/event.py: 2d7af8af1e630d98b0109aad920f292e6561606dc4936b984c99fe064000dd2e
+      src/onesim/events/eventbus.py: 1c5456f39274e72e263aed58547a99d2458482339f1463827adecf5154fe33f8
+  AgentSociety2:
+    commit: 13e28b5e67a2a8f2f43d640ebf27859126da622e
+    selected_surface: agentsociety2.contrib.env.SimpleSocialSpace
+    source_sha256:
+      packages/agentsociety2/agentsociety2/contrib/env/simple_social_space.py: 636f1ec136fdcd2a7e8daf0b8733e5b11abbec378180e12aba20950f4a6e39f0
+
