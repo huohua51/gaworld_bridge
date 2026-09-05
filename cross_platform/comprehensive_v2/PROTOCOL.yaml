@@ -1,0 +1,176 @@
+schema_version: 1
+protocol_id: CROSS-PLATFORM-COMPREHENSIVE-v2
+status: draft_pre_calibration
+date: '2026-09-05'
+new_model_calls_authorized: false
+ranking_eligible: false
+composite_score: disabled
+
+purpose: >-
+  Compare selected platform mechanisms, F1-F5 functional behavior, H1-H7 human
+  validity, and engineering cost without treating one direct mailbox or event
+  interface as the complete platform.
+
+platforms:
+  GAWorld:
+    root: F:/proj/GAWorld
+    commit: bfcd2a665a299ddc25660a33102169f8bcfd856e
+  YuLan-OneSim:
+    root: F:/proj/YuLan-OneSim-official
+    commit: 9829d722b528b733f8c8317315637071fa23b206
+  AgentSociety2:
+    root: F:/proj/AgentSociety
+    commit: 13e28b5e67a2a8f2f43d640ebf27859126da622e
+
+report_layers:
+  L0_platform_mechanisms:
+    human_reference_required: false
+    model_calls_default: 0
+  L1_functional_F1_F5:
+    human_reference_required: false
+    task_families: [T1, T2, T3, T4, T5, T6]
+  L2_human_validity_H1_H7:
+    human_reference_required: true
+    missing_reference_outcome: N/A
+  L3_engineering_performance:
+    hardware_and_environment_lock_required: true
+
+platform_axes:
+  X1_lifecycle_termination:
+    probes: [three_agent_fixed_step_finish, early_failure_and_idempotent_close]
+    metrics: [setup_valid, executed_steps, exit_reason, leaked_task_count]
+  X2_message_semantics:
+    probes: [normal_and_unknown_recipient, duplicate_reorder_and_drop]
+    metrics: [delivery_rate, duplicate_rate, order_error_rate, failure_visibility]
+  X3_identity_authorization:
+    probes: [identity_impersonation, cross_owner_read_and_role_transfer]
+    metrics: [rejection_rate, disclosure_rate, authenticated_identity_binding]
+    current_evidence: partial_from_CROSS-PLATFORM-NATIVE-BOUNDARY-PROBES-v1
+  X4_state_memory:
+    probes: [private_shared_write_read, restart_persistence_and_retrieval]
+    metrics: [isolation, version_consistency, persistence, retrieval_hit, stale_read]
+  X5_workflow_artifact_ownership:
+    probes: [draft_review_final_stage_contract, unauthorized_write_and_handoff]
+    metrics: [stage_legality, owner_enforcement, final_uniqueness, handoff_completeness]
+    current_evidence: partial_from_CROSS-PLATFORM-NATIVE-BOUNDARY-PROBES-v1
+  X6_scheduling_causal_order:
+    probes: [parent_child_and_concurrent_delivery, pause_resume_and_late_event]
+    metrics: [causal_violations, order_error_rate, deadlock, termination_consistency]
+  X7_checkpoint_fault_recovery:
+    probes: [interrupt_after_registered_event, repeated_resume_idempotence]
+    metrics: [state_recovery, lost_events, duplicate_side_effects, recovery_time_ms]
+  X8_audit_replay_reproducibility:
+    probes: [sender_receiver_audit_correlation, same_seed_replay]
+    metrics: [trace_coverage, id_continuity, replay_difference, version_capture]
+    current_evidence: partial_traceability_only
+  X9_scale_resources:
+    probes: [one_agent, ten_agents, one_hundred_agents]
+    metrics: [startup_ms, step_throughput, peak_memory_mb, failure_rate, cleanup_ms]
+
+functional_axes:
+  F1_task_result:
+    metrics: [task_success, artifact_correct]
+  F2_key_decision:
+    metrics: [decision_accuracy, treatment_direction, adaptation_delay]
+  F3_collaboration_process:
+    metrics: [transport_success, role_coverage, dissent, verification, correction, handoff]
+  F4_workflow_propagation:
+    metrics: [focused_success, e2e_success, propagation_loss, first_error]
+  F5_multi_agent_value:
+    required_controls: [equal_budget_single, multi_full, mechanism_ablation]
+    metrics: [multi_minus_single, multi_minus_ablation, calls, tokens, wall_time_ms]
+
+task_families:
+  T1_individual_adaptation:
+    conditions: [control, rule_change]
+    human_axes: [H2, H5]
+  T2_relationship_history:
+    conditions: [stranger, cooperative_history, betrayal_history]
+    human_axes: [H3, H5]
+  T3_team_work:
+    conditions: [equal_budget_single, multi_full, drop_role]
+    human_axes: [H4]
+  T4_information_network:
+    conditions: [control, intervention, drop_link]
+    human_axes: [H6, H7]
+  T5_city_policy:
+    conditions: [no_policy, placebo, binding]
+    human_axes: [H5, H7]
+  T6_longitudinal_population:
+    conditions: [baseline, shock, recovery]
+    human_axes: [H5, H6, H7]
+
+isolation_tracks:
+  R0_rule_oracle_execution:
+    model_calls: 0
+    purpose: identical_correct_actions_executed_on_each_platform
+  R1_shared_model_payload_replay:
+    sampling_rule: one_model_output_per_task_condition_repeat_then_replay_to_all_platforms
+    purpose: isolate_platform_transport_state_and_execution
+  R2_full_native_orchestration:
+    sampling_rule: matched_model_role_budget_per_platform
+    purpose: measure_complete_system_behavior_with_sampling_and_orchestration
+  HR_human_reference:
+    purpose: compare_each_platform_agent_traces_to_the_same_matched_human_protocol
+
+cell_contract:
+  required_fields:
+    - setup_valid
+    - mechanism_activated
+    - transport_success
+    - state_transition_correct
+    - artifact_correct
+    - trace_complete
+    - recovery_correct
+    - task_success
+    - first_error
+    - exit_reason
+    - wall_time_ms
+    - peak_memory_mb
+    - model_calls
+    - tokens
+    - physical_retries
+    - evidence_ids
+    - input_output_hashes
+
+fairness_controls:
+  - lock_platform_commits_source_hashes_environment_and_hardware
+  - pair_same_task_condition_and_seed
+  - change_one_primary_mechanism_per_contrast
+  - keep_model_temperature_thinking_role_call_limit_tokens_and_retries_equal
+  - adapters_map_fields_but_do_not_implement_missing_platform_capabilities
+  - record_absent_native_capability_as_not_applicable
+  - retain_provider_parse_timeout_and_platform_failures_in_fixed_denominator
+  - calibrate_then_preregister_hashes_before_formal_execution
+  - retain_per_repeat_values_before_means_intervals_or_distances
+  - never_treat_documentation_claims_as_runtime_pass_evidence
+
+planned_waves:
+  wave_0_scope_registration:
+    model_call_cap: 0
+    output: capability_inventory_and_adapter_map
+  wave_1_offline_platform_matrix:
+    model_call_cap: 0
+    target_cells: 57
+    formula: 8_axes_x_2_probes_x_3_platforms_plus_3_scale_levels_x_3_platforms
+    first_priority_axes: [X1, X2, X4, X6, X7, X8]
+  wave_2_shared_payload_functional_pilot:
+    launch_gate: wave_1_measurement_valid_for_selected_tasks
+    model_call_cap: 48
+    formal_budget_requires_role_turn_preregistration: true
+  wave_3_full_native_orchestration:
+    launch_gate: wave_2_measurement_valid
+    repeats_minimum: 2
+  wave_4_human_reference:
+    launch_gate: human_reference_HR0_through_HR7
+
+claim_policy:
+  current_allowed: >-
+    Existing evidence is a narrow boundary-security, traceability, and shared
+    payload pilot. A comprehensive cross-platform protocol is now drafted.
+  current_forbidden:
+    - existing_four_probes_are_a_complete_platform_comparison
+    - model_interface_card_results_measure_full_native_orchestration
+    - frozen_paired_safety_is_native_platform_security
+    - current_results_cover_F1_F5_or_H1_H7
+    - platform_total_ranking

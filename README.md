@@ -1467,6 +1467,12 @@ Owner解释为Executor，而预注册答案把数据所有者和汇总生成者�
 评判内容、判定公式、运行参数和三个平台的逐项结果见
 [`THREE_PLATFORM_DETAILED_COMPARISON.md`](output/model_mediated_boundary_v2_sealed_glm52_20260905/THREE_PLATFORM_DETAILED_COMPARISON.md)。
 
+需要强调，这仍只是身份、权限和追溯边界子测验，不是完整平台横向Benchmark。针对指标过于同质、
+只测单一接口、模型动作未进入真实平台、F1–F5/T1–T6和H1–H7未覆盖、缺少重复与性能数据等问题，
+已经建立四层扩展方案和机器可读协议。下一波先做九维离线平台机制矩阵，不继续消耗模型额度；详见
+[`CROSS_PLATFORM_COMPARISON_EXPANSION_20260905.md`](docs/CROSS_PLATFORM_COMPARISON_EXPANSION_20260905.md)
+和[`PROTOCOL.yaml`](cross_platform/comprehensive_v2/PROTOCOL.yaml)。
+
 ---
 
 ## **17. 目录索引**
@@ -1482,6 +1488,7 @@ Owner解释为Executor，而预注册答案把数据所有者和汇总生成者�
 | `docs/FUNCTIONAL_EVALUATION_RETROSPECTIVE_20260828.md` | 功能评测阶段的问题发现方法、改正措施、复测效果、成果边界与方法论反思 |
 | `docs/CORE_IMPLEMENTATION_HANDOFF_20260827.md` | C1/REL1故障位置、建议改法、实验来源与验收条件交接 |
 | `docs/STRUCTURED_OUTPUT_RETRY_AUDIT_V2_20260903.md` | 结构化输出、物理重试审计、版本隔离、工程探测与下一轮启用边界 |
+| `docs/CROSS_PLATFORM_COMPARISON_EXPANSION_20260905.md` | 从四项边界先导扩展到九维平台机制、F1–F5、H1–H7和性能层的执行方案 |
 | `docs/H1_PILOT_CHECKLIST_20260827.md` | H1隔离试采、认知访谈、匿名复核与正式采集放行门 |
 | `docs/HUMAN_VALIDITY_MASTER_PLAN_20260828.md` | H1–H7定义、Human Reference证据门、当前覆盖和阶段路线 |
 | `human_validity/MASTER_PLAN.yaml` | H1–H7机器可读覆盖状态、指标、缺口与声明边界 |
@@ -1499,6 +1506,7 @@ Owner解释为Executor，而预注册答案把数据所有者和汇总生成者�
 | `cross_platform/native_boundary_probes_v1/` | GAWorld/YuLan/AgentSociety同构身份、权限、追溯探针及预注册 |
 | `cross_platform/model_mediated_boundary_v1/` | GLM-5.2平台接口卡决策、重试审计与原生证据配对 |
 | `cross_platform/model_mediated_boundary_v2_sealed/` | 四类全新非代码任务、权威压力配对、Owner/规则分项评分与正式预注册 |
+| `cross_platform/comprehensive_v2/` | 九维平台机制、T1–T6、F1–F5、H1–H7与工程性能的分层横向协议 |
 | `output/cross_platform_yulan_t4_combined_20260903/` | GAWorld/YuLan T4横向结果、固定分母分析与证据索引 |
 | `output/cross_platform_yulan_t5_glm52_20260903/` | GAWorld/YuLan T5-v3配对结果、接收回执、模型轨迹与审计报告 |
 | `output/cross_platform_t3_noncode_glm52_20260903/` | GAWorld/YuLan T3非代码真实结果、围栏JSON诊断与修复交接 |

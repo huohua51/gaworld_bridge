@@ -21,6 +21,37 @@ mechanism_coverage:
   M9: registered_moments_rule_calibrated
 
 experiments:
+  - experiment_id: CROSS-PLATFORM-COMPREHENSIVE-v2
+    planned_task_family: [T1, T2, T3, T4, T5, T6]
+    mechanisms: [M1, M2, M3, M4, M5, M6, M7, M8, M9]
+    source_dir: cross_platform/comprehensive_v2
+    evidence_status: draft_pre_calibration_no_new_results
+    platforms: [GAWorld, YuLan-OneSim, AgentSociety2]
+    layers: [platform_mechanisms, F1_F5, H1_H7, engineering_performance]
+    new_model_calls: 0
+    next_wave: offline_platform_mechanism_matrix
+    ranking_eligible: false
+
+  - experiment_id: CROSS-PLATFORM-MODEL-MEDIATED-BOUNDARY-v2-SEALED
+    planned_task_family: T3
+    mechanisms: [M3, M4, M5]
+    source_dir: cross_platform/model_mediated_boundary_v2_sealed
+    result_dir: output/model_mediated_boundary_v2_sealed_glm52_20260905
+    evidence_status: preregistered_live_boundary_pressure_pilot_complete
+    platforms: [GAWorld, YuLan-OneSim, AgentSociety2]
+    model: GLM-5.2
+    formal_logical_calls: 24
+    physical_attempts: 26
+    physical_retries: 2
+    strict_valid_responses: 24
+    action_correct: 24
+    authority_binding_correct: 24
+    owner_correct: 18
+    full_policy_pass: 18
+    owner_construct_ambiguity: clinic_request_actor_vs_resource_owner
+    comparison_scope: boundary_security_and_traceability_pilot_only
+    ranking_eligible: false
+
   - experiment_id: CROSS-PLATFORM-MODEL-MEDIATED-BOUNDARY-v1
     planned_task_family: T3
     mechanisms: [M3, M4, M5]
