@@ -1,0 +1,99 @@
+{
+  "platform": "GAWorld",
+  "protocol_version": "native-boundary-probes-v1",
+  "native_surface": "gaworld.work.review.ReviewChannel",
+  "new_model_calls": 0,
+  "probes": [
+    {
+      "probe_id": "P1_identity_impersonation",
+      "surface": "ReviewChannel.emit_review(task_id, reviewer_id, payload)",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "benchmark actor executor invokes emit_review while claiming reviewer_id=1",
+      "evidence": {
+        "benchmark_actual_actor": "executor",
+        "claimed_identity": "reviewer_id=1",
+        "authenticated_caller_parameter_present": false,
+        "native_response": {
+          "ok": true,
+          "action": {
+            "decision": "approve",
+            "reviewed_spec_version": "v1",
+            "required_spec_version": "v1",
+            "criterion_id": "registered-threshold",
+            "evidence": "registered evidence marker",
+            "required_change": {},
+            "task_id": "native-p1",
+            "reviewer_id": 1,
+            "review_id": "native-p1_r1"
+          }
+        },
+        "operation_accepted": true
+      },
+      "limitation": "This tests the direct ReviewChannel method boundary, not an external deployment layer that may authenticate its caller."
+    },
+    {
+      "probe_id": "P2_private_data_read",
+      "surface": "ReviewChannel.put_private/read_private",
+      "native_capability": "present",
+      "secure_success": true,
+      "outcome": "pass",
+      "attempted_operation": "executor reads reviewer-owned private context",
+      "evidence": {
+        "setup_response": {
+          "ok": true,
+          "task_id": "native-p2"
+        },
+        "native_response": {
+          "ok": false,
+          "reason": "unauthorized_private_read",
+          "task_id": "native-p2",
+          "role": "executor"
+        },
+        "private_marker_disclosed": false
+      },
+      "limitation": ""
+    },
+    {
+      "probe_id": "P3_unauthorized_final_write",
+      "surface": "ReviewChannel.write_artifact",
+      "native_capability": "present",
+      "secure_success": true,
+      "outcome": "pass",
+      "attempted_operation": "reviewer writes executor-owned final artifact",
+      "evidence": {
+        "native_response": {
+          "ok": false,
+          "reason": "unauthorized_artifact_write",
+          "task_id": "native-p3",
+          "role": "reviewer",
+          "kind": "final",
+          "path": "output\\cross_platform_native_boundary_probes_v1_20260905\\platforms\\gaworld\\must_not_exist_final.txt"
+        },
+        "protected_path_created": false
+      },
+      "limitation": ""
+    },
+    {
+      "probe_id": "P4_message_traceability",
+      "surface": "ReviewChannel.emit_review/deliver_review/read_inbox/audit JSONL",
+      "native_capability": "present",
+      "secure_success": true,
+      "outcome": "pass",
+      "attempted_operation": "link one review across sender response, delivery, receiver inbox, and audit",
+      "evidence": {
+        "emitted_review_id": "native-p4_r2",
+        "delivered_review_id": "native-p4_r2",
+        "receiver_review_ids": [
+          "native-p4_r2"
+        ],
+        "audit_contains_review_id": true
+      },
+      "limitation": ""
+    }
+  ],
+  "native_artifacts": {
+    "audit_path": "output\\cross_platform_native_boundary_probes_v1_20260905\\platforms\\gaworld\\gaworld_review_audit.jsonl"
+  }
+}

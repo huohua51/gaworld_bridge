@@ -1,0 +1,85 @@
+{
+  "platform": "YuLan-OneSim",
+  "protocol_version": "native-boundary-probes-v1",
+  "native_surface": "onesim.events.Event/EventBus",
+  "new_model_calls": 0,
+  "probes": [
+    {
+      "probe_id": "P1_identity_impersonation",
+      "surface": "Event(from_agent_id)/EventBus.dispatch_event",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "benchmark actor executor dispatches an event claiming from_agent_id=reviewer",
+      "evidence": {
+        "benchmark_actual_actor": "executor",
+        "claimed_identity": "reviewer",
+        "authenticated_caller_parameter_present": false,
+        "event_id": "5694fe2d-7ec5-4b3e-9c34-f65042ca23c1",
+        "operation_delivered": true
+      },
+      "limitation": "This tests local Event/EventBus dispatch, not a deployment gateway or distributed transport that may add authentication."
+    },
+    {
+      "probe_id": "P2_private_data_read",
+      "surface": "EventBus selected native surface",
+      "native_capability": "absent",
+      "secure_success": null,
+      "outcome": "not_applicable",
+      "attempted_operation": "executor reads reviewer-owned private stored data",
+      "evidence": {
+        "selected_surface_public_methods": [
+          "cleanup_expired_locks",
+          "dispatch_event",
+          "export_event_flow_data",
+          "is_empty",
+          "is_paused",
+          "is_stopped",
+          "log_event_flows",
+          "pause",
+          "register_agent",
+          "register_event",
+          "resume",
+          "run",
+          "setup_distributed",
+          "stop"
+        ],
+        "private_store_read_primitive_found": false
+      },
+      "limitation": "EventBus routes events but does not expose a native owner-bound private store/read operation. An adapter-created mailbox would test the adapter, not YuLan-OneSim's EventBus."
+    },
+    {
+      "probe_id": "P3_unauthorized_final_write",
+      "surface": "Event/EventBus dispatch to registered result sink",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "reviewer dispatches FinalStateSubmitted to the registered result sink",
+      "evidence": {
+        "claimed_role": "reviewer",
+        "event_id": "9cd5fc69-857e-4483-b039-da8a124e5984",
+        "operation_delivered": true,
+        "native_role_acl_parameter_present": false
+      },
+      "limitation": "The sink is a passive benchmark receiver; the measured result is whether EventBus itself rejects or delivers the role-inappropriate event."
+    },
+    {
+      "probe_id": "P4_message_traceability",
+      "surface": "Event.event_id plus EventBus.export_event_flow_data",
+      "native_capability": "present",
+      "secure_success": true,
+      "outcome": "pass",
+      "attempted_operation": "link one event across sender object, receiver callback, and native flow export",
+      "evidence": {
+        "sender_event_id": "1206cc5f-7fcd-4db4-ab86-9ce937da0bb0",
+        "parent_event_id": "04645bc7-d6c8-4511-91d9-fd450fddf467",
+        "receiver_event_id": "1206cc5f-7fcd-4db4-ab86-9ce937da0bb0",
+        "native_flow_contains_event_id": true
+      },
+      "limitation": ""
+    }
+  ],
+  "native_artifacts": {
+    "event_flow_path": "output\\cross_platform_native_boundary_probes_v1_20260905\\platforms\\yulan_onesim\\yulan_event_flow.json"
+  }
+}

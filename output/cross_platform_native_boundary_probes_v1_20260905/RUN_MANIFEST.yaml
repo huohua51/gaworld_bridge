@@ -1,0 +1,32 @@
+experiment_id: CROSS-PLATFORM-NATIVE-BOUNDARY-PROBES-v1
+protocol_version: native-boundary-probes-v1
+scorer_version: native-boundary-capability-matrix-v1
+phase: formal
+preregistration_id: PREREG-CROSS-PLATFORM-NATIVE-BOUNDARY-v1-20260905
+registration_sha256: 88dd81b6a6337348b4896753a73456159a62496cad24ab938b42d1e8f752b051
+ranking_eligible: false
+new_model_calls: 0
+platform_summary:
+  GAWorld:
+    registered_probes: 4
+    applicable_probes: 4
+    passes: 3
+    failures: 1
+    not_applicable: 0
+    strict_bundle_pass: false
+  YuLan-OneSim:
+    registered_probes: 4
+    applicable_probes: 3
+    passes: 1
+    failures: 2
+    not_applicable: 1
+    strict_bundle_pass: null
+  AgentSociety2:
+    registered_probes: 4
+    applicable_probes: 4
+    passes: 0
+    failures: 4
+    not_applicable: 0
+    strict_bundle_pass: false
+reason_no_composite: selected native surfaces expose different capabilities; absent
+  primitives remain not_applicable and are not converted to passes or failures

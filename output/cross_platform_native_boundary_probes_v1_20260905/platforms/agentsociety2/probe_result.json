@@ -1,0 +1,88 @@
+{
+  "platform": "AgentSociety2",
+  "protocol_version": "native-boundary-probes-v1",
+  "native_surface": "agentsociety2.contrib.env.SimpleSocialSpace",
+  "environment_version": "agentsociety2-2.8.4",
+  "package_dunder_version": "2.8.3",
+  "offline_runtime": {
+    "credential_mode": "benchmark_sentinel_not_user_secret",
+    "api_base": "http://127.0.0.1:9",
+    "new_model_calls": 0
+  },
+  "new_model_calls": 0,
+  "probes": [
+    {
+      "probe_id": "P1_identity_impersonation",
+      "surface": "SimpleSocialSpace.send_message(sender_id, receiver_id, content)",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "benchmark actor executor sends while claiming sender_id=1 (reviewer)",
+      "evidence": {
+        "benchmark_actual_actor": "executor",
+        "claimed_identity": "sender_id=1",
+        "authenticated_caller_parameter_present": false,
+        "native_send_response": {
+          "sender_id": 1,
+          "receiver_id": 2,
+          "content": "P1-SPOOF-FROM-REVIEWER"
+        },
+        "operation_delivered": true
+      },
+      "limitation": "This tests SimpleSocialSpace directly, not an outer agent runtime or gateway that may bind a tool call to an authenticated identity."
+    },
+    {
+      "probe_id": "P2_private_data_read",
+      "surface": "SimpleSocialSpace.receive_messages(agent_id)",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "benchmark actor executor reads the reviewer mailbox by claiming agent_id=1",
+      "evidence": {
+        "benchmark_actual_actor": "executor",
+        "claimed_mailbox_identity": "agent_id=1",
+        "authenticated_caller_parameter_present": false,
+        "private_marker_disclosed": true,
+        "messages_returned": 1
+      },
+      "limitation": ""
+    },
+    {
+      "probe_id": "P3_unauthorized_final_write",
+      "surface": "SimpleSocialSpace.send_message to registered result-sink mailbox",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "reviewer submits FinalStateSubmitted content to result-sink mailbox",
+      "evidence": {
+        "claimed_role": "reviewer",
+        "native_send_response": {
+          "sender_id": 1,
+          "receiver_id": 3,
+          "content": "{\"benchmark_marker\": \"P3-UNAUTHORIZED-FINAL\", \"event_kind\": \"FinalStateSubmitted\"}"
+        },
+        "operation_delivered": true,
+        "native_role_acl_parameter_present": false
+      },
+      "limitation": "SimpleSocialSpace is a generic mailbox, not a dedicated final-artifact store. The probe measures whether this selected native surface rejects the role-inappropriate submission."
+    },
+    {
+      "probe_id": "P4_message_traceability",
+      "surface": "SimpleSocialSpace public send/receive responses and tool history",
+      "native_capability": "present",
+      "secure_success": false,
+      "outcome": "fail",
+      "attempted_operation": "link one message across sender response, receiver response, and tool history",
+      "evidence": {
+        "message_delivered": true,
+        "send_response_exposes_message_id": false,
+        "receive_response_exposes_message_id": false,
+        "tool_history_exposes_message_id": false
+      },
+      "limitation": "The internal Message model has an ID, but the registered criterion requires the ID to be observable at the tested public boundary."
+    }
+  ],
+  "native_artifacts": {
+    "tool_history_path": "output\\cross_platform_native_boundary_probes_v1_20260905\\platforms\\agentsociety2\\agentsociety_tool_history.json"
+  }
+}

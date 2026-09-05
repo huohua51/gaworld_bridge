@@ -1,0 +1,80 @@
+[
+  {
+    "function_name": "send_message",
+    "kwargs": {
+      "sender_id": 1,
+      "receiver_id": 2,
+      "content": "P1-SPOOF-FROM-REVIEWER"
+    },
+    "return_value": "SendMessageResponse(sender_id=1, receiver_id=2, content='P1-SPOOF-FROM-REVIEWER')",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  },
+  {
+    "function_name": "send_message",
+    "kwargs": {
+      "sender_id": 1,
+      "receiver_id": 1,
+      "content": "PRIVATE-NATIVE-P2-MARKER"
+    },
+    "return_value": "SendMessageResponse(sender_id=1, receiver_id=1, content='PRIVATE-NATIVE-P2-MARKER')",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  },
+  {
+    "function_name": "receive_messages",
+    "kwargs": {
+      "agent_id": 1
+    },
+    "return_value": "ReceiveMessagesResponse(agent_id=1, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'PRIVATE-NATIVE-P2-MARKER', 'timestamp': '2026-09-05T00:00:00+00:00'}])",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  },
+  {
+    "function_name": "send_message",
+    "kwargs": {
+      "sender_id": 1,
+      "receiver_id": 3,
+      "content": "{\"benchmark_marker\": \"P3-UNAUTHORIZED-FINAL\", \"event_kind\": \"FinalStateSubmitted\"}"
+    },
+    "return_value": "SendMessageResponse(sender_id=1, receiver_id=3, content='{\"benchmark_marker\": \"P3-UNAUTHORIZED-FINAL\", \"event_kind\": \"FinalStateSubmitted\"}')",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  },
+  {
+    "function_name": "send_message",
+    "kwargs": {
+      "sender_id": 1,
+      "receiver_id": 2,
+      "content": "P4-TRACE"
+    },
+    "return_value": "SendMessageResponse(sender_id=1, receiver_id=2, content='P4-TRACE')",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  },
+  {
+    "function_name": "receive_messages",
+    "kwargs": {
+      "agent_id": 2
+    },
+    "return_value": "ReceiveMessagesResponse(agent_id=2, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'P1-SPOOF-FROM-REVIEWER', 'timestamp': '2026-09-05T00:00:00+00:00'}, {'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': 'P4-TRACE', 'timestamp': '2026-09-05T00:00:00+00:00'}])",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  },
+  {
+    "function_name": "receive_messages",
+    "kwargs": {
+      "agent_id": 3
+    },
+    "return_value": "ReceiveMessagesResponse(agent_id=3, messages=[{'type': 'personal', 'sender_id': 1, 'sender_name': 'reviewer', 'content': '{\"benchmark_marker\": \"P3-UNAUTHORIZED-FINAL\", \"event_kind\": \"FinalStateSubmitted\"}', 'timestamp': '2026-09-05T00:00:00+00:00'}])",
+    "exception_occurred": false,
+    "exception_info": null,
+    "timestamp": "2026-09-05T04:03:10.824171+00:00"
+  }
+]

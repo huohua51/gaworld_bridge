@@ -1,0 +1,28 @@
+{
+  "flows": [
+    {
+      "id": "flow_04645bc7-d6c8-4511-91d9-fd450fddf467",
+      "steps": [
+        {
+          "timestamp": 1788580981.7191527,
+          "event_kind": "StartEvent",
+          "from_agent_id": "benchmark-adapter",
+          "from_agent_type": "Unknown",
+          "to_agent_id": "reviewer",
+          "to_agent_type": "Reviewer",
+          "event_id": "04645bc7-d6c8-4511-91d9-fd450fddf467"
+        },
+        {
+          "timestamp": 1788580981.7191527,
+          "event_kind": "ReviewTraceProbe",
+          "from_agent_id": "reviewer",
+          "from_agent_type": "Reviewer",
+          "to_agent_id": "executor",
+          "to_agent_type": "Executor",
+          "event_id": "1206cc5f-7fcd-4db4-ab86-9ce937da0bb0"
+        }
+      ]
+    }
+  ],
+  "timestamp": 1788580981.7201586
+}

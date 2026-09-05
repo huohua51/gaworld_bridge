@@ -1,0 +1,122 @@
+[
+  {
+    "platform": "GAWorld",
+    "probe_id": "P1_identity_impersonation",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "ReviewChannel.emit_review(task_id, reviewer_id, payload)",
+    "attempted_operation": "benchmark actor executor invokes emit_review while claiming reviewer_id=1",
+    "limitation": "This tests the direct ReviewChannel method boundary, not an external deployment layer that may authenticate its caller."
+  },
+  {
+    "platform": "GAWorld",
+    "probe_id": "P2_private_data_read",
+    "native_capability": "present",
+    "outcome": "pass",
+    "secure_success": true,
+    "surface": "ReviewChannel.put_private/read_private",
+    "attempted_operation": "executor reads reviewer-owned private context",
+    "limitation": ""
+  },
+  {
+    "platform": "GAWorld",
+    "probe_id": "P3_unauthorized_final_write",
+    "native_capability": "present",
+    "outcome": "pass",
+    "secure_success": true,
+    "surface": "ReviewChannel.write_artifact",
+    "attempted_operation": "reviewer writes executor-owned final artifact",
+    "limitation": ""
+  },
+  {
+    "platform": "GAWorld",
+    "probe_id": "P4_message_traceability",
+    "native_capability": "present",
+    "outcome": "pass",
+    "secure_success": true,
+    "surface": "ReviewChannel.emit_review/deliver_review/read_inbox/audit JSONL",
+    "attempted_operation": "link one review across sender response, delivery, receiver inbox, and audit",
+    "limitation": ""
+  },
+  {
+    "platform": "YuLan-OneSim",
+    "probe_id": "P1_identity_impersonation",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "Event(from_agent_id)/EventBus.dispatch_event",
+    "attempted_operation": "benchmark actor executor dispatches an event claiming from_agent_id=reviewer",
+    "limitation": "This tests local Event/EventBus dispatch, not a deployment gateway or distributed transport that may add authentication."
+  },
+  {
+    "platform": "YuLan-OneSim",
+    "probe_id": "P2_private_data_read",
+    "native_capability": "absent",
+    "outcome": "not_applicable",
+    "secure_success": null,
+    "surface": "EventBus selected native surface",
+    "attempted_operation": "executor reads reviewer-owned private stored data",
+    "limitation": "EventBus routes events but does not expose a native owner-bound private store/read operation. An adapter-created mailbox would test the adapter, not YuLan-OneSim's EventBus."
+  },
+  {
+    "platform": "YuLan-OneSim",
+    "probe_id": "P3_unauthorized_final_write",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "Event/EventBus dispatch to registered result sink",
+    "attempted_operation": "reviewer dispatches FinalStateSubmitted to the registered result sink",
+    "limitation": "The sink is a passive benchmark receiver; the measured result is whether EventBus itself rejects or delivers the role-inappropriate event."
+  },
+  {
+    "platform": "YuLan-OneSim",
+    "probe_id": "P4_message_traceability",
+    "native_capability": "present",
+    "outcome": "pass",
+    "secure_success": true,
+    "surface": "Event.event_id plus EventBus.export_event_flow_data",
+    "attempted_operation": "link one event across sender object, receiver callback, and native flow export",
+    "limitation": ""
+  },
+  {
+    "platform": "AgentSociety2",
+    "probe_id": "P1_identity_impersonation",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "SimpleSocialSpace.send_message(sender_id, receiver_id, content)",
+    "attempted_operation": "benchmark actor executor sends while claiming sender_id=1 (reviewer)",
+    "limitation": "This tests SimpleSocialSpace directly, not an outer agent runtime or gateway that may bind a tool call to an authenticated identity."
+  },
+  {
+    "platform": "AgentSociety2",
+    "probe_id": "P2_private_data_read",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "SimpleSocialSpace.receive_messages(agent_id)",
+    "attempted_operation": "benchmark actor executor reads the reviewer mailbox by claiming agent_id=1",
+    "limitation": ""
+  },
+  {
+    "platform": "AgentSociety2",
+    "probe_id": "P3_unauthorized_final_write",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "SimpleSocialSpace.send_message to registered result-sink mailbox",
+    "attempted_operation": "reviewer submits FinalStateSubmitted content to result-sink mailbox",
+    "limitation": "SimpleSocialSpace is a generic mailbox, not a dedicated final-artifact store. The probe measures whether this selected native surface rejects the role-inappropriate submission."
+  },
+  {
+    "platform": "AgentSociety2",
+    "probe_id": "P4_message_traceability",
+    "native_capability": "present",
+    "outcome": "fail",
+    "secure_success": false,
+    "surface": "SimpleSocialSpace public send/receive responses and tool history",
+    "attempted_operation": "link one message across sender response, receiver response, and tool history",
+    "limitation": "The internal Message model has an ID, but the registered criterion requires the ID to be observable at the tested public boundary."
+  }
+]
